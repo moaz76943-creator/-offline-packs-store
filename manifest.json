@@ -1,19 +1,806 @@
 {
-  "available_languages": [
+  "version": "4.0.0",
+  "languages_count": 100,
+  "languages": [
     {
-      "id": "de",
+      "code": "de",
       "name": "Deutsch",
       "name_ar": "الألمانية",
       "flag": "🇩🇪",
-      "levels": [
-        {
-          "level_id": "deutsch_a1",
-          "title": "A1 - مبتدئ",
-          "words_count": 2,
-          "version": "4.0.0",
-          "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/deutsch_a1.pack.gz"
-        }
-      ]
+      "pack_id": "de_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/de_master.pack.gz"
+    },
+    {
+      "code": "en",
+      "name": "English",
+      "name_ar": "الإنجليزية",
+      "flag": "🇬🇧",
+      "pack_id": "en_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/en_master.pack.gz"
+    },
+    {
+      "code": "fr",
+      "name": "Français",
+      "name_ar": "الفرنسية",
+      "flag": "🇫🇷",
+      "pack_id": "fr_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fr_master.pack.gz"
+    },
+    {
+      "code": "es",
+      "name": "Español",
+      "name_ar": "الإسبانية",
+      "flag": "🇪🇸",
+      "pack_id": "es_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/es_master.pack.gz"
+    },
+    {
+      "code": "it",
+      "name": "Italiano",
+      "name_ar": "الإيطالية",
+      "flag": "🇮🇹",
+      "pack_id": "it_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/it_master.pack.gz"
+    },
+    {
+      "code": "tr",
+      "name": "Türkçe",
+      "name_ar": "التركية",
+      "flag": "🇹🇷",
+      "pack_id": "tr_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tr_master.pack.gz"
+    },
+    {
+      "code": "ru",
+      "name": "Русский",
+      "name_ar": "الروسية",
+      "flag": "🇷🇺",
+      "pack_id": "ru_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ru_master.pack.gz"
+    },
+    {
+      "code": "ar",
+      "name": "العربية",
+      "name_ar": "العربية",
+      "flag": "🇸🇦",
+      "pack_id": "ar_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ar_master.pack.gz"
+    },
+    {
+      "code": "zh",
+      "name": "中文",
+      "name_ar": "الصينية",
+      "flag": "🇨🇳",
+      "pack_id": "zh_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/zh_master.pack.gz"
+    },
+    {
+      "code": "ja",
+      "name": "日本語",
+      "name_ar": "اليابانية",
+      "flag": "🇯🇵",
+      "pack_id": "ja_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ja_master.pack.gz"
+    },
+    {
+      "code": "ko",
+      "name": "한국어",
+      "name_ar": "الكورية",
+      "flag": "🇰🇷",
+      "pack_id": "ko_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ko_master.pack.gz"
+    },
+    {
+      "code": "pt",
+      "name": "Português",
+      "name_ar": "البرتغالية",
+      "flag": "🇵🇹",
+      "pack_id": "pt_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pt_master.pack.gz"
+    },
+    {
+      "code": "nl",
+      "name": "Nederlands",
+      "name_ar": "الهولندية",
+      "flag": "🇳🇱",
+      "pack_id": "nl_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/nl_master.pack.gz"
+    },
+    {
+      "code": "pl",
+      "name": "Polski",
+      "name_ar": "البولندية",
+      "flag": "🇵🇱",
+      "pack_id": "pl_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pl_master.pack.gz"
+    },
+    {
+      "code": "sv",
+      "name": "Svenska",
+      "name_ar": "السويدية",
+      "flag": "🇸🇪",
+      "pack_id": "sv_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sv_master.pack.gz"
+    },
+    {
+      "code": "no",
+      "name": "Norsk",
+      "name_ar": "النرويجية",
+      "flag": "🇳🇴",
+      "pack_id": "no_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/no_master.pack.gz"
+    },
+    {
+      "code": "da",
+      "name": "Dansk",
+      "name_ar": "الدانماركية",
+      "flag": "🇩🇰",
+      "pack_id": "da_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/da_master.pack.gz"
+    },
+    {
+      "code": "fi",
+      "name": "Suomi",
+      "name_ar": "الفنلندية",
+      "flag": "🇫🇮",
+      "pack_id": "fi_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fi_master.pack.gz"
+    },
+    {
+      "code": "el",
+      "name": "Ελληνικά",
+      "name_ar": "اليونانية",
+      "flag": "🇬🇷",
+      "pack_id": "el_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/el_master.pack.gz"
+    },
+    {
+      "code": "hi",
+      "name": "हिन्दी",
+      "name_ar": "الهندية",
+      "flag": "🇮🇳",
+      "pack_id": "hi_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hi_master.pack.gz"
+    },
+    {
+      "code": "id",
+      "name": "Bahasa Indonesia",
+      "name_ar": "الإندونيسية",
+      "flag": "🇮🇩",
+      "pack_id": "id_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/id_master.pack.gz"
+    },
+    {
+      "code": "ms",
+      "name": "Bahasa Melayu",
+      "name_ar": "الماليزية",
+      "flag": "🇲🇾",
+      "pack_id": "ms_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ms_master.pack.gz"
+    },
+    {
+      "code": "fa",
+      "name": "فارسی",
+      "name_ar": "الفارسية",
+      "flag": "🇮🇷",
+      "pack_id": "fa_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fa_master.pack.gz"
+    },
+    {
+      "code": "ur",
+      "name": "اردو",
+      "name_ar": "الأردية",
+      "flag": "🇵🇰",
+      "pack_id": "ur_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ur_master.pack.gz"
+    },
+    {
+      "code": "vi",
+      "name": "Tiếng Việt",
+      "name_ar": "الفيتنامية",
+      "flag": "🇻🇳",
+      "pack_id": "vi_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/vi_master.pack.gz"
+    },
+    {
+      "code": "th",
+      "name": "ไทย",
+      "name_ar": "التايلاندية",
+      "flag": "🇹🇭",
+      "pack_id": "th_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/th_master.pack.gz"
+    },
+    {
+      "code": "uk",
+      "name": "Українська",
+      "name_ar": "الأوكرانية",
+      "flag": "🇺🇦",
+      "pack_id": "uk_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/uk_master.pack.gz"
+    },
+    {
+      "code": "ro",
+      "name": "Română",
+      "name_ar": "الرومانية",
+      "flag": "🇷🇴",
+      "pack_id": "ro_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ro_master.pack.gz"
+    },
+    {
+      "code": "hu",
+      "name": "Magyar",
+      "name_ar": "المجرية",
+      "flag": "🇭🇺",
+      "pack_id": "hu_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hu_master.pack.gz"
+    },
+    {
+      "code": "cs",
+      "name": "Čeština",
+      "name_ar": "التشيكية",
+      "flag": "🇨🇿",
+      "pack_id": "cs_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/cs_master.pack.gz"
+    },
+    {
+      "code": "sk",
+      "name": "Slovenčina",
+      "name_ar": "السلوفاكية",
+      "flag": "🇸🇰",
+      "pack_id": "sk_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sk_master.pack.gz"
+    },
+    {
+      "code": "bg",
+      "name": "Български",
+      "name_ar": "البلغارية",
+      "flag": "🇧🇬",
+      "pack_id": "bg_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bg_master.pack.gz"
+    },
+    {
+      "code": "hr",
+      "name": "Hrvatski",
+      "name_ar": "الكرواتية",
+      "flag": "🇭🇷",
+      "pack_id": "hr_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hr_master.pack.gz"
+    },
+    {
+      "code": "sr",
+      "name": "Српски",
+      "name_ar": "الصربية",
+      "flag": "🇷🇸",
+      "pack_id": "sr_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sr_master.pack.gz"
+    },
+    {
+      "code": "sl",
+      "name": "Slovenščina",
+      "name_ar": "السلوفينية",
+      "flag": "🇸🇮",
+      "pack_id": "sl_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sl_master.pack.gz"
+    },
+    {
+      "code": "et",
+      "name": "Eesti",
+      "name_ar": "الإستونية",
+      "flag": "🇪🇪",
+      "pack_id": "et_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/et_master.pack.gz"
+    },
+    {
+      "code": "lv",
+      "name": "Latviešu",
+      "name_ar": "اللاتفية",
+      "flag": "🇱🇻",
+      "pack_id": "lv_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lv_master.pack.gz"
+    },
+    {
+      "code": "lt",
+      "name": "Lietuvių",
+      "name_ar": "الليتوانية",
+      "flag": "🇱🇹",
+      "pack_id": "lt_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lt_master.pack.gz"
+    },
+    {
+      "code": "he",
+      "name": "עברית",
+      "name_ar": "العبرية",
+      "flag": "🇮🇱",
+      "pack_id": "he_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/he_master.pack.gz"
+    },
+    {
+      "code": "bn",
+      "name": "বাংলা",
+      "name_ar": "البنغالية",
+      "flag": "🇧🇩",
+      "pack_id": "bn_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bn_master.pack.gz"
+    },
+    {
+      "code": "ta",
+      "name": "தமிழ்",
+      "name_ar": "التاميلية",
+      "flag": "🇮🇳",
+      "pack_id": "ta_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ta_master.pack.gz"
+    },
+    {
+      "code": "te",
+      "name": "తెలుగు",
+      "name_ar": "التيلوغوية",
+      "flag": "🇮🇳",
+      "pack_id": "te_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/te_master.pack.gz"
+    },
+    {
+      "code": "ml",
+      "name": "മലയാളം",
+      "name_ar": "المالايالامية",
+      "flag": "🇮🇳",
+      "pack_id": "ml_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ml_master.pack.gz"
+    },
+    {
+      "code": "sw",
+      "name": "Kiswahili",
+      "name_ar": "السواحيلية",
+      "flag": "🇰🇪",
+      "pack_id": "sw_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sw_master.pack.gz"
+    },
+    {
+      "code": "tl",
+      "name": "Tagalog",
+      "name_ar": "الفلبينية",
+      "flag": "🇵🇭",
+      "pack_id": "tl_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tl_master.pack.gz"
+    },
+    {
+      "code": "az",
+      "name": "Azərbaycan",
+      "name_ar": "الأذربيجانية",
+      "flag": "🇦🇿",
+      "pack_id": "az_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/az_master.pack.gz"
+    },
+    {
+      "code": "kk",
+      "name": "Қазақ",
+      "name_ar": "الكازاخية",
+      "flag": "🇰🇿",
+      "pack_id": "kk_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/kk_master.pack.gz"
+    },
+    {
+      "code": "uz",
+      "name": "Oʻzbek",
+      "name_ar": "الأوزبكية",
+      "flag": "🇺🇿",
+      "pack_id": "uz_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/uz_master.pack.gz"
+    },
+    {
+      "code": "ka",
+      "name": "ქართული",
+      "name_ar": "الجورجية",
+      "flag": "🇬🇪",
+      "pack_id": "ka_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ka_master.pack.gz"
+    },
+    {
+      "code": "hy",
+      "name": "Հայերեն",
+      "name_ar": "الأرمنية",
+      "flag": "🇦🇲",
+      "pack_id": "hy_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hy_master.pack.gz"
+    },
+    {
+      "code": "af",
+      "name": "Afrikaans",
+      "name_ar": "الأفريقانية",
+      "flag": "🇿🇦",
+      "pack_id": "af_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/af_master.pack.gz"
+    },
+    {
+      "code": "sq",
+      "name": "Shqip",
+      "name_ar": "الألبانية",
+      "flag": "🇦🇱",
+      "pack_id": "sq_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sq_master.pack.gz"
+    },
+    {
+      "code": "am",
+      "name": "አማርኛ",
+      "name_ar": "الأمهرية",
+      "flag": "🇪🇹",
+      "pack_id": "am_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/am_master.pack.gz"
+    },
+    {
+      "code": "eu",
+      "name": "Euskara",
+      "name_ar": "الباسكية",
+      "flag": "🇪🇸",
+      "pack_id": "eu_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/eu_master.pack.gz"
+    },
+    {
+      "code": "be",
+      "name": "Беларуская",
+      "name_ar": "البيلاروسية",
+      "flag": "🇧🇾",
+      "pack_id": "be_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/be_master.pack.gz"
+    },
+    {
+      "code": "bs",
+      "name": "Bosanski",
+      "name_ar": "البوسنية",
+      "flag": "🇧🇦",
+      "pack_id": "bs_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bs_master.pack.gz"
+    },
+    {
+      "code": "ca",
+      "name": "Català",
+      "name_ar": "الكتالونية",
+      "flag": "🇪🇸",
+      "pack_id": "ca_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ca_master.pack.gz"
+    },
+    {
+      "code": "ceb",
+      "name": "Cebuano",
+      "name_ar": "السيبوانية",
+      "flag": "🇵🇭",
+      "pack_id": "ceb_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ceb_master.pack.gz"
+    },
+    {
+      "code": "co",
+      "name": "Corsu",
+      "name_ar": "الكورسيكية",
+      "flag": "🇫🇷",
+      "pack_id": "co_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/co_master.pack.gz"
+    },
+    {
+      "code": "cy",
+      "name": "Cymraeg",
+      "name_ar": "الويلزية",
+      "flag": "🇬🇧",
+      "pack_id": "cy_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/cy_master.pack.gz"
+    },
+    {
+      "code": "eo",
+      "name": "Esperanto",
+      "name_ar": "الإسبرانتو",
+      "flag": "🌐",
+      "pack_id": "eo_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/eo_master.pack.gz"
+    },
+    {
+      "code": "fy",
+      "name": "Frysk",
+      "name_ar": "الفريزية",
+      "flag": "🇳🇱",
+      "pack_id": "fy_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fy_master.pack.gz"
+    },
+    {
+      "code": "gl",
+      "name": "Galego",
+      "name_ar": "الجاليكية",
+      "flag": "🇪🇸",
+      "pack_id": "gl_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gl_master.pack.gz"
+    },
+    {
+      "code": "gu",
+      "name": "ગુજરાતી",
+      "name_ar": "الغوجاراتية",
+      "flag": "🇮🇳",
+      "pack_id": "gu_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gu_master.pack.gz"
+    },
+    {
+      "code": "ha",
+      "name": "Hausa",
+      "name_ar": "الهوسا",
+      "flag": "🇳🇬",
+      "pack_id": "ha_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ha_master.pack.gz"
+    },
+    {
+      "code": "haw",
+      "name": "ʻŌlelo Hawaiʻi",
+      "name_ar": "الهاوايية",
+      "flag": "🇺🇸",
+      "pack_id": "haw_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/haw_master.pack.gz"
+    },
+    {
+      "code": "is",
+      "name": "Íslenska",
+      "name_ar": "الأيسلندية",
+      "flag": "🇮🇸",
+      "pack_id": "is_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/is_master.pack.gz"
+    },
+    {
+      "code": "ig",
+      "name": "Igbo",
+      "name_ar": "الإيجبو",
+      "flag": "🇳🇬",
+      "pack_id": "ig_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ig_master.pack.gz"
+    },
+    {
+      "code": "ga",
+      "name": "Gaeilge",
+      "name_ar": "الأيرلندية",
+      "flag": "🇮🇪",
+      "pack_id": "ga_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ga_master.pack.gz"
+    },
+    {
+      "code": "jv",
+      "name": "Basa Jawa",
+      "name_ar": "الجاوية",
+      "flag": "🇮🇩",
+      "pack_id": "jv_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/jv_master.pack.gz"
+    },
+    {
+      "code": "kn",
+      "name": "ಕನ್ನಡ",
+      "name_ar": "الكانادا",
+      "flag": "🇮🇳",
+      "pack_id": "kn_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/kn_master.pack.gz"
+    },
+    {
+      "code": "km",
+      "name": "ភាសាខ្មែរ",
+      "name_ar": "الخميرية",
+      "flag": "🇰🇭",
+      "pack_id": "km_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/km_master.pack.gz"
+    },
+    {
+      "code": "ku",
+      "name": "Kurdî",
+      "name_ar": "الكردية",
+      "flag": "🇮🇶",
+      "pack_id": "ku_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ku_master.pack.gz"
+    },
+    {
+      "code": "ky",
+      "name": "Кыргызча",
+      "name_ar": "القيرغيزية",
+      "flag": "🇰🇬",
+      "pack_id": "ky_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ky_master.pack.gz"
+    },
+    {
+      "code": "lo",
+      "name": "ພາສາລາວ",
+      "name_ar": "اللاوية",
+      "flag": "🇱🇦",
+      "pack_id": "lo_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lo_master.pack.gz"
+    },
+    {
+      "code": "la",
+      "name": "Latina",
+      "name_ar": "اللاتينية",
+      "flag": "🇻🇦",
+      "pack_id": "la_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/la_master.pack.gz"
+    },
+    {
+      "code": "lb",
+      "name": "Lëtzebuergesch",
+      "name_ar": "اللوكسمبورغية",
+      "flag": "🇱🇺",
+      "pack_id": "lb_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lb_master.pack.gz"
+    },
+    {
+      "code": "mk",
+      "name": "Македонски",
+      "name_ar": "المقدونية",
+      "flag": "🇲🇰",
+      "pack_id": "mk_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mk_master.pack.gz"
+    },
+    {
+      "code": "mg",
+      "name": "Malagasy",
+      "name_ar": "الملغاشية",
+      "flag": "🇲🇬",
+      "pack_id": "mg_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mg_master.pack.gz"
+    },
+    {
+      "code": "mt",
+      "name": "Malti",
+      "name_ar": "المالطية",
+      "flag": "🇲🇹",
+      "pack_id": "mt_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mt_master.pack.gz"
+    },
+    {
+      "code": "mi",
+      "name": "Māori",
+      "name_ar": "الماورية",
+      "flag": "🇳🇿",
+      "pack_id": "mi_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mi_master.pack.gz"
+    },
+    {
+      "code": "mr",
+      "name": "मराठी",
+      "name_ar": "الماراثية",
+      "flag": "🇮🇳",
+      "pack_id": "mr_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mr_master.pack.gz"
+    },
+    {
+      "code": "mn",
+      "name": "Монгол",
+      "name_ar": "المنغولية",
+      "flag": "🇲🇳",
+      "pack_id": "mn_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mn_master.pack.gz"
+    },
+    {
+      "code": "my",
+      "name": "မြန်မာ",
+      "name_ar": "البورمية",
+      "flag": "🇲🇲",
+      "pack_id": "my_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/my_master.pack.gz"
+    },
+    {
+      "code": "ne",
+      "name": "नेपाली",
+      "name_ar": "النيبالية",
+      "flag": "🇳🇵",
+      "pack_id": "ne_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ne_master.pack.gz"
+    },
+    {
+      "code": "ps",
+      "name": "پښتو",
+      "name_ar": "البشتو",
+      "flag": "🇦🇫",
+      "pack_id": "ps_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ps_master.pack.gz"
+    },
+    {
+      "code": "pa",
+      "name": "ਪੰਜਾਬੀ",
+      "name_ar": "البنجابية",
+      "flag": "🇮🇳",
+      "pack_id": "pa_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pa_master.pack.gz"
+    },
+    {
+      "code": "sm",
+      "name": "Gagana Sāmoa",
+      "name_ar": "الساموية",
+      "flag": "🇼🇸",
+      "pack_id": "sm_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sm_master.pack.gz"
+    },
+    {
+      "code": "gd",
+      "name": "Gàidhlig",
+      "name_ar": "الغيلية الإسكتلندية",
+      "flag": "🇬🇧",
+      "pack_id": "gd_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gd_master.pack.gz"
+    },
+    {
+      "code": "sn",
+      "name": "chiShona",
+      "name_ar": "الشونا",
+      "flag": "🇿🇼",
+      "pack_id": "sn_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sn_master.pack.gz"
+    },
+    {
+      "code": "sd",
+      "name": "سنڌي",
+      "name_ar": "السندية",
+      "flag": "🇵🇰",
+      "pack_id": "sd_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sd_master.pack.gz"
+    },
+    {
+      "code": "si",
+      "name": "සිංහල",
+      "name_ar": "السنهالية",
+      "flag": "🇱🇰",
+      "pack_id": "si_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/si_master.pack.gz"
+    },
+    {
+      "code": "so",
+      "name": "Soomaali",
+      "name_ar": "الصومالية",
+      "flag": "🇸🇴",
+      "pack_id": "so_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/so_master.pack.gz"
+    },
+    {
+      "code": "su",
+      "name": "Basa Sunda",
+      "name_ar": "السوندية",
+      "flag": "🇮🇩",
+      "pack_id": "su_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/su_master.pack.gz"
+    },
+    {
+      "code": "tg",
+      "name": "Тоҷикӣ",
+      "name_ar": "الطاجيكية",
+      "flag": "🇹🇯",
+      "pack_id": "tg_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tg_master.pack.gz"
+    },
+    {
+      "code": "tt",
+      "name": "Татар",
+      "name_ar": "التتارية",
+      "flag": "🇷🇺",
+      "pack_id": "tt_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tt_master.pack.gz"
+    },
+    {
+      "code": "yo",
+      "name": "Yorùbá",
+      "name_ar": "اليوروبا",
+      "flag": "🇳🇬",
+      "pack_id": "yo_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/yo_master.pack.gz"
+    },
+    {
+      "code": "zu",
+      "name": "isiZulu",
+      "name_ar": "الزولو",
+      "flag": "🇿🇦",
+      "pack_id": "zu_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/zu_master.pack.gz"
+    },
+    {
+      "code": "xh",
+      "name": "isiXhosa",
+      "name_ar": "الخوسية",
+      "flag": "🇿🇦",
+      "pack_id": "xh_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/xh_master.pack.gz"
+    },
+    {
+      "code": "yi",
+      "name": "ייִדיש",
+      "name_ar": "اليديشية",
+      "flag": "🇮🇱",
+      "pack_id": "yi_pack",
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/yi_master.pack.gz"
     }
   ]
 }

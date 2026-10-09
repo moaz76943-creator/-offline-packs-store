@@ -1,11 +1,405 @@
 {
   "latest_version": "4.0.0",
   "packs": {
-    "deutsch_a1": {
+    "de_pack": {
       "version": "4.0.0",
-      "size_bytes": 264,
-      "sha256": "673cbeb82f9644cb73512e87a25f8e9b43ec6844681f20e5a5aff2d2fb4e790d",
-      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/deutsch_a1.pack.gz"
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/de_master.pack.gz"
+    },
+    "en_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/en_master.pack.gz"
+    },
+    "fr_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fr_master.pack.gz"
+    },
+    "es_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/es_master.pack.gz"
+    },
+    "it_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/it_master.pack.gz"
+    },
+    "tr_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tr_master.pack.gz"
+    },
+    "ru_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ru_master.pack.gz"
+    },
+    "ar_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ar_master.pack.gz"
+    },
+    "zh_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/zh_master.pack.gz"
+    },
+    "ja_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ja_master.pack.gz"
+    },
+    "ko_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ko_master.pack.gz"
+    },
+    "pt_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pt_master.pack.gz"
+    },
+    "nl_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/nl_master.pack.gz"
+    },
+    "pl_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pl_master.pack.gz"
+    },
+    "sv_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sv_master.pack.gz"
+    },
+    "no_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/no_master.pack.gz"
+    },
+    "da_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/da_master.pack.gz"
+    },
+    "fi_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fi_master.pack.gz"
+    },
+    "el_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/el_master.pack.gz"
+    },
+    "hi_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hi_master.pack.gz"
+    },
+    "id_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/id_master.pack.gz"
+    },
+    "ms_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ms_master.pack.gz"
+    },
+    "fa_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fa_master.pack.gz"
+    },
+    "ur_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ur_master.pack.gz"
+    },
+    "vi_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/vi_master.pack.gz"
+    },
+    "th_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/th_master.pack.gz"
+    },
+    "uk_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/uk_master.pack.gz"
+    },
+    "ro_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ro_master.pack.gz"
+    },
+    "hu_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hu_master.pack.gz"
+    },
+    "cs_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/cs_master.pack.gz"
+    },
+    "sk_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sk_master.pack.gz"
+    },
+    "bg_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bg_master.pack.gz"
+    },
+    "hr_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hr_master.pack.gz"
+    },
+    "sr_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sr_master.pack.gz"
+    },
+    "sl_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sl_master.pack.gz"
+    },
+    "et_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/et_master.pack.gz"
+    },
+    "lv_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lv_master.pack.gz"
+    },
+    "lt_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lt_master.pack.gz"
+    },
+    "he_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/he_master.pack.gz"
+    },
+    "bn_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bn_master.pack.gz"
+    },
+    "ta_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ta_master.pack.gz"
+    },
+    "te_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/te_master.pack.gz"
+    },
+    "ml_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ml_master.pack.gz"
+    },
+    "sw_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sw_master.pack.gz"
+    },
+    "tl_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tl_master.pack.gz"
+    },
+    "az_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/az_master.pack.gz"
+    },
+    "kk_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/kk_master.pack.gz"
+    },
+    "uz_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/uz_master.pack.gz"
+    },
+    "ka_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ka_master.pack.gz"
+    },
+    "hy_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hy_master.pack.gz"
+    },
+    "af_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/af_master.pack.gz"
+    },
+    "sq_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sq_master.pack.gz"
+    },
+    "am_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/am_master.pack.gz"
+    },
+    "eu_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/eu_master.pack.gz"
+    },
+    "be_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/be_master.pack.gz"
+    },
+    "bs_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bs_master.pack.gz"
+    },
+    "ca_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ca_master.pack.gz"
+    },
+    "ceb_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ceb_master.pack.gz"
+    },
+    "co_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/co_master.pack.gz"
+    },
+    "cy_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/cy_master.pack.gz"
+    },
+    "eo_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/eo_master.pack.gz"
+    },
+    "fy_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fy_master.pack.gz"
+    },
+    "gl_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gl_master.pack.gz"
+    },
+    "gu_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gu_master.pack.gz"
+    },
+    "ha_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ha_master.pack.gz"
+    },
+    "haw_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/haw_master.pack.gz"
+    },
+    "is_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/is_master.pack.gz"
+    },
+    "ig_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ig_master.pack.gz"
+    },
+    "ga_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ga_master.pack.gz"
+    },
+    "jv_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/jv_master.pack.gz"
+    },
+    "kn_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/kn_master.pack.gz"
+    },
+    "km_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/km_master.pack.gz"
+    },
+    "ku_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ku_master.pack.gz"
+    },
+    "ky_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ky_master.pack.gz"
+    },
+    "lo_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lo_master.pack.gz"
+    },
+    "la_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/la_master.pack.gz"
+    },
+    "lb_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lb_master.pack.gz"
+    },
+    "mk_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mk_master.pack.gz"
+    },
+    "mg_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mg_master.pack.gz"
+    },
+    "mt_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mt_master.pack.gz"
+    },
+    "mi_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mi_master.pack.gz"
+    },
+    "mr_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mr_master.pack.gz"
+    },
+    "mn_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mn_master.pack.gz"
+    },
+    "my_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/my_master.pack.gz"
+    },
+    "ne_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ne_master.pack.gz"
+    },
+    "ps_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ps_master.pack.gz"
+    },
+    "pa_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pa_master.pack.gz"
+    },
+    "sm_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sm_master.pack.gz"
+    },
+    "gd_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gd_master.pack.gz"
+    },
+    "sn_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sn_master.pack.gz"
+    },
+    "sd_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sd_master.pack.gz"
+    },
+    "si_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/si_master.pack.gz"
+    },
+    "so_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/so_master.pack.gz"
+    },
+    "su_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/su_master.pack.gz"
+    },
+    "tg_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tg_master.pack.gz"
+    },
+    "tt_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tt_master.pack.gz"
+    },
+    "yo_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/yo_master.pack.gz"
+    },
+    "zu_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/zu_master.pack.gz"
+    },
+    "xh_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/xh_master.pack.gz"
+    },
+    "yi_pack": {
+      "version": "4.0.0",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/yi_master.pack.gz"
     }
   }
 }
