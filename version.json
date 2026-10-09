@@ -3,7 +3,9 @@
   "packs": {
     "deutsch_a1": {
       "version": "4.0.0",
-      "file_url": "https://raw.githubusercontent.com/moaz76943-creator/-offline-packs-store/main/packs/deutsch_a1.pack.gz"
+      "size_bytes": 264,
+      "sha256": "673cbeb82f9644cb73512e87a25f8e9b43ec6844681f20e5a5aff2d2fb4e790d",
+      "file_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/deutsch_a1.pack.gz"
     }
   }
 }

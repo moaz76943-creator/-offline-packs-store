@@ -1,0 +1,19 @@
+{
+  "available_languages": [
+    {
+      "id": "de",
+      "name": "Deutsch",
+      "name_ar": "الألمانية",
+      "flag": "🇩🇪",
+      "levels": [
+        {
+          "level_id": "deutsch_a1",
+          "title": "A1 - مبتدئ",
+          "words_count": 2,
+          "version": "4.0.0",
+          "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/deutsch_a1.pack.gz"
+        }
+      ]
+    }
+  ]
+}
