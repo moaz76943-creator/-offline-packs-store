@@ -1,0 +1,11 @@
+name: Validate JSON Files
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Check JSON Syntax
+        run: |
+          find . -name "*.json" -not -path "*/.git/*" -print0 | xargs -0 -I {} bash -c 'jq . "{}" >/dev/null || (echo "❌ خطأ في تنسيق الملف: {}" && exit 1)'
