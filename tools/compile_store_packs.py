@@ -151,6 +151,9 @@ def verify_legacy_files(languages, output_dir):
         name = item['pack_file']
         if not isinstance(name, str) or Path(name).name != name or not name.endswith('.pack.gz'):
             raise ValueError(f'unsafe legacy pack filename: {name!r}')
+        expected_url = f'{REPO_CDN}/{name}'
+        if item.get('pack_url', expected_url) != expected_url:
+            raise ValueError(f'legacy package URL mismatch: {name}')
         source = output_dir / name
         if not source.is_file():
             raise FileNotFoundError(f'missing legacy pack {source}')
