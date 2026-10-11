@@ -110,7 +110,7 @@ def arabic_translations(fields):
                 add(item.get('text'))
     if fields.get('translationLanguageCode', fields.get('translation_language_code')) == 'ar':
         add(fields.get('translation'))
-    return '\\n'.join(dict.fromkeys(output))
+    return '\n'.join(dict.fromkeys(output))
 
 
 def lexicon_metadata(entry):
@@ -355,7 +355,8 @@ def run(args):
             'format': 'legacy-json-gzip',
             'metadataField': 'languages',
             'packDirectory': 'packs/',
-            'schemaVersion': 'legacy'
+            'schemaVersion': 'legacy',
+            'checksumAlgorithm': 'sha256'
         }
         updated['packs'] = [indexed[key] for key in sorted(indexed)]
         manifest_bytes = json.dumps(updated, ensure_ascii=False, sort_keys=True,
