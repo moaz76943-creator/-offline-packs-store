@@ -342,6 +342,8 @@ def run(args):
                   f'archive={record["archiveSizeBytes"]} bytes sha256={record["sha256"]}')
         indexed.update(produced)
         for item in indexed.values():
+            if item.get('schemaVersion') != SCHEMA_VERSION or item.get('format', item.get('bundleFormat')) != FORMAT:
+                raise ValueError(f"retained pack {item['id']} is not schema {SCHEMA_VERSION}; recompile explicitly")
             filename = f"{item['id']}-{item.get('version', VERSION)}.pack.gz"
             if Path(filename).name != filename:
                 raise ValueError('unsafe new-pack filename')
