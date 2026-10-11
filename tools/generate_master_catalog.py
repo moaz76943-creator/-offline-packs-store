@@ -30,7 +30,7 @@ CEFR_LEVELS = ("A1", "A2", "B1", "B2", "C1")
 SHA256_PATTERN = re.compile(r"^[a-f0-9]{64}$")
 ISO_PATTERN = re.compile(r"^[a-z]{2}$")
 BCP47_PATTERN = re.compile(r"^[a-z]{2}(?:-[A-Za-z0-9]{2,8})*$")
-FILE_PATTERN = re.compile(r"^[a-z]{2}_[a-zA-Z0-9_]+\\.pack\\.gz$")
+FILE_PATTERN = re.compile(r"^[a-z]{2}_[a-zA-Z0-9_]+\.pack\.gz$")
 RTL_SCRIPTS = frozenset(("Arabic", "Thaana"))
 REQUIRED_FIELDS = frozenset((
     "code", "iso639_1", "bcp47_locale", "name", "native_name",
