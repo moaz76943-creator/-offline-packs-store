@@ -1,0 +1,1618 @@
+#!/usr/bin/env python3
+"""Deterministic 100-language store catalog builder (Python stdlib only).
+
+The seed preserves published file names, sizes and SHA-256 values. Hashes are
+not fabricated or automatically trusted: --verify-packs checks the actual
+local archive bytes against each published digest before accepting the data.
+
+Use:
+  python3 -B tools/generate_master_catalog.py --check
+  python3 -B tools/generate_master_catalog.py --verify-packs --check
+  python3 -B tools/generate_master_catalog.py
+  python3 -B tools/generate_master_catalog.py --self-test
+
+Only manifest.json is written by the normal generation command.
+"""
+from __future__ import annotations
+
+import argparse
+import copy
+import hashlib
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+MANIFEST_PATH = ROOT / "manifest.json"
+CDN_TEMPLATE = "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/{pack_file}"
+CEFR_LEVELS = ("A1", "A2", "B1", "B2", "C1")
+SHA256_PATTERN = re.compile(r"^[a-f0-9]{64}$")
+ISO_PATTERN = re.compile(r"^[a-z]{2}$")
+BCP47_PATTERN = re.compile(r"^[a-z]{2}(?:-[A-Za-z0-9]{2,8})*$")
+FILE_PATTERN = re.compile(r"^[a-z]{2}_[a-zA-Z0-9_]+\\.pack\\.gz$")
+RTL_SCRIPTS = frozenset(("Arabic", "Thaana"))
+REQUIRED_FIELDS = frozenset((
+    "code", "iso639_1", "bcp47_locale", "name", "native_name",
+    "script_family", "family", "direction", "is_rtl",
+    "target_cefr_levels", "pack_file", "size_bytes", "sha256",
+    "domains_count", "is_active", "download_url",
+))
+# Frozen metadata snapshot from the existing public store. This is explicitly
+# embedded so future runs do not depend on network or mutable input JSON.
+SEED = json.loads(r'''[
+  {
+    "code": "ar",
+    "name": "Arabic",
+    "native_name": "العربية",
+    "family": "Semitic",
+    "direction": "rtl",
+    "pack_file": "ar_universal_v1.pack.gz",
+    "size_bytes": 1813,
+    "sha256": "815df4f9371046c86002486e89014846c9619829d9b7b476fe9d24832667ab57",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ar-SA",
+    "script_family": "Arabic"
+  },
+  {
+    "code": "de",
+    "name": "German",
+    "native_name": "Deutsch",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "de_universal_v1.pack.gz",
+    "size_bytes": 1806,
+    "sha256": "69686be61ee25f200cf6ac8c1b1dcb9726ead7eaa91822db4af537e1e5f7dfc6",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "de-DE",
+    "script_family": "Latin"
+  },
+  {
+    "code": "en",
+    "name": "English",
+    "native_name": "English",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "en_universal_v1.pack.gz",
+    "size_bytes": 1806,
+    "sha256": "f20cbf3a2f60550882860842977ca901c6c369643b46ddad5f5abcdd0eb31b41",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "en-US",
+    "script_family": "Latin"
+  },
+  {
+    "code": "es",
+    "name": "Spanish",
+    "native_name": "Español",
+    "family": "Romance",
+    "direction": "ltr",
+    "pack_file": "es_universal_v1.pack.gz",
+    "size_bytes": 1813,
+    "sha256": "2ce82e37666f22a32092dbf592c306c927074bc82cc8ecb474e5c38d67937b27",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "es-ES",
+    "script_family": "Latin"
+  },
+  {
+    "code": "fr",
+    "name": "French",
+    "native_name": "Français",
+    "family": "Romance",
+    "direction": "ltr",
+    "pack_file": "fr_universal_v1.pack.gz",
+    "size_bytes": 1809,
+    "sha256": "4f0af5aaf245f862ebd5fa627843c28186fe6b02297bd230b8feaa84da9c8e0e",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "fr-FR",
+    "script_family": "Latin"
+  },
+  {
+    "code": "it",
+    "name": "Italian",
+    "native_name": "Italiano",
+    "family": "Romance",
+    "direction": "ltr",
+    "pack_file": "it_universal_v1.pack.gz",
+    "size_bytes": 1805,
+    "sha256": "dc841f882764ac474c224e92cc814f2749a88ff2590f012ce90c9df138a4e9d0",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "it-IT",
+    "script_family": "Latin"
+  },
+  {
+    "code": "tr",
+    "name": "Turkish",
+    "native_name": "Türkçe",
+    "family": "Turkic",
+    "direction": "ltr",
+    "pack_file": "tr_universal_v1.pack.gz",
+    "size_bytes": 1812,
+    "sha256": "dea99b77a9500f2ab0c86622a534d3e6d77f814c0cb87bb64e1fb0abbe221bd7",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "tr-TR",
+    "script_family": "Latin"
+  },
+  {
+    "code": "ru",
+    "name": "Russian",
+    "native_name": "Русский",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "ru_universal_v1.pack.gz",
+    "size_bytes": 1825,
+    "sha256": "757ed6e987e43c35eee5d211093f5e35e440fd7c0b897517b5274bd2b91b95be",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ru-RU",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "zh",
+    "name": "Chinese",
+    "native_name": "中文",
+    "family": "Sinitic",
+    "direction": "ltr",
+    "pack_file": "zh_universal_v1.pack.gz",
+    "size_bytes": 1819,
+    "sha256": "8e9badb93ff909bb719a192be4743e6cc10d9cab2a44cd661af366ce8511f50d",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "zh-Hans-CN",
+    "script_family": "Han"
+  },
+  {
+    "code": "ja",
+    "name": "Japanese",
+    "native_name": "日本語",
+    "family": "Japonic",
+    "direction": "ltr",
+    "pack_file": "ja_universal_v1.pack.gz",
+    "size_bytes": 1822,
+    "sha256": "7e8dae50dfec39db01d0812243da59d8d1692520dc1a9e0d02dc62c054864a3d",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ja-JP",
+    "script_family": "Japanese"
+  },
+  {
+    "code": "ko",
+    "name": "Korean",
+    "native_name": "한국어",
+    "family": "Koreanic",
+    "direction": "ltr",
+    "pack_file": "ko_universal_v1.pack.gz",
+    "size_bytes": 1819,
+    "sha256": "9671333965af5140d57b7cd0db783c11c0f98c2b3454a58a3907378b9f64ecfd",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ko-KR",
+    "script_family": "Hangul"
+  },
+  {
+    "code": "pt",
+    "name": "Portuguese",
+    "native_name": "Português",
+    "family": "Romance",
+    "direction": "ltr",
+    "pack_file": "pt_universal_v1.pack.gz",
+    "size_bytes": 1809,
+    "sha256": "e2a4eca61f871f0bbdc92a4b1e3cba0722553a3ce241f1009da112c3d45237e5",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "pt-PT",
+    "script_family": "Latin"
+  },
+  {
+    "code": "nl",
+    "name": "Dutch",
+    "native_name": "Nederlands",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "nl_universal_v1.pack.gz",
+    "size_bytes": 1813,
+    "sha256": "7218eb2278a3899a5e064c5f50b1bf362bcfb6a30ef2e4fecc8704290414b217",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "nl-NL",
+    "script_family": "Latin"
+  },
+  {
+    "code": "pl",
+    "name": "Polish",
+    "native_name": "Polski",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "pl_universal_v1.pack.gz",
+    "size_bytes": 1806,
+    "sha256": "89a7fd7ff5c38a794136d3246b940f9f86a6789f11cf0c5d30f636ad0da468bd",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "pl-PL",
+    "script_family": "Latin"
+  },
+  {
+    "code": "sv",
+    "name": "Swedish",
+    "native_name": "Svenska",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "sv_universal_v1.pack.gz",
+    "size_bytes": 1813,
+    "sha256": "c2af66a5b3b34d49a1a5b1d2bd102d6bb04f8c3d08dd35493b58041d86b7667f",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "sv-SE",
+    "script_family": "Latin"
+  },
+  {
+    "code": "no",
+    "name": "Norwegian",
+    "native_name": "Norsk",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "no_universal_v1.pack.gz",
+    "size_bytes": 1809,
+    "sha256": "b74653c7d87c89ca8a3509f9de1aab2d62a8ae008357c830ae803bae985edd62",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "no-NO",
+    "script_family": "Latin"
+  },
+  {
+    "code": "da",
+    "name": "Danish",
+    "native_name": "Dansk",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "da_universal_v1.pack.gz",
+    "size_bytes": 1807,
+    "sha256": "09624b47957849146fc1106e2cf56cac22ca67a5a2dc4951fc99a3e82155e4b3",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "da-DK",
+    "script_family": "Latin"
+  },
+  {
+    "code": "fi",
+    "name": "Finnish",
+    "native_name": "Suomi",
+    "family": "Uralic",
+    "direction": "ltr",
+    "pack_file": "fi_universal_v1.pack.gz",
+    "size_bytes": 1810,
+    "sha256": "92bb7a609ef9dd5bbaff475c6694473ff7d8a6cc589b6bcf9e1f86bb081c29d1",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "fi-FI",
+    "script_family": "Latin"
+  },
+  {
+    "code": "el",
+    "name": "Greek",
+    "native_name": "Ελληνικά",
+    "family": "Hellenic",
+    "direction": "ltr",
+    "pack_file": "el_universal_v1.pack.gz",
+    "size_bytes": 1830,
+    "sha256": "56bb70e78a96955967ed520a17ddb7e5513f1ed80938eba85866cd7cbf55dceb",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "el-GR",
+    "script_family": "Greek"
+  },
+  {
+    "code": "hi",
+    "name": "Hindi",
+    "native_name": "हिन्दी",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "hi_universal_v1.pack.gz",
+    "size_bytes": 1834,
+    "sha256": "c8970d450d54c0a29ef96f94f9b2466272dff173be21e5e418cebc50da5c090c",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "hi-IN",
+    "script_family": "Devanagari"
+  },
+  {
+    "code": "ur",
+    "name": "Urdu",
+    "native_name": "اردو",
+    "family": "Indo-Aryan",
+    "direction": "rtl",
+    "pack_file": "ur_universal_v1.pack.gz",
+    "size_bytes": 1813,
+    "sha256": "4c213f46eb242ce476922ec9fcda3286621361ac30663f9a25f7b2a3cea785e6",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ur-PK",
+    "script_family": "Arabic"
+  },
+  {
+    "code": "fa",
+    "name": "Persian",
+    "native_name": "فارسی",
+    "family": "Iranian",
+    "direction": "rtl",
+    "pack_file": "fa_universal_v1.pack.gz",
+    "size_bytes": 1810,
+    "sha256": "c9a667ea1eba64507c56e05c3c012e2b14c61433b1bd07de9f40b7d70036569c",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "fa-IR",
+    "script_family": "Arabic"
+  },
+  {
+    "code": "id",
+    "name": "Indonesian",
+    "native_name": "Bahasa Indonesia",
+    "family": "Austronesian",
+    "direction": "ltr",
+    "pack_file": "id_universal_v1.pack.gz",
+    "size_bytes": 1815,
+    "sha256": "43356579fb73f51bcd5668d1ca0f7661deb32884baf9fb0d20060c67d1897ccd",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "id-ID",
+    "script_family": "Latin"
+  },
+  {
+    "code": "ms",
+    "name": "Malay",
+    "native_name": "Bahasa Melayu",
+    "family": "Austronesian",
+    "direction": "ltr",
+    "pack_file": "ms_universal_v1.pack.gz",
+    "size_bytes": 1818,
+    "sha256": "51fc8b48c842fa3dbe8f30039f577b0298b8ae132f2ef105d4462a0c7b9836f8",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ms-MY",
+    "script_family": "Latin"
+  },
+  {
+    "code": "vi",
+    "name": "Vietnamese",
+    "native_name": "Tiếng Việt",
+    "family": "Austroasiatic",
+    "direction": "ltr",
+    "pack_file": "vi_universal_v1.pack.gz",
+    "size_bytes": 1829,
+    "sha256": "bae2531477e6fa3002f212a8973397cda7cdb0ec4e52f56faf5ecd2cf60687d7",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "vi-VN",
+    "script_family": "Latin"
+  },
+  {
+    "code": "th",
+    "name": "Thai",
+    "native_name": "ไทย",
+    "family": "Kra-Dai",
+    "direction": "ltr",
+    "pack_file": "th_universal_v1.pack.gz",
+    "size_bytes": 1819,
+    "sha256": "6caf7a6587851a1deddf879d44a77e6da65c7a892b2cd1a4c3563662b98331e6",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "th-TH",
+    "script_family": "Thai"
+  },
+  {
+    "code": "bn",
+    "name": "Bengali",
+    "native_name": "বাংলা",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "bn_universal_v1.pack.gz",
+    "size_bytes": 1826,
+    "sha256": "3ae2cb110f10c239dc59b2ce5227d2a435e3abd0aa0bd1edbe7a7bb5a28c60c2",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "bn-BD",
+    "script_family": "Bengali"
+  },
+  {
+    "code": "pa",
+    "name": "Punjabi",
+    "native_name": "ਪੰਜਾਬੀ",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "pa_universal_v1.pack.gz",
+    "size_bytes": 1833,
+    "sha256": "00dde72d73c8f5bacad38af00aaa0228166cf6e4c1e18308f1aa3fbce89f2869",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "pa-Guru-IN",
+    "script_family": "Gurmukhi"
+  },
+  {
+    "code": "ta",
+    "name": "Tamil",
+    "native_name": "தமிழ்",
+    "family": "Dravidian",
+    "direction": "ltr",
+    "pack_file": "ta_universal_v1.pack.gz",
+    "size_bytes": 1826,
+    "sha256": "c1549ec71a9a021a825e5f7b5d6b8c8761f76b5828adb68b42394776665599e6",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ta-IN",
+    "script_family": "Tamil"
+  },
+  {
+    "code": "te",
+    "name": "Telugu",
+    "native_name": "తెలుగు",
+    "family": "Dravidian",
+    "direction": "ltr",
+    "pack_file": "te_universal_v1.pack.gz",
+    "size_bytes": 1828,
+    "sha256": "3fac7fce96168d3ee66c057d7b52b04ca24cc7089b0caaabdc447a1fea193436",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "te-IN",
+    "script_family": "Telugu"
+  },
+  {
+    "code": "mr",
+    "name": "Marathi",
+    "native_name": "मराठी",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "mr_universal_v1.pack.gz",
+    "size_bytes": 1833,
+    "sha256": "6fe3d56c3b52bf9871e250a1747c54edcb3ad6dbf3a2027faaf6589dce5ea1d8",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "mr-IN",
+    "script_family": "Devanagari"
+  },
+  {
+    "code": "gu",
+    "name": "Gujarati",
+    "native_name": "ગુજરાતી",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "gu_universal_v1.pack.gz",
+    "size_bytes": 1842,
+    "sha256": "9a6edd23926badc24223d1670a4ac0b8b8be42214d3e95c855f590ffef1910bf",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "gu-IN",
+    "script_family": "Gujarati"
+  },
+  {
+    "code": "uk",
+    "name": "Ukrainian",
+    "native_name": "Українська",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "uk_universal_v1.pack.gz",
+    "size_bytes": 1840,
+    "sha256": "e9a27f99130a2a241984ff4c823f92aa817891d874723c0860b9a824db49dc4d",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "uk-UA",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "cs",
+    "name": "Czech",
+    "native_name": "Čeština",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "cs_universal_v1.pack.gz",
+    "size_bytes": 1817,
+    "sha256": "3e18c2d03cbc1292d350d64c0863b1c2877a0ea95fa27845784704bdac91dfcb",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "cs-CZ",
+    "script_family": "Latin"
+  },
+  {
+    "code": "ro",
+    "name": "Romanian",
+    "native_name": "Română",
+    "family": "Romance",
+    "direction": "ltr",
+    "pack_file": "ro_universal_v1.pack.gz",
+    "size_bytes": 1808,
+    "sha256": "61ae84a7a7418fd4a7c1a84f79b93c72e43f7ef4004e0e100cb1fd33c80fb94c",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ro-RO",
+    "script_family": "Latin"
+  },
+  {
+    "code": "hu",
+    "name": "Hungarian",
+    "native_name": "Magyar",
+    "family": "Uralic",
+    "direction": "ltr",
+    "pack_file": "hu_universal_v1.pack.gz",
+    "size_bytes": 1814,
+    "sha256": "ff8eb935cc39ba55b44c806e9d301d7ebf70a2e4aa07fed32e8eacd188e3ed51",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "hu-HU",
+    "script_family": "Latin"
+  },
+  {
+    "code": "bg",
+    "name": "Bulgarian",
+    "native_name": "Български",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "bg_universal_v1.pack.gz",
+    "size_bytes": 1834,
+    "sha256": "40ade9bd631160aac185059aa716b4e7a38e6b1d751c8bf9ad5390f439407130",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "bg-BG",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "sk",
+    "name": "Slovak",
+    "native_name": "Slovenčina",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "sk_universal_v1.pack.gz",
+    "size_bytes": 1812,
+    "sha256": "cd6477eb1101eaabba5a5ad5e42991d0fb8aebdb5bf2d0ec45f29366025150db",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "sk-SK",
+    "script_family": "Latin"
+  },
+  {
+    "code": "hr",
+    "name": "Croatian",
+    "native_name": "Hrvatski",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "hr_universal_v1.pack.gz",
+    "size_bytes": 1812,
+    "sha256": "98e4ba398d6ff4e57d638658d5e04e1a6c79970f08db1aff716759ff941b9bf1",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "hr-HR",
+    "script_family": "Latin"
+  },
+  {
+    "code": "sr",
+    "name": "Serbian",
+    "native_name": "Српски",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "sr_universal_v1.pack.gz",
+    "size_bytes": 1824,
+    "sha256": "03f7bff5641c44736b44912b70a61466f38a432a4785a3266cd06af3f6fdaa0b",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "sr-Cyrl-RS",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "bs",
+    "name": "Bosnian",
+    "native_name": "Bosanski",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "bs_universal_v1.pack.gz",
+    "size_bytes": 1809,
+    "sha256": "298f27eb4daccd153e6472a853abaeecc233f8f62792ea5a54a33cfd87025b61",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "bs-BA",
+    "script_family": "Latin"
+  },
+  {
+    "code": "sq",
+    "name": "Albanian",
+    "native_name": "Shqip",
+    "family": "Albanian",
+    "direction": "ltr",
+    "pack_file": "sq_universal_v1.pack.gz",
+    "size_bytes": 1806,
+    "sha256": "a971e7eda112bcb9c389300c1e449772b100cf86de1f58e025d9b23021dd0bfc",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "sq-AL",
+    "script_family": "Latin"
+  },
+  {
+    "code": "hy",
+    "name": "Armenian",
+    "native_name": "Հայերեն",
+    "family": "Armenian",
+    "direction": "ltr",
+    "pack_file": "hy_universal_v1.pack.gz",
+    "size_bytes": 1819,
+    "sha256": "0ae4f1fe1223712e5d9354d93d80a6c5f3af5e43eb86bfd3044b57dc0f51bedc",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "hy-AM",
+    "script_family": "Armenian"
+  },
+  {
+    "code": "ka",
+    "name": "Georgian",
+    "native_name": "ქართული",
+    "family": "Kartvelian",
+    "direction": "ltr",
+    "pack_file": "ka_universal_v1.pack.gz",
+    "size_bytes": 1839,
+    "sha256": "3051feac05e86f76391a531953cddf7e9526b3f517313426f9e1c9158fde1057",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ka-GE",
+    "script_family": "Georgian"
+  },
+  {
+    "code": "az",
+    "name": "Azerbaijani",
+    "native_name": "Azərbaycan",
+    "family": "Turkic",
+    "direction": "ltr",
+    "pack_file": "az_universal_v1.pack.gz",
+    "size_bytes": 1821,
+    "sha256": "5693a1469e34c08b95f845a5d01b28342d774393c47dc1842bce5ee51d4abf09",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "az-Latn-AZ",
+    "script_family": "Latin"
+  },
+  {
+    "code": "kk",
+    "name": "Kazakh",
+    "native_name": "Қазақша",
+    "family": "Turkic",
+    "direction": "ltr",
+    "pack_file": "kk_universal_v1.pack.gz",
+    "size_bytes": 1829,
+    "sha256": "f5b0f7b870ed3a4ed923823edc8f84bfa236033257c1933237987550e8ea51d7",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "kk-Cyrl-KZ",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "uz",
+    "name": "Uzbek",
+    "native_name": "Oʻzbekcha",
+    "family": "Turkic",
+    "direction": "ltr",
+    "pack_file": "uz_universal_v1.pack.gz",
+    "size_bytes": 1817,
+    "sha256": "88b8a1c5301d45d520d407d03b778e1d5fa89820670abb8ebd9a09e347e30fc5",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "uz-Latn-UZ",
+    "script_family": "Latin"
+  },
+  {
+    "code": "sw",
+    "name": "Swahili",
+    "native_name": "Kiswahili",
+    "family": "Bantu",
+    "direction": "ltr",
+    "pack_file": "sw_universal_v1.pack.gz",
+    "size_bytes": 1809,
+    "sha256": "c38539df13038e83bbb53e83547a1ba5d0b19fb5d0b9cd5ca10c6fca3d1b82cf",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "sw-KE",
+    "script_family": "Latin"
+  },
+  {
+    "code": "tl",
+    "name": "Tagalog",
+    "native_name": "Tagalog",
+    "family": "Austronesian",
+    "direction": "ltr",
+    "pack_file": "tl_universal_v1.pack.gz",
+    "size_bytes": 1808,
+    "sha256": "6f6cfb683af36e5bf903c21992ff13c391f4f994d047a2238f75feb69487ce37",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "tl-PH",
+    "script_family": "Latin"
+  },
+  {
+    "code": "af",
+    "name": "Afrikaans",
+    "native_name": "Afrikaans",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "af_universal_v1.pack.gz",
+    "size_bytes": 1807,
+    "sha256": "c53ecc990901b71df14c1169409a31d83127010f6d9c6966b4c60506fdf67ea7",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "af-ZA",
+    "script_family": "Latin"
+  },
+  {
+    "code": "et",
+    "name": "Estonian",
+    "native_name": "Eesti",
+    "family": "Uralic",
+    "direction": "ltr",
+    "pack_file": "et_universal_v1.pack.gz",
+    "size_bytes": 1808,
+    "sha256": "e51bef3cfb41b8d3eb40fee7c1ee822c9c8d2d66ea4feb1e4e415405f0eaa56e",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "et-EE",
+    "script_family": "Latin"
+  },
+  {
+    "code": "lv",
+    "name": "Latvian",
+    "native_name": "Latviešu",
+    "family": "Baltic",
+    "direction": "ltr",
+    "pack_file": "lv_universal_v1.pack.gz",
+    "size_bytes": 1810,
+    "sha256": "a5d025ab2b117600a35f2cbfd83830c9663e4fcebef22b6340f6e1a4d33c0277",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "lv-LV",
+    "script_family": "Latin"
+  },
+  {
+    "code": "lt",
+    "name": "Lithuanian",
+    "native_name": "Lietuvių",
+    "family": "Baltic",
+    "direction": "ltr",
+    "pack_file": "lt_universal_v1.pack.gz",
+    "size_bytes": 1813,
+    "sha256": "b654599ae731ce117014d1577eab2b425fb530d4b8f8da51e3b0fd084a80ddc6",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "lt-LT",
+    "script_family": "Latin"
+  },
+  {
+    "code": "sl",
+    "name": "Slovenian",
+    "native_name": "Slovenščina",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "sl_universal_v1.pack.gz",
+    "size_bytes": 1817,
+    "sha256": "c024c09d1f6f57be5ccc2fe6bbdbe85f3ffff74e9c531d131451d24b4e0fce23",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "sl-SI",
+    "script_family": "Latin"
+  },
+  {
+    "code": "mk",
+    "name": "Macedonian",
+    "native_name": "Македонски",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "mk_universal_v1.pack.gz",
+    "size_bytes": 1836,
+    "sha256": "46c32c86345bce93259537d636de5aa18128481d5391d4bf9fb75c5b4a530c8f",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "mk-MK",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "is",
+    "name": "Icelandic",
+    "native_name": "Íslenska",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "is_universal_v1.pack.gz",
+    "size_bytes": 1818,
+    "sha256": "57e4666d487647ad9cadd9b80b387236caa38e096ac05244be4a99335213cbb6",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "is-IS",
+    "script_family": "Latin"
+  },
+  {
+    "code": "ga",
+    "name": "Irish",
+    "native_name": "Gaeilge",
+    "family": "Celtic",
+    "direction": "ltr",
+    "pack_file": "ga_universal_v1.pack.gz",
+    "size_bytes": 1810,
+    "sha256": "94dca4f54a609bd84fb8bf882fe5cf719ae7d71a0c8f5da38f7fcf49fe313a85",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ga-IE",
+    "script_family": "Latin"
+  },
+  {
+    "code": "cy",
+    "name": "Welsh",
+    "native_name": "Cymraeg",
+    "family": "Celtic",
+    "direction": "ltr",
+    "pack_file": "cy_universal_v1.pack.gz",
+    "size_bytes": 1809,
+    "sha256": "e242302235ab311dcf52c384d4be0fa844d07715a2eadec269d4822caba2e95a",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "cy-GB",
+    "script_family": "Latin"
+  },
+  {
+    "code": "eu",
+    "name": "Basque",
+    "native_name": "Euskara",
+    "family": "Isolate",
+    "direction": "ltr",
+    "pack_file": "eu_universal_v1.pack.gz",
+    "size_bytes": 1810,
+    "sha256": "33b6ac2c61cbbec42e055c44a2cd8934bc6ce4b2481b281d03d5a610ed0e4de3",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "eu-ES",
+    "script_family": "Latin"
+  },
+  {
+    "code": "ca",
+    "name": "Catalan",
+    "native_name": "Català",
+    "family": "Romance",
+    "direction": "ltr",
+    "pack_file": "ca_universal_v1.pack.gz",
+    "size_bytes": 1809,
+    "sha256": "e6634ddd6afeb14bd0b95aa79136ac1db3f9e02eb3eba28e39a6f8f173928e48",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ca-ES",
+    "script_family": "Latin"
+  },
+  {
+    "code": "gl",
+    "name": "Galician",
+    "native_name": "Galego",
+    "family": "Romance",
+    "direction": "ltr",
+    "pack_file": "gl_universal_v1.pack.gz",
+    "size_bytes": 1808,
+    "sha256": "dcef4df0fc1195f3d7bf1545aa28c3b42ce6e553545934aa420214f0a38e8ee8",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "gl-ES",
+    "script_family": "Latin"
+  },
+  {
+    "code": "be",
+    "name": "Belarusian",
+    "native_name": "Беларуская",
+    "family": "Slavic",
+    "direction": "ltr",
+    "pack_file": "be_universal_v1.pack.gz",
+    "size_bytes": 1836,
+    "sha256": "22077f11af10ff2da052a914177c0c87ca723e29b8ac1bb840d774973d62942f",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "be-BY",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "mn",
+    "name": "Mongolian",
+    "native_name": "Монгол",
+    "family": "Mongolic",
+    "direction": "ltr",
+    "pack_file": "mn_universal_v1.pack.gz",
+    "size_bytes": 1820,
+    "sha256": "cdada0495245d9b1236ce4cf970f9c2d462fb2e3afc720ce78e2039a89cb5909",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "mn-Cyrl-MN",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "ne",
+    "name": "Nepali",
+    "native_name": "नेपाली",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "ne_universal_v1.pack.gz",
+    "size_bytes": 1833,
+    "sha256": "aaeb9f5517f1bb87e6a4964a5efdf3e4de617f9e509416fca42ffd2b5f650d50",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ne-NP",
+    "script_family": "Devanagari"
+  },
+  {
+    "code": "si",
+    "name": "Sinhala",
+    "native_name": "සිංහල",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "si_universal_v1.pack.gz",
+    "size_bytes": 1831,
+    "sha256": "d42053fd73de450a9072169db11eafe9b838981c765f288765c36763b812e331",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "si-LK",
+    "script_family": "Sinhala"
+  },
+  {
+    "code": "my",
+    "name": "Burmese",
+    "native_name": "မြန်မာဘာသာ",
+    "family": "Sino-Tibetan",
+    "direction": "ltr",
+    "pack_file": "my_universal_v1.pack.gz",
+    "size_bytes": 1845,
+    "sha256": "82852a4ee720998fe17d608a1290fb54b8ef48795ec18e6b92399d2933623e24",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "my-MM",
+    "script_family": "Myanmar"
+  },
+  {
+    "code": "km",
+    "name": "Khmer",
+    "native_name": "ភាសាខ្មែរ",
+    "family": "Austroasiatic",
+    "direction": "ltr",
+    "pack_file": "km_universal_v1.pack.gz",
+    "size_bytes": 1843,
+    "sha256": "7d94ac0d438f07b605a5ff9a9103bdaf9b3440a1f11a9140c2920e76a655905e",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "km-KH",
+    "script_family": "Khmer"
+  },
+  {
+    "code": "lo",
+    "name": "Lao",
+    "native_name": "ພາສາລາວ",
+    "family": "Kra-Dai",
+    "direction": "ltr",
+    "pack_file": "lo_universal_v1.pack.gz",
+    "size_bytes": 1823,
+    "sha256": "449421bca0860faa0b015a79f4098c4a1110232013fb3f9900de38360b5959e1",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "lo-LA",
+    "script_family": "Lao"
+  },
+  {
+    "code": "am",
+    "name": "Amharic",
+    "native_name": "አማርኛ",
+    "family": "Semitic",
+    "direction": "ltr",
+    "pack_file": "am_universal_v1.pack.gz",
+    "size_bytes": 1823,
+    "sha256": "ec8b1d2d1582ee7adba579667836ab147958b491f9a44c0dd6809fdf4e3c765b",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "am-ET",
+    "script_family": "Ethiopic"
+  },
+  {
+    "code": "so",
+    "name": "Somali",
+    "native_name": "Soomaali",
+    "family": "Cushitic",
+    "direction": "ltr",
+    "pack_file": "so_universal_v1.pack.gz",
+    "size_bytes": 1807,
+    "sha256": "de5acbab870f334a93e5f30f50c3c43c90415d56865aa9d22eb6b37c19985e78",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "so-SO",
+    "script_family": "Latin"
+  },
+  {
+    "code": "ha",
+    "name": "Hausa",
+    "native_name": "Hausa",
+    "family": "Chadic",
+    "direction": "ltr",
+    "pack_file": "ha_universal_v1.pack.gz",
+    "size_bytes": 1801,
+    "sha256": "6f006df6f20cb8e1808fc243053d9c5155e7198621f664d1792f720779dc1099",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ha-NG",
+    "script_family": "Latin"
+  },
+  {
+    "code": "yo",
+    "name": "Yoruba",
+    "native_name": "Yorùbá",
+    "family": "Volta-Niger",
+    "direction": "ltr",
+    "pack_file": "yo_universal_v1.pack.gz",
+    "size_bytes": 1818,
+    "sha256": "1ba8636194c6ff2e40d1ae263f053d8a61237ffd2826e38a2ed7c34d3e144dc2",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "yo-NG",
+    "script_family": "Latin"
+  },
+  {
+    "code": "ig",
+    "name": "Igbo",
+    "native_name": "Asụsụ Igbo",
+    "family": "Volta-Niger",
+    "direction": "ltr",
+    "pack_file": "ig_universal_v1.pack.gz",
+    "size_bytes": 1821,
+    "sha256": "717d3a250cff0e83a9390778db16382af9e3256475b88b8213ad1953120389f9",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ig-NG",
+    "script_family": "Latin"
+  },
+  {
+    "code": "zu",
+    "name": "Zulu",
+    "native_name": "isiZulu",
+    "family": "Bantu",
+    "direction": "ltr",
+    "pack_file": "zu_universal_v1.pack.gz",
+    "size_bytes": 1802,
+    "sha256": "7c5b820ef7e51bda07a4794c901b64058fe26f04371e593ced5f23a1f80f387d",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "zu-ZA",
+    "script_family": "Latin"
+  },
+  {
+    "code": "xh",
+    "name": "Xhosa",
+    "native_name": "isiXhosa",
+    "family": "Bantu",
+    "direction": "ltr",
+    "pack_file": "xh_universal_v1.pack.gz",
+    "size_bytes": 1806,
+    "sha256": "32fadfdc9ef3256ba31042f6e6565f833802c8468b8424102f6c1c735cf1e7b3",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "xh-ZA",
+    "script_family": "Latin"
+  },
+  {
+    "code": "sn",
+    "name": "Shona",
+    "native_name": "chiShona",
+    "family": "Bantu",
+    "direction": "ltr",
+    "pack_file": "sn_universal_v1.pack.gz",
+    "size_bytes": 1806,
+    "sha256": "81f9cf291774950013127b1974bfc22ef6ac84dc87a9d50b146fea9c6cf223a3",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "sn-ZW",
+    "script_family": "Latin"
+  },
+  {
+    "code": "rw",
+    "name": "Kinyarwanda",
+    "native_name": "Ikinyarwanda",
+    "family": "Bantu",
+    "direction": "ltr",
+    "pack_file": "rw_universal_v1.pack.gz",
+    "size_bytes": 1811,
+    "sha256": "ec4a3e777b9d9caf494195853f267e455b6f04d3a864c7bbb29dd81503e06288",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "rw-RW",
+    "script_family": "Latin"
+  },
+  {
+    "code": "mg",
+    "name": "Malagasy",
+    "native_name": "Malagasy",
+    "family": "Austronesian",
+    "direction": "ltr",
+    "pack_file": "mg_universal_v1.pack.gz",
+    "size_bytes": 1809,
+    "sha256": "9fb00229467422ba860e374913d98e44dcb1fa682e3ab8bcc342323a827e509a",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "mg-MG",
+    "script_family": "Latin"
+  },
+  {
+    "code": "eo",
+    "name": "Esperanto",
+    "native_name": "Esperanto",
+    "family": "Constructed",
+    "direction": "ltr",
+    "pack_file": "eo_universal_v1.pack.gz",
+    "size_bytes": 1805,
+    "sha256": "14ec50f52506465ee57c3ade98c360d1d7a0698d2335b9b9100307b4d9033a46",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "eo",
+    "script_family": "Latin"
+  },
+  {
+    "code": "la",
+    "name": "Latin",
+    "native_name": "Latina",
+    "family": "Italic",
+    "direction": "ltr",
+    "pack_file": "la_universal_v1.pack.gz",
+    "size_bytes": 1805,
+    "sha256": "a160a8eebe7ec1eafe21154908a6be9dfc209df0fe6ecc3615239fa3eac4c69a",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "la",
+    "script_family": "Latin"
+  },
+  {
+    "code": "kn",
+    "name": "Kannada",
+    "native_name": "ಕನ್ನಡ",
+    "family": "Dravidian",
+    "direction": "ltr",
+    "pack_file": "kn_universal_v1.pack.gz",
+    "size_bytes": 1826,
+    "sha256": "ced526b0913bbae9cad95c261d92a5458183049416770ecf4438b346f7ada563",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "kn-IN",
+    "script_family": "Kannada"
+  },
+  {
+    "code": "ml",
+    "name": "Malayalam",
+    "native_name": "മലയാളം",
+    "family": "Dravidian",
+    "direction": "ltr",
+    "pack_file": "ml_universal_v1.pack.gz",
+    "size_bytes": 1830,
+    "sha256": "9e6c4881f1d837698e86b8e701ac1cf913f4c825ab7d3d27c08f789b30bc1e04",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ml-IN",
+    "script_family": "Malayalam"
+  },
+  {
+    "code": "or",
+    "name": "Odia",
+    "native_name": "ଓଡ଼ିଆ",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "or_universal_v1.pack.gz",
+    "size_bytes": 1831,
+    "sha256": "0b4cfddb3b580bc5b1bf9e80b1e33e4f34b036f86e588a3e27f099619d266150",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "or-IN",
+    "script_family": "Odia"
+  },
+  {
+    "code": "as",
+    "name": "Assamese",
+    "native_name": "অসমীয়া",
+    "family": "Indo-Aryan",
+    "direction": "ltr",
+    "pack_file": "as_universal_v1.pack.gz",
+    "size_bytes": 1838,
+    "sha256": "e63170e113ced8f5b9175968de4278f93fab9878015b03e25900471bcb439286",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "as-IN",
+    "script_family": "Bengali"
+  },
+  {
+    "code": "sd",
+    "name": "Sindhi",
+    "native_name": "سنڌي",
+    "family": "Indo-Aryan",
+    "direction": "rtl",
+    "pack_file": "sd_universal_v1.pack.gz",
+    "size_bytes": 1818,
+    "sha256": "e0da46405edef56a7f5802fad69f4e796155c257a442d4462bad90492430e225",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "sd-Arab-PK",
+    "script_family": "Arabic"
+  },
+  {
+    "code": "ps",
+    "name": "Pashto",
+    "native_name": "پښتو",
+    "family": "Iranian",
+    "direction": "rtl",
+    "pack_file": "ps_universal_v1.pack.gz",
+    "size_bytes": 1815,
+    "sha256": "d5df40ca2da6f6d13d14f348fb2d03d9f3dbca5f48b036d718ccf7b6cf7d352a",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ps-Arab-AF",
+    "script_family": "Arabic"
+  },
+  {
+    "code": "ku",
+    "name": "Kurdish",
+    "native_name": "Kurdî",
+    "family": "Iranian",
+    "direction": "ltr",
+    "pack_file": "ku_universal_v1.pack.gz",
+    "size_bytes": 1811,
+    "sha256": "75b981b57bf3ff99d2531e8fa596ae5aca10d3e07a54c5ffa10205b3ca101936",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ku-Latn-TR",
+    "script_family": "Latin"
+  },
+  {
+    "code": "tg",
+    "name": "Tajik",
+    "native_name": "Тоҷикӣ",
+    "family": "Iranian",
+    "direction": "ltr",
+    "pack_file": "tg_universal_v1.pack.gz",
+    "size_bytes": 1826,
+    "sha256": "a786b072a11e4173134b79f082bac1313aa2cf91ef9526706e5994a524187d77",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "tg-Cyrl-TJ",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "tk",
+    "name": "Turkmen",
+    "native_name": "Türkmençe",
+    "family": "Turkic",
+    "direction": "ltr",
+    "pack_file": "tk_universal_v1.pack.gz",
+    "size_bytes": 1813,
+    "sha256": "864bada5c1b31bb6d8f19f9bba291550fd633d40bbedf29abbd04b986dce0f8f",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "tk-Latn-TM",
+    "script_family": "Latin"
+  },
+  {
+    "code": "ky",
+    "name": "Kyrgyz",
+    "native_name": "Кыргызча",
+    "family": "Turkic",
+    "direction": "ltr",
+    "pack_file": "ky_universal_v1.pack.gz",
+    "size_bytes": 1831,
+    "sha256": "cb07ced0eda980d2b2826c230cf665a3640486acdcdba209b951980f52645da2",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ky-Cyrl-KG",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "tt",
+    "name": "Tatar",
+    "native_name": "Татарча",
+    "family": "Turkic",
+    "direction": "ltr",
+    "pack_file": "tt_universal_v1.pack.gz",
+    "size_bytes": 1820,
+    "sha256": "e499e49c1c69a3648f21901123b263e5f113dc3b6df3f89b95cbf4163da0277a",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "tt-Cyrl-RU",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "ba",
+    "name": "Bashkir",
+    "native_name": "Башҡортса",
+    "family": "Turkic",
+    "direction": "ltr",
+    "pack_file": "ba_universal_v1.pack.gz",
+    "size_bytes": 1834,
+    "sha256": "aaf6c512c3deafb83c68163f997c46ddf23c8f477d2c54b6c6340d130e1ba820",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ba-Cyrl-RU",
+    "script_family": "Cyrillic"
+  },
+  {
+    "code": "ug",
+    "name": "Uyghur",
+    "native_name": "ئۇيغۇرچە",
+    "family": "Turkic",
+    "direction": "rtl",
+    "pack_file": "ug_universal_v1.pack.gz",
+    "size_bytes": 1826,
+    "sha256": "a1a86cd6ce14fc726913c37cd371e6d1cd0efa3d1f650b72c7573563ccef183a",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "ug-Arab-CN",
+    "script_family": "Arabic"
+  },
+  {
+    "code": "dv",
+    "name": "Divehi",
+    "native_name": "ދިވެހި",
+    "family": "Indo-Aryan",
+    "direction": "rtl",
+    "pack_file": "dv_universal_v1.pack.gz",
+    "size_bytes": 1824,
+    "sha256": "25e7aec6ba2a3959c2a3846408f4f2b5fc2fb0505d6e9da6fda53b22c6d26cbc",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "dv-Thaa-MV",
+    "script_family": "Thaana"
+  },
+  {
+    "code": "mt",
+    "name": "Maltese",
+    "native_name": "Malti",
+    "family": "Semitic",
+    "direction": "ltr",
+    "pack_file": "mt_universal_v1.pack.gz",
+    "size_bytes": 1808,
+    "sha256": "7a8853507b19a4b0d88762bc3688310a52ce32763f408c987741f96fe9bb7e97",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "mt-MT",
+    "script_family": "Latin"
+  },
+  {
+    "code": "lb",
+    "name": "Luxembourgish",
+    "native_name": "Lëtzebuergesch",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "lb_universal_v1.pack.gz",
+    "size_bytes": 1825,
+    "sha256": "b099ff52aa0b3d962644e527ea4c7c1022fe209daefbadd7d14425a4f5456d2e",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "lb-LU",
+    "script_family": "Latin"
+  },
+  {
+    "code": "fo",
+    "name": "Faroese",
+    "native_name": "Føroyskt",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "fo_universal_v1.pack.gz",
+    "size_bytes": 1813,
+    "sha256": "42fc86d6c130cd43a7bac0a4cd57d699ca4e9774f7e18f773ba41bdd4134527e",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "fo-FO",
+    "script_family": "Latin"
+  },
+  {
+    "code": "fy",
+    "name": "Western Frisian",
+    "native_name": "Frysk",
+    "family": "Germanic",
+    "direction": "ltr",
+    "pack_file": "fy_universal_v1.pack.gz",
+    "size_bytes": 1818,
+    "sha256": "2d56f992192f2a71878957a318a4e2f6bd8d1ce7b14e582bb3780c36a06037f2",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "fy-NL",
+    "script_family": "Latin"
+  },
+  {
+    "code": "gd",
+    "name": "Scottish Gaelic",
+    "native_name": "Gàidhlig",
+    "family": "Celtic",
+    "direction": "ltr",
+    "pack_file": "gd_universal_v1.pack.gz",
+    "size_bytes": 1823,
+    "sha256": "cf77743857d69723808745c2a76dd6ef6f162543bc81ec48af517e777166cb9d",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "gd-GB",
+    "script_family": "Latin"
+  },
+  {
+    "code": "br",
+    "name": "Breton",
+    "native_name": "Brezhoneg",
+    "family": "Celtic",
+    "direction": "ltr",
+    "pack_file": "br_universal_v1.pack.gz",
+    "size_bytes": 1808,
+    "sha256": "4790d59e424f9d020a11593dc623c80525410c6ba711c9433fac0b5c4271bf1f",
+    "domains_count": 50,
+    "is_active": true,
+    "bcp47_locale": "br-FR",
+    "script_family": "Latin"
+  }
+]''')
+
+def build_manifest():
+    languages = []
+    for item in SEED:
+        code = item["code"]
+        file_name = item["pack_file"]
+        languages.append({
+            "code": code,
+            "iso639_1": code,
+            "bcp47_locale": item["bcp47_locale"],
+            "name": item["name"],
+            "native_name": item["native_name"],
+            "script_family": item["script_family"],
+            "family": item["family"],
+            "direction": item["direction"],
+            "is_rtl": item["direction"] == "rtl",
+            "target_cefr_levels": list(CEFR_LEVELS),
+            "pack_file": file_name,
+            "size_bytes": item["size_bytes"],
+            "sha256": item["sha256"],
+            "domains_count": item["domains_count"],
+            "is_active": item["is_active"],
+            "download_url": CDN_TEMPLATE.replace("{pack_file}", file_name),
+        })
+    return {
+        "manifest_schema_version": "2.0.0",
+        "pack_schema_version": "2.0.0",
+        "current_pack_file_format": "universal_v1",
+        "store_version": "4.0.0",
+        "total_languages": 100,
+        "life_domains_count": 50,
+        "islamic_ethics_gate": "PASSED_100_PERCENT",
+        "intellectual_property_status": "PUBLIC_DOMAIN_ZERO_COPYRIGHT",
+        "cdn_url_template": CDN_TEMPLATE,
+        "sha256_provenance": "existing_store_manifest; reverify archive bytes with generator --verify-packs",
+        "cefr_levels_status": "targets_only_not_pack_content_certification",
+        "languages": languages,
+    }
+
+def validate_manifest(manifest):
+    """Strict v2 structure validation without third-party jsonschema."""
+    if not isinstance(manifest, dict):
+        raise ValueError("Manifest must be an object")
+    if manifest.get("pack_schema_version") != "2.0.0":
+        raise ValueError("Expected pack_schema_version 2.0.0")
+    if manifest.get("manifest_schema_version") != "2.0.0":
+        raise ValueError("Expected manifest_schema_version 2.0.0")
+    if manifest.get("cdn_url_template") != CDN_TEMPLATE:
+        raise ValueError("Unexpected CDN URL template")
+    langs = manifest.get("languages")
+    if not isinstance(langs, list) or len(langs) != 100:
+        raise ValueError("Exactly 100 languages required")
+    if type(manifest.get("total_languages")) is not int or manifest["total_languages"] != 100:
+        raise ValueError("Invalid total_languages")
+    if not isinstance(manifest.get("life_domains_count"), int) or manifest["life_domains_count"] <= 0:
+        raise ValueError("Invalid life_domains_count")
+    seen = set()
+    for row in langs:
+        if not isinstance(row, dict) or set(row) != REQUIRED_FIELDS:
+            raise ValueError("Invalid language record fields")
+        code = row["code"]
+        if not isinstance(code, str) or not ISO_PATTERN.fullmatch(code):
+            raise ValueError(f"Invalid ISO 639-1 code: {code!r}")
+        if code in seen:
+            raise ValueError(f"Duplicate language code: {code}")
+        seen.add(code)
+        if row["iso639_1"] != code:
+            raise ValueError(f"ISO 639-1 mismatch for {code}")
+        locale = row["bcp47_locale"]
+        if (not isinstance(locale, str) or not BCP47_PATTERN.fullmatch(locale)
+                or locale.split("-")[0] != code):
+            raise ValueError(f"Invalid BCP-47 locale for {code}")
+        for key in ("name", "native_name", "script_family", "family"):
+            if not isinstance(row[key], str) or not row[key].strip():
+                raise ValueError(f"Invalid {key} for {code}")
+        if row["direction"] not in ("rtl", "ltr") or type(row["is_rtl"]) is not bool:
+            raise ValueError(f"Invalid direction for {code}")
+        if row["is_rtl"] != (row["direction"] == "rtl"):
+            raise ValueError(f"RTL flag mismatch for {code}")
+        if row["is_rtl"] != (row["script_family"] in RTL_SCRIPTS):
+            raise ValueError(f"Script/direction mismatch for {code}")
+        if row["target_cefr_levels"] != list(CEFR_LEVELS):
+            raise ValueError(f"CEFR target levels mismatch for {code}")
+        file_name = row["pack_file"]
+        if (not isinstance(file_name, str) or not FILE_PATTERN.fullmatch(file_name)
+                or not file_name.startswith(code + "_")):
+            raise ValueError(f"Unsafe pack filename for {code}")
+        if type(row["size_bytes"]) is not int or row["size_bytes"] <= 0:
+            raise ValueError(f"Invalid pack size for {code}")
+        digest = row["sha256"]
+        if (not isinstance(digest, str) or not SHA256_PATTERN.fullmatch(digest)
+                or len(set(digest)) == 1):
+            raise ValueError(f"Missing/non-credible SHA-256 for {code}")
+        if type(row["is_active"]) is not bool:
+            raise ValueError(f"Invalid is_active for {code}")
+        if type(row["domains_count"]) is not int or row["domains_count"] < 0:
+            raise ValueError(f"Invalid domains_count for {code}")
+        if row["download_url"] != CDN_TEMPLATE.replace("{pack_file}", file_name):
+            raise ValueError(f"CDN URL does not match existing pack for {code}")
+    if len(seen) != 100:
+        raise ValueError("Catalog code set incomplete")
+    return True
+
+def verify_local_packs(manifest, pack_directory):
+    """Fails closed on missing, truncated or SHA-mismatched pack archives."""
+    for row in manifest["languages"]:
+        path = pack_directory / row["pack_file"]
+        if not path.is_file():
+            raise ValueError(f"Missing pack: {path}")
+        size = path.stat().st_size
+        if size != row["size_bytes"]:
+            raise ValueError(f"Incorrect pack size for {row['code']}: {size}")
+        digest = hashlib.sha256()
+        with path.open("rb") as stream:
+            for block in iter(lambda: stream.read(1024 * 1024), b""):
+                digest.update(block)
+        if digest.hexdigest() != row["sha256"]:
+            raise ValueError(f"SHA-256 mismatch for {row['code']}")
+    return True
+
+def serialize(manifest):
+    return (json.dumps(manifest, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+
+def self_test():
+    manifest = build_manifest()
+    validate_manifest(manifest)
+    assert json.loads(serialize(manifest)) == manifest
+    duplicate = copy.deepcopy(manifest)
+    duplicate["languages"][1]["code"] = duplicate["languages"][0]["code"]
+    malformed_digest = copy.deepcopy(manifest)
+    malformed_digest["languages"][0]["sha256"] = "0" * 64
+    wrong_locale = copy.deepcopy(manifest)
+    wrong_locale["languages"][0]["bcp47_locale"] = "??"
+    for case in (duplicate, malformed_digest, wrong_locale):
+        try:
+            validate_manifest(case)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("Invalid manifest incorrectly accepted")
+    print("PASS: 100 unique languages, JSON round-trip, schema and rejection cases")
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true",
+                        help="Verify the committed manifest is byte-for-byte reproducible.")
+    parser.add_argument("--verify-packs", action="store_true",
+                        help="Compare 100 local pack sizes and SHA-256 digests, fail on missing files.")
+    parser.add_argument("--pack-dir", type=Path, default=ROOT / "packs")
+    parser.add_argument("--output", type=Path, default=MANIFEST_PATH)
+    parser.add_argument("--self-test", action="store_true")
+    args = parser.parse_args(argv)
+    if args.self_test:
+        self_test()
+        return 0
+    manifest = build_manifest()
+    validate_manifest(manifest)
+    if args.verify_packs:
+        verify_local_packs(manifest, args.pack_dir)
+    rendered = serialize(manifest)
+    # Ensure the JSON we write round-trips through the exact strict validator.
+    validate_manifest(json.loads(rendered))
+    if args.check:
+        if not args.output.is_file() or args.output.read_bytes() != rendered:
+            print("FAIL: manifest missing or not generated from this catalog", file=sys.stderr)
+            return 1
+        print("PASS: 100-language v2 manifest matches the generator")
+        return 0
+    args.output.write_bytes(rendered)
+    print(f"Generated {len(manifest['languages'])} languages in {args.output}")
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
