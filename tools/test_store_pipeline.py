@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from tools.compile_store_packs import lexicon_metadata
 from pathlib import Path
 
 SCRIPT = Path(__file__).with_name('compile_store_packs.py')
@@ -64,6 +65,57 @@ class StorePipelineTest(unittest.TestCase):
         self.assertEqual(self.manifest.read_bytes(), previous)
         self.assertEqual((self.packs / 'de-1.0.0.pack.gz').read_bytes(), packed)
 
+
+class LexiconMetadataTest(unittest.TestCase):
+    def test_valid_extraction(self):
+        entry = {
+            'fields_json': json.dumps({'cefr': 'A1', 'frequencyRank': 5}),
+            'surface': 'Test'
+        }
+        raw, fields, cefr, rank, sort_key = lexicon_metadata(entry)
+        self.assertEqual(cefr, 'A1')
+        self.assertEqual(rank, 5)
+        self.assertEqual(sort_key, 'test')
+    def test_valid_extraction_from_canonical(self):
+        entry = {
+            'fields_json': json.dumps({'canonical': {'cefr': 'B2', 'frequencyRank': 10}}),
+            'surface': 'Test'
+        }
+        raw, fields, cefr, rank, sort_key = lexicon_metadata(entry)
+        self.assertEqual(cefr, 'B2')
+        self.assertEqual(rank, 10)
+        self.assertEqual(sort_key, 'test')
+    def test_invalid_cefr(self):
+        entry = {
+            'fields_json': json.dumps({'cefr': 'Invalid'}),
+            'surface': 'Test'
+        }
+        with self.assertRaisesRegex(ValueError, 'invalid CEFR label'):
+            lexicon_metadata(entry)
+    def test_invalid_frequency_rank(self):
+        invalid_ranks = [0, -1, '5', 2.5]
+        for rank in invalid_ranks:
+            entry = {
+                'fields_json': json.dumps({'frequencyRank': rank}),
+                'surface': 'Test'
+            }
+            with self.assertRaisesRegex(ValueError, 'invalid frequency rank'):
+                lexicon_metadata(entry)
+    def test_sort_key_normalization(self):
+        entry = {
+            'fields_json': '{}',
+            'surface': 'ﬃ'  # U+FB03, NFKC normalizes to 'ffi'
+        }
+        raw, fields, cefr, rank, sort_key = lexicon_metadata(entry)
+        self.assertEqual(sort_key, 'ffi')
+    def test_explicit_sort_key(self):
+        entry = {
+            'fields_json': '{}',
+            'surface': 'Test',
+            'sort_key': 'custom_sort'
+        }
+        raw, fields, cefr, rank, sort_key = lexicon_metadata(entry)
+        self.assertEqual(sort_key, 'custom_sort')
 
 if __name__ == '__main__':
     unittest.main()
