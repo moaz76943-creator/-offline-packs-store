@@ -118,6 +118,34 @@ class GateTests(unittest.TestCase):
                                'rights_holder': 'Test', 'attribution': 'Test'}}}).encode())
         self.assertEqual(self.scan().state, 'FAIL')
 
+
+    def test_gzipped_tar_traversal_is_inspected_not_just_named(self):
+        import tarfile
+        buffer = io.BytesIO()
+        with tarfile.open(fileobj=buffer, mode='w') as archive:
+            payload = b'opaque'
+            info = tarfile.TarInfo('../hidden.key')
+            info.size = len(payload)
+            archive.addfile(info, io.BytesIO(payload))
+        gz = gzip.compress(buffer.getvalue())
+        path = 'packs/de_archive.pack.gz'
+        digest = hashlib.sha256(gz).hexdigest()
+        self.stage(path, gz)
+        self.stage('manifest.json', json.dumps({'languages': [
+            {'pack_file': 'de_archive.pack.gz', 'sha256': digest}]}).encode())
+        self.stage('tools/public_safety/provenance.json', json.dumps({
+            'exports': {path: {'sha256': digest, 'license': 'CC0-1.0',
+                               'source': 'https://example.invalid/fixture',
+                               'rights_holder': 'Test', 'attribution': 'Test'}}}).encode())
+        result = self.scan()
+        self.assertEqual(result.state, 'FAIL')
+        self.assertIn('UNSAFE_ARCHIVE_MEMBER', result.public_report())
+
+    def test_private_repository_path_inside_document_is_rejected(self):
+        value = 'android/' + 'app/build.gradle'
+        self.stage('docs/handoff.md', value.encode())
+        self.assertEqual(self.scan().state, 'FAIL')
+
     def test_pii_fields_rejected(self):
         self.stage('catalog/snapshot.json', b'{"user_id":"fictional-user"}')
         self.assertEqual(self.scan().state, 'FAIL')
