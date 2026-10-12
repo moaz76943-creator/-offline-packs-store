@@ -97,7 +97,7 @@ def build(document, output, *, publication=False):
                       for level in sense.get('levels', []) if level['framework_id'] == 'cefr']
             cefr = levels[0] if len(set(levels)) == 1 and levels else None
             rank = None  # Ordinal rank is NOT inferred from frequency scores.
-            direction = row.get('direction', {'Arab': 'rtl', 'Hebr': 'rtl'}.get(row['script'], 'ltr'))
+            direction = row['direction']  # Explicitly attested; never guess script layout.
             conn.execute('''INSERT INTO lexicon
                 (id,surface,part_of_speech,pos,direction,language_code,script,dialect,
                  sort_key,cefr_level,frequency_rank,fields_json,source_json)
