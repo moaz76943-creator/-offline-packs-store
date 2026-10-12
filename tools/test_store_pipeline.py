@@ -64,6 +64,28 @@ class StorePipelineTest(unittest.TestCase):
         self.assertEqual(self.manifest.read_bytes(), previous)
         self.assertEqual((self.packs / 'de-1.0.0.pack.gz').read_bytes(), packed)
 
+    def test_canonical_json(self):
+        import tools.compile_store_packs as compile_store_packs
+
+        # Test basic formatting and keys sorting
+        result = compile_store_packs.canonical_json({"b": 2, "a": 1})
+        self.assertEqual(result, b'{"a":1,"b":2}\n')
+
+        # Test ensure_ascii=False
+        result_unicode = compile_store_packs.canonical_json({"key": "üñîçøđé"})
+        self.assertEqual(result_unicode, '{"key":"üñîçøđé"}\n'.encode('utf-8'))
+
+        # Test separators=(',', ':') (no spaces)
+        result_separators = compile_store_packs.canonical_json({"a": 1, "b": 2})
+        self.assertEqual(result_separators, b'{"a":1,"b":2}\n')
+        self.assertNotIn(b' ', result_separators)
+
+        # Test allow_nan=False
+        with self.assertRaises(ValueError):
+            compile_store_packs.canonical_json({"a": float('nan')})
+        with self.assertRaises(ValueError):
+            compile_store_packs.canonical_json({"a": float('inf')})
+
 
 if __name__ == '__main__':
     unittest.main()
