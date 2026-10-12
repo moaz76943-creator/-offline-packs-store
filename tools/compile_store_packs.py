@@ -226,12 +226,15 @@ def compile_one(source, language, legacy, work_dir):
                  row_direction, raw, cefr, rank, sort_key))
             db.execute('INSERT INTO lexicon_fts(rowid,surface,translation_ar) VALUES (?,?,?)',
                        (inserted.lastrowid, entry['surface'], arabic_translations(fields)))
+        concept_tuples = []
         for entry in sorted(concepts, key=lambda item: required_text(item.get('concept_id'), 'concept_id')):
             if not isinstance(entry, dict):
                 raise ValueError(f'{language}: malformed concept row')
-            db.execute('INSERT INTO concepts VALUES (?,?,?,?)', (
+            concept_tuples.append((
                 required_text(entry.get('concept_id'), 'concept_id'),
-                *[entry.get(key) for key in ('lemma', 'part_of_speech', 'cefr')]))
+                *[entry.get(key) for key in ('lemma', 'part_of_speech', 'cefr')]
+            ))
+        db.executemany('INSERT INTO concepts VALUES (?,?,?,?)', concept_tuples)
         db.execute("INSERT INTO lexicon_fts(lexicon_fts) VALUES('integrity-check')")
         if db.execute('SELECT COUNT(*) FROM lexicon_fts').fetchone()[0] != len(lexicon):
             raise ValueError(f'{language}: FTS5 row count mismatch')
