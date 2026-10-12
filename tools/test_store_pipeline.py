@@ -65,5 +65,71 @@ class StorePipelineTest(unittest.TestCase):
         self.assertEqual((self.packs / 'de-1.0.0.pack.gz').read_bytes(), packed)
 
 
+from tools.compile_store_packs import compile_one, VERSION, SCHEMA_VERSION, FORMAT, REPO_CDN
+
+class CompileOneTest(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.work_dir = Path(self.temp.name)
+
+    def _create_source(self, data, filename="test.json"):
+        path = self.work_dir / filename
+        path.write_text(json.dumps(data, ensure_ascii=False))
+        return path
+
+    def test_empty_lexicon_raises_value_error(self):
+        source = self._create_source({"languageCode": "xx", "lexicon": []})
+        with self.assertRaisesRegex(ValueError, "refusing to publish an empty lexicon"):
+            compile_one(source, "xx", {}, self.work_dir)
+
+    def test_missing_direction_raises_value_error(self):
+        source = self._create_source({
+            "languageCode": "xx",
+            "displayName": "Test",
+            "lexicon": [{"id": "1", "surface": "word", "part_of_speech": "noun", "fields_json": {}}]
+        })
+        with self.assertRaisesRegex(ValueError, "direction must be declared as ltr or rtl"):
+            compile_one(source, "xx", {}, self.work_dir)
+
+    def test_compile_one_happy_path(self):
+        source = self._create_source({
+            "languageCode": "xx",
+            "displayName": "Test Language",
+            "direction": "ltr",
+            "lexicon": [
+                {
+                    "id": "1",
+                    "surface": "hello",
+                    "part_of_speech": "noun",
+                    "fields_json": {"translation": "مرحبا", "translationLanguageCode": "ar"}
+                }
+            ],
+            "concepts": [
+                {
+                    "concept_id": "c1",
+                    "lemma": "hello",
+                    "part_of_speech": "noun",
+                    "cefr": "A1"
+                }
+            ]
+        })
+        archive_bytes, record = compile_one(source, "xx", {}, self.work_dir)
+
+        self.assertIsInstance(archive_bytes, bytes)
+        self.assertTrue(archive_bytes.startswith(b'\x1f\x8b')) # gzip magic number
+
+        envelope = json.loads(gzip.decompress(archive_bytes).decode('utf-8'))
+        self.assertEqual(envelope['packId'], 'xx')
+
+        files = {f['path']: f['contentBase64'] for f in envelope['files']}
+        self.assertIn('content/content.sqlite', files)
+        self.assertIn('metadata/pack.json', files)
+
+        self.assertEqual(record['id'], 'xx')
+        self.assertEqual(record['displayName'], 'Test Language')
+        self.assertEqual(record['archiveUrl'], f'{REPO_CDN}/xx-{VERSION}.pack.gz')
+
+
 if __name__ == '__main__':
     unittest.main()
