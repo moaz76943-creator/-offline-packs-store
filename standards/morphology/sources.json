@@ -1,0 +1,73 @@
+{
+  "evidence_schema_version": "1.0.0",
+  "checked_on": "2026-10-12",
+  "data_policy": "Independent factual attestations only; no bulk copying of source paradigms or proprietary analyzer code. Source pages remain governed by their own terms.",
+  "sources": {
+    "wiktionary-de-buch": {
+      "publisher": "Wiktionary contributors",
+      "url": "https://de.wiktionary.org/wiki/Buch",
+      "license": "CC BY-SA (site content; verify per reuse)",
+      "verified": "2026-10-12"
+    },
+    "wiktionary-de-gehen": {
+      "publisher": "Wiktionary contributors",
+      "url": "https://de.wiktionary.org/wiki/gehen",
+      "license": "CC BY-SA (site content; verify per reuse)",
+      "verified": "2026-10-12"
+    },
+    "wiktionary-ar-kitab": {
+      "publisher": "Wiktionary contributors",
+      "url": "https://en.wiktionary.org/wiki/كتاب",
+      "license": "CC BY-SA (site content; verify per reuse)",
+      "verified": "2026-10-12"
+    },
+    "wiktionary-ar-rijal": {
+      "publisher": "Wiktionary contributors",
+      "url": "https://en.wiktionary.org/wiki/رجال",
+      "license": "CC BY-SA (site content; verify per reuse)",
+      "verified": "2026-10-12"
+    },
+    "wiktionary-en-mouse": {
+      "publisher": "Wiktionary contributors",
+      "url": "https://en.wiktionary.org/wiki/mouse",
+      "license": "CC BY-SA (site content; verify per reuse)",
+      "verified": "2026-10-12"
+    },
+    "wiktionary-en-go": {
+      "publisher": "Wiktionary contributors",
+      "url": "https://en.wiktionary.org/wiki/go",
+      "license": "CC BY-SA (site content; verify per reuse)",
+      "verified": "2026-10-12"
+    },
+    "wiktionary-en-take-off": {
+      "publisher": "Wiktionary contributors",
+      "url": "https://en.wiktionary.org/wiki/take_off",
+      "license": "CC BY-SA (site content; verify per reuse)",
+      "verified": "2026-10-12"
+    },
+    "reverso-es-hablar": {
+      "publisher": "Reverso",
+      "url": "https://conjugador.reverso.net/conjugacion-espanol-verbo-hablar.html",
+      "license": "Reference only; no republication of protected tables",
+      "verified": "2026-10-12"
+    },
+    "wiktionary-es-bonito": {
+      "publisher": "Wiktionary contributors",
+      "url": "https://en.wiktionary.org/wiki/bonito",
+      "license": "CC BY-SA (site content; verify per reuse)",
+      "verified": "2026-10-12"
+    },
+    "larousse-fr-manger": {
+      "publisher": "Larousse",
+      "url": "https://www.larousse.fr/conjugaison/francais/manger/5950",
+      "license": "Reference only; no republication of protected tables",
+      "verified": "2026-10-12"
+    },
+    "larousse-fr-avoir": {
+      "publisher": "Larousse",
+      "url": "https://www.larousse.fr/conjugaison/francais/avoir/749",
+      "license": "Reference only; no republication of protected tables",
+      "verified": "2026-10-12"
+    }
+  }
+}
