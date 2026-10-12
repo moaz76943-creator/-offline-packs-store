@@ -47,6 +47,13 @@ class TaxonomyValidationTests(unittest.TestCase):
         self.assertEqual("rtl", r["scripts"]["Hebr"]["direction"])
         self.assertEqual([], validate(r,c,m))
 
+    def test_mongolian_script_has_vertical_primary_direction(self):
+        r, c, m = fixture()
+        r["scripts"]["Mong"] = {"name":"Mongolian","direction":"ttb-ltr"}
+        self.assertEqual([], validate(r,c,m))
+        r["scripts"]["Mong"]["direction"] = "ltr"
+        self.assertTrue(any("vertical script-direction mismatch: Mong" in s for s in validate(r,c,m)))
+
     def test_alias_and_variant_collision(self):
         r, c, m = fixture()
         r["aliases"].append({"from":"aa-Latn","to":"aa","lossy":True,"status":"migration_review_required"})
