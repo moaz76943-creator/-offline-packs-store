@@ -1,0 +1,3540 @@
+{
+  "schema_version": "1.0.0",
+  "source": {
+    "repository": "moaz76943-creator/-offline-packs-store",
+    "manifest_path": "manifest.json",
+    "reviewed_head_sha": "bb15e9f02b216bbcb62a254d4a5bd695d405e9d5",
+    "selection_policy": "preserve_all_100_published_stable_ids"
+  },
+  "scripts": {
+    "Latn": {
+      "name": "Latin",
+      "direction": "ltr"
+    },
+    "Cyrl": {
+      "name": "Cyrillic",
+      "direction": "ltr"
+    },
+    "Arab": {
+      "name": "Arabic",
+      "direction": "rtl"
+    },
+    "Hebr": {
+      "name": "Hebrew",
+      "direction": "rtl"
+    },
+    "Grek": {
+      "name": "Greek",
+      "direction": "ltr"
+    },
+    "Armn": {
+      "name": "Armenian",
+      "direction": "ltr"
+    },
+    "Geor": {
+      "name": "Georgian",
+      "direction": "ltr"
+    },
+    "Hans": {
+      "name": "Han (simplified)",
+      "direction": "ltr"
+    },
+    "Hant": {
+      "name": "Han (traditional)",
+      "direction": "ltr"
+    },
+    "Jpan": {
+      "name": "Japanese",
+      "direction": "ltr"
+    },
+    "Kore": {
+      "name": "Korean",
+      "direction": "ltr"
+    },
+    "Deva": {
+      "name": "Devanagari",
+      "direction": "ltr"
+    },
+    "Beng": {
+      "name": "Bengali",
+      "direction": "ltr"
+    },
+    "Guru": {
+      "name": "Gurmukhi",
+      "direction": "ltr"
+    },
+    "Gujr": {
+      "name": "Gujarati",
+      "direction": "ltr"
+    },
+    "Taml": {
+      "name": "Tamil",
+      "direction": "ltr"
+    },
+    "Telu": {
+      "name": "Telugu",
+      "direction": "ltr"
+    },
+    "Knda": {
+      "name": "Kannada",
+      "direction": "ltr"
+    },
+    "Mlym": {
+      "name": "Malayalam",
+      "direction": "ltr"
+    },
+    "Orya": {
+      "name": "Odia",
+      "direction": "ltr"
+    },
+    "Sinh": {
+      "name": "Sinhala",
+      "direction": "ltr"
+    },
+    "Thai": {
+      "name": "Thai",
+      "direction": "ltr"
+    },
+    "Laoo": {
+      "name": "Lao",
+      "direction": "ltr"
+    },
+    "Khmr": {
+      "name": "Khmer",
+      "direction": "ltr"
+    },
+    "Mymr": {
+      "name": "Myanmar",
+      "direction": "ltr"
+    },
+    "Ethi": {
+      "name": "Ethiopic",
+      "direction": "ltr"
+    },
+    "Mong": {
+      "name": "Mongolian",
+      "direction": "ltr"
+    },
+    "Thaa": {
+      "name": "Thaana",
+      "direction": "rtl"
+    },
+    "Nkoo": {
+      "name": "NKo",
+      "direction": "rtl"
+    },
+    "Adlm": {
+      "name": "Adlam",
+      "direction": "rtl"
+    },
+    "Syrc": {
+      "name": "Syriac",
+      "direction": "rtl"
+    }
+  },
+  "frameworks": {
+    "CEFR": {
+      "name": "Common European Framework of Reference",
+      "scale_type": "general",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "note": "Reference proficiency scale; not a claim of certified content"
+    },
+    "JLPT": {
+      "name": "Japanese-Language Proficiency Test",
+      "scale_type": "language_specific",
+      "levels": [
+        "N5",
+        "N4",
+        "N3",
+        "N2",
+        "N1"
+      ],
+      "note": "Separate from CEFR; no automatic level equivalence"
+    },
+    "HSK": {
+      "name": "Hanyu Shuiping Kaoshi",
+      "scale_type": "language_specific",
+      "levels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7-9"
+      ],
+      "note": "Published HSK levels; version-specific assessment and mappings require review"
+    },
+    "TOPIK": {
+      "name": "Test of Proficiency in Korean",
+      "scale_type": "language_specific",
+      "levels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "note": "Separate from CEFR; no automatic level equivalence"
+    }
+  },
+  "languages": [
+    {
+      "id": "ar",
+      "native_name": "العربية",
+      "display_names": {
+        "en": "Arabic",
+        "ar": "العربية"
+      },
+      "family": "Semitic",
+      "default_script": "Arab",
+      "scripts": [
+        "Arab"
+      ],
+      "regions": [
+        "EG",
+        "SA",
+        "MA"
+      ],
+      "dialects": [
+        {
+          "name": "Egyptian Arabic",
+          "related_language_tag": "arz",
+          "relationship": "related_variety_not_compatibility_alias"
+        },
+        {
+          "name": "Moroccan Arabic",
+          "related_language_tag": "ary",
+          "relationship": "related_variety_not_compatibility_alias"
+        }
+      ],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "root_pattern",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "de",
+      "native_name": "Deutsch",
+      "display_names": {
+        "en": "German",
+        "ar": "الألمانية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "en",
+      "native_name": "English",
+      "display_names": {
+        "en": "English",
+        "ar": "الإنجليزية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [
+        "US",
+        "GB"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "es",
+      "native_name": "Español",
+      "display_names": {
+        "en": "Spanish",
+        "ar": "الإسبانية"
+      },
+      "family": "Romance",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [
+        "ES",
+        "MX"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "fr",
+      "native_name": "Français",
+      "display_names": {
+        "en": "French",
+        "ar": "الفرنسية"
+      },
+      "family": "Romance",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "it",
+      "native_name": "Italiano",
+      "display_names": {
+        "en": "Italian",
+        "ar": "الإيطالية"
+      },
+      "family": "Romance",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "tr",
+      "native_name": "Türkçe",
+      "display_names": {
+        "en": "Turkish",
+        "ar": "التركية"
+      },
+      "family": "Turkic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ru",
+      "native_name": "Русский",
+      "display_names": {
+        "en": "Russian",
+        "ar": "الروسية"
+      },
+      "family": "Slavic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "zh",
+      "native_name": "中文",
+      "display_names": {
+        "en": "Chinese",
+        "ar": "الصينية"
+      },
+      "family": "Sinitic",
+      "default_script": "Hans",
+      "scripts": [
+        "Hans",
+        "Hant"
+      ],
+      "regions": [
+        "CN",
+        "TW"
+      ],
+      "dialects": [
+        {
+          "name": "Cantonese",
+          "related_language_tag": "yue",
+          "relationship": "distinct_language_not_alias"
+        },
+        {
+          "name": "Mandarin Chinese",
+          "related_language_tag": "cmn",
+          "relationship": "related_variety_not_alias"
+        }
+      ],
+      "morphology": {
+        "features": [
+          "number",
+          "aspect",
+          "classifiers",
+          "tones",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "HSK"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ja",
+      "native_name": "日本語",
+      "display_names": {
+        "en": "Japanese",
+        "ar": "اليابانية"
+      },
+      "family": "Japonic",
+      "default_script": "Jpan",
+      "scripts": [
+        "Jpan"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection",
+          "agglutination",
+          "aspect",
+          "classifiers",
+          "honorifics"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "JLPT"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ko",
+      "native_name": "한국어",
+      "display_names": {
+        "en": "Korean",
+        "ar": "الكورية"
+      },
+      "family": "Koreanic",
+      "default_script": "Kore",
+      "scripts": [
+        "Kore"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection",
+          "agglutination",
+          "aspect",
+          "classifiers",
+          "honorifics"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "TOPIK"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "pt",
+      "native_name": "Português",
+      "display_names": {
+        "en": "Portuguese",
+        "ar": "البرتغالية"
+      },
+      "family": "Romance",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [
+        "PT",
+        "BR"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "nl",
+      "native_name": "Nederlands",
+      "display_names": {
+        "en": "Dutch",
+        "ar": "الهولندية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "pl",
+      "native_name": "Polski",
+      "display_names": {
+        "en": "Polish",
+        "ar": "البولندية"
+      },
+      "family": "Slavic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "sv",
+      "native_name": "Svenska",
+      "display_names": {
+        "en": "Swedish",
+        "ar": "السويدية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "no",
+      "native_name": "Norsk",
+      "display_names": {
+        "en": "Norwegian",
+        "ar": "النرويجية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [
+        "NO"
+      ],
+      "dialects": [
+        {
+          "name": "Norwegian Bokmål",
+          "related_language_tag": "nb",
+          "relationship": "distinct_standard"
+        },
+        {
+          "name": "Norwegian Nynorsk",
+          "related_language_tag": "nn",
+          "relationship": "distinct_standard"
+        }
+      ],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "da",
+      "native_name": "Dansk",
+      "display_names": {
+        "en": "Danish",
+        "ar": "الدنماركية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "fi",
+      "native_name": "Suomi",
+      "display_names": {
+        "en": "Finnish",
+        "ar": "الفنلندية"
+      },
+      "family": "Uralic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "el",
+      "native_name": "Ελληνικά",
+      "display_names": {
+        "en": "Greek",
+        "ar": "اليونانية"
+      },
+      "family": "Hellenic",
+      "default_script": "Grek",
+      "scripts": [
+        "Grek"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "hi",
+      "native_name": "हिन्दी",
+      "display_names": {
+        "en": "Hindi",
+        "ar": "الهندية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Deva",
+      "scripts": [
+        "Deva"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect",
+          "honorifics"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ur",
+      "native_name": "اردو",
+      "display_names": {
+        "en": "Urdu",
+        "ar": "الأردية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Arab",
+      "scripts": [
+        "Arab"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect",
+          "honorifics"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "fa",
+      "native_name": "فارسی",
+      "display_names": {
+        "en": "Persian",
+        "ar": "الفارسية"
+      },
+      "family": "Iranian",
+      "default_script": "Arab",
+      "scripts": [
+        "Arab"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection",
+          "aspect",
+          "honorifics"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "id",
+      "native_name": "Bahasa Indonesia",
+      "display_names": {
+        "en": "Indonesian",
+        "ar": "الإندونيسية"
+      },
+      "family": "Austronesian",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "classifiers",
+          "honorifics",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ms",
+      "native_name": "Bahasa Melayu",
+      "display_names": {
+        "en": "Malay",
+        "ar": "الملايوية"
+      },
+      "family": "Austronesian",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "classifiers",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "vi",
+      "native_name": "Tiếng Việt",
+      "display_names": {
+        "en": "Vietnamese",
+        "ar": "الفيتنامية"
+      },
+      "family": "Austroasiatic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "classifiers",
+          "tones",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "th",
+      "native_name": "ไทย",
+      "display_names": {
+        "en": "Thai",
+        "ar": "التايلاندية"
+      },
+      "family": "Kra-Dai",
+      "default_script": "Thai",
+      "scripts": [
+        "Thai"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "classifiers",
+          "tones",
+          "honorifics",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "bn",
+      "native_name": "বাংলা",
+      "display_names": {
+        "en": "Bengali",
+        "ar": "البنغالية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Beng",
+      "scripts": [
+        "Beng"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "honorifics"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "pa",
+      "native_name": "ਪੰਜਾਬੀ",
+      "display_names": {
+        "en": "Punjabi",
+        "ar": "البنجابية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Guru",
+      "scripts": [
+        "Guru",
+        "Arab"
+      ],
+      "regions": [
+        "IN",
+        "PK"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "honorifics"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ta",
+      "native_name": "தமிழ்",
+      "display_names": {
+        "en": "Tamil",
+        "ar": "التاميلية"
+      },
+      "family": "Dravidian",
+      "default_script": "Taml",
+      "scripts": [
+        "Taml"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "te",
+      "native_name": "తెలుగు",
+      "display_names": {
+        "en": "Telugu",
+        "ar": "التيلوغوية"
+      },
+      "family": "Dravidian",
+      "default_script": "Telu",
+      "scripts": [
+        "Telu"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "mr",
+      "native_name": "मराठी",
+      "display_names": {
+        "en": "Marathi",
+        "ar": "الماراثية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Deva",
+      "scripts": [
+        "Deva"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "gu",
+      "native_name": "ગુજરાતી",
+      "display_names": {
+        "en": "Gujarati",
+        "ar": "الغوجاراتية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Gujr",
+      "scripts": [
+        "Gujr"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "uk",
+      "native_name": "Українська",
+      "display_names": {
+        "en": "Ukrainian",
+        "ar": "الأوكرانية"
+      },
+      "family": "Slavic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "cs",
+      "native_name": "Čeština",
+      "display_names": {
+        "en": "Czech",
+        "ar": "التشيكية"
+      },
+      "family": "Slavic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ro",
+      "native_name": "Română",
+      "display_names": {
+        "en": "Romanian",
+        "ar": "الرومانية"
+      },
+      "family": "Romance",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "hu",
+      "native_name": "Magyar",
+      "display_names": {
+        "en": "Hungarian",
+        "ar": "المجرية"
+      },
+      "family": "Uralic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "bg",
+      "native_name": "Български",
+      "display_names": {
+        "en": "Bulgarian",
+        "ar": "البلغارية"
+      },
+      "family": "Slavic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "sk",
+      "native_name": "Slovenčina",
+      "display_names": {
+        "en": "Slovak",
+        "ar": "السلوفاكية"
+      },
+      "family": "Slavic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "hr",
+      "native_name": "Hrvatski",
+      "display_names": {
+        "en": "Croatian",
+        "ar": "الكرواتية"
+      },
+      "family": "Slavic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "sr",
+      "native_name": "Српски",
+      "display_names": {
+        "en": "Serbian",
+        "ar": "الصربية"
+      },
+      "family": "Slavic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "regions": [
+        "RS"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "bs",
+      "native_name": "Bosanski",
+      "display_names": {
+        "en": "Bosnian",
+        "ar": "البوسنية"
+      },
+      "family": "Slavic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn",
+        "Cyrl"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "sq",
+      "native_name": "Shqip",
+      "display_names": {
+        "en": "Albanian",
+        "ar": "الألبانية"
+      },
+      "family": "Albanian",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "hy",
+      "native_name": "Հայերեն",
+      "display_names": {
+        "en": "Armenian",
+        "ar": "الأرمنية"
+      },
+      "family": "Armenian",
+      "default_script": "Armn",
+      "scripts": [
+        "Armn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ka",
+      "native_name": "ქართული",
+      "display_names": {
+        "en": "Georgian",
+        "ar": "الجورجية"
+      },
+      "family": "Kartvelian",
+      "default_script": "Geor",
+      "scripts": [
+        "Geor"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "az",
+      "native_name": "Azərbaycan",
+      "display_names": {
+        "en": "Azerbaijani",
+        "ar": "الأذربيجانية"
+      },
+      "family": "Turkic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn",
+        "Cyrl",
+        "Arab"
+      ],
+      "regions": [
+        "AZ"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "kk",
+      "native_name": "Қазақша",
+      "display_names": {
+        "en": "Kazakh",
+        "ar": "الكازاخية"
+      },
+      "family": "Turkic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl",
+        "Latn",
+        "Arab"
+      ],
+      "regions": [
+        "KZ",
+        "CN"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "uz",
+      "native_name": "Oʻzbekcha",
+      "display_names": {
+        "en": "Uzbek",
+        "ar": "الأوزبكية"
+      },
+      "family": "Turkic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn",
+        "Cyrl"
+      ],
+      "regions": [
+        "UZ"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "sw",
+      "native_name": "Kiswahili",
+      "display_names": {
+        "en": "Swahili",
+        "ar": "السواحيلية"
+      },
+      "family": "Bantu",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "noun_classes",
+          "number",
+          "inflection",
+          "agglutination",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "tl",
+      "native_name": "Tagalog",
+      "display_names": {
+        "en": "Tagalog",
+        "ar": "التاغالوغية"
+      },
+      "family": "Austronesian",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [
+        "PH"
+      ],
+      "dialects": [
+        {
+          "name": "Filipino",
+          "related_language_tag": "fil",
+          "relationship": "related_standard_not_exact_synonym"
+        }
+      ],
+      "morphology": {
+        "features": [
+          "number",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "af",
+      "native_name": "Afrikaans",
+      "display_names": {
+        "en": "Afrikaans",
+        "ar": "الأفريقانية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "et",
+      "native_name": "Eesti",
+      "display_names": {
+        "en": "Estonian",
+        "ar": "الإستونية"
+      },
+      "family": "Uralic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "lv",
+      "native_name": "Latviešu",
+      "display_names": {
+        "en": "Latvian",
+        "ar": "اللاتفية"
+      },
+      "family": "Baltic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "lt",
+      "native_name": "Lietuvių",
+      "display_names": {
+        "en": "Lithuanian",
+        "ar": "الليتوانية"
+      },
+      "family": "Baltic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "sl",
+      "native_name": "Slovenščina",
+      "display_names": {
+        "en": "Slovenian",
+        "ar": "السلوفينية"
+      },
+      "family": "Slavic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "mk",
+      "native_name": "Македонски",
+      "display_names": {
+        "en": "Macedonian",
+        "ar": "المقدونية"
+      },
+      "family": "Slavic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "is",
+      "native_name": "Íslenska",
+      "display_names": {
+        "en": "Icelandic",
+        "ar": "الآيسلندية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ga",
+      "native_name": "Gaeilge",
+      "display_names": {
+        "en": "Irish",
+        "ar": "الأيرلندية"
+      },
+      "family": "Celtic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "cy",
+      "native_name": "Cymraeg",
+      "display_names": {
+        "en": "Welsh",
+        "ar": "الويلزية"
+      },
+      "family": "Celtic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "eu",
+      "native_name": "Euskara",
+      "display_names": {
+        "en": "Basque",
+        "ar": "الباسكية"
+      },
+      "family": "Isolate",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ca",
+      "native_name": "Català",
+      "display_names": {
+        "en": "Catalan",
+        "ar": "الكتالونية"
+      },
+      "family": "Romance",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "gl",
+      "native_name": "Galego",
+      "display_names": {
+        "en": "Galician",
+        "ar": "الجاليكية"
+      },
+      "family": "Romance",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "be",
+      "native_name": "Беларуская",
+      "display_names": {
+        "en": "Belarusian",
+        "ar": "البيلاروسية"
+      },
+      "family": "Slavic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "mn",
+      "native_name": "Монгол",
+      "display_names": {
+        "en": "Mongolian",
+        "ar": "المنغولية"
+      },
+      "family": "Mongolic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl",
+        "Mong"
+      ],
+      "regions": [
+        "MN",
+        "CN"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ne",
+      "native_name": "नेपाली",
+      "display_names": {
+        "en": "Nepali",
+        "ar": "النيبالية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Deva",
+      "scripts": [
+        "Deva"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "honorifics"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "si",
+      "native_name": "සිංහල",
+      "display_names": {
+        "en": "Sinhala",
+        "ar": "السنهالية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Sinh",
+      "scripts": [
+        "Sinh"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "my",
+      "native_name": "မြန်မာဘာသာ",
+      "display_names": {
+        "en": "Burmese",
+        "ar": "البورمية"
+      },
+      "family": "Sino-Tibetan",
+      "default_script": "Mymr",
+      "scripts": [
+        "Mymr"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "classifiers",
+          "tones",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "km",
+      "native_name": "ភាសាខ្មែរ",
+      "display_names": {
+        "en": "Khmer",
+        "ar": "الخميرية"
+      },
+      "family": "Austroasiatic",
+      "default_script": "Khmr",
+      "scripts": [
+        "Khmr"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "classifiers",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "lo",
+      "native_name": "ພາສາລາວ",
+      "display_names": {
+        "en": "Lao",
+        "ar": "اللاوية"
+      },
+      "family": "Kra-Dai",
+      "default_script": "Laoo",
+      "scripts": [
+        "Laoo"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "classifiers",
+          "tones",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "am",
+      "native_name": "አማርኛ",
+      "display_names": {
+        "en": "Amharic",
+        "ar": "الأمهرية"
+      },
+      "family": "Semitic",
+      "default_script": "Ethi",
+      "scripts": [
+        "Ethi"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "root_pattern",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "so",
+      "native_name": "Soomaali",
+      "display_names": {
+        "en": "Somali",
+        "ar": "الصومالية"
+      },
+      "family": "Cushitic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ha",
+      "native_name": "Hausa",
+      "display_names": {
+        "en": "Hausa",
+        "ar": "الهوسا"
+      },
+      "family": "Chadic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn",
+        "Arab"
+      ],
+      "regions": [
+        "NG",
+        "NE"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "tones"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "yo",
+      "native_name": "Yorùbá",
+      "display_names": {
+        "en": "Yoruba",
+        "ar": "اليوروبا"
+      },
+      "family": "Volta-Niger",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "tones",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ig",
+      "native_name": "Asụsụ Igbo",
+      "display_names": {
+        "en": "Igbo",
+        "ar": "الإيغبو"
+      },
+      "family": "Volta-Niger",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "tones",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "zu",
+      "native_name": "isiZulu",
+      "display_names": {
+        "en": "Zulu",
+        "ar": "الزولو"
+      },
+      "family": "Bantu",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "noun_classes",
+          "number",
+          "inflection",
+          "agglutination",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "xh",
+      "native_name": "isiXhosa",
+      "display_names": {
+        "en": "Xhosa",
+        "ar": "الخوسا"
+      },
+      "family": "Bantu",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "noun_classes",
+          "number",
+          "inflection",
+          "agglutination",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "sn",
+      "native_name": "chiShona",
+      "display_names": {
+        "en": "Shona",
+        "ar": "الشونا"
+      },
+      "family": "Bantu",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "noun_classes",
+          "number",
+          "inflection",
+          "agglutination",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "rw",
+      "native_name": "Ikinyarwanda",
+      "display_names": {
+        "en": "Kinyarwanda",
+        "ar": "الكينيارواندية"
+      },
+      "family": "Bantu",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "noun_classes",
+          "number",
+          "inflection",
+          "agglutination",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "mg",
+      "native_name": "Malagasy",
+      "display_names": {
+        "en": "Malagasy",
+        "ar": "الملغاشية"
+      },
+      "family": "Austronesian",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "analytic"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "eo",
+      "native_name": "Esperanto",
+      "display_names": {
+        "en": "Esperanto",
+        "ar": "الإسبرانتو"
+      },
+      "family": "Constructed",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "la",
+      "native_name": "Latina",
+      "display_names": {
+        "en": "Latin",
+        "ar": "اللاتينية"
+      },
+      "family": "Italic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "kn",
+      "native_name": "ಕನ್ನಡ",
+      "display_names": {
+        "en": "Kannada",
+        "ar": "الكانادا"
+      },
+      "family": "Dravidian",
+      "default_script": "Knda",
+      "scripts": [
+        "Knda"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ml",
+      "native_name": "മലയാളം",
+      "display_names": {
+        "en": "Malayalam",
+        "ar": "المالايالامية"
+      },
+      "family": "Dravidian",
+      "default_script": "Mlym",
+      "scripts": [
+        "Mlym"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "or",
+      "native_name": "ଓଡ଼ିଆ",
+      "display_names": {
+        "en": "Odia",
+        "ar": "الأوديا"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Orya",
+      "scripts": [
+        "Orya"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "as",
+      "native_name": "অসমীয়া",
+      "display_names": {
+        "en": "Assamese",
+        "ar": "الآسامية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Beng",
+      "scripts": [
+        "Beng"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "sd",
+      "native_name": "سنڌي",
+      "display_names": {
+        "en": "Sindhi",
+        "ar": "السندية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Arab",
+      "scripts": [
+        "Arab",
+        "Deva"
+      ],
+      "regions": [
+        "PK",
+        "IN"
+      ],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ps",
+      "native_name": "پښتو",
+      "display_names": {
+        "en": "Pashto",
+        "ar": "البشتوية"
+      },
+      "family": "Iranian",
+      "default_script": "Arab",
+      "scripts": [
+        "Arab"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "case",
+          "number",
+          "inflection",
+          "aspect"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ku",
+      "native_name": "Kurdî",
+      "display_names": {
+        "en": "Kurdish",
+        "ar": "الكردية"
+      },
+      "family": "Iranian",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn",
+        "Arab"
+      ],
+      "regions": [
+        "TR",
+        "IQ",
+        "IR",
+        "SY"
+      ],
+      "dialects": [
+        {
+          "name": "Northern Kurdish (Kurmanji)",
+          "related_language_tag": "kmr",
+          "relationship": "distinct_variety"
+        },
+        {
+          "name": "Central Kurdish (Sorani)",
+          "related_language_tag": "ckb",
+          "relationship": "distinct_variety_not_script_alias"
+        }
+      ],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "tg",
+      "native_name": "Тоҷикӣ",
+      "display_names": {
+        "en": "Tajik",
+        "ar": "الطاجيكية"
+      },
+      "family": "Iranian",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl",
+        "Arab"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "tk",
+      "native_name": "Türkmençe",
+      "display_names": {
+        "en": "Turkmen",
+        "ar": "التركمانية"
+      },
+      "family": "Turkic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn",
+        "Cyrl"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ky",
+      "native_name": "Кыргызча",
+      "display_names": {
+        "en": "Kyrgyz",
+        "ar": "القيرغيزية"
+      },
+      "family": "Turkic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "tt",
+      "native_name": "Татарча",
+      "display_names": {
+        "en": "Tatar",
+        "ar": "التترية"
+      },
+      "family": "Turkic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ba",
+      "native_name": "Башҡортса",
+      "display_names": {
+        "en": "Bashkir",
+        "ar": "الباشكيرية"
+      },
+      "family": "Turkic",
+      "default_script": "Cyrl",
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "ug",
+      "native_name": "ئۇيغۇرچە",
+      "display_names": {
+        "en": "Uyghur",
+        "ar": "الأويغورية"
+      },
+      "family": "Turkic",
+      "default_script": "Arab",
+      "scripts": [
+        "Arab",
+        "Cyrl"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "case",
+          "number",
+          "inflection",
+          "agglutination"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "dv",
+      "native_name": "ދިވެހި",
+      "display_names": {
+        "en": "Divehi",
+        "ar": "الديفيهية"
+      },
+      "family": "Indo-Aryan",
+      "default_script": "Thaa",
+      "scripts": [
+        "Thaa"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "mt",
+      "native_name": "Malti",
+      "display_names": {
+        "en": "Maltese",
+        "ar": "المالطية"
+      },
+      "family": "Semitic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "gender",
+          "number",
+          "root_pattern",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "lb",
+      "native_name": "Lëtzebuergesch",
+      "display_names": {
+        "en": "Luxembourgish",
+        "ar": "اللوكسمبورغية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "fo",
+      "native_name": "Føroyskt",
+      "display_names": {
+        "en": "Faroese",
+        "ar": "الفاروية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "fy",
+      "native_name": "Frysk",
+      "display_names": {
+        "en": "Western Frisian",
+        "ar": "الفريزية الغربية"
+      },
+      "family": "Germanic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "gd",
+      "native_name": "Gàidhlig",
+      "display_names": {
+        "en": "Scottish Gaelic",
+        "ar": "الغيلية الإسكتلندية"
+      },
+      "family": "Celtic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    },
+    {
+      "id": "br",
+      "native_name": "Brezhoneg",
+      "display_names": {
+        "en": "Breton",
+        "ar": "البريتونية"
+      },
+      "family": "Celtic",
+      "default_script": "Latn",
+      "scripts": [
+        "Latn"
+      ],
+      "regions": [],
+      "dialects": [],
+      "morphology": {
+        "features": [
+          "number",
+          "inflection"
+        ],
+        "review_status": "provisional"
+      },
+      "proficiency": {
+        "framework_ids": [
+          "CEFR"
+        ],
+        "mapping_status": "not_mapped"
+      }
+    }
+  ],
+  "aliases": [
+    {
+      "from": "nb",
+      "to": "no",
+      "kind": "norwegian_macrolanguage_fallback",
+      "lossy": true,
+      "status": "migration_review_required",
+      "note": "Bokmål and generic Norwegian are not fully interchangeable; nn is distinct"
+    },
+    {
+      "from": "fil",
+      "to": "tl",
+      "kind": "related_filipino_tagalog_standard_fallback",
+      "lossy": true,
+      "status": "migration_review_required",
+      "note": "Filipino and Tagalog must not be represented as strictly synonymous"
+    }
+  ],
+  "locale_variants": [
+    {
+      "tag": "zh-Hans",
+      "language_id": "zh",
+      "script": "Hans",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "zh-Hant",
+      "language_id": "zh",
+      "script": "Hant",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ku-Latn",
+      "language_id": "ku",
+      "script": "Latn",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ku-Arab",
+      "language_id": "ku",
+      "script": "Arab",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "pa-Guru",
+      "language_id": "pa",
+      "script": "Guru",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "pa-Arab",
+      "language_id": "pa",
+      "script": "Arab",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "sr-Cyrl",
+      "language_id": "sr",
+      "script": "Cyrl",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "sr-Latn",
+      "language_id": "sr",
+      "script": "Latn",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "az-Latn",
+      "language_id": "az",
+      "script": "Latn",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "az-Cyrl",
+      "language_id": "az",
+      "script": "Cyrl",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "az-Arab",
+      "language_id": "az",
+      "script": "Arab",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "kk-Cyrl",
+      "language_id": "kk",
+      "script": "Cyrl",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "kk-Latn",
+      "language_id": "kk",
+      "script": "Latn",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "kk-Arab",
+      "language_id": "kk",
+      "script": "Arab",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "uz-Latn",
+      "language_id": "uz",
+      "script": "Latn",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "uz-Cyrl",
+      "language_id": "uz",
+      "script": "Cyrl",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "mn-Cyrl",
+      "language_id": "mn",
+      "script": "Cyrl",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "mn-Mong",
+      "language_id": "mn",
+      "script": "Mong",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "sd-Arab",
+      "language_id": "sd",
+      "script": "Arab",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "sd-Deva",
+      "language_id": "sd",
+      "script": "Deva",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ha-Latn",
+      "language_id": "ha",
+      "script": "Latn",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ha-Arab",
+      "language_id": "ha",
+      "script": "Arab",
+      "region": null,
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "en-US",
+      "language_id": "en",
+      "script": null,
+      "region": "US",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "en-GB",
+      "language_id": "en",
+      "script": null,
+      "region": "GB",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "es-ES",
+      "language_id": "es",
+      "script": null,
+      "region": "ES",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "es-MX",
+      "language_id": "es",
+      "script": null,
+      "region": "MX",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "pt-BR",
+      "language_id": "pt",
+      "script": null,
+      "region": "BR",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "pt-PT",
+      "language_id": "pt",
+      "script": null,
+      "region": "PT",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "zh-CN",
+      "language_id": "zh",
+      "script": null,
+      "region": "CN",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "zh-TW",
+      "language_id": "zh",
+      "script": null,
+      "region": "TW",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ar-EG",
+      "language_id": "ar",
+      "script": null,
+      "region": "EG",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ar-SA",
+      "language_id": "ar",
+      "script": null,
+      "region": "SA",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ar-MA",
+      "language_id": "ar",
+      "script": null,
+      "region": "MA",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "pa-IN",
+      "language_id": "pa",
+      "script": null,
+      "region": "IN",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "pa-PK",
+      "language_id": "pa",
+      "script": null,
+      "region": "PK",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ku-TR",
+      "language_id": "ku",
+      "script": null,
+      "region": "TR",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "ku-IQ",
+      "language_id": "ku",
+      "script": null,
+      "region": "IQ",
+      "dialect": null,
+      "content_status": "unverified"
+    },
+    {
+      "tag": "no-NO",
+      "language_id": "no",
+      "script": null,
+      "region": "NO",
+      "dialect": null,
+      "content_status": "unverified"
+    }
+  ]
+}
