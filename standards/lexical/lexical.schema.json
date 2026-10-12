@@ -81,7 +81,7 @@
     },
     "lexeme": {
       "type": "object", "additionalProperties": false,
-      "required": ["lexeme_id", "language", "script", "lemma", "surface", "pos", "source"],
+      "required": ["lexeme_id", "language", "script", "lemma", "surface", "pos", "direction", "source"],
       "properties": {
         "lexeme_id": {"$ref": "#/$defs/id"},
         "language": {"$ref": "#/$defs/lang"},
