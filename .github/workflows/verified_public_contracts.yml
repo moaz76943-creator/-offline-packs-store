@@ -1,0 +1,63 @@
+# Public-only, fail-closed smoke gate. Does not ingest, sign or publish packs.
+name: Verified public corpus contracts (read-only)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '19 3 * * *'
+  pull_request:
+    paths:
+      - '.github/workflows/verified_public_contracts.yml'
+      - 'tools/compile_store_packs.py'
+      - 'tools/pack_v2/**'
+      - 'tools/test_store_pipeline.py'
+      - 'legal/ledger/sources.json'
+      - 'manifest.json'
+      - 'version.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-contracts-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Check manifest, identity and provenance state
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('.')
+          manifest = json.loads((root / 'manifest.json').read_text(encoding='utf-8'))
+          version = json.loads((root / 'version.json').read_text(encoding='utf-8'))
+          ledger = json.loads((root / 'legal/ledger/sources.json').read_text(encoding='utf-8'))
+          languages = manifest.get('languages', [])
+          codes = [x['code'] for x in languages]
+          assert len(codes) == 100 and len(set(codes)) == 100, 'expected exactly 100 unique registered language identities'
+          sources = ledger.get('sources', [])
+          packs = manifest.get('packs', [])
+          assert isinstance(sources, list) and isinstance(packs, list)
+          if not sources:
+              assert not packs and not version.get('packs'), 'production packs cannot exist with empty approved ledger'
+              assert version.get('release_status') == 'BLOCKED_DEPENDENCY', 'empty sources require blocked release'
+              print('BLOCKED_SOURCE: registry verified; zero published packs as required')
+          else:
+              print(f'SOURCE_LEDGER_PRESENT: {len(sources)} source entries; production readiness is not implied')
+          for language in languages:
+              if language.get('production_ready'):
+                  assert language.get('pack_verified') and language.get('content_available'), 'language falsely marked production-ready'
+          print('PASS: public manifest readiness is fail-closed')
+          PY
+
+      - name: Test SQLite v2 publisher with synthetic fixtures only
+        run: python3 tools/test_store_pipeline.py -q
