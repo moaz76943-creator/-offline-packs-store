@@ -4,8 +4,8 @@
   "store_version": "4.0.0",
   "total_languages": 100,
   "life_domains_count": 50,
-  "islamic_ethics_gate": "PASSED_100_PERCENT",
-  "intellectual_property_status": "PUBLIC_DOMAIN_ZERO_COPYRIGHT",
+  "islamic_ethics_gate": "NOT_VERIFIED_FOR_PRODUCTION",
+  "intellectual_property_status": "UNVERIFIED_RIGHTS",
   "languages": [
     {
       "code": "ar",
@@ -17,10 +17,15 @@
       "size_bytes": 1813,
       "sha256": "815df4f9371046c86002486e89014846c9619829d9b7b476fe9d24832667ab57",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ar_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ar_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "de",
@@ -32,10 +37,15 @@
       "size_bytes": 1806,
       "sha256": "69686be61ee25f200cf6ac8c1b1dcb9726ead7eaa91822db4af537e1e5f7dfc6",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/de_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/de_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "en",
@@ -47,10 +57,15 @@
       "size_bytes": 1806,
       "sha256": "f20cbf3a2f60550882860842977ca901c6c369643b46ddad5f5abcdd0eb31b41",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/en_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/en_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "es",
@@ -62,10 +77,15 @@
       "size_bytes": 1813,
       "sha256": "2ce82e37666f22a32092dbf592c306c927074bc82cc8ecb474e5c38d67937b27",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/es_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/es_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "fr",
@@ -77,10 +97,15 @@
       "size_bytes": 1809,
       "sha256": "4f0af5aaf245f862ebd5fa627843c28186fe6b02297bd230b8feaa84da9c8e0e",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fr_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fr_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "it",
@@ -92,10 +117,15 @@
       "size_bytes": 1805,
       "sha256": "dc841f882764ac474c224e92cc814f2749a88ff2590f012ce90c9df138a4e9d0",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/it_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/it_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "tr",
@@ -107,10 +137,15 @@
       "size_bytes": 1812,
       "sha256": "dea99b77a9500f2ab0c86622a534d3e6d77f814c0cb87bb64e1fb0abbe221bd7",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tr_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tr_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ru",
@@ -122,10 +157,15 @@
       "size_bytes": 1825,
       "sha256": "757ed6e987e43c35eee5d211093f5e35e440fd7c0b897517b5274bd2b91b95be",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ru_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ru_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "zh",
@@ -137,10 +177,15 @@
       "size_bytes": 1819,
       "sha256": "8e9badb93ff909bb719a192be4743e6cc10d9cab2a44cd661af366ce8511f50d",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/zh_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/zh_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ja",
@@ -152,10 +197,15 @@
       "size_bytes": 1822,
       "sha256": "7e8dae50dfec39db01d0812243da59d8d1692520dc1a9e0d02dc62c054864a3d",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ja_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ja_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ko",
@@ -167,10 +217,15 @@
       "size_bytes": 1819,
       "sha256": "9671333965af5140d57b7cd0db783c11c0f98c2b3454a58a3907378b9f64ecfd",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ko_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ko_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "pt",
@@ -182,10 +237,15 @@
       "size_bytes": 1809,
       "sha256": "e2a4eca61f871f0bbdc92a4b1e3cba0722553a3ce241f1009da112c3d45237e5",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pt_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pt_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "nl",
@@ -197,10 +257,15 @@
       "size_bytes": 1813,
       "sha256": "7218eb2278a3899a5e064c5f50b1bf362bcfb6a30ef2e4fecc8704290414b217",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/nl_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/nl_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "pl",
@@ -212,10 +277,15 @@
       "size_bytes": 1806,
       "sha256": "89a7fd7ff5c38a794136d3246b940f9f86a6789f11cf0c5d30f636ad0da468bd",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pl_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pl_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "sv",
@@ -227,10 +297,15 @@
       "size_bytes": 1813,
       "sha256": "c2af66a5b3b34d49a1a5b1d2bd102d6bb04f8c3d08dd35493b58041d86b7667f",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sv_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sv_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "no",
@@ -242,10 +317,15 @@
       "size_bytes": 1809,
       "sha256": "b74653c7d87c89ca8a3509f9de1aab2d62a8ae008357c830ae803bae985edd62",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/no_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/no_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "da",
@@ -257,10 +337,15 @@
       "size_bytes": 1807,
       "sha256": "09624b47957849146fc1106e2cf56cac22ca67a5a2dc4951fc99a3e82155e4b3",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/da_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/da_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "fi",
@@ -272,10 +357,15 @@
       "size_bytes": 1810,
       "sha256": "92bb7a609ef9dd5bbaff475c6694473ff7d8a6cc589b6bcf9e1f86bb081c29d1",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fi_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fi_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "el",
@@ -287,10 +377,15 @@
       "size_bytes": 1830,
       "sha256": "56bb70e78a96955967ed520a17ddb7e5513f1ed80938eba85866cd7cbf55dceb",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/el_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/el_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "hi",
@@ -302,10 +397,15 @@
       "size_bytes": 1834,
       "sha256": "c8970d450d54c0a29ef96f94f9b2466272dff173be21e5e418cebc50da5c090c",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hi_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hi_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ur",
@@ -317,10 +417,15 @@
       "size_bytes": 1813,
       "sha256": "4c213f46eb242ce476922ec9fcda3286621361ac30663f9a25f7b2a3cea785e6",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ur_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ur_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "fa",
@@ -332,10 +437,15 @@
       "size_bytes": 1810,
       "sha256": "c9a667ea1eba64507c56e05c3c012e2b14c61433b1bd07de9f40b7d70036569c",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fa_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fa_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "id",
@@ -347,10 +457,15 @@
       "size_bytes": 1815,
       "sha256": "43356579fb73f51bcd5668d1ca0f7661deb32884baf9fb0d20060c67d1897ccd",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/id_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/id_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ms",
@@ -362,10 +477,15 @@
       "size_bytes": 1818,
       "sha256": "51fc8b48c842fa3dbe8f30039f577b0298b8ae132f2ef105d4462a0c7b9836f8",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ms_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ms_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "vi",
@@ -377,10 +497,15 @@
       "size_bytes": 1829,
       "sha256": "bae2531477e6fa3002f212a8973397cda7cdb0ec4e52f56faf5ecd2cf60687d7",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/vi_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/vi_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "th",
@@ -392,10 +517,15 @@
       "size_bytes": 1819,
       "sha256": "6caf7a6587851a1deddf879d44a77e6da65c7a892b2cd1a4c3563662b98331e6",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/th_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/th_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "bn",
@@ -407,10 +537,15 @@
       "size_bytes": 1826,
       "sha256": "3ae2cb110f10c239dc59b2ce5227d2a435e3abd0aa0bd1edbe7a7bb5a28c60c2",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bn_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bn_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "pa",
@@ -422,10 +557,15 @@
       "size_bytes": 1833,
       "sha256": "00dde72d73c8f5bacad38af00aaa0228166cf6e4c1e18308f1aa3fbce89f2869",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pa_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/pa_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ta",
@@ -437,10 +577,15 @@
       "size_bytes": 1826,
       "sha256": "c1549ec71a9a021a825e5f7b5d6b8c8761f76b5828adb68b42394776665599e6",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ta_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ta_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "te",
@@ -452,10 +597,15 @@
       "size_bytes": 1828,
       "sha256": "3fac7fce96168d3ee66c057d7b52b04ca24cc7089b0caaabdc447a1fea193436",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/te_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/te_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "mr",
@@ -467,10 +617,15 @@
       "size_bytes": 1833,
       "sha256": "6fe3d56c3b52bf9871e250a1747c54edcb3ad6dbf3a2027faaf6589dce5ea1d8",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mr_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mr_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "gu",
@@ -482,10 +637,15 @@
       "size_bytes": 1842,
       "sha256": "9a6edd23926badc24223d1670a4ac0b8b8be42214d3e95c855f590ffef1910bf",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gu_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gu_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "uk",
@@ -497,10 +657,15 @@
       "size_bytes": 1840,
       "sha256": "e9a27f99130a2a241984ff4c823f92aa817891d874723c0860b9a824db49dc4d",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/uk_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/uk_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "cs",
@@ -512,10 +677,15 @@
       "size_bytes": 1817,
       "sha256": "3e18c2d03cbc1292d350d64c0863b1c2877a0ea95fa27845784704bdac91dfcb",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/cs_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/cs_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ro",
@@ -527,10 +697,15 @@
       "size_bytes": 1808,
       "sha256": "61ae84a7a7418fd4a7c1a84f79b93c72e43f7ef4004e0e100cb1fd33c80fb94c",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ro_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ro_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "hu",
@@ -542,10 +717,15 @@
       "size_bytes": 1814,
       "sha256": "ff8eb935cc39ba55b44c806e9d301d7ebf70a2e4aa07fed32e8eacd188e3ed51",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hu_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hu_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "bg",
@@ -557,10 +737,15 @@
       "size_bytes": 1834,
       "sha256": "40ade9bd631160aac185059aa716b4e7a38e6b1d751c8bf9ad5390f439407130",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bg_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bg_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "sk",
@@ -572,10 +757,15 @@
       "size_bytes": 1812,
       "sha256": "cd6477eb1101eaabba5a5ad5e42991d0fb8aebdb5bf2d0ec45f29366025150db",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sk_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sk_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "hr",
@@ -587,10 +777,15 @@
       "size_bytes": 1812,
       "sha256": "98e4ba398d6ff4e57d638658d5e04e1a6c79970f08db1aff716759ff941b9bf1",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hr_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hr_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "sr",
@@ -602,10 +797,15 @@
       "size_bytes": 1824,
       "sha256": "03f7bff5641c44736b44912b70a61466f38a432a4785a3266cd06af3f6fdaa0b",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sr_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sr_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "bs",
@@ -617,10 +817,15 @@
       "size_bytes": 1809,
       "sha256": "298f27eb4daccd153e6472a853abaeecc233f8f62792ea5a54a33cfd87025b61",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bs_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/bs_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "sq",
@@ -632,10 +837,15 @@
       "size_bytes": 1806,
       "sha256": "a971e7eda112bcb9c389300c1e449772b100cf86de1f58e025d9b23021dd0bfc",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sq_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sq_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "hy",
@@ -647,10 +857,15 @@
       "size_bytes": 1819,
       "sha256": "0ae4f1fe1223712e5d9354d93d80a6c5f3af5e43eb86bfd3044b57dc0f51bedc",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hy_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/hy_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ka",
@@ -662,10 +877,15 @@
       "size_bytes": 1839,
       "sha256": "3051feac05e86f76391a531953cddf7e9526b3f517313426f9e1c9158fde1057",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ka_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ka_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "az",
@@ -677,10 +897,15 @@
       "size_bytes": 1821,
       "sha256": "5693a1469e34c08b95f845a5d01b28342d774393c47dc1842bce5ee51d4abf09",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/az_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/az_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "kk",
@@ -692,10 +917,15 @@
       "size_bytes": 1829,
       "sha256": "f5b0f7b870ed3a4ed923823edc8f84bfa236033257c1933237987550e8ea51d7",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/kk_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/kk_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "uz",
@@ -707,10 +937,15 @@
       "size_bytes": 1817,
       "sha256": "88b8a1c5301d45d520d407d03b778e1d5fa89820670abb8ebd9a09e347e30fc5",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/uz_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/uz_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "sw",
@@ -722,10 +957,15 @@
       "size_bytes": 1809,
       "sha256": "c38539df13038e83bbb53e83547a1ba5d0b19fb5d0b9cd5ca10c6fca3d1b82cf",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sw_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sw_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "tl",
@@ -737,10 +977,15 @@
       "size_bytes": 1808,
       "sha256": "6f6cfb683af36e5bf903c21992ff13c391f4f994d047a2238f75feb69487ce37",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tl_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tl_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "af",
@@ -752,10 +997,15 @@
       "size_bytes": 1807,
       "sha256": "c53ecc990901b71df14c1169409a31d83127010f6d9c6966b4c60506fdf67ea7",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/af_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/af_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "et",
@@ -767,10 +1017,15 @@
       "size_bytes": 1808,
       "sha256": "e51bef3cfb41b8d3eb40fee7c1ee822c9c8d2d66ea4feb1e4e415405f0eaa56e",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/et_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/et_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "lv",
@@ -782,10 +1037,15 @@
       "size_bytes": 1810,
       "sha256": "a5d025ab2b117600a35f2cbfd83830c9663e4fcebef22b6340f6e1a4d33c0277",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lv_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lv_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "lt",
@@ -797,10 +1057,15 @@
       "size_bytes": 1813,
       "sha256": "b654599ae731ce117014d1577eab2b425fb530d4b8f8da51e3b0fd084a80ddc6",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lt_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lt_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "sl",
@@ -812,10 +1077,15 @@
       "size_bytes": 1817,
       "sha256": "c024c09d1f6f57be5ccc2fe6bbdbe85f3ffff74e9c531d131451d24b4e0fce23",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sl_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sl_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "mk",
@@ -827,10 +1097,15 @@
       "size_bytes": 1836,
       "sha256": "46c32c86345bce93259537d636de5aa18128481d5391d4bf9fb75c5b4a530c8f",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mk_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mk_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "is",
@@ -842,10 +1117,15 @@
       "size_bytes": 1818,
       "sha256": "57e4666d487647ad9cadd9b80b387236caa38e096ac05244be4a99335213cbb6",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/is_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/is_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ga",
@@ -857,10 +1137,15 @@
       "size_bytes": 1810,
       "sha256": "94dca4f54a609bd84fb8bf882fe5cf719ae7d71a0c8f5da38f7fcf49fe313a85",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ga_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ga_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "cy",
@@ -872,10 +1157,15 @@
       "size_bytes": 1809,
       "sha256": "e242302235ab311dcf52c384d4be0fa844d07715a2eadec269d4822caba2e95a",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/cy_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/cy_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "eu",
@@ -887,10 +1177,15 @@
       "size_bytes": 1810,
       "sha256": "33b6ac2c61cbbec42e055c44a2cd8934bc6ce4b2481b281d03d5a610ed0e4de3",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/eu_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/eu_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ca",
@@ -902,10 +1197,15 @@
       "size_bytes": 1809,
       "sha256": "e6634ddd6afeb14bd0b95aa79136ac1db3f9e02eb3eba28e39a6f8f173928e48",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ca_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ca_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "gl",
@@ -917,10 +1217,15 @@
       "size_bytes": 1808,
       "sha256": "dcef4df0fc1195f3d7bf1545aa28c3b42ce6e553545934aa420214f0a38e8ee8",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gl_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gl_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "be",
@@ -932,10 +1237,15 @@
       "size_bytes": 1836,
       "sha256": "22077f11af10ff2da052a914177c0c87ca723e29b8ac1bb840d774973d62942f",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/be_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/be_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "mn",
@@ -947,10 +1257,15 @@
       "size_bytes": 1820,
       "sha256": "cdada0495245d9b1236ce4cf970f9c2d462fb2e3afc720ce78e2039a89cb5909",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mn_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mn_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ne",
@@ -962,10 +1277,15 @@
       "size_bytes": 1833,
       "sha256": "aaeb9f5517f1bb87e6a4964a5efdf3e4de617f9e509416fca42ffd2b5f650d50",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ne_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ne_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "si",
@@ -977,10 +1297,15 @@
       "size_bytes": 1831,
       "sha256": "d42053fd73de450a9072169db11eafe9b838981c765f288765c36763b812e331",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/si_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/si_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "my",
@@ -992,10 +1317,15 @@
       "size_bytes": 1845,
       "sha256": "82852a4ee720998fe17d608a1290fb54b8ef48795ec18e6b92399d2933623e24",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/my_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/my_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "km",
@@ -1007,10 +1337,15 @@
       "size_bytes": 1843,
       "sha256": "7d94ac0d438f07b605a5ff9a9103bdaf9b3440a1f11a9140c2920e76a655905e",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/km_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/km_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "lo",
@@ -1022,10 +1357,15 @@
       "size_bytes": 1823,
       "sha256": "449421bca0860faa0b015a79f4098c4a1110232013fb3f9900de38360b5959e1",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lo_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lo_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "am",
@@ -1037,10 +1377,15 @@
       "size_bytes": 1823,
       "sha256": "ec8b1d2d1582ee7adba579667836ab147958b491f9a44c0dd6809fdf4e3c765b",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/am_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/am_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "so",
@@ -1052,10 +1397,15 @@
       "size_bytes": 1807,
       "sha256": "de5acbab870f334a93e5f30f50c3c43c90415d56865aa9d22eb6b37c19985e78",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/so_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/so_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ha",
@@ -1067,10 +1417,15 @@
       "size_bytes": 1801,
       "sha256": "6f006df6f20cb8e1808fc243053d9c5155e7198621f664d1792f720779dc1099",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ha_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ha_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "yo",
@@ -1082,10 +1437,15 @@
       "size_bytes": 1818,
       "sha256": "1ba8636194c6ff2e40d1ae263f053d8a61237ffd2826e38a2ed7c34d3e144dc2",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/yo_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/yo_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ig",
@@ -1097,10 +1457,15 @@
       "size_bytes": 1821,
       "sha256": "717d3a250cff0e83a9390778db16382af9e3256475b88b8213ad1953120389f9",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ig_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ig_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "zu",
@@ -1112,10 +1477,15 @@
       "size_bytes": 1802,
       "sha256": "7c5b820ef7e51bda07a4794c901b64058fe26f04371e593ced5f23a1f80f387d",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/zu_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/zu_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "xh",
@@ -1127,10 +1497,15 @@
       "size_bytes": 1806,
       "sha256": "32fadfdc9ef3256ba31042f6e6565f833802c8468b8424102f6c1c735cf1e7b3",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/xh_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/xh_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "sn",
@@ -1142,10 +1517,15 @@
       "size_bytes": 1806,
       "sha256": "81f9cf291774950013127b1974bfc22ef6ac84dc87a9d50b146fea9c6cf223a3",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sn_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sn_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "rw",
@@ -1157,10 +1537,15 @@
       "size_bytes": 1811,
       "sha256": "ec4a3e777b9d9caf494195853f267e455b6f04d3a864c7bbb29dd81503e06288",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/rw_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/rw_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "mg",
@@ -1172,10 +1557,15 @@
       "size_bytes": 1809,
       "sha256": "9fb00229467422ba860e374913d98e44dcb1fa682e3ab8bcc342323a827e509a",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mg_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mg_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "eo",
@@ -1187,10 +1577,15 @@
       "size_bytes": 1805,
       "sha256": "14ec50f52506465ee57c3ade98c360d1d7a0698d2335b9b9100307b4d9033a46",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/eo_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/eo_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "la",
@@ -1202,10 +1597,15 @@
       "size_bytes": 1805,
       "sha256": "a160a8eebe7ec1eafe21154908a6be9dfc209df0fe6ecc3615239fa3eac4c69a",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/la_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/la_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "kn",
@@ -1217,10 +1617,15 @@
       "size_bytes": 1826,
       "sha256": "ced526b0913bbae9cad95c261d92a5458183049416770ecf4438b346f7ada563",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/kn_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/kn_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ml",
@@ -1232,10 +1637,15 @@
       "size_bytes": 1830,
       "sha256": "9e6c4881f1d837698e86b8e701ac1cf913f4c825ab7d3d27c08f789b30bc1e04",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ml_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ml_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "or",
@@ -1247,10 +1657,15 @@
       "size_bytes": 1831,
       "sha256": "0b4cfddb3b580bc5b1bf9e80b1e33e4f34b036f86e588a3e27f099619d266150",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/or_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/or_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "as",
@@ -1262,10 +1677,15 @@
       "size_bytes": 1838,
       "sha256": "e63170e113ced8f5b9175968de4278f93fab9878015b03e25900471bcb439286",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/as_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/as_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "sd",
@@ -1277,10 +1697,15 @@
       "size_bytes": 1818,
       "sha256": "e0da46405edef56a7f5802fad69f4e796155c257a442d4462bad90492430e225",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sd_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/sd_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ps",
@@ -1292,10 +1717,15 @@
       "size_bytes": 1815,
       "sha256": "d5df40ca2da6f6d13d14f348fb2d03d9f3dbca5f48b036d718ccf7b6cf7d352a",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ps_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ps_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ku",
@@ -1307,10 +1737,15 @@
       "size_bytes": 1811,
       "sha256": "75b981b57bf3ff99d2531e8fa596ae5aca10d3e07a54c5ffa10205b3ca101936",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ku_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ku_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "tg",
@@ -1322,10 +1757,15 @@
       "size_bytes": 1826,
       "sha256": "a786b072a11e4173134b79f082bac1313aa2cf91ef9526706e5994a524187d77",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tg_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tg_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "tk",
@@ -1337,10 +1777,15 @@
       "size_bytes": 1813,
       "sha256": "864bada5c1b31bb6d8f19f9bba291550fd633d40bbedf29abbd04b986dce0f8f",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tk_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tk_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ky",
@@ -1352,10 +1797,15 @@
       "size_bytes": 1831,
       "sha256": "cb07ced0eda980d2b2826c230cf665a3640486acdcdba209b951980f52645da2",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ky_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ky_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "tt",
@@ -1367,10 +1817,15 @@
       "size_bytes": 1820,
       "sha256": "e499e49c1c69a3648f21901123b263e5f113dc3b6df3f89b95cbf4163da0277a",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tt_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/tt_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ba",
@@ -1382,10 +1837,15 @@
       "size_bytes": 1834,
       "sha256": "aaf6c512c3deafb83c68163f997c46ddf23c8f477d2c54b6c6340d130e1ba820",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ba_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ba_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "ug",
@@ -1397,10 +1857,15 @@
       "size_bytes": 1826,
       "sha256": "a1a86cd6ce14fc726913c37cd371e6d1cd0efa3d1f650b72c7573563ccef183a",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ug_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/ug_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "dv",
@@ -1412,10 +1877,15 @@
       "size_bytes": 1824,
       "sha256": "25e7aec6ba2a3959c2a3846408f4f2b5fc2fb0505d6e9da6fda53b22c6d26cbc",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/dv_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/dv_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "mt",
@@ -1427,10 +1897,15 @@
       "size_bytes": 1808,
       "sha256": "7a8853507b19a4b0d88762bc3688310a52ce32763f408c987741f96fe9bb7e97",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mt_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/mt_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "lb",
@@ -1442,10 +1917,15 @@
       "size_bytes": 1825,
       "sha256": "b099ff52aa0b3d962644e527ea4c7c1022fe209daefbadd7d14425a4f5456d2e",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lb_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/lb_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "fo",
@@ -1457,10 +1937,15 @@
       "size_bytes": 1813,
       "sha256": "42fc86d6c130cd43a7bac0a4cd57d699ca4e9774f7e18f773ba41bdd4134527e",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fo_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fo_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "fy",
@@ -1472,10 +1957,15 @@
       "size_bytes": 1818,
       "sha256": "2d56f992192f2a71878957a318a4e2f6bd8d1ce7b14e582bb3780c36a06037f2",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fy_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/fy_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "gd",
@@ -1487,10 +1977,15 @@
       "size_bytes": 1823,
       "sha256": "cf77743857d69723808745c2a76dd6ef6f162543bc81ec48af517e777166cb9d",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gd_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/gd_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     },
     {
       "code": "br",
@@ -1502,10 +1997,15 @@
       "size_bytes": 1808,
       "sha256": "4790d59e424f9d020a11593dc623c80525410c6ba711c9433fac0b5c4271bf1f",
       "domains_count": 50,
-      "is_active": true,
+      "is_active": false,
       "format": "legacy-json-gzip",
       "schemaVersion": "legacy",
-      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/br_universal_v1.pack.gz"
+      "pack_url": "https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs/br_universal_v1.pack.gz",
+      "registered": true,
+      "content_available": false,
+      "pack_verified": false,
+      "production_ready": false,
+      "legacy_asset_status": "UNVERIFIED_LEGACY"
     }
   ],
   "format": "json-gzip-v1",
@@ -1515,5 +2015,6 @@
     "packDirectory": "packs/",
     "schemaVersion": "legacy",
     "checksumAlgorithm": "sha256"
-  }
+  },
+  "release_status": "BLOCKED_DEPENDENCY"
 }
