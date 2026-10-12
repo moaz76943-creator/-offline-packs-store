@@ -211,27 +211,49 @@ def compile_one(source, language, legacy, work_dir):
     with sqlite3.connect(db_path) as db:
         db.execute('PRAGMA page_size=4096')
         db.executescript(DDL)
-        for entry in sorted(lexicon, key=lambda item: required_text(item.get('id'), 'lexicon.id')):
+        lexicon_data = []
+        lexicon_fts_data = []
+        for rowid, entry in enumerate(sorted(lexicon, key=lambda item: required_text(item.get('id'), 'lexicon.id')), start=1):
             if not isinstance(entry, dict):
                 raise ValueError(f'{language}: malformed lexicon row')
             row_direction = entry.get('direction') or direction
             if row_direction not in ('ltr', 'rtl'):
                 raise ValueError(f'{language}: invalid row direction')
             raw, fields, cefr, rank, sort_key = lexicon_metadata(entry)
-            inserted = db.execute(
-                'INSERT INTO lexicon(id,surface,part_of_speech,direction,fields_json,cefr_level,frequency_rank,sort_key) VALUES (?,?,?,?,?,?,?,?)',
-                (required_text(entry.get('id'), 'id'),
-                 required_text(entry.get('surface'), 'surface'),
-                 required_text(entry.get('part_of_speech'), 'part_of_speech'),
-                 row_direction, raw, cefr, rank, sort_key))
-            db.execute('INSERT INTO lexicon_fts(rowid,surface,translation_ar) VALUES (?,?,?)',
-                       (inserted.lastrowid, entry['surface'], arabic_translations(fields)))
+
+            lexicon_data.append((
+                rowid,
+                required_text(entry.get('id'), 'id'),
+                required_text(entry.get('surface'), 'surface'),
+                required_text(entry.get('part_of_speech'), 'part_of_speech'),
+                row_direction, raw, cefr, rank, sort_key
+            ))
+
+            lexicon_fts_data.append((
+                rowid,
+                entry['surface'],
+                arabic_translations(fields)
+            ))
+
+        db.executemany(
+            'INSERT INTO lexicon(rowid,id,surface,part_of_speech,direction,fields_json,cefr_level,frequency_rank,sort_key) VALUES (?,?,?,?,?,?,?,?,?)',
+            lexicon_data
+        )
+        db.executemany(
+            'INSERT INTO lexicon_fts(rowid,surface,translation_ar) VALUES (?,?,?)',
+            lexicon_fts_data
+        )
+
+        concepts_data = []
         for entry in sorted(concepts, key=lambda item: required_text(item.get('concept_id'), 'concept_id')):
             if not isinstance(entry, dict):
                 raise ValueError(f'{language}: malformed concept row')
-            db.execute('INSERT INTO concepts VALUES (?,?,?,?)', (
+            concepts_data.append((
                 required_text(entry.get('concept_id'), 'concept_id'),
-                *[entry.get(key) for key in ('lemma', 'part_of_speech', 'cefr')]))
+                *[entry.get(key) for key in ('lemma', 'part_of_speech', 'cefr')]
+            ))
+        db.executemany('INSERT INTO concepts VALUES (?,?,?,?)', concepts_data)
+
         db.execute("INSERT INTO lexicon_fts(lexicon_fts) VALUES('integrity-check')")
         if db.execute('SELECT COUNT(*) FROM lexicon_fts').fetchone()[0] != len(lexicon):
             raise ValueError(f'{language}: FTS5 row count mismatch')
