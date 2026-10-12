@@ -1,0 +1,8 @@
+{
+  "contract_version": "1.0.0",
+  "description": "Deliberately invalid minimal document: missing source provenance, dangling IDs, and unsupported fabricated grammar fields.",
+  "document_id": "fixture.lexical.invalid",
+  "lexemes": [{"lexeme_id": "lex.bad.one", "language": "de", "script": "Latn", "lemma": "x", "surface": "x", "pos": "noun", "morphology": {"gender_guess": "masculine"}}],
+  "senses": [{"sense_id": "sense.bad.one", "lexeme_id": "lex.absent", "concept_id": "concept.unknown", "definition": "Unknown"}],
+  "translations": [], "examples": [], "relations": []
+}
