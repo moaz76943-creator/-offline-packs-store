@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Check JSON Syntax
         run: |
-          find . -name "*.json" -not -path "*/.git/*" -print0 | xargs -0 -I {} bash -c 'jq . "{}" >/dev/null || (echo "❌ خطأ في تنسيق الملف: {}" && exit 1)'
+          find . -name "*.json" -not -path "*/.git/*" -print0 | xargs -0 -I {} bash -c 'jq . "$1" >/dev/null || (echo "❌ خطأ في تنسيق الملف: $1" && exit 1)' _ {}
 """
 with open('.github/workflows/validate_json.yml', 'w', encoding='utf-8') as f:
     f.write(github_action_yml.strip())
