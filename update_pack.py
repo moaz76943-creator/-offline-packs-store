@@ -1,11 +1,11 @@
 import gzip, json, os
+from utils import DUMMY_WEBP
 
 os.makedirs('images', exist_ok=True)
-dummy_webp = b'RIFF\x1a\x00\x00\x00WEBPVP8 X\x0a\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00VP8I\x0e\x00\x00\x00\x01\x00\x00\xef\x00\x00\x01 \x01\x00\x02\x00\x03\x00'
 
 for img_name in ['apfel.webp', 'auto.webp']:
     with open(os.path.join('images', img_name), 'wb') as img_file:
-        img_file.write(dummy_webp)
+        img_file.write(DUMMY_WEBP)
 
 data = {
     'language': 'German',
