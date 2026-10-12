@@ -55,6 +55,14 @@ CREATE INDEX IF NOT EXISTS idx_nominal_declensions_nominal_case_number ON nomina
 CREATE TABLE concepts (
  concept_id TEXT PRIMARY KEY, lemma TEXT, part_of_speech TEXT, cefr TEXT
 );
+CREATE VIRTUAL TABLE IF NOT EXISTS idioms_fts USING fts5(idiom_id UNINDEXED, expression, translation_ar, language_code, tokenize='trigram');
+CREATE VIRTUAL TABLE IF NOT EXISTS verbs_fts USING fts5(verb_id UNINDEXED, infinitive, translation_ar, tokenize='trigram');
+CREATE TRIGGER IF NOT EXISTS idioms_ai AFTER INSERT ON idioms BEGIN INSERT INTO idioms_fts(idiom_id, expression, translation_ar, language_code) VALUES (new.idiom_id, new.expression, new.translation_ar, new.language_code); END;
+CREATE TRIGGER IF NOT EXISTS idioms_ad AFTER DELETE ON idioms BEGIN INSERT INTO idioms_fts(idioms_fts, idiom_id, expression, translation_ar, language_code) VALUES('delete', old.idiom_id, old.expression, old.translation_ar, old.language_code); END;
+CREATE TRIGGER IF NOT EXISTS idioms_au AFTER UPDATE ON idioms BEGIN INSERT INTO idioms_fts(idioms_fts, idiom_id, expression, translation_ar, language_code) VALUES('delete', old.idiom_id, old.expression, old.translation_ar, old.language_code); INSERT INTO idioms_fts(idiom_id, expression, translation_ar, language_code) VALUES (new.idiom_id, new.expression, new.translation_ar, new.language_code); END;
+CREATE TRIGGER IF NOT EXISTS verbs_ai AFTER INSERT ON verbs BEGIN INSERT INTO verbs_fts(verb_id, infinitive, translation_ar) VALUES (new.verb_id, new.infinitive, new.translation_ar); END;
+CREATE TRIGGER IF NOT EXISTS verbs_ad AFTER DELETE ON verbs BEGIN INSERT INTO verbs_fts(verbs_fts, verb_id, infinitive, translation_ar) VALUES('delete', old.verb_id, old.infinitive, old.translation_ar); END;
+CREATE TRIGGER IF NOT EXISTS verbs_au AFTER UPDATE ON verbs BEGIN INSERT INTO verbs_fts(verbs_fts, verb_id, infinitive, translation_ar) VALUES('delete', old.verb_id, old.infinitive, old.translation_ar); INSERT INTO verbs_fts(verb_id, infinitive, translation_ar) VALUES (new.verb_id, new.infinitive, new.translation_ar); END;
 CREATE VIEW lexemes AS
  SELECT id, surface, part_of_speech, direction, fields_json FROM lexicon;
 CREATE VIEW examples AS
