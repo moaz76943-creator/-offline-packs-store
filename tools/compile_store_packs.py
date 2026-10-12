@@ -32,7 +32,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 VERSION = '1.0.0'
-SCHEMA_VERSION = '2.0.0'
+SCHEMA_VERSION = '3.0.0'
 FORMAT = 'json-gzip-v1'
 REPO_CDN = 'https://cdn.jsdelivr.net/gh/moaz76943-creator/-offline-packs-store@main/packs'
 CODE_RE = re.compile(r'^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$')
@@ -46,9 +46,17 @@ CREATE INDEX IF NOT EXISTS idx_lexicon_cefr_freq ON lexicon(cefr_level, frequenc
 CREATE INDEX IF NOT EXISTS idx_lexicon_surface_nocase ON lexicon(surface COLLATE NOCASE);
 CREATE VIRTUAL TABLE IF NOT EXISTS lexicon_fts USING fts5(surface, translation_ar, tokenize='trigram');
 CREATE TABLE IF NOT EXISTS verbs (verb_id TEXT PRIMARY KEY, infinitive TEXT NOT NULL, translation_ar TEXT, frequency_rank INTEGER);
+CREATE VIRTUAL TABLE IF NOT EXISTS verbs_fts USING fts5(verb_id UNINDEXED, infinitive, translation_ar, tokenize='trigram');
+CREATE TRIGGER IF NOT EXISTS verbs_ai AFTER INSERT ON verbs BEGIN
+  INSERT INTO verbs_fts(verb_id, infinitive, translation_ar) VALUES (new.verb_id, new.infinitive, new.translation_ar);
+END;
 CREATE TABLE IF NOT EXISTS verb_conjugations (conjugation_id TEXT PRIMARY KEY, verb_id TEXT NOT NULL, tense TEXT NOT NULL, person TEXT NOT NULL, conjugated_form TEXT NOT NULL, FOREIGN KEY(verb_id) REFERENCES verbs(verb_id));
 CREATE INDEX IF NOT EXISTS idx_verb_conjugations_verb_tense ON verb_conjugations(verb_id, tense);
 CREATE TABLE IF NOT EXISTS idioms (idiom_id TEXT PRIMARY KEY, expression TEXT NOT NULL, translation_ar TEXT, explanation TEXT, language_code TEXT);
+CREATE VIRTUAL TABLE IF NOT EXISTS idioms_fts USING fts5(idiom_id UNINDEXED, expression, translation_ar, explanation, tokenize='trigram');
+CREATE TRIGGER IF NOT EXISTS idioms_ai AFTER INSERT ON idioms BEGIN
+  INSERT INTO idioms_fts(idiom_id, expression, translation_ar, explanation) VALUES (new.idiom_id, new.expression, new.translation_ar, new.explanation);
+END;
 CREATE TABLE IF NOT EXISTS nominals (id TEXT PRIMARY KEY NOT NULL CHECK(length(trim(id))>0), lemma TEXT NOT NULL CHECK(length(trim(lemma))>0), part_of_speech TEXT NOT NULL CHECK(part_of_speech IN ('noun','adjective','pronoun')), gender TEXT NOT NULL CHECK(length(trim(gender))>0), number TEXT NOT NULL CHECK(length(trim(number))>0));
 CREATE TABLE IF NOT EXISTS nominal_declensions (id TEXT PRIMARY KEY NOT NULL CHECK(length(trim(id))>0), nominal_id TEXT NOT NULL CHECK(length(trim(nominal_id))>0), grammatical_case TEXT NOT NULL CHECK(length(trim(grammatical_case))>0), number TEXT NOT NULL CHECK(length(trim(number))>0), definiteness TEXT NOT NULL CHECK(length(trim(definiteness))>0), inflected_form TEXT NOT NULL CHECK(length(trim(inflected_form))>0), FOREIGN KEY(nominal_id) REFERENCES nominals(id) ON DELETE RESTRICT);
 CREATE INDEX IF NOT EXISTS idx_nominal_declensions_nominal_case_number ON nominal_declensions(nominal_id, grammatical_case, number);
@@ -235,7 +243,7 @@ def compile_one(source, language, legacy, work_dir):
         db.execute("INSERT INTO lexicon_fts(lexicon_fts) VALUES('integrity-check')")
         if db.execute('SELECT COUNT(*) FROM lexicon_fts').fetchone()[0] != len(lexicon):
             raise ValueError(f'{language}: FTS5 row count mismatch')
-        db.execute('PRAGMA user_version=2')
+        db.execute('PRAGMA user_version=3')
         db.commit()
         db.execute('VACUUM')
         row_count = db.execute('SELECT count(*) FROM lexicon').fetchone()[0]
