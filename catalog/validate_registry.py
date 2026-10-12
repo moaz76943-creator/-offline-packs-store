@@ -130,8 +130,15 @@ def validate(registry, readiness, manifest=None, required_count=100):
         problem("readiness states must match all and only canonical IDs")
     elif any(s not in STATES for s in statuses.values()):
         problem("invalid content readiness state")
-    elif any(s == "validated" for s in statuses.values()) and not readiness.get("validation_evidence"):
-        problem("validated content requires independent evidence")
+    else:
+        for code, state in statuses.items():
+            if state != "validated":
+                continue
+            evidence = readiness.get("validation_evidence", {}).get(code, {})
+            if (not isinstance(evidence, dict)
+                    or not re.fullmatch(r"[0-9a-f]{64}", evidence.get("pack_sha256", ""))
+                    or evidence.get("validation_method") not in {"automated_quality_gate", "manual_review"}):
+                problem(f"validated content requires independent evidence: {code}")
     if manifest is not None:
         published = manifest.get("languages", [])
         current = {x.get("code"): x for x in published if isinstance(x, dict)}
