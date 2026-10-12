@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/catalog/language_registry.schema.json",
+  "title": "Public canonical 100-language taxonomy registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source",
+    "scripts",
+    "frameworks",
+    "languages",
+    "aliases",
+    "locale_variants"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "manifest_path",
+        "reviewed_head_sha",
+        "selection_policy"
+      ],
+      "properties": {
+        "repository": {
+          "const": "moaz76943-creator/-offline-packs-store"
+        },
+        "manifest_path": {
+          "const": "manifest.json"
+        },
+        "reviewed_head_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "selection_policy": {
+          "const": "preserve_all_100_published_stable_ids"
+        }
+      }
+    },
+    "scripts": {
+      "type": "object",
+      "minProperties": 1,
+      "propertyNames": {
+        "pattern": "^[A-Z][a-z]{3}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "direction"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "direction": {
+            "enum": [
+              "ltr",
+              "rtl"
+            ]
+          }
+        }
+      }
+    },
+    "frameworks": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Z0-9]{2,8}$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "scale_type",
+          "levels",
+          "note"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "scale_type": {
+            "enum": [
+              "general",
+              "language_specific"
+            ]
+          },
+          "levels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "minItems": 100,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "native_name",
+          "display_names",
+          "family",
+          "default_script",
+          "scripts",
+          "regions",
+          "dialects",
+          "morphology",
+          "proficiency"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}$"
+          },
+          "native_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "display_names": {
+            "type": "object",
+            "required": [
+              "en",
+              "ar"
+            ],
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            },
+            "properties": {
+              "en": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ar": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "family": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default_script": {
+            "type": "string",
+            "pattern": "^[A-Z][a-z]{3}$"
+          },
+          "scripts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z][a-z]{3}$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "regions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(?:[A-Z]{2}|[0-9]{3})$"
+            },
+            "uniqueItems": true
+          },
+          "dialects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "name",
+                "related_language_tag",
+                "relationship"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "related_language_tag": {
+                  "type": "string",
+                  "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-(?:[a-z0-9]{5,8}|[0-9][a-z0-9]{3}))*$"
+                },
+                "relationship": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "morphology": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "features",
+              "review_status"
+            ],
+            "properties": {
+              "features": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "gender",
+                    "noun_classes",
+                    "case",
+                    "number",
+                    "root_pattern",
+                    "inflection",
+                    "agglutination",
+                    "aspect",
+                    "classifiers",
+                    "tones",
+                    "honorifics",
+                    "analytic"
+                  ]
+                },
+                "uniqueItems": true
+              },
+              "review_status": {
+                "enum": [
+                  "provisional",
+                  "reviewed"
+                ]
+              }
+            }
+          },
+          "proficiency": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "framework_ids",
+              "mapping_status"
+            ],
+            "properties": {
+              "framework_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              },
+              "mapping_status": {
+                "enum": [
+                  "not_mapped",
+                  "mapped",
+                  "not_applicable"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "kind",
+          "lossy",
+          "status",
+          "note"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-(?:[a-z0-9]{5,8}|[0-9][a-z0-9]{3}))*$"
+          },
+          "to": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-(?:[a-z0-9]{5,8}|[0-9][a-z0-9]{3}))*$"
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
+          "lossy": {
+            "const": true
+          },
+          "status": {
+            "const": "migration_review_required"
+          },
+          "note": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "locale_variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tag",
+          "language_id",
+          "script",
+          "region",
+          "dialect",
+          "content_status"
+        ],
+        "properties": {
+          "tag": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-(?:[a-z0-9]{5,8}|[0-9][a-z0-9]{3}))*$"
+          },
+          "language_id": {
+            "type": "string",
+            "pattern": "^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-(?:[a-z0-9]{5,8}|[0-9][a-z0-9]{3}))*$"
+          },
+          "script": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[A-Z][a-z]{3}$"
+          },
+          "region": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^(?:[A-Z]{2}|[0-9]{3})$"
+          },
+          "dialect": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "content_status": {
+            "const": "unverified"
+          }
+        }
+      }
+    }
+  }
+}
