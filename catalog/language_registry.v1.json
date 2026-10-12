@@ -37,15 +37,18 @@
     },
     "Hans": {
       "name": "Han (simplified)",
-      "direction": "ltr"
+      "direction": "ltr",
+      "vertical_mode": "ttb-rl"
     },
     "Hant": {
       "name": "Han (traditional)",
-      "direction": "ltr"
+      "direction": "ltr",
+      "vertical_mode": "ttb-rl"
     },
     "Jpan": {
       "name": "Japanese",
-      "direction": "ltr"
+      "direction": "ltr",
+      "vertical_mode": "ttb-rl"
     },
     "Kore": {
       "name": "Korean",
@@ -113,7 +116,7 @@
     },
     "Mong": {
       "name": "Mongolian",
-      "direction": "ltr"
+      "direction": "ttb-ltr"
     },
     "Thaa": {
       "name": "Thaana",
