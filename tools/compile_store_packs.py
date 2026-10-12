@@ -162,17 +162,37 @@ def verify_legacy_files(languages, output_dir):
             raise ValueError(f'legacy package checksum/size mismatch: {name}')
 
 
+def validate_json_schema(root, language, source_name):
+    if not isinstance(root, dict):
+        raise ValueError(f'{source_name}: root must be an object')
+    if root.get('languageCode', language) != language:
+        raise ValueError(f'{source_name}: invalid languageCode')
+    if 'displayName' in root and not isinstance(root['displayName'], str):
+        raise ValueError(f'{source_name}: displayName must be a string')
+    if 'direction' in root and root['direction'] not in ('ltr', 'rtl'):
+        raise ValueError(f'{source_name}: direction must be ltr or rtl')
+    lexicon = root.get('lexicon')
+    concepts = root.get('concepts', [])
+    if not isinstance(lexicon, list) or not isinstance(concepts, list):
+        raise ValueError(f'{source_name}: lexicon/concepts must be arrays')
+    for entry in lexicon:
+        if not isinstance(entry, dict):
+            raise ValueError(f'{source_name}: lexicon entries must be objects')
+        for key in ('id', 'surface', 'part_of_speech'):
+            if not isinstance(entry.get(key), str):
+                raise ValueError(f'{source_name}: lexicon entry missing or invalid string for {key}')
+        if not isinstance(entry.get('fields_json'), dict):
+            raise ValueError(f'{source_name}: lexicon entry fields_json must be an object')
+    for entry in concepts:
+        if not isinstance(entry, dict):
+            raise ValueError(f'{source_name}: concepts entries must be objects')
+    return root, lexicon, concepts
+
 def input_rows(src, language):
     """Yield lexicon and concepts without manufacturing absent content."""
     if src.suffix == '.json':
         root = json.loads(src.read_text(encoding='utf-8'))
-        if not isinstance(root, dict) or root.get('languageCode', language) != language:
-            raise ValueError(f'{src.name}: invalid languageCode')
-        lexicon = root.get('lexicon')
-        concepts = root.get('concepts', [])
-        if not isinstance(lexicon, list) or not isinstance(concepts, list):
-            raise ValueError(f'{src.name}: lexicon/concepts must be arrays')
-        return root, lexicon, concepts
+        return validate_json_schema(root, language, src.name)
     if src.suffix != '.sqlite':
         raise ValueError(f'unsupported source {src.name}')
     uri = 'file:' + quote(str(src.resolve()), safe='/') + '?mode=ro'
