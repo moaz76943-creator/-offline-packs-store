@@ -2,6 +2,7 @@ import os
 import json
 import gzip
 import hashlib
+import hmac
 
 # 1. تجهيز مجلدات العمل ومجلدات إجراءات غيت هاب (GitHub Actions)
 os.makedirs('packs', exist_ok=True)
@@ -26,7 +27,24 @@ jobs:
 with open('.github/workflows/validate_json.yml', 'w', encoding='utf-8') as f:
     f.write(github_action_yml.strip())
 
-# 3. وظيفة ضغط فائقة (Minification + Gzip) لحفظ الحزم وتقليل الحجم
+# 3. Secure signing mechanism for manifest
+def get_secret_key():
+    return os.environ.get("MANIFEST_SECRET_KEY", "default-insecure-key-change-in-prod").encode("utf-8")
+
+def sign_manifest(data):
+    # Ensure consistent ordering and no spaces for robust hashing
+    json_str = json.dumps(data, ensure_ascii=False, separators=(',', ':'), sort_keys=True)
+    return hmac.new(get_secret_key(), json_str.encode("utf-8"), hashlib.sha256).hexdigest()
+
+def verify_manifest(data):
+    if "signature" not in data:
+        return False
+    data_copy = data.copy()
+    provided_signature = data_copy.pop("signature")
+    expected_signature = sign_manifest(data_copy)
+    return hmac.compare_digest(provided_signature, expected_signature)
+
+# 3.1 وظيفة ضغط فائقة (Minification + Gzip) لحفظ الحزم وتقليل الحجم
 def create_minified_pack(filename, data):
     path = os.path.join('packs', filename)
     with gzip.open(path, 'wt', encoding='utf-8') as f:
@@ -84,7 +102,17 @@ manifest_data = {
     ]
 }
 
+# Sign manifest data before writing
+manifest_data["signature"] = sign_manifest(manifest_data)
+
 with open('manifest.json', 'w', encoding='utf-8') as f:
     json.dump(manifest_data, f, ensure_ascii=False, indent=2)
+
+# Verify manifest signature to ensure correctness
+with open('manifest.json', 'r', encoding='utf-8') as f:
+    loaded_manifest = json.load(f)
+    if not verify_manifest(loaded_manifest):
+        raise ValueError("Manifest signature verification failed!")
+    print("✅ Manifest signature verified successfully.")
 
 print("تم تطبيق جميع الخصائص المثالية (التصغير الفائق، التقسيم، الثيمات، وحماية غيت هاب) بأمان تام!")
