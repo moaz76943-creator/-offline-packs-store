@@ -79,6 +79,28 @@ def required_text(value, label):
     return value
 
 
+def compress_text_payloads(data, target_keys=None):
+    if target_keys is None:
+        target_keys = {'explanation', 'grammar', 'desc', 'description', 'note', 'notes', 'examples'}
+
+    if isinstance(data, dict):
+        result = {}
+        for k, v in data.items():
+            if k in target_keys:
+                if isinstance(v, str):
+                    v = re.sub(r'[ \t]+', ' ', v).strip()
+                    v = re.sub(r'\n{3,}', '\n\n', v)
+                elif isinstance(v, list):
+                    v = [re.sub(r'\n{3,}', '\n\n', re.sub(r'[ \t]+', ' ', item).strip()) if isinstance(item, str) else item for item in v]
+                result[k] = v
+            else:
+                result[k] = compress_text_payloads(v, target_keys)
+        return result
+    elif isinstance(data, list):
+        return [compress_text_payloads(item, target_keys) for item in data]
+    return data
+
+
 def fields_json(value):
     if isinstance(value, str):
         obj = json.loads(value)
@@ -86,6 +108,7 @@ def fields_json(value):
         obj = value
     if not isinstance(obj, dict):
         raise ValueError('fields_json must be a JSON object')
+    obj = compress_text_payloads(obj)
     return canonical_json(obj).decode('utf-8').rstrip('\n')
 
 
