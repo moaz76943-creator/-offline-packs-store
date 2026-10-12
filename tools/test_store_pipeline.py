@@ -10,6 +10,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from tools.compile_store_packs import fields_json
+
 SCRIPT = Path(__file__).with_name('compile_store_packs.py')
 
 
@@ -63,6 +65,28 @@ class StorePipelineTest(unittest.TestCase):
         self.assertEqual(self.invoke().returncode, 0)
         self.assertEqual(self.manifest.read_bytes(), previous)
         self.assertEqual((self.packs / 'de-1.0.0.pack.gz').read_bytes(), packed)
+
+
+class TestFieldsJson(unittest.TestCase):
+    def test_fields_json_dict(self):
+        self.assertEqual(fields_json({"a": 1}), '{"a":1}')
+
+    def test_fields_json_string(self):
+        self.assertEqual(fields_json('{"a": 1}'), '{"a":1}')
+
+    def test_fields_json_invalid_type(self):
+        with self.assertRaises(ValueError):
+            fields_json(123)
+        with self.assertRaises(ValueError):
+            fields_json([1, 2, 3])
+
+    def test_fields_json_invalid_string(self):
+        with self.assertRaises(ValueError):
+            fields_json("not a json")
+
+    def test_fields_json_string_but_not_dict(self):
+        with self.assertRaises(ValueError):
+            fields_json("[1, 2, 3]")
 
 
 if __name__ == '__main__':
