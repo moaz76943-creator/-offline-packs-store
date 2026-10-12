@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/tools/source_examples/sentence.schema.json",
+  "title": "Public source sentence with editorial provenance v1",
+  "type": "object",
+  "required": ["schema_version", "source", "language", "text", "context_id", "situation", "construction", "register", "politeness", "dialect", "sense_refs", "grammar_refs", "sentence_cefr", "word_cefr", "translations", "privacy_class"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "source": {
+      "type": "object",
+      "required": ["source_id", "sentence_id", "origin_url", "publisher", "author", "license", "license_url", "attribution"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "sentence_id": {"type": "string", "minLength": 1},
+        "origin_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "publisher": {"type": "string", "minLength": 1},
+        "author": {"type": "string", "minLength": 1},
+        "license": {"enum": ["CC-BY-2.0-FR", "CC-BY-4.0", "CC-BY-SA-4.0", "CC0-1.0", "PUBLIC-DOMAIN"]},
+        "license_url": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "attribution": {"type": "string", "minLength": 1}
+      }
+    },
+    "language": {"type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$"},
+    "text": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "context_id": {"type": "string", "minLength": 1},
+    "situation": {"enum": ["greetings", "travel", "health", "work", "food", "home", "emergencies", "shopping", "administration", "study"]},
+    "construction": {"enum": ["positive", "negative", "interrogative"]},
+    "register": {"enum": ["formal", "neutral", "informal", "colloquial", "unknown"]},
+    "politeness": {"enum": ["polite", "familiar", "honorific", "unspecified", "unknown"]},
+    "dialect": {"type": ["string", "null"]},
+    "sense_refs": {"type": "array", "items": {"type": "object", "required": ["sense_id", "lexeme_id"], "properties": {"sense_id": {"type": "string"}, "lexeme_id": {"type": "string"}}}},
+    "grammar_refs": {"type": "array", "items": {"type": "object", "required": ["rule_id"], "properties": {"rule_id": {"type": "string"}, "case": {"type": "string"}, "agreement": {"type": "string"}}}},
+    "sentence_cefr": {"type": ["string", "null"], "enum": ["A1", "A2", "B1", "B2", "C1", "C2", null]},
+    "word_cefr": {"type": ["string", "null"], "enum": ["A1", "A2", "B1", "B2", "C1", "C2", null]},
+    "cefr_evidence_url": {"type": "string", "format": "uri"},
+    "translations": {"type": "array", "items": {"type": "object", "required": ["target_source_id", "target_sentence_id", "target_language", "direction", "evidence_url"], "properties": {"target_source_id": {"type": "string"}, "target_sentence_id": {"type": "string"}, "target_language": {"type": "string"}, "direction": {"type": "string"}, "evidence_url": {"type": "string", "format": "uri"}}}},
+    "privacy_class": {"const": "public"},
+    "review": {"type": "object", "required": ["decision", "reviewer_id", "evidence_url", "sentence_sha256"], "properties": {"decision": {"const": "approved"}, "reviewer_id": {"type": "string"}, "evidence_url": {"type": "string", "format": "uri"}, "sentence_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}
+  }
+}
