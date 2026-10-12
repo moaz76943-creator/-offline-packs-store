@@ -2,12 +2,12 @@ import os
 import json
 import gzip
 import hashlib
+from shared import dummy_webp
 
 os.makedirs('packs', exist_ok=True)
 os.makedirs('images', exist_ok=True)
 
 # 1. إنشاء صور بمسميات عامة (Universal Asset Keys)
-dummy_webp = b'RIFF\x1a\x00\x00\x00WEBPVP8 X\x0a\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00VP8I\x0e\x00\x00\x00\x01\x00\x00\xef\x00\x00\x01 \x01\x00\x02\x00\x03\x00'
 
 for img_name in ['apple.webp', 'car.webp']:
     with open(os.path.join('images', img_name), 'wb') as f:
