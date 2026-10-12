@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0.0",
+  "note": "Coverage examples only. No learner scores, CEFR attainment claims or invented content classifications.",
+  "records": [
+    {
+      "record_id": "pilot:de:unassessed",
+      "language": "de",
+      "classification_status": "unassessed",
+      "proficiency_framework_id": null,
+      "proficiency_level_id": null,
+      "skills": {
+        "reading": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "writing": {
+          "mode": "productive",
+          "status": "not_assessed"
+        },
+        "listening": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "speaking": {
+          "mode": "productive",
+          "status": "not_assessed"
+        }
+      },
+      "complexity": {
+        "word_difficulty": "unknown",
+        "sentence_complexity": "unknown",
+        "grammar_complexity": "unknown",
+        "reading_competence": "unknown"
+      },
+      "script_literacy": {
+        "script_codes": [
+          "Latn"
+        ],
+        "status": "unknown"
+      },
+      "topic_domains": [],
+      "prerequisites": [],
+      "evidence": []
+    },
+    {
+      "record_id": "pilot:ar:unassessed",
+      "language": "ar",
+      "classification_status": "unassessed",
+      "proficiency_framework_id": null,
+      "proficiency_level_id": null,
+      "skills": {
+        "reading": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "writing": {
+          "mode": "productive",
+          "status": "not_assessed"
+        },
+        "listening": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "speaking": {
+          "mode": "productive",
+          "status": "not_assessed"
+        }
+      },
+      "complexity": {
+        "word_difficulty": "unknown",
+        "sentence_complexity": "unknown",
+        "grammar_complexity": "unknown",
+        "reading_competence": "unknown"
+      },
+      "script_literacy": {
+        "script_codes": [
+          "Arab"
+        ],
+        "status": "unknown"
+      },
+      "topic_domains": [],
+      "prerequisites": [],
+      "evidence": []
+    },
+    {
+      "record_id": "pilot:en:unassessed",
+      "language": "en",
+      "classification_status": "unassessed",
+      "proficiency_framework_id": null,
+      "proficiency_level_id": null,
+      "skills": {
+        "reading": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "writing": {
+          "mode": "productive",
+          "status": "not_assessed"
+        },
+        "listening": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "speaking": {
+          "mode": "productive",
+          "status": "not_assessed"
+        }
+      },
+      "complexity": {
+        "word_difficulty": "unknown",
+        "sentence_complexity": "unknown",
+        "grammar_complexity": "unknown",
+        "reading_competence": "unknown"
+      },
+      "script_literacy": {
+        "script_codes": [
+          "Latn"
+        ],
+        "status": "unknown"
+      },
+      "topic_domains": [],
+      "prerequisites": [],
+      "evidence": []
+    },
+    {
+      "record_id": "pilot:es:unassessed",
+      "language": "es",
+      "classification_status": "unassessed",
+      "proficiency_framework_id": null,
+      "proficiency_level_id": null,
+      "skills": {
+        "reading": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "writing": {
+          "mode": "productive",
+          "status": "not_assessed"
+        },
+        "listening": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "speaking": {
+          "mode": "productive",
+          "status": "not_assessed"
+        }
+      },
+      "complexity": {
+        "word_difficulty": "unknown",
+        "sentence_complexity": "unknown",
+        "grammar_complexity": "unknown",
+        "reading_competence": "unknown"
+      },
+      "script_literacy": {
+        "script_codes": [
+          "Latn"
+        ],
+        "status": "unknown"
+      },
+      "topic_domains": [],
+      "prerequisites": [],
+      "evidence": []
+    },
+    {
+      "record_id": "pilot:fr:unassessed",
+      "language": "fr",
+      "classification_status": "unassessed",
+      "proficiency_framework_id": null,
+      "proficiency_level_id": null,
+      "skills": {
+        "reading": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "writing": {
+          "mode": "productive",
+          "status": "not_assessed"
+        },
+        "listening": {
+          "mode": "receptive",
+          "status": "not_assessed"
+        },
+        "speaking": {
+          "mode": "productive",
+          "status": "not_assessed"
+        }
+      },
+      "complexity": {
+        "word_difficulty": "unknown",
+        "sentence_complexity": "unknown",
+        "grammar_complexity": "unknown",
+        "reading_competence": "unknown"
+      },
+      "script_literacy": {
+        "script_codes": [
+          "Latn"
+        ],
+        "status": "unknown"
+      },
+      "topic_domains": [],
+      "prerequisites": [],
+      "evidence": []
+    }
+  ]
+}
