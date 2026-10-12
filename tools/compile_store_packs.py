@@ -140,6 +140,7 @@ def lexicon_metadata(entry):
 
 def verify_legacy_files(languages, output_dir):
     """Fail closed if existing published legacy size/hash metadata is stale."""
+    resolved_output = output_dir.resolve()
     for item in languages:
         if not isinstance(item, dict):
             raise ValueError('legacy manifest language entry must be an object')
@@ -154,7 +155,9 @@ def verify_legacy_files(languages, output_dir):
         expected_url = f'{REPO_CDN}/{name}'
         if item.get('pack_url', expected_url) != expected_url:
             raise ValueError(f'legacy package URL mismatch: {name}')
-        source = output_dir / name
+        source = (output_dir / name).resolve()
+        if not source.is_relative_to(resolved_output):
+            raise ValueError(f'legacy pack path traversal: {name}')
         if not source.is_file():
             raise FileNotFoundError(f'missing legacy pack {source}')
         actual = source.read_bytes()
