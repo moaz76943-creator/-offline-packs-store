@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/morphology/profile.schema.json",
+  "title": "Language morphology capability profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "identity",
+    "scripts",
+    "capabilities",
+    "analysis_status",
+    "form_inventory_complete"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "identity": {
+      "type": "object",
+      "required": [
+        "code",
+        "family",
+        "name",
+        "native_name",
+        "registry_direction"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string",
+          "minLength": 2
+        },
+        "family": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "native_name": {
+          "type": "string"
+        },
+        "registry_direction": {
+          "enum": [
+            "ltr",
+            "rtl",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "scripts": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z][a-z]{3}$"
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "minProperties": 25,
+      "maxProperties": 25,
+      "additionalProperties": {
+        "enum": [
+          "supported",
+          "not_applicable",
+          "unknown"
+        ]
+      }
+    },
+    "analysis_status": {
+      "enum": [
+        "pilot_attested",
+        "capability_only"
+      ]
+    },
+    "form_inventory_complete": {
+      "const": false
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/morphology/form.schema.json",
+  "title": "Attested morphology form record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "language_code",
+    "lemma_id",
+    "sense_id",
+    "lemma",
+    "form",
+    "features",
+    "source_id",
+    "evidence_version"
+  ],
+  "properties": {
+    "language_code": {
+      "type": "string",
+      "minLength": 2
+    },
+    "lemma_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "sense_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "lemma": {
+      "type": "string",
+      "minLength": 1
+    },
+    "form": {
+      "type": "string",
+      "minLength": 1
+    },
+    "features": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "root": {
+      "type": "string"
+    },
+    "pattern": {
+      "type": "string"
+    },
+    "processes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "morphemes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "surface",
+          "kind",
+          "position"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "surface": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "root",
+              "prefix",
+              "suffix",
+              "infix",
+              "clitic",
+              "stem",
+              "pattern",
+              "compound_member"
+            ]
+          },
+          "position": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "allomorph": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "vowel_harmony_class": {
+      "type": "string"
+    },
+    "segmentation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "script": {
+      "type": "string"
+    },
+    "orthographic_variant": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_version": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

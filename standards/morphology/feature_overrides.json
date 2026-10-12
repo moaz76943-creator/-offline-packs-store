@@ -1,0 +1,349 @@
+{
+  "schema_version": "1.0.0",
+  "status_values": [
+    "supported",
+    "not_applicable",
+    "unknown"
+  ],
+  "features": [
+    "grammatical_gender",
+    "noun_classes",
+    "case",
+    "number",
+    "definiteness",
+    "agreement",
+    "tense",
+    "aspect",
+    "mood",
+    "voice",
+    "person",
+    "root_pattern",
+    "nonconcatenative",
+    "prefix",
+    "suffix",
+    "clitic",
+    "compound",
+    "agglutinative_sequences",
+    "vowel_harmony",
+    "tone",
+    "analytic",
+    "classifiers",
+    "honorifics",
+    "segmentation",
+    "orthographic_variants"
+  ],
+  "pilot_languages": [
+    "de",
+    "ar",
+    "en",
+    "es",
+    "fr"
+  ],
+  "overrides": {
+    "de": {
+      "grammatical_gender": "supported",
+      "case": "supported",
+      "number": "supported",
+      "definiteness": "supported",
+      "agreement": "supported",
+      "tense": "supported",
+      "aspect": "supported",
+      "mood": "supported",
+      "voice": "supported",
+      "person": "supported",
+      "prefix": "supported",
+      "suffix": "supported",
+      "compound": "supported"
+    },
+    "ar": {
+      "grammatical_gender": "supported",
+      "case": "supported",
+      "number": "supported",
+      "definiteness": "supported",
+      "agreement": "supported",
+      "tense": "supported",
+      "aspect": "supported",
+      "mood": "supported",
+      "voice": "supported",
+      "person": "supported",
+      "root_pattern": "supported",
+      "nonconcatenative": "supported",
+      "prefix": "supported",
+      "suffix": "supported",
+      "clitic": "supported"
+    },
+    "en": {
+      "number": "supported",
+      "case": "supported",
+      "agreement": "supported",
+      "tense": "supported",
+      "aspect": "supported",
+      "mood": "supported",
+      "voice": "supported",
+      "person": "supported",
+      "prefix": "supported",
+      "suffix": "supported",
+      "compound": "supported",
+      "analytic": "supported",
+      "grammatical_gender": "not_applicable"
+    },
+    "es": {
+      "grammatical_gender": "supported",
+      "number": "supported",
+      "agreement": "supported",
+      "tense": "supported",
+      "aspect": "supported",
+      "mood": "supported",
+      "voice": "supported",
+      "person": "supported",
+      "prefix": "supported",
+      "suffix": "supported",
+      "clitic": "supported",
+      "compound": "supported"
+    },
+    "fr": {
+      "grammatical_gender": "supported",
+      "number": "supported",
+      "agreement": "supported",
+      "tense": "supported",
+      "aspect": "supported",
+      "mood": "supported",
+      "voice": "supported",
+      "person": "supported",
+      "prefix": "supported",
+      "suffix": "supported",
+      "clitic": "supported",
+      "compound": "supported"
+    },
+    "ru": {
+      "aspect": "supported",
+      "case": "supported"
+    },
+    "uk": {
+      "aspect": "supported",
+      "case": "supported"
+    },
+    "pl": {
+      "aspect": "supported",
+      "case": "supported"
+    },
+    "tr": {
+      "agglutinative_sequences": "supported",
+      "vowel_harmony": "supported",
+      "suffix": "supported"
+    },
+    "az": {
+      "agglutinative_sequences": "supported",
+      "vowel_harmony": "supported",
+      "suffix": "supported"
+    },
+    "kk": {
+      "agglutinative_sequences": "supported",
+      "vowel_harmony": "supported",
+      "suffix": "supported"
+    },
+    "sw": {
+      "noun_classes": "supported",
+      "agreement": "supported",
+      "prefix": "supported"
+    },
+    "zu": {
+      "noun_classes": "supported",
+      "agreement": "supported",
+      "prefix": "supported"
+    },
+    "xh": {
+      "noun_classes": "supported",
+      "agreement": "supported",
+      "prefix": "supported"
+    },
+    "zh": {
+      "classifiers": "supported",
+      "tone": "supported",
+      "analytic": "supported",
+      "segmentation": "supported",
+      "orthographic_variants": "supported"
+    },
+    "ja": {
+      "classifiers": "supported",
+      "honorifics": "supported",
+      "segmentation": "supported",
+      "orthographic_variants": "supported"
+    },
+    "ko": {
+      "classifiers": "supported",
+      "honorifics": "supported",
+      "segmentation": "supported"
+    },
+    "vi": {
+      "classifiers": "supported",
+      "tone": "supported",
+      "analytic": "supported",
+      "segmentation": "supported"
+    },
+    "th": {
+      "classifiers": "supported",
+      "tone": "supported",
+      "segmentation": "supported"
+    },
+    "lo": {
+      "classifiers": "supported",
+      "tone": "supported",
+      "segmentation": "supported"
+    },
+    "sr": {
+      "orthographic_variants": "supported"
+    }
+  },
+  "scripts": {
+    "de": [
+      "Latn"
+    ],
+    "ar": [
+      "Arab"
+    ],
+    "en": [
+      "Latn"
+    ],
+    "es": [
+      "Latn"
+    ],
+    "fr": [
+      "Latn"
+    ],
+    "ru": [
+      "Cyrl"
+    ],
+    "uk": [
+      "Cyrl"
+    ],
+    "pl": [
+      "Latn"
+    ],
+    "tr": [
+      "Latn"
+    ],
+    "az": [
+      "Latn"
+    ],
+    "kk": [
+      "Cyrl",
+      "Latn"
+    ],
+    "sw": [
+      "Latn"
+    ],
+    "zu": [
+      "Latn"
+    ],
+    "xh": [
+      "Latn"
+    ],
+    "zh": [
+      "Hans",
+      "Hant"
+    ],
+    "ja": [
+      "Jpan"
+    ],
+    "ko": [
+      "Kore"
+    ],
+    "vi": [
+      "Latn"
+    ],
+    "th": [
+      "Thai"
+    ],
+    "lo": [
+      "Laoo"
+    ],
+    "sr": [
+      "Cyrl",
+      "Latn"
+    ]
+  },
+  "contracts": {
+    "slavic_aspect": {
+      "languages": [
+        "ru",
+        "uk",
+        "pl"
+      ],
+      "features": [
+        "aspect"
+      ],
+      "rule": "Aspect is lexeme-specific; never derive a partner without attested lexeme linkage."
+    },
+    "turkic_harmony": {
+      "languages": [
+        "tr",
+        "az",
+        "kk"
+      ],
+      "features": [
+        "vowel_harmony",
+        "agglutinative_sequences"
+      ],
+      "rule": "Harmony class and ordered suffixes must be recorded per lexeme and dialect."
+    },
+    "bantu_noun_class": {
+      "languages": [
+        "sw",
+        "zu",
+        "xh"
+      ],
+      "features": [
+        "noun_classes",
+        "agreement"
+      ],
+      "rule": "Noun classes are not grammatical genders; agreement targets require attested patterns."
+    },
+    "cjk_classifiers": {
+      "languages": [
+        "zh",
+        "ja",
+        "ko"
+      ],
+      "features": [
+        "classifiers"
+      ],
+      "rule": "Classifiers/counters require syntactic context; do not infer from part of speech."
+    },
+    "segmentation": {
+      "languages": [
+        "zh",
+        "ja",
+        "ko",
+        "th",
+        "lo",
+        "vi"
+      ],
+      "features": [
+        "segmentation"
+      ],
+      "rule": "Segmentation is language and orthography specific; spacing is not a universal word-boundary heuristic."
+    },
+    "tone_and_analytic": {
+      "languages": [
+        "zh",
+        "vi"
+      ],
+      "features": [
+        "tone",
+        "analytic"
+      ],
+      "rule": "Tones attach to lexical readings; analytic grammar is not an absence of syntax."
+    },
+    "root_pattern": {
+      "languages": [
+        "ar"
+      ],
+      "features": [
+        "root_pattern",
+        "nonconcatenative"
+      ],
+      "rule": "Store roots and templates as attested lexical properties; never manufacture a broken plural."
+    }
+  }
+}
