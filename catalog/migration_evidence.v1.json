@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "public_manifest_reviewed_head": "bb15e9f02b216bbcb62a254d4a5bd695d405e9d5",
+  "published_count": 100,
+  "discrepancy_with_private_catalog": {
+    "reported_count": 9,
+    "verification": "not_independently_verifiable_from_public_inputs",
+    "mapping": [],
+    "data_handling": "No private catalog accessed, copied or disclosed; do not invent nine IDs"
+  },
+  "decisions": [
+    {
+      "id": "HEBREW_NOT_PUBLISHED",
+      "status": "requires_explicit_product_selection",
+      "note": "Hebrew (he) is not among 100 published manifest language IDs; Hebr script supported as metadata. Do not add by deleting an existing ID."
+    },
+    {
+      "id": "NORWEGIAN_NB_NO",
+      "status": "requires_explicit_alias_review",
+      "note": "Existing stable no preserved. nb fallback is lossy; nn remains distinct."
+    },
+    {
+      "id": "FILIPINO_TAGALOG",
+      "status": "requires_explicit_alias_review",
+      "note": "Existing stable tl preserved; fil fallback is lossy."
+    },
+    {
+      "id": "CHINESE_SCRIPT_VARIANTS",
+      "status": "metadata_only",
+      "note": "zh-Hans and zh-Hant script variants do not create new language IDs or assert content readiness."
+    },
+    {
+      "id": "KURDISH_SCRIPT_VARIANTS",
+      "status": "requires_dialect_review",
+      "note": "ku-Latn and ku-Arab scripts do not imply that ckb and kmr are mutually interchangeable."
+    },
+    {
+      "id": "PRIVATE_CATALOG_NINE_CODES",
+      "status": "awaiting_publicly_approved_mapping_evidence",
+      "note": "Nine-code mismatch reported by task; code-by-code identities cannot be concluded from this public manifest."
+    }
+  ]
+}
