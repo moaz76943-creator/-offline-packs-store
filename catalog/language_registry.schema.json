@@ -63,7 +63,14 @@
           "direction": {
             "enum": [
               "ltr",
-              "rtl"
+              "rtl",
+              "ttb-ltr"
+            ]
+          },
+          "vertical_mode": {
+            "enum": [
+              "ttb-rl",
+              "ttb-lr"
             ]
           }
         }
