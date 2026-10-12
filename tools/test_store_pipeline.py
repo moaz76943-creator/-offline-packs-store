@@ -10,6 +10,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import compile_store_packs
+
 SCRIPT = Path(__file__).with_name('compile_store_packs.py')
 
 
@@ -32,6 +34,15 @@ class StorePipelineTest(unittest.TestCase):
         return subprocess.run([sys.executable, str(SCRIPT), '--source-dir', str(self.sources),
             '--output-dir', str(self.packs), '--manifest', str(self.manifest), *options],
             capture_output=True, text=True, timeout=15)
+
+    def test_required_text(self):
+        self.assertEqual(compile_store_packs.required_text('hello', 'test'), 'hello')
+        self.assertEqual(compile_store_packs.required_text('  world  ', 'test'), '  world  ')
+
+        for invalid in ('', '   ', None, 123, [], {}):
+            with self.subTest(invalid=invalid):
+                with self.assertRaisesRegex(ValueError, 'test must be nonempty UTF-8 text'):
+                    compile_store_packs.required_text(invalid, 'test')
 
     def test_dry_run_and_missing_source_fail_closed(self):
         original = self.manifest.read_bytes()
