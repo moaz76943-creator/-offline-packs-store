@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0.0",
+  "frameworks": [
+    {
+      "proficiency_framework_id": "CEFR",
+      "version": "2020-companion",
+      "kind": "reference_framework",
+      "language_scope": "multilingual",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "assessed_skills": [
+        "reading",
+        "writing",
+        "listening",
+        "speaking"
+      ],
+      "source_id": "COE-CEFR-2020"
+    },
+    {
+      "proficiency_framework_id": "PEDAGOGICAL_BANDS",
+      "version": "1.0.0",
+      "kind": "uncertified_local_taxonomy",
+      "language_scope": "multilingual",
+      "levels": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
+      "assessed_skills": [],
+      "source_id": "LOCAL-BANDS-1"
+    },
+    {
+      "proficiency_framework_id": "JLPT",
+      "version": "2010-revision",
+      "kind": "exam",
+      "language_scope": "ja",
+      "levels": [
+        "N5",
+        "N4",
+        "N3",
+        "N2",
+        "N1"
+      ],
+      "assessed_skills": [
+        "reading",
+        "listening"
+      ],
+      "source_id": "JLPT-LEVELS"
+    },
+    {
+      "proficiency_framework_id": "HSK_3_0",
+      "version": "2026-new-hsk",
+      "kind": "exam_framework",
+      "language_scope": "zh",
+      "levels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "assessed_skills": [
+        "reading",
+        "writing",
+        "listening",
+        "speaking"
+      ],
+      "source_id": "HSK-NEW"
+    },
+    {
+      "proficiency_framework_id": "CHINESE_GRADING_STANDARD",
+      "version": "GF0025-2021",
+      "kind": "national_standard",
+      "language_scope": "zh",
+      "levels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "assessed_skills": [
+        "reading",
+        "writing",
+        "listening",
+        "speaking"
+      ],
+      "source_id": "MOE-GF0025"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "COE-CEFR-2020",
+      "publisher": "Council of Europe",
+      "version": "2020 Companion volume",
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages/introduction-and-context",
+      "scope": "framework"
+    },
+    {
+      "source_id": "LOCAL-BANDS-1",
+      "publisher": "Offline Packs Store",
+      "version": "1.0.0",
+      "url": "https://github.com/moaz76943-creator/-offline-packs-store",
+      "scope": "local_taxonomy"
+    },
+    {
+      "source_id": "JLPT-LEVELS",
+      "publisher": "Japan Foundation / JEES",
+      "version": "2010 revision",
+      "url": "https://www.jlpt.jp/e/about/levelsummary.html",
+      "scope": "framework"
+    },
+    {
+      "source_id": "JLPT-CEFR-REFERENCE",
+      "publisher": "Japan Foundation / JEES",
+      "version": "CEFR reference indication",
+      "url": "https://www.jlpt.jp/e/about/cefr_reference.html",
+      "scope": "mapping"
+    },
+    {
+      "source_id": "HSK-NEW",
+      "publisher": "Chinese Testing International",
+      "version": "new HSK (accessed 2026-10-12)",
+      "url": "https://www.chinesetest.cn/HSK",
+      "scope": "framework"
+    },
+    {
+      "source_id": "MOE-GF0025",
+      "publisher": "Ministry of Education of China",
+      "version": "GF0025-2021",
+      "url": "https://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202103/t20210329_523304.html",
+      "scope": "framework"
+    }
+  ]
+}

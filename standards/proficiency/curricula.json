@@ -1,0 +1,310 @@
+{
+  "schema_version": "1.0.0",
+  "tracks": [
+    {
+      "language": "de",
+      "script_codes": [
+        "Latn"
+      ],
+      "proficiency_framework_id": "CEFR",
+      "stages": [
+        {
+          "proficiency_level_id": "A1",
+          "prerequisites": [],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "A2",
+          "prerequisites": [
+            "A1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B1",
+          "prerequisites": [
+            "A2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B2",
+          "prerequisites": [
+            "B1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C1",
+          "prerequisites": [
+            "B2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C2",
+          "prerequisites": [
+            "C1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        }
+      ]
+    },
+    {
+      "language": "ar",
+      "script_codes": [
+        "Arab"
+      ],
+      "proficiency_framework_id": "CEFR",
+      "stages": [
+        {
+          "proficiency_level_id": "A1",
+          "prerequisites": [],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "A2",
+          "prerequisites": [
+            "A1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B1",
+          "prerequisites": [
+            "A2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B2",
+          "prerequisites": [
+            "B1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C1",
+          "prerequisites": [
+            "B2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C2",
+          "prerequisites": [
+            "C1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        }
+      ]
+    },
+    {
+      "language": "en",
+      "script_codes": [
+        "Latn"
+      ],
+      "proficiency_framework_id": "CEFR",
+      "stages": [
+        {
+          "proficiency_level_id": "A1",
+          "prerequisites": [],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "A2",
+          "prerequisites": [
+            "A1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B1",
+          "prerequisites": [
+            "A2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B2",
+          "prerequisites": [
+            "B1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C1",
+          "prerequisites": [
+            "B2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C2",
+          "prerequisites": [
+            "C1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        }
+      ]
+    },
+    {
+      "language": "es",
+      "script_codes": [
+        "Latn"
+      ],
+      "proficiency_framework_id": "CEFR",
+      "stages": [
+        {
+          "proficiency_level_id": "A1",
+          "prerequisites": [],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "A2",
+          "prerequisites": [
+            "A1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B1",
+          "prerequisites": [
+            "A2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B2",
+          "prerequisites": [
+            "B1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C1",
+          "prerequisites": [
+            "B2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C2",
+          "prerequisites": [
+            "C1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        }
+      ]
+    },
+    {
+      "language": "fr",
+      "script_codes": [
+        "Latn"
+      ],
+      "proficiency_framework_id": "CEFR",
+      "stages": [
+        {
+          "proficiency_level_id": "A1",
+          "prerequisites": [],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "A2",
+          "prerequisites": [
+            "A1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B1",
+          "prerequisites": [
+            "A2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "B2",
+          "prerequisites": [
+            "B1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C1",
+          "prerequisites": [
+            "B2"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        },
+        {
+          "proficiency_level_id": "C2",
+          "prerequisites": [
+            "C1"
+          ],
+          "topic_domains": [],
+          "content_record_ids": [],
+          "status": "planned_no_content"
+        }
+      ]
+    }
+  ]
+}
