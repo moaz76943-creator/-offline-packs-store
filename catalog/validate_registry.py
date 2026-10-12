@@ -39,10 +39,10 @@ def validate(registry, readiness, manifest=None, required_count=100):
     for code, spec in scripts.items():
         if not SCRIPT.fullmatch(code):
             problem(f"invalid ISO 15924 script syntax: {code}")
-        if not isinstance(spec, dict) or spec.get("direction") not in {"ltr", "rtl"}:
+        if not isinstance(spec, dict) or spec.get("direction") not in {"ltr", "rtl", "ttb-ltr"}:
             problem(f"invalid script direction: {code}")
-        elif (code in RIGHT_TO_LEFT) != (spec["direction"] == "rtl"):
-            problem(f"RTL script-direction mismatch: {code}")
+        elif spec["direction"] != ("ttb-ltr" if code == "Mong" else "rtl" if code in RIGHT_TO_LEFT else "ltr"):
+            problem(f"{'vertical' if code == 'Mong' else 'RTL'} script-direction mismatch: {code}")
     ids = set()
     for language in languages:
         if not isinstance(language, dict):
