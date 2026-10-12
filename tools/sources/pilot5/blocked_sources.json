@@ -1,0 +1,44 @@
+{
+  "status": "BLOCKED_SOURCE",
+  "as_of": "2026-10-13",
+  "reason": "Route 05 ledger has no approved dictionary sources; no reviewed source artifacts or immutable license-proof hashes were accessible.",
+  "partitions": {
+    "de": {
+      "accepted_lexemes": 0,
+      "accepted_senses": 0,
+      "source_artifacts": 0
+    },
+    "ar": {
+      "accepted_lexemes": 0,
+      "accepted_senses": 0,
+      "source_artifacts": 0
+    },
+    "en": {
+      "accepted_lexemes": 0,
+      "accepted_senses": 0,
+      "source_artifacts": 0
+    },
+    "es": {
+      "accepted_lexemes": 0,
+      "accepted_senses": 0,
+      "source_artifacts": 0
+    },
+    "fr": {
+      "accepted_lexemes": 0,
+      "accepted_senses": 0,
+      "source_artifacts": 0
+    }
+  },
+  "candidate": {
+    "name": "Wiktionary via Wiktextract/Kaikki",
+    "status": "REVIEW_REQUIRED",
+    "url": "https://kaikki.org/dictionary/rawdata.html",
+    "rights": "https://en.wiktionary.org/wiki/Wiktionary:Copyrights",
+    "claimed_licenses": [
+      "CC-BY-SA-4.0",
+      "GFDL"
+    ],
+    "actual_artifact_sha256": null,
+    "human_approval": null
+  }
+}
