@@ -10,7 +10,36 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from compile_store_packs import store_if_different
+
 SCRIPT = Path(__file__).with_name('compile_store_packs.py')
+
+
+class TestStoreIfDifferent(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.test_file = self.root / 'test_file.txt'
+
+    def test_store_if_different_new_file(self):
+        data = b'hello world'
+        self.assertTrue(store_if_different(self.test_file, data))
+        self.assertTrue(self.test_file.exists())
+        self.assertEqual(self.test_file.read_bytes(), data)
+
+    def test_store_if_different_same_data(self):
+        data = b'hello world'
+        self.test_file.write_bytes(data)
+        self.assertFalse(store_if_different(self.test_file, data))
+        self.assertEqual(self.test_file.read_bytes(), data)
+
+    def test_store_if_different_changed_data(self):
+        data_old = b'hello world'
+        data_new = b'new data'
+        self.test_file.write_bytes(data_old)
+        self.assertTrue(store_if_different(self.test_file, data_new))
+        self.assertEqual(self.test_file.read_bytes(), data_new)
 
 
 class StorePipelineTest(unittest.TestCase):
