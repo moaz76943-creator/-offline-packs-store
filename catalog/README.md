@@ -18,7 +18,7 @@ This contains **public linguistic metadata**, not vocabulary/translation packs. 
     python3 -m compileall -q catalog
     git diff --check
 
-The validator supports an intentional BCP-47 structural subset, not a live IANA subtag registry. Scripts have ISO 15924 identifiers and their **own** Unicode text direction. For instance, ku-Latn is LTR while ku-Arab is RTL. Hebr is RTL even though Hebrew (he) is not currently among the published 100 selected product IDs. Do not delete a supported product identity to add it without explicit migration approval.
+The validator supports an intentional BCP-47 structural subset, not a live IANA subtag registry. Scripts have ISO 15924 identifiers and their **own** Unicode text direction. For instance, ku-Latn is LTR while ku-Arab is RTL. Traditional Mongolian (Mong) is primarily top-to-bottom with left-to-right columns; Han and Japanese scripts also record optional vertical writing modes. Hebr is RTL even though Hebrew (he) is not currently among the published 100 selected product IDs. Do not delete a supported product identity to add it without explicit migration approval.
 
 zh-Hans and zh-Hant are script variants of the single existing zh product ID. The ku-Latn and ku-Arab variants do not mean that Central and Northern Kurdish are the same language. The provisional fallbacks nb → no and fil → tl are marked **lossy**, not guaranteed linguistic equivalence or proof that an appropriate content pack exists.
 
