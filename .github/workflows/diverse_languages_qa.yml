@@ -1,0 +1,98 @@
+# Isolated, read-only QA: no content publication, no private runners or tokens.
+name: Diverse languages evidence and rights QA
+
+on:
+  pull_request:
+    paths:
+      - 'tools/linguistic_extensions/diverse_languages/**'
+      - 'tests/linguistic_extensions/diverse_languages/**'
+      - '.github/workflows/diverse_languages_qa.yml'
+      - 'catalog/language_registry.v1.json'
+      - 'catalog/content_readiness.v1.json'
+      - 'legal/ledger/sources.json'
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Optional canonical diverse-language ID for read-only profile'
+        required: false
+        type: string
+      shard_path:
+        description: 'Optional reviewed candidate JSONL under diverse_languages/candidates/; no remote fetch'
+        required: false
+        type: string
+      start_line:
+        description: '1-based resume cursor (bounded, read-only)'
+        required: false
+        default: '1'
+        type: string
+      max_rows:
+        description: 'Maximum rows this run may examine (1..2000)'
+        required: false
+        default: '500'
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: diverse-languages-qa-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evidence-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test independent languages and reject forged approval
+        run: python3 -m unittest discover -s tests/linguistic_extensions/diverse_languages -p 'test_*.py' -v
+      - name: Read-only readiness and source rights gate
+        env:
+          SELECTED_LANGUAGE: ${{ inputs.language }}
+          SHARD_PATH: ${{ inputs.shard_path }}
+          START_LINE: ${{ inputs.start_line }}
+          MAX_ROWS: ${{ inputs.max_rows }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          from tools.linguistic_extensions.diverse_languages.audit import DiverseAudit, RESEARCH_FOCUS
+          worker = DiverseAudit()
+          language = os.environ.get("SELECTED_LANGUAGE", "")
+          if language and language not in RESEARCH_FOCUS:
+              raise SystemExit("Unknown or unregistered language identity")
+          report = worker.report()
+          assert len(report["reports"]) == 14
+          if language:
+              print(json.dumps(worker.profile(language), ensure_ascii=False, sort_keys=True))
+          print("COVERED_LANGUAGE_PROFILES", len(report["reports"]))
+          print("VERIFIED_STRUCTURAL_FACTS", sum(r["verified_structural_fact_count"] for r in report["reports"].values()))
+          print("LEDGER_SOURCES", report["ledger_sources_total"])
+          if not report["ledger_sources_total"]:
+              print("BLOCKED_SOURCE: no eligible approved corpus shards; no dispatch")
+          print("NO_PUBLICATION; NO_UNREVIEWED_COMMUNITY_INTAKE")
+          shard = os.environ.get("SHARD_PATH", "")
+          if shard:
+              from pathlib import Path
+              candidates_root = Path("tools/linguistic_extensions/diverse_languages/candidates").resolve()
+              path = Path(shard)
+              resolved = path.resolve()
+              if not resolved.is_relative_to(candidates_root) or not resolved.is_file() or path.is_symlink():
+                  raise SystemExit("Only checked-in read-only candidate shards under owned scope are eligible")
+              start_line = int(os.environ.get("START_LINE") or "1")
+              max_rows = int(os.environ.get("MAX_ROWS") or "500")
+              receipt = worker.audit_shard(path, start_line=start_line, max_rows=max_rows)
+              # GitHub run ID is host-supplied. This receipt is not an approval or production publication.
+              receipt["github_run_id"] = os.environ.get("GITHUB_RUN_ID")
+              receipt["source_scope"] = "review_candidates_only"
+              print(json.dumps(receipt, sort_keys=True, ensure_ascii=False))
+              if os.environ.get("GITHUB_STEP_SUMMARY"):
+                  with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+                      summary.write("### Diverse language bounded review\\n")
+                      summary.write("Processed: %d; next line: %d; review rows: %d\\n" % (
+                          receipt["processed"], receipt["next_line"], len(receipt["review_queue"])))
+          PY
