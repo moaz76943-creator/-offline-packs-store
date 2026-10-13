@@ -159,19 +159,26 @@ def each_candidate(path, source_sha):
     with Path(path).open("rb") as stream:
         first = stream.read(1)
         stream.seek(0)
-        if first == b"{":
-            # Accept PR #79's versioned directed-pair document as an adapter, without
-            # silently importing a contradictory reverse direction inside its document.
-            if Path(path).stat().st_size <= MAX_DOCUMENT:
-                data = json.loads(stream.read().decode("utf-8"), object_pairs_hook=json_object)
-                if isinstance(data, dict) and "translations" in data:
-                    if data.get("contract_version") != "1.0.0":
-                        raise AdmissionError("BAD_DIRECTED_PAIR_CONTRACT")
-                    for entry in data["translations"]:
-                        yield dict(entry, source_language=data["source_language"],
-                                   target_language=data["target_language"])
-                    return
-                stream.seek(0)
+        if first == b"{" and Path(path).stat().st_size <= MAX_DOCUMENT:
+            # A PR #79 document is one JSON object. Multiple JSONL records must
+            # NOT be parsed as one document. Never overwrite direction labels.
+            raw = stream.read()
+            try:
+                data = json.loads(raw.decode("utf-8"), object_pairs_hook=json_object)
+            except json.JSONDecodeError as exc:
+                if "Extra data" not in str(exc):
+                    raise
+                data = None
+            if isinstance(data, dict) and "translations" in data:
+                if data.get("contract_version") != "1.0.0":
+                    raise AdmissionError("BAD_DIRECTED_PAIR_CONTRACT")
+                for entry in data["translations"]:
+                    rec = dict(entry)
+                    rec.setdefault("source_language", data["source_language"])
+                    rec.setdefault("target_language", data["target_language"])
+                    yield rec
+                return
+            stream.seek(0)
         for raw in stream:
             count += 1
             if count > MAX_CANDIDATES or len(raw) > MAX_LINE:
