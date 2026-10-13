@@ -1,143 +1,221 @@
-import hashlib
-import unicodedata
-import json
-from collections import defaultdict
-from typing import Dict, List, Any, Optional
+"""Fail-closed, disk-backed, sense-aware lexical duplicate analysis.
 
-def normalize_strict(text: str) -> str:
-    if not text:
-        return ""
+No attestation or license inference: absence of evidence never authorizes removal.
+Results are streamed from SQLite; legacy resolve() is deliberately size limited.
+"""
+import hashlib
+import json
+import sqlite3
+import tempfile
+import unicodedata
+from pathlib import Path
+
+
+def normalize_strict(text):
+    """Candidate comparison, never authorization for exact lexical equality."""
     return unicodedata.normalize('NFKC', text).casefold()
 
-def normalize_loose(text: str) -> str:
-    if not text:
-        return ""
-    nfkd = unicodedata.normalize('NFKD', text).casefold()
-    # Remove diacritics
-    return "".join(c for c in nfkd if not unicodedata.combining(c))
+
+def normalize_loose(text):
+    """Candidate *review* grouping only; never an exact-identity equality."""
+    decomposed = unicodedata.normalize('NFKD', text).casefold()
+    return ''.join(ch for ch in decomposed if not unicodedata.combining(ch))
+
+
+def _json(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':'), allow_nan=False)
+
+
+def _digest(value):
+    return hashlib.sha256(_json(value).encode('utf-8')).hexdigest()
+
+
+def _text(value):
+    return value if isinstance(value, str) and value.strip() else ''
+
+
+def _rights(source):
+    if not isinstance(source, dict):
+        return None
+    required = ('source_id', 'license_id', 'dataset_version', 'record_locator')
+    if not all(_text(source.get(key)) for key in required):
+        return None
+    if source.get('publication_approved') is not True or source.get('fixture_only') is True:
+        return None
+    return source['license_id']
+
+
+def _sense_tokens(senses):
+    if not isinstance(senses, list):
+        raise ValueError('senses must be a list')
+    result = []
+    for sense in senses:
+        if not isinstance(sense, dict):
+            raise ValueError('sense must be an object')
+        definition = _text(sense.get('definition'))
+        if definition:
+            result.append(_digest(normalize_strict(definition)))
+    return tuple(sorted(set(result)))
+
+
+def _exact_identity(rec):
+    senses = rec.get('senses', [])
+    # Without independently pinned concept identity and definition, no automatic removal.
+    if not senses or not all(isinstance(s, dict) and _text(s.get('concept_id'))
+                              and _text(s.get('definition')) for s in senses):
+        return None
+    if not _rights(rec.get('source')):
+        return None
+    if not all(_rights(s['source']) == _rights(rec['source'])
+               for s in senses if 'source' in s):
+        return None
+    facets = {k: v for k, v in rec.items() if k not in ('source', 'senses', 'lexeme_id')}
+    # A lexical sense ID is not interchangeable with a concept ID.
+    sense_facets = [{k: v for k, v in s.items()
+                     if k not in ('sense_id', 'lexeme_id', 'source')}
+                    for s in senses]
+    return _digest([facets, sorted(_json(x) for x in sense_facets)])
+
 
 class CorpusDeduplicator:
-    def __init__(self):
-        self.groups = defaultdict(list)
+    def __init__(self, *, max_record_bytes=2_000_000, legacy_result_limit=10_000):
+        self._temp = tempfile.TemporaryDirectory(prefix='corpus-dedupe-')
+        self._db = sqlite3.connect(str(Path(self._temp.name) / 'dedupe.sqlite3'))
+        self._db.execute('PRAGMA cache_size=-4096')
+        self._db.execute('PRAGMA temp_store=FILE')
+        self._db.executescript("""
+            CREATE TABLE input (seq INTEGER PRIMARY KEY, bucket TEXT NOT NULL,
+              lexeme_id TEXT NOT NULL UNIQUE, payload TEXT NOT NULL);
+            CREATE INDEX input_order ON input(bucket,lexeme_id,seq);
+            CREATE TABLE retained (id INTEGER PRIMARY KEY, bucket TEXT NOT NULL,
+              lexeme_id TEXT NOT NULL, exact_key TEXT, strict_lemma TEXT NOT NULL,
+              license TEXT, rights_ok INTEGER NOT NULL, payload TEXT NOT NULL);
+            CREATE INDEX retained_exact ON retained(bucket,strict_lemma,exact_key);
+            CREATE TABLE retained_senses (bucket TEXT NOT NULL, token TEXT NOT NULL,
+              retained_id INTEGER NOT NULL);
+            CREATE INDEX retained_senses_lookup ON retained_senses(bucket,token);
+        """)
+        self.max_record_bytes = max_record_bytes
+        self.legacy_result_limit = legacy_result_limit
         self.canonical = []
         self.duplicates = []
+        self._resolved = False
 
-    def generate_hash_key(self, record: Dict[str, Any]) -> str:
-        lang = record.get('language', '')
-        pos = record.get('pos', '')
-        lemma = record.get('lemma', '')
-        loose_lemma = normalize_loose(lemma)
-        return hashlib.sha256(f"{lang}:{pos}:{loose_lemma}".encode('utf-8')).hexdigest()
+    def close(self):
+        if self._db is not None:
+            self._db.close()
+            self._db = None
+            self._temp.cleanup()
 
-    def process_record(self, record: Dict[str, Any]):
-        key = self.generate_hash_key(record)
-        self.groups[key].append(record)
+    def __enter__(self):
+        return self
 
-    def is_exact_duplicate(self, rec1: Dict[str, Any], rec2: Dict[str, Any]) -> bool:
-        if normalize_strict(rec1.get('lemma', '')) != normalize_strict(rec2.get('lemma', '')):
-            return False
+    def __exit__(self, *_):
+        self.close()
 
-        senses1 = {normalize_strict(s.get('definition', '')) for s in rec1.get('senses', [])}
-        senses2 = {normalize_strict(s.get('definition', '')) for s in rec2.get('senses', [])}
+    def process_record(self, record):
+        if self._resolved:
+            raise ValueError('cannot add after resolution')
+        if not isinstance(record, dict):
+            raise ValueError('record must be an object')
+        required = ('language', 'pos', 'lemma', 'lexeme_id')
+        if not all(_text(record.get(field)) for field in required):
+            raise ValueError('missing language/pos/lemma/lexeme_id')
+        # No unpaired surrogate or silent Unicode rewrite.
+        payload = _json(record)
+        if len(payload.encode('utf-8')) > self.max_record_bytes:
+            raise ValueError('oversized input record')
+        _sense_tokens(record.get('senses', []))
+        bucket = _digest([record['language'], record.get('script'), record['pos'],
+                          record.get('dialect'), record.get('homograph_key'),
+                          normalize_loose(record['lemma'])])
+        try:
+            self._db.execute('INSERT INTO input(bucket,lexeme_id,payload) VALUES(?,?,?)',
+                             (bucket, record['lexeme_id'], payload))
+        except sqlite3.IntegrityError as exc:
+            raise ValueError('duplicate lexeme_id: ' + record['lexeme_id']) from exc
 
-        if not senses1 and not senses2:
-             return True
+    def generate_hash_key(self, record):
+        return _digest([record.get('language'), record.get('script'), record.get('pos'),
+                        record.get('dialect'), record.get('homograph_key'),
+                        normalize_loose(record.get('lemma', ''))])
 
-        if senses1 == senses2:
-            return True
+    def are_licenses_compatible(self, rec1, rec2):
+        license1 = _rights(rec1.get('source'))
+        license2 = _rights(rec2.get('source'))
+        return license1 is not None and license1 == license2
 
-        return False
+    def is_exact_duplicate(self, rec1, rec2):
+        one, two = _exact_identity(rec1), _exact_identity(rec2)
+        return one is not None and one == two and self.are_licenses_compatible(rec1, rec2)
 
-    def are_licenses_compatible(self, rec1: Dict[str, Any], rec2: Dict[str, Any]) -> bool:
-        lic1 = rec1.get('source', {}).get('license_id', '')
-        lic2 = rec2.get('source', {}).get('license_id', '')
-        return lic1 == lic2
-
-    def evaluate_group(self, group: List[Dict[str, Any]]):
-        if not group:
-            return
-
-        group.sort(key=lambda x: x.get('lexeme_id', ''))
-
-        retained = []
-        for current in group:
-            status = None
-            duplicate_of = None
+    def iter_resolved(self):
+        if self._resolved:
+            raise ValueError('resolution is single-use')
+        self._resolved = True
+        self._db.commit()
+        for bucket, _rid, payload in self._db.execute(
+                'SELECT bucket,lexeme_id,payload FROM input ORDER BY bucket,lexeme_id,seq'):
+            rec = json.loads(payload)
+            strict = normalize_strict(rec['lemma'])
+            exact = _exact_identity(rec)
+            license_id = _rights(rec.get('source'))
+            canonical = None
             reason = None
-
-            for prev in retained:
-                if normalize_loose(current.get('lemma', '')) == normalize_loose(prev.get('lemma', '')):
-                    is_exact = self.is_exact_duplicate(current, prev)
-                    lic_compat = self.are_licenses_compatible(current, prev)
-
-                    if is_exact:
-                        if lic_compat:
-                            status = 'EXACT_DUPLICATE'
-                            duplicate_of = prev
-                            break
-                        else:
-                            status = 'REVIEW_REQUIRED'
-                            duplicate_of = prev
-                            reason = 'incompatible_licenses'
-                            break
-                    else:
-                        # Same loose lemma, but not exact duplicate
-                        strict1 = normalize_strict(current.get('lemma', ''))
-                        strict2 = normalize_strict(prev.get('lemma', ''))
-
-                        senses1 = {normalize_strict(s.get('definition', '')) for s in current.get('senses', [])}
-                        senses2 = {normalize_strict(s.get('definition', '')) for s in prev.get('senses', [])}
-
-                        if strict1 != strict2:
-                            # e.g., German umlaut vs non-umlaut, Arabic diacritics
-                            # Could be a near duplicate (e.g. one has diacritics, one doesn't but same meaning)
-                            # If they share meaning (senses overlap), then near duplicate
-                            # Otherwise, distinct word
-                            if senses1 & senses2:
-                                status = 'REVIEW_REQUIRED'
-                                duplicate_of = prev
-                                reason = 'near_duplicate_orthography'
-                                break
-                            else:
-                                # distinct meaning, preserve
-                                pass
-                        else:
-                            # Same strict lemma, different senses.
-                            # Polysemy -> preserve both. But what if they have overlapping senses?
-                            if senses1 & senses2:
-                                status = 'REVIEW_REQUIRED'
-                                duplicate_of = prev
-                                reason = 'overlapping_senses'
-                                break
-                            else:
-                                # disjoint senses, polysemy, preserve
-                                pass
-
-            if status == 'EXACT_DUPLICATE':
-                self.duplicates.append({
-                    'status': 'EXACT_DUPLICATE',
-                    'original_id': current.get('lexeme_id'),
-                    'duplicate_of': duplicate_of.get('lexeme_id'),
-                    'source': current.get('source')
-                })
-            elif status == 'REVIEW_REQUIRED':
-                self.duplicates.append({
-                    'status': 'REVIEW_REQUIRED',
-                    'original_id': current.get('lexeme_id'),
-                    'duplicate_of': duplicate_of.get('lexeme_id'),
-                    'source': current.get('source'),
-                    'reason': reason
-                })
-                # We retain it since it's not an exact duplicate we can automatically merge/drop.
-                # "Mark near duplicates as REVIEW_REQUIRED, not automatic deletion"
-                # And "Unknown duplicates are not automatically deleted"
-                retained.append(current)
-            else:
-                retained.append(current)
-
-        self.canonical.extend(retained)
+            if exact is not None:
+                canonical = self._db.execute("""SELECT lexeme_id,payload FROM retained
+                    WHERE bucket=? AND strict_lemma=? AND exact_key=? LIMIT 1""",
+                    (bucket, strict, exact)).fetchone()
+            # Missing rights or semantics must never cause an automatic delete.
+            if canonical:
+                if self.are_licenses_compatible(rec, json.loads(canonical[1])):
+                    yield 'duplicate', {'status': 'EXACT_DUPLICATE',
+                        'original_id': rec['lexeme_id'], 'duplicate_of': canonical[0],
+                        'source': rec.get('source'),
+                        'canonical_source': json.loads(canonical[1]).get('source')}
+                    continue
+                reason = 'incompatible_licenses'
+            if reason is None:
+                other = self._db.execute("""SELECT lexeme_id,payload,license,exact_key
+                    FROM retained WHERE bucket=? AND strict_lemma=? LIMIT 1""",
+                    (bucket,strict)).fetchone()
+                if other:
+                    old = json.loads(other[1])
+                    same_semantics = _sense_tokens(rec.get('senses', [])) == _sense_tokens(old.get('senses', []))
+                    if same_semantics:
+                        first = (rec.get('source') or {}).get('license_id')
+                        second = (old.get('source') or {}).get('license_id')
+                        reason = ('incompatible_licenses' if first and second and first != second
+                                  else 'missing_or_unapproved_source' if not self.are_licenses_compatible(rec, old)
+                                  else 'unverified_sense_identity')
+                        canonical = other
+            if reason is None:
+                for token in _sense_tokens(rec.get('senses', [])):
+                    near = self._db.execute("""SELECT r.lexeme_id,r.payload,r.exact_key FROM retained_senses s
+                        JOIN retained r ON r.id=s.retained_id WHERE s.bucket=? AND s.token=? LIMIT 1""",
+                        (bucket,token)).fetchone()
+                    if near:
+                        canonical = near
+                        old = json.loads(near[1])
+                        reason = ('overlapping_senses' if strict == normalize_strict(old['lemma'])
+                                  else 'near_duplicate_orthography')
+                        break
+            if reason:
+                yield 'duplicate', {'status': 'REVIEW_REQUIRED',
+                    'original_id': rec['lexeme_id'], 'duplicate_of': canonical[0],
+                    'source': rec.get('source'), 'reason': reason}
+            # Retain all records needing review (no destructive deduplication).
+            cur = self._db.execute("""INSERT INTO retained(bucket,lexeme_id,exact_key,strict_lemma,
+                license,rights_ok,payload) VALUES(?,?,?,?,?,?,?)""",
+                (bucket,rec['lexeme_id'],exact,strict,license_id,int(license_id is not None),payload))
+            for token in _sense_tokens(rec.get('senses', [])):
+                self._db.execute('INSERT INTO retained_senses VALUES(?,?,?)', (bucket,token,cur.lastrowid))
+            yield 'canonical', rec
+        self._db.commit()
 
     def resolve(self):
-        for key in sorted(self.groups.keys()):
-            self.evaluate_group(self.groups[key])
-        self.groups.clear()
+        count = self._db.execute('SELECT COUNT(*) FROM input').fetchone()[0]
+        if count > self.legacy_result_limit:
+            raise ValueError('legacy in-memory resolve limit exceeded; use iter_resolved()')
+        for kind, value in self.iter_resolved():
+            (self.canonical if kind == 'canonical' else self.duplicates).append(value)
