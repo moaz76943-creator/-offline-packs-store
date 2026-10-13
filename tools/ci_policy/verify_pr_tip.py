@@ -9,9 +9,9 @@ import argparse
 import re
 import subprocess
 
-SHA = re.compile(r"(?:[0-9a-f]{40}|[0-9a-f]{64})\\Z")
-SKIP_TOKEN = re.compile(r"\\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\\]", re.IGNORECASE)
-SKIP_TRAILER = re.compile(r"(?im)^skip-checks\\s*:\\s*true\\s*$")
+SHA = re.compile(r"(?:[0-9a-f]{40}|[0-9a-f]{64})\Z")
+SKIP_TOKEN = re.compile(r"\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]", re.IGNORECASE)
+SKIP_TRAILER = re.compile(r"(?im)^skip-checks\s*:\s*true\s*$")
 
 
 def skip_directive(message: str):
@@ -45,7 +45,7 @@ def main() -> int:
     try:
         sha = verify_pr_checkout(opts.expected_head)
     except (ValueError, subprocess.CalledProcessError) as exc:
-        p.exit(1, f'FAIL CLOSED: {exc}\\n')
+        p.exit(1, f'FAIL CLOSED: {exc}\n')
     print(f'PASS: verified PR merge checkout and unskipped head {sha}')
     return 0
 
