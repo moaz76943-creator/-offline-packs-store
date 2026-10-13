@@ -47,7 +47,7 @@ def _existing_issues(items):
     for issue in items:
         if (not isinstance(issue, dict)
                 or issue.get('pull_request')
-                or (issue.get('user') or {}).get('login') != OWNER
+                or (issue.get('user') or {}).get('login') not in controller.ALLOWED_ISSUE_CREATORS
                 or not issue.get('title', '').startswith(queue.PREFIX)):
             continue
         task = queue.parse(issue.get('body'))
