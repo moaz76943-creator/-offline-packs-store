@@ -1,0 +1,110 @@
+"""Fail-closed tests for autonomous source partition issue seeding.
+
+All sources and partitions below are synthetic; no public corpus is admitted.
+"""
+import copy
+import json
+import unittest
+from tools.gha_factory.dispatcher import queue
+from tools.gha_factory.queue_autoseed import seeder
+
+SHA = 'a' * 64
+REGISTRY_SHA = 'b' * 64
+SOURCE = 'reviewed.fixture'
+
+
+def context(parts=3):
+    source = {'source_id': SOURCE, 'kind': 'dictionary',
+              'status': 'APPROVED_FOR_REDISTRIBUTION',
+              'retrieval': {'sha256': SHA, 'artifact_path': 'safe/input.jsonl'},
+              'review': {'reviewer': 'fixture'},
+              'license': {'id': 'CC0-1.0'}}
+    jobs = {}
+    for i in range(parts):
+        jobs[(SOURCE, 'de', SHA, i)] = {
+            'job': {'partition_index': i, 'sha256': 'c' * 64, 'record_count': 2},
+            'report': {'status': 'ACCEPTED_FOR_QUEUE', 'publication_approved': False},
+            'folder': None}
+    return {'languages': frozenset(('de', 'ar')), 'sources': [source],
+            'admissions': jobs}
+
+
+def as_existing(task):
+    return {'number': 55, 'title': queue.PREFIX + task['task_id'],
+            'body': queue.serialize(task), 'user': {'login': seeder.OWNER},
+            'state': 'open'}
+
+
+class SeederTests(unittest.TestCase):
+    def test_empty_unapproved_ledger_creates_no_queue_work(self):
+        ctx = {'languages': frozenset(('de',)), 'sources': [], 'admissions': {}}
+        self.assertEqual(seeder.plan(ctx, REGISTRY_SHA, []), [])
+
+    def test_deterministic_partition_ids_and_safe_task_schema(self):
+        planned = seeder.plan(context(), REGISTRY_SHA, [])
+        self.assertEqual(len(planned), 3)
+        self.assertEqual([item['shard'] for item in planned], [0, 1, 2])
+        for item in planned:
+            self.assertEqual(item['task_id'], queue.fingerprint(item))
+            self.assertEqual(item['task_type'], 'admission_partition_verify')
+            self.assertEqual(item['state'], 'READY')
+            self.assertEqual(item['source_sha256'], SHA)
+            self.assertEqual(item['attempts'], 0)
+            self.assertEqual(queue.validate(item, {'ar', 'de'}), item)
+
+    def test_existing_success_is_not_enqueued_again(self):
+        target = seeder.plan(context(), REGISTRY_SHA, [])[0]
+        original = copy.deepcopy(target)
+        original['state'] = 'SUCCEEDED'
+        planned = seeder.plan(context(), REGISTRY_SHA, [as_existing(original)])
+        self.assertEqual([t['shard'] for t in planned], [1, 2])
+
+    def test_closed_issue_is_still_deduped(self):
+        existing = as_existing(seeder.plan(context(), REGISTRY_SHA, [])[0])
+        existing['state'] = 'closed'
+        self.assertEqual([x['shard'] for x in seeder.plan(context(), REGISTRY_SHA, [existing])], [1, 2])
+
+    def test_bounded_batch_limits_new_issue_creation(self):
+        planned = seeder.plan(context(parts=12), REGISTRY_SHA, [], limit=3)
+        self.assertEqual(len(planned), 3)
+
+    def test_unreviewed_license_is_blocked(self):
+        ctx = context()
+        ctx['sources'][0]['status'] = 'CANDIDATE_ONLY'
+        self.assertEqual(seeder.plan(ctx, REGISTRY_SHA, []), [])
+
+    def test_unknown_registered_language_is_blocked(self):
+        ctx = context()
+        ctx['languages'] = frozenset(('ar',))
+        self.assertEqual(seeder.plan(ctx, REGISTRY_SHA, []), [])
+
+    def test_ambiguous_sha_source_identity_is_rejected_not_reused(self):
+        existing = seeder.plan(context(), REGISTRY_SHA, [])[0]
+        collision = copy.deepcopy(existing)
+        collision['source_id'] = 'different.source'
+        with self.assertRaisesRegex(ValueError, 'collision'):
+            seeder.plan(context(), REGISTRY_SHA, [as_existing(collision)])
+
+    def test_invalid_existing_owner_task_blocks_batch(self):
+        bad = as_existing(seeder.plan(context(), REGISTRY_SHA, [])[0])
+        bad['body'] = 'untrusted malformed content'
+        with self.assertRaises(ValueError):
+            seeder.plan(context(), REGISTRY_SHA, [bad])
+
+    def test_issue_filter_ignores_pull_requests_and_other_owner(self):
+        example = as_existing(seeder.plan(context(), REGISTRY_SHA, [])[0])
+        foreign = copy.deepcopy(example)
+        foreign['user']['login'] = 'another-user'
+        pr = copy.deepcopy(example)
+        pr['pull_request'] = {'url': 'https://example.org'}
+        self.assertEqual(len(seeder.plan(context(), REGISTRY_SHA, [foreign, pr])), 3)
+
+    def test_bad_limits_never_seed(self):
+        for value in (0, 6, True, '3'):
+            with self.subTest(value=value):
+                with self.assertRaises(ValueError):
+                    seeder.plan(context(), REGISTRY_SHA, [], limit=value)
+
+
+if __name__ == '__main__':
+    unittest.main()
