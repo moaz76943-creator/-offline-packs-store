@@ -1,0 +1,116 @@
+name: Directed translation sparse-graph QA
+
+on:
+  pull_request:
+    paths:
+      - 'tools/factory_extensions/directed_translation_scale/**'
+      - 'tests/factory_extensions/directed_translation_scale/**'
+      - '.github/workflows/directed_translation_scale_qa.yml'
+  workflow_dispatch:
+    inputs:
+      lexical_path: {description: 'Reviewed lexical JSON path in extension shards', type: string, required: false}
+      lexical_sha256: {description: 'Immutable lexical SHA-256', type: string, required: false}
+      candidate_path: {description: 'Direct translation JSONL or PR79 doc in extension shards', type: string, required: false}
+      candidate_sha256: {description: 'Immutable candidate SHA-256', type: string, required: false}
+      review_path: {description: 'Independent editorial approval JSON in extension shards', type: string, required: false}
+      review_sha256: {description: 'Immutable editorial approval SHA-256', type: string, required: false}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: directed-translation-scale-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Pair isolation, review, rights and identity regressions
+        run: python3 -m unittest discover -s tests/factory_extensions/directed_translation_scale -p 'test_*.py' -v
+
+  shard:
+    needs: regressions
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3]
+    env:
+      SHARD_INDEX: ${{ matrix.shard }}
+      LEXICAL_PATH: ${{ inputs.lexical_path }}
+      LEXICAL_SHA: ${{ inputs.lexical_sha256 }}
+      CANDIDATE_PATH: ${{ inputs.candidate_path }}
+      CANDIDATE_SHA: ${{ inputs.candidate_sha256 }}
+      REVIEW_PATH: ${{ inputs.review_path }}
+      REVIEW_SHA: ${{ inputs.review_sha256 }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run bounded independently receipted offline shard
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os, subprocess, sys
+          from pathlib import Path
+          base = (Path.cwd() / "tools/factory_extensions/directed_translation_scale/shards").resolve()
+          work = Path(os.environ["RUNNER_TEMP"]) / ("directed-shard-" + os.environ["SHARD_INDEX"])
+          work.mkdir(parents=True, exist_ok=False)
+          args = [sys.executable, "-m", "tools.factory_extensions.directed_translation_scale",
+                  "--shard-count", "4", "--shard-index", os.environ["SHARD_INDEX"],
+                  "--database", str(work / "graph.sqlite"), "--receipt", str(work / "receipt.json")]
+          for kind in ("lexical", "candidate", "review"):
+              name, sha = os.environ.get(kind.upper() + "_PATH", ""), os.environ.get(kind.upper() + "_SHA", "")
+              if bool(name) != bool(sha):
+                  raise SystemExit("snapshot path and SHA-256 must be paired")
+              if not name:
+                  continue
+              path = (Path.cwd() / name).resolve()
+              if not path.is_relative_to(base) or path.is_symlink() or not path.is_file():
+                  raise SystemExit("Only checked-in, scoped extension shards are permitted")
+              arg = {"candidate":"candidates","review":"reviews"}.get(kind,kind)
+              args.extend(["--" + arg, str(path), "--" + arg + "-sha256", sha])
+          subprocess.run(args, check=True)
+          PY
+      - name: Publish durable shard receipt and SQLite
+        uses: actions/upload-artifact@v4
+        with:
+          name: directed-graph-shard-${{ matrix.shard }}
+          path: |
+            ${{ runner.temp }}/directed-shard-${{ matrix.shard }}/receipt.json
+            ${{ runner.temp }}/directed-shard-${{ matrix.shard }}/graph.sqlite
+          retention-days: 7
+          if-no-files-found: error
+
+  coverage:
+    needs: shard
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: directed-graph-shard-*
+          path: ${{ runner.temp }}/artifacts
+          merge-multiple: false
+      - name: Verify shard digests and emit truthful 9900-pair matrix
+        run: |
+          python3 -m tools.factory_extensions.directed_translation_scale.aggregate \
+            --artifacts "${{ runner.temp }}/artifacts" \
+            --out "${{ runner.temp }}/coverage.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: directed-translation-coverage
+          path: ${{ runner.temp }}/coverage.json
+          retention-days: 7
+          if-no-files-found: error
