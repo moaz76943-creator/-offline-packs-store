@@ -1,0 +1,40 @@
+name: Sentence scale evidence QA
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/factory_extensions/sentence_scale/**'
+      - 'tests/factory_extensions/sentence_scale/**'
+      - '.github/workflows/sentence_scale_qa.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sentence-scale-qa
+  cancel-in-progress: false
+
+jobs:
+  validate-evidence-factory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify source and language evidence gates
+        run: python3 -m unittest discover -s tests/factory_extensions/sentence_scale -p 'test_*.py' -v
+      - name: Report source approval baseline without fabricated receipts
+        run: |
+          python3 - <<'PY'
+          import json
+          with open('legal/ledger/sources.json', encoding='utf-8') as stream:
+              records=json.load(stream)['sources']
+          approved=[row for row in records
+                    if row.get('kind')=='examples'
+                    and row.get('status')=='APPROVED_FOR_REDISTRIBUTION']
+          print(json.dumps({'approved_example_source_records':len(approved),
+                            'published_by_qa':0,
+                            'note':'QA only: no corpus ingestion or dispatch'}))
+          PY
