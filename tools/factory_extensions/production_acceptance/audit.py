@@ -177,6 +177,8 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
         raise AcceptanceError('candidate bytes hash mismatch')
     if item.get('fixture_only') is not False:
         raise AcceptanceError('synthetic fixture cannot publish')
+    if previous_version is None:
+        raise AcceptanceError('trusted previous version floor mandatory')
     source=item.get('source')
     if (not isinstance(source,dict) or set(source)!={'source_id','dataset_version','sha256'} or
             not isinstance(source.get('source_id'),str) or not source['source_id'] or
