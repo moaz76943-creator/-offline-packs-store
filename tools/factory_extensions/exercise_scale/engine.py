@@ -250,6 +250,8 @@ def validate_candidate(c, refs):
     _grammar(c, refs)
     _choice_qa(c, refs)
     _matching(c, refs)
+    if c["type"] == "cloze" and any(_nfc(answer).casefold() in _nfc(c["prompt"]).casefold() for answer in answers):
+        fail("ANSWER_LEAK_OR_TRIVIAL")
     if c["type"] == "cloze":
         source, span = c["cloze_source"], c["cloze_span"]
         if (not _text(source) or not isinstance(span, list) or len(span) != 2
