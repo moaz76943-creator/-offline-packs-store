@@ -93,6 +93,16 @@ class AcceptanceTests(unittest.TestCase):
         self.assertEqual(rc,2)
         self.assertEqual(destination.read_text(encoding='utf-8'),'preserve')
 
+    def test_cli_can_write_new_off_repo_diagnostic_receipt(self):
+        output_directory=tempfile.TemporaryDirectory()
+        self.addCleanup(output_directory.cleanup)
+        destination=Path(output_directory.name)/'acceptance.json'
+        rc=audit.main(['--root',str(self.root),'--output',str(destination)])
+        self.assertEqual(rc,0)
+        self.assertEqual(json.loads(destination.read_text(encoding='utf-8'))['status'],
+                         'BLOCKED_SOURCE')
+        self.assertEqual(len(json.loads(destination.read_text(encoding='utf-8'))['languages']),100)
+
     def test_rejects_fake_published_pack_when_source_ledger_empty(self):
         put(self.root,'manifest.json',
             {'total_languages':100,'languages':[{'code':c,'registered':True} for c in self.codes],
