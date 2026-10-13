@@ -57,6 +57,14 @@ their sources and held for review. Near-duplicate comparison is bounded to
 this is a review signal, not an exhaustive semantic deduplication claim.
 Batch relation processing uses 512-record pages.
 
+Each checkpoint replay revalidates the current legal, lexical, grammar and
+reviewer trust contracts. A revoked source approval or editorial grant cannot
+leave a previously accepted candidate accepted. Shard paths reject symlinks
+before canonical resolution, and oversized JSONL lines are discarded through
+bounded reads instead of being loaded into process memory. The three regressions
+are covered by scoped tests; local tests do not certify hosted GitHub Actions.
+
+
 ## Current production evidence
 
 As inspected 2026-10-13, legal/ledger/sources.json contains zero approved
