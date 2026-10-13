@@ -43,6 +43,10 @@ pretending that any dictionary is complete. Availability describes the
   valid attested edges remain `review_required`. The authority and editorial
   quality of review ledgers must be established upstream by the owner; a
   matching local JSON object is not cryptographic proof of a human review.
+  Publication-grade verified status additionally requires the review file SHA
+  to be explicitly admitted into the code-reviewed
+  `editorial_authorities.json` allowlist. That allowlist is empty initially:
+  caller-provided "approved" declarations never self-promote translations.
 - Contextual or approximate relations require explicit context; exact
   equivalence must match independently assigned canonical concept IDs.
   Original script and lexical text are not silently normalized.
@@ -88,3 +92,14 @@ is admitted in later immutable shard snapshots.
 No additional billing, private application access, or third-party network
 downloads are required. An artifact ID or successful Actions run ID must
 come from GitHub, never from this synthetic test suite.
+
+## Post-merge check dispatch
+
+CI commits retain `[skip ci]` to conserve minutes. After merge, the maintainer
+may comment `/qa-directed-translation-scale` on a pull request to trigger
+this isolated workflow from default `main`. The event is guarded by the
+account's exact owner login and exact command; other comments cause the
+regression job to skip and do not run shard jobs. Only use the command once
+per changed HEAD; collect actual Actions run IDs and jobs, and mark results
+`NOT_RUN` unless GitHub reports completion. A passing synthetic run
+**does not** license or populate production translation edges.
