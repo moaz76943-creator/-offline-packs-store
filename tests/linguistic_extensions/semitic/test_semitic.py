@@ -222,6 +222,17 @@ class SemiticContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ContractError, 'hash mismatch'):
             process(self.root, 'am', 'source-morph', self.root/'am2', resume_dir=self.root/'am1')
 
+    def test_resume_forged_coverage_counts_is_rejected(self):
+        self.make_approved([self.ar, self.ar])
+        process(self.root, 'ar', 'source-morph', self.root/'count1', max_records=1)
+        checkpoint_path = self.root/'count1/checkpoint.json'
+        checkpoint = json.loads(checkpoint_path.read_text())
+        checkpoint['total_accepted'] = 9999
+        write_json(checkpoint_path, checkpoint)
+        with self.assertRaisesRegex(ContractError, 'counter'):
+            process(self.root, 'ar', 'source-morph', self.root/'count2',
+                    resume_dir=self.root/'count1')
+
     def test_source_shard_self_asserted_sha_is_rejected(self):
         self.make_approved([self.ar])
         source = self.root/'approved/forms.jsonl'

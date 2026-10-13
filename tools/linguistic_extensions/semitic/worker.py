@@ -110,6 +110,8 @@ def resume_checkpoint(directory, language, source_id, source, expected_run_id=No
             not isinstance(checkpoint['segment_sha256'], str) or
             not isinstance(checkpoint['run_id'], str) or not checkpoint['run_id']):
         raise ContractError('stale or incompatible resume checkpoint')
+    if checkpoint['total_accepted'] != checkpoint['next_line'] or checkpoint['segment_count'] > checkpoint['next_line']:
+        raise ContractError('checkpoint coverage counter mismatch')
     output = directory / 'accepted.jsonl'
     if not output.is_file() or _sha_file(output) != checkpoint['segment_sha256']:
         raise ContractError('resume candidate segment hash mismatch')
@@ -168,6 +170,8 @@ def process(root, language, source_id, out_dir, max_records=5000, resume_dir=Non
                                    source['dataset_version'], source['retrieval']['sha256'])
                 encoded = (json.dumps(item, ensure_ascii=False, sort_keys=True,
                                       separators=(',', ':'), allow_nan=False) + '\n').encode('utf-8')
+                if len(encoded) > MAX_LINE:
+                    raise ContractError('accepted evidence line exceeds size limit')
                 output.write(encoded)
                 digest.update(encoded)
                 count += 1
