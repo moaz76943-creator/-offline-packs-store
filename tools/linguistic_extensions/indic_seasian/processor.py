@@ -191,7 +191,10 @@ def words(code, text, *, attested=None, ledger=None):
     if attested is not None:
         if not isinstance(attested, dict) or set(attested) != SEGMENT_FIELDS:
             raise ScriptContractError('noncanonical segmentation evidence')
-        source = approved_sources(ledger).get(attested.get('source_id'))
+        source_id = attested.get('source_id')
+        if not isinstance(source_id, str):
+            raise ScriptContractError('invalid segmentation source identifier')
+        source = approved_sources(ledger).get(source_id)
         if (not source or code not in source['languages'] or
                 attested.get('language_code') != code or
                 attested.get('source_sha256') != source['sha256'] or
