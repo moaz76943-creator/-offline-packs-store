@@ -1,0 +1,405 @@
+{
+  "evidence": {
+    "af": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "am": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ar": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "as": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "az": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ba": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "be": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "bg": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "bn": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "br": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "bs": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ca": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "cs": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "cy": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "da": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "de": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "dv": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "el": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "en": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "eo": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "es": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "et": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "eu": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "fa": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "fi": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "fo": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "fr": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "fy": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ga": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "gd": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "gl": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "gu": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ha": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "hi": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "hr": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "hu": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "hy": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "id": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ig": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "is": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "it": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ja": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ka": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "kk": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "km": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "kn": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ko": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ku": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ky": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "la": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "lb": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "lo": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "lt": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "lv": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "mg": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "mk": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ml": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "mn": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "mr": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ms": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "mt": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "my": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ne": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "nl": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "no": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "or": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "pa": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "pl": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ps": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "pt": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ro": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ru": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "rw": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "sd": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "si": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "sk": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "sl": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "sn": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "so": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "sq": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "sr": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "sv": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "sw": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ta": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "te": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "tg": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "th": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "tk": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "tl": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "tr": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "tt": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ug": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "uk": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "ur": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "uz": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "vi": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "xh": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "yo": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "zh": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    },
+    "zu": {
+      "reason": "Legacy asset status is unverified",
+      "status": "licenseBlocked"
+    }
+  },
+  "schema_version": "1.0.0"
+}
