@@ -77,5 +77,15 @@ class FontEvidenceTests(unittest.TestCase):
         self.asset.distribution_notice_sha256 = "0" * 64
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_malformed_license_id_blocks_instead_of_crash(self):
+        self.asset.license_id = []
+        self.assertEqual(self.check()["status"], "REJECT")
+    def test_malformed_hash_blocks_instead_of_crash(self):
+        self.asset.sha256 = 123
+        self.assertEqual(self.check()["status"], "REJECT")
+    def test_malformed_license_url_blocks_instead_of_crash(self):
+        self.asset.license_evidence_url = 123
+        self.assertEqual(self.check()["status"], "REJECT")
+
 if __name__ == "__main__":
     unittest.main()
