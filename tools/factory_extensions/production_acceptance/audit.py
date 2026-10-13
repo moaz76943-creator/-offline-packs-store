@@ -5,6 +5,7 @@ import base64
 import binascii
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -284,6 +285,26 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
             'published':False,'app_installation_verified':False,'publication_approved':False,
             'status':'VERIFIED_FOR_AUTHORIZED_HANDOFF'}
 
+def write_receipt(root, destination, data):
+    """Write new diagnostic bytes outside the repository; never replace evidence."""
+    repo=Path(root).resolve()
+    target=Path(destination)
+    resolved=target.resolve()
+    if (resolved.is_relative_to(repo) or not target.parent.is_dir() or
+            target.is_symlink() or target.exists()):
+        raise AcceptanceError('unsafe receipt output path or existing artifact')
+    fd=None
+    try:
+        fd=os.open(str(target),os.O_WRONLY|os.O_CREAT|os.O_EXCL|os.O_NOFOLLOW,0o600)
+        with os.fdopen(fd,'w',encoding='utf-8') as stream:
+            fd=None
+            stream.write(data)
+            stream.flush()
+            os.fsync(stream.fileno())
+    finally:
+        if fd is not None:
+            os.close(fd)
+
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--root',type=Path,default=Path('.'))
@@ -308,8 +329,7 @@ def main(argv=None):
             result=snapshot(a.root)
         data=json.dumps(result,sort_keys=True,ensure_ascii=False,allow_nan=False,indent=2)+'\n'
         if a.output:
-            a.output.parent.mkdir(parents=True,exist_ok=True)
-            a.output.write_text(data,encoding='utf-8')
+            write_receipt(a.root,a.output,data)
         print(data,end='')
         return 0
     except (AcceptanceError,OSError,ImportError,ValueError) as error:
