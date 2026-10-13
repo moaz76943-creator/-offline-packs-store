@@ -179,8 +179,15 @@ class ContractTests(unittest.TestCase):
             shards = root / "tools/linguistic_extensions/european_inflection/shards"
             shards.mkdir(parents=True)
             good = (json.dumps(record(), ensure_ascii=False) + "\n").encode("utf-8")
-            # Deliberately sort first by digest: a first valid shard, then invalid.
-            invalid = b'{"record_id": "ru:bad", "language_code":"ru"}\n'
+            # Make the valid shard sort first, so rollback is genuinely exercised.
+            bad_hash = None
+            for salt in range(1000):
+                invalid = (json.dumps({"record_id": "ru:bad", "salt": salt}) + "\n").encode("utf-8")
+                bad_hash = sha256(invalid).hexdigest()
+                if bad_hash > sha256(good).hexdigest():
+                    break
+            else:
+                self.fail("unable to generate correctly ordered contrastive fixture")
             for raw in (good, invalid):
                 name = sha256(raw).hexdigest() + ".jsonl"
                 (shards / name).write_bytes(raw)
