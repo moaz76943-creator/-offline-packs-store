@@ -115,8 +115,10 @@ def validate_profiles(root=ROOT):
     published_ids = {x["code"]: x for x in published}
     if len(indexed) != len(languages) or len(published_ids) != 100:
         raise ContractError("duplicate canonical language identities")
-    if len(PROFILES) != 19 or not set(PROFILES).issubset(indexed) or not set(PROFILES).issubset(published_ids):
-        raise ContractError("unexpected European language roster")
+    expected = {code for code, item in published_ids.items()
+                if item.get("family") in {"Slavic", "Hellenic", "Baltic", "Celtic"}}
+    if set(PROFILES) != expected or len(PROFILES) != 19 or not expected.issubset(indexed):
+        raise ContractError("incomplete or stale registered European language roster")
     if not {"case", "grammatical_gender", "aspect", "agreement",
             "orthographic_variants"}.issubset(overrides.get("features", [])):
         raise ContractError("public morphology capability dimensions unavailable")
@@ -145,6 +147,9 @@ def source_gate(source_id, version, checksum, allowed_sources):
     if source is None or source.get("kind") != "morphology" or (
             source.get("status") != "APPROVED_FOR_REDISTRIBUTION"):
         raise ContractError("BLOCKED_SOURCE: no approved morphology source " + source_id)
+    if not isinstance(checksum, str) or len(checksum) != 64 or any(
+            c not in "0123456789abcdef" for c in checksum):
+        raise ContractError("invalid source SHA-256")
     if source.get("dataset_version") != version or (
             source.get("retrieval") or {}).get("sha256") != checksum:
         raise ContractError("BLOCKED_SOURCE: source version or snapshot SHA mismatch")
@@ -167,6 +172,8 @@ def validate_record(record, allowed_sources):
     status = record["evidence_status"]
     if status not in STATUSES:
         raise ContractError("unknown evidence status")
+    if not isinstance(record["form"], str):
+        raise ContractError("form: a string is required even for gaps")
     if status == "verified" or record["form"]:
         _script(record["form"], record["script"], "form")
     if record["category"] not in ("noun", "verb", "adjective", "construction"):
