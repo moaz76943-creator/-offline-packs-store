@@ -80,6 +80,10 @@ class CommunityExporter:
         if not isinstance(items, list) or not items or len(items) > MAX_FILES:
             raise ExportError("empty or oversized export manifest")
         ledger = self._admitted()
+        registry = read_json(self.repo / "catalog/content_readiness.v1.json")
+        if registry.get("schema_version") != "1.0.0" or not isinstance(registry.get("states"), dict):
+            raise ExportError("untrusted language registry")
+        languages = set(registry["states"])
         entries, notices, seen, total = [], [], set(), 0
         for item in items:
             if not isinstance(item, dict):
@@ -104,6 +108,8 @@ class CommunityExporter:
             if handoff["content_hash"] != digest or handoff["artifact"] != item["filename"]:
                 raise ExportError("handoff refers to different content")
             meta = handoff["metadata"]
+            if meta["language"] not in languages:
+                raise ExportError("unregistered language in review handoff")
             if (meta["source_id"] != item.get("source_id") or meta["license_id"] != item.get("license") or
                 meta["dataset_version"] != item.get("source_version")):
                 raise ExportError("contradictory source or licensing metadata")
@@ -127,6 +133,8 @@ class CommunityExporter:
                             "origin_url": meta["origin_url"], "dataset_version": meta["dataset_version"],
                             "license_id": meta["license_id"], "license_evidence_url": source["license"]["evidence_url"],
                             "record_locator": meta["record_locator"], "sha256": digest})
+        if len(canonical(notices)) > 65536:
+            raise ExportError("attribution metadata exceeds bounded export size")
         return sorted(entries), sorted(notices, key=lambda x: x["id"])
 
     def run(self):
