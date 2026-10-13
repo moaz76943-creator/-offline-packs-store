@@ -27,7 +27,10 @@ def classify_relation(code, left, right, *, evidence=None, ledger=None):
                 'lexical_claim': False}
     if not isinstance(evidence, dict) or set(evidence) != EVIDENCE_FIELDS:
         raise ScriptContractError('noncanonical relation evidence')
-    source = approved_sources(ledger).get(evidence['source_id']) if ledger is not None else None
+    source_id = evidence['source_id']
+    if not isinstance(source_id, str):
+        raise ScriptContractError('invalid relation source identifier')
+    source = approved_sources(ledger).get(source_id) if ledger is not None else None
     if (source is None or code not in source['languages'] or
             evidence['language_code'] != code or
             evidence['source_sha256'] != source['sha256'] or
