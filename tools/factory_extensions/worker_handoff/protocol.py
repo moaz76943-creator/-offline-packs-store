@@ -159,7 +159,7 @@ def fair_claim_candidates(entries, active, limit=MAX_WORKERS):
         active_ids.add(t['task_id'])
     if len(active) > limit:
         raise ValueError('worker capacity already exceeded')
-    found = set(active_ids)
+    found = set()
     result = []
     for number, t in sorted(entries, key=lambda x: (x[1]['attempts'], x[0])):
         if not _positive(number) or not _sha(t.get('task_id')):
@@ -167,6 +167,10 @@ def fair_claim_candidates(entries, active, limit=MAX_WORKERS):
         if t['task_id'] in found:
             raise ValueError('ambiguous duplicate task identity')
         found.add(t['task_id'])
+        if t['task_id'] in active_ids:
+            if t['state'] not in ('CLAIMED', 'RUNNING'):
+                raise ValueError('active worker has contradictory Issue state')
+            continue
         lock = (t['source_id'], t['language'])
         if (t['state'] == 'READY' and t['attempts'] < MAX_ATTEMPTS
                 and lock not in locks and len(result) + len(active) < limit):
