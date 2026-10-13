@@ -132,6 +132,26 @@ class EvidenceIntegrityTests(unittest.TestCase):
         self.assertIn("incomplete_attested_analysis", result["review_queue"][0]["reasons"])
         self.assertEqual(result["admissible_candidate_counts_not_published"]["tl"], 1)
 
+    def test_bogus_script_and_self_asserted_consent_never_auto_approve(self):
+        self.approve_synthetic_source()
+        rows = [self.candidate(record_id="script", variant="yo-Hans"),
+                self.candidate(record_id="rights", community="a community",
+                               speaker_consent_ref="unverified-ref")]
+        result = self.worker().audit_shard(self.shard(rows))
+        self.assertIn("unresolved_variety_or_script", result["review_queue"][0]["reasons"])
+        self.assertIn("community_or_speaker_rights_require_external_review",
+                      result["review_queue"][1]["reasons"])
+        self.assertEqual(sum(result["admissible_candidate_counts_not_published"].values()), 0)
+
+    def test_missing_language_binding_proof_cannot_promote_candidate(self):
+        self.approve_synthetic_source()
+        binding_path = self.root / "tools/linguistic_extensions/diverse_languages/source_bindings.json"
+        manifest = json.loads(binding_path.read_text(encoding="utf-8"))
+        manifest["bindings"][0]["proof_sha256"] = "0" * 64
+        self.write("tools/linguistic_extensions/diverse_languages/source_bindings.json", manifest)
+        result = self.worker().audit_shard(self.shard([self.candidate()]))
+        self.assertIn("source_language_not_approved", result["review_queue"][0]["reasons"])
+
     def test_tone_orthography_cannot_be_generated_from_unmarked_text(self):
         result = self.worker().audit_shard(self.shard([
             self.candidate(lemma="oro", annotation={"feature": "tone_orthography",
