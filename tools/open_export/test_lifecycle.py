@@ -204,5 +204,44 @@ class SecurityRegression(unittest.TestCase):
             self.export()
 
 
+    def test_too_many_tar_members_are_rejected(self):
+        with io.BytesIO() as b:
+            with tarfile.open(fileobj=b, mode="w:gz") as archive:
+                for i in range(129):
+                    raw = b"{}"
+                    info = tarfile.TarInfo("entry%03d.json" % i)
+                    info.size = len(raw)
+                    archive.addfile(info, io.BytesIO(raw))
+            with self.assertRaisesRegex(ValueError, "member count"):
+                list(members(b.getvalue(), "too-many.tar.gz"))
+
+    def test_cached_export_rejects_compressed_zip_bomb(self):
+        name, sha = self.stage()
+        self.certify()
+        self.manifest(name, sha)
+        output = self.export()
+        release = self.out / "releases" / output["release"]
+        with zipfile.ZipFile(release, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.writestr("data/item1.bin", b"x" * (8 * 1024 * 1024 + 1))
+            archive.writestr("ATTRIBUTION.json", b"{}")
+        with self.assertRaisesRegex(ValueError, "untrusted cached"):
+            self.export()
+        self.assertEqual(json.loads((self.out / "CURRENT.json").read_text()), output)
+
+    def test_ledger_artifact_and_kind_must_match(self):
+        name, sha = self.stage()
+        self.certify()
+        self.manifest(name, sha)
+        self.ledger["sources"][0]["retrieval"]["sha256"] = "b" * 64
+        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
+        with self.assertRaisesRegex(ValueError, "ledger provenance mismatch"):
+            self.export()
+        self.ledger["sources"][0]["retrieval"]["sha256"] = "a" * 64
+        self.ledger["sources"][0]["kind"] = "vector_art"
+        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
+        with self.assertRaisesRegex(ValueError, "source kind"):
+            self.export()
+
+
 if __name__ == "__main__":
     unittest.main()
