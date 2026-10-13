@@ -13,7 +13,7 @@ def workflow_script():
     document = WORKFLOW.read_text(encoding="utf-8")
     if "run: |\n" not in document:
         raise AssertionError("Expected inline JSON validator workflow script")
-    return textwrap.dedent(document.split("run: |\n", 1)[1])
+    return textwrap.dedent(document.split("run: |\n", 1)[1].split("\n      - name:", 1)[0])
 
 
 def invoke(folder):
