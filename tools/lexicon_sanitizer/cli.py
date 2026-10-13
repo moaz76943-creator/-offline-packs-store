@@ -2,6 +2,7 @@ import argparse
 import json
 import logging
 import sys
+import os
 from pathlib import Path
 
 from tools.lexicon_sanitizer.engine import (
@@ -13,6 +14,8 @@ from tools.lexicon_sanitizer.engine import (
 )
 
 logger = logging.getLogger(__name__)
+MAX_JSON_BYTES = 16 * 1024 * 1024
+MAX_JSONL_LINE_BYTES = 2 * 1024 * 1024
 
 def stream_json_collections(file_path):
     """
@@ -21,12 +24,19 @@ def stream_json_collections(file_path):
     is_jsonl = str(file_path).endswith('.jsonl')
     if is_jsonl:
         with open(file_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
+            while True:
+                line = f.readline(MAX_JSONL_LINE_BYTES + 1)
                 if not line:
+                    break
+                if len(line.encode("utf-8")) > MAX_JSONL_LINE_BYTES:
+                    raise ValueError("JSONL record exceeds bounded size limit")
+                if not line.strip():
                     continue
                 yield "record", json.loads(line)
     else:
+        # Stdlib json.load is NOT streaming: fail closed above an explicit cap.
+        if Path(file_path).stat().st_size > MAX_JSON_BYTES:
+            raise ValueError("Oversized JSON array: convert to bounded JSONL")
         with open(file_path, 'r', encoding='utf-8') as f:
             document = json.load(f)
             yield "metadata", {
@@ -50,6 +60,12 @@ def process_file(input_path: Path, output_dir: Path, quarantine_dir: Path, works
 
     out_file = output_dir / input_path.name
     quar_file = quarantine_dir / f"{input_path.stem}_quarantined.jsonl"
+    if input_path.resolve() in (out_file.resolve(), quar_file.resolve()) or out_file.resolve() == quar_file.resolve():
+        logger.error("Input and output/quarantine paths must be disjoint")
+        sanitizer.close()
+        return False
+    tmp_out = out_file.with_name(out_file.name + ".pending")
+    tmp_quar = quar_file.with_name(quar_file.name + ".pending")
 
     stats = {
         STATUS_ACCEPT: 0,
@@ -71,9 +87,9 @@ def process_file(input_path: Path, output_dir: Path, quarantine_dir: Path, works
     is_jsonl = str(input_path).endswith('.jsonl')
     out_f = None
     if is_jsonl:
-        out_f = open(out_file, 'w', encoding='utf-8')
+        out_f = open(tmp_out, 'w', encoding='utf-8')
 
-    with open(quar_file, 'w', encoding='utf-8') as qf:
+    with open(tmp_quar, 'w', encoding='utf-8') as qf:
         try:
             for collection, record in stream_json_collections(input_path):
                 if collection == "metadata":
@@ -108,7 +124,7 @@ def process_file(input_path: Path, output_dir: Path, quarantine_dir: Path, works
                     else:
                         out_document[collection].append(modified)
 
-                    if status == STATUS_REVIEW_REQUIRED:
+                    if status in (STATUS_REVIEW_REQUIRED, STATUS_REPAIRABLE):
                         q_record = {
                             "status": status,
                             "reason": reason,
@@ -116,7 +132,7 @@ def process_file(input_path: Path, output_dir: Path, quarantine_dir: Path, works
                             "hash": sanitizer.compute_hash(record),
                             "original": record
                         }
-                        qf.write(json.dumps(q_record, ensure_ascii=False) + '\n')
+                        qf.write(json.dumps(q_record, ensure_ascii=True) + '\n')
                 else:
                     q_record = {
                         "status": status,
@@ -125,19 +141,25 @@ def process_file(input_path: Path, output_dir: Path, quarantine_dir: Path, works
                         "hash": sanitizer.compute_hash(record),
                         "original": record
                     }
-                    qf.write(json.dumps(q_record, ensure_ascii=False) + '\n')
+                    qf.write(json.dumps(q_record, ensure_ascii=True) + '\n')
         except Exception as e:
             logger.error(f"Failed to process {input_path}: {e}")
             if is_jsonl:
                 out_f.close()
+            tmp_out.unlink(missing_ok=True)
+            tmp_quar.unlink(missing_ok=True)
+            sanitizer.close()
             return False
 
     if is_jsonl:
         out_f.close()
     else:
-        with open(out_file, 'w', encoding='utf-8') as f:
+        with open(tmp_out, 'w', encoding='utf-8') as f:
             json.dump(out_document, f, ensure_ascii=False, indent=2)
 
+    os.replace(tmp_out, out_file)
+    os.replace(tmp_quar, quar_file)
+    sanitizer.close()
     logger.info(f"Processed {input_path}. Stats: {stats}")
     return True
 
