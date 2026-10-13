@@ -151,6 +151,52 @@ class ScriptAwareTests(unittest.TestCase):
             with self.assertRaises(p.ScriptContractError):
                 p.audit_jsonl(file, 'hi', self.registry, self._approved('hi'))
 
+    def test_forged_attestation_with_same_source_and_unchanged_tags_rejected(self):
+        valid = self._record('hi', SAMPLES['hi'], {'number': 'singular'})
+        ledger = self._approved('hi')
+        self.assertEqual('attested_only', p.validate_attestation(
+            valid, 'hi', self.registry, ledger)['status'])
+        forged = {**valid, 'form': 'हिंदी'}
+        with self.assertRaises(p.ScriptContractError):
+            p.validate_attestation(forged, 'hi', self.registry, ledger)
+        with self.assertRaises(p.ScriptContractError):
+            p.validate_attestation(valid, 'hi', self.registry, {'sources': [{
+                **ledger['sources'][0], 'rights_status': 'UNVERIFIED_RIGHTS',
+            }]})
+        with self.assertRaises(p.ScriptContractError):
+            p.validate_attestation(valid, 'hi', self.registry, {'sources': [{
+                **ledger['sources'][0], 'rights_evidence_sha256': 'BAD',
+            }]})
+
+    def test_attested_tokenization_requires_reviewed_exact_boundary_digest(self):
+        text = SAMPLES['th']
+        one = self._segment('th')
+        ledger = self._approved('th')
+        self.assertEqual([text], p.words('th', text, attested=one, ledger=ledger)['tokens'])
+        # Both alternatives reconstruct the exact UTF-8, but only ONE was reviewed.
+        tampered = {**one, 'tokens': [text[:2], text[2:]]}
+        self.assertEqual(text, ''.join(tampered['tokens']))
+        with self.assertRaises(p.ScriptContractError):
+            p.words('th', text, attested=tampered, ledger=ledger)
+
+    def test_joiner_positions_are_checked_per_adjacent_character(self):
+        self.assertEqual('Deva', p.validate_text('hi', 'क्\\u200dष')['script'])
+        self.assertEqual('Arab', p.validate_text('ur', 'ا\\u200cب')['script'])
+        for bad in ('\\u200dक्ष', 'क्ष\\u200d', 'क\\u200dष', 'क्\\u200d\\u200dष',
+                    'क्ष\\u200cदेव'):
+            with self.subTest(value=bad), self.assertRaises(p.ScriptContractError):
+                p.validate_text('hi', bad)
+        for bad in ('\\u200cاردو', 'اردو\\u200c', 'ا\\u200c\\u200cب'):
+            with self.subTest(value=bad), self.assertRaises(p.ScriptContractError):
+                p.validate_text('ur', bad)
+
+    def test_empty_audit_is_not_a_production_pass(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            file = Path(tmp) / 'empty.jsonl'
+            file.write_bytes(b'')
+            with self.assertRaises(p.ScriptContractError):
+                p.audit_jsonl(file, 'hi', self.registry, self._approved('hi'))
+
     def test_coverage_zero_when_no_approved_corpus(self):
         for code in SAMPLES:
             self.assertEqual(0, p.profile(code, self.registry)['lexeme_count'])
@@ -173,11 +219,22 @@ class ScriptAwareTests(unittest.TestCase):
                 'features': features, 'source_id': 'synthetic-approved-test',
                 'evidence_version': 'test-only-v1'}
 
-    @staticmethod
-    def _approved(code):
-        return {'sources': [{'id': 'synthetic-approved-test',
-                             'languages': [code], 'release_approved': True,
-                             'sha256': 'a' * 64}]}
+    @classmethod
+    def _approved(cls, code):
+        sample = SAMPLES[code]
+        form = ('اردو' if code == 'ur' else sample)
+        features = {'case': 'oblique'} if code == 'ur' else {'number': 'singular'}
+        return {'sources': [{
+            'id': 'synthetic-approved-test', 'languages': [code],
+            'sha256': 'a' * 64, 'release_approved': True,
+            'rights_status': 'APPROVED', 'reviewed_by': 'synthetic-test-reviewer',
+            'rights_evidence_sha256': 'b' * 64,
+            'reviewed_records': {
+                'morphology': [p.evidence_digest(cls._record(code, form, features))],
+                'segmentation': [p.evidence_digest(cls._segment(code))],
+                'orthographic_relation': [],
+            },
+        }]}
 
 
 if __name__ == '__main__':
