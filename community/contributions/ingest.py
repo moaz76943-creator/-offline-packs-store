@@ -217,6 +217,48 @@ def ingest(source, staging_root, *, registry_path=None, validator=None, licenses
     return receipt
 
 
+
+def quarantine_submission(source, staging_root, reason):
+    """Retain bounded rejected input with an explicit non-approval receipt."""
+    root = Path(staging_root)
+    if root.is_symlink():
+        raise ValueError("unsafe quarantine root")
+    fd = os.open(source, os.O_RDONLY | os.O_NOFOLLOW)
+    try:
+        details = os.fstat(fd)
+        if not stat.S_ISREG(details.st_mode) or details.st_size > MAX_INPUT:
+            raise ValueError("unsafe quarantine input")
+        with os.fdopen(fd, "rb") as stream:
+            fd = -1
+            data = stream.read(MAX_INPUT + 1)
+    finally:
+        if fd >= 0:
+            os.close(fd)
+    if len(data) > MAX_INPUT:
+        raise ValueError("unsafe quarantine size")
+    root.mkdir(parents=True, exist_ok=True)
+    root = root.resolve()
+    rejected = root / "quarantined"
+    if rejected.is_symlink():
+        raise ValueError("unsafe quarantine directory")
+    rejected.mkdir(exist_ok=True)
+    digest = hashlib.sha256(data).hexdigest()
+    receipt = {"sha256": digest, "state": "QUARANTINED", "rights_approved": False,
+               "reason": str(reason)[:200]}
+    with locked(root):
+        original = rejected / (digest + ".bin")
+        receipt_path = rejected / (digest + ".json")
+        if original.is_symlink() or receipt_path.is_symlink():
+            raise ValueError("unsafe quarantine entry")
+        if not original.exists():
+            save_atomic(original, data)
+        elif hashlib.sha256(original.read_bytes()).hexdigest() != digest:
+            raise ValueError("quarantine content collision")
+        if not receipt_path.exists():
+            save_atomic(receipt_path, json.dumps(receipt, sort_keys=True).encode("utf-8"))
+    return receipt
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("submission", type=Path)
@@ -225,7 +267,11 @@ def main(argv=None):
     try:
         print(json.dumps(ingest(args.submission, args.staging_root), sort_keys=True))
         return 0
-    except (OSError, ValueError, KeyError) as exc:
+    except (OSError, ValueError, KeyError, zipfile.BadZipFile, tarfile.TarError, EOFError) as exc:
+        try:
+            quarantine_submission(args.submission, args.staging_root, str(exc))
+        except (OSError, ValueError):
+            pass
         print("REJECTED:", exc)
         return 1
 
