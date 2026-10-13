@@ -222,13 +222,16 @@ def approved_sources(ledger):
     sources = ledger.get('sources') if isinstance(ledger, dict) else None
     if not isinstance(sources, list):
         raise ScriptContractError('missing public source ledger')
-    accepted = {}
+    accepted, seen_ids = {}, set()
     for item in sources:
         if not isinstance(item, dict):
             raise ScriptContractError('invalid source ledger entry')
+        source_id = item.get('id')
+        if not isinstance(source_id, str) or not source_id.strip() or source_id in seen_ids:
+            raise ScriptContractError('invalid or duplicate source identifier')
+        seen_ids.add(source_id)
         if item.get('release_approved') is not True:
             continue
-        source_id = item.get('id')
         langs = item.get('languages')
         forms = item.get('reviewed_records')
         if (not isinstance(source_id, str) or not source_id.strip() or
