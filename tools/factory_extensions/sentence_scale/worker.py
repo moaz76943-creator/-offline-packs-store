@@ -9,6 +9,7 @@ import re
 import sqlite3
 import sys
 import unicodedata
+from contextlib import closing
 from difflib import SequenceMatcher
 from pathlib import Path
 from tools.source_examples import pipeline as canonical
@@ -185,7 +186,7 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
     db_file.parent.mkdir(parents=True, exist_ok=True)
     out.mkdir(parents=True, exist_ok=True)
     seen = set()
-    with sqlite3.connect(db_file) as db:
+    with closing(sqlite3.connect(db_file)) as db:
         db.executescript(SCHEMA)
         for item in shards:
             name, path, expected = safe_shard(root, item)
