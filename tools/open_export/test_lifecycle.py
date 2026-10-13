@@ -50,6 +50,9 @@ class SecurityRegression(unittest.TestCase):
         ledgerpath = self.root / "legal/ledger"
         ledgerpath.mkdir(parents=True)
         (ledgerpath / "sources.json").write_text(json.dumps(self.ledger))
+        catalog = self.root / "catalog"
+        catalog.mkdir()
+        (catalog / "content_readiness.v1.json").write_text(json.dumps({"schema_version": "1.0.0", "states": {"de": "unverified"}}))
 
     def stage(self, sid="item1", content=b"source-backed bytes"):
         filename = sid + ".bin"
@@ -240,6 +243,39 @@ class SecurityRegression(unittest.TestCase):
         self.ledger["sources"][0]["kind"] = "vector_art"
         (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
         with self.assertRaisesRegex(ValueError, "source kind"):
+            self.export()
+
+
+    def test_review_handoff_restart_recovery(self):
+        self.stage()
+        self.certify()
+        path = self.machine.handoff_dir / "item1_handoff.json"
+        before = len(self.machine._read("item1")["history"])
+        path.unlink()
+        self.machine.mark_published_eligible("item1")
+        self.assertEqual(len(self.machine._read("item1")["history"]), before)
+        self.assertEqual(self.machine.verify_handoff("item1")["state"], "PUBLISHED_ELIGIBLE")
+
+    def test_export_blocks_unknown_languages_and_oversized_attribution(self):
+        self.meta["language"] = "xx"
+        name, sha = self.stage()
+        self.certify()
+        self.manifest(name, sha)
+        with self.assertRaisesRegex(ValueError, "unregistered language"):
+            self.export()
+        self.machine.submit("item1", sha, {**self.meta, "language": "de", "publisher": "P" * 70000},
+                            self.src / name)
+        self.ledger["sources"][0]["publisher"] = "P" * 70000
+        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
+        self.machine.start_validation("item1")
+        data = self.machine._read("item1")
+        self.machine.complete_validation("item1", "validator",
+            sign(self.auth["validator"], self.machine.payload(data, "VALIDATE", "validator")))
+        data = self.machine._read("item1")
+        self.machine.review("item1", "reviewer", True,
+            sign(self.auth["reviewer"], self.machine.payload(data, "APPROVE", "reviewer")))
+        self.machine.mark_published_eligible("item1")
+        with self.assertRaisesRegex(ValueError, "attribution metadata"):
             self.export()
 
 
