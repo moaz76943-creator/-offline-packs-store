@@ -157,6 +157,22 @@ class SenseIntegrityTests(unittest.TestCase):
         lang2 = json.loads((out2 / "per-language.json").read_text())["languages"]["de"]
         self.assertEqual(lang2["accepted_senses"], 0)
 
+    def test_approved_sense_with_unapproved_parent_is_never_proposed(self):
+        row = {"lexemes": [lex("lex.parent")],
+               "senses": [sense("sense.child", "lex.parent", "concept.child", "sourced")],
+               "translations": [], "relations": [], "examples": []}
+        row["senses"][0]["source"] = source(approved=True)
+        ledger = self.base / "parent-ledger.json"
+        ledger.write_text(json.dumps({"sources": [{
+            "source_id": "fixture.synthetic.v1", "dataset_version": "v1",
+            "retrieval": {"sha256": "a" * 64},
+            "license": {"id": "LicenseRef-Test"}, "status": "approved"
+        }]}), encoding="utf-8")
+        out = self.run_audit(row, name="unapproved-parent", ledger=ledger)
+        actions = {x["id"]: x["action"] for x in read_jsonl(out / "merge-plan.jsonl")}
+        self.assertEqual(actions["sense.child"], "review_new")
+        self.assertEqual(json.loads((out / "per-language.json").read_text())["languages"]["de"]["accepted_senses"], 0)
+
     def test_reviewer_disposition_is_audit_only_not_a_merge(self):
         baseline = self.run_audit()
         group = next(x for x in read_jsonl(baseline / "candidates.jsonl") if x["record_type"] == "group")
