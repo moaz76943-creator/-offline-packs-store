@@ -1,0 +1,75 @@
+# GHA-10: public-only SQLite v2 search conformance.
+# Never publishes language packs or touches private application data.
+name: GHA-10 Public Unicode and FTS5 Search QA
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * 3'
+  pull_request:
+    paths:
+      - '.github/workflows/gha_search_qa.yml'
+      - 'tools/gha_factory/search_qa/**'
+      - 'tests/gha_factory/search_qa/**'
+      - 'tools/gha_factory/release/**'
+      - 'tools/pack_v2/**'
+      - 'manifest.json'
+      - 'legal/ledger/sources.json'
+      - 'packs/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gha10-public-search-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.shards.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify independent Unicode and FTS5 synthetic regression tests
+        run: python3 -m unittest discover -s tests/gha_factory/search_qa -p 'test_*.py' -v
+      - name: Select bounded work based on actual published packs
+        shell: bash
+        id: shards
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          manifest = json.loads(Path('manifest.json').read_text(encoding='utf-8'))
+          packages = manifest.get('packs')
+          if not isinstance(packages, list) or len(packages) > 100:
+              raise ValueError('invalid published package list')
+          count = 10 if packages else 1
+          matrix = {'include': [{'shard': i, 'shards': count} for i in range(count)]}
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as target:
+              target.write('matrix=' + json.dumps(matrix, separators=(',', ':')) + '\n')
+          print('Observed package count:', len(packages), 'QA shards:', count)
+          PY
+
+  audit:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Inspect canonical published package bytes and FTS5 queries
+        run: >-
+          python3 -m tools.gha_factory.search_qa.audit
+          --root .
+          --shard ${{ matrix.shard }}
+          --shards ${{ matrix.shards }}
