@@ -208,7 +208,14 @@ class DiverseAudit:
             reasons.append("uncovered_language_or_alias")
         if candidate["community"] and not candidate["speaker_consent_ref"]:
             reasons.append("missing_speaker_consent_reference")
-        if candidate["variant"] == "auto" or not candidate["variant"].startswith(code + "-"):
+        if candidate["community"] or candidate["speaker_consent_ref"]:
+            # The pending independent community/rights intake (#88/#93/#94)
+            # must validate the consent reference. A self-asserted string is not permission.
+            reasons.append("community_or_speaker_rights_require_external_review")
+        parts = candidate["variant"].split("-")
+        if (len(parts) < 2 or parts[0] != code
+            or code not in self.languages or parts[1] not in self.languages[code]["scripts"]
+            or any(not part for part in parts)):
             reasons.append("unresolved_variety_or_script")
         if "annotation" in candidate:
             reasons += self._annotation_reasons(code, candidate["annotation"])
