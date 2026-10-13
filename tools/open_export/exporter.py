@@ -118,10 +118,10 @@ class CommunityExporter:
                 raise ExportError("ledger provenance mismatch")
             if meta["license_id"] not in ("CC0-1.0", "PUBLIC-DOMAIN"):
                 raise ExportError("license obligations not implemented for this export format")
-            if source.get("kind") not in ("dictionary", "examples", "morphology", "vector_art"):
-                raise ExportError("source kind not exportable")
-            if item.get("type") == "semantic" and source.get("kind") != "vector_art":
-                raise ExportError("semantic artwork rights missing")
+            expected_kind = {"lexical": "dictionary", "sentences": "examples",
+                             "grammar": "morphology", "semantic": "vector_art"}[item["type"]]
+            if source.get("kind") != expected_kind:
+                raise ExportError("source kind does not match export category")
             entries.append((aid, path, digest))
             notices.append({"id": aid, "source_id": meta["source_id"], "publisher": meta["publisher"],
                             "origin_url": meta["origin_url"], "dataset_version": meta["dataset_version"],
@@ -163,14 +163,19 @@ class CommunityExporter:
             else:
                 with zipfile.ZipFile(release) as archive:
                     expected_names = ["data/" + aid + ".bin" for aid, _, _ in entries] + ["ATTRIBUTION.json"]
-                    if archive.namelist() != expected_names or archive.testzip() is not None:
+                    if archive.namelist() != expected_names:
                         raise ExportError("corrupt cached export")
+                    for info in archive.infolist():
+                        if info.compress_type != zipfile.ZIP_STORED or info.file_size > MAX_FILE:
+                            raise ExportError("untrusted cached archive member")
                     for aid, path, expected in entries:
                         with archive.open("data/" + aid + ".bin") as stream:
                             raw = stream.read(MAX_FILE + 1)
                         if len(raw) > MAX_FILE or hashlib.sha256(raw).hexdigest() != expected:
                             raise ExportError("cached archive content mismatch")
-                    if archive.read("ATTRIBUTION.json") != canonical(notices):
+                    with archive.open("ATTRIBUTION.json") as stream:
+                        attribution = stream.read(65537)
+                    if len(attribution) > 65536 or attribution != canonical(notices):
                         raise ExportError("cached attribution mismatch")
             sha = file_hash(release)
             receipt = {"release": release.name, "sha256": sha, "items": len(entries), "published": False}
@@ -201,6 +206,10 @@ def main(argv=None):
         keys_path = Path(args.operator_keys)
         if keys_path.is_symlink() or not keys_path.is_file() or keys_path.stat().st_mode & 0o077:
             raise ExportError("operator authority file must be regular and mode 0600")
+        restricted = (Path(__file__).resolve().parents[2], Path(args.source),
+                      Path(args.review_root), Path(args.output))
+        if any(keys_path.resolve().is_relative_to(p.resolve()) for p in restricted):
+            raise ExportError("operator authority keys must be outside repository and corpus")
         keys = read_json(keys_path, 16384)
         import base64
         validator = {k: base64.b64decode(v, validate=True) for k, v in keys["validators"].items()}
