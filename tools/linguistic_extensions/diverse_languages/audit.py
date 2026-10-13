@@ -291,21 +291,36 @@ class DiverseAudit:
     def report(self, audit=None):
         audit = audit or {}
         reports = {}
+        unresolved = []
         for code in RESEARCH_FOCUS:
-            sources = [s for s in self.ledger["sources"]
-                       if isinstance(s, dict) and code in s.get("languages", [])
-                       and s.get("status") == "APPROVED_FOR_REDISTRIBUTION"]
+            valid_bindings = set()
+            for binding in self.bindings["bindings"]:
+                if not isinstance(binding, dict) or binding.get("language_id") != code:
+                    continue
+                sid = binding.get("source_id")
+                sources = self.approved_sources.get(sid, [])
+                if (len(sources) == 1 and sources[0].get("kind") in ("dictionary", "morphology")
+                    and not self._source_issues(sources[0])
+                    and self._approved_language_binding(sid, code, binding.get("variant"))):
+                    valid_bindings.add((sid, binding["variant"]))
+            if not valid_bindings:
+                unresolved.append(code)
             reports[code] = {
                 "content_readiness": self.readiness["states"][code],
                 "verified_lexemes_in_production": (0 if self.readiness["states"][code] == "unverified" else None),
                 "candidate_rows_examined": audit.get("candidate_counts", {}).get(code, 0),
                 "admissible_candidate_rows_not_published": audit.get("admissible_candidate_counts_not_published", {}).get(code, 0),
                 "verified_structural_fact_count": len(self.profile(code)["verified_structural_facts"]),
-                "source_entries_claiming_approval": len(sources),
-                "unresolved_source": "no approved source" if not sources else "requires independent production validation",
+                "source_entries_claiming_approval": sum(
+                    1 for source in self.ledger["sources"]
+                    if isinstance(source, dict) and source.get("status") == "APPROVED_FOR_REDISTRIBUTION"),
+                "independently_verified_language_source_bindings": len(valid_bindings),
+                "unresolved_source": ("no canonical-rights-approved language/variety binding"
+                                      if not valid_bindings else "requires independent production validation"),
             }
         return {"schema_version": "1.0", "reports": reports,
                 "ledger_sources_total": len(self.ledger["sources"]),
+                "unresolved_language_ids": unresolved,
                 "discovery_catalogs_not_corpus_approval": self.evidence["discovery_sources"],
                 "review_queue": audit.get("review_queue", [])}
 
