@@ -29,6 +29,13 @@ class ProficiencyValidator:
         except jsonschema.ValidationError as e:
             raise ProficiencyValidationError(f"Schema validation failed: {e.message}")
 
+        source_record = metadata.get("source_evidence")
+        if source_record:
+            if not isinstance(source_record.get("source_id"), str) or not source_record["source_id"].strip():
+                raise ProficiencyValidationError("Source ID cannot be empty or whitespace.")
+            if not isinstance(source_record.get("source_version"), str) or not source_record["source_version"].strip():
+                raise ProficiencyValidationError("Source version cannot be empty or whitespace.")
+
         language = metadata["language"]
         language_record = self.languages.get(language)
         if language_record is None:
@@ -77,14 +84,6 @@ class ProficiencyValidator:
         # Rule: Avoid treating CEFR as an automatically validated standard for every language
         # without suitable local evidence. This could imply verified labels need specific checks,
         # but generic local evidence requirements can be strictly handled by source_evidence checks above.
-
-        # Rule: Reject invented source identities.
-        # This is basic enforcement; any specified source evidence must have a valid non-empty id.
-        if source_evidence:
-            if not source_evidence.get("source_id").strip():
-                raise ProficiencyValidationError("Source ID cannot be empty or whitespace.")
-            if not source_evidence.get("source_version").strip():
-                raise ProficiencyValidationError("Source version cannot be empty or whitespace.")
 
         if label_status == "unverified":
             if cefr_level != "unknown":
