@@ -18,11 +18,13 @@ class Tests(unittest.TestCase):
         (self.root/'proof.txt').write_bytes(b'rights fixture')
         (self.root/'catalog/language_registry.v1.json').write_text(json.dumps({
             'schema_version':'1.0.0','languages':[{'id':'de','default_script':'Latn'}]}))
-        self.data=(b'{"lang_code":"de","word":"Baum"}\n'
-                   b'{"lang_code":"de","word":"Brot"}\n'
+        self.data=(b'{"lang_code":"de","word":"Baum","pos":"noun","senses":[{"glosses":["tree"]}]}\n'
+                   b'{"lang_code":"de","word":"Brot","pos":"noun","senses":[{"glosses":["bread"]}]}\n'
                    b'{malformed\n'
-                   b'{"lang_code":"de","word":"Apfel"}\n')
+                   b'{"lang_code":"de","word":"Apfel","pos":"noun","senses":[{"glosses":["apple"]}]}\n')
         self.zip=gzip.compress(self.data,mtime=0)
+        (self.root/'not-committed').mkdir()
+        (self.root/'not-committed/snapshot.gz').write_bytes(self.zip)
         self.src={'source_id':'synthetic-only','kind':'dictionary','status':'APPROVED_FOR_REDISTRIBUTION',
             'dataset_version':'test','publisher':'synthetic','origin_url':'https://fixtures.example.test/origin',
             'retrieval':{'identity':'test','url':'https://fixtures.example.test/snapshot.gz',
@@ -63,6 +65,40 @@ class Tests(unittest.TestCase):
         f.write_bytes(self.zip)
         (self.root/'out').mkdir()
         with self.assertRaises(p.Blocked):p.partitions(f,source,self.root/'out',len(self.zip),fmt='jsonl.gz')
+    def test_missing_reviewed_artifact_blocks_even_with_approved_ledger(self):
+        (self.root/'not-committed/snapshot.gz').unlink()
+        with self.assertRaises(p.Blocked):self.job()
+    def test_wrong_language_and_empty_lexical_senses_rejected(self):
+        lines=(b'{"lang_code":"de","word":"Apfel","pos":"noun","senses":[{"glosses":["apple"]}]}\\n'
+               b'{"lang_code":"fr","word":"pomme","pos":"noun","senses":[{"glosses":["apple"]}]}\\n'
+               b'{"lang_code":"de","word":"Apfel","pos":"noun","senses":[]}\\n')
+        self.zip=gzip.compress(lines,mtime=0)
+        (self.root/'not-committed/snapshot.gz').write_bytes(self.zip)
+        self.src['retrieval']['sha256']=h(self.zip);self.save()
+        source=self.job()
+        result=p.partitions(self.root/'not-committed/snapshot.gz',source,self.root/'shards',len(self.zip),fmt='jsonl.gz')
+        self.assertEqual((result['real_input_rows'],result['accepted_rows'],result['rejected_rows']),(3,1,2))
+    def test_tampered_receipt_and_reject_symlink(self):
+        src=self.job()
+        f=self.root/'file';f.write_bytes(self.zip)
+        out=self.root/'verified'
+        result=p.partitions(f,src,out,len(self.zip),fmt='jsonl.gz')
+        receipt=out/'receipt.json'
+        tampered=dict(result,source_id='unreviewed')
+        receipt.write_text(json.dumps(tampered))
+        with self.assertRaises(p.Blocked):p.partitions(f,src,out,len(self.zip),fmt='jsonl.gz')
+        receipt.write_text(json.dumps(result))
+        (out/'rejects.jsonl').unlink()
+        (out/'rejects.jsonl').symlink_to(self.root/'proof.txt')
+        with self.assertRaises(p.Blocked):p.partitions(f,src,out,len(self.zip),fmt='jsonl.gz')
+    def test_download_closed_without_queue_lease(self):
+        with self.assertRaisesRegex(p.Blocked,'BLOCKED_DEPENDENCY_GHA02'):
+            p.download({'host':'fixtures.example.test','url':'https://fixtures.example.test/a'},self.root/'down',100)
+    def test_source_hash_tampering_blocks(self):
+        source=self.job()
+        f=self.root/'file';f.write_bytes(self.zip+b'extra')
+        with self.assertRaises(p.Blocked):p.partitions(f,source,self.root/'shards',len(self.zip),fmt='jsonl.gz')
+
     def test_empty_corpus_not_ready(self):
         source=self.job();source['source_sha256']=h(b'')
         f=self.root/'empty';f.write_bytes(b'')

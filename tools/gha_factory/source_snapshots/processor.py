@@ -94,11 +94,12 @@ def approved(root,sid,lang,version):
         rel=r.get('artifact_path')
         if not isinstance(rel,str) or Path(rel).is_absolute() or '..' in Path(rel).parts:
             raise ValueError('artifact path')
-        if (root/rel).exists():
-            admission.route05_source(root,sid,version,root/rel,'wiktextract-jsonl')
+        # GHA-01 currently requires the exact reviewed local artifact. No missing
+        # artifact may turn a remote URL into an implicit approval.
+        admission.route05_source(root,sid,version,root/rel,'wiktextract-jsonl')
         return {'source_id':sid,'language':lang,'dataset_version':version,'source_sha256':r['sha256'],
                 'url':r['url'],'host':host,'identity':r['identity'],'license_id':lic['id'],
-                'license_sha256':lic['evidence_sha256']}
+                'license_sha256':lic['evidence_sha256'],'script':ids[lang]}
     except (OSError,ValueError,TypeError,KeyError,AttributeError) as error:
         raise Blocked('BLOCKED_SOURCE: Route 05/GHA-01 review missing or invalid') from error
 
@@ -126,7 +127,12 @@ class PublicHTTPS(http.client.HTTPSConnection):
         except BaseException:sock.close();raise
 
 def download(source,out,size,attempts=3,delay=time.sleep):
-    """Call only after an external GHA-02 authenticated lease; CLI never calls it."""
+    """Closed pending GHA-02 authenticated lease and approved source host/rate contract.
+
+    The lower-level transport is deliberately unreachable to untrusted callers.
+    GHA-02 currently cannot authenticate source_snapshot leases.
+    """
+    raise Blocked('BLOCKED_DEPENDENCY_GHA02: no authenticated snapshot lease/handoff')
     if type(attempts)!=int or not 1<=attempts<=3 or type(size)!=int or not 0<size<=16*1024**3:
         raise Blocked('BLOCKED_SOURCE: missing reviewed download bounds')
     target=reviewed_url(source['url'],source['host']);out=Path(out)
@@ -181,23 +187,33 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
             or type(max_expand)!=int or not 0<max_expand<=16*1024**3):
         raise Blocked('BLOCKED_SOURCE: invalid format/shard budget')
     out=Path(out)
+    if out.is_symlink():raise Blocked('BLOCKED_SOURCE: output symlink')
     if out.exists():
         receipt=out/'receipt.json'
         if not receipt.is_file():raise Blocked('BLOCKED_SOURCE: partial directory')
         result=json.loads(receipt.read_text())
-        if (result.get('source_sha256')!=source['source_sha256'] or result.get('input_bytes')!=size
+        if (result.get('source_id')!=source['source_id'] or result.get('language')!=source['language']
+                or result.get('dataset_version')!=source['dataset_version']
+                or result.get('license_sha256')!=source['license_sha256']
+                or result.get('license_id')!=source['license_id']
+                or result.get('real_input_rows')!=result.get('accepted_rows',-1)+result.get('rejected_rows',-1)
+                or result.get('source_sha256')!=source['source_sha256'] or result.get('input_bytes')!=size
                 or result.get('format')!=fmt or result.get('shard_rows')!=shard_rows
                 or result.get('status')!='STAGED_ONLY'):raise Blocked('BLOCKED_SOURCE: stale receipt')
         for i,entry in enumerate(result['partitions']):
             if (entry.get('name')!=f'part-{i:08d}.jsonl' or not SHA.fullmatch(str(entry.get('sha256','')))
                     or (out/entry['name']).is_symlink() or sha_file(out/entry['name'])!=entry['sha256']):
                 raise Blocked('BLOCKED_SOURCE: modified shard')
-        if sha_file(out/'rejects.jsonl')!=result['rejects_sha256']:
+        if (out/'rejects.jsonl').is_symlink() or sha_file(out/'rejects.jsonl')!=result['rejects_sha256']:
             raise Blocked('BLOCKED_SOURCE: changed rejects')
         return result
     if not out.parent.is_dir() or out.is_symlink():raise Blocked('BLOCKED_SOURCE: output parent')
     if shutil.disk_usage(out.parent).free<min(max_expand,size*2):
         raise Blocked('BLOCKED_SOURCE: disk budget')
+    # mkdir is atomic across concurrent jobs. An interrupted reservation remains
+    # visibly incomplete and is never mistaken for verified output.
+    try:out.mkdir()
+    except FileExistsError as exc:raise Blocked('BLOCKED_SOURCE: concurrent partition') from exc
     temp=Path(tempfile.mkdtemp(prefix='.snapshot-stage-',dir=out.parent))
     parts=[];real=accepted=rejected=expanded=0;writer=None;part_hash=None;part_n=0
     try:
@@ -216,6 +232,12 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
                         row=json.loads(raw.decode('utf-8','strict'),parse_constant=lambda v: (_ for _ in ()).throw(ValueError(v)))
                         if not isinstance(row,dict) or row.get('lang_code')!=source['language']:
                             reason='language'
+                        else:
+                            try:
+                                admission.extract(row,source['language'],source['license_id'],
+                                                  source['source_id'],source['script'],real)
+                            except admission.AdmissionError:
+                                reason='lexical_admission'
                     except (ValueError,UnicodeError):reason='invalid_json_utf8'
                 if reason:
                     rejected+=1
@@ -246,8 +268,9 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
                 'partitions':parts,'rejects_sha256':sha_file(temp/'rejects.jsonl'),
                 'checkpoint':{'source_sha256':source['source_sha256'],'last_row':real,'last_shard':len(parts)-1}}
         atomic(temp/'receipt.json',result)
-        if out.exists():raise Blocked('BLOCKED_SOURCE: concurrent output')
-        os.rename(temp,out)
+        # Replace only our own empty reserved directory; other workers cannot
+        # create or silently overwrite a partition at this output path.
+        os.replace(temp,out)
         return result
     finally:
         if writer is not None:writer.close()
@@ -280,7 +303,7 @@ def main(argv=None):
         result=partitions(a.snapshot,source,a.output,a.expected_size,fmt=a.format,shard_rows=a.shard_rows)
         print(json.dumps({k:result[k] for k in ('source_sha256','real_input_rows','accepted_rows','rejected_rows')}))
         return 0
-    except Blocked as e:
+    except (Blocked,OSError,EOFError,gzip.BadGzipFile,lzma.LZMAError) as e:
         print(json.dumps({'status':'BLOCKED','reason':str(e)}));return 2
 
 if __name__=='__main__':
