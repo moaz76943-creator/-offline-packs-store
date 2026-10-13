@@ -109,7 +109,7 @@ class DiverseAuditTests(unittest.TestCase):
             self.worker.audit_shard(path, max_rows=2001)
 
     def test_forged_approval_without_retrieval_proof_rejected(self):
-        self.write_json("legal/ledger/sources.json", {"sources": [{"source_id": "fake_source",
+        self.write_json("legal/ledger/sources.json", {"schema_version": "1.0.0", "sources": [{"source_id": "fake_source",
             "status": "APPROVED_FOR_REDISTRIBUTION", "review": {"ok": True},
             "retrieval": {"not_sha": "fake"}, "license": "CC BY 4.0", "publisher": "publisher",
             "rights_url": "https://example.org/rights", "languages": ["yo"]}]})
