@@ -54,7 +54,7 @@ class LexiconSanitizer:
     def __del__(self):
         try:
             self.close()
-        except (AttributeError, Exception):
+        except Exception:
             pass
 
     def check_unicode(self, text: str) -> bool:
@@ -88,7 +88,7 @@ class LexiconSanitizer:
         return repaired_entry, repaired
 
     def compute_hash(self, entry: Dict[str, Any]) -> str:
-        s = json.dumps(entry, sort_keys=True, ensure_ascii=False)
+        s = json.dumps(entry, sort_keys=True, ensure_ascii=True, allow_nan=False)
         return hashlib.sha256(s.encode('utf-8')).hexdigest()
 
     def sanitize_lexeme(self, entry: Dict[str, Any]) -> Tuple[str, Dict[str, Any], Optional[str]]:
@@ -134,7 +134,7 @@ class LexiconSanitizer:
                 # Identical surface forms may have different senses or sources.
                 self.seen_ids.add(lexeme_id)
                 self._index.db.execute("INSERT OR IGNORE INTO lexeme_lang VALUES(?,?)", (lexeme_id, lang))
-                return STATUS_REVIEW_REQUIRED, entry, "ambiguous lexical form requires sense review"
+                return STATUS_REVIEW_REQUIRED, self.repair_whitespace(entry)[0], "ambiguous lexical form requires sense review"
 
             repaired_entry, repaired = self.repair_whitespace(entry)
 
@@ -174,7 +174,10 @@ class LexiconSanitizer:
             if identity in self.seen_sense_identities:
                 # A shared concept need not mean an identical lexical sense.
                 self.seen_ids.add(sense_id)
-                return STATUS_REVIEW_REQUIRED, entry, "shared concept requires independent sense review"
+                row = self._index.db.execute("SELECT language FROM lexeme_lang WHERE id=?", (lexeme_id,)).fetchone()
+                if row:
+                    self._index.db.execute("INSERT OR IGNORE INTO sense_lang VALUES(?,?)", (sense_id, row[0]))
+                return STATUS_REVIEW_REQUIRED, self.repair_whitespace(entry)[0], "shared concept requires independent sense review"
 
             repaired_entry, repaired = self.repair_whitespace(entry)
             status = STATUS_REPAIRABLE if repaired else STATUS_ACCEPT
