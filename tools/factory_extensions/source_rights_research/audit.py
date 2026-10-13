@@ -65,7 +65,8 @@ def valid_url(value):
             return False
         if u.hostname.replace('.', '').isdigit():
             return False
-        if u.query and any(key in u.query.lower() for key in ('token=', 'key=', 'secret=', 'auth=')):
+        # Source rights evidence URLs must be stable, credential-free documents.
+        if u.query:
             return False
         return True
     except (ValueError, TypeError):
@@ -93,7 +94,12 @@ def pinned_local_sha(relative, expected, max_bytes=64_000_000):
     if candidate.is_absolute() or '..' in candidate.parts or '.git' in candidate.parts:
         return False
     root = REPO.resolve()
-    path = (root / candidate).resolve()
+    cursor = root
+    for component in candidate.parts:
+        cursor = cursor / component
+        if cursor.is_symlink():
+            return False
+    path = cursor.resolve()
     if not path.is_relative_to(root) or not path.is_file() or path.is_symlink():
         return False
     if path.stat().st_size > max_bytes:
