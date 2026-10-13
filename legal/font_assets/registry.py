@@ -44,11 +44,11 @@ class FontRightsRegistry:
             issues.append("Missing font identity, author, source or version")
         if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
-        if asset.license_id not in FONT_LICENSES:
+        if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
             issues.append("Unknown, unsupported or unverified rights")
         if not url_ok(asset.origin_url) or not url_ok(asset.license_evidence_url):
             issues.append("Original source and source-specific HTTPS license URL required")
-        if asset.license_evidence_url and any(s in asset.license_evidence_url for s in (
+        if isinstance(asset.license_evidence_url, str) and any(s in asset.license_evidence_url for s in (
                 "opensource.org/licenses/", "scripts.sil.org/OFL", "creativecommons.org/licenses/",
                 "creativecommons.org/publicdomain/zero/")):
             issues.append("Generic license terms are not source-specific permission evidence")
@@ -66,7 +66,7 @@ class FontRightsRegistry:
                     "jurisdiction", "legal_basis", "work_date")):
                 issues.append("Documented public-domain basis, jurisdiction and date required")
         if asset.embedded:
-            if not asset.sha256 or not HASH.fullmatch(asset.sha256):
+            if not isinstance(asset.sha256, str) or not HASH.fullmatch(asset.sha256):
                 issues.append("Embedded file requires valid SHA-256")
             if not text(asset.asset_path):
                 issues.append("Embedded font bytes path required")
@@ -86,7 +86,7 @@ class FontRightsRegistry:
                     markers = {"OFL-1.1": "SIL OPEN FONT LICENSE",
                                "Apache-2.0": "Apache License", "MIT": "MIT License",
                                "UFL-1.0": "Ubuntu Font Licence"}
-                    marker = markers.get(asset.license_id)
+                    marker = markers.get(asset.license_id) if isinstance(asset.license_id, str) else None
                     if marker and marker.casefold() not in content.casefold():
                         issues.append("Distributed notice does not contain claimed license")
         else:
