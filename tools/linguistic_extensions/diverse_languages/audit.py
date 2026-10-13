@@ -312,8 +312,12 @@ class DiverseAudit:
                 "admissible_candidate_rows_not_published": audit.get("admissible_candidate_counts_not_published", {}).get(code, 0),
                 "verified_structural_fact_count": len(self.profile(code)["verified_structural_facts"]),
                 "source_entries_claiming_approval": sum(
-                    1 for source in self.ledger["sources"]
-                    if isinstance(source, dict) and source.get("status") == "APPROVED_FOR_REDISTRIBUTION"),
+                    1 for binding in self.bindings["bindings"]
+                    if isinstance(binding, dict) and binding.get("language_id") == code
+                    and any(isinstance(source, dict)
+                            and source.get("source_id") == binding.get("source_id")
+                            and source.get("status") == "APPROVED_FOR_REDISTRIBUTION"
+                            for source in self.ledger["sources"])),
                 "independently_verified_language_source_bindings": len(valid_bindings),
                 "unresolved_source": ("no canonical-rights-approved language/variety binding"
                                       if not valid_bindings else "requires independent production validation"),
