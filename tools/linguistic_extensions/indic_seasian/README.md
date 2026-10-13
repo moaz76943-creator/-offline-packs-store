@@ -38,6 +38,29 @@ morphological fields remain evidence-required.
   evidence worker (4 MB input, 2,000 records, 64 KiB per line) with actual
   unique lexeme/form counts and input SHA-256.
 
+## Independent admission hash contract
+
+The release-approval ledger input must itself come from an authenticated,
+independent review process; accepting a caller-provided dictionary is not
+cryptographic proof of legal rights or independent linguistic review.
+
+An eligible source record must contain its unique `id`, `languages`,
+`sha256`, `release_approved: true`, `rights_status: APPROVED`,
+non-empty `reviewed_by`, `rights_evidence_sha256`, and a
+`reviewed_records` map with exactly `morphology`, `segmentation`,
+and `orthographic_relation` lists of lower-case SHA-256 digests.
+Each digest is calculated from the **complete reviewed JSON record** via
+canonical JSON with UTF-8, sorted keys, no ASCII escaping, and compact
+separators. A record not explicitly present in its source's exact reviewed
+digest set is rejected, even when the language, source ID, and source snapshot
+hash look plausible. Release rights, reviewer identity and independently
+approved source bytes still require upstream verification.
+
+Synthetic unit tests make their own mock in-memory ledger, deliberately
+not written to `legal/ledger/sources.json` and never used in a release.
+Digest lists and worker input sizes are capped to preserve bounded RAM.
+A zero-row JSONL audit must not report `PASS_EVIDENCE_QA`.
+
 Segmentation evidence requires exact reconstructable tokens, language,
 source ID, a matching source-ledger SHA-256 and an input-text digest.
 Morphology evidence uses exact, language-scoped lemma and sense IDs. The
