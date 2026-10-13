@@ -7,10 +7,11 @@ from tools.corpus_dedupe.dedupe import CorpusDeduplicator
 
 def record(i, *, lang='ar', lemma='كِتاب', concept='concept.book', lic='CC0-1.0',
            src='src.fixture', script='Arab', sense='book', approved=True):
+    source = {'source_id':src,'license_id':lic,'dataset_version':'1',
+              'record_locator':str(i),'publication_approved':approved,'fixture_only':False}
     return {'lexeme_id': f'lex.{i}', 'language':lang, 'script':script, 'pos':'noun',
-            'lemma':lemma, 'senses':[{'concept_id':concept, 'definition':sense}],
-            'source':{'source_id':src,'license_id':lic,'dataset_version':'1',
-                      'record_locator':str(i),'publication_approved':approved}}
+            'lemma':lemma, 'senses':[{'concept_id':concept, 'definition':sense, 'source':dict(source)}],
+            'source':source}
 
 
 class DiskBackedContractTests(unittest.TestCase):
