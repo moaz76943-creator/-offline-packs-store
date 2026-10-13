@@ -266,7 +266,7 @@ def admit(db, item, ids, ledger, reviews, candidate_sha, trusted_reviews=False):
     if before is not None:
         if before != record:
             raise AdmissionError("EDGE_ID_REASSIGNED")
-        raise AdmissionError("DUPLICATE_EDGE_ID")
+        return status  # idempotent replay of an immutable admitted edge
     db.execute("INSERT INTO edges VALUES (" + ",".join("?" for _ in record) + ")", record)
     return status
 
@@ -329,6 +329,7 @@ def execute(*, registry, sources, lexical=None, lexical_sha=None, candidates=Non
         trusted_reviews = bool(reviews and reviews_sha in allow)
         counts = {"verified":0,"review_required":0,"blocked":0,"shard_candidates":0}
         reasons = {}
+        seen_candidate_ids = set()
         if candidates:
             for item in each_candidate(candidates, candidate_sha):
                 if not isinstance(item, dict):
@@ -340,6 +341,9 @@ def execute(*, registry, sources, lexical=None, lexical_sha=None, candidates=Non
                     continue
                 counts["shard_candidates"] += 1
                 try:
+                    if tid in seen_candidate_ids:
+                        raise AdmissionError("DUPLICATE_EDGE_ID")
+                    seen_candidate_ids.add(tid)
                     with db:
                         status = admit(db, item, ids, led, reviews_map, candidate_sha, trusted_reviews)
                     counts[status] += 1
