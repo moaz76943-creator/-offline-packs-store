@@ -56,5 +56,9 @@ jobs:
           persist-credentials: false
       - name: Verify coordinator contracts
         run: python3 -m unittest discover -s tools/merge_coordinator -p 'test_*.py' -v
+      - name: Enforce visible strict main protection before any write
+        id: protection
+        run: python3 tools/merge_coordinator/protection_gate.py
       - name: Evaluate evidence and at most one transition
+        if: steps.protection.outputs.allowed == 'true'
         run: python3 tools/merge_coordinator/coordinator.py
