@@ -1,0 +1,29 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.pairs.es-en",
+  "source_language": "es",
+  "target_language": "en",
+  "translations": [
+    {
+      "translation_id": "tr.es-en.coche-car.reverse",
+      "from_language": "es",
+      "to_language": "en",
+      "from_sense_id": "sense.es.coche",
+      "to_sense_id": "sense.en.car",
+      "translation_text": "car",
+      "equivalence": "exact",
+      "context": "independently attested reverse mapping",
+      "source": {
+        "source_id": "src.fixture",
+        "origin_url": "https://example.com/fixture",
+        "publisher": "SyntheticTestFixture",
+        "dataset_version": "1.0",
+        "retrieval_id": "test-id",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "line 8",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    }
+  ]
+}
