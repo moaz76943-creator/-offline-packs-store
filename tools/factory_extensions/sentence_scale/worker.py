@@ -111,8 +111,14 @@ def validate_extended(row, ledger, sources, senses, rules, reviewers, allowed):
         return status, sorted(set(reasons)), grammar
     return ('REQUIRES_REVIEW' if reasons else 'ACCEPTED'), sorted(set(reasons)), grammar
 
+def strict_json(path):
+    """Reject duplicate keys in any nested contract, before any approval lookup."""
+    return json.loads(Path(path).read_text(encoding='utf-8'),
+                      object_pairs_hook=unique_pairs)
+
+
 def load_catalog(path):
-    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    data = strict_json(path)
     if data.get('schema_version') != '1.0.0' or len(data.get('languages', [])) != 100:
         raise ValueError('canonical 100-language registry required')
     codes = [row['id'] for row in data['languages']]
@@ -121,7 +127,7 @@ def load_catalog(path):
     return set(codes)
 
 def load_ledger(path):
-    data = json.loads(Path(path).read_text(encoding='utf-8'))
+    data = strict_json(path)
     if data.get('schema_version') != '1.0.0' or not isinstance(data.get('sources'), list):
         raise ValueError('invalid Route05 ledger')
     sources = {source['source_id']: source for source in data['sources']}
@@ -158,12 +164,16 @@ def unique_pairs(items):
     return out
 
 def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules, reviewers):
-    job = json.loads(Path(manifest).read_text(encoding='utf-8'))
+    job = strict_json(manifest)
     shards = job.get('shards')
     if job.get('schema_version') != 1 or not isinstance(shards, list) or not shards:
         raise ValueError('versioned nonempty shards manifest required')
     root = Path(workspace).resolve()
     source_ledger = load_ledger(ledger)
+    # The canonical parser validates identity/rights but uses default JSON key
+    # semantics. Reject ambiguous nested reviewer/rule/sense keys first.
+    for contract in (senses, rules, reviewers):
+        strict_json(contract)
     source_grants = canonical.load_registry(ledger, 'sources')
     sense_catalog = canonical.load_registry(senses, 'senses')
     rule_catalog = canonical.load_registry(rules, 'rules')
