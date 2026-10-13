@@ -5,6 +5,7 @@ import fcntl
 import gzip
 import hashlib
 import io
+from itertools import islice
 import json
 import os
 import re
@@ -59,7 +60,7 @@ def members(data, name):
                 yield part, content
     elif name.endswith((".tar.gz", ".tgz")):
         with tarfile.open(fileobj=io.BytesIO(data), mode="r:gz") as archive:
-            infos = archive.getmembers()
+            infos = list(islice(archive, MAX_MEMBERS + 1))
             if not infos or len(infos) > MAX_MEMBERS:
                 raise ValueError("invalid archive member count")
             seen = set()
