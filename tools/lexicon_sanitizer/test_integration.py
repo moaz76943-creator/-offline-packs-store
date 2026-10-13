@@ -12,7 +12,7 @@ from tools.lexicon_sanitizer.engine import (
 
 class IdentityIsolationTests(unittest.TestCase):
     def setUp(self):
-        self.s = LexiconSanitizer()
+        self.s = LexiconSanitizer(admitted_source_licenses={'src.fixture': ('CC0-1.0', '1.0')})
         for lid, lang, lemma in (('lex.en','en','book'), ('lex.es','es','libro'),
                                  ('lex.alt','es','tomo'), ('lex.ja','ja','空')):
             self.assertIn(self.s.sanitize_lexeme(
@@ -59,6 +59,17 @@ class IdentityIsolationTests(unittest.TestCase):
             self.tr('t.a',source=False))[0])
         self.assertEqual(STATUS_REVIEW_REQUIRED,self.s.sanitize_translation(
             self.tr('t.b',from_id='unknown.sense'))[0])
+
+    def test_source_claim_without_external_ledger_admission_cannot_pass(self):
+        with LexiconSanitizer(admitted_source_licenses={}) as unadmitted:
+            for lid, lang, lemma in (('x.en','en','book'),('x.es','es','libro')):
+                unadmitted.sanitize_lexeme({'lexeme_id':lid,'language':lang,
+                                           'lemma':lemma,'pos':'noun'})
+            for sid,lid in (('x.sen','x.en'),('x.ses','x.es')):
+                unadmitted.sanitize_sense({'sense_id':sid,'lexeme_id':lid,
+                                           'concept_id':'concept.'+sid})
+            self.assertEqual(STATUS_REVIEW_REQUIRED,unadmitted.sanitize_translation(
+                self.tr('not-approved',from_id='x.sen',to_id='x.ses'))[0])
 
     def test_cross_language_stable_id_collision_rejected(self):
         self.assertEqual(STATUS_ACCEPT,self.s.sanitize_translation(self.tr('t.dup'))[0])
@@ -111,7 +122,7 @@ class JsonlAndDiskTests(unittest.TestCase):
             self.assertTrue(process_file(src,out,quarantine,Path(__file__).resolve().parents[2]))
             rows=(out/src.name).read_text(encoding='utf-8').splitlines()
             quarantined=(quarantine/'rows_quarantined.jsonl').read_text(encoding='utf-8').splitlines()
-            self.assertEqual(2,len(rows))
+            self.assertEqual(1,len(rows))
             self.assertEqual(1,len(quarantined))
             self.assertEqual('lex.b',json.loads(quarantined[0])['original']['lexeme_id'])
 
