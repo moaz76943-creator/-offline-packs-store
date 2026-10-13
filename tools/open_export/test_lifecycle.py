@@ -1,5 +1,6 @@
 """Synthetic-only security regression suite; fixture approvals are NOT legal evidence."""
 import hashlib
+import base64
 import io
 import json
 import os
@@ -17,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from community.contributions.ingest import ingest, members, unique_json, quarantine_submission
 from community.review.state_machine import ReviewStateMachine, sign
+from community.review.cli import main as review_cli_main
 from tools.open_export.exporter import CommunityExporter, ExportError
 
 
@@ -290,6 +292,37 @@ class SecurityRegression(unittest.TestCase):
         self.assertIn("Invalid JSON", (isolated / (receipt["sha256"] + ".json")).read_text())
         self.assertEqual(rejected.read_bytes(), b"{broken")
         self.assertEqual(quarantine_submission(rejected, self.root / "isolation", "Invalid JSON"), receipt)
+
+
+    def test_operator_cli_requires_signed_decisions(self):
+        keyfile = self.root / "operator.json"
+        keyfile.write_text(json.dumps({
+            "validators": {"validator": base64.b64encode(self.auth["validator"]).decode()},
+            "reviewers": {"reviewer": base64.b64encode(self.auth["reviewer"]).decode()}
+        }))
+        keyfile.chmod(0o600)
+        data = b"independent operator-submitted bytes"
+        art = self.src / "operator.bin"
+        art.write_bytes(data)
+        metadata = self.root / "claimed.json"
+        metadata.write_text(json.dumps(self.meta))
+        common = ["--storage", str(self.review_root), "--artifacts", str(self.src),
+                  "--operator-keys", str(keyfile)]
+        self.assertEqual(review_cli_main(common + ["submit", "--id", "operator1", "--sha256",
+                         digest(data), "--metadata", str(metadata), "--artifact", str(art)]), 0)
+        self.assertEqual(review_cli_main(common + ["start", "--id", "operator1"]), 0)
+        self.assertEqual(review_cli_main(common + ["validate", "--id", "operator1",
+                         "--actor", "validator", "--token", "self-declared-pass"]), 1)
+        state = self.machine._read("operator1")
+        validated = sign(self.auth["validator"], self.machine.payload(state, "VALIDATE", "validator"))
+        self.assertEqual(review_cli_main(common + ["validate", "--id", "operator1",
+                         "--actor", "validator", "--token", validated]), 0)
+        state = self.machine._read("operator1")
+        approved = sign(self.auth["reviewer"], self.machine.payload(state, "APPROVE", "reviewer"))
+        self.assertEqual(review_cli_main(common + ["approve", "--id", "operator1",
+                         "--actor", "reviewer", "--token", approved]), 0)
+        self.assertEqual(review_cli_main(common + ["eligible", "--id", "operator1"]), 0)
+        self.assertEqual(self.machine.verify_handoff("operator1")["state"], "PUBLISHED_ELIGIBLE")
 
 
 if __name__ == "__main__":
