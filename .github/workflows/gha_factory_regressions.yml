@@ -1,0 +1,94 @@
+# Independent post-merge QA only: zero publication rights, zero private inputs.
+name: Public GHA factory regression suites
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '07 4 * * *'
+  pull_request:
+    paths:
+      - '.github/workflows/gha_factory_regressions.yml'
+      - 'tools/gha_factory/**'
+      - 'tests/gha_factory/**'
+      - 'legal/ledger/sources.json'
+      - 'catalog/language_registry.v1.json'
+      - 'standards/**'
+      - 'tools/pack_v2/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gha-factory-regression-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  suites:
+    name: "${{ matrix.suite }} public regression"
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        suite: [admission, dispatcher, linguistics, examples, release]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Execute the actual merged source suite
+        shell: bash
+        env:
+          SUITE: ${{ matrix.suite }}
+        run: |
+          set -euo pipefail
+          case "$SUITE" in
+            admission|dispatcher|linguistics|examples|release) ;;
+            *) echo "Unknown suite"; exit 2;;
+          esac
+          python3 -m unittest discover \
+            -s "tests/gha_factory/$SUITE" \
+            -p 'test_*.py' -v
+
+  source_contract:
+    name: Canonical public schema and SQLite fixture gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Confirm 100 registered canonical IDs
+        run: python3 catalog/validate_registry.py
+      - name: Verify reference v2 SQLite in fixture-only mode
+        run: python3 tools/test_store_pipeline.py -q
+
+  readiness:
+    name: Validate no fictitious licensed packs
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Fail closed on unverified release
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('.')
+          ledger = json.loads((root / 'legal/ledger/sources.json').read_text(encoding='utf-8'))
+          manifest = json.loads((root / 'manifest.json').read_text(encoding='utf-8'))
+          version = json.loads((root / 'version.json').read_text(encoding='utf-8'))
+          sources = ledger.get('sources')
+          packs = manifest.get('packs')
+          if not isinstance(sources, list) or not isinstance(packs, list):
+              raise ValueError('malformed source ledger/pack manifest')
+          if not sources:
+              assert not packs and not version.get('packs'), 'unlicensed pack published'
+              assert version.get('release_status') == 'BLOCKED_DEPENDENCY', 'false readiness'
+              print('BLOCKED_SOURCE: correct empty production state')
+          else:
+              print('SOURCE_ENTRIES_PRESENT: rights and pack admission need separate proof')
+          PY
