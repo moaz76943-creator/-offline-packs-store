@@ -76,6 +76,51 @@ class TaxonomyValidationTests(unittest.TestCase):
         m["languages"].pop()
         self.assertTrue(any("published manifest ID mismatch" in s for s in validate(r,c,m)))
 
+    def test_well_formed_hash_is_not_independent_pack_evidence(self):
+        r, c, m = fixture()
+        c["states"]["aa"] = "releaseReady"
+        c["validation_evidence"]["aa"] = {
+            "pack_sha256": "a" * 64, "validation_method": "automated_quality_gate",
+            "source_ids": ["source.synthetic"]
+        }
+        failures = validate(r, c, m, source_ledger={"sources":[]})
+        self.assertTrue(any("verified published pack" in item for item in failures))
+        self.assertTrue(any("independently admitted sources" in item for item in failures))
+
+    def test_release_readiness_rejects_unverified_legacy_manifest(self):
+        r, c, m = fixture()
+        c["states"]["aa"] = "releaseReady"
+        c["validation_evidence"]["aa"] = {
+            "pack_sha256": "a" * 64, "validation_method": "manual_review",
+            "source_ids": ["source.synthetic"]
+        }
+        m["languages"][0].update({
+            "sha256":"a" * 64, "content_available":True,
+            "pack_verified":True, "production_ready":True, "is_active":True,
+            "schemaVersion":"legacy", "format":"legacy-json-gzip"
+        })
+        failures = validate(r, c, m)
+        self.assertTrue(any("automated quality gate" in item for item in failures))
+        self.assertTrue(any("pack hash/schema" in item for item in failures))
+
+    def test_readiness_rejects_hash_type_without_crash(self):
+        r, c, m = fixture()
+        c["states"]["aa"] = "releaseReady"
+        c["validation_evidence"]["aa"] = {
+            "pack_sha256": 42, "validation_method": "automated_quality_gate"
+        }
+        self.assertTrue(any("independent evidence" in x for x in validate(r, c, m)))
+
+    def test_source_identity_list_must_be_valid(self):
+        r, c, m = fixture()
+        c["states"]["aa"] = "releaseReady"
+        c["validation_evidence"]["aa"] = {
+            "pack_sha256": "a" * 64, "validation_method": "automated_quality_gate",
+            "source_ids": [["invalid"]]
+        }
+        failures = validate(r, c, m, source_ledger={"sources":[]})
+        self.assertTrue(any("independently admitted sources" in x for x in failures))
+
     def test_real_public_registry_integrity(self):
         registry = json.loads((HERE / "language_registry.v1.json").read_text(encoding="utf-8"))
         readiness = json.loads((HERE / "content_readiness.v1.json").read_text(encoding="utf-8"))
