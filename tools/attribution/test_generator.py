@@ -29,6 +29,45 @@ class AttributionTests(unittest.TestCase):
             generate_attribution(injected, self.refs_file, self.out, repo_root=self.root)
         self.assertFalse(self.out.exists())
 
+    def test_symlink_output_directory_is_rejected_without_external_writes(self):
+        with tempfile.TemporaryDirectory() as external:
+            target = Path(external)
+            (target / "keep.txt").write_text("untouched")
+            self.out.symlink_to(target, target_is_directory=True)
+            with self.assertRaises((ValueError, OSError)):
+                self.run_gate()
+            self.assertEqual((target / "keep.txt").read_text(), "untouched")
+            self.assertFalse((target / "attribution.json").exists())
+
+    def test_symlink_notice_target_is_rejected_without_external_writes(self):
+        self.out.mkdir()
+        target = self.root / "outside-notice.txt"
+        target.write_text("unchanged")
+        (self.out / "case-source_notice.txt").symlink_to(target)
+        with self.assertRaises((ValueError, OSError)):
+            self.run_gate()
+        self.assertEqual(target.read_text(), "unchanged")
+        self.assertFalse((self.out / "attribution.json").exists())
+
+    def test_symlink_manifest_target_is_rejected_before_notices(self):
+        self.out.mkdir()
+        target = self.root / "outside-attribution.json"
+        target.write_text("unchanged")
+        (self.out / "attribution.json").symlink_to(target)
+        with self.assertRaises((ValueError, OSError)):
+            self.run_gate()
+        self.assertEqual(target.read_text(), "unchanged")
+        self.assertFalse((self.out / "case-source_notice.txt").exists())
+
+    def test_symlink_output_parent_cannot_redirect_output(self):
+        with tempfile.TemporaryDirectory() as external:
+            parent = self.root / "linked-parent"
+            parent.symlink_to(external, target_is_directory=True)
+            self.out = parent / "notices"
+            with self.assertRaises((ValueError, OSError)):
+                self.run_gate()
+            self.assertFalse((Path(external) / "notices").exists())
+
     def test_exact_source_notice_and_deterministic_manifest(self):
         result = self.run_gate()
         self.assertEqual(result[0]["source_id"], "case-source")
