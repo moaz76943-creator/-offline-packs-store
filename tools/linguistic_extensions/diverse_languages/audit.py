@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import runpy
 import re
 import unicodedata
 
@@ -37,6 +38,21 @@ REQUIRED = frozenset(("record_id", "language_id", "lemma", "meaning", "variant",
                        "license", "rights_url"))
 MAX_LINE_BYTES = 16_384
 MAX_SHARD_ROWS = 2_000
+# These are review categories, not an assertion of productive grammar support.
+LANGUAGE_FEATURES = {
+    "noun_class": frozenset(("sw", "zu", "xh", "rw", "sn")),
+    "class_agreement": frozenset(("sw", "zu", "xh", "rw", "sn")),
+    "verbal_extension": frozenset(("sw", "zu", "xh", "rw", "sn")),
+    "tone": frozenset(("yo", "ig", "ha")),
+    "tone_orthography": frozenset(("yo", "ig", "ha")),
+    "nominal_inflection": frozenset(("so", "am")),
+    "root_pattern": frozenset(("am",)),
+    "reduplication": frozenset(("id", "ms", "tl", "mg")),
+    "affixation": frozenset(("id", "ms", "tl", "mg", "sw", "zu", "xh", "rw", "sn")),
+    "focus_voice": frozenset(("tl", "mg")),
+}
+ANNOTATION_KEYS = frozenset(("feature", "label", "attested_form", "locator"))
+TONE_MARKS = frozenset(("\u0300", "\u0301", "\u0302", "\u0304", "\u030c", "\u030d"))
 
 
 class EvidenceError(ValueError):
@@ -68,12 +84,14 @@ def _clean_string(value, *, required=False):
 
 
 class DiverseAudit:
-    def __init__(self, root=ROOT, evidence_path=HERE / "evidence.json"):
+    def __init__(self, root=ROOT, evidence_path=HERE / "evidence.json",
+                 binding_path=HERE / "source_bindings.json"):
         self.root = Path(root)
         self.registry = _load(self.root / "catalog/language_registry.v1.json")
         self.readiness = _load(self.root / "catalog/content_readiness.v1.json")
         self.ledger = _load(self.root / "legal/ledger/sources.json")
         self.evidence = _load(evidence_path)
+        self.bindings = _load(binding_path)
         languages = self.registry.get("languages", [])
         if len(languages) != 100 or len({x.get("id") for x in languages}) != 100:
             raise EvidenceError("canonical registry must contain 100 unique IDs")
@@ -82,21 +100,82 @@ class DiverseAudit:
             raise EvidenceError("missing registered diverse-language identity")
         if set(self.readiness.get("states", {})) != set(self.languages):
             raise EvidenceError("readiness IDs differ from registry")
-        if not isinstance(self.ledger.get("sources"), list):
-            raise EvidenceError("missing source ledger")
+        if (self.ledger.get("schema_version") != "1.0.0"
+                or not isinstance(self.ledger.get("sources"), list)):
+            raise EvidenceError("unsupported Route05 source ledger")
+        if (self.bindings.get("schema_version") != "1.0"
+                or not isinstance(self.bindings.get("bindings"), list)):
+            raise EvidenceError("unsupported source-language binding manifest")
         if self.evidence.get("scope") != "structural_metadata_only_not_lexical_corpus":
             raise EvidenceError("structural evidence scope mismatch")
-        for fact in self.evidence.get("facts", []):
-            source = fact.get("source", {})
+        facts = self.evidence.get("facts")
+        if not isinstance(facts, list):
+            raise EvidenceError("structural evidence facts must be a list")
+        seen = set()
+        for fact in facts:
+            if not isinstance(fact, dict):
+                raise EvidenceError("malformed structural fact")
+            source = fact.get("source")
             if (fact.get("language_id") not in RESEARCH_FOCUS
+                or not _clean_string(fact.get("dimension"), required=True)
+                or not _clean_string(fact.get("value"), required=True)
+                or not isinstance(source, dict)
                 or not all(_clean_string(source.get(k), required=True)
                            for k in ("publisher", "feature_author", "original_reference", "url", "license"))
                 or source.get("redistribution_scope") != "attributed_structural_metadata_only"):
                 raise EvidenceError("unattributed or unscoped structural fact")
+            identity = (fact["language_id"], fact["dimension"], fact["value"])
+            if identity in seen:
+                raise EvidenceError("duplicate structural assertion")
+            seen.add(identity)
+        # Reuse the real Route05 contract (nested license.id and review.reviewer).
+        # The read-only gate cannot grant independent human legal approval.
+        self.admission = runpy.run_path(str(ROOT / "legal/ledger/admission.py"))
         self.approved_sources = {}
         for src in self.ledger["sources"]:
-            if isinstance(src, dict) and src.get("source_id"):
+            if isinstance(src, dict) and _clean_string(src.get("source_id"), required=True):
                 self.approved_sources.setdefault(src["source_id"], []).append(src)
+        self.source_blockers = {}
+
+    def _source_issues(self, source):
+        sid = source["source_id"]
+        if sid not in self.source_blockers:
+            self.source_blockers[sid] = self.admission["evaluate"](
+                {"schema_version": "1.0.0", "sources": [source]},
+                {"languages": [], "packs": []}, [], self.root)
+        return self.source_blockers[sid]
+
+    def _approved_language_binding(self, source_id, code, variant):
+        matches = [item for item in self.bindings["bindings"]
+                   if isinstance(item, dict) and item.get("source_id") == source_id
+                   and item.get("language_id") == code and item.get("variant") == variant]
+        if len(matches) != 1:
+            return False
+        binding = matches[0]
+        if set(binding) != {"source_id", "language_id", "variant", "proof_path",
+                            "proof_sha256", "review"}:
+            return False
+        issues = []
+        self.admission["artifact"](self.root, binding["proof_path"],
+                                   binding["proof_sha256"], issues, "language binding")
+        self.admission["manual_review"](binding["review"], issues, "language binding")
+        return not issues
+
+    @staticmethod
+    def _annotation_reasons(code, annotation):
+        if not isinstance(annotation, dict) or set(annotation) != ANNOTATION_KEYS:
+            return ["incomplete_attested_analysis"]
+        if not all(_clean_string(v, required=True) and len(v) <= 512
+                   for v in annotation.values()):
+            return ["incomplete_attested_analysis"]
+        feature = annotation["feature"]
+        if code not in LANGUAGE_FEATURES.get(feature, ()):
+            return ["unsupported_language_feature"]
+        if feature == "tone_orthography":
+            nfd = unicodedata.normalize("NFD", annotation["attested_form"])
+            if not any(char in TONE_MARKS for char in nfd):
+                return ["unmarked_tone_surface"]
+        return []
 
     def profile(self, code):
         if code not in RESEARCH_FOCUS:
