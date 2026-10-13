@@ -153,6 +153,33 @@ class SentenceScaleTests(unittest.TestCase):
         self.assertEqual(result['totals']['accepted'], 1)
         self.assertEqual(result['published'], 0)
 
+    def test_null_translation_reviews_cannot_be_accepted(self):
+        row = self.row('1')
+        row['translations'] = [{
+            'target_source_id': 'demo', 'target_sentence_id': '2',
+            'target_language': 'de', 'direction': 'en_to_de',
+            'evidence_url': 'https://example.org/links/1/2'
+        }]
+        row['translation_reviews'] = None
+        report = self.run_rows([row])
+        self.assertEqual(report['totals']['requires_review'], 1)
+        candidate = json.loads((self.out / 'candidates.jsonl').read_text())
+        self.assertIn('translation_equivalence_unverified', candidate['reasons'])
+
+    def test_changed_hard_rejection_not_downgraded_to_review(self):
+        self.run_rows([self.row('1')])
+        changed = self.row('1', text='Different evidence.')
+        payload = (json.dumps(changed) + '\n').encode()
+        (self.workspace / 'second.jsonl').write_bytes(payload)
+        manifest = json.loads(self.manifest.read_text())
+        manifest['shards'].append({'path': 'second.jsonl',
+                                   'sha256': hashlib.sha256(payload).hexdigest()})
+        self.manifest.write_text(json.dumps(manifest))
+        with patch.object(worker.canonical, 'validate',
+                          return_value=('REJECTED', ['wrong_language_grammar_rule'], [])):
+            result = self.invoke()
+        self.assertEqual(result['totals']['rejected'], 1)
+
     def test_real_pilot_examples_without_approvals_are_not_accepted(self):
         pilot = Path('tools/source_examples/fixtures/pilot_tatoeba.jsonl')
         registry = Path('catalog/language_registry.v1.json')
