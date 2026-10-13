@@ -71,6 +71,30 @@ class IdentityIsolationTests(unittest.TestCase):
             self.assertEqual(STATUS_REVIEW_REQUIRED,unadmitted.sanitize_translation(
                 self.tr('not-approved',from_id='x.sen',to_id='x.ses'))[0])
 
+    def test_review_only_lexeme_cannot_admit_its_sense(self):
+        status,_,_=self.s.sanitize_lexeme({
+            'lexeme_id':'lex.en.review','language':'en','lemma':'book','pos':'noun'
+        })
+        self.assertEqual(STATUS_REVIEW_REQUIRED,status)
+        status,_,reason=self.s.sanitize_sense({
+            'sense_id':'sense.review','lexeme_id':'lex.en.review','concept_id':'concept.review'
+        })
+        self.assertEqual(STATUS_REVIEW_REQUIRED,status)
+        self.assertIn('review-only lexeme',reason)
+
+    def test_review_only_sense_cannot_admit_translation(self):
+        self.s.sanitize_lexeme({
+            'lexeme_id':'lex.es.review','language':'es','lemma':'libro','pos':'noun'
+        })
+        self.s.sanitize_sense({
+            'sense_id':'sense.review.target','lexeme_id':'lex.es.review',
+            'concept_id':'concept.review.target'
+        })
+        status,_,reason=self.s.sanitize_translation(
+            self.tr('tr.review.target',to_id='sense.review.target'))
+        self.assertEqual(STATUS_REVIEW_REQUIRED,status)
+        self.assertIn('review-only sense',reason)
+
     def test_cross_language_stable_id_collision_rejected(self):
         self.assertEqual(STATUS_ACCEPT,self.s.sanitize_translation(self.tr('t.dup'))[0])
         self.assertEqual(STATUS_QUARANTINE,self.s.sanitize_translation(
