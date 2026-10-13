@@ -336,8 +336,11 @@ def execute(*, registry, sources, lexical=None, lexical_sha=None, candidates=Non
                 except AdmissionError as exc:
                     counts["blocked"] += 1
                     reasons[str(exc)] = reasons.get(str(exc), 0) + 1
+        db.commit()
         all_pairs = coverage(db, ids)
+        database_sha = digest(database) if database != ":memory:" else None
         report = {"schema_version":"1.0.0","registry_sha256":digest(registry),
+                  "database_sha256":database_sha,
                   "source_ledger_sha256":source_sha,"lexical_sha256":digest(lexical) if lexical else None,
                   "candidate_sha256":candidate_sha,"review_sha256":digest(reviews) if reviews else None,
                   "interface_language":interface_language,"canonical_languages":100,
