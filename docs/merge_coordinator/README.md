@@ -38,3 +38,6 @@ Read-only status: python3 -m tools.merge_coordinator.cli --output merge-status.j
 On mobile: GitHub → Actions → Smart PR Merge Coordinator → Run workflow → report. Inspect Arabic job summary and smart-pr-merge artifact.
 
 The new PR has exclusive file scope: tools/merge_coordinator, tests/merge_coordinator, docs/merge_coordinator and the new smart_pr_merge.yml. It modifies no existing CI, production packs, licenses, source datasets or public main history.
+## Concurrent writer discovered on live main (2026-10-13)
+
+The repository already contains a separate scheduled writer, Public Verified Merge Coordinator, in .github/workflows/public_merge_coordinator.yml. The new workflow shares that writer's exact concurrency key; its coordinator also fails closed when the existing workflow file is still installed, so it cannot be independently activated while that competing controller exists. Deciding which coordinator remains authoritative requires a separately authorized change outside this PR's exclusive scope.

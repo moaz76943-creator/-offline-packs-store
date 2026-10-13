@@ -23,7 +23,7 @@ on:
     - cron: '23 */6 * * *'
 
 concurrency:
-  group: smart-pr-merge-${{ github.repository }}
+  group: public-canonical-main-integration-authority
   cancel-in-progress: false
 
 permissions:

@@ -7,6 +7,16 @@ from .inventory import collect
 from .classification import classify
 from .engine import Coordinator,MergeIncident
 
+def competing_writer(api):
+    """Existing alternate writer blocks this coordinator, including unknown API errors."""
+    try:
+        api.call('/contents/.github/workflows/public_merge_coordinator.yml')
+    except APIError as exc:
+        return exc.status != 404
+    except Exception:
+        return True
+    return True
+
 def main(argv=None,api=None):
     parser=argparse.ArgumentParser()
     parser.add_argument('--apply',action='store_true')
@@ -34,6 +44,8 @@ def main(argv=None,api=None):
         incident='incomplete_pr_inventory'
     if os.getenv('SMART_MERGE_CODE_SHA') and os.getenv('SMART_MERGE_CODE_SHA')!=sha:
         incident='checkout_main_sha_stale'
+    if competing_writer(api):
+        incident='competing_authoritative_writer_present_or_unverifiable'
     if armed and not incident:
         for d in decisions[:20]:
             digest=hashlib.sha256(json.dumps([d.state,d.reasons,d.head],
