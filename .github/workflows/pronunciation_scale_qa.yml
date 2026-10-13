@@ -1,0 +1,36 @@
+name: Pronunciation scale evidence and audio QA
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/factory_extensions/pronunciation_scale/**'
+      - 'tests/factory_extensions/pronunciation_scale/**'
+      - '.github/workflows/pronunciation_scale_qa.yml'
+permissions:
+  contents: read
+concurrency:
+  group: pronunciation-scale-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify bounded admission and audio tests
+        run: python3 -m unittest discover -s tests/factory_extensions/pronunciation_scale -p 'test_*.py' -v
+      - name: Audit actual 100-language registry and source ledger
+        run: |
+          python3 -m tools.factory_extensions.pronunciation_scale.factory \
+            --records tools/factory_extensions/pronunciation_scale/candidates.json \
+            --audio-root . --evidence-root . --output-dir "$RUNNER_TEMP/pronunciation_scale_qa"
+      - name: Preserve completed QA checkpoint
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pronunciation-qa-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/pronunciation_scale_qa/
+          if-no-files-found: warn
+          retention-days: 7
