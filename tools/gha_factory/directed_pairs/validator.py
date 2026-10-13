@@ -197,12 +197,17 @@ def main(argv=None):
                          args.cc0, args.cc0_sha256, args.candidates, args.candidates_sha256,
                          mapping, languages)
     out = Path(args.out)
-    if out.exists() and out.is_symlink():
-        raise PairError('UNSAFE_OUTPUT_PATH')
     temp = out.with_name(out.name + '.tmp')
-    with temp.open('w', encoding='utf-8') as stream:
-        json.dump(report, stream, sort_keys=True, ensure_ascii=False, separators=(',', ':'))
-        stream.write('\n')
+    if out.is_symlink() or temp.is_symlink():
+        raise PairError('UNSAFE_OUTPUT_PATH')
+    # Exclusive create refuses pre-existing files and symlinks (including
+    # dangling links) without following either. Never truncate an old .tmp.
+    try:
+        with temp.open('x', encoding='utf-8') as stream:
+            json.dump(report, stream, sort_keys=True, ensure_ascii=False, separators=(',', ':'))
+            stream.write('\n')
+    except FileExistsError as exc:
+        raise PairError('UNSAFE_OUTPUT_PATH') from exc
     os.replace(temp, out)
     print(json.dumps(report, sort_keys=True))
 
