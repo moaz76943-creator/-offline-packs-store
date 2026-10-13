@@ -18,9 +18,7 @@ MAX_JSON_BYTES = 16 * 1024 * 1024
 MAX_JSONL_LINE_BYTES = 2 * 1024 * 1024
 
 def stream_json_collections(file_path):
-    """
-    A custom, minimal streaming parser for top-level JSON arrays.
-    """
+    """Stream JSONL records; reject oversized non-streamed JSON arrays."""
     is_jsonl = str(file_path).endswith('.jsonl')
     if is_jsonl:
         with open(file_path, 'r', encoding='utf-8') as f:
