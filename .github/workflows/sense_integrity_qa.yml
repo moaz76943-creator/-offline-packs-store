@@ -104,18 +104,13 @@ jobs:
           errors = sum(x['severity'] == 'error' for x in findings)
           accepted = sum(x['accepted_senses'] for x in metrics.values())
           unresolved = sum(x['unresolved_ambiguity'] for x in metrics.values())
-          summary = (f"### Read-only sense QA
-Accepted senses (ledger-gated): {accepted}
-
-"
-                     f"Unresolved candidate groups: {unresolved}
-
-"
-                     f"Conflicts: {len(findings)}, blocking: {errors}
-
-"
-                     "Reports are runner-local; no canonical or release writes.
-")
+          summary = chr(10).join([
+              '### Read-only sense QA',
+              f'Accepted senses (ledger-gated): {accepted}',
+              f'Unresolved groups: {unresolved}',
+              f'Conflicts: {len(findings)}, blocking: {errors}',
+              'Reports are runner-local; no canonical or release writes.'
+          ]) + chr(10)
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as stream:
               stream.write(summary)
           if errors:
