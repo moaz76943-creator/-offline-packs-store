@@ -303,9 +303,16 @@ def report(db, output, registry, shard, shards, has_previous):
                 handle.write(canonical({"record_type": "member", "candidate_id": cid, "lexeme_id": member}) + "\n")
     with (output / "merge-plan.jsonl").open("w", encoding="utf-8") as handle:
         for kind, rid, lang, source_ok, prior, changed, bad in db.execute("""
-            SELECT c.kind,c.id,c.language,c.source_ok,p.id,
+            SELECT c.kind,c.id,c.language,
+                   CASE WHEN c.kind='senses' THEN
+                       MIN(c.source_ok,COALESCE((SELECT l.source_ok FROM rec l
+                         WHERE l.snapshot='current' AND l.kind='lexemes' AND l.id=c.parent),0))
+                       ELSE c.source_ok END,
+                   p.id,
                    CASE WHEN p.id IS NOT NULL AND p.pinned != c.pinned THEN 1 ELSE 0 END,
-                   EXISTS(SELECT 1 FROM issue i WHERE i.kind=c.kind AND i.id=c.id AND i.severity='error')
+                   EXISTS(SELECT 1 FROM issue i WHERE i.severity='error' AND
+                       ((i.kind=c.kind AND i.id=c.id) OR
+                        (c.kind='senses' AND i.kind='lexemes' AND i.id=c.parent)))
             FROM rec c LEFT JOIN rec p ON p.snapshot='previous' AND p.kind=c.kind AND p.id=c.id
             WHERE c.snapshot='current' AND c.kind IN ('lexemes','senses')
             ORDER BY c.kind,c.id"""):
