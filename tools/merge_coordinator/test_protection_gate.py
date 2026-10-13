@@ -18,7 +18,7 @@ class ProtectionTests(unittest.TestCase):
 
     def test_wrong_branch_is_never_approved(self):
         self.assertFalse(allowed({'name':'develop','protected':True,'protection':{'required_status_checks':{
-            'contexts':['public-pr-merge-gate'], 'strict':True, 'enforcement_level':'everyone'}}))
+            'contexts':['public-pr-merge-gate'], 'strict':True, 'enforcement_level':'everyone'}}}))
 
 
 if __name__ == '__main__':
