@@ -82,6 +82,24 @@ class ExerciseQualityTests(unittest.TestCase):
         self.assertEqual('AMBIGUOUS',evaluate_response('variant',{'standard'},{'variant'}))
         self.assertEqual('UNVERIFIED',evaluate_response('standrd',{'standard'}))
 
+    def test_cloze_cannot_split_unicode_grapheme(self):
+        # Combining diaeresis belongs to its preceding Latin base character.
+        text = 'B\u0308uch ist neu.'
+        self.sentence['text'] = text
+        self.annotation['sentence_sha256'] = hashlib.sha256(text.encode()).hexdigest()
+        self.annotation['start'], self.annotation['end'] = 0, 1
+        self.forms.add(('de','book','B',(('case','nominative'),('number','singular'))))
+        self.exercise = make_cloze(self.sentence, self.annotation, self.senses, self.forms)
+        with self.assertRaisesRegex(ExerciseError, 'SPLIT_UNICODE_GRAPHEME'):
+            self.valid()
+
+    def test_nfc_equivalent_attested_alternate_is_ambiguous(self):
+        self.assertEqual('AMBIGUOUS', evaluate_response('e\u0301', {'other'}, {'é'}))
+
+    def test_nfc_equivalent_evidence_conflict_rejected(self):
+        with self.assertRaisesRegex(ExerciseError, 'CONFLICTING_ANSWER_EVIDENCE'):
+            evaluate_response('x', {'é'}, {'e\u0301'})
+
     def test_conflicting_alternate_prohibited(self):
         with self.assertRaisesRegex(ExerciseError, 'CONFLICTING_ANSWER_EVIDENCE'):
             evaluate_response('x',{'x'},{'x'})
