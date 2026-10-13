@@ -40,7 +40,7 @@ def _rights(source):
     required = ('source_id', 'license_id', 'dataset_version', 'record_locator')
     if not all(_text(source.get(key)) for key in required):
         return None
-    if source.get('publication_approved') is not True or source.get('fixture_only') is True:
+    if source.get('publication_approved') is not True or source.get('fixture_only') is not False:
         return None
     return source['license_id']
 
@@ -62,12 +62,13 @@ def _exact_identity(rec):
     senses = rec.get('senses', [])
     # Without independently pinned concept identity and definition, no automatic removal.
     if not senses or not all(isinstance(s, dict) and _text(s.get('concept_id'))
-                              and _text(s.get('definition')) for s in senses):
+                              and _text(s.get('definition')) and isinstance(s.get('source'), dict)
+                              for s in senses):
         return None
     if not _rights(rec.get('source')):
         return None
     if not all(_rights(s['source']) == _rights(rec['source'])
-               for s in senses if 'source' in s):
+               for s in senses):
         return None
     facets = {k: v for k, v in rec.items() if k not in ('source', 'senses', 'lexeme_id')}
     # A lexical sense ID is not interchangeable with a concept ID.
@@ -165,9 +166,22 @@ class CorpusDeduplicator:
                 and self.admitted_source_licenses.get(src2.get('source_id')) ==
                     (license2, src2.get('dataset_version')))
 
+    def _all_sources_admitted(self, rec):
+        source = rec.get('source') or {}
+        senses = rec.get('senses') or []
+        if not isinstance(senses, list) or not senses:
+            return False
+        return all(
+            isinstance(item, dict) and _rights(item.get('source'))
+            and self.admitted_source_licenses.get(item['source']['source_id']) ==
+                (item['source']['license_id'], item['source']['dataset_version'])
+            for item in [rec, *senses]
+        )
+
     def is_exact_duplicate(self, rec1, rec2):
         one, two = _exact_identity(rec1), _exact_identity(rec2)
-        return one is not None and one == two and self.are_licenses_compatible(rec1, rec2)
+        return (one is not None and one == two and self.are_licenses_compatible(rec1, rec2)
+                and self._all_sources_admitted(rec1) and self._all_sources_admitted(rec2))
 
     def iter_resolved(self):
         if self._resolved:
@@ -178,7 +192,7 @@ class CorpusDeduplicator:
                 'SELECT bucket,lexeme_id,payload FROM input ORDER BY bucket,lexeme_id,seq'):
             rec = json.loads(payload)
             strict = normalize_strict(rec['lemma'])
-            exact = _exact_identity(rec)
+            exact = _exact_identity(rec) if self._all_sources_admitted(rec) else None
             license_id = _rights(rec.get('source'))
             canonical = None
             reason = None
