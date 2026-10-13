@@ -375,19 +375,22 @@ def main(argv=None):
     cli.add_argument("--input", type=Path)
     cli.add_argument("--input-sha256")
     cli.add_argument("--references", type=Path)
+    cli.add_argument("--references-sha256")
     cli.add_argument("--report", type=Path)
     args = cli.parse_args(argv)
     refs = catalog_references(args.repo_root)
     if args.input:
-        if not args.references or not args.input_sha256:
+        if not args.references or not args.input_sha256 or not args.references_sha256:
             fail("MISSING_IMMUTABLE_INPUT_OR_REFERENCES")
+        if not SHA.fullmatch(args.references_sha256) or sha_file(args.references) != args.references_sha256:
+            fail("REFERENCES_SHA256_MISMATCH")
         supplied = json.loads(args.references.read_text(encoding="utf-8"),
                               object_pairs_hook=_unique_pairs)
         for name in ("senses", "pairs", "forms", "rules", "proficiency", "distractors"):
             refs[name] = supplied.get(name, {})
         result = audit_partition(args.input, args.input_sha256, refs)
     else:
-        if args.references or args.input_sha256:
+        if args.references or args.input_sha256 or args.references_sha256:
             fail("MISSING_IMMUTABLE_INPUT")
         result = {
             "status": "BLOCKED_SOURCE", "registered_languages": len(refs["languages"]),
