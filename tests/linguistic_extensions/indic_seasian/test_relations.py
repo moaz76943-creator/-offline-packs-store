@@ -6,7 +6,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
 from tools.linguistic_extensions.indic_seasian.relations import classify_relation
-from tools.linguistic_extensions.indic_seasian.processor import ScriptContractError
+from tools.linguistic_extensions.indic_seasian.processor import ScriptContractError, evidence_digest
 
 
 class RelationsTests(unittest.TestCase):
@@ -42,15 +42,31 @@ class RelationsTests(unittest.TestCase):
             self.assertEqual(kind, result['relation_kind'])
             self.assertEqual(kind == 'lexical_equivalent', result['lexical_claim'])
 
+    def test_same_source_and_text_hashes_cannot_authorize_new_unreviewed_relation(self):
+        ledger, record = self.proof('pa', 'ਪੰਜਾਬੀ', 'پنجابی')
+        changed = {**record, 'evidence_version': 'unreviewed-v2'}
+        with self.assertRaises(ScriptContractError):
+            classify_relation('pa', 'ਪੰਜਾਬੀ', 'پنجابی', evidence=changed, ledger=ledger)
+
     @staticmethod
     def proof(code, a, b):
-        ledger = {'sources': [{'id': 'synthetic-review', 'languages': [code],
-                               'sha256': 'a' * 64, 'release_approved': True}]}
-        return ledger, {'language_code': code, 'source_id': 'synthetic-review',
-                        'source_sha256': 'a' * 64,
-                        'left_utf8_sha256': hashlib.sha256(a.encode()).hexdigest(),
-                        'right_utf8_sha256': hashlib.sha256(b.encode()).hexdigest(),
-                        'relation_kind': 'transliteration', 'evidence_version': 'synthetic-test-v1'}
+        evidence = {'language_code': code, 'source_id': 'synthetic-review',
+                    'source_sha256': 'a' * 64,
+                    'left_utf8_sha256': hashlib.sha256(a.encode()).hexdigest(),
+                    'right_utf8_sha256': hashlib.sha256(b.encode()).hexdigest(),
+                    'relation_kind': 'transliteration', 'evidence_version': 'synthetic-test-v1'}
+        variants = [{**evidence, 'relation_kind': kind}
+                    for kind in ('transliteration', 'related_form',
+                                 'ambiguous_orthography', 'lexical_equivalent')]
+        ledger = {'sources': [{
+            'id': 'synthetic-review', 'languages': [code],
+            'sha256': 'a' * 64, 'release_approved': True,
+            'rights_status': 'APPROVED', 'reviewed_by': 'synthetic-test-reviewer',
+            'rights_evidence_sha256': 'b' * 64,
+            'reviewed_records': {'morphology': [], 'segmentation': [],
+                                 'orthographic_relation': [evidence_digest(x) for x in variants]},
+        }]}
+        return ledger, evidence
 
 
 if __name__ == '__main__':
