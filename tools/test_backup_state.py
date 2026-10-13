@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from backup_state import backup, main, REPO_ROOT
+from backup_state import backup, main, REPO_ROOT, _verify
 
 
 class SafeBackupTest(unittest.TestCase):
@@ -80,6 +80,24 @@ class SafeBackupTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'foreign_key_check'):
             backup(self.source, self.output)
         self.assertFalse(self.output.exists())
+
+    def test_foreign_key_check_stops_at_first_violation(self):
+        class Result:
+            def __init__(self, first):
+                self.first = first
+            def fetchone(self):
+                return self.first
+            def fetchall(self):
+                raise AssertionError('unbounded materialization forbidden')
+        class Db:
+            def execute(self, sql):
+                if sql == 'PRAGMA integrity_check':
+                    return Result(('ok',))
+                if sql == 'PRAGMA foreign_key_check':
+                    return Result(('child', 1, 'parent', 0))
+                raise AssertionError(sql)
+        with self.assertRaisesRegex(ValueError, 'foreign_key_check'):
+            _verify(Db())
 
     def test_corrupt_source_fail_closed(self):
         self.source.write_bytes(b'not a sqlite database')
