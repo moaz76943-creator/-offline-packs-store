@@ -261,6 +261,8 @@ def build_report(rules, context, corpus, reviewers, shard=0, shards=1, backlog=N
         rid = rule.get('rule_id') if isinstance(rule, dict) else None
         if not isinstance(rid, str):
             raise ValueError('invalid_rule_record')
+        if rule.get('language') not in context['langs']:
+            raise ValueError('unregistered_rule_language')
         if rid in mapping:
             duplicates.add(rid)
         mapping[rid] = rule
