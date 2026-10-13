@@ -238,5 +238,50 @@ class StorePipelineTest(unittest.TestCase):
         self.assertEqual(self.manifest.read_bytes(),before)
         self.assertEqual(outside.read_bytes(),raw)
 
+
+    def test_external_source_symlink_fails_closed_without_publication(self):
+        original=self.manifest.read_bytes()
+        outside=self.root/'external-fixture.json'
+        outside.write_text(json.dumps(fixture_doc('de'),ensure_ascii=False),encoding='utf-8')
+        (self.sources/'de.json').unlink()
+        (self.sources/'de.json').symlink_to(outside)
+        result=self.invoke()
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('unsafe source path',result.stderr)
+        self.assertEqual(self.manifest.read_bytes(),original)
+        self.assertFalse(self.packs.exists())
+        self.assertTrue(outside.is_file())
+
+    def test_internal_source_symlink_is_accepted(self):
+        nested=self.sources/'approved-symlink-target'
+        nested.mkdir()
+        (self.sources/'de.json').rename(nested/'de.json')
+        (self.sources/'de.json').symlink_to(nested/'de.json')
+        result=self.invoke()
+        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertTrue((self.packs/'de-1.0.0.pack.gz').is_file())
+
+    def test_manifest_symlink_rejected_before_reading_or_publishing(self):
+        external=self.root/'external-manifest.json'
+        external.write_text('{"languages":[]}',encoding='utf-8')
+        saved=external.read_bytes()
+        self.manifest.unlink()
+        self.manifest.symlink_to(external)
+        result=self.invoke()
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('symlinked manifest',result.stderr)
+        self.assertEqual(external.read_bytes(),saved)
+        self.assertFalse(self.packs.exists())
+
+    def test_atomic_write_rejects_existing_symlink_even_if_bytes_match(self):
+        outside=self.root/'outside-content.bin'
+        outside.write_bytes(b'unchanged sensitive original')
+        link=self.root/'symlinked-manifest.json'
+        link.symlink_to(outside)
+        with self.assertRaisesRegex(ValueError,'symlinked output'):
+            compile_store_packs.atomic_write(link,b'unchanged sensitive original')
+        self.assertEqual(outside.read_bytes(),b'unchanged sensitive original')
+        self.assertTrue(link.is_symlink())
+
 if __name__=='__main__':
     unittest.main()

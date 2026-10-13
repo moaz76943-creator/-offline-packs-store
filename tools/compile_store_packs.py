@@ -32,6 +32,8 @@ def inside(path,root):
 
 
 def atomic_write(path, data):
+    if path.is_symlink():
+        raise ValueError('symlinked output path forbidden')
     if path.is_file() and path.read_bytes()==data:
         return False
     path.parent.mkdir(parents=True,exist_ok=True)
@@ -47,7 +49,6 @@ def atomic_write(path, data):
         if name and os.path.exists(name):
             os.unlink(name)
     return True
-
 
 def check_legacy(languages,output):
     for item in languages:
@@ -71,6 +72,8 @@ def check_legacy(languages,output):
             raise ValueError('legacy package URL mismatch')
 
 def run(args):
+    if args.manifest.is_symlink():
+        raise ValueError('symlinked manifest path forbidden')
     if args.fixture_only and (inside(args.output_dir,REPO_ROOT) or inside(args.manifest,REPO_ROOT)):
         raise ValueError('test-only fixtures may not be published in the public repository')
     if not args.source_dir.is_dir():
@@ -103,6 +106,8 @@ def run(args):
     for source in sorted(args.source_dir.iterdir()):
         if not source.is_file() or source.suffix not in ('.json','.sqlite') or source.name.endswith(('.meta.json','.grammar.json')):
             continue
+        if not inside(source,args.source_dir):
+            raise ValueError('unsafe source path: '+source.name)
         lang=source.stem
         if not CODE.fullmatch(lang) or lang in sources:
             raise ValueError('invalid/duplicate language file')
