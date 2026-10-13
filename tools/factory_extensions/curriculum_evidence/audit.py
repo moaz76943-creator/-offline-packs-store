@@ -6,12 +6,14 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from datetime import date
 import hashlib
 import json
 import os
 from pathlib import Path
 import re
 import sys
+from urllib.parse import parse_qs, urlsplit
 
 KINDS = ("vocabulary", "grammar", "example", "exercise")
 STATES = ("unknown", "unassessed", "estimated", "source_attested")
@@ -26,30 +28,92 @@ class AuditError(ValueError):
     pass
 
 
-def _approved(source_ref, ledger):
+MAX_SOURCE_BYTES = 256 * 1024 * 1024
+MAX_LICENSE_BYTES = 2 * 1024 * 1024
+
+
+def _https(value):
+    if not isinstance(value, str) or not value:
+        return False
+    try:
+        parsed = urlsplit(value)
+        forbidden = {"token", "key", "access_token", "signature", "auth", "password"}
+        return (parsed.scheme == "https" and bool(parsed.hostname) and not parsed.username
+                and not parsed.password and not (set(parse_qs(parsed.query)) & forbidden))
+    except ValueError:
+        return False
+
+
+def _valid_iso_date(value):
+    try:
+        return date.fromisoformat(value).isoformat() == value
+    except (TypeError, ValueError):
+        return False
+
+
+def _file_digest(root, name, *, limit):
+    if not isinstance(name, str) or not name or ".." in Path(name).parts or Path(name).is_absolute():
+        return None
+    try:
+        base = root.resolve()
+        path = (base / name).resolve()
+        if not path.is_relative_to(base) or ".git" in Path(name).parts:
+            return None
+        if not path.is_file() or path.stat().st_size > limit:
+            return None
+        digest = hashlib.sha256()
+        with path.open("rb") as fp:
+            for block in iter(lambda: fp.read(65536), b""):
+                digest.update(block)
+        return digest.hexdigest()
+    except (OSError, ValueError):
+        return None
+
+
+def _approved(source_ref, ledger, *, root=ROOT):
+    """Validate current source bytes AND license notice against a reviewed Route05 ledger.
+
+    This is a bounded read-only prerequisite, not independent legal clearance.
+    """
     if not isinstance(source_ref, dict) or set(source_ref) != {"source_id", "dataset_version", "artifact_sha256"}:
         return False
-    sources = ledger.get("sources", [])
+    sources = ledger.get("sources", []) if isinstance(ledger, dict) else []
     if not isinstance(sources, list):
         return False
-    hits = [s for s in sources if isinstance(s, dict) and s.get("source_id") == source_ref["source_id"]]
-    if len(hits) != 1:
+    matches = [s for s in sources if isinstance(s, dict) and s.get("source_id") == source_ref["source_id"]]
+    if len(matches) != 1:
         return False
-    row = hits[0]
-    review = row.get("review") or {}
-    digest = source_ref["artifact_sha256"]
-    return (row.get("status") == "APPROVED_FOR_REDISTRIBUTION"
-            and row.get("dataset_version") == source_ref["dataset_version"]
-            and bool(re.fullmatch(r"[0-9a-f]{64}", str(digest)))
-            and row.get("retrieval", {}).get("sha256") == digest
-            and row.get("license", {}).get("id") in ("CC-BY-SA-4.0", "GFDL-1.3-only", "CC0-1.0", "PUBLIC-DOMAIN")
-            and bool(review.get("reviewer"))
-            and str(review.get("decision_url", "")).startswith("https://"))
-
-
-def _source_ref(source_id, version, original):
-    return {"source_id": source_id, "dataset_version": version,
-            "artifact_sha256": original.get("artifact_sha256")}
+    row = matches[0]
+    review, retrieval, license_info = row.get("review"), row.get("retrieval"), row.get("license")
+    if not all(isinstance(x, dict) for x in (review, retrieval, license_info)):
+        return False
+    original = source_ref["artifact_sha256"]
+    license_hash = license_info.get("evidence_sha256")
+    if not all(isinstance(x, str) and re.fullmatch(r"[0-9a-f]{64}", x)
+               for x in (original, license_hash)):
+        return False
+    license_url = license_info.get("evidence_url")
+    if (row.get("status") != "APPROVED_FOR_REDISTRIBUTION"
+            or row.get("dataset_version") != source_ref["dataset_version"]
+            or retrieval.get("sha256") != original
+            or row.get("kind") not in ("dictionary", "morphology", "examples", "font", "pronunciation", "vector_art", "visual_asset")
+            or not row.get("publisher") or not row.get("alterations")
+            or not retrieval.get("identity") or not isinstance(retrieval.get("date"), str)
+            or not _valid_iso_date(retrieval.get("date"))
+            or not all(_https(value) for value in (row.get("origin_url"), retrieval.get("url"),
+                                                  license_url, review.get("decision_url")))
+            or not review.get("reviewer")
+            or license_info.get("id") not in ("CC-BY-SA-4.0", "GFDL-1.3-only", "CC0-1.0", "PUBLIC-DOMAIN")
+            or any(host in license_url for host in ("creativecommons.org/licenses/",
+                                                    "creativecommons.org/publicdomain/zero/",
+                                                    "gnu.org/licenses/fdl-"))):
+        return False
+    if license_info["id"] == "PUBLIC-DOMAIN":
+        proof = license_info.get("public_domain_proof")
+        if not isinstance(proof, dict) or not all(proof.get(k) for k in ("jurisdiction", "legal_basis", "work_date")):
+            return False
+    return (_file_digest(root, retrieval.get("artifact_path"), limit=MAX_SOURCE_BYTES) == original
+            and _file_digest(root, license_info.get("evidence_path"), limit=MAX_LICENSE_BYTES) == license_hash)
 
 
 def _bad_prerequisites(rows, invalid_ids=()):
@@ -112,8 +176,20 @@ def audit(languages, frameworks, ledger, rows, validate_record, *, criteria=None
     if len(language_map) != len(languages):
         raise AuditError("Duplicate language ID")
     standards = {f["proficiency_framework_id"]: f for f in frameworks["frameworks"]}
+    source_cache = {}
+    def source_is_approved(ref):
+        if not isinstance(ref, dict):
+            return False
+        key = tuple((k, ref.get(k)) for k in ("source_id", "dataset_version", "artifact_sha256"))
+        try:
+            if key not in source_cache:
+                source_cache[key] = _approved(ref, ledger)
+            return source_cache[key]
+        except TypeError:
+            return False
+
     if criteria is not None:
-        if (not isinstance(criteria, dict) or not _approved(criteria.get("source"), ledger)
+        if (not isinstance(criteria, dict) or not source_is_approved(criteria.get("source"))
                 or not criteria.get("reviewer") or not isinstance(criteria.get("minimums"), dict)
                 or set(criteria["minimums"]) != set(KINDS)
                 or any(type(v) is not int or v < 0 for v in criteria["minimums"].values())):
@@ -127,7 +203,7 @@ def audit(languages, frameworks, ledger, rows, validate_record, *, criteria=None
             "framework_ids": framework_ids,
             "framework_gaps": sorted(fid for fid in framework_ids if fid not in standards),
             "scripts": lang.get("scripts", []), "verified_total": 0,
-            "unassessed_total": 0, "estimated_total": 0, "curricula": {},
+            "unknown_total": 0, "unassessed_total": 0, "estimated_total": 0, "curricula": {},
             "coverage_state": "no_verified_content"}
     accepted = {}
     failures = Counter()
@@ -150,7 +226,7 @@ def audit(languages, frameworks, ledger, rows, validate_record, *, criteria=None
             if lid not in language_map or kind not in KINDS:
                 raise AuditError("unknown_language_or_content_kind")
             ref = row["source"]
-            if not _approved(ref, ledger):
+            if not source_is_approved(ref):
                 raise AuditError("source_not_approved")
             proficiency = row["proficiency"]
             if proficiency["record_id"] != rid or proficiency["language"] != lid:
@@ -188,6 +264,19 @@ def audit(languages, frameworks, ledger, rows, validate_record, *, criteria=None
                     or len(set(deps)) != len(deps)
                     or any(not isinstance(p, str) for p in deps)):
                 raise AuditError("invalid_prerequisites")
+            evidence = row.get("prerequisite_evidence", [])
+            if (not isinstance(evidence, list) or len(evidence) > 32
+                    or len(evidence) != len(deps)
+                    or not all(isinstance(e, dict) and set(e) == {
+                        "record_id", "source_id", "source_version", "locator", "reviewer_id"}
+                        and isinstance(e["record_id"], str)
+                        and e["source_id"] == ref["source_id"]
+                        and e["source_version"] == ref["dataset_version"]
+                        and isinstance(e["locator"], str) and bool(e["locator"].strip())
+                        and isinstance(e["reviewer_id"], str) and bool(e["reviewer_id"].strip())
+                        for e in evidence)
+                    or sorted(e["record_id"] for e in evidence) != sorted(deps)):
+                raise AuditError("prerequisite_evidence_unverified")
             tax = row.get("taxonomy", [])
             if not isinstance(tax, list) or len(tax) > 16:
                 raise AuditError("invalid_taxonomy")
@@ -214,7 +303,18 @@ def audit(languages, frameworks, ledger, rows, validate_record, *, criteria=None
         except (KeyError, TypeError, ValueError, AttributeError) as exc:
             code = str(exc) if isinstance(exc, AuditError) else "canonical_or_record_validation_failed"
             failures[code] += 1
-    invalid = _bad_prerequisites(list(accepted.values()), duplicates)
+    # A single curriculum cannot silently mean different frameworks.
+    framework_owners = {}
+    collisions = set()
+    for rid, row in accepted.items():
+        key = (row["language"], row["curriculum"]["id"])
+        framework_owners.setdefault(key, {}).setdefault(
+            row["proficiency"]["proficiency_framework_id"], set()).add(rid)
+    for owners in framework_owners.values():
+        if len(owners) > 1:
+            for ids in owners.values():
+                collisions.update(ids)
+    invalid = _bad_prerequisites(list(accepted.values()), duplicates | collisions)
     for rid in invalid:
         accepted.pop(rid, None)
         failures["invalid_prerequisite_graph"] += 1
@@ -223,7 +323,7 @@ def audit(languages, frameworks, ledger, rows, validate_record, *, criteria=None
         prof = row["proficiency"]
         status = prof["classification_status"]
         if status in ("unknown", "unassessed"):
-            lang["unassessed_total"] += 1
+            lang["unknown_total" if status == "unknown" else "unassessed_total"] += 1
             continue
         if status == "estimated":
             lang["estimated_total"] += 1
