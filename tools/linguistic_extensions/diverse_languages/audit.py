@@ -231,7 +231,7 @@ class DiverseAudit:
             return False
         path = Path(relative)
         if (path.is_absolute() or ".." in path.parts or ".git" in path.parts
-                or not path.parts or path.parts[0] != "tools"):
+                or not path.parts):
             return False
         candidate_path = self.root / path
         resolved_root = self.root.resolve()
