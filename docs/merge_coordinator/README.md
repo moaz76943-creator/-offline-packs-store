@@ -3,7 +3,16 @@
 Scope: \`moaz76943-creator/-offline-packs-store\` on exact live \`main\`.
 No access to the private Flutter app, production pack publishing or license approvals.
 
-## Live behavior
+## Current delivery boundary
+
+The coordinator source and isolated tests are staged in PR #164. The requested
+GitHub Actions workflow could not be created through this connection, so **no
+scheduled automation is currently installed**. The public ledger Issue #162
+is a fixed initial snapshot, not a running continuously refreshed state.
+The following is the target behavior once a hosted workflow and required
+branch protection have been separately installed and verified.
+
+## Target behavior
 
 The \`Public Smart Merge Controller\` workflow is the sole scheduled integration
 writer. Pull-request runs are read-only and test the complete current backlog.
