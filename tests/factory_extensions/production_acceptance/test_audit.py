@@ -78,6 +78,21 @@ class AcceptanceTests(unittest.TestCase):
                                      qa_pin='0'*64,publisher_key='missing',
                                      publisher_pin='0'*64)
 
+    def test_cli_receipt_cannot_overwrite_canonical_manifest(self):
+        original=(self.root/'manifest.json').read_bytes()
+        rc=audit.main(['--root',str(self.root),
+                       '--output',str(self.root/'manifest.json')])
+        self.assertEqual(rc,2)
+        self.assertEqual((self.root/'manifest.json').read_bytes(),original)
+
+    def test_cli_receipt_cannot_replace_existing_file(self):
+        destination=self.root.parent/('existing-'+self.root.name+'.json')
+        destination.write_text('preserve',encoding='utf-8')
+        self.addCleanup(destination.unlink)
+        rc=audit.main(['--root',str(self.root),'--output',str(destination)])
+        self.assertEqual(rc,2)
+        self.assertEqual(destination.read_text(encoding='utf-8'),'preserve')
+
     def test_rejects_fake_published_pack_when_source_ledger_empty(self):
         put(self.root,'manifest.json',
             {'total_languages':100,'languages':[{'code':c,'registered':True} for c in self.codes],
