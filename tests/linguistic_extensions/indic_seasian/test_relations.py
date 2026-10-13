@@ -32,6 +32,12 @@ class RelationsTests(unittest.TestCase):
         with self.assertRaises(ScriptContractError):
             classify_relation('pa', left, right, evidence=proof, ledger={'sources': []})
 
+    def test_non_string_source_id_cannot_crash_lookup(self):
+        ledger, proof = self.proof('pa', 'ਪੰਜਾਬੀ', 'پنجابی')
+        with self.assertRaises(ScriptContractError):
+            classify_relation('pa', 'ਪੰਜਾਬੀ', 'پنجابی',
+                              evidence={**proof, 'source_id': []}, ledger=ledger)
+
     def test_unrelated_forms_not_silently_normalized(self):
         left, right = 'हिन्दी', 'हिंदी'
         self.assertEqual('unresolved', classify_relation('hi', left, right)['status'])
