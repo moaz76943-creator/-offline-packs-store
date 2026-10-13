@@ -1,0 +1,74 @@
+# Isolated read-only QA: never imports an unadmitted language shard or generates forms.
+name: Agglutinative Morphology Evidence QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Registered 2-letter code; a shard may only belong to this language'
+        required: false
+        type: choice
+        options: [tr, az, uz, kk, ky, tk, tt, ba, ug, fi, et, hu, mn, eu]
+      shard_path:
+        description: 'Optional reviewed tools/linguistic_extensions/agglutinative/shards/<language>/<name>.jsonl'
+        required: false
+        type: string
+  pull_request:
+    paths:
+      - '.github/workflows/agglutinative_morphology_qa.yml'
+      - 'tools/linguistic_extensions/agglutinative/**'
+      - 'tests/linguistic_extensions/agglutinative/**'
+      - 'catalog/language_registry.v1.json'
+      - 'standards/morphology/feature_overrides.json'
+      - 'legal/ledger/sources.json'
+      - 'legal/ledger/daily/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: agglutinative-qa-${{ github.ref }}-${{ inputs.language || 'all' }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run isolated fail-closed regression tests
+        run: python3 -m unittest discover -s tests/linguistic_extensions/agglutinative -p 'test_*.py' -v
+      - name: Report per-language coverage, optional approved shard and immutable checkpoint
+        env:
+          SHARD_PATH: ${{ inputs.shard_path }}
+          LANGUAGE_CODE: ${{ inputs.language }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from tools.linguistic_extensions.agglutinative.engine import Extension
+          engine = Extension()
+          shard = os.environ.get('SHARD_PATH', '').strip()
+          language = os.environ.get('LANGUAGE_CODE', '').strip()
+          if shard and not language:
+              raise SystemExit('shard requires an explicit language')
+          if shard:
+              results = [engine.audit(language, shard)]
+          else:
+              results = [engine.profile(code) for code in engine.languages]
+          envelope = {'github_run_id': os.environ.get('GITHUB_RUN_ID','not_hosted'),
+                      'checkout_sha': os.environ.get('GITHUB_SHA','unknown'),
+                      'data': results}
+          output = json.dumps(envelope,ensure_ascii=False,sort_keys=True)
+          print(output)
+          summary = os.environ.get('GITHUB_STEP_SUMMARY')
+          if summary:
+              with Path(summary).open('a',encoding='utf-8') as handle:
+                  handle.write('## Agglutinative independent language evidence QA\n')
+                  handle.write('Read-only; no generated forms, no release.\n\n')
+                  handle.write('```json\n' + output + '\n```\n')
+          PY
