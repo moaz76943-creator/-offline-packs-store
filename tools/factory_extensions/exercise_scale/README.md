@@ -75,7 +75,7 @@ Read-only canonical readiness:
     python3 -m tools.factory_extensions.exercise_scale.engine --repo-root .
 
 Approved immutable shard audit:
-    python3 -m tools.factory_extensions.exercise_scale.engine --repo-root . --input /snapshot/partition.jsonl --input-sha256 SHA256 --references /reviewed/references.json --report /tmp/exercise-report.json
+    python3 -m tools.factory_extensions.exercise_scale.engine --repo-root . --input /snapshot/partition.jsonl --input-sha256 SHA256 --references /reviewed/references.json --references-sha256 REVIEWED_SHA256 --report /tmp/exercise-report.json
 
 The references file supplies approved senses, pairs, forms, rules, proficiency,
 distractors; the CLI always binds canonical languages and source rights from
