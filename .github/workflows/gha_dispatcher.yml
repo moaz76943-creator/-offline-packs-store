@@ -1,0 +1,93 @@
+name: Public GHA issue dispatcher
+run-name: Public queue ${{ github.run_id }} / ${{ github.run_attempt }}
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '11 * * * *'
+
+# Entire claim/worker/finalize cycle is serialized. No overlapping controllers.
+concurrency:
+  group: public-issue-queue-controller
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  controller:
+    if: github.repository == 'moaz76943-creator/-offline-packs-store' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    outputs:
+      jobs: ${{ steps.claim.outputs.jobs }}
+      has_work: ${{ steps.claim.outputs.has_work }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - id: claim
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/gha_factory/dispatcher/cli.py controller
+
+  worker:
+    needs: controller
+    if: needs.controller.outputs.has_work == 'true'
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJSON(needs.controller.outputs.jobs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 295
+    permissions:
+      contents: read
+      issues: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Execute bounded read-only public shard
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ matrix.number }}
+          TASK_ID: ${{ matrix.task_id }}
+          RECEIPT_DIR: ${{ runner.temp }}/dispatcher-result
+        shell: bash
+        run: |
+          python3 tools/gha_factory/dispatcher/cli.py worker \
+            --issue "$ISSUE_NUMBER" --task-id "$TASK_ID" --out "$RECEIPT_DIR"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dispatcher-${{ matrix.number }}
+          path: ${{ runner.temp }}/dispatcher-result/
+          retention-days: 3
+          if-no-files-found: ignore
+
+  finalize:
+    needs: [controller, worker]
+    if: always() && needs.controller.outputs.has_work == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: dispatcher-*
+          path: ${{ runner.temp }}/dispatcher-artifacts
+      - name: Validate receipts and commit durable issue states
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JOBS_JSON: ${{ needs.controller.outputs.jobs }}
+          ARTIFACT_DIR: ${{ runner.temp }}/dispatcher-artifacts
+        run: python3 tools/gha_factory/dispatcher/cli.py finalize --artifacts "$ARTIFACT_DIR"
