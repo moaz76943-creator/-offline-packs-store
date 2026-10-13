@@ -198,6 +198,7 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
     proofs=b.get('proofs')
     if not isinstance(proofs,dict) or set(proofs)!=set(PROOFS):
         raise AcceptanceError('independent signed proof set absent')
+    run_ids={}
     for kind in PROOFS:
         proof=verify_signed(proofs[kind],qa_key,qa_pin,kind)
         for field,value in (('language',code),('version',version),('pack_sha256',expected),
@@ -207,6 +208,7 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
                 raise AcceptanceError('proof cross-pack/source substitution')
         if proof.get('result')!='PASS' or type(proof.get('run_id')) is not int or proof['run_id']<1:
             raise AcceptanceError('independent QA proof absent or failed')
+        run_ids[kind]=proof['run_id']
     # A publisher-signed installation floor binds the previous canonical release.
     # Client-supplied version strings alone never establish an anti-rollback floor.
     state=verify_signed(b.get('release_state'),publisher_key,publisher_pin,'release_state')
@@ -245,6 +247,18 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
         raise AcceptanceError('publisher authorization absent')
     return {'schema_version':'production-acceptance.v1','language':code,'version':version,
             'pack_sha256':expected,'source':source,'sqlite_v2':'PASS',
+            'source_receipt':{'source_id':source['source_id'],
+                              'dataset_version':source['dataset_version'],
+                              'artifact_sha256':source['sha256'],
+                              'legal_admission':'PASS'},
+            'pack_receipt':{'language':code,'version':version,'sha256':expected,
+                            'actual_counts':result.get('actual_counts'),
+                            'sqlite_sha256':result.get('sqlite_sha256'),
+                            'strict_conformance':'PASS'},
+            'release_receipt':{'publisher_authorization_run_id':auth['run_id'],
+                               'last_known_good_sha256':lkg_sha,
+                               'qa_run_ids':run_ids,
+                               'handoff_status':'VERIFIED_NOT_PUBLISHED'},
             'independent_receipts':sorted(PROOFS),'last_known_good_sha256':lkg_sha,
             'publication_handoff_eligible':True,
             'published':False,'app_installation_verified':False,'publication_approved':False,
