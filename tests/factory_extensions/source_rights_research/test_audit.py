@@ -167,6 +167,23 @@ class Tests(unittest.TestCase):
             self.assertFalse(a.valid_url(url), url)
         self.assertTrue(a.valid_url('https://panlex.org/license'))
 
+    def test_false_but_well_formed_snapshot_hash_remains_blocked(self):
+        data = self.mutated()
+        e = data['candidates'][0]['evidence'][0]
+        e['snapshot_sha256'] = '0' * 64
+        e['snapshot_path'] = 'tools/factory_extensions/source_rights_research/candidates.json'
+        queue = self.audit(data)['human_approval_queue'][0]
+        self.assertIn('MISSING_OR_UNVERIFIED_IMMUTABLE_LICENSE_PROOF_SNAPSHOT', queue['blockers'])
+
+    def test_source_artifact_digest_without_files_never_counts(self):
+        data = self.mutated()
+        c = data['candidates'][0]
+        c['dataset_artifact_path'] = 'tools/factory_extensions/source_rights_research/candidates.json'
+        c['dataset_sha256'] = '0' * 64
+        c['acquisition_date'] = '2026-10-13'
+        queue = self.audit(data)['human_approval_queue'][0]
+        self.assertIn('MISSING_OR_UNVERIFIED_DOWNLOADED_BYTES_AND_SHA256', queue['blockers'])
+
     def test_reject_forged_evidence_hash_without_snapshot_path(self):
         data = self.mutated()
         data['candidates'][0]['evidence'][0]['snapshot_sha256'] = '0' * 64
