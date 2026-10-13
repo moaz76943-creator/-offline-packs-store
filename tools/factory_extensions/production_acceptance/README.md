@@ -9,7 +9,7 @@ Authority: `manifest.json`, `version.json`, `catalog/language_registry.v1.json`,
 3. Integrity: invoke existing strict `tools.gha_factory.pack_conformance.check.inspect` for canonical SQLite v2, FK, full FTS5, Unicode and bounded gzip/envelope checks (which itself reuses GHA-06). Do not replace or weaken that validator.
 4. Educational provenance: eight **separately signed** category receipts: `lexical`, `morphology`, `sentences`, `translations`, `grammar`, `license`, `attribution`, `candidate_qa`. Each must include `kind`, `result: PASS`, actual positive `run_id`, and identical `language`, `version`, `pack_sha256`, `source_id`, `dataset_version`, `source_sha256`. Source/license eligibility remains independently verified by Route 05. Claims in a JSON file alone do not pass.
 5. Authenticity: receipts use Ed25519 detached signatures of `b'DEUTSCH-PUBLIC-ACCEPTANCE-v1\\x00' + canonical_json(payload)`. Public-key SHA-256 pins must be supplied from trusted policy **outside the candidate data**; private keys never enter PUBLIC. A SHA-256 checksum or a public-secret HMAC cannot authenticate publishers.
-6. Rollback: publisher-signed `release_state` with `kind: release_state`, exact language, and `mode: GENESIS` (only when no published canonical entry) or `mode: LAST_KNOWN_GOOD` (with version and sha256 exactly matching a canonical published pack and surviving `packs/<language>-<version>.pack.gz` bytes). The new version must exceed that signed version. Optional `--previous-version` is an additional lower bound; it is **not** an authoritative replacement.
+6. Rollback: publisher-signed `release_state` with `kind: release_state`, exact language, and `mode: GENESIS` (only when no published canonical entry) or `mode: LAST_KNOWN_GOOD` (with version and sha256 exactly matching a canonical published pack and surviving `packs/<language>-<version>.pack.gz` bytes). The new version must exceed that signed version. `--previous-version` is mandatory for every candidate, including genesis (`0.0.0`), and MUST come from an independently maintained trusted version floor outside the candidate and repository. This floor is enforced in addition to the publisher-signed Last-Known-Good state; a caller who loses this independent floor cannot prove protection from repository-history rollback.
 7. Handoff: publisher-signed `authorization` payload must have `kind: publication_authorization`, `decision: APPROVE`, positive real `run_id`, and matching language/version/pack/source hashes. Successful evaluation is **VERIFIED_FOR_AUTHORIZED_HANDOFF**, never PUBLISHED and never an app-installation certification. Only GHA-06/Route 13 publication owners may update the canonical manifest.
 
 The adapter is deliberately stricter than a general source inventory. An independent receipt from a process that did not actually inspect the content is invalid operational evidence even when the JSON signature is well-formed. The receiving release owner must verify the claimed workflow run and trusted key provenance before taking any publication action.
@@ -32,7 +32,8 @@ python3 -m tools.factory_extensions.production_acceptance.audit --root . \
   --bundle /secure/candidate.json --archive packs/de-1.0.0.pack.gz \
   --qa-public-key /trusted/qa.pub.pem --qa-key-sha256 SHA256_FROM_TRUST_POLICY \
   --publisher-public-key /trusted/publisher.pub.pem \
-  --publisher-key-sha256 SHA256_FROM_TRUST_POLICY
+  --publisher-key-sha256 SHA256_FROM_TRUST_POLICY \
+  --previous-version 0.0.0
 ```
 
 ## Language dashboard and truth states
@@ -48,3 +49,6 @@ Adapters reuse current GHA-08 coverage, GHA-06 release, PR #76 SQLite strict con
 The public Actions workflow runs stdlib Python and OpenSSL on a standard Ubuntu runner, with read-only permissions, no new secret, no cache and no publication. It produces a one-day *diagnostic* coverage artifact. No production-content worker can be dispatched from the present queue (`registry_validate` and `admission_partition_verify` only). Do not invent run IDs or schedule idle workers.
 
 Outstanding production-only gates include: verified and licensed corpora for each language, true language-specific educational QA, real exact-byte candidates, live Workflow run receipt validation, publisher key trust provisioning, immutable published history and Last-Known-Good custody, update installation verification and private Flutter consumer validation. A public success status cannot replace these.
+## Defensive receipt filesystem policy
+
+`--output` accepts only a new path outside the repository and refuses replacement or symlink output. Workflows emit a bounded diagnostic JSON receipt into `/tmp` and never write canonical manifests or evidence. Negative and positive regression tests explicitly cover this invariant. The adapter has no public release authorization or signing capability.
