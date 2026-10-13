@@ -20,7 +20,7 @@ class MainProtectionTests(unittest.TestCase):
     def inspect(self, branch=None, policy=None):
         checker = getattr(coordinator, "protection_error", None)
         self.assertTrue(callable(checker), "main protection gate is missing")
-        return checker(branch or {"protected": True}, policy or safe_policy())
+        return checker({"protected": True} if branch is None else branch, safe_policy() if policy is None else policy)
 
     def test_independently_verified_strict_protection_is_accepted(self):
         self.assertIsNone(self.inspect())
