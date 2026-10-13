@@ -66,9 +66,7 @@ class IdentityIsolationTests(unittest.TestCase):
             self.tr('t.dup',to_id='sense.alt'))[0])
 
     def test_surrogate_quarantine_hash_is_reversible(self):
-        bad={'lexeme_id':'bad','language':'en','lemma':'\\ud800','pos':'noun'}
-        # JSON transport of invalid Unicode stays safely escaped; no encoding crash.
-        record=json.loads('{"lexeme_id":"bad","language":"en","lemma":"\\\\ud800","pos":"noun"}')
+        record={'lexeme_id':'bad','language':'en','lemma':chr(0xD800),'pos':'noun'}
         self.assertEqual(STATUS_QUARANTINE,self.s.sanitize_lexeme(record)[0])
         self.assertRegex(self.s.compute_hash(record),r'^[a-f0-9]{64}$')
 
