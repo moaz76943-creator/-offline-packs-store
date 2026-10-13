@@ -217,7 +217,8 @@ def audit(catalog: dict, ledger: dict, document: dict, audio_root: Path, evidenc
                      "variant_id": record["variant_id"], "reading": record["reading"], "evidence": ev,
                      "asset_id": aid, "audio_kind": kind, "path": asset["path"], "sha256": asset["sha256"],
                      "speaker_id": asset.get("speaker_id"), "license_id": asset["license_id"],
-                     "rights_url": asset["rights_url"], "audio": metadata}
+                     "rights_url": asset["rights_url"], "rights_evidence_sha256": asset["rights_evidence_sha256"],
+                     "generation": asset.get("generation"), "audio": metadata}
             accepted.append(entry)
             coverage[lang]["audio_assets"] += 1
             if asset["sha256"] not in unique_files:
