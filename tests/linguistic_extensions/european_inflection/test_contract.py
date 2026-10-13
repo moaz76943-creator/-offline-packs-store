@@ -163,7 +163,7 @@ class ContractTests(unittest.TestCase):
             root = Path(td)
             shards = root / "tools/linguistic_extensions/european_inflection/shards"
             shards.mkdir(parents=True)
-            (shards / "mutable.jsonl").write_text(json.dumps(record(), ensure_ascii=False) + "\\n", encoding="utf-8")
+            (shards / "mutable.jsonl").write_text(json.dumps(record(), ensure_ascii=False) + "\n", encoding="utf-8")
             with patch.object(engine, "validate_profiles", return_value=True), patch.object(
                     engine, "_load_admission", return_value=SOURCE):
                 with self.assertRaises(ContractError):
