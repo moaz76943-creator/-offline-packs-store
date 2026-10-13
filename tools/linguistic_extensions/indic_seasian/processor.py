@@ -93,16 +93,28 @@ def _script(ch):
 
 
 def validate_text(code, text, *, script=None):
-    """Preserve exact original UTF-8; do not NFKC, romanize or strip marks."""
+    """Preserve exact original UTF-8; joiners require local script context."""
     if code not in LANGUAGE_SCRIPTS or not isinstance(text, str) or not text or len(text) > MAX_TEXT:
         raise ScriptContractError('invalid language or text length')
     allowed = LANGUAGE_SCRIPTS[code]
     if script is not None and script not in allowed:
         raise ScriptContractError('unregistered language script')
     observed = set()
-    for ch in text:
+    for i, ch in enumerate(text):
         cat = ud.category(ch)
         if ch in JOINERS:
+            # An unrelated virama ELSEWHERE in the string never authorizes a
+            # detached joiner. Urdu/Shahmukhi medial ZWNJ has a separate rule.
+            if not (0 < i < len(text) - 1):
+                raise ScriptContractError('dangling Unicode joiner')
+            before, after = text[i - 1], text[i + 1]
+            if before in JOINERS or after in JOINERS:
+                raise ScriptContractError('adjacent Unicode joiners')
+            if (code in ('ur', 'pa') and ch == '\u200c' and
+                    _script(before) == 'Arab' and _script(after) == 'Arab'):
+                continue
+            if before not in VIRAMAS or _script(after) not in allowed:
+                raise ScriptContractError('joiner lacks adjacent virama and script base')
             continue
         if cat in ('Cc', 'Cs', 'Co', 'Cn', 'Cf'):
             raise ScriptContractError('unsafe or unassigned Unicode code point')
@@ -116,12 +128,7 @@ def validate_text(code, text, *, script=None):
     if not observed:
         raise ScriptContractError('no language script characters')
     if len(observed) != 1:
-        # Mixed Gurmukhi/Shahmukhi is not a verified lexical identity.
         raise ScriptContractError('mixed orthographies require separate records')
-    if any(ch in JOINERS for ch in text) and not any(ch in VIRAMAS for ch in text):
-        # Urdu ZWNJ may be orthographically valid; require explicit approval instead.
-        if code != 'ur':
-            raise ScriptContractError('unreviewed joiner sequence')
     raw = text.encode('utf-8', errors='strict')
     return {'original': text, 'original_utf8_sha256': hashlib.sha256(raw).hexdigest(),
             'utf8_length': len(raw), 'script': next(iter(observed)),
@@ -159,14 +166,32 @@ def search_relation(code, left, right):
     return 'undetermined_not_transliteration_or_lexical_equivalence'
 
 
+SEGMENT_FIELDS = frozenset(('language_code', 'source_id', 'source_sha256',
+                            'text_sha256', 'tokens'))
+REVIEW_TYPES = ('morphology', 'segmentation', 'orthographic_relation')
+
+
+def evidence_digest(record):
+    """Canonical content digest; metadata alone does not license a new record."""
+    if not isinstance(record, dict):
+        raise ScriptContractError('evidence must be a JSON object')
+    try:
+        data = json.dumps(record, ensure_ascii=False, sort_keys=True,
+                          separators=(',', ':'), allow_nan=False).encode('utf-8')
+    except (TypeError, ValueError, UnicodeError) as exc:
+        raise ScriptContractError('noncanonical evidence') from exc
+    if len(data) > 65536:
+        raise ScriptContractError('oversized evidence')
+    return hashlib.sha256(data).hexdigest()
+
+
 def words(code, text, *, attested=None, ledger=None):
-    """No dictionary tokens unless source-specific, hash-pinned evidence exists."""
+    """No dictionary tokens unless independently reviewed bytes were pinned."""
     validate_text(code, text)
     if attested is not None:
-        if not isinstance(attested, dict) or not isinstance(ledger, dict):
-            raise ScriptContractError('missing segmentation evidence/ledger')
-        source_id = attested.get('source_id')
-        source = approved_sources(ledger).get(source_id)
+        if not isinstance(attested, dict) or set(attested) != SEGMENT_FIELDS:
+            raise ScriptContractError('noncanonical segmentation evidence')
+        source = approved_sources(ledger).get(attested.get('source_id'))
         if (not source or code not in source['languages'] or
                 attested.get('language_code') != code or
                 attested.get('source_sha256') != source['sha256'] or
@@ -177,7 +202,9 @@ def words(code, text, *, attested=None, ledger=None):
                 any(not isinstance(part, str) or not part for part in tokens) or
                 ''.join(tokens) != text):
             raise ScriptContractError('segmentation does not reconstruct original UTF-8')
-        return {'status': 'attested', 'tokens': tokens, 'strategy': 'supplied_evidence_only'}
+        if evidence_digest(attested) not in source['reviewed_records']['segmentation']:
+            raise ScriptContractError('segmentation boundary was not independently reviewed')
+        return {'status': 'attested', 'tokens': tokens, 'strategy': 'reviewed_evidence_only'}
     if code in REQUIRES_DICTIONARY:
         return {'status': 'requires_attested_segmentation', 'tokens': [],
                 'strategy': 'language_specific_dictionary_or_lexical_evidence'}
@@ -186,7 +213,12 @@ def words(code, text, *, attested=None, ledger=None):
 
 
 def approved_sources(ledger):
-    """Fail closed on absent source licensing/approval evidence."""
+    """Require independently provisioned release/rights state and per-record hashes.
+
+    The trusted source ledger is an externally reviewed input, not a reviewer
+    signature checker. An arbitrary caller-supplied ledger is NOT proof of
+    rights and must never be used as production approval authority.
+    """
     sources = ledger.get('sources') if isinstance(ledger, dict) else None
     if not isinstance(sources, list):
         raise ScriptContractError('missing public source ledger')
@@ -194,15 +226,33 @@ def approved_sources(ledger):
     for item in sources:
         if not isinstance(item, dict):
             raise ScriptContractError('invalid source ledger entry')
-        # An explicit, independently reviewed per-language record is mandatory.
-        if (item.get('release_approved') is True and
-                isinstance(item.get('id'), str) and
-                isinstance(item.get('languages'), list) and
-                isinstance(item.get('sha256'), str) and HEX_SHA.fullmatch(item['sha256'])):
-            if item['id'] in accepted:
-                raise ScriptContractError('duplicate source identifier')
-            accepted[item['id']] = {'languages': frozenset(item['languages']),
-                                    'sha256': item['sha256']}
+        if item.get('release_approved') is not True:
+            continue
+        source_id = item.get('id')
+        langs = item.get('languages')
+        forms = item.get('reviewed_records')
+        if (not isinstance(source_id, str) or not source_id.strip() or
+                source_id in accepted or
+                not isinstance(langs, list) or not 1 <= len(langs) <= len(LANGUAGE_SCRIPTS) or
+                any(not isinstance(lang, str) or lang not in LANGUAGE_SCRIPTS for lang in langs) or
+                len(set(langs)) != len(langs) or
+                not isinstance(item.get('sha256'), str) or not HEX_SHA.fullmatch(item['sha256']) or
+                item.get('rights_status') != 'APPROVED' or
+                not isinstance(item.get('reviewed_by'), str) or not item['reviewed_by'].strip() or
+                not isinstance(item.get('rights_evidence_sha256'), str) or
+                not HEX_SHA.fullmatch(item['rights_evidence_sha256']) or
+                not isinstance(forms, dict) or set(forms) != set(REVIEW_TYPES)):
+            raise ScriptContractError('incomplete or contradictory source approval')
+        reviewed = {}
+        for kind in REVIEW_TYPES:
+            hashes = forms[kind]
+            if (not isinstance(hashes, list) or len(hashes) > 2000 or
+                    any(not isinstance(h, str) or not HEX_SHA.fullmatch(h) for h in hashes) or
+                    len(set(hashes)) != len(hashes)):
+                raise ScriptContractError('invalid reviewed record hashes')
+            reviewed[kind] = frozenset(hashes)
+        accepted[source_id] = {'languages': frozenset(langs),
+                               'sha256': item['sha256'], 'reviewed_records': reviewed}
     return accepted
 
 
@@ -231,6 +281,8 @@ def validate_attestation(record, code, registry, ledger):
     for key, value in features.items():
         if key not in p['candidate_feature_keys'] or not isinstance(value, str) or not value.strip() or len(value) > 80:
             raise ScriptContractError('unsupported or fabricated feature claim')
+    if evidence_digest(record) not in allowed[record['source_id']]['reviewed_records']['morphology']:
+        raise ScriptContractError('morphological record was not independently reviewed')
     return {'status': 'attested_only', 'language': code, 'lemma_id': record['lemma_id'],
             'sense_id': record['sense_id'], 'form': record['form'],
             'features': dict(features), 'source_id': record['source_id'],
@@ -240,6 +292,9 @@ def validate_attestation(record, code, registry, ledger):
 def audit_jsonl(path, code, registry, ledger, *, max_records=2000, max_bytes=4_000_000):
     """Bounded read-only per-language worker, with SHA and actual coverage."""
     profile(code, registry)
+    if (type(max_records) is not int or not 1 <= max_records <= 2000 or
+            type(max_bytes) is not int or not 1 <= max_bytes <= 4_000_000):
+        raise ScriptContractError('unsafe audit budget')
     target = Path(path)
     if not target.is_file() or target.is_symlink() or target.stat().st_size > max_bytes:
         raise ScriptContractError('unsafe or oversized input')
@@ -260,6 +315,8 @@ def audit_jsonl(path, code, registry, ledger, *, max_records=2000, max_bytes=4_0
             if fingerprint in forms:
                 raise ScriptContractError('duplicate attested form')
             forms.add(fingerprint)
+    if not forms:
+        raise ScriptContractError('empty input is not a verified corpus')
     return {'language': code, 'input_sha256': digest.hexdigest(),
             'verified_lexemes': len(lexemes), 'verified_forms': len(forms),
             'coverage': 'attested_input_only', 'status': 'PASS_EVIDENCE_QA'}
