@@ -1,0 +1,23 @@
+name: Evidence-based exercise quality QA
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/gha_factory/exercise_quality/**'
+      - 'tests/gha_factory/exercise_quality/**'
+      - '.github/workflows/gha_exercise_quality_qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Recheck exercises against canonical GHA-05 helper
+        run: python3 -m unittest discover -s tests/gha_factory/exercise_quality -p 'test_*.py' -v
