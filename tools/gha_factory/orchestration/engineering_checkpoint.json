@@ -53,7 +53,8 @@
     66,
     63,
     70,
-    73
+    73,
+    74
   ],
   "OPEN_TASKS": [
     65,
@@ -85,5 +86,16 @@
     "tests/gha_factory/orchestration/test_protocol.py": "30de50d3b7be490a5bb931cbf6f20ea681839ecc8e98095f9cc86c945b241f57",
     "tests/gha_factory/orchestration/test_source_gate.py": "c0b509e689d4e0194335b0559d1c73cfdd6f9874baff2ab86252bf78b5d16712"
   },
-  "REVALIDATION": "main advanced only in nonowned search_qa paths; candidate rebased without shared resets or force push"
+  "REVALIDATION": "main advanced only in nonowned search_qa paths; candidate rebased without shared resets or force push",
+  "DELIVERY_PR": 74,
+  "CANDIDATE_CODE_COMMIT": "de75e809d5860c95639c61ad729d1ad2eef5db06",
+  "MERGEABLE": true,
+  "ACTIVATED": false,
+  "HOSTED_CHECK_RUNS_ON_CANDIDATE": [],
+  "CONNECTOR_LIMITATIONS": [
+    "No Actions workflow_dispatch tool exposed",
+    "workflow metadata endpoints rejected by connector URL allowlist (400)",
+    "required-check configuration inaccessible (403)"
+  ],
+  "LIVE_COMPLETED_V1_RECEIPT_BYTE_COMPATIBILITY": "Issue #58 exact body round-trip PASS"
 }
