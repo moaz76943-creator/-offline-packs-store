@@ -40,7 +40,9 @@ jobs:
           ulimit -f 65536
           ulimit -t 420
           export PYTHONDONTWRITEBYTECODE=1
-          python3 -m unittest discover -s tests/gha_factory/security_fuzz -p 'test_*.py' -v
+          if [ "$FAMILY" = "envelope" ]; then
+            python3 -m unittest discover -s tests/gha_factory/security_fuzz -p 'test_*.py' -v
+          fi
           python3 tools/gha_factory/security_fuzz/harness.py \
             --family "$FAMILY" --seed 20261013 --max-cases 48 \
             --out "$RUNNER_TEMP/security-fuzz-$FAMILY.json"
