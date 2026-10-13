@@ -197,6 +197,23 @@ class ScriptAwareTests(unittest.TestCase):
             with self.assertRaises(p.ScriptContractError):
                 p.audit_jsonl(file, 'hi', self.registry, self._approved('hi'))
 
+    def test_ambiguous_duplicate_source_ids_fail_closed(self):
+        approved = self._approved('hi')['sources'][0]
+        same_id_unapproved = {'id': approved['id'], 'release_approved': False}
+        with self.assertRaises(p.ScriptContractError):
+            p.approved_sources({'sources': [same_id_unapproved, approved]})
+        with self.assertRaises(p.ScriptContractError):
+            p.approved_sources({'sources': [approved, same_id_unapproved]})
+
+    def test_unbounded_worker_options_are_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            file = Path(tmp) / 'test.jsonl'
+            file.write_bytes(b'')
+            for budget in ({'max_records': 1000000}, {'max_bytes': 500000000},
+                           {'max_records': True}, {'max_bytes': -1}):
+                with self.subTest(budget=budget), self.assertRaises(p.ScriptContractError):
+                    p.audit_jsonl(file, 'hi', self.registry, self._approved('hi'), **budget)
+
     def test_coverage_zero_when_no_approved_corpus(self):
         for code in SAMPLES:
             self.assertEqual(0, p.profile(code, self.registry)['lexeme_count'])
