@@ -60,7 +60,13 @@ class EvidenceIntegrityTests(unittest.TestCase):
             "tools/linguistic_extensions/diverse_languages/source_bindings.json")
 
     def approve_synthetic_source(self, *, language="yo", variant="yo-Latn"):
-        retrieval_path, retrieval_hash = self.blob("snapshot.txt", b"synthetic lexical evidence")
+        source_rows = [self.candidate(record_id=f"r{i}", language_id=language, variant=variant)
+                       for i in (1, 2)]
+        source_lines = [(json.dumps(record, ensure_ascii=False) + "\n").encode("utf-8")
+                        for record in source_rows]
+        self.row_hashes = {i: hashlib.sha256(raw).hexdigest()
+                           for i, raw in enumerate(source_lines, 1)}
+        retrieval_path, retrieval_hash = self.blob("snapshot.jsonl", b"".join(source_lines))
         license_path, license_hash = self.blob("rights.txt", b"synthetic rights proof")
         language_path, language_hash = self.blob("language.txt", b"synthetic language identity evidence")
         source = {
@@ -85,7 +91,8 @@ class EvidenceIntegrityTests(unittest.TestCase):
 
     def test_valid_canonical_ledger_and_separate_language_binding_can_be_evaluated(self):
         self.approve_synthetic_source()
-        result = self.worker().audit_shard(self.shard([self.candidate()]))
+        result = self.worker().audit_shard(self.shard([self.candidate(
+            source_row_index=1, source_row_sha256=self.row_hashes[1])]))
         self.assertEqual(result["admissible_candidate_counts_not_published"]["yo"], 1)
         self.assertEqual(result["review_queue"], [])
 
@@ -125,6 +132,7 @@ class EvidenceIntegrityTests(unittest.TestCase):
                            annotation={"feature": "focus_voice", "label": "actor",
                                        "attested_form": "kumain", "locator": ""}),
             self.candidate(language_id="tl", variant="tl-Latn", record_id="r2",
+                           source_row_index=2, source_row_sha256=self.row_hashes[2],
                            annotation={"feature": "focus_voice", "label": "actor",
                                        "attested_form": "kumain", "locator": "source:line:5"})
         ]

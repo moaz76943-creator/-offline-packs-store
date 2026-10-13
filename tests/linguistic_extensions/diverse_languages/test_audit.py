@@ -125,7 +125,7 @@ class DiverseAuditTests(unittest.TestCase):
         source_path = self.root / "tools/linguistic_extensions/diverse_languages/test.jsonl"
         source_path.parent.mkdir(parents=True, exist_ok=True)
         row = {k: c[k] for k in audit.SOURCE_ROW_FIELDS}
-        payload = json.dumps(row, ensure_ascii=False).encode("utf-8") + b"\\n"
+        payload = json.dumps(row, ensure_ascii=False).encode("utf-8") + b"\n"
         source_path.write_bytes(payload)
         source = {"retrieval": {"artifact_path":
                   "tools/linguistic_extensions/diverse_languages/test.jsonl"}}
@@ -169,8 +169,8 @@ class DiverseAuditTests(unittest.TestCase):
 
     def test_oversized_physical_line_drained_once(self):
         file = self.root / "physical.jsonl"
-        file.write_bytes(b"x" * (audit.MAX_LINE_BYTES * 3) + b"\\n" +
-                         json.dumps(self.candidate(), ensure_ascii=False).encode("utf-8") + b"\\n")
+        file.write_bytes(b"x" * (audit.MAX_LINE_BYTES * 3) + b"\n" +
+                         json.dumps(self.candidate(), ensure_ascii=False).encode("utf-8") + b"\n")
         result = self.worker.audit_shard(file)
         self.assertEqual((result["processed"], result["next_line"]), (2, 3))
         self.assertEqual(result["review_queue"][0]["reasons"], ["oversized_line"])
