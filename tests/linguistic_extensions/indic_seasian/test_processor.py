@@ -180,13 +180,13 @@ class ScriptAwareTests(unittest.TestCase):
             p.words('th', text, attested=tampered, ledger=ledger)
 
     def test_joiner_positions_are_checked_per_adjacent_character(self):
-        self.assertEqual('Deva', p.validate_text('hi', 'क्\\u200dष')['script'])
-        self.assertEqual('Arab', p.validate_text('ur', 'ا\\u200cب')['script'])
-        for bad in ('\\u200dक्ष', 'क्ष\\u200d', 'क\\u200dष', 'क्\\u200d\\u200dष',
-                    'क्ष\\u200cदेव'):
+        self.assertEqual('Deva', p.validate_text('hi', 'क्\u200dष')['script'])
+        self.assertEqual('Arab', p.validate_text('ur', 'ا\u200cب')['script'])
+        for bad in ('\u200dक्ष', 'क्ष\u200d', 'क\u200dष', 'क्\u200d\u200dष',
+                    'क्ष\u200cदेव'):
             with self.subTest(value=bad), self.assertRaises(p.ScriptContractError):
                 p.validate_text('hi', bad)
-        for bad in ('\\u200cاردو', 'اردو\\u200c', 'ا\\u200c\\u200cب'):
+        for bad in ('\u200cاردو', 'اردو\u200c', 'ا\u200c\u200cب'):
             with self.subTest(value=bad), self.assertRaises(p.ScriptContractError):
                 p.validate_text('ur', bad)
 
