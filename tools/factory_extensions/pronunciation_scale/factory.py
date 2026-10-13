@@ -19,6 +19,7 @@ ALLOWED_LICENSES = {"CC0-1.0", "CC-BY-SA-4.0", "GFDL-1.3-only", "PUBLIC-DOMAIN"}
 AUDIO_LIMIT = 2 * 1024 * 1024
 DURATION_LIMIT = 15.0
 RECORD_LIMIT = 500
+PACKAGE_LIMIT = 64 * 1024 * 1024
 TAG = re.compile(r"^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-[a-z0-9]{5,8})*$")
 SHA = re.compile(r"^[0-9a-f]{64}$")
 
@@ -154,7 +155,7 @@ def audit(catalog: dict, ledger: dict, document: dict, audio_root: Path, evidenc
             raise AuditError("missing or duplicate source identity")
         sources[source["source_id"]] = source
     coverage = {code: {"pronunciation_variants": 0, "audio_files": 0, "audio_assets": 0} for code in sorted(identities)}
-    accepted, blocked, unique_files, seen_pron, seen_asset = [], [], {}, set(), set()
+    accepted, blocked, unique_files, seen_pron, seen_asset, language_files, seen_variants = [], [], {}, set(), set(), set(), set()
     for record in sorted(document["records"], key=lambda x: str(x.get("pronunciation_id", ""))):
         rid = record.get("pronunciation_id")
         lang = record.get("language_id")
@@ -177,7 +178,10 @@ def audit(catalog: dict, ledger: dict, document: dict, audio_root: Path, evidenc
         if reasons:
             blocked.append({"pronunciation_id": rid, "reasons": sorted(set(reasons))})
             continue
-        coverage[lang]["pronunciation_variants"] += 1
+        variant_key = (lang, record["lexeme_id"], record["variant_id"], record["reading"]["value"])
+        if variant_key not in seen_variants:
+            coverage[lang]["pronunciation_variants"] += 1
+            seen_variants.add(variant_key)
         for asset in record.get("audio", []):
             aid, kind = asset.get("asset_id"), asset.get("kind")
             faults = []
@@ -221,9 +225,11 @@ def audit(catalog: dict, ledger: dict, document: dict, audio_root: Path, evidenc
                      "generation": asset.get("generation"), "audio": metadata}
             accepted.append(entry)
             coverage[lang]["audio_assets"] += 1
+            if (lang, asset["sha256"]) not in language_files:
+                language_files.add((lang, asset["sha256"]))
+                coverage[lang]["audio_files"] += 1
             if asset["sha256"] not in unique_files:
                 unique_files[asset["sha256"]] = {"path": asset["path"], "language_id": lang}
-                coverage[lang]["audio_files"] += 1
     by_hash = {}
     for entry in accepted:
         by_hash.setdefault(entry["sha256"], []).append(entry["asset_id"])
@@ -241,7 +247,8 @@ def package(report: dict, audio_root: Path, output: Path):
     manifest = {"version": VERSION, "assets": records,
                 "file_objects": [{"sha256": h, "member": f"audio/{h}.wav"} for h in sorted(files)]}
     manifest_bytes = (json.dumps(manifest, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
-    if len(manifest_bytes) > AUDIO_LIMIT or len(files) > RECORD_LIMIT:
+    if (len(manifest_bytes) > AUDIO_LIMIT or len(files) > RECORD_LIMIT
+            or sum(_path(Path(audio_root), relative).stat().st_size for relative in files.values()) > PACKAGE_LIMIT):
         raise AuditError("package bounds exceeded")
     output.parent.mkdir(parents=True, exist_ok=True)
     with tarfile.open(output, "w", format=tarfile.USTAR_FORMAT) as tar:
