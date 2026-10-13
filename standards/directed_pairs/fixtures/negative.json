@@ -1,0 +1,25 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.pairs.en-es.negative",
+  "source_language": "en",
+  "target_language": "es",
+  "translations": [
+    {
+      "translation_id": "tr.en-es.missing-sense",
+      "from_sense_id": "sense.en.missing",
+      "translation_text": "faltante",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.fixture",
+        "origin_url": "https://example.com/fixture",
+        "publisher": "SyntheticTestFixture",
+        "dataset_version": "1.0",
+        "retrieval_id": "test-id",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "line 1",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    }
+  ]
+}
