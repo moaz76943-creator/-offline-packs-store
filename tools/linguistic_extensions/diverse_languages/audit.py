@@ -38,6 +38,10 @@ REQUIRED = frozenset(("record_id", "language_id", "lemma", "meaning", "variant",
                        "license", "rights_url"))
 MAX_LINE_BYTES = 16_384
 MAX_SHARD_ROWS = 2_000
+MAX_SHARD_BYTES = 40 * 1024 * 1024
+MAX_SOURCE_ROW_INDEX = 10_000
+SOURCE_ROW_FIELDS = ("record_id", "language_id", "lemma", "meaning", "variant")
+ROW_EVIDENCE_FIELDS = frozenset(("source_row_index", "source_row_sha256"))
 # These are review categories, not an assertion of productive grammar support.
 LANGUAGE_FEATURES = {
     "noun_class": frozenset(("sw", "zu", "xh", "rw", "sn")),
@@ -212,9 +216,44 @@ class DiverseAudit:
             "lexical_packs_verified": False,
         }
 
+    def _source_row_attests(self, source, candidate):
+        """Require exact row bytes and lexical identity, never a file hash alone."""
+        index = candidate.get("source_row_index")
+        expected = candidate.get("source_row_sha256")
+        if (type(index) is not int or not 1 <= index <= MAX_SOURCE_ROW_INDEX
+                or not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected)):
+            return False
+        retrieval = source.get("retrieval") or {}
+        if not isinstance(retrieval, dict):
+            return False
+        relative = retrieval.get("artifact_path")
+        if not isinstance(relative, str):
+            return False
+        path = Path(relative)
+        if (path.is_absolute() or ".." in path.parts or ".git" in path.parts
+                or not path.parts or path.parts[0] != "tools"):
+            return False
+        candidate_path = self.root / path
+        resolved_root = self.root.resolve()
+        resolved = candidate_path.resolve()
+        if (not resolved.is_relative_to(resolved_root) or not resolved.is_file()
+                or candidate_path.is_symlink() or resolved.stat().st_size > MAX_SHARD_BYTES):
+            return False
+        for row_index, raw in enumerate(_bounded_lines(resolved), 1):
+            if row_index == index:
+                if raw is None or hashlib.sha256(raw).hexdigest() != expected:
+                    return False
+                try:
+                    value = json.loads(raw.decode("utf-8", "strict"), object_pairs_hook=_unique_pairs)
+                except (UnicodeError, ValueError, TypeError):
+                    return False
+                return (isinstance(value, dict) and
+                        all(value.get(k) == candidate[k] for k in SOURCE_ROW_FIELDS))
+        return False
+
     def _candidate_reasons(self, candidate):
         if (not isinstance(candidate, dict) or not REQUIRED.issubset(candidate)
-                or set(candidate) - REQUIRED - {"annotation"}):
+                or set(candidate) - REQUIRED - {"annotation"} - ROW_EVIDENCE_FIELDS):
             return ["invalid_candidate_schema"]
         if any(not _clean_string(candidate[k], required=k not in
                                  ("community", "speaker_consent_ref")) for k in REQUIRED):
@@ -236,6 +275,11 @@ class DiverseAudit:
             reasons.append("unresolved_variety_or_script")
         if "annotation" in candidate:
             reasons += self._annotation_reasons(code, candidate["annotation"])
+        if (type(candidate.get("source_row_index")) is not int
+                or not 1 <= candidate["source_row_index"] <= MAX_SOURCE_ROW_INDEX
+                or not isinstance(candidate.get("source_row_sha256"), str)
+                or not re.fullmatch(r"[0-9a-f]{64}", candidate["source_row_sha256"])):
+            reasons.append("missing_row_level_source_attestation")
         matches = self.approved_sources.get(candidate["source_id"], [])
         if len(matches) != 1:
             reasons.append("source_not_uniquely_approved")
@@ -252,19 +296,24 @@ class DiverseAudit:
                 reasons.append("provenance_conflict")
             if not self._approved_language_binding(candidate["source_id"], code, candidate["variant"]):
                 reasons.append("source_language_not_approved")
+            if self._source_issues(source) or not self._source_row_attests(source, candidate):
+                reasons.append("candidate_not_attested_by_source_row")
         return sorted(set(reasons))
 
     def audit_shard(self, path, *, start_line=1, max_rows=500):
-        if type(start_line) is not int or start_line < 1:
-            raise EvidenceError("start_line must be positive")
+        if type(start_line) is not int or not 1 <= start_line <= 1_000_000:
+            raise EvidenceError("start_line outside bounded 1..1000000")
         if type(max_rows) is not int or not 1 <= max_rows <= MAX_SHARD_ROWS:
             raise EvidenceError("max_rows outside approved 1..2000 bound")
+        shard = Path(path)
+        if (shard.is_symlink() or not shard.is_file() or shard.stat().st_size > MAX_SHARD_BYTES):
+            raise EvidenceError("oversized or unsafe shard path")
         reviews, candidates = [], {code: 0 for code in RESEARCH_FOCUS}
         admissible = {code: 0 for code in RESEARCH_FOCUS}
         spellings = {}
         record_ids = {}
         processed, next_line = 0, start_line
-        for line_no, raw in enumerate(_bounded_lines(path), 1):
+        for line_no, raw in enumerate(_bounded_lines(shard), 1):
             if line_no < start_line:
                 continue
             if processed >= max_rows:
@@ -282,7 +331,7 @@ class DiverseAudit:
                 except (UnicodeError, ValueError, TypeError):
                     item, reasons = None, ["invalid_json_or_unicode"]
             if (isinstance(item, dict) and REQUIRED.issubset(item)
-                    and not (set(item) - REQUIRED - {"annotation"})
+                    and not (set(item) - REQUIRED - {"annotation"} - ROW_EVIDENCE_FIELDS)
                     and all(_clean_string(item[k], required=k not in
                             ("community", "speaker_consent_ref")) for k in REQUIRED)):
                 code = item["language_id"]
@@ -304,7 +353,9 @@ class DiverseAudit:
                     admissible[code] += 1
             if reasons:
                 reviews.append({"line": line_no,
-                                "language_id": item.get("language_id") if isinstance(item, dict) else None,
+                                "language_id": (item.get("language_id") if isinstance(item, dict)
+                                                and isinstance(item.get("language_id"), str)
+                                                and item.get("language_id") in RESEARCH_FOCUS else None),
                                 "reasons": sorted(set(reasons))})
         return {"schema_version": "1.0", "start_line": start_line, "next_line": next_line,
                 "processed": processed, "candidate_counts": candidates,
