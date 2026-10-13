@@ -18,13 +18,15 @@ class TestCorpusDeduplicator(unittest.TestCase):
     def test_exact_duplicate(self):
         rec1 = {
             'lexeme_id': 'l1', 'language': 'en', 'pos': 'noun', 'lemma': 'cat',
-            'senses': [{'concept_id': 'concept.cat', 'definition': 'A small domesticated carnivorous mammal'}],
-            'source': {'source_id': 'src.fixture', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'fixture', 'publication_approved': True}
+            'senses': [{'concept_id': 'concept.cat', 'definition': 'A small domesticated carnivorous mammal',
+                        'source': {'source_id': 'src.fixture', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'fixture', 'publication_approved': True, 'fixture_only': False}}],
+            'source': {'source_id': 'src.fixture', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'fixture', 'publication_approved': True, 'fixture_only': False}
         }
         rec2 = {
             'lexeme_id': 'l2', 'language': 'en', 'pos': 'noun', 'lemma': 'cat',
-            'senses': [{'concept_id': 'concept.cat', 'definition': 'A small domesticated carnivorous mammal'}],
-            'source': {'source_id': 'src.fixture', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'fixture', 'publication_approved': True}
+            'senses': [{'concept_id': 'concept.cat', 'definition': 'A small domesticated carnivorous mammal',
+                        'source': {'source_id': 'src.fixture', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'fixture', 'publication_approved': True, 'fixture_only': False}}],
+            'source': {'source_id': 'src.fixture', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'fixture', 'publication_approved': True, 'fixture_only': False}
         }
         self.deduplicator.process_record(rec1)
         self.deduplicator.process_record(rec2)
