@@ -171,7 +171,22 @@ class DirectedGraphTests(unittest.TestCase):
                         "source_sha256":SHA,"candidate_sha256":self.candidate_sha,
                         "reviewer":"independent editorial reviewer","review_id":"review.123",
                         "evidence_locator":"editorial ledger item 4"}]})
-        self.assertEqual(self.run_graph(reviews=True)["counts"]["verified"],1)
+        # A caller-supplied editorial approval is not independently trusted.
+        result = self.run_graph(reviews=True)
+        self.assertEqual(result["counts"]["verified"],0)
+        self.assertEqual(result["counts"]["review_required"],1)
+
+    def test_caller_originated_review_cannot_self_approve(self):
+        self.install()
+        write(self.review_path,{"schema_version":"1.0.0","candidate_sha256":self.candidate_sha,
+            "reviews":[{"translation_id":self.candidate["translation_id"],"decision":"approved",
+                        "from_sense_id":"sense.de.bank","to_sense_id":"sense.en.bank",
+                        "source_language":"de","target_language":"en",
+                        "source_sha256":SHA,"candidate_sha256":self.candidate_sha,
+                        "reviewer":"self-declared","review_id":"claim","evidence_locator":"fake"}]})
+        result = self.run_graph(reviews=True)
+        self.assertEqual(result["counts"]["verified"],0)
+        self.assertEqual(result["counts"]["review_required"],1)
 
     def test_wrong_direction_review_does_not_verify(self):
         self.install()
