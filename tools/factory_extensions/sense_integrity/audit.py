@@ -165,6 +165,12 @@ def load_snapshot(db, directory, snapshot, ledger):
 
 
 def analyze_links(db):
+    # Stable ID tokens cannot double as another entity type.
+    for rid, kinds in db.execute("""SELECT id,GROUP_CONCAT(DISTINCT kind)
+        FROM rec WHERE snapshot='current' GROUP BY id
+        HAVING COUNT(DISTINCT kind)>1 ORDER BY id"""):
+        issue(db, "und", "error", "cross_kind_identity_collision",
+              "identity", rid, kinds)
     # Populate derived language, but never derive a sense or translation edge.
     db.execute("""UPDATE rec SET language=(
         SELECT l.language FROM rec l WHERE l.snapshot=rec.snapshot
