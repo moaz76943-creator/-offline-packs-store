@@ -160,11 +160,11 @@ class EvidenceEngine:
             with original.open("rb") as stream:
                 if offset:
                     stream.seek(offset - 1)
-                    if stream.read(1) != b"\\n":
+                    if stream.read(1) != b"\n":
                         raise EvidenceError("source attestation offset is not a row boundary")
                 stream.seek(offset)
                 raw_row = stream.read(length)
-                if not raw_row.endswith(b"\\n"):
+                if not raw_row.endswith(b"\n"):
                     raise EvidenceError("source attestation requires an exact JSONL row")
             observed = json.loads(raw_row.decode("utf-8"))
         except (UnicodeError, json.JSONDecodeError, OSError) as exc:
