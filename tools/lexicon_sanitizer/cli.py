@@ -98,8 +98,8 @@ def process_file(input_path: Path, output_dir: Path, quarantine_dir: Path, works
 
                 if collection == "record":
                     # For JSONL, we don't know the collection easily, guess from ID
-                    if "lexeme_id" in record: collection = "lexemes"
-                    elif "sense_id" in record: collection = "senses"
+                    if "sense_id" in record: collection = "senses"
+                    elif "lexeme_id" in record: collection = "lexemes"
                     elif "translation_id" in record: collection = "translations"
                     elif "example_id" in record: collection = "examples"
                     elif "relation_id" in record: collection = "relations"
