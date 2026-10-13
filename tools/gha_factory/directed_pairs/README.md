@@ -5,7 +5,7 @@ JSONL** and verifies each claimed Tatoeba edge against SHA-256 pinned original
 `sentences_detailed` (6 TSV columns), `links` (2 TSV columns), and
 `sentences_cc0` (4 TSV columns). It checks both explicit link directions,
 original identity/language/text/author, exact CC0 licensing claims, stable IDs,
-and Unicode integrity. It uses disk-backed SQLite for source/link/duplicate
+and Unicode integrity. The official sentences_CC0 fourth column is last-modified date, NOT author; licensing matches id/language/text, while username attribution is independently checked against sentences_detailed. It uses disk-backed SQLite for source/link/duplicate
 indexes, with bounded JSONL/TSV reads and at most 100,000 pairs per job.
 No transitive inference; German→English + English→Arabic never asserts German→Arabic.
 
