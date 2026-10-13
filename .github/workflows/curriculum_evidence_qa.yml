@@ -32,4 +32,4 @@ jobs:
           else
             python3 -m tools.factory_extensions.curriculum_evidence.audit --output "$RUNNER_TEMP/curriculum_receipt.json"
           fi
-          python3 -c 'import json,sys; r=json.load(open(sys.argv[1])); assert len(r["languages"]) == 100; print("Curriculum evidence", r["admission_status"], r["audited_rows"], r["accepted_metadata"], r["rejected"])' "$RUNNER_TEMP/curriculum_receipt.json"
+          python3 -c 'import json,sys; r=json.load(open(sys.argv[1])); assert len(r["languages"]) == 100; print("Curriculum evidence:", r["admission_status"], "| languages:", len(r["languages"]), "| approved sources:", r["approved_ledger_sources"], "| audited rows:", r["audited_rows"], "| accepted:", r["accepted_metadata"], "| rejected:", r["rejected"])' "$RUNNER_TEMP/curriculum_receipt.json" | tee -a "$GITHUB_STEP_SUMMARY"
