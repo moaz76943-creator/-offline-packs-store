@@ -26,6 +26,7 @@ class DiskBackedContractTests(unittest.TestCase):
         self.assertEqual(['canonical','duplicate'],[kind for kind,_ in results])
         self.assertEqual('src.other',results[1][1]['source']['source_id'])
         self.assertEqual('src.fixture',results[1][1]['canonical_source']['source_id'])
+        self.assertEqual('lex.b',results[1][1]['original_record']['lexeme_id'])
 
     def test_self_asserted_rights_without_admission_never_remove(self):
         with CorpusDeduplicator(admitted_source_licenses={}) as d:
