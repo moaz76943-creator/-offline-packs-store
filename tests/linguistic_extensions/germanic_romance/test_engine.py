@@ -8,6 +8,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "tools/linguistic_extensions/germanic_romance"))
 from engine import EvidenceEngine, EvidenceError
+from report import compile_report
 
 
 class MorphologyContract(unittest.TestCase):
@@ -142,6 +143,13 @@ class MorphologyContract(unittest.TestCase):
                      sense_id="no:gaa:move")
         with self.assertRaisesRegex(EvidenceError, "variety"):
             self.engine.validate(value, "no")
+
+    def test_full_per_language_report_is_measured_not_estimated(self):
+        report = compile_report(self.root)
+        self.assertEqual(19, len(report["per_language"]))
+        self.assertEqual({"verified_verbs": 0, "verified_paradigms": 0,
+                          "verified_nouns": 0, "verified_inflections": 0},
+                         report["totals"])
 
     def test_path_traversal_rejected(self):
         with self.assertRaises(EvidenceError):
