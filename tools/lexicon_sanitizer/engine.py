@@ -20,6 +20,8 @@ class LexiconSanitizer:
         self.seen_lexeme_identities = self._index.set("lexeme_identity")
         self.seen_translation_identities = self._index.set("directed_translation_identity")
         self.seen_sense_identities = self._index.set("sense_identity")
+        self.accepted_lexeme_ids = self._index.set("accepted_lexeme")
+        self.accepted_sense_ids = self._index.set("accepted_sense")
         self._index.db.execute("CREATE TABLE lexeme_lang(id TEXT PRIMARY KEY, language TEXT NOT NULL)")
         self._index.db.execute("CREATE TABLE sense_lang(id TEXT PRIMARY KEY, language TEXT NOT NULL)")
 
@@ -159,6 +161,7 @@ class LexiconSanitizer:
 
             self.seen_ids.add(lexeme_id)
             self.seen_lexeme_identities.add(identity)
+            self.accepted_lexeme_ids.add(lexeme_id)
             self._index.db.execute("INSERT INTO lexeme_lang VALUES(?,?)", (lexeme_id, lang))
             return status, repaired_entry, reason
 
@@ -206,6 +209,9 @@ class LexiconSanitizer:
                 self._index.db.execute("INSERT INTO sense_lang VALUES(?,?)", (sense_id, row[0]))
             else:
                 return STATUS_REVIEW_REQUIRED, repaired_entry, "sense lexeme identity not independently known"
+            if lexeme_id not in self.accepted_lexeme_ids:
+                return STATUS_REVIEW_REQUIRED, repaired_entry, "sense depends on review-only lexeme"
+            self.accepted_sense_ids.add(sense_id)
             return status, repaired_entry, reason
         except Exception as e:
             return STATUS_QUARANTINE, entry, f"unexpected error: {str(e)}"
@@ -261,6 +267,8 @@ class LexiconSanitizer:
             return STATUS_REVIEW_REQUIRED, repaired_entry, "translation identity overlaps another sourced record"
         if not first or not second:
             return STATUS_REVIEW_REQUIRED, repaired_entry, "directed sense language ownership unresolved"
+        if from_sense not in self.accepted_sense_ids or to_sense not in self.accepted_sense_ids:
+            return STATUS_REVIEW_REQUIRED, repaired_entry, "translation depends on review-only sense"
 
         if lang == 'en':
             for char in text:
