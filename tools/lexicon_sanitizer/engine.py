@@ -192,47 +192,62 @@ class LexiconSanitizer:
             return STATUS_QUARANTINE, entry, f"unexpected error: {str(e)}"
 
     def sanitize_translation(self, entry: Dict[str, Any]) -> Tuple[str, Dict[str, Any], Optional[str]]:
-        try:
-            if not isinstance(entry, dict):
-                return STATUS_QUARANTINE, entry, "not an object"
+        """Stage an exact directed translation only; ambiguous provenance is reviewable.
 
-            translation_id = entry.get('translation_id')
-            if not translation_id or not isinstance(translation_id, str) or not translation_id.strip():
-                return STATUS_QUARANTINE, entry, "empty or invalid translation_id"
+        This sanitizer does not decide that two independently sourced records may be
+        removed. The final disk-backed corpus deduplicator owns that decision.
+        """
+        if not isinstance(entry, dict):
+            return STATUS_QUARANTINE, entry, "not an object"
+        translation_id = entry.get('translation_id')
+        if not isinstance(translation_id, str) or not translation_id.strip():
+            return STATUS_QUARANTINE, entry, "empty or invalid translation_id"
+        if translation_id in self.seen_ids:
+            return STATUS_QUARANTINE, entry, f"duplicate id {translation_id}"
+        text = entry.get('text')
+        if not isinstance(text, str) or not text.strip() or not self.check_unicode(text):
+            return STATUS_QUARANTINE, entry, "malformed translation text or invalid Unicode"
+        lang = entry.get('language')
+        if not isinstance(lang, str) or lang not in self.valid_languages:
+            return STATUS_QUARANTINE, entry, "missing or unsupported canonical target language"
+        from_sense = entry.get('from_sense_id')
+        to_sense = entry.get('to_sense_id')
+        if (not isinstance(from_sense, str) or not from_sense.strip()
+                or not isinstance(to_sense, str) or not to_sense.strip()
+                or from_sense == to_sense):
+            return STATUS_QUARANTINE, entry, "invalid exact directed sense IDs"
 
-            if translation_id in self.seen_ids:
-                return STATUS_QUARANTINE, entry, f"duplicate id {translation_id}"
+        first = self._index.db.execute("SELECT language FROM sense_lang WHERE id=?", (from_sense,)).fetchone()
+        second = self._index.db.execute("SELECT language FROM sense_lang WHERE id=?", (to_sense,)).fetchone()
+        if first and second and (first[0] == second[0] or second[0] != lang):
+            return STATUS_QUARANTINE, entry, "reverse/invalid directed pair identity"
 
-            text = entry.get('text')
-            if not text or not isinstance(text, str) or not text.strip():
-                return STATUS_QUARANTINE, entry, "malformed translation text"
+        # NFC only; never erase Arabic diacritics or CJK variant distinctions.
+        identity = (from_sense, to_sense, lang, unicodedata.normalize('NFC', text))
+        ambiguous_identity = identity in self.seen_translation_identities
+        self.seen_translation_identities.add(identity)
+        repaired_entry, repaired = self.repair_whitespace(entry)
+        self.seen_ids.add(translation_id)
 
-            lang = entry.get('language')
-            if self.valid_languages and lang and lang not in self.valid_languages:
-                return STATUS_QUARANTINE, entry, f"unsupported language code {lang}"
+        source = entry.get('source')
+        admitted_fields = isinstance(source, dict) and all(
+            isinstance(source.get(k), str) and source[k].strip()
+            for k in ('source_id', 'license_id', 'dataset_version', 'record_locator'))
+        if not admitted_fields:
+            return STATUS_REVIEW_REQUIRED, repaired_entry, "translation source evidence missing"
+        if ambiguous_identity:
+            return STATUS_REVIEW_REQUIRED, repaired_entry, "translation identity overlaps another sourced record"
+        if not first or not second:
+            return STATUS_REVIEW_REQUIRED, repaired_entry, "directed sense language ownership unresolved"
 
-            from_sense = entry.get('from_sense_id')
-            if from_sense and lang:
-                identity = (from_sense, lang, unicodedata.normalize('NFC', text.strip()))
-                if identity in self.seen_translation_identities:
-                    return STATUS_QUARANTINE, entry, "duplicate translation identity"
-                self.seen_translation_identities.add(identity)
+        if lang == 'en':
+            for char in text:
+                if unicodedata.category(char).startswith('L'):
+                    name = unicodedata.name(char, '')
+                    if 'CJK' in name or 'ARABIC' in name:
+                        return STATUS_REVIEW_REQUIRED, repaired_entry, "mixed-language entry suspected"
 
-            if lang == 'en':
-                for char in text:
-                    if unicodedata.category(char).startswith('L'):
-                        name = unicodedata.name(char, '')
-                        if 'CJK' in name or 'ARABIC' in name:
-                            return STATUS_REVIEW_REQUIRED, entry, "mixed-language entry suspected"
-
-            repaired_entry, repaired = self.repair_whitespace(entry)
-            status = STATUS_REPAIRABLE if repaired else STATUS_ACCEPT
-            reason = "stripped whitespace" if repaired else None
-
-            self.seen_ids.add(translation_id)
-            return status, repaired_entry, reason
-        except Exception as e:
-            return STATUS_QUARANTINE, entry, f"unexpected error: {str(e)}"
+        return (STATUS_REPAIRABLE, repaired_entry, "stripped whitespace") if repaired else (STATUS_ACCEPT, repaired_entry, None)
 
     def sanitize_generic(self, entry: Dict[str, Any], collection: str) -> Tuple[str, Dict[str, Any], Optional[str]]:
         id_field_map = {
