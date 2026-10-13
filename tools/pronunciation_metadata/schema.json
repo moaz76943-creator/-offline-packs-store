@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/tools/pronunciation_metadata/schema.json",
+  "title": "Public Pronunciation Metadata Registry Schema 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registry_version", "records"],
+  "properties": {
+    "registry_version": {"const": "1.0.0"},
+    "records": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/record"}
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9._:-]{2,127}$"},
+    "text": {"type": "string", "minLength": 1},
+    "optText": {"type": ["string", "null"], "minLength": 1},
+    "lang": {"type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"},
+    "script": {"type": "string", "pattern": "^[A-Z][a-z]{3}$"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "publisher", "dataset_version", "license_id", "publication_approved"],
+      "properties": {
+        "source_id": {"$ref": "#/$defs/id"},
+        "origin_url": {"type": "string", "pattern": "^https://[^\\s]+$"},
+        "publisher": {"$ref": "#/$defs/text"},
+        "dataset_version": {"$ref": "#/$defs/text"},
+        "retrieval_id": {"$ref": "#/$defs/text"},
+        "license_id": {"$ref": "#/$defs/text"},
+        "record_locator": {"$ref": "#/$defs/text"},
+        "artifact_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+        "publication_approved": {"type": "boolean"},
+        "fixture_only": {"type": "boolean"}
+      }
+    },
+    "pronunciation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["notation", "value", "source"],
+      "properties": {
+        "notation": {"enum": ["ipa", "phonetic", "romanization", "other"]},
+        "value": {"$ref": "#/$defs/text"},
+        "stress": {"$ref": "#/$defs/optText"},
+        "dialect": {"$ref": "#/$defs/optText"},
+        "phonetic_note": {"$ref": "#/$defs/optText"},
+        "source": {"$ref": "#/$defs/source"}
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["record_id", "lexeme_id", "language", "script", "offline_voice_status", "source"],
+      "properties": {
+        "record_id": {"$ref": "#/$defs/id"},
+        "lexeme_id": {"$ref": "#/$defs/id"},
+        "sense_id": {"$ref": "#/$defs/id"},
+        "language": {"$ref": "#/$defs/lang"},
+        "script": {"$ref": "#/$defs/script"},
+        "locale": {"$ref": "#/$defs/lang"},
+        "dialect": {"$ref": "#/$defs/text"},
+        "pronunciations": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/pronunciation"}
+        },
+        "offline_voice_status": {
+          "enum": ["unknown", "locale_supported", "device_installed"]
+        },
+        "source": {"$ref": "#/$defs/source"}
+      }
+    }
+  }
+}
