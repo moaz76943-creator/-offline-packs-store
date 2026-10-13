@@ -28,7 +28,7 @@ ALLOW_HOSTS = frozenset({
 })
 REQUIRED = frozenset({
     'candidate_id', 'kind', 'publisher', 'source_url', 'dataset_version',
-    'acquisition_date', 'dataset_sha256', 'source_license_claim',
+    'acquisition_date', 'dataset_sha256', 'dataset_artifact_path', 'source_license_claim',
     'extraction_tool_license_claim', 'individual_record_rights',
     'audio_rights', 'commercial_redistribution', 'rights_risks', 'obligations',
     'evidence', 'confirmed_language_ids', 'coverage_note', 'copyright_notices',
@@ -83,6 +83,26 @@ def is_date(s):
         return date.fromisoformat(s).isoformat() == s
     except ValueError:
         return False
+
+
+def pinned_local_sha(relative, expected, max_bytes=64_000_000):
+    """Verify real immutable local bytes only; no symlinks, path escapes or huge reads."""
+    if not isinstance(relative, str) or not relative or not is_sha(expected):
+        return False
+    candidate = Path(relative)
+    if candidate.is_absolute() or '..' in candidate.parts or '.git' in candidate.parts:
+        return False
+    root = REPO.resolve()
+    path = (root / candidate).resolve()
+    if not path.is_relative_to(root) or not path.is_file() or path.is_symlink():
+        return False
+    if path.stat().st_size > max_bytes:
+        return False
+    digest = hashlib.sha256()
+    with path.open('rb') as stream:
+        for chunk in iter(lambda: stream.read(65536), b''):
+            digest.update(chunk)
+    return digest.hexdigest() == expected
 
 
 def warnings(candidate):
@@ -151,6 +171,8 @@ def audit(catalog, registry, ledger):
             raise ValueError('invalid dataset digest')
         if c['acquisition_date'] is not None and not is_date(c['acquisition_date']):
             raise ValueError('invalid acquisition date')
+        if (c['dataset_sha256'] is None) != (c['dataset_artifact_path'] is None):
+            raise ValueError('source artifact path/hash pair required')
         if any(not isinstance(c[x], str) or not c[x].strip() for x in (
                 'source_license_claim', 'extraction_tool_license_claim',
                 'individual_record_rights', 'audio_rights', 'coverage_note')):
@@ -182,10 +204,13 @@ def audit(catalog, registry, ledger):
             blocks.append('EXISTING_LEDGER_ID_COLLISION_CHECK_REQUIRED')
         if c['dataset_version'] is None:
             blocks.append('MISSING_EXACT_DATASET_VERSION')
-        if c['acquisition_date'] is None or c['dataset_sha256'] is None:
-            blocks.append('MISSING_DOWNLOADED_BYTES_AND_SHA256')
-        if any(e['snapshot_sha256'] is None for e in c['evidence']):
-            blocks.append('MISSING_IMMUTABLE_LICENSE_PROOF_SNAPSHOT')
+        if (c['acquisition_date'] is None or c['dataset_sha256'] is None or
+                not pinned_local_sha(c['dataset_artifact_path'], c['dataset_sha256'])):
+            blocks.append('MISSING_OR_UNVERIFIED_DOWNLOADED_BYTES_AND_SHA256')
+        if any(e['snapshot_sha256'] is None or not
+               pinned_local_sha(e['snapshot_path'], e['snapshot_sha256'], MAX_EVIDENCE)
+               for e in c['evidence']):
+            blocks.append('MISSING_OR_UNVERIFIED_IMMUTABLE_LICENSE_PROOF_SNAPSHOT')
         if not c['copyright_notices']:
             blocks.append('ORIGINAL_COPYRIGHT_NOTICES_NOT_CAPTURED')
         blocks.extend(warnings(c))
