@@ -1,7 +1,7 @@
 """Source-reviewed relations are distinct from Unicode canonical equivalence."""
 import hashlib
 
-from .processor import (ScriptContractError, approved_sources, validate_text)
+from .processor import (ScriptContractError, approved_sources, evidence_digest, validate_text)
 
 KINDS = frozenset(('lexical_equivalent', 'transliteration',
                    'related_form', 'ambiguous_orthography'))
@@ -37,6 +37,8 @@ def classify_relation(code, left, right, *, evidence=None, ledger=None):
             not isinstance(evidence['evidence_version'], str) or
             not evidence['evidence_version'].strip()):
         raise ScriptContractError('missing, fabricated or wrong-language relation evidence')
+    if evidence_digest(evidence) not in source['reviewed_records']['orthographic_relation']:
+        raise ScriptContractError('orthographic relation was not independently reviewed')
     return {'status': 'attested_relation_only',
             'relation_kind': evidence['relation_kind'],
             'lexical_claim': evidence['relation_kind'] == 'lexical_equivalent',
