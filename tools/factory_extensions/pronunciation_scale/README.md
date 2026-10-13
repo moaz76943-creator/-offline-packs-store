@@ -20,3 +20,7 @@ Run from repository root:
 coverage.json reports attested pronunciation variants, unique decoded audio files and asset count for each registered language, rather than inferred 100-language coverage. admission.json contains admitted evidence and explicit rejection reasons. audio.tar exists only when approved audio is present.
 
 Runs refuse batches over 500 records. Shard upstream and upload completed read-only checkpoints as GitHub Actions artifacts for durable replay; an interrupted in-flight batch must be retried, never assumed saved. The workflow is standard public Actions (read-only; 10-minute timeout; 7-day retention). The empty-ledger condition means no source ingestion job is eligible today.
+
+Compatibility adapters in adapters.py read PR #97's registry_version=1.0.0 records into independent pronunciation candidates without trusting its offline_voice_status or inventing audio. Missing per-reading locators fail closed. PR #99's assets can be inspected, but remain quarantined until independent per-speaker, per-recording rights are supplied. No PR-owned file is modified.
+
+coverage_baseline.json is a pinned **actual empty-ledger snapshot** of all 100 registered language IDs based on main SHA 254e8edd85a2d4a37c13e1834ef2d9f77ce7e605; it is not an evergreen coverage promise. The latest CLI report supersedes the snapshot. Physical audio packaging is further limited to 64 MiB per batch, in addition to the per-file and 500-record limits.
