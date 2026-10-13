@@ -29,7 +29,9 @@
           "source_text": "I need to go to the bank to deposit money.",
           "target_text": "Necesito ir al banco para depositar dinero."
         }
-      ]
+      ],
+      "from_language": "en",
+      "to_language": "es"
     },
     {
       "translation_id": "tr.en-es.bank-orilla.river",
@@ -49,7 +51,9 @@
         "record_locator": "line 2",
         "publication_approved": false,
         "fixture_only": true
-      }
+      },
+      "from_language": "en",
+      "to_language": "es"
     },
     {
       "translation_id": "tr.en-es.bat-murcielago",
@@ -68,7 +72,9 @@
         "record_locator": "line 3",
         "publication_approved": false,
         "fixture_only": true
-      }
+      },
+      "from_language": "en",
+      "to_language": "es"
     },
     {
       "translation_id": "tr.en-es.bat-bate",
@@ -87,7 +93,9 @@
         "record_locator": "line 4",
         "publication_approved": false,
         "fixture_only": true
-      }
+      },
+      "from_language": "en",
+      "to_language": "es"
     },
     {
       "translation_id": "tr.en-es.car-coche.spain",
@@ -106,7 +114,9 @@
         "record_locator": "line 5",
         "publication_approved": false,
         "fixture_only": true
-      }
+      },
+      "from_language": "en",
+      "to_language": "es"
     },
     {
       "translation_id": "tr.en-es.car-carro.latam",
@@ -125,7 +135,9 @@
         "record_locator": "line 6",
         "publication_approved": false,
         "fixture_only": true
-      }
+      },
+      "from_language": "en",
+      "to_language": "es"
     },
     {
       "translation_id": "tr.en-es.missing_context",
@@ -143,26 +155,9 @@
         "record_locator": "line 7",
         "publication_approved": false,
         "fixture_only": true
-      }
-    },
-    {
-      "translation_id": "tr.es-en.coche-car.reverse",
-      "from_sense_id": "sense.es.coche",
-      "to_sense_id": "sense.en.car",
-      "translation_text": "car",
-      "equivalence": "exact",
-      "context": "explicit reverse mapping",
-      "source": {
-        "source_id": "src.fixture",
-        "origin_url": "https://example.com/fixture",
-        "publisher": "SyntheticTestFixture",
-        "dataset_version": "1.0",
-        "retrieval_id": "test-id",
-        "license_id": "LicenseRef-SyntheticTestFixture",
-        "record_locator": "line 8",
-        "publication_approved": false,
-        "fixture_only": true
-      }
+      },
+      "from_language": "en",
+      "to_language": "es"
     }
   ]
 }
