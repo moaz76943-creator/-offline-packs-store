@@ -128,6 +128,15 @@ class CurriculumAuditTest(unittest.TestCase):
         self.assertEqual(len(receipt["languages"]), 100)
         self.assertEqual(sum(x["verified_total"] for x in receipt["languages"].values()), 0)
 
+    def test_large_invalid_dependency_chain_fails_closed(self):
+        rows = [item(f"r{i}") for i in range(1200)]
+        for i in range(1, 1200):
+            rows[i]["prerequisites"] = [f"r{i-1}"]
+        rows[0]["prerequisites"] = ["missing"]
+        report = self.run_audit(rows)
+        self.assertEqual(report["rejected"], len(rows))
+        self.assertEqual(report["languages"]["de"]["verified_total"], 0)
+
     def test_approved_thresholds_are_noncertifying(self):
         source = {"source_id": "approved", "dataset_version": "v1", "artifact_sha256": "a" * 64}
         result = self.run_audit([item()], criteria={"source": source, "minimums": {"vocabulary": 1, "grammar": 0, "example": 0, "exercise": 0}, "reviewer": "editor"})

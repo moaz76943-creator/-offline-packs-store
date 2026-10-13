@@ -90,12 +90,17 @@ def _bad_prerequisites(rows, invalid_ids=()):
             elif state.get(parent) != 2:
                 state[parent] = 1
                 stack.append((parent, iter(graph[parent]["prerequisites"])))
-    # Do not keep a node whose dependency was invalidated.
-    changed = True
-    while changed:
-        prev = len(bad)
-        bad.update(rid for rid, row in graph.items() if any(p in bad for p in row["prerequisites"]))
-        changed = len(bad) != prev
+    # Linear-time reverse-edge propagation; avoid repeated 10k-row scans.
+    dependents = {}
+    for rid, row in graph.items():
+        for parent in row["prerequisites"]:
+            dependents.setdefault(parent, set()).add(rid)
+    queue = list(bad)
+    while queue:
+        for child in dependents.get(queue.pop(), ()):
+            if child not in bad:
+                bad.add(child)
+                queue.append(child)
     return bad
 
 
