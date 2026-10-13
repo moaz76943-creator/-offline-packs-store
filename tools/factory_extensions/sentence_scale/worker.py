@@ -136,8 +136,14 @@ def safe_shard(root, item):
     rel = Path(name)
     if rel.is_absolute() or '..' in rel.parts or '.git' in rel.parts:
         raise ValueError('unsafe shard path')
-    path = (root / rel).resolve()
-    if not path.is_relative_to(root) or path.is_symlink() or not path.is_file():
+    candidate = root
+    # Check BEFORE resolve(): resolved paths conceal symlink components.
+    for part in rel.parts:
+        candidate = candidate / part
+        if candidate.is_symlink():
+            raise ValueError('unsafe source shard symlink')
+    path = candidate.resolve()
+    if not path.is_relative_to(root) or not path.is_file():
         raise ValueError('shard missing or unsafe')
     if file_digest(path) != expected:
         raise ValueError('immutable shard digest mismatch')
@@ -184,8 +190,20 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
             accepted_lines = 0
             with db:
                 with path.open('rb') as stream:
-                    for line_no, raw in enumerate(stream, 1):
+                    line_no = 0
+                    while True:
+                        # File iteration can read an unbounded attacker-sized line.
+                        raw = stream.readline(MAX_LINE + 1)
+                        if not raw:
+                            break
+                        line_no += 1
                         if len(raw) > MAX_LINE:
+                            # Discard the logical line in fixed-size pieces.
+                            if not raw.endswith(b'\n'):
+                                while True:
+                                    remainder = stream.readline(MAX_LINE + 1)
+                                    if not remainder or remainder.endswith(b'\n'):
+                                        break
                             db.execute('INSERT INTO invalid_lines VALUES (?,?,?)',
                                        (name, line_no, 'oversized_line'))
                             continue
@@ -236,7 +254,20 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
                 break
             for rec in batch:
                 uid, lang, sid, sentence_id, text, text_hash, exact, near, status, raw_reasons, payload = rec
-                reasons = json.loads(raw_reasons)
+                row = json.loads(payload)
+                # Re-evaluate the *current* legal, editorial and lexical grants
+                # on every replay. An immutable source is not an immutable grant.
+                status, reasons, grammar = validate_extended(
+                    row, source_ledger, source_grants, sense_catalog,
+                    rule_catalog, roster, languages)
+                hold = db.execute(
+                    'SELECT change_hold FROM records WHERE id=?', (uid,)).fetchone()[0]
+                if hold:
+                    if status != 'REJECTED':
+                        status = 'REQUIRES_REVIEW'
+                    reasons = sorted(set(reasons + ['immutable_sentence_revision']))
+                db.execute('UPDATE records SET base_status=?,base_reasons=? WHERE id=?',
+                           (status, compact(reasons), uid))
                 other = db.execute(
                     'SELECT id FROM records WHERE language=? AND exact_key=? AND id!=? LIMIT 1',
                     (lang, exact, uid)).fetchone()
