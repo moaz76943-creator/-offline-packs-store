@@ -245,6 +245,23 @@ class SentenceScaleTests(unittest.TestCase):
         self.assertEqual(result['totals']['requires_review'], 1)
 
 
+    def test_process_closes_database_connection_after_processing(self):
+        import sqlite3
+        original_connect = sqlite3.connect
+        closed = []
+
+        class TrackedConnection(sqlite3.Connection):
+            def close(self):
+                closed.append(True)
+                return super().close()
+
+        def tracked_connect(*args, **kwargs):
+            return original_connect(*args, factory=TrackedConnection, **kwargs)
+
+        with patch.object(worker.sqlite3, 'connect', side_effect=tracked_connect):
+            self.run_rows([self.row('96')])
+        self.assertEqual(closed, [True])
+
     def test_duplicate_manifest_fields_are_rejected(self):
         self.manifest.write_text('{"schema_version":1,"shards":[],"shards":[]}')
         with self.assertRaisesRegex(ValueError, 'duplicate JSON key'):
