@@ -93,6 +93,92 @@ def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
     return proposed
 
 
+
+def verified_context(context, root, existing_issues=()):
+    """Allow only immutable, SHA-verified Route05/GHA01 source partitions.
+
+    This is the production-only gate. queue v1 planner remains a pure
+    deterministic function for compatibility. Never enqueue evidence
+    inferred from queue.json metadata without checking the actual bytes.
+    """
+    from tools.gha_factory.admission import pipeline
+
+    root = Path(root).resolve()
+    approved = {}
+    checked_sources = {}
+    known = _existing_issues(existing_issues)
+    accepted_root = (root / 'tools/gha_factory/admission/accepted').resolve()
+    for key in sorted(context.get('admissions', {})):
+        if not isinstance(key, tuple) or len(key) != 4:
+            raise ValueError('invalid accepted partition identity')
+        source_id, language, digest, shard = key
+        task = proposal(source_id, language, digest, shard)
+        if task['task_id'] in known:
+            continue
+        if queue.admission(task, context, '0' * 64) != 'READY':
+            continue
+        item = context['admissions'][key]
+        source_matches = [s for s in context['sources']
+                          if isinstance(s, dict) and s.get('source_id') == source_id]
+        if len(source_matches) != 1 or not isinstance(item, dict):
+            continue
+        source = source_matches[0]
+        report, job = item.get('report'), item.get('job')
+        if not isinstance(report, dict) or not isinstance(job, dict):
+            continue
+        if (report.get('status') != 'ACCEPTED_FOR_QUEUE'
+                or report.get('publication_approved') is not False
+                or report.get('source_id') != source_id
+                or report.get('language') != language
+                or report.get('source_artifact_sha256') != digest
+                or report.get('dataset_version') != source.get('dataset_version')
+                or report.get('license_evidence_sha256') != (source.get('license') or {}).get('evidence_sha256')
+                or job.get('source_id') != source_id
+                or job.get('language') != language
+                or job.get('dataset_version') != report['dataset_version']
+                or job.get('category') != 'dictionary'
+                or job.get('partition_index') != shard
+                or job.get('path') != f'partition-{shard:08d}.jsonl'
+                or type(job.get('record_count')) is not int
+                or not 1 <= job['record_count'] <= queue.MAX_PARTITION_RECORDS
+                or not queue.HEX.fullmatch(str(job.get('sha256', '')))):
+            continue
+        try:
+            src_key = (source_id, digest, report['dataset_version'])
+            if src_key not in checked_sources:
+                retrieval = source.get('retrieval') or {}
+                relative = retrieval.get('artifact_path')
+                if not isinstance(relative, str):
+                    continue
+                source_file = (root / relative).resolve()
+                verified_source = pipeline.route05_source(
+                    root, source_id, report['dataset_version'], source_file, 'wiktextract-jsonl')
+                if verified_source != source:
+                    continue
+                checked_sources[src_key] = True
+            raw_folder = Path(item['folder'])
+            if raw_folder.is_symlink():
+                continue
+            folder = raw_folder.resolve()
+            if not folder.is_relative_to(accepted_root):
+                continue
+            raw_partition = folder / job['path']
+            if raw_partition.is_symlink():
+                continue
+            partition = raw_partition.resolve()
+            if (not partition.is_relative_to(folder) or not partition.is_file()
+                    or not 0 < partition.stat().st_size <= 40_000_000):
+                continue
+            if pipeline.digest_file(partition) != job['sha256']:
+                continue
+        except (pipeline.AdmissionError, OSError, ValueError, KeyError, TypeError):
+            continue
+        approved[key] = item
+        if len(approved) >= MAX_NEW_ISSUES:
+            break
+    return {**context, 'admissions': approved}
+
+
 class GitHubIssueWriter:
     def __init__(self, token):
         if not isinstance(token, str) or not token:
@@ -162,7 +248,8 @@ def main():
     context, registry_sha = controller.context()
     writer = GitHubIssueWriter(os.getenv('GITHUB_TOKEN'))
     issues = writer.all_queue_issues()
-    new = plan(context, registry_sha, issues)
+    verified = verified_context(context, controller.ROOT, issues)
+    new = plan(verified, registry_sha, issues)
     numbers = []
     for task in new:
         numbers.append(writer.create(task))
