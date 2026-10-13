@@ -69,9 +69,9 @@ class Tests(unittest.TestCase):
         (self.root/'not-committed/snapshot.gz').unlink()
         with self.assertRaises(p.Blocked):self.job()
     def test_wrong_language_and_empty_lexical_senses_rejected(self):
-        lines=(b'{"lang_code":"de","word":"Apfel","pos":"noun","senses":[{"glosses":["apple"]}]}\\n'
-               b'{"lang_code":"fr","word":"pomme","pos":"noun","senses":[{"glosses":["apple"]}]}\\n'
-               b'{"lang_code":"de","word":"Apfel","pos":"noun","senses":[]}\\n')
+        lines=(b'{"lang_code":"de","word":"Apfel","pos":"noun","senses":[{"glosses":["apple"]}]}\n'
+               b'{"lang_code":"fr","word":"pomme","pos":"noun","senses":[{"glosses":["apple"]}]}\n'
+               b'{"lang_code":"de","word":"Apfel","pos":"noun","senses":[]}\n')
         self.zip=gzip.compress(lines,mtime=0)
         (self.root/'not-committed/snapshot.gz').write_bytes(self.zip)
         self.src['retrieval']['sha256']=h(self.zip);self.save()
