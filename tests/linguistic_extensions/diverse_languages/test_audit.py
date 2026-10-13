@@ -27,7 +27,7 @@ class DiverseAuditTests(unittest.TestCase):
                      for c in self.codes]
         self.write_json("catalog/language_registry.v1.json", {"languages": languages})
         self.write_json("catalog/content_readiness.v1.json", {"states": dict.fromkeys(self.codes, "unverified")})
-        self.write_json("legal/ledger/sources.json", {"sources": []})
+        self.write_json("legal/ledger/sources.json", {"schema_version": "1.0.0", "sources": []})
         self.worker = audit.DiverseAudit(root=self.root)
 
     def write_json(self, path, value):
