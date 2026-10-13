@@ -86,6 +86,29 @@ class SQLiteScaleTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     self.check(probes=probes)
 
+    def test_grammar_sidecar_requires_byte_equivalent_compiled_rows(self):
+        sidecar = self.work / 'de.grammar.json'
+        source = copy.deepcopy(self.doc['lexemes'][0]['source'])
+        sidecar.write_text(pipeline.compact({
+            'contract_version':'1.0.0', 'languageCode':'de',
+            'rules':[{'grammar_id':'grammar.fixture.rule', 'category':'nouns',
+                      'title':'Fixture-only', 'source':source}]
+        }), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'grammar/source mismatch'):
+            self.check()
+
+    def test_excessive_search_cases_are_rejected_before_sql(self):
+        probes = copy.deepcopy(self.probes)
+        probes['cases'] *= 129
+        with self.assertRaisesRegex(ValueError, 'search probe limit'):
+            self.check(probes=probes)
+
+    def test_control_characters_cannot_be_used_as_fts_queries(self):
+        probes = copy.deepcopy(self.probes)
+        probes['cases'][0]['query'] = 'Haus\\x00'
+        with self.assertRaisesRegex(ValueError, 'invalid query'):
+            self.check(probes=probes)
+
     def test_script_aware_exact_search_does_not_infer_normalization(self):
         with sqlite3.connect(':memory:') as db:
             db.execute('CREATE TABLE lexicon(id TEXT, surface TEXT, language_code TEXT)')
