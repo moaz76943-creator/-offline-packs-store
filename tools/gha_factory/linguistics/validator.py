@@ -186,6 +186,13 @@ def _within_one_edit(a,b):
     return edits+(len(b)-j)<=1
 
 
+def _arabic_mark_only_difference(a, b):
+    """Do not equate distinct Arabic marks without same-sense evidence."""
+    def unmarked(value):
+        return ''.join(ch for ch in value if not unicodedata.combining(ch))
+    return a != b and unmarked(a) == unmarked(b)
+
+
 def classify_answer(submitted, expected, other_attestations=()):
     """Only a *same-sense* attested alternate can prove morphology error.
 
@@ -194,12 +201,18 @@ def classify_answer(submitted, expected, other_attestations=()):
     """
     if not isinstance(submitted,str):raise LinguisticError('answer must be text')
     answer=submitted.strip()
-    if answer==expected['form']:return 'correct'
+    answer_nfc=unicodedata.normalize('NFC',answer)
+    expected_nfc=unicodedata.normalize('NFC',expected['form'])
+    if answer_nfc==expected_nfc:return 'correct'
     same=[r for r in other_attestations if r.get('language_code')==expected['language_code']
           and r.get('lemma_id')==expected['lemma_id'] and r.get('sense_id')==expected['sense_id']]
-    if any(r.get('form')==answer and r.get('features')==expected['features'] for r in same):
+    if any(isinstance(r.get('form'),str) and unicodedata.normalize('NFC',r['form'])==answer_nfc
+           and r.get('features')==expected['features'] for r in same):
         return 'correct'
-    if any(r.get('form')==answer and r.get('features')!=expected['features'] for r in same):
+    if any(isinstance(r.get('form'),str) and unicodedata.normalize('NFC',r['form'])==answer_nfc
+           and r.get('features')!=expected['features'] for r in same):
         return 'morphology_error'
-    if _within_one_edit(answer,expected['form']):return 'spelling_error'
+    if expected['language_code']=='ar' and _arabic_mark_only_difference(answer_nfc,expected_nfc):
+        return 'unverified'
+    if _within_one_edit(answer_nfc,expected_nfc):return 'spelling_error'
     return 'unverified'
