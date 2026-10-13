@@ -91,11 +91,11 @@ def _bounded_lines(path):
             if not raw:
                 return
             too_large = len(raw) > MAX_LINE_BYTES
-            if too_large and not raw.endswith(b"\\n"):
+            if too_large and not raw.endswith(b"\n"):
                 # Discard the remainder in bounded chunks, preserving line numbers.
                 while True:
                     tail = stream.readline(MAX_LINE_BYTES + 1)
-                    if not tail or tail.endswith(b"\\n"):
+                    if not tail or tail.endswith(b"\n"):
                         break
             yield None if too_large else raw
 
