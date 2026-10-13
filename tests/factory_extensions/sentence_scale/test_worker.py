@@ -282,5 +282,66 @@ class SentenceScaleTests(unittest.TestCase):
             self.run_rows([self.row('95')])
 
 
+    def test_approved_source_does_not_authorize_unbound_shard(self):
+        row = self.row('401')
+        self.ledger.write_text(json.dumps({'schema_version': '1.0.0', 'sources': [{
+            'source_id': 'demo', 'kind': 'examples', 'publisher': 'Example Org',
+            'origin_url': 'https://example.org/sentences/', 'dataset_version': '2026-01',
+            'status': 'APPROVED_FOR_REDISTRIBUTION',
+            'retrieval': {'identity': 'fixture', 'url': 'https://example.org/archive',
+                          'sha256': 'a' * 64},
+            'license': {'id': 'CC0-1.0', 'evidence_sha256': 'b' * 64},
+            'review': {'decision_url': 'https://example.org/decision'}}]}))
+        with patch.object(worker.canonical, 'validate', return_value=('ACCEPTED', [], [])), \
+                patch.object(worker, 'evidence', return_value=True):
+            result = self.run_rows([row])
+        self.assertEqual(result['totals']['accepted'], 0)
+        self.assertIn('source_shard_admission_missing',
+                      json.loads((self.out / 'candidates.jsonl').read_text())['reasons'])
+
+    def test_review_only_update_does_not_trigger_sentence_revision(self):
+        first = self.row('402')
+        self.run_rows([first])
+        revised = self.row('402')
+        revised['language_review'] = {
+            'reviewer_id': 'mock.editor', 'sentence_sha256': hashlib.sha256(
+                revised['text'].encode()).hexdigest(),
+            'evidence_url': 'https://example.org/reviews/402'}
+        raw = (json.dumps(revised) + '\n').encode()
+        (self.workspace / 'review.jsonl').write_bytes(raw)
+        current = json.loads(self.manifest.read_text())
+        current['shards'].append({'path': 'review.jsonl',
+                                   'sha256': hashlib.sha256(raw).hexdigest()})
+        self.manifest.write_text(json.dumps(current))
+        self.invoke()
+        saved = json.loads((self.out / 'candidates.jsonl').read_text())
+        self.assertNotIn('immutable_sentence_revision', saved['reasons'])
+        self.assertIn('language_review', saved)
+
+    def test_translation_reviewer_requires_target_language_authorization(self):
+        source = self.row('403', language='en')
+        target = self.row('404', text='مرحبا!', language='ar')
+        source_sha = hashlib.sha256(source['text'].encode()).hexdigest()
+        target_sha = hashlib.sha256(target['text'].encode()).hexdigest()
+        link = {'target_source_id': 'demo', 'target_sentence_id': '404',
+                'target_language': 'ar', 'direction': 'en_to_ar',
+                'evidence_url': 'https://example.org/links/403/404'}
+        source['translations'] = [link]
+        source['translation_reviews'] = [{
+            **{k: link[k] for k in ('target_source_id', 'target_sentence_id',
+                                  'target_language')},
+            'target_sha256': target_sha, 'reviewer_id': 'english.only',
+            'sentence_sha256': source_sha,
+            'evidence_url': 'https://example.org/reviews/403'}]
+        self.reviewers.write_text(json.dumps({'schema_version': 1, 'reviewers': [
+            {'id': 'english.only', 'approved': True, 'languages': ['en']}]}))
+        result = self.run_rows([source, target])
+        self.assertEqual(result['totals']['accepted'], 0)
+        records = [json.loads(line) for line in
+                   (self.out / 'candidates.jsonl').read_text().splitlines()]
+        original = next(item for item in records if item['language'] == 'en')
+        self.assertIn('translation_equivalence_unverified', original['reasons'])
+
+
 if __name__ == '__main__':
     unittest.main()
