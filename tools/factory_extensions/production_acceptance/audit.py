@@ -192,6 +192,35 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
                 raise AcceptanceError('proof cross-pack/source substitution')
         if proof.get('result')!='PASS' or type(proof.get('run_id')) is not int or proof['run_id']<1:
             raise AcceptanceError('independent QA proof absent or failed')
+    # A publisher-signed installation floor binds the previous canonical release.
+    # Client-supplied version strings alone never establish an anti-rollback floor.
+    state=verify_signed(b.get('release_state'),publisher_key,publisher_pin,'release_state')
+    if state.get('language')!=code:
+        raise AcceptanceError('cross-language signed release state')
+    present=[p for p in manifest.get('packs',[]) if isinstance(p,dict) and
+             (p.get('id')==code or p.get('languageCode')==code)]
+    if state.get('mode')=='GENESIS':
+        if present:
+            raise AcceptanceError('cannot declare genesis over published pack')
+        floor='0.0.0'
+        lkg_sha=None
+    elif state.get('mode')=='LAST_KNOWN_GOOD':
+        if len(present)!=1:
+            raise AcceptanceError('canonical Last-Known-Good manifest entry absent')
+        old=present[0]
+        floor=state.get('version')
+        lkg_sha=state.get('sha256')
+        if (not isinstance(floor,str) or not VERSION.fullmatch(floor) or
+                not HASH.fullmatch(str(lkg_sha)) or
+                old.get('version')!=floor or old.get('sha256')!=lkg_sha):
+            raise AcceptanceError('Last-Known-Good version/hash not pinned to canonical manifest')
+        lkg=safe_file(root,'packs/'+code+'-'+floor+'.pack.gz')
+        if sha_file(lkg)!=lkg_sha:
+            raise AcceptanceError('Last-Known-Good bytes missing or altered')
+    else:
+        raise AcceptanceError('signed release floor is missing')
+    if tuple(map(int,version.split('.'))) <= tuple(map(int,floor.split('.'))):
+        raise AcceptanceError('release replay/downgrade below signed floor')
     auth=verify_signed(b.get('authorization'),publisher_key,publisher_pin,'publication_authorization')
     for field,value in (('language',code),('version',version),('pack_sha256',expected),
                         ('source_sha256',source['sha256'])):
@@ -201,7 +230,8 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
         raise AcceptanceError('publisher authorization absent')
     return {'schema_version':'production-acceptance.v1','language':code,'version':version,
             'pack_sha256':expected,'source':source,'sqlite_v2':'PASS',
-            'independent_receipts':sorted(PROOFS),'publication_handoff_eligible':True,
+            'independent_receipts':sorted(PROOFS),'last_known_good_sha256':lkg_sha,
+            'publication_handoff_eligible':True,
             'published':False,'app_installation_verified':False,'publication_approved':False,
             'status':'VERIFIED_FOR_AUTHORIZED_HANDOFF'}
 
