@@ -19,7 +19,9 @@
         "record_locator": "line 1",
         "publication_approved": false,
         "fixture_only": true
-      }
+      },
+      "from_language": "en",
+      "to_language": "es"
     }
   ]
 }
