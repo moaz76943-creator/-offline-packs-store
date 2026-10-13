@@ -2,7 +2,7 @@ import copy
 import tempfile
 import unittest
 from legal.license_compatibility.compatibility import check_compatibility
-from tools.contribution_gate.test_fixture import fixture
+from tools.contribution_gate.test_fixture import fixture, save_ledger
 
 class CompatibilityTests(unittest.TestCase):
     def setUp(self):
@@ -12,6 +12,15 @@ class CompatibilityTests(unittest.TestCase):
     def run_gate(self, sources=None, output="CC0-1.0", derivative=True):
         return check_compatibility(sources if sources is not None else [self.source],
                                    output, derivative, repo_root=self.tmp.name)
+    def test_injected_approved_source_cannot_override_empty_canonical_ledger(self):
+        save_ledger(self.tmp.name, {"schema_version": "1.0.0", "sources": []})
+        self.assertEqual(self.run_gate()["status"], "REVIEW_REQUIRED")
+
+    def test_injected_changed_origin_cannot_override_canonical_record(self):
+        save_ledger(self.tmp.name, self.ledger)
+        self.source["origin_url"] = "https://example.org/forged"
+        self.assertEqual(self.run_gate()["status"], "REVIEW_REQUIRED")
+
     def test_valid_documented_fixture_is_not_legal_approval(self):
         r = self.run_gate()
         self.assertEqual(r["status"], "COMPATIBLE", r)
@@ -33,9 +42,11 @@ class CompatibilityTests(unittest.TestCase):
         self.assertEqual(self.run_gate(output="OFL-1.1")["status"], "REVIEW_REQUIRED")
     def test_copyleft_relicense_conflict(self):
         self.source["license"]["id"] = "CC-BY-SA-4.0"
+        save_ledger(self.tmp.name, self.ledger)
         self.assertEqual(self.run_gate(output="CC0-1.0")["status"], "INCOMPATIBLE")
     def test_aggregation_without_collection_rights_stays_review(self):
         self.source["license"]["id"] = "CC-BY-SA-4.0"
+        save_ledger(self.tmp.name, self.ledger)
         self.assertEqual(self.run_gate(output="CC-BY-SA-4.0", derivative=False)["status"],
                          "REVIEW_REQUIRED")
 

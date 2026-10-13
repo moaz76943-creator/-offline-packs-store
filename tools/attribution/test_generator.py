@@ -20,6 +20,15 @@ class AttributionTests(unittest.TestCase):
                                   encoding="utf-8")
         return generate_attribution(self.ledger_file, self.refs_file, self.out,
                                     repo_root=self.root)
+    def test_caller_supplied_approved_ledger_cannot_override_canonical_empty_ledger(self):
+        injected = self.root / "injected_sources.json"
+        injected.write_text(json.dumps(self.ledger), encoding="utf-8")
+        save_ledger(self.root, {"schema_version": "1.0.0", "sources": []})
+        self.refs_file.write_text(json.dumps([ref(self.source)]), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "canonical"):
+            generate_attribution(injected, self.refs_file, self.out, repo_root=self.root)
+        self.assertFalse(self.out.exists())
+
     def test_exact_source_notice_and_deterministic_manifest(self):
         result = self.run_gate()
         self.assertEqual(result[0]["source_id"], "case-source")

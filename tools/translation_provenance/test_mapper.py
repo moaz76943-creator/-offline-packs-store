@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from io import StringIO
 from pathlib import Path
-from tools.contribution_gate.test_fixture import fixture, ref, put
+from tools.contribution_gate.test_fixture import fixture, ref, put, save_ledger
 from tools.translation_provenance.mapper import map_provenance
 
 class MapperTests(unittest.TestCase):
@@ -28,6 +28,11 @@ class MapperTests(unittest.TestCase):
     def run_gate(self, records=None):
         lines = "\n".join(json.dumps(r) for r in (records if records is not None else self.records))
         return map_provenance(StringIO(lines), self.ledger, repo_root=self.root)
+    def test_injected_approved_manifest_cannot_override_canonical_empty_ledger(self):
+        save_ledger(self.root, {"schema_version": "1.0.0", "sources": []})
+        with self.assertRaisesRegex(ValueError, "canonical"):
+            self.run_gate()
+
     def test_exact_direction_and_source_identity(self):
         data = self.run_gate()
         self.assertEqual(len(data), 1)

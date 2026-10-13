@@ -25,6 +25,7 @@ def fixture(root, source_id="case-source"):
         "alterations": ["no changes"]
     }
     ledger = {"schema_version": "1.0.0", "sources": [source]}
+    save_ledger(root, ledger)
     return ledger, source
 
 def ref(source):

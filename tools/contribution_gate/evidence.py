@@ -20,6 +20,18 @@ def verified_sources(ledger, repo_root):
         raise ValueError("Missing repo_root for offline verification")
     if not isinstance(ledger, dict) or ledger.get("schema_version") != "1.0.0":
         raise ValueError("Invalid canonical ledger schema")
+    # Never trust a caller-crafted ledger in place of the canonical source registry.
+    root = Path(repo_root).resolve()
+    canonical_path = root / "legal/ledger/sources.json"
+    if (not canonical_path.is_file() or canonical_path.is_symlink() or
+            not canonical_path.resolve().is_relative_to(root)):
+        raise ValueError("Missing or escaping canonical source ledger")
+    try:
+        canonical = json.loads(canonical_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ValueError("Malformed canonical source ledger") from exc
+    if canonical != ledger:
+        raise ValueError("Caller source manifest contradicts canonical legal/ledger/sources.json")
     entries = ledger.get("sources")
     if not isinstance(entries, list) or not entries:
         raise ValueError("No verified canonical source records")
