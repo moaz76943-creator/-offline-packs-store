@@ -54,11 +54,19 @@ class Tests(unittest.TestCase):
                             and x['redistribution_approved_sources'] == 0
                             for x in report['language_coverage']))
 
-    def test_source_ledger_separate_and_empty(self):
-        self.assertEqual(self.ledger['sources'], [])
+    def test_existing_ledger_never_grants_research_approval(self):
         report = self.audit()
         self.assertEqual(report['approved_by_this_tool'], 0)
-        self.assertEqual(report['route05_approved_existing_count'], 0)
+        self.assertEqual(report['route05_approved_existing_count'], sum(
+            s.get('status') == 'APPROVED_FOR_REDISTRIBUTION'
+            for s in self.ledger['sources'] if isinstance(s, dict)))
+
+    def test_report_records_actual_canonical_registry_bytes(self):
+        with tempfile.TemporaryDirectory() as d:
+            a.main(['--out', d])
+            report = json.loads((Path(d) / 'rights_audit.json').read_text(encoding='utf-8'))
+            self.assertEqual(report['canonical_registry_sha256'],
+                             hashlib.sha256(a.CATALOG.read_bytes()).hexdigest())
 
     def test_each_candidate_has_human_blockers(self):
         report = self.audit()
