@@ -21,7 +21,12 @@ class DirectedPairContractError(ValueError):
     pass
 
 
-def validate(document, *, publication=False):
+def validate(document, *, publication=False, sense_languages=None, approved_sources=None):
+    """Validate a single direction. Publication requires independent sense and rights indexes.
+
+    Indexes must be built by the trusted caller from admitted canonical sources;
+    lexical sense IDs must not be parsed as if they encoded language identity.
+    """
     global _SCHEMA_CACHE
     if _SCHEMA_CACHE is None:
         _SCHEMA_CACHE = json.loads(SCHEMA_PATH.read_text(encoding='utf-8'))
@@ -34,14 +39,34 @@ def validate(document, *, publication=False):
         error = failures[0]
         raise DirectedPairContractError(f'JSON Schema violation at {list(error.absolute_path)}: {error.message}')
 
+    # Registry identities, not arbitrary well-formed BCP-47-like identifiers.
+    registry_path = Path(__file__).resolve().parents[2] / 'catalog' / 'language_registry.v1.json'
+    registry = json.loads(registry_path.read_text(encoding='utf-8'))
+    ids = {lang['id'] for lang in registry['languages']}
+    pair = (document['source_language'], document['target_language'])
+    if pair[0] == pair[1] or any(code not in ids for code in pair):
+        raise DirectedPairContractError(f'unknown or identical canonical directed-pair languages: {pair}')
+    if publication and (not isinstance(sense_languages, dict) or not isinstance(approved_sources, dict)):
+        raise DirectedPairContractError('publication requires independently verified sense and source indexes')
+
     entries = {}
 
     for record in document['translations']:
         rid = record['translation_id']
+        if (record['from_language'], record['to_language']) != pair:
+            raise DirectedPairContractError(f'record direction does not match document pair: {rid}')
+        if sense_languages is not None:
+            if (sense_languages.get(record['from_sense_id']),
+                    sense_languages.get(record['to_sense_id'])) != pair:
+                raise DirectedPairContractError(f'unknown or mismatched sense-language ownership: {rid}')
+        if record['from_sense_id'] == record['to_sense_id']:
+            raise DirectedPairContractError(f'translation cannot be to the same sense id: {rid}')
         if rid in entries:
             raise DirectedPairContractError(f'duplicate stable ID: {rid}')
         entries[rid] = record
         source = record['source']
+        if publication and approved_sources.get(source['source_id']) != source['license_id']:
+            raise DirectedPairContractError(f'no independent source rights admission: {rid}')
         if publication and (not source['publication_approved'] or source['fixture_only'] or
                             not source.get('artifact_sha256')):
             raise DirectedPairContractError(f'publication requires approved non-fixture source hash: {rid}')
@@ -49,16 +74,10 @@ def validate(document, *, publication=False):
         for example in record.get('examples', []):
             if publication:
                 src = example.get('source')
-                if src and (not src['publication_approved'] or src['fixture_only'] or not src.get('artifact_sha256')):
+                if (not src or not src['publication_approved'] or src['fixture_only'] or
+                        not src.get('artifact_sha256') or
+                        approved_sources.get(src['source_id']) != src['license_id']):
                     raise DirectedPairContractError(f'unapproved example translation: {rid}')
-
-    # We validate that reverse translations cannot be assumed.
-    # The schema inherently models this by being a list of directional translations.
-    # We can enforce that a translation A->B and B->A are distinct records with different IDs.
-    # Ensure there's no self-translation for same sense IDs
-    for record in entries.values():
-        if record['from_sense_id'] == record['to_sense_id']:
-            raise DirectedPairContractError(f'translation cannot be to the same sense id: {record["translation_id"]}')
 
     return document
 
@@ -66,6 +85,8 @@ def verify_compatible(previous, updated):
     """Reject silent ID reassignment or removal in a patch of the same contract."""
     validate(previous)
     validate(updated)
+    if (previous['source_language'], previous['target_language']) != (updated['source_language'], updated['target_language']):
+        raise DirectedPairContractError('directed pair reassignment')
     if previous['document_id'] != updated['document_id']:
         raise DirectedPairContractError('document_id changed')
 
@@ -76,7 +97,7 @@ def verify_compatible(previous, updated):
         if rid not in after:
             raise DirectedPairContractError(f'breaking removal of {rid}')
         new = after[rid]
-        pinned = ('from_sense_id', 'to_sense_id')
+        pinned = ('from_sense_id', 'to_sense_id', 'from_language', 'to_language')
         if any(old[key] != new[key] for key in pinned):
             raise DirectedPairContractError(f'stable identity reassignment: {rid}')
     return True
