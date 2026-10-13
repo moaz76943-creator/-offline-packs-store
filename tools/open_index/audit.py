@@ -32,7 +32,17 @@ def schema(db):
     return db.execute("SELECT type,name,tbl_name,sql FROM sqlite_master ORDER BY type,name").fetchall()
 
 
-def inspect(path, language, expected_sha256, *, canonical_ddl=None):
+def inspect(path, language, expected_sha256, *, canonical_ddl=None, permitted_languages=None):
+    # A v2 pack may include attested directed-translation target lexemes;
+    # no extra language may appear without an explicit caller-supplied list.
+    if permitted_languages is None:
+        permitted_languages = [language]
+    if (not isinstance(permitted_languages, (tuple, list, set))
+            or not permitted_languages or len(permitted_languages) > 100
+            or any(not isinstance(x, str) or not x.strip() for x in permitted_languages)
+            or language not in permitted_languages):
+        raise IndexBlocked('invalid permitted languages')
+    allowed = set(permitted_languages)
     path = Path(path)
     if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_DB:
         raise IndexBlocked('missing, escaping or oversized SQLite candidate')
@@ -62,6 +72,9 @@ def inspect(path, language, expected_sha256, *, canonical_ddl=None):
                     or meta.get('mapping_version') != '2.0.0'
                     or meta.get('language_code') != language):
                 raise IndexBlocked('SQLite contract or pack language mismatch')
+            observed = {row[0] for row in db.execute('SELECT DISTINCT language_code FROM lexicon')}
+            if not observed.issubset(allowed):
+                raise IndexBlocked('undeclared language found in SQLite lexicon')
             count = db.execute('SELECT count(*) FROM lexicon').fetchone()[0]
             if count <= 0 or db.execute('SELECT count(*) FROM lexicon_fts').fetchone()[0] != count:
                 raise IndexBlocked('empty or incorrect FTS5 row count')
@@ -89,6 +102,8 @@ def inspect(path, language, expected_sha256, *, canonical_ddl=None):
     return {'status':'QA_ONLY_NOT_PUBLICATION', 'language':language,
             'sqlite_sha256':expected_sha256, 'actual_lexeme_count':count,
             'fts5_exact_matches':matches,'original_pack_mutated':False,
+            'observed_languages':sorted(observed),'permitted_languages':sorted(allowed),
+            'cross_language_evidence_verified':False,
             'optional_diacritic_matching_proven':False,
             'source_rights_verified':False,'publication_approved':False}
 
@@ -98,9 +113,12 @@ def main(argv=None):
     p.add_argument('--sqlite',type=Path,required=True)
     p.add_argument('--language',required=True)
     p.add_argument('--sha256',required=True)
+    p.add_argument('--permitted-language',action='append',dest='permitted_languages',
+                   help='Explicit permitted language identity; repeat for directed-pair packs')
     args=p.parse_args(argv)
     try:
-        report=inspect(args.sqlite,args.language,args.sha256)
+        report=inspect(args.sqlite,args.language,args.sha256,
+                       permitted_languages=args.permitted_languages)
         print(json.dumps(report,sort_keys=True))
         return 0
     except (IndexBlocked,OSError,ImportError) as exc:
