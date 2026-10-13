@@ -99,6 +99,59 @@ class Tests(unittest.TestCase):
         f=self.root/'file';f.write_bytes(self.zip+b'extra')
         with self.assertRaises(p.Blocked):p.partitions(f,source,self.root/'shards',len(self.zip),fmt='jsonl.gz')
 
+    def test_malformed_existing_receipt_counters_fail_closed(self):
+        source=self.job()
+        f=self.root/'file';f.write_bytes(self.zip)
+        out=self.root/'shards'
+        original=p.partitions(f,source,out,len(self.zip),fmt='jsonl.gz')
+        tampered=dict(original,accepted_rows='3')
+        (out/'receipt.json').write_text(json.dumps(tampered))
+        with self.assertRaises(p.Blocked):
+            p.partitions(f,source,out,len(self.zip),fmt='jsonl.gz')
+    def test_bad_checkpoint_receipt_fails_closed(self):
+        source=self.job()
+        f=self.root/'file';f.write_bytes(self.zip)
+        out=self.root/'shards'
+        original=p.partitions(f,source,out,len(self.zip),fmt='jsonl.gz')
+        tampered=dict(original,checkpoint=dict(original['checkpoint'],last_row=99999999))
+        (out/'receipt.json').write_text(json.dumps(tampered))
+        with self.assertRaises(p.Blocked):
+            p.partitions(f,source,out,len(self.zip),fmt='jsonl.gz')
+    def test_corrupt_compressed_input_fails_closed(self):
+        corrupt=self.zip[:-4]+b'XXXX'
+        self.src['retrieval']['sha256']=h(corrupt);self.save()
+        (self.root/'not-committed/snapshot.gz').write_bytes(corrupt)
+        source=self.job()
+        with self.assertRaises(p.Blocked):
+            p.partitions(self.root/'not-committed/snapshot.gz',source,self.root/'shards',len(corrupt),fmt='jsonl.gz')
+
+    def test_streamed_25001_rows_have_deterministic_shard_counts(self):
+        one=b'{"lang_code":"de","word":"Baum","pos":"noun","senses":[{"glosses":["tree"]}]}\n'
+        payload=gzip.compress(one*25001,mtime=0)
+        (self.root/'not-committed/snapshot.gz').write_bytes(payload)
+        self.src['retrieval']['sha256']=h(payload);self.save()
+        source=self.job()
+        report=p.partitions(self.root/'not-committed/snapshot.gz',source,self.root/'out',len(payload),fmt='jsonl.gz')
+        self.assertEqual((report['real_input_rows'],report['accepted_rows'],report['rejected_rows']),(25001,25001,0))
+        self.assertEqual([x['rows'] for x in report['partitions']],[10000,10000,5001])
+    def test_arabic_utf8_is_preserved_byte_for_byte(self):
+        (self.root/'catalog/language_registry.v1.json').write_text(json.dumps({
+            'schema_version':'1.0.0','languages':[{'id':'ar','default_script':'Arab'}]}))
+        line=(json.dumps({'lang_code':'ar','word':'كتاب','pos':'noun','senses':[{'glosses':['مؤلَّف مكتوب']}]},
+                         ensure_ascii=False,separators=(',',':'))+'\n').encode('utf-8')
+        payload=gzip.compress(line,mtime=0)
+        (self.root/'not-committed/snapshot.gz').write_bytes(payload)
+        self.src['retrieval']['sha256']=h(payload);self.save()
+        source=p.approved(self.root,'synthetic-only','ar','test')
+        report=p.partitions(self.root/'not-committed/snapshot.gz',source,self.root/'out',len(payload),fmt='jsonl.gz')
+        self.assertEqual(report['accepted_rows'],1)
+        self.assertEqual((self.root/'out/part-00000000.jsonl').read_bytes(),line)
+    def test_bounded_decompression_halts_before_expansion(self):
+        source=self.job()
+        f=self.root/'data.gz';f.write_bytes(self.zip)
+        with self.assertRaises(p.Blocked):
+            p.partitions(f,source,self.root/'out',len(self.zip),fmt='jsonl.gz',max_expand=24)
+
     def test_empty_corpus_not_ready(self):
         source=self.job();source['source_sha256']=h(b'')
         f=self.root/'empty';f.write_bytes(b'')

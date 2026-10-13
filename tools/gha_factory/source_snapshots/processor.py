@@ -190,8 +190,23 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
     if out.is_symlink():raise Blocked('BLOCKED_SOURCE: output symlink')
     if out.exists():
         receipt=out/'receipt.json'
-        if not receipt.is_file():raise Blocked('BLOCKED_SOURCE: partial directory')
+        if receipt.is_symlink() or not receipt.is_file():raise Blocked('BLOCKED_SOURCE: partial directory')
         result=json.loads(receipt.read_text())
+        if not isinstance(result,dict):raise Blocked('BLOCKED_SOURCE: invalid receipt')
+        counters=('real_input_rows','accepted_rows','rejected_rows')
+        if (not all(type(result.get(k)) is int and result[k]>=0 for k in counters)
+                or result['real_input_rows']!=result['accepted_rows']+result['rejected_rows']):
+            raise Blocked('BLOCKED_SOURCE: invalid receipt counters')
+        pieces=result.get('partitions')
+        checkpoint=result.get('checkpoint')
+        if (not isinstance(pieces,list) or not (1<=len(pieces)<=MAX_SHARDS)
+                or not isinstance(checkpoint,dict)
+                or checkpoint.get('source_sha256')!=source['source_sha256']
+                or type(checkpoint.get('last_row')) is not int
+                or checkpoint['last_row']!=result['real_input_rows']
+                or type(checkpoint.get('last_shard')) is not int
+                or checkpoint['last_shard']!=len(pieces)-1):
+            raise Blocked('BLOCKED_SOURCE: invalid checkpoint')
         if (result.get('source_id')!=source['source_id'] or result.get('language')!=source['language']
                 or result.get('dataset_version')!=source['dataset_version']
                 or result.get('license_sha256')!=source['license_sha256']
@@ -200,10 +215,19 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
                 or result.get('source_sha256')!=source['source_sha256'] or result.get('input_bytes')!=size
                 or result.get('format')!=fmt or result.get('shard_rows')!=shard_rows
                 or result.get('status')!='STAGED_ONLY'):raise Blocked('BLOCKED_SOURCE: stale receipt')
-        for i,entry in enumerate(result['partitions']):
-            if (entry.get('name')!=f'part-{i:08d}.jsonl' or not SHA.fullmatch(str(entry.get('sha256','')))
+        total_rows=0
+        for i,entry in enumerate(pieces):
+            if (not isinstance(entry,dict) or entry.get('name')!=f'part-{i:08d}.jsonl'
+                    or entry.get('index')!=i or type(entry.get('rows')) is not int
+                    or not 1<=entry['rows']<=shard_rows
+                    or entry.get('source_sha256')!=source['source_sha256']
+                    or entry.get('language')!=source['language']
+                    or not SHA.fullmatch(str(entry.get('sha256','')))
                     or (out/entry['name']).is_symlink() or sha_file(out/entry['name'])!=entry['sha256']):
                 raise Blocked('BLOCKED_SOURCE: modified shard')
+            total_rows+=entry['rows']
+        if total_rows!=result['accepted_rows']:
+            raise Blocked('BLOCKED_SOURCE: shard row count mismatch')
         if (out/'rejects.jsonl').is_symlink() or sha_file(out/'rejects.jsonl')!=result['rejects_sha256']:
             raise Blocked('BLOCKED_SOURCE: changed rejects')
         return result
@@ -272,6 +296,8 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
         # create or silently overwrite a partition at this output path.
         os.replace(temp,out)
         return result
+    except (OSError,EOFError,lzma.LZMAError) as error:
+        raise Blocked('BLOCKED_SOURCE: damaged compressed input or disk write') from error
     finally:
         if writer is not None:writer.close()
         if temp.exists():shutil.rmtree(temp)
