@@ -149,6 +149,9 @@ class PronunciationAuditTests(unittest.TestCase):
             "commercial_redistribution_approved":True, "terms_url":"https://example.org/terms",
             "proof_sha256":hashlib.sha256(self.license_path.read_bytes()).hexdigest(), "proof_path":"license.txt"}
         self.assertEqual(self.run_audit([rec])["coverage"]["de"]["audio_files"], 1)
+        accepted = self.run_audit([rec])["accepted"][0]
+        self.assertEqual(accepted["generation"]["engine_id"], "fixture_engine")
+        self.assertEqual(accepted["rights_evidence_sha256"], rec["audio"][0]["rights_evidence_sha256"])
 
 
 if __name__ == "__main__":
