@@ -196,49 +196,39 @@ class DiverseAudit:
         }
 
     def _candidate_reasons(self, candidate):
-        reasons = []
-        if not isinstance(candidate, dict) or set(candidate) != REQUIRED:
+        if (not isinstance(candidate, dict) or not REQUIRED.issubset(candidate)
+                or set(candidate) - REQUIRED - {"annotation"}):
             return ["invalid_candidate_schema"]
-        if any(not _clean_string(v, required=k not in ("community", "speaker_consent_ref"))
-               for k, v in candidate.items()):
+        if any(not _clean_string(candidate[k], required=k not in
+                                 ("community", "speaker_consent_ref")) for k in REQUIRED):
             return ["invalid_or_missing_text"]
         code = candidate["language_id"]
+        reasons = []
         if code not in RESEARCH_FOCUS:
             reasons.append("uncovered_language_or_alias")
         if candidate["community"] and not candidate["speaker_consent_ref"]:
             reasons.append("missing_speaker_consent_reference")
-        if not candidate["variant"] or candidate["variant"] == "auto":
+        if candidate["variant"] == "auto" or not candidate["variant"].startswith(code + "-"):
             reasons.append("unresolved_variety_or_script")
+        if "annotation" in candidate:
+            reasons += self._annotation_reasons(code, candidate["annotation"])
         matches = self.approved_sources.get(candidate["source_id"], [])
         if len(matches) != 1:
             reasons.append("source_not_uniquely_approved")
         else:
             source = matches[0]
-            retrieval = source.get("retrieval") or {}
-            artifact = retrieval.get("artifact_path", "")
-            sha = retrieval.get("sha256", "")
-            proof_ok = False
-            if (isinstance(artifact, str) and artifact.startswith("tools/gha_factory/admission/")
-                and isinstance(sha, str) and re.fullmatch(r"[0-9a-f]{64}", sha)):
-                file = (self.root / artifact).resolve()
-                if file.is_relative_to(self.root.resolve()) and file.is_file():
-                    digest = hashlib.sha256()
-                    with file.open("rb") as stream:
-                        for chunk in iter(lambda: stream.read(65536), b""):
-                            digest.update(chunk)
-                    proof_ok = digest.hexdigest() == sha
-            review = source.get("review") or {}
-            if (source.get("status") != "APPROVED_FOR_REDISTRIBUTION"
-                or not isinstance(review, dict) or not review.get("approved_by")
-                or not proof_ok or not source.get("license") or not source.get("rights_url")):
+            if source.get("kind") not in ("dictionary", "morphology") or self._source_issues(source):
                 reasons.append("redistribution_rights_unverified")
+            license_data = source.get("license")
+            if not isinstance(license_data, dict):
+                license_data = {}
             if (candidate["publisher"] != source.get("publisher")
-                or candidate["license"] != source.get("license")
-                or candidate["rights_url"] != source.get("rights_url")):
+                or candidate["license"] != license_data.get("id")
+                or candidate["rights_url"] != license_data.get("evidence_url")):
                 reasons.append("provenance_conflict")
-            if code not in source.get("languages", []):
+            if not self._approved_language_binding(candidate["source_id"], code, candidate["variant"]):
                 reasons.append("source_language_not_approved")
-        return reasons
+        return sorted(set(reasons))
 
     def audit_shard(self, path, *, start_line=1, max_rows=500):
         if type(start_line) is not int or start_line < 1:
@@ -268,12 +258,16 @@ class DiverseAudit:
                         reasons = self._candidate_reasons(item)
                     except (UnicodeError, ValueError, TypeError):
                         item, reasons = None, ["invalid_json_or_unicode"]
-                if isinstance(item, dict) and set(item) == REQUIRED:
+                if (isinstance(item, dict) and REQUIRED.issubset(item)
+                        and not (set(item) - REQUIRED - {"annotation"})
+                        and all(_clean_string(item[k], required=k not in
+                                ("community", "speaker_consent_ref")) for k in REQUIRED)):
                     code = item["language_id"]
                     if code in candidates:
                         candidates[code] += 1
                     rid = (code, item["record_id"])
-                    signature = (item["lemma"], item["meaning"], item["variant"], item["source_id"])
+                    signature = (item["lemma"], item["meaning"], item["variant"], item["source_id"],
+                                 json.dumps(item.get("annotation"), sort_keys=True, ensure_ascii=False))
                     if rid in record_ids and record_ids[rid] != signature:
                         reasons.append("record_id_conflict")
                     record_ids[rid] = signature
