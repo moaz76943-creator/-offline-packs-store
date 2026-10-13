@@ -149,41 +149,67 @@ class Extension:
         return file
 
     def _admission(self,shard,digest):
-        candidates=[]
-        daily=self.root/'legal/ledger/daily'
-        for file in sorted(daily.glob('????-??-??.json')):
-            doc=_json(file)
-            if doc.get('schema_version')!='1.0.0':
-                raise EvidenceError('invalid daily ledger version')
-            for candidate in doc.get('release_candidates',[]):
-                if candidate.get('artifact_path')==shard:
-                    candidates.append(candidate)
-        if len(candidates)!=1:
+        """Independently verify evidence with the canonical Route 05 gate.
+
+        Use a release-neutral manifest to validate this shard, not existing
+        unrelated legacy packs. Actual publication must gate the real manifest.
+        """
+        import importlib.util
+
+        daily_dir = self.root / 'legal/ledger/daily'
+        docs = []
+        candidates = []
+        for file in sorted(daily_dir.glob('????-??-??.json')):
+            if file.is_symlink() or not file.resolve().is_relative_to(daily_dir.resolve()):
+                raise EvidenceError('unsafe daily provenance file')
+            doc = _json(file)
+            if not isinstance(doc,dict) or not isinstance(doc.get('release_candidates'),list):
+                raise EvidenceError('malformed daily provenance')
+            docs.append(doc)
+            for item in doc['release_candidates']:
+                if not isinstance(item,dict):
+                    raise EvidenceError('invalid release candidate')
+                if item.get('artifact_path') == shard:
+                    candidates.append(item)
+        if len(candidates) != 1:
             raise EvidenceError('shard has no unique reviewed release admission')
-        candidate=candidates[0]
-        if candidate.get('kind')!='morphology' or candidate.get('sha256')!=digest:
+        candidate = candidates[0]
+        if candidate.get('kind') != 'morphology' or candidate.get('sha256') != digest:
             raise EvidenceError('checkpoint digest differs from admitted shard')
-        review=candidate.get('review') or {}
-        if not review.get('reviewer') or not str(review.get('decision_url','')).startswith('https://'):
-            raise EvidenceError('no manual release review')
-        refs=candidate.get('source_refs')
+
+        # Do not trust status strings or user-supplied hashes without verifying
+        # original source bytes, license notice bytes, release notice and review.
+        gate_path = self.root / 'legal/ledger/admission.py'
+        if gate_path.is_symlink() or not gate_path.is_file():
+            raise EvidenceError('canonical rights gate unavailable')
+        spec = importlib.util.spec_from_file_location('_agglutinative_rights_gate',gate_path)
+        if spec is None or spec.loader is None:
+            raise EvidenceError('canonical rights gate is not loadable')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        problems = module.evaluate(self.ledger, {'languages': [], 'packs': []},
+                                   docs, self.root)
+        if problems:
+            raise EvidenceError('canonical rights admission blocked: ' + str(problems[0]))
+
+        refs = candidate.get('source_refs')
         if not isinstance(refs,list) or not refs:
             raise EvidenceError('missing reviewed source references')
-        approved={}
+        approved = {}
         for ref in refs:
-            source=self.sources.get(ref.get('source_id'))
-            if (source is None or source.get('kind')!='morphology'
-                    or source.get('status')!='APPROVED_FOR_REDISTRIBUTION'
-                    or source.get('dataset_version')!=ref.get('dataset_version')
-                    or source.get('retrieval',{}).get('sha256')!=ref.get('artifact_sha256')
-                    or not HEX64.fullmatch(str(ref.get('artifact_sha256','')))
-                    or not source.get('review',{}).get('reviewer')
-                    or not str(source.get('review',{}).get('decision_url','')).startswith('https://')
-                    or not candidate.get('notices',{}).get(ref.get('source_id'))):
+            if not isinstance(ref,dict):
+                raise EvidenceError('invalid source reference')
+            source_id = ref.get('source_id')
+            source = self.sources.get(source_id)
+            if (source is None or source.get('kind') != 'morphology'
+                    or source.get('status') != 'APPROVED_FOR_REDISTRIBUTION'
+                    or source.get('dataset_version') != ref.get('dataset_version')
+                    or source.get('retrieval',{}).get('sha256') != ref.get('artifact_sha256')
+                    or not HEX64.fullmatch(str(ref.get('artifact_sha256','')))):
                 raise EvidenceError('unapproved or mismatched source provenance')
-            if ref['source_id'] in approved:
+            if source_id in approved:
                 raise EvidenceError('duplicate source reference')
-            approved[ref['source_id']]=(ref['dataset_version'],ref['artifact_sha256'])
+            approved[source_id] = (ref['dataset_version'],ref['artifact_sha256'])
         return approved
 
     def _iter(self,file):
