@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from legal.ledger.admission import KINDS, manual_review
+from legal.ledger.admission import KINDS, manual_review, text, url_ok
 from tools.contribution_gate.evidence import (
     exact_source_reference, load_verified_ledger, required, verified_artifact
 )
@@ -42,8 +42,30 @@ def validate_contribution(manifest_dict, repo_root):
         rights = manifest_dict.get("contributor_authorization")
         if not isinstance(rights, dict):
             raise ValueError("Missing independently reviewable contributor authorization")
-        verified_artifact(root, rights.get("artifact_path"), rights.get("sha256"),
-                          "contributor authorization proof")
+        right_path = verified_artifact(root, rights.get("artifact_path"), rights.get("sha256"),
+                                       "contributor authorization proof")
+        right_file = (root / right_path).resolve()
+        if right_file.stat().st_size > 65536:
+            raise ValueError("Contributor authorization evidence exceeds size bound")
+        try:
+            grant = json.loads(right_file.read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, ValueError) as exc:
+            raise ValueError("Contributor authorization must be structured evidence") from exc
+        if not isinstance(grant, dict) or grant.get("synthetic") is True:
+            raise ValueError("Unstructured or synthetic authorization evidence")
+        for key, expected in (
+                ("source_id", source["source_id"]),
+                ("source_version", source["dataset_version"]),
+                ("asset_id", asset_id),
+                ("artifact_sha256", manifest_dict["sha256"]),
+                ("license_id", source["license"]["id"]),
+                ("scope", "redistribution")):
+            if grant.get(key) != expected:
+                raise ValueError("Contributor authorization missing or mismatched " + key)
+        if (not text(grant.get("rights_holder")) or
+                not url_ok(grant.get("grant_url")) or
+                grant.get("revoked") is not False):
+            raise ValueError("Unverified holder, grant URL or revoked rights")
         review_errors = []
         if not manual_review(manifest_dict.get("review"), review_errors, "contribution"):
             raise ValueError("; ".join(review_errors))

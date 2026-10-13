@@ -1,0 +1,42 @@
+# No publisher key, secrets, manifest mutation, fixture promotion or publication.
+name: Production acceptance read-only QA
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/factory_extensions/production_acceptance/**'
+      - 'tests/factory_extensions/production_acceptance/**'
+      - '.github/workflows/production_acceptance_qa.yml'
+permissions:
+  contents: read
+concurrency:
+  group: production-acceptance-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Exercise isolated acceptance security regressions
+        run: python3 -m unittest discover -s tests/factory_extensions/production_acceptance -p 'test_*.py' -v
+      - name: Record actual public 100-language blocker receipt
+        shell: bash
+        run: |
+          python3 -m tools.factory_extensions.production_acceptance.audit --root . --output /tmp/production_acceptance.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/production_acceptance.json',encoding='utf-8'))
+          assert r['publication_approved'] is False
+          assert r['production_complete_100_languages'] is False
+          assert len(r['languages'])==100
+          print('Registry verified; no unsupported publication or 100-language readiness claim')
+          PY
+      - name: Upload read-only blocker receipt only
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-acceptance-readiness-receipt
+          path: /tmp/production_acceptance.json
+          retention-days: 1
