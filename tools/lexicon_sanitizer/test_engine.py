@@ -43,7 +43,7 @@ class TestLexiconSanitizer(unittest.TestCase):
         self.assertEqual(s1, STATUS_ACCEPT)
 
         s2, _, _ = self.sanitizer.sanitize_lexeme(entry2)
-        self.assertEqual(s2, STATUS_QUARANTINE)
+        self.assertEqual(s2, STATUS_REVIEW_REQUIRED)
 
     def test_cjk_homographs(self):
         entry1 = {"lexeme_id": "zh_test1", "language": "zh", "lemma": "干", "pos": "verb", "homograph_key": "1"}
@@ -84,7 +84,7 @@ class TestLexiconSanitizer(unittest.TestCase):
             "text": " repairable "
         }
         s2, mod, _ = self.sanitizer.sanitize_translation(entry2)
-        self.assertEqual(s2, STATUS_REPAIRABLE)
+        self.assertEqual(s2, STATUS_REVIEW_REQUIRED)  # unknown senses and absent source
         self.assertEqual(mod["text"], "repairable")
 
     def test_mixed_language_entries(self):
@@ -109,6 +109,8 @@ class TestLexiconSanitizer(unittest.TestCase):
         self.assertEqual(s, STATUS_QUARANTINE)
 
     def test_sense_duplicate_identity(self):
+        self.assertEqual(self.sanitizer.sanitize_lexeme(
+            {"lexeme_id": "l1", "language": "en", "lemma": "test", "pos": "noun"})[0], STATUS_ACCEPT)
         entry1 = {"sense_id": "s1", "lexeme_id": "l1", "concept_id": "c1"}
         entry2 = {"sense_id": "s2", "lexeme_id": "l1", "concept_id": "c1"}
 
@@ -116,7 +118,7 @@ class TestLexiconSanitizer(unittest.TestCase):
         self.assertEqual(s1, STATUS_ACCEPT)
 
         s2, _, _ = self.sanitizer.sanitize_sense(entry2)
-        self.assertEqual(s2, STATUS_QUARANTINE)
+        self.assertEqual(s2, STATUS_REVIEW_REQUIRED)
 
 if __name__ == '__main__':
     unittest.main()
