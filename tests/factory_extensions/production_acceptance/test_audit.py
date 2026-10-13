@@ -25,7 +25,7 @@ class AcceptanceTests(unittest.TestCase):
         put(self.root,'catalog/content_readiness.v1.json',
             {'states':{c:'unverified' for c in self.codes}})
         put(self.root,'manifest.json',
-            {'languages':[{'code':c} for c in self.codes],'packs':[]})
+            {'total_languages':100,'languages':[{'code':c,'registered':True} for c in self.codes],'packs':[]})
         put(self.root,'version.json',
             {'packs':{},'release_status':'BLOCKED_DEPENDENCY'})
         put(self.root,'legal/ledger/sources.json',{'sources':[]})
@@ -42,7 +42,7 @@ class AcceptanceTests(unittest.TestCase):
 
     def test_rejects_fake_published_pack_when_source_ledger_empty(self):
         put(self.root,'manifest.json',
-            {'languages':[{'code':c} for c in self.codes],
+            {'total_languages':100,'languages':[{'code':c,'registered':True} for c in self.codes],
              'packs':[{'id':self.codes[0]}]})
         with self.assertRaises(audit.AcceptanceError):
             audit.snapshot(self.root)
