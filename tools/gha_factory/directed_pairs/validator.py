@@ -87,10 +87,10 @@ def _side(side, original, cc0, language_map):
         raise PairError('INVALID_ATTRIBUTION_URL')
     if not side['text'].strip() or not side['author'].strip() or not side['language']:
         raise PairError('MISSING_SENTENCE_EVIDENCE')
-    cc0_match = cc0.execute('SELECT lang,text,author FROM cc0 WHERE id=?', (sid,)).fetchone()
-    if side['license'] != ('CC0-1.0' if cc0_match == matched else 'CC-BY-2.0-FR'):
+    cc0_match = cc0.execute('SELECT lang,text FROM cc0 WHERE id=?', (sid,)).fetchone()
+    if side['license'] != ('CC0-1.0' if cc0_match == matched[:2] else 'CC-BY-2.0-FR'):
         raise PairError('LICENSE_CLAIM_MISMATCH')
-    return sid, side['language'], cc0_match == matched
+    return sid, side['language'], cc0_match == matched[:2]
 
 
 def audit_pairs(detailed, detailed_sha256, links, links_sha256, cc0_file, cc0_sha256,
@@ -116,7 +116,7 @@ def audit_pairs(detailed, detailed_sha256, links, links_sha256, cc0_file, cc0_sh
     with tempfile.TemporaryDirectory(prefix='gha-directed-pair-qa-') as directory:
         with sqlite3.connect(str(Path(directory) / 'lookup.sqlite')) as db:
             db.executescript('''CREATE TABLE sentence(id TEXT PRIMARY KEY,lang TEXT NOT NULL,text TEXT NOT NULL,author TEXT NOT NULL);
-                CREATE TABLE cc0(id TEXT PRIMARY KEY,lang TEXT NOT NULL,text TEXT NOT NULL,author TEXT NOT NULL);
+                CREATE TABLE cc0(id TEXT PRIMARY KEY,lang TEXT NOT NULL,text TEXT NOT NULL,modified_at TEXT NOT NULL);
                 CREATE TABLE link(src TEXT NOT NULL,dst TEXT NOT NULL,PRIMARY KEY(src,dst));
                 CREATE TABLE seen(id TEXT PRIMARY KEY);''')
             for row in _lines(detailed, 6):
@@ -127,6 +127,8 @@ def audit_pairs(detailed, detailed_sha256, links, links_sha256, cc0_file, cc0_sh
                 except sqlite3.IntegrityError as exc:
                     raise PairError('DUPLICATE_ORIGINAL_SENTENCE') from exc
             db.commit()
+            # Official sentences_CC0: id, language, text, date last modified.
+            # Username comes exclusively from sentences_detailed, not CC0.
             for row in _lines(cc0_file, 4):
                 if not ID.fullmatch(row[0]):
                     raise PairError('INVALID_CC0_SENTENCE_ID')
