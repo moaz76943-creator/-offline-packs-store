@@ -4,6 +4,7 @@ import unicodedata
 import hashlib
 from typing import Dict, List, Optional, Tuple, Any, Set
 from pathlib import Path
+from .disk_index import DiskIndex
 
 logger = logging.getLogger(__name__)
 
@@ -14,18 +15,21 @@ STATUS_REVIEW_REQUIRED = "REVIEW_REQUIRED"
 
 class LexiconSanitizer:
     def __init__(self, workspace_path: Optional[Path] = None):
-        self.seen_ids: Set[str] = set()
-        self.seen_lexeme_identities: Set[Tuple[str, str, str, str, str]] = set()
-        self.seen_translation_identities: Set[Tuple[str, str, str]] = set()
-        self.seen_sense_identities: Set[Tuple[str, str]] = set() # lexeme_id, concept_id
+        self._index = DiskIndex()
+        self.seen_ids = self._index.set("stable_id")
+        self.seen_lexeme_identities = self._index.set("lexeme_identity")
+        self.seen_translation_identities = self._index.set("directed_translation_identity")
+        self.seen_sense_identities = self._index.set("sense_identity")
+        self._index.db.execute("CREATE TABLE lexeme_lang(id TEXT PRIMARY KEY, language TEXT NOT NULL)")
+        self._index.db.execute("CREATE TABLE sense_lang(id TEXT PRIMARY KEY, language TEXT NOT NULL)")
 
         # Load language codes
         self.valid_languages: Set[str] = set()
         self._load_languages(workspace_path)
 
     def _load_languages(self, workspace_path: Optional[Path]):
-        if not workspace_path:
-            return
+        if workspace_path is None:
+            workspace_path = Path(__file__).resolve().parents[2]
         registry_path = workspace_path / "catalog" / "language_registry.v1.json"
         if registry_path.exists():
             try:
@@ -34,7 +38,24 @@ class LexiconSanitizer:
                     for lang in data.get("languages", []):
                         self.valid_languages.add(lang.get("id"))
             except Exception as e:
-                logger.warning(f"Could not load language registry: {e}")
+                raise ValueError(f"Cannot validate against canonical language registry: {e}") from e
+        if not self.valid_languages:
+            raise ValueError("Missing canonical language registry: sanitizer cannot fail open")
+
+    def close(self):
+        self._index.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_):
+        self.close()
+
+    def __del__(self):
+        try:
+            self.close()
+        except (AttributeError, Exception):
+            pass
 
     def check_unicode(self, text: str) -> bool:
         if not isinstance(text, str):
@@ -106,11 +127,14 @@ class LexiconSanitizer:
             dialect = entry.get('dialect') or ''
             homograph_key = entry.get('homograph_key') or ''
 
-            norm_lemma = unicodedata.normalize('NFKC', lemma)
+            norm_lemma = unicodedata.normalize('NFC', lemma)
             identity = (lang, pos, norm_lemma, dialect, homograph_key)
 
             if identity in self.seen_lexeme_identities:
-                return STATUS_QUARANTINE, entry, "duplicate lexical identity"
+                # Identical surface forms may have different senses or sources.
+                self.seen_ids.add(lexeme_id)
+                self._index.db.execute("INSERT OR IGNORE INTO lexeme_lang VALUES(?,?)", (lexeme_id, lang))
+                return STATUS_REVIEW_REQUIRED, entry, "ambiguous lexical form requires sense review"
 
             repaired_entry, repaired = self.repair_whitespace(entry)
 
@@ -119,6 +143,7 @@ class LexiconSanitizer:
 
             self.seen_ids.add(lexeme_id)
             self.seen_lexeme_identities.add(identity)
+            self._index.db.execute("INSERT INTO lexeme_lang VALUES(?,?)", (lexeme_id, lang))
             return status, repaired_entry, reason
 
         except Exception as e:
@@ -147,7 +172,9 @@ class LexiconSanitizer:
             # Check sense identity
             identity = (lexeme_id, concept_id)
             if identity in self.seen_sense_identities:
-                return STATUS_QUARANTINE, entry, "duplicate sense identity"
+                # A shared concept need not mean an identical lexical sense.
+                self.seen_ids.add(sense_id)
+                return STATUS_REVIEW_REQUIRED, entry, "shared concept requires independent sense review"
 
             repaired_entry, repaired = self.repair_whitespace(entry)
             status = STATUS_REPAIRABLE if repaired else STATUS_ACCEPT
@@ -155,6 +182,11 @@ class LexiconSanitizer:
 
             self.seen_ids.add(sense_id)
             self.seen_sense_identities.add(identity)
+            row = self._index.db.execute("SELECT language FROM lexeme_lang WHERE id=?", (lexeme_id,)).fetchone()
+            if row:
+                self._index.db.execute("INSERT INTO sense_lang VALUES(?,?)", (sense_id, row[0]))
+            else:
+                return STATUS_REVIEW_REQUIRED, repaired_entry, "sense lexeme identity not independently known"
             return status, repaired_entry, reason
         except Exception as e:
             return STATUS_QUARANTINE, entry, f"unexpected error: {str(e)}"
@@ -181,7 +213,7 @@ class LexiconSanitizer:
 
             from_sense = entry.get('from_sense_id')
             if from_sense and lang:
-                identity = (from_sense, lang, unicodedata.normalize('NFKC', text.strip()))
+                identity = (from_sense, lang, unicodedata.normalize('NFC', text.strip()))
                 if identity in self.seen_translation_identities:
                     return STATUS_QUARANTINE, entry, "duplicate translation identity"
                 self.seen_translation_identities.add(identity)
