@@ -245,5 +245,25 @@ class SentenceScaleTests(unittest.TestCase):
         self.assertEqual(result['totals']['requires_review'], 1)
 
 
+    def test_duplicate_manifest_fields_are_rejected(self):
+        self.manifest.write_text('{"schema_version":1,"shards":[],"shards":[]}')
+        with self.assertRaisesRegex(ValueError, 'duplicate JSON key'):
+            self.invoke()
+
+    def test_duplicate_nested_source_ledger_keys_cannot_override_denial(self):
+        self.ledger.write_text('{"schema_version":"1.0.0","sources":['
+                               '{"source_id":"demo","kind":"examples",'
+                               '"status":"BLOCKED_LICENSE","status":"APPROVED_FOR_REDISTRIBUTION"}]}')
+        with self.assertRaisesRegex(ValueError, 'duplicate JSON key'):
+            self.run_rows([self.row('94')])
+
+    def test_duplicate_reviewer_roster_keys_are_rejected(self):
+        self.reviewers.write_text('{"schema_version":1,"reviewers":['
+                                  '{"id":"reviewer.demo","approved":false,'
+                                  '"approved":true,"languages":["en"]}]}')
+        with self.assertRaisesRegex(ValueError, 'duplicate JSON key'):
+            self.run_rows([self.row('95')])
+
+
 if __name__ == '__main__':
     unittest.main()
