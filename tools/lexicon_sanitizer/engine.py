@@ -14,7 +14,7 @@ STATUS_QUARANTINE = "QUARANTINE"
 STATUS_REVIEW_REQUIRED = "REVIEW_REQUIRED"
 
 class LexiconSanitizer:
-    def __init__(self, workspace_path: Optional[Path] = None):
+    def __init__(self, workspace_path: Optional[Path] = None, *, admitted_source_licenses=None):
         self._index = DiskIndex()
         self.seen_ids = self._index.set("stable_id")
         self.seen_lexeme_identities = self._index.set("lexeme_identity")
@@ -26,6 +26,22 @@ class LexiconSanitizer:
         # Load language codes
         self.valid_languages: Set[str] = set()
         self._load_languages(workspace_path)
+        if admitted_source_licenses is None:
+            workspace = workspace_path or Path(__file__).resolve().parents[2]
+            ledger_file = workspace / "legal" / "ledger" / "sources.json"
+            data = json.loads(ledger_file.read_text(encoding="utf-8"))
+            admitted_source_licenses = {
+                row['source_id']: (row['license']['id'], row['dataset_version'])
+                for row in data.get('sources', [])
+                if (row.get('status') == 'APPROVED_FOR_REDISTRIBUTION'
+                    and isinstance(row.get('review'), dict)
+                    and row['review'].get('reviewer') and row['review'].get('decision_url')
+                    and isinstance(row.get('license'), dict)
+                    and row['license'].get('evidence_sha256')
+                    and isinstance(row.get('retrieval'), dict)
+                    and row['retrieval'].get('sha256'))
+            }
+        self.admitted_source_licenses = dict(admitted_source_licenses)
 
     def _load_languages(self, workspace_path: Optional[Path]):
         if workspace_path is None:
@@ -238,6 +254,9 @@ class LexiconSanitizer:
             for k in ('source_id', 'license_id', 'dataset_version', 'record_locator'))
         if not admitted_fields:
             return STATUS_REVIEW_REQUIRED, repaired_entry, "translation source evidence missing"
+        if self.admitted_source_licenses.get(source['source_id']) != (
+                source['license_id'], source['dataset_version']):
+            return STATUS_REVIEW_REQUIRED, repaired_entry, "translation source not independently admitted"
         if ambiguous_identity:
             return STATUS_REVIEW_REQUIRED, repaired_entry, "translation identity overlaps another sourced record"
         if not first or not second:
