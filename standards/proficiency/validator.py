@@ -29,6 +29,8 @@ class ProficiencyValidator:
         except jsonschema.ValidationError as e:
             raise ProficiencyValidationError(f"Schema validation failed: {e.message}")
 
+        if metadata["label_status"] in ("verified", "estimated") and not metadata.get("source_evidence"):
+            raise ProficiencyValidationError("Verified and estimated labels must have source evidence.")
         source_record = metadata.get("source_evidence")
         if source_record:
             if not isinstance(source_record.get("source_id"), str) or not source_record["source_id"].strip():
