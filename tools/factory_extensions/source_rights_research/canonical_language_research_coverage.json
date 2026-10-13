@@ -1,0 +1,913 @@
+{
+  "schema_version": "research.coverage.v1",
+  "canonical_registry_sha": "f0ec0a2046a90c0dbf8bc1d2b2466e1606d8201e",
+  "as_of": "2026-10-13",
+  "note": "100 canonical IDs grouped by research evidence only. Do not infer that a language is under-resourced from missing rights evidence.",
+  "under_resourced_assessment": "NOT_POSSIBLE_WITHOUT_PER_LANGUAGE_CORPUS_QUANTITIES",
+  "verified_source_bytes": 0,
+  "admitted_source_count": 0,
+  "languages": [
+    {
+      "language_id": "ar",
+      "english_name": "Arabic",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "de",
+      "english_name": "German",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [
+        "unimorph-german"
+      ],
+      "rights_evidence_gap": "CANDIDATE_BUT_NO_SOURCE_HASH_OR_APPROVAL",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "en",
+      "english_name": "English",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "es",
+      "english_name": "Spanish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "fr",
+      "english_name": "French",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "it",
+      "english_name": "Italian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "tr",
+      "english_name": "Turkish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ru",
+      "english_name": "Russian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "zh",
+      "english_name": "Chinese",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ja",
+      "english_name": "Japanese",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ko",
+      "english_name": "Korean",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "pt",
+      "english_name": "Portuguese",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "nl",
+      "english_name": "Dutch",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "pl",
+      "english_name": "Polish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "sv",
+      "english_name": "Swedish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "no",
+      "english_name": "Norwegian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "da",
+      "english_name": "Danish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "fi",
+      "english_name": "Finnish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "el",
+      "english_name": "Greek",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "hi",
+      "english_name": "Hindi",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ur",
+      "english_name": "Urdu",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "fa",
+      "english_name": "Persian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "id",
+      "english_name": "Indonesian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ms",
+      "english_name": "Malay",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "vi",
+      "english_name": "Vietnamese",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "th",
+      "english_name": "Thai",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "bn",
+      "english_name": "Bengali",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "pa",
+      "english_name": "Punjabi",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ta",
+      "english_name": "Tamil",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "te",
+      "english_name": "Telugu",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "mr",
+      "english_name": "Marathi",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "gu",
+      "english_name": "Gujarati",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "uk",
+      "english_name": "Ukrainian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "cs",
+      "english_name": "Czech",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ro",
+      "english_name": "Romanian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "hu",
+      "english_name": "Hungarian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "bg",
+      "english_name": "Bulgarian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "sk",
+      "english_name": "Slovak",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "hr",
+      "english_name": "Croatian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "sr",
+      "english_name": "Serbian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "bs",
+      "english_name": "Bosnian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "sq",
+      "english_name": "Albanian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "hy",
+      "english_name": "Armenian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ka",
+      "english_name": "Georgian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "az",
+      "english_name": "Azerbaijani",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "kk",
+      "english_name": "Kazakh",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "uz",
+      "english_name": "Uzbek",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "sw",
+      "english_name": "Swahili",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "tl",
+      "english_name": "Tagalog",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "af",
+      "english_name": "Afrikaans",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "et",
+      "english_name": "Estonian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "lv",
+      "english_name": "Latvian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "lt",
+      "english_name": "Lithuanian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "sl",
+      "english_name": "Slovenian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "mk",
+      "english_name": "Macedonian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "is",
+      "english_name": "Icelandic",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ga",
+      "english_name": "Irish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "cy",
+      "english_name": "Welsh",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "eu",
+      "english_name": "Basque",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ca",
+      "english_name": "Catalan",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "gl",
+      "english_name": "Galician",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "be",
+      "english_name": "Belarusian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "mn",
+      "english_name": "Mongolian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ne",
+      "english_name": "Nepali",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "si",
+      "english_name": "Sinhala",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "my",
+      "english_name": "Burmese",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "km",
+      "english_name": "Khmer",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "lo",
+      "english_name": "Lao",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "am",
+      "english_name": "Amharic",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "so",
+      "english_name": "Somali",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ha",
+      "english_name": "Hausa",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "yo",
+      "english_name": "Yoruba",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ig",
+      "english_name": "Igbo",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "zu",
+      "english_name": "Zulu",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "xh",
+      "english_name": "Xhosa",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "sn",
+      "english_name": "Shona",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "rw",
+      "english_name": "Kinyarwanda",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "mg",
+      "english_name": "Malagasy",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "eo",
+      "english_name": "Esperanto",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "la",
+      "english_name": "Latin",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "kn",
+      "english_name": "Kannada",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ml",
+      "english_name": "Malayalam",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "or",
+      "english_name": "Odia",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "as",
+      "english_name": "Assamese",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "sd",
+      "english_name": "Sindhi",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ps",
+      "english_name": "Pashto",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ku",
+      "english_name": "Kurdish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "tg",
+      "english_name": "Tajik",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "tk",
+      "english_name": "Turkmen",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ky",
+      "english_name": "Kyrgyz",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "tt",
+      "english_name": "Tatar",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ba",
+      "english_name": "Bashkir",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "ug",
+      "english_name": "Uyghur",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "dv",
+      "english_name": "Divehi",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "mt",
+      "english_name": "Maltese",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "lb",
+      "english_name": "Luxembourgish",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "fo",
+      "english_name": "Faroese",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "fy",
+      "english_name": "Western Frisian",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "gd",
+      "english_name": "Scottish Gaelic",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    },
+    {
+      "language_id": "br",
+      "english_name": "Breton",
+      "rights_checked_source_bytes": 0,
+      "admitted_sources": 0,
+      "source_research_candidates": [],
+      "rights_evidence_gap": "NO_PINNED_LANGUAGE_SPECIFIC_SOURCE_EVIDENCE",
+      "under_resourced_status": "UNMEASURED_NOT_A_LINGUISTIC_RANKING"
+    }
+  ]
+}
