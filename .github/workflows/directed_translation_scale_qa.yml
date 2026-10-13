@@ -1,6 +1,8 @@
 name: Directed translation sparse-graph QA
 
 on:
+  issue_comment:
+    types: [created]
   pull_request:
     paths:
       - 'tools/factory_extensions/directed_translation_scale/**'
@@ -24,6 +26,11 @@ concurrency:
 
 jobs:
   regressions:
+    if: >-
+      github.event_name != 'issue_comment' ||
+      (github.event.issue.pull_request != null &&
+       github.event.comment.user.login == 'moaz76943-creator' &&
+       github.event.comment.body == '/qa-directed-translation-scale')
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
