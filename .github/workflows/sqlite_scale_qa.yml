@@ -29,6 +29,7 @@ jobs:
           ulimit -f 262144
           export PYTHONDONTWRITEBYTECODE=1
           timeout 160s python3 -m unittest discover -s tests/factory_extensions/sqlite_scale_qa -p 'test_*.py' -v
+          timeout 120s python3 -m unittest discover -s tests/gha_factory/pack_conformance -p 'test_*.py' -v
           timeout 30s python3 -m tools.factory_extensions.sqlite_scale_qa.verify --root . > "$RUNNER_TEMP/sqlite-scale-status.json"
           cat "$RUNNER_TEMP/sqlite-scale-status.json"
           python3 - <<'PY'
