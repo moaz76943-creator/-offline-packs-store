@@ -3,7 +3,7 @@ from tools.corpus_dedupe.dedupe import CorpusDeduplicator, normalize_strict, nor
 
 class TestCorpusDeduplicator(unittest.TestCase):
     def setUp(self):
-        self.deduplicator = CorpusDeduplicator()
+        self.deduplicator = CorpusDeduplicator(admitted_source_licenses={'src.fixture': ('CC-BY', '1')})
 
     def test_normalize_strict(self):
         # NFKC casefolding
@@ -18,13 +18,13 @@ class TestCorpusDeduplicator(unittest.TestCase):
     def test_exact_duplicate(self):
         rec1 = {
             'lexeme_id': 'l1', 'language': 'en', 'pos': 'noun', 'lemma': 'cat',
-            'senses': [{'definition': 'A small domesticated carnivorous mammal'}],
-            'source': {'license_id': 'CC-BY'}
+            'senses': [{'concept_id': 'concept.cat', 'definition': 'A small domesticated carnivorous mammal'}],
+            'source': {'source_id': 'src.fixture', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'fixture', 'publication_approved': True}
         }
         rec2 = {
             'lexeme_id': 'l2', 'language': 'en', 'pos': 'noun', 'lemma': 'cat',
-            'senses': [{'definition': 'A small domesticated carnivorous mammal'}],
-            'source': {'license_id': 'CC-BY'}
+            'senses': [{'concept_id': 'concept.cat', 'definition': 'A small domesticated carnivorous mammal'}],
+            'source': {'source_id': 'src.fixture', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'fixture', 'publication_approved': True}
         }
         self.deduplicator.process_record(rec1)
         self.deduplicator.process_record(rec2)
