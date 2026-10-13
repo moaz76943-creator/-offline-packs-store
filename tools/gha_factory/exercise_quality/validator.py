@@ -16,6 +16,21 @@ def _canonical(obj):
     return json.dumps(obj, sort_keys=True, ensure_ascii=False, separators=(',', ':'), allow_nan=False).encode('utf-8')
 
 
+
+def _grapheme_cut(text, offset):
+    """Reject boundaries known to split a combining sequence or joiner."""
+    if type(offset) is not int or offset <= 0 or offset >= len(text):
+        return False
+    nxt = text[offset]
+    return (unicodedata.category(nxt) in ('Mn', 'Mc', 'Me')
+            or nxt in ('\u200c', '\u200d') or text[offset - 1] == '\u200d')
+
+
+def _nfc(text):
+    return unicodedata.normalize('NFC', text)
+
+
+
 def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
     """Replay canonical GHA-05 maker; output remains a candidate under review.
 
@@ -38,6 +53,10 @@ def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
         raise ExerciseError('MISSING_ATTRIBUTION')
     if annotation.get('source_sha256') != sentence['source_sha256']:
         raise ExerciseError('ANNOTATION_SOURCE_MISMATCH')
+    start, end = annotation.get('start'), annotation.get('end')
+    if (_grapheme_cut(sentence['text'], start)
+            or _grapheme_cut(sentence['text'], end)):
+        raise ExerciseError('SPLIT_UNICODE_GRAPHEME')
     try:
         rebuilt = make_cloze(sentence, annotation, senses, forms)
     except (Rejected, KeyError, TypeError, ValueError) as exc:
@@ -65,12 +84,13 @@ def evaluate_response(answer, accepted_answers, attested_alternates=frozenset())
         raise ExerciseError('INVALID_ANSWER_EVIDENCE')
     if not isinstance(attested_alternates, (set, frozenset)) or any(not isinstance(x, str) or not x for x in attested_alternates):
         raise ExerciseError('INVALID_ALTERNATE_EVIDENCE')
-    if accepted_answers & attested_alternates:
+    accepted = {_nfc(x) for x in accepted_answers}
+    alternates = {_nfc(x) for x in attested_alternates}
+    if accepted & alternates:
         raise ExerciseError('CONFLICTING_ANSWER_EVIDENCE')
-    if answer in accepted_answers:
+    normalized = _nfc(answer)
+    if normalized in accepted:
         return 'CORRECT'
-    if unicodedata.normalize('NFC', answer) in {unicodedata.normalize('NFC', x) for x in accepted_answers}:
-        return 'CORRECT'
-    if answer in attested_alternates:
+    if normalized in alternates:
         return 'AMBIGUOUS'
     return 'UNVERIFIED'
