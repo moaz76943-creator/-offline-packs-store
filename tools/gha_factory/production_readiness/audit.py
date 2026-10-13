@@ -10,10 +10,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-PRODUCTION_TASKS = frozenset({
-    'lexical_ingest', 'morphology_ingest', 'examples_ingest',
-    'sqlite_compile', 'pack_release',
-})
+# The live queue currently exposes verification-only task types. Avoid
+# inventing names for future producer tasks owned by other agents.
+VERIFICATION_TASKS = frozenset({'registry_validate', 'admission_partition_verify'})
 
 
 def read_json(root, relative, maximum=2_000_000):
@@ -67,7 +66,8 @@ def inspect(root, supported_task_types=None):
             if (report.get('schema_version') == '1.0.0'
                     and report.get('status') == 'ACCEPTED_FOR_QUEUE'
                     and report.get('publication_approved') is False
-                    and isinstance(report.get('jobs'), list)):
+                    and isinstance(report.get('jobs'), list)
+                    and len(report['jobs']) <= 200):
                 admissions += len(report['jobs'])
     supported = frozenset(supported_task_types)
     blockers = []
@@ -75,15 +75,17 @@ def inspect(root, supported_task_types=None):
         blockers.append('NO_APPROVED_DICTIONARY_SOURCE')
     if not admissions:
         blockers.append('NO_ADMITTED_SOURCE_PARTITIONS')
-    missing = sorted(PRODUCTION_TASKS - supported)
-    if missing:
+    validation_only = supported.issubset(VERIFICATION_TASKS)
+    if validation_only:
         blockers.append('QUEUE_SUPPORTS_VERIFICATION_NOT_PRODUCTION')
+    else:
+        blockers.append('PRODUCTION_WORKER_RESULT_NOT_VERIFIED')
     if not packs:
         blockers.append('NO_PUBLISHED_PACKS')
 
     return {
         'status': 'BLOCKED_SOURCE' if not eligible_dictionary else (
-            'BLOCKED_PIPELINE' if admissions == 0 or missing else 'REQUIRES_PRODUCTION_QA'),
+            'BLOCKED_PIPELINE' if admissions == 0 or validation_only else 'REQUIRES_PRODUCTION_QA'),
         'canonical_language_count': len(identities),
         'source_ledger_entries': len(sources),
         'declared_approved_source_count': len(declared_approved),
@@ -92,7 +94,8 @@ def inspect(root, supported_task_types=None):
         'published_pack_manifest_entries_unverified': len(packs),
         'actual_production_records_verified': None,
         'queue_task_types': sorted(supported),
-        'missing_production_task_types': missing,
+        'queue_verification_only': validation_only,
+        'actual_production_worker_result_verified': False,
         'blockers': blockers,
         'disclaimer': 'Inventory only: no source license, corpus bytes or packs verified by this report.',
     }
