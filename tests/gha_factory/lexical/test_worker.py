@@ -228,6 +228,25 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual(state['accepted_lexemes'],1)
         db.close()
 
+    def test_conflicting_gender_record_is_rejected_and_checkpoint_continues(self):
+        class GenderImporter(FakeImporter):
+            def extract(self,row,lang,source,locator):
+                result=super().extract(row,lang,source,locator)
+                if result:
+                    result[0]['morphology']={'gender':row['gender']}
+                return result
+        self.importer=GenderImporter()
+        row={'lang_code':'ar','word':'قَلَم','pos':'noun','gender':'masculine'}
+        path=self.write_lines([{**row,'senses':['pen']},
+                               {**row,'gender':'feminine','senses':['conflict']},
+                               {**row,'senses':['writing implement']}])
+        db=self.create_db()
+        state,eof=self.ingest(db,path)
+        self.assertTrue(eof)
+        self.assertEqual((state['accepted_lexemes'],state['accepted_senses'],state['rejected']), (1,2,1))
+        self.assertEqual(db.execute('SELECT count(*) FROM evidence').fetchone()[0],2)
+        db.close()
+
     def test_bounded_25000_line_stream_and_checkpoint(self):
         row={'lang_code':'ar','word':'حقيقة','pos':'noun','senses':['fact']}
         path=self.write_lines([row]*25000)
