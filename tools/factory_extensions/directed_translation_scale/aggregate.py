@@ -1,5 +1,6 @@
 """Combine immutable, independent shard receipts without inferring any edges."""
 import argparse
+import hashlib
 import json
 import sqlite3
 from collections import Counter
@@ -20,6 +21,7 @@ def aggregate(registry, artifact_dir, output):
     found = set()
     totals = Counter()
     pair_counts = Counter()
+    seen_translation_ids = set()
     for folder in folders:
         receipt_path, dbpath = folder / "receipt.json", folder / "graph.sqlite"
         receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
@@ -38,8 +40,18 @@ def aggregate(registry, artifact_dir, output):
             raise AdmissionError("DUPLICATE_OR_INVALID_SHARD")
         found.add(idx)
         with sqlite3.connect("file:" + str(dbpath.resolve()) + "?mode=ro", uri=True) as db:
-            rows = db.execute("""SELECT source_language,target_language,status,COUNT(*)
-                                 FROM edges GROUP BY source_language,target_language,status""").fetchall()
+            db.execute("PRAGMA trusted_schema=OFF")
+            edges = db.execute("""SELECT translation_id,source_language,target_language,status
+                                  FROM edges""")
+            local_counts = Counter()
+            for tid, a, b, status in edges:
+                if (not isinstance(tid, str) or
+                        int(hashlib.sha256(tid.encode("utf-8")).hexdigest(),16) % count != idx or
+                        tid in seen_translation_ids):
+                    raise AdmissionError("DUPLICATED_OR_MISSHARDED_EDGE")
+                seen_translation_ids.add(tid)
+                local_counts[(a,b,status)] += 1
+            rows = [(a,b,st,n) for (a,b,st),n in local_counts.items()]
         for a,b,status,n in rows:
             if a not in ids or b not in ids or a == b or status not in ("verified","review_required"):
                 raise AdmissionError("INVALID_SHARD_EDGE")
