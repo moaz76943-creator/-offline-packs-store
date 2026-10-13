@@ -20,9 +20,13 @@ source rights, claim GHA-02 jobs, compile distributable SQLite packs, or publish
   transport must be approved/wired by their existing owners first.
 
 Candidate rights research lives in `docs/gha_factory/provenance/reviewed_sources.json`.
-It is not a license grant. Kaikki/Wiktionary is not CC0; UniMorph rights are per
-repository; Tatoeba text rights do not authorize audio; noncommercial CEFRLex data
-remain unavailable for commercial production. This adapter never changes that ledger.
+It is not a license grant. Live official-page verification found that its PanLex
+CC0 candidate claim conflicts with https://panlex.org/license/: that page currently
+states CC BY-NC-SA 4.0 and requires written commercial permission. This candidate
+must remain BLOCKED_COMMERCIAL_OR_REVIEW_REQUIRED until precise snapshot rights
+are independently reconciled. See candidate_rights_audit.json. Kaikki/Wiktionary is
+not CC0; UniMorph rights need per-repository verification; Tatoeba text rights do not
+authorize audio. This adapter never changes the owner-controlled ledger.
 
 ## Stable callable API
 
