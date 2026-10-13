@@ -6,10 +6,10 @@ It uses the public three-member Route 07 gzip envelope, not a competing format.
 
 Run from repository root:
 
-\`\`\`bash
+```bash
 python3 -m unittest discover -s tests/gha_factory/security_fuzz -p 'test_*.py' -v
 python3 tools/gha_factory/security_fuzz/harness.py --family envelope --seed 20261013 --max-cases 48
-\`\`\`
+```
 
 There are 39 deterministic cases in five families: envelope, SQLite/FTS5,
 provenance, public-only Ed25519 verification, and staging/rollback. All mutation
