@@ -286,6 +286,7 @@ def main(argv=None):
     p.add_argument('--capture-public-evidence', action='store_true')
     opts = p.parse_args(argv)
     report = audit(load(CATALOG), load(REGISTRY), load(LEDGER))
+    report['canonical_registry_sha256'] = hashlib.sha256(CATALOG.read_bytes()).hexdigest()
     opts.out.mkdir(parents=True, exist_ok=True)
     (opts.out / 'rights_audit.json').write_text(
         json.dumps(report, sort_keys=True, indent=2, ensure_ascii=False) + '\n',
