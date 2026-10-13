@@ -15,6 +15,7 @@ from pathlib import Path
 
 ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$")
 HASH = re.compile(r"^[0-9a-f]{64}$")
+MAX_CHECKPOINT_BYTES = 512 * 1024
 
 
 class ReviewState(str, Enum):
@@ -68,10 +69,13 @@ def existing_file(path, root):
 
 
 def atomic_json(path, data):
+    payload = canonical(data)
+    if len(payload) > MAX_CHECKPOINT_BYTES:
+        raise ValueError("oversized review checkpoint")
     fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=".checkpoint-")
     try:
-        with os.fdopen(fd, "w", encoding="utf-8") as stream:
-            json.dump(data, stream, ensure_ascii=False, sort_keys=True, indent=2)
+        with os.fdopen(fd, "wb") as stream:
+            stream.write(payload)
             stream.flush()
             os.fsync(stream.fileno())
         os.replace(tmp, path)
@@ -108,8 +112,8 @@ class ReviewStateMachine:
         path = self._file(sid)
         if not path.exists():
             return None
-        if path.is_symlink():
-            raise ValueError("symlink checkpoint")
+        if path.is_symlink() or path.stat().st_size > MAX_CHECKPOINT_BYTES:
+            raise ValueError("unsafe or oversized checkpoint")
         data = json.loads(path.read_text(encoding="utf-8"))
         if data.get("submission_id") != sid:
             raise ValueError("checkpoint identity mismatch")
@@ -210,22 +214,23 @@ class ReviewStateMachine:
     def mark_published_eligible(self, sid):
         with self.locked():
             data = self._read(sid)
-            if not data or data["state"] != ReviewState.APPROVED.value:
+            if not data or data["state"] not in (ReviewState.APPROVED.value, ReviewState.PUBLISHED_ELIGIBLE.value):
                 raise ValueError("review not approved")
             self._content(data)
             val, rev = data["evidence"]["validator"], data["evidence"]["reviewer"]
             self.verify(data, "VALIDATE", val["id"], val["token"], self.validator_keys)
             self.verify(data, "APPROVE", rev["id"], rev["token"], self.reviewer_keys)
-            data["state"] = ReviewState.PUBLISHED_ELIGIBLE.value
-            data["history"].append({"state": data["state"], "revision": data["revision"]})
-            self._write(data)
+            if data["state"] != ReviewState.PUBLISHED_ELIGIBLE.value:
+                data["state"] = ReviewState.PUBLISHED_ELIGIBLE.value
+                data["history"].append({"state": data["state"], "revision": data["revision"]})
+                self._write(data)
             atomic_json(self.handoff_dir / (safe_name(sid) + "_handoff.json"), data)
             return data
 
     def verify_handoff(self, sid):
         path = self.handoff_dir / (safe_name(sid) + "_handoff.json")
-        if path.is_symlink():
-            raise ValueError("symlink handoff")
+        if path.is_symlink() or path.stat().st_size > MAX_CHECKPOINT_BYTES:
+            raise ValueError("unsafe or oversized handoff")
         with self.locked():
             data = json.loads(path.read_text(encoding="utf-8"))
             current = self._read(sid)
