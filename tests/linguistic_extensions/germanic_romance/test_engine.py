@@ -34,11 +34,22 @@ class MorphologyContract(unittest.TestCase):
             source_version="v1", source_sha256="x" * 64, evidence_version="2026-10-13",
             record_locator="line:1")
 
-    def approve_synthetic(self):
-        # Isolated synthetic fixture, never real production approval.
-        (self.root / "original.dat").write_bytes(b"synthetic source")
+    def approve_synthetic(self, *rows):
+        # Synthetic, source-backed JSONL snapshot; no fixture is real licensed content.
+        rows = rows or (self.record,)
+        data = bytearray()
+        core = ("language_code", "lemma_id", "sense_id", "lemma", "form", "pos", "features")
+        for record in rows:
+            canonical = {key: record[key] for key in core}
+            encoded = (json.dumps(canonical, ensure_ascii=False, sort_keys=True) + "\n").encode("utf-8")
+            record["record_locator"] = f"byte:{len(data)}:{len(encoded)}"
+            data.extend(encoded)
+        (self.root / "original.dat").write_bytes(data)
         (self.root / "notice.txt").write_text("synthetic source-specific license proof")
         digest = lambda p: hashlib.sha256((self.root / p).read_bytes()).hexdigest()
+        for record in rows:
+            record["source_sha256"] = digest("original.dat")
+        self.record["source_sha256"] = digest("original.dat")
         self.record["source_sha256"] = digest("original.dat")
         source = {
             "source_id": "verified-de", "kind": "morphology",
@@ -92,11 +103,12 @@ class MorphologyContract(unittest.TestCase):
                 self.engine.validate(bad, "de")
 
     def test_unicode_originals_and_real_count_semantics(self):
-        self.approve_synthetic()
-        verb = dict(self.record, lemma="größen", form="gegrößt")
+        verb = dict(self.record, lemma_id="de:groessen:1",
+                    sense_id="de:groessen:measure", lemma="größen", form="gegrößt")
         noun = dict(self.record, lemma_id="de:Buch:1", sense_id="de:Buch:book",
                     lemma="Buch", form="Bücher", pos="noun",
                     features={"number": "plural"})
+        self.approve_synthetic(verb, noun)
         actual = self.engine.audit("de", self.forms(verb, noun))
         self.assertEqual((1, 1, 1, 2), tuple(actual[k] for k in
                          ("verified_verbs", "verified_paradigms",
@@ -111,10 +123,10 @@ class MorphologyContract(unittest.TestCase):
             EvidenceEngine(self.root).audit("de", self.forms(self.record))
 
     def test_participle_conflict_requires_variant_and_attestation(self):
-        self.approve_synthetic()
+        alternative = dict(self.record, form="ging")
+        self.approve_synthetic(self.record, alternative)
         with self.assertRaisesRegex(EvidenceError, "conflicting"):
-            self.engine.audit("de", self.forms(self.record,
-                              dict(self.record, form="ging")))
+            self.engine.audit("de", self.forms(self.record, alternative))
 
     def test_uncertainty_and_compound_auxiliary_guard(self):
         self.approve_synthetic()
@@ -150,6 +162,21 @@ class MorphologyContract(unittest.TestCase):
         self.assertEqual({"verified_verbs": 0, "verified_paradigms": 0,
                           "verified_nouns": 0, "verified_inflections": 0},
                          report["totals"])
+
+    def test_provenance_requires_exact_source_attestation(self):
+        self.approve_synthetic()
+        self.assertEqual("gegangen", self.engine.validate(self.record, "de")["form"])
+        fabricated = dict(self.record, form="invented")
+        with self.assertRaisesRegex(EvidenceError, "attestation"):
+            self.engine.validate(fabricated, "de")
+        with self.assertRaises(EvidenceError):
+            self.engine.validate(dict(self.record, record_locator="byte:0:99999999"), "de")
+
+    def test_approved_source_cache_cannot_mask_changed_bytes(self):
+        self.approve_synthetic()
+        self.assertTrue(self.engine.eligible_source("verified-de"))
+        (self.root / "original.dat").write_bytes(b"altered after check")
+        self.assertFalse(self.engine.eligible_source("verified-de"))
 
     def test_path_traversal_rejected(self):
         with self.assertRaises(EvidenceError):
