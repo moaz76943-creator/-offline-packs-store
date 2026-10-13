@@ -8,6 +8,7 @@
     "schema_version",
     "language",
     "classification_target",
+    "target_id",
     "label_status",
     "cefr_level",
     "coarse_difficulty"
@@ -15,38 +16,72 @@
   "properties": {
     "schema_version": {
       "type": "string",
-      "enum": ["1.0.0"]
+      "enum": [
+        "1.0.0"
+      ]
     },
     "language": {
       "type": "string",
       "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$"
     },
     "classification_target": {
-      "enum": ["entry", "example"]
+      "enum": [
+        "entry",
+        "example"
+      ]
     },
     "label_status": {
-      "enum": ["unverified", "estimated", "verified"]
+      "enum": [
+        "unverified",
+        "estimated",
+        "verified"
+      ]
     },
     "cefr_level": {
-      "enum": ["unknown", "A1", "A2", "B1", "B2", "C1", "C2"]
+      "enum": [
+        "unknown",
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ]
     },
     "coarse_difficulty": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["beginner", "intermediate", "advanced"],
+      "required": [
+        "beginner",
+        "intermediate",
+        "advanced"
+      ],
       "properties": {
-        "beginner": { "type": "boolean" },
-        "intermediate": { "type": "boolean" },
-        "advanced": { "type": "boolean" }
+        "beginner": {
+          "type": "boolean"
+        },
+        "intermediate": {
+          "type": "boolean"
+        },
+        "advanced": {
+          "type": "boolean"
+        }
       }
     },
     "evaluation_method": {
-      "enum": ["descriptor_guided_review", "published_content_assignment", "unknown"]
+      "enum": [
+        "descriptor_guided_review",
+        "published_content_assignment",
+        "unknown"
+      ]
     },
     "source_evidence": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["source_id", "source_version"],
+      "required": [
+        "source_id",
+        "source_version"
+      ],
       "properties": {
         "source_id": {
           "type": "string",
@@ -68,7 +103,16 @@
       "maximum": 1
     },
     "review_status": {
-      "enum": ["needs_review", "reviewed", "approved", "rejected"]
+      "enum": [
+        "needs_review",
+        "reviewed",
+        "approved",
+        "rejected"
+      ]
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._:-]{2,127}$"
     }
   }
 }
