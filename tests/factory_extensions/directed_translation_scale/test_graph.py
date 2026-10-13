@@ -208,5 +208,34 @@ class DirectedGraphTests(unittest.TestCase):
         with self.assertRaisesRegex(AdmissionError,"NONCANONICAL_INTERFACE_LANGUAGE"):
             self.run_graph(interface_language="xx-NOT-REGISTERED")
 
+
+    def test_shard_aggregation_is_complete_and_directional(self):
+        from tools.factory_extensions.directed_translation_scale.aggregate import aggregate
+        folders = self.dir / "artifacts"
+        for i in range(4):
+            shard = folders / ("directed-graph-shard-" + str(i))
+            shard.mkdir(parents=True)
+            execute(registry=REGISTRY, sources=self.ledger_path,
+                    shard_count=4, shard_index=i,
+                    database=shard/"graph.sqlite", receipt=shard/"receipt.json")
+        summary = aggregate(REGISTRY, folders, self.dir / "full_coverage.json")
+        self.assertEqual(summary["unavailable_pairs"],9900)
+        self.assertEqual(summary["actual_pair_count"],0)
+        self.assertEqual(summary["shards_verified"],4)
+
+    def test_shard_aggregation_detects_modified_database(self):
+        from tools.factory_extensions.directed_translation_scale.aggregate import aggregate
+        folders = self.dir / "artifacts"
+        for i in range(4):
+            shard = folders / ("directed-graph-shard-" + str(i))
+            shard.mkdir(parents=True)
+            execute(registry=REGISTRY, sources=self.ledger_path,
+                    shard_count=4, shard_index=i,
+                    database=shard/"graph.sqlite", receipt=shard/"receipt.json")
+        with (folders/"directed-graph-shard-0"/"graph.sqlite").open("ab") as stream:
+            stream.write(b"altered")
+        with self.assertRaisesRegex(AdmissionError,"SHARD_SQLITE_SHA_MISMATCH"):
+            aggregate(REGISTRY,folders,self.dir/"out.json")
+
 if __name__ == "__main__":
     unittest.main()
