@@ -26,6 +26,33 @@ DENY_EXACT = {'manifest.json', 'version.json', 'deutsch_deep_master.pack.gz',
               'perfect_public_store.py', 'pubspec.yaml', 'setup_repo.py'}
 
 
+def protection_error(branch, detail):
+    """Return a failure reason unless main has independently proven strict protections."""
+    if not isinstance(branch, dict) or branch.get('protected') is not True:
+        return 'main is not branch-protected'
+    if not isinstance(detail, dict):
+        return 'main protection details unavailable'
+    required = detail.get('required_status_checks')
+    if not isinstance(required, dict) or required.get('strict') is not True:
+        return 'strict up-to-date required checks not enforced'
+    contexts = set(required.get('contexts') or ())
+    contexts.update(x.get('context') for x in required.get('checks') or []
+                    if isinstance(x, dict) and x.get('context'))
+    if 'public-pr-merge-gate' not in contexts:
+        return 'public-pr-merge-gate is not required'
+    reviews = detail.get('required_pull_request_reviews')
+    if not isinstance(reviews, dict) or (type(reviews.get('required_approving_review_count')) is not int
+                                         or reviews['required_approving_review_count'] < 1):
+        return 'independent approving PR review not enforced'
+    if (detail.get('enforce_admins') or {}).get('enabled') is not True:
+        return 'administrators may bypass required protection'
+    for key in ('allow_force_pushes', 'allow_deletions'):
+        value = detail.get(key)
+        if not isinstance(value, dict) or value.get('enabled') is not False:
+            return 'unsafe or unknown protection for ' + key
+    return None
+
+
 def policy_error(e):
     if not isinstance(e, dict):
         return 'malformed authorization'
@@ -173,6 +200,17 @@ class GitHub:
                 return out
         raise ValueError('pagination incomplete')
 
+    def protection_problem(self):
+        """Fail closed on missing or inaccessible branch-protection evidence."""
+        try:
+            branch = self.get('/branches/main')
+            if branch.get('protected') is not True:
+                return 'main is not branch-protected'
+            details = self.get('/branches/main/protection')
+            return protection_error(branch, details)
+        except (urllib.error.HTTPError, urllib.error.URLError, ValueError, KeyError) as exc:
+            return 'cannot independently verify main protection: ' + str(exc)[:160]
+
     def main_sha(self):
         return self.get('/git/ref/heads/main')['object']['sha']
 
@@ -229,6 +267,11 @@ def run():
     original_main = gh.main_sha()
     auth_parent, auth_only = gh.authorization_origin(original_main)
     print(f'MAIN={original_main} APPROVED_CANDIDATES={len(ordered)}')
+    if ordered and os.getenv('INTEGRATOR_APPLY') == 'true':
+        reason = gh.protection_problem()
+        if reason:
+            print('BLOCKED_PROTECTION: ' + reason)
+            return 0
     for item in ordered:
         number = item['number']
         if gh.main_sha() != original_main:
@@ -242,6 +285,10 @@ def run():
             print(f'PR=#{number} SHA={item["head_sha"]} STATUS={result}: {reason}')
             if result == 'PROMOTE_ONLY':
                 if os.getenv('INTEGRATOR_APPLY') == 'true':
+                    reason = gh.protection_problem()
+                    if reason:
+                        print('BLOCKED_PROTECTION: ' + reason)
+                        return 0
                     if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
                         print('HALT: SHA changed before promotion')
                         return 0
@@ -260,6 +307,10 @@ def run():
                                       authorization_parent=auth_parent, authorization_only=auth_only)
                 if fresh != 'VERIFIED_READY':
                     print(f'HALT: changed evidence {fresh} {why}')
+                    return 0
+                reason = gh.protection_problem()
+                if reason:
+                    print('BLOCKED_PROTECTION: ' + reason)
                     return 0
                 result = gh.squash(number, item['head_sha'])
                 if result.get('merged') is not True:
