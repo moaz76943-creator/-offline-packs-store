@@ -198,5 +198,52 @@ class SentenceScaleTests(unittest.TestCase):
                           ('ar', 'de', 'en', 'es', 'fr')], [1] * 5)
 
 
+    def test_revoked_source_grant_downgrades_cached_accepted_record(self):
+        row = self.row('71')
+        self.ledger.write_text(json.dumps({'schema_version': '1.0.0', 'sources': [{
+            'source_id': 'demo', 'kind': 'examples', 'publisher': 'Example Org',
+            'origin_url': 'https://example.org/sentences/', 'dataset_version': '2026-01',
+            'status': 'APPROVED_FOR_REDISTRIBUTION',
+            'retrieval': {'identity': 'mock', 'url': 'https://example.org/archive', 'sha256': 'a' * 64},
+            'license': {'id': 'CC0-1.0', 'evidence_sha256': 'b' * 64},
+            'review': {'decision_url': 'https://example.org/decision'}}]}))
+        with patch.object(worker.canonical, 'validate', return_value=('ACCEPTED', [], [])), patch.object(worker, 'evidence', return_value=True):
+            first = self.run_rows([row])
+        self.assertEqual(first['totals']['accepted'], 1)
+        self.ledger.write_text('{"schema_version":"1.0.0","sources":[]}')
+        with patch.object(worker.canonical, 'validate', return_value=('ACCEPTED', [], [])):
+            second = worker.process(self.manifest, self.workspace, self.db, self.out,
+                catalog=self.catalog, ledger=self.ledger, senses=self.senses,
+                rules=self.rules, reviewers=self.reviewers)
+        self.assertEqual(second['totals']['accepted'], 0)
+        self.assertEqual(second['totals']['requires_review'], 1)
+        self.assertIn('route05_example_approval_missing',
+                      json.loads((self.out / 'candidates.jsonl').read_text())['reasons'])
+
+    def test_symlink_source_inside_workspace_is_not_immutable(self):
+        original = self.workspace / 'actual.jsonl'
+        raw = (json.dumps(self.row('72')) + '\n').encode()
+        original.write_bytes(raw)
+        (self.workspace / 'link.jsonl').symlink_to(original)
+        self.manifest.write_text(json.dumps({'schema_version': 1, 'shards': [
+            {'path': 'link.jsonl', 'sha256': hashlib.sha256(raw).hexdigest()}]}))
+        with self.assertRaisesRegex(ValueError, 'symlink|unsafe'):
+            worker.process(self.manifest, self.workspace, self.db, self.out,
+                catalog=self.catalog, ledger=self.ledger, senses=self.senses,
+                rules=self.rules, reviewers=self.reviewers)
+
+    def test_oversized_record_does_not_prevent_next_valid_record(self):
+        payload = b'x' * (worker.MAX_LINE + 4096) + b'\n' + (json.dumps(self.row('73')) + '\n').encode()
+        path = self.workspace / 'shard.jsonl'
+        path.write_bytes(payload)
+        self.manifest.write_text(json.dumps({'schema_version': 1, 'shards': [
+            {'path': 'shard.jsonl', 'sha256': hashlib.sha256(payload).hexdigest()}]}))
+        result = worker.process(self.manifest, self.workspace, self.db, self.out,
+            catalog=self.catalog, ledger=self.ledger, senses=self.senses,
+            rules=self.rules, reviewers=self.reviewers)
+        self.assertEqual(result['malformed_unattributed'], 1)
+        self.assertEqual(result['totals']['requires_review'], 1)
+
+
 if __name__ == '__main__':
     unittest.main()
