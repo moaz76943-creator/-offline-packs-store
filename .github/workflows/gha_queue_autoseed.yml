@@ -1,0 +1,58 @@
+# GHA-12: Auto-create bounded owner-authored READY tasks from actual approved
+# immutable GHA-01 admission partitions. Existing GHA-02 dispatcher executes them.
+# No corpus downloads, no fake lexical material, no pack publication.
+name: Public approved corpus queue auto-seeder
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '02 * * * *'
+  pull_request:
+    paths:
+      - '.github/workflows/gha_queue_autoseed.yml'
+      - 'tools/gha_factory/queue_autoseed/**'
+      - 'tests/gha_factory/queue_autoseed/**'
+      - 'tools/gha_factory/dispatcher/**'
+      - 'tools/gha_factory/admission/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-approved-source-autoseed-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test source partition seed safety
+        run: |
+          python3 -m unittest discover -s tests/gha_factory/queue_autoseed -p 'test_*.py' -v
+          python3 -m unittest discover -s tests/gha_factory/dispatcher -p 'test_*.py' -v
+
+  seed:
+    needs: tests
+    if: >-
+      github.repository == 'moaz76943-creator/-offline-packs-store' &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Create at most five new independently approved public tasks
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 -m tools.gha_factory.queue_autoseed.seeder
