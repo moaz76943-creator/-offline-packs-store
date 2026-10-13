@@ -115,6 +115,25 @@ def _sense(refs, sid, language, lexeme=None):
         fail("LEXICAL_SENSE_EVIDENCE_REQUIRED")
 
 
+def _independent_review(c, refs):
+    """A candidate's own approved flag is never a reviewer authority.
+
+    Editorial receipts must be independently supplied, immutable and
+    source/sense/answer-bound. Receipt authenticity still belongs to
+    the upstream authenticated editorial system; this gate cannot sign it.
+    """
+    claim = c["review"]
+    receipt = refs.get("editor_reviews", {}).get(claim["reviewer_id"])
+    answer_sha = _hash(canonical(c["correct_answers"]))
+    if (not isinstance(receipt, dict) or receipt.get("approved") is not True
+            or receipt.get("decision_url") != claim["decision_url"]
+            or receipt.get("source_id") != c["evidence"]["source_id"]
+            or receipt.get("record_sha256") != c["evidence"]["record_sha256"]
+            or receipt.get("sense_id") != c["sense_id"]
+            or receipt.get("answers_sha256") != answer_sha):
+        fail("INDEPENDENT_EDITORIAL_EVIDENCE_REQUIRED")
+
+
 def _direction(c, refs):
     a, b = c["source_language"], c["target_language"]
     if a == b:
@@ -217,8 +236,10 @@ def validate_candidate(c, refs):
         fail("TARGET_LANGUAGE_MISMATCH")
     if c["script"] not in languages[c["language"]].get("scripts", []):
         fail("SCRIPT_MISMATCH")
+    if c["publication_approved"] is not False:
+        fail("CANDIDATE_PUBLICATION_FORBIDDEN")
     if (c["difficulty"] not in DIFFICULTIES or type(c["fixture_only"]) is not bool
-            or type(c["publication_approved"]) is not bool or not _text(c["prompt"])
+            or not _text(c["prompt"])
             or not isinstance(c["features"], dict) or
             any(not _text(k) or not _text(v) for k, v in c["features"].items())):
         fail("INVALID_EXERCISE_CONTRACT")
@@ -238,6 +259,7 @@ def validate_candidate(c, refs):
         fail("EDITORIAL_REVIEW_REQUIRED")
     _source(c, refs)
     _sense(refs, c["sense_id"], c["target_language"], c["lexeme_id"])
+    _independent_review(c, refs)
     _direction(c, refs)
     prof = c["proficiency"]
     if not isinstance(prof, dict) or set(prof) != {"framework_id", "level_id", "evidence_id"}:
@@ -386,7 +408,7 @@ def main(argv=None):
             fail("REFERENCES_SHA256_MISMATCH")
         supplied = json.loads(args.references.read_text(encoding="utf-8"),
                               object_pairs_hook=_unique_pairs)
-        for name in ("senses", "pairs", "forms", "rules", "proficiency", "distractors"):
+        for name in ("senses", "pairs", "forms", "rules", "proficiency", "distractors", "editor_reviews"):
             refs[name] = supplied.get(name, {})
         result = audit_partition(args.input, args.input_sha256, refs)
     else:
