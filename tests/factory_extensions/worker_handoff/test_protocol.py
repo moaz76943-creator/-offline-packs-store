@@ -115,6 +115,12 @@ class WorkerHandoffTests(unittest.TestCase):
                   for l, c in [('de', 'a'), ('en', 'b'), ('fr', 'c')]]
         self.assertEqual(p.fair_claim_candidates([(4, sample(4, 'ar'))], active), [])
 
+    def test_full_issue_inventory_including_active_worker_is_safe(self):
+        active = dict(leased(), state='RUNNING')
+        ready = sample(5, 'en')
+        inventory = [(1, active), (2, ready)]
+        self.assertEqual([n for n, _ in p.fair_claim_candidates(inventory, [active])], [2])
+
     def test_retry_priority_and_issue_number_stable(self):
         first, retry = sample(10), sample(11, 'en')
         retry['attempts'] = 1
