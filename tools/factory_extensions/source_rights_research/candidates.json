@@ -44,7 +44,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     },
     {
       "candidate_id": "wikidata-lexemes",
@@ -86,7 +87,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     },
     {
       "candidate_id": "unimorph-german",
@@ -130,7 +132,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     },
     {
       "candidate_id": "unimorph-grammar",
@@ -172,7 +175,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     },
     {
       "candidate_id": "tatoeba-sentences",
@@ -214,7 +218,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     },
     {
       "candidate_id": "tatoeba-audio",
@@ -256,7 +261,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     },
     {
       "candidate_id": "panlex",
@@ -298,7 +304,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     },
     {
       "candidate_id": "common-voice",
@@ -340,7 +347,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     },
     {
       "candidate_id": "unicode-cldr",
@@ -382,7 +390,8 @@
         "reviewer": null,
         "decision_url": null,
         "decision_date": null
-      }
+      },
+      "dataset_artifact_path": null
     }
   ]
 }
