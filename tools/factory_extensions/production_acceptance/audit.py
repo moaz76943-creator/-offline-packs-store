@@ -109,8 +109,9 @@ def canonical_registry(root):
     published_ids = [item.get('code') for item in manifest.get('languages',[])]
     if (len(ids)!=100 or len(set(ids))!=100 or len(published_ids)!=100 or
             len(set(published_ids))!=100 or set(ids)!=set(published_ids) or
-            set(readiness.get('states',{}))!=set(ids) or
-            not all(isinstance(v,str) and v for v in ids)):
+            set(readiness.get('states',{}))!=set(ids) or manifest.get('total_languages')!=100 or
+            not all(isinstance(v,str) and v for v in ids) or
+            not all(item.get('registered') is True for item in manifest['languages'])):
         raise AcceptanceError('100-language canonical identity mismatch')
     return ids, manifest, readiness
 
@@ -176,6 +177,20 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
     dailies=[read_json(p) for p in sorted((root/'legal/ledger/daily').glob('*.json'))]
     if evaluate(ledger,manifest,dailies,root):
         raise AcceptanceError('Route05 license/attribution/source verification blocked')
+    # A matching daily candidate record is necessary; a source-level license
+    # record alone does not legally clear the bytes of a new derivative pack.
+    matching=[]
+    for day in dailies:
+        for entry in day.get('release_candidates',[]):
+            refs=entry.get('source_refs',[]) if isinstance(entry,dict) else []
+            if (isinstance(entry,dict) and entry.get('sha256')==expected and
+                entry.get('artifact_path')==archive and
+                any(isinstance(ref,dict) and ref.get('source_id')==source['source_id']
+                    and ref.get('dataset_version')==source['dataset_version']
+                    and ref.get('artifact_sha256')==source['sha256'] for ref in refs)):
+                matching.append(entry)
+    if len(matching)!=1:
+        raise AcceptanceError('exact Route05 daily candidate and source proof absent')
     from tools.gha_factory.pack_conformance.check import inspect
     result=inspect(path.read_bytes(),code,root=root,allow_fixture=False,expected_sha256=expected)
     if result.get('fixture_only') is not False or result.get('archive_sha256')!=expected:
