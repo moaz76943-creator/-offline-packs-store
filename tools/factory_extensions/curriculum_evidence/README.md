@@ -10,7 +10,7 @@ Isolated implementation in tools/factory_extensions/curriculum_evidence/, with s
 - Reports unknown and unassessed independently of estimated and source_attested. Estimated labels do not count as verified educational content.
 - Accepts multiple independently identified curricula per language. Actual prerequisite IDs must resolve, have consistent language/framework/curriculum, and form an acyclic graph. Verified content cannot depend on an unverified predecessor.
 - Counts four content kinds (vocabulary, grammar, example, exercise) and optional source-backed topic/situation descriptors and skill-specific material tags. Content tags are NOT measured reading/listening/writing/speaking ability.
-- Does not synthesize passing standards, credentials, CEFR equivalence, teaching content or attribution. A TOPIK ID exists in the main language registry but lacks a source-versioned entry in the published proficiency framework standard, so TOPIK level assignments are blocked and the framework gap reported.
+- Does not synthesize passing standards, credentials, CEFR equivalence, teaching content or attribution. TOPIK is declared in the main registry without a versioned proficiency-standard entry. Chinese is registered there as HSK, whereas the published proficiency standard identifies HSK_3_0: both unresolved identity/version mismatches are reported as gaps, never silently equated or used to assign levels.
 
 ## Commands
 
@@ -32,8 +32,10 @@ No arbitrary readiness threshold is invented. A separate --criteria JSON object 
 - The live legal/ledger/sources.json is empty: zero approved source-backed curriculum classifications are available. No production levels can be called complete.
 - The existing standards/proficiency/curricula.json contains five pilot planning tracks with empty inventories, not five completed courses.
 - No licensed approved curriculum JSONL or independently sourced editorial sufficiency targets are published in main.
-- TOPIK needs its own versioned, publisher-evidenced proficiency framework contract. JLPT's conditional, score-dependent CEFR *reference indication* is handled only in the upstream mapping API. This audit deliberately performs no cross-framework mappings.
+- TOPIK needs its own versioned, publisher-evidenced proficiency framework contract; the HSK versus HSK_3_0 identity/version discrepancy needs an upstream contract decision. JLPT's conditional, score-dependent CEFR *reference indication* is handled only in the upstream mapping API. This audit deliberately performs no cross-framework mappings.
 - The 100-language audit receipt is structured JSON containing per-language verified/estimated/unassessed counts, per-curriculum and level content counts, independent script/skill/topic/situation coverage, framework gaps, rejected row reasons, input SHA-256 and commit SHA. It is not certification, educational quality accreditation or permission to publish material.
 - The 5-minute public read-only Action is defined but hosted success MUST NOT be claimed until GitHub returns a real workflow run/job ID. A commit marked [skip ci] does not prove a hosted test ran. The independent release admission remains a separate gate.
 
 No secrets, network corpus downloads, paid runners, external billing, caching, artifact uploads or release mutations are used.
+
+A source-derived baseline receipt, baseline_main_254e8edd.json, records the full 100-language catalog and exact upstream blob SHAs, with zero admitted classifications and HSK/TOPIK gaps. This snapshot was computed from live canonical input metadata, not from an Actions run or a production corpus audit.
