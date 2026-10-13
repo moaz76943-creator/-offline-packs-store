@@ -1,0 +1,98 @@
+# Trusted-main, bounded, event-driven coordinator. Never check out untrusted PR code with write permissions.
+name: Smart PR Merge Coordinator
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/merge_coordinator/**'
+      - 'tests/merge_coordinator/**'
+      - '.github/workflows/smart_pr_merge.yml'
+  workflow_run:
+    workflows: [Public PR Merge Gate, Validate JSON Files]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Report or request a fully guarded merge"
+        type: choice
+        required: true
+        default: report
+        options: [report, apply]
+  schedule:
+    - cron: '23 */6 * * *'
+
+concurrency:
+  group: smart-pr-merge-${{ github.repository }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  coordinator-tests:
+    if: github.event_name == 'pull_request'
+    name: smart-merge-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run scoped test suite
+        run: python3 -m unittest discover -s tests/merge_coordinator -p 'test_*.py' -v
+
+  coordinate:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_run' || github.event_name == 'workflow_dispatch'
+    name: bounded-merge-reconciliation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      actions: read
+      checks: read
+      statuses: read
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      SMART_MERGE_ENABLED: ${{ vars.SMART_MERGE_ENABLED }}
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Trusted main checkout only
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Pin executing script to current main
+        run: echo "SMART_MERGE_CODE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Analyze, optionally merge one verified PR
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ '${{ github.event_name }}' != 'workflow_dispatch' || '${{ inputs.mode }}' == 'apply' ]]; then
+            python3 -m tools.merge_coordinator.cli --apply --output merge-status.json
+          else
+            python3 -m tools.merge_coordinator.cli --output merge-status.json
+          fi
+      - name: Arabic operations summary
+        if: always()
+        run: |
+          if [[ -f merge-summary.md ]]; then
+            cat merge-summary.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Coordinator failed to produce a report" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Bounded evidence artifact
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: smart-pr-merge-${{ github.run_id }}
+          path: |
+            merge-status.json
+            merge-summary.md
+          retention-days: 7
+          if-no-files-found: warn
