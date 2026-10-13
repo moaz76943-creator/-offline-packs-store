@@ -78,7 +78,8 @@ def _exact_identity(rec):
 
 
 class CorpusDeduplicator:
-    def __init__(self, *, max_record_bytes=2_000_000, legacy_result_limit=10_000):
+    def __init__(self, *, max_record_bytes=2_000_000, legacy_result_limit=10_000,
+                 admitted_source_licenses=None):
         self._temp = tempfile.TemporaryDirectory(prefix='corpus-dedupe-')
         self._db = sqlite3.connect(str(Path(self._temp.name) / 'dedupe.sqlite3'))
         self._db.execute('PRAGMA cache_size=-4096')
@@ -95,6 +96,19 @@ class CorpusDeduplicator:
               retained_id INTEGER NOT NULL);
             CREATE INDEX retained_senses_lookup ON retained_senses(bucket,token);
         """)
+        if admitted_source_licenses is None:
+            # Read the real, independent Route-05 ledger; never trust row-level flags alone.
+            path = Path(__file__).resolve().parents[2] / 'legal' / 'ledger' / 'sources.json'
+            ledger = json.loads(path.read_text(encoding='utf-8'))
+            admitted_source_licenses = {
+                item['source_id']: (item['license']['id'], item['dataset_version'])
+                for item in ledger['sources']
+                if item.get('status') == 'APPROVED_FOR_REDISTRIBUTION'
+                and isinstance(item.get('review'), dict)
+                and item['review'].get('reviewer')
+                and item['review'].get('decision_url')
+            }
+        self.admitted_source_licenses = dict(admitted_source_licenses)
         self.max_record_bytes = max_record_bytes
         self.legacy_result_limit = legacy_result_limit
         self.canonical = []
@@ -143,7 +157,13 @@ class CorpusDeduplicator:
     def are_licenses_compatible(self, rec1, rec2):
         license1 = _rights(rec1.get('source'))
         license2 = _rights(rec2.get('source'))
-        return license1 is not None and license1 == license2
+        src1 = rec1.get('source') or {}
+        src2 = rec2.get('source') or {}
+        return (license1 is not None and license1 == license2
+                and self.admitted_source_licenses.get(src1.get('source_id')) ==
+                    (license1, src1.get('dataset_version'))
+                and self.admitted_source_licenses.get(src2.get('source_id')) ==
+                    (license2, src2.get('dataset_version')))
 
     def is_exact_duplicate(self, rec1, rec2):
         one, two = _exact_identity(rec1), _exact_identity(rec2)
