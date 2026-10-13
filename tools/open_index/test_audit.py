@@ -27,7 +27,8 @@ class ReadOnlyIndexTests(unittest.TestCase):
         self.sha=hashlib.sha256(self.path.read_bytes()).hexdigest()
 
     def audit(self, **kw):
-        return inspect(self.path,kw.get('language','ar'),kw.get('sha',self.sha),canonical_ddl=DDL)
+        return inspect(self.path,kw.get('language','ar'),kw.get('sha',self.sha),
+                       canonical_ddl=DDL, permitted_languages=kw.get('permitted_languages'))
 
     def test_real_fts5_exact_match_without_mutating_bytes(self):
         result=self.audit()
@@ -39,6 +40,30 @@ class ReadOnlyIndexTests(unittest.TestCase):
     def test_wrong_language_rejected(self):
         with self.assertRaisesRegex(IndexBlocked,'language mismatch'):
             self.audit(language='de')
+
+    def add_foreign_lexeme(self):
+        with sqlite3.connect(self.path) as db:
+            db.execute('INSERT INTO lexicon VALUES(?,?,?)',('lex.de.002','Buch','de'))
+            rowid=db.execute('SELECT rowid FROM lexicon WHERE id=?',('lex.de.002',)).fetchone()[0]
+            db.execute('INSERT INTO lexicon_fts(rowid,surface,lemma,gloss,language_code) VALUES(?,?,?,?,?)',
+                       (rowid,'Buch','Buch','book','de'))
+        self.sha=hashlib.sha256(self.path.read_bytes()).hexdigest()
+
+    def test_wrong_language_record_rejected_without_explicit_pair_identity(self):
+        self.add_foreign_lexeme()
+        with self.assertRaisesRegex(IndexBlocked,'undeclared language'):
+            self.audit()
+
+    def test_directed_multilingual_pack_only_with_declared_languages(self):
+        self.add_foreign_lexeme()
+        result=self.audit(permitted_languages=['ar','de'])
+        self.assertEqual(result['observed_languages'],['ar','de'])
+        self.assertFalse(result['cross_language_evidence_verified'])
+        self.assertFalse(result['publication_approved'])
+
+    def test_disallowed_declared_language_identity(self):
+        with self.assertRaisesRegex(IndexBlocked,'invalid permitted languages'):
+            self.audit(permitted_languages=['de'])
 
     def test_invalid_hash_rejected(self):
         with self.assertRaisesRegex(IndexBlocked,'SHA-256 mismatch'):
