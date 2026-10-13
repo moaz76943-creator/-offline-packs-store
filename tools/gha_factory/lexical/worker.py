@@ -258,37 +258,48 @@ def _ingest(db, inp, lang, index, partitions, max_lines, importer, source, entry
                     state['rejected'] += 1
                 else:
                     lexeme, senses = parsed
-                    found = db.execute('SELECT payload FROM lexemes WHERE id=?', (lex_id,)).fetchone()
-                    if found:
-                        earlier = json.loads(found[0])
-                        if any(earlier[k] != lexeme[k] for k in ('lemma', 'pos', 'script', 'direction')):
-                            raise ValueError('stable lexeme identity collision')
-                        modified = merge_attested(earlier, lexeme)
-                        if modified:
-                            if not validators[0].is_valid(earlier):
-                                raise ValueError('merged attestation failed lexical schema')
-                            db.execute('UPDATE lexemes SET payload=? WHERE id=?',
-                                       (canonical(earlier),lex_id))
-                    else:
-                        db.execute('INSERT INTO lexemes VALUES (?,?)', (lex_id, canonical(lexeme)))
-                        state['accepted_lexemes'] += 1
-                        modified = True
-                    added = 0
-                    for sense in senses:
-                        existing = db.execute('SELECT payload FROM senses WHERE id=?', (sense['sense_id'],)).fetchone()
-                        if existing:
-                            if json.loads(existing[0])['definition'] != sense['definition']:
-                                raise ValueError('stable sense identity collision')
+                    before = (state['accepted_lexemes'], state['accepted_senses'],
+                              state['duplicates'])
+                    db.execute('SAVEPOINT lexical_record')
+                    try:
+                        found = db.execute('SELECT payload FROM lexemes WHERE id=?', (lex_id,)).fetchone()
+                        if found:
+                            earlier = json.loads(found[0])
+                            if any(earlier[k] != lexeme[k] for k in ('lemma', 'pos', 'script', 'direction')):
+                                raise ValueError('stable lexeme identity collision')
+                            modified = merge_attested(earlier, lexeme)
+                            if modified:
+                                if not validators[0].is_valid(earlier):
+                                    raise ValueError('merged attestation failed lexical schema')
+                                db.execute('UPDATE lexemes SET payload=? WHERE id=?',
+                                           (canonical(earlier),lex_id))
                         else:
-                            db.execute('INSERT INTO senses VALUES (?,?,?)',
-                                       (sense['sense_id'], lex_id, canonical(sense)))
-                            added += 1
-                    if not added and not modified:
-                        state['duplicates'] += 1
+                            db.execute('INSERT INTO lexemes VALUES (?,?)', (lex_id, canonical(lexeme)))
+                            state['accepted_lexemes'] += 1
+                            modified = True
+                        added = 0
+                        for sense in senses:
+                            existing = db.execute('SELECT payload FROM senses WHERE id=?', (sense['sense_id'],)).fetchone()
+                            if existing:
+                                if json.loads(existing[0])['definition'] != sense['definition']:
+                                    raise ValueError('stable sense identity collision')
+                            else:
+                                db.execute('INSERT INTO senses VALUES (?,?,?)',
+                                           (sense['sense_id'], lex_id, canonical(sense)))
+                                added += 1
+                        if not added and not modified:
+                            state['duplicates'] += 1
+                        else:
+                            state['accepted_senses'] += added
+                            db.execute('INSERT INTO evidence VALUES (?,?,?,?)',
+                                       (locator, hashlib.sha256(raw).hexdigest(),lex_id,source['source_id']))
+                    except (ValueError, TypeError, KeyError, sqlite3.IntegrityError):
+                        db.execute('ROLLBACK TO SAVEPOINT lexical_record')
+                        db.execute('RELEASE SAVEPOINT lexical_record')
+                        state['accepted_lexemes'], state['accepted_senses'], state['duplicates'] = before
+                        state['rejected'] += 1
                     else:
-                        state['accepted_senses'] += added
-                        db.execute('INSERT INTO evidence VALUES (?,?,?,?)',
-                                   (locator, hashlib.sha256(raw).hexdigest(),lex_id,source['source_id']))
+                        db.execute('RELEASE SAVEPOINT lexical_record')
             db.execute("UPDATE meta SET v=? WHERE k='state'", (canonical(state),))
             if state['input_rows'] % 200 == 0:
                 db.commit()
