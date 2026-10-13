@@ -57,6 +57,13 @@ their sources and held for review. Near-duplicate comparison is bounded to
 this is a review signal, not an exhaustive semantic deduplication claim.
 Batch relation processing uses 512-record pages.
 
+
+Duplicate JSON object keys in job manifests, source ledgers, lexical/grammar
+registries and authorized reviewer rosters are rejected before processing;
+ambiguous overrides cannot promote a denied approval. SQLite connections are
+closed explicitly at the end of each bounded run, including failure paths.
+This is covered by four additional isolated regression tests.
+
 Each checkpoint replay revalidates the current legal, lexical, grammar and
 reviewer trust contracts. A revoked source approval or editorial grant cannot
 leave a previously accepted candidate accepted. Shard paths reject symlinks
