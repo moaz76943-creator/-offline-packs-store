@@ -138,6 +138,12 @@ class FactoryTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             f.read_jsonl(self.root/'big.jsonl')
 
+    def test_unknown_language_cannot_escape_shard_reporting(self):
+        bad = copy.deepcopy(self.rule)
+        bad['language'] = 'zz'
+        with self.assertRaisesRegex(ValueError, 'unregistered_rule_language'):
+            f.build_report([bad], self.context, self.corpus, self.reviewers, 0, 4)
+
     def test_deterministic_approval_report(self):
         self.assertEqual(f.build_report([self.rule], self.context, self.corpus, self.reviewers),
                          f.build_report([self.rule], self.context, self.corpus, self.reviewers))
