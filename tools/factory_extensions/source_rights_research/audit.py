@@ -257,6 +257,9 @@ def capture_public_evidence(registry, output, opener=None):
     total = 0
     for c in registry['candidates']:
         for idx, evidence in enumerate(c['evidence']):
+            cid = c.get('candidate_id')
+            if not isinstance(cid, str) or not ID.fullmatch(cid):
+                raise ValueError('invalid candidate ID for evidence filename')
             url = evidence['url']
             if not valid_url(url):
                 raise ValueError('untrusted external evidence')
@@ -291,6 +294,8 @@ def main(argv=None):
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--capture-public-evidence', action='store_true')
     opts = p.parse_args(argv)
+    if opts.out.resolve().is_relative_to(REPO.resolve()):
+        raise ValueError('research output must remain outside repository')
     report = audit(load(CATALOG), load(REGISTRY), load(LEDGER))
     report['canonical_registry_sha256'] = hashlib.sha256(CATALOG.read_bytes()).hexdigest()
     opts.out.mkdir(parents=True, exist_ok=True)
