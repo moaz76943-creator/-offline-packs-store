@@ -54,6 +54,12 @@ def sample():
             "prof.de.book": {"language": "de", "framework_id": "CEFR",
                              "level_id": "A1", "approved": True}},
         "distractors": {},
+        "editor_reviews": {"editor-1": {"approved": True,
+            "decision_url": "https://example.org/review/1",
+            "source_id": "fixture.tatoeba", "record_sha256": digest,
+            "sense_id": "sense.de.book",
+            "answers_sha256": hashlib.sha256(json.dumps(["Buch"], sort_keys=True,
+                ensure_ascii=False, separators=(",", ":")).encode("utf-8")).hexdigest()}},
     }
     return c, references
 
@@ -113,6 +119,26 @@ class ExerciseScaleTests(unittest.TestCase):
             if kind not in ("cloze", "matching"):
                 x["prompt"] = "Complete the reviewed task."
             self.assertEqual("REVIEW_REQUIRED", validate_candidate(x, r)["status"], kind)
+
+    def test_invented_editorial_approval_is_rejected(self):
+        c, r = sample()
+        r["editor_reviews"] = {}
+        self.assert_rejected(c, r, "INDEPENDENT_EDITORIAL_EVIDENCE_REQUIRED")
+
+    def test_stale_answer_review_is_rejected(self):
+        c, r = sample()
+        r["editor_reviews"]["editor-1"]["answers_sha256"] = "b" * 64
+        self.assert_rejected(c, r, "INDEPENDENT_EDITORIAL_EVIDENCE_REQUIRED")
+
+    def test_candidate_must_never_claim_publication(self):
+        c, r = sample()
+        c["publication_approved"] = True
+        self.assert_rejected(c, r, "CANDIDATE_PUBLICATION_FORBIDDEN")
+
+    def test_editorial_decision_url_cannot_be_substituted(self):
+        c, r = sample()
+        c["review"]["decision_url"] = "https://example.org/review/fake"
+        self.assert_rejected(c, r, "INDEPENDENT_EDITORIAL_EVIDENCE_REQUIRED")
 
     def test_missing_approved_source_or_fixture_rights(self):
         c, r = sample()
