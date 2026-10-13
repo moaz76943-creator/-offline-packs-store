@@ -83,6 +83,23 @@ def _clean_string(value, *, required=False):
     return all((ord(c) >= 32 or c in "\t\n") and c != "\ufffd" for c in value)
 
 
+def _bounded_lines(path):
+    """Yield one logical UTF-8 line without allocating unbounded hostile rows."""
+    with Path(path).open("rb") as stream:
+        while True:
+            raw = stream.readline(MAX_LINE_BYTES + 1)
+            if not raw:
+                return
+            too_large = len(raw) > MAX_LINE_BYTES
+            if too_large and not raw.endswith(b"\\n"):
+                # Discard the remainder in bounded chunks, preserving line numbers.
+                while True:
+                    tail = stream.readline(MAX_LINE_BYTES + 1)
+                    if not tail or tail.endswith(b"\\n"):
+                        break
+            yield None if too_large else raw
+
+
 class DiverseAudit:
     def __init__(self, root=ROOT, evidence_path=HERE / "evidence.json",
                  binding_path=HERE / "source_bindings.json"):
@@ -247,49 +264,48 @@ class DiverseAudit:
         spellings = {}
         record_ids = {}
         processed, next_line = 0, start_line
-        with Path(path).open("rb") as stream:
-            for line_no, raw in enumerate(stream, 1):
-                if line_no < start_line:
-                    continue
-                if processed >= max_rows:
-                    break
-                processed += 1
-                next_line = line_no + 1
-                reasons = []
-                if len(raw) > MAX_LINE_BYTES:
-                    reasons = ["oversized_line"]
-                    item = None
-                else:
-                    try:
-                        item = json.loads(raw.decode("utf-8", "strict"), object_pairs_hook=_unique_pairs)
-                        reasons = self._candidate_reasons(item)
-                    except (UnicodeError, ValueError, TypeError):
-                        item, reasons = None, ["invalid_json_or_unicode"]
-                if (isinstance(item, dict) and REQUIRED.issubset(item)
-                        and not (set(item) - REQUIRED - {"annotation"})
-                        and all(_clean_string(item[k], required=k not in
-                                ("community", "speaker_consent_ref")) for k in REQUIRED)):
-                    code = item["language_id"]
-                    if code in candidates:
-                        candidates[code] += 1
-                    rid = (code, item["record_id"])
-                    signature = (item["lemma"], item["meaning"], item["variant"], item["source_id"],
-                                 json.dumps(item.get("annotation"), sort_keys=True, ensure_ascii=False))
-                    if rid in record_ids and record_ids[rid] != signature:
-                        reasons.append("record_id_conflict")
-                    record_ids[rid] = signature
-                    # Unicode normalization is comparison-only, never output rewriting.
-                    key = (code, unicodedata.normalize("NFC", item["lemma"]).casefold(), item["variant"])
-                    seen = spellings.setdefault(key, set())
-                    if seen and (item["lemma"], item["meaning"], item["source_id"]) not in seen:
-                        reasons.append("spelling_meaning_or_provenance_conflict")
-                    seen.add((item["lemma"], item["meaning"], item["source_id"]))
-                    if not reasons and code in admissible:
-                        admissible[code] += 1
-                if reasons:
-                    reviews.append({"line": line_no,
-                                    "language_id": item.get("language_id") if isinstance(item, dict) else None,
-                                    "reasons": sorted(set(reasons))})
+        for line_no, raw in enumerate(_bounded_lines(path), 1):
+            if line_no < start_line:
+                continue
+            if processed >= max_rows:
+                break
+            processed += 1
+            next_line = line_no + 1
+            reasons = []
+            if raw is None:
+                reasons = ["oversized_line"]
+                item = None
+            else:
+                try:
+                    item = json.loads(raw.decode("utf-8", "strict"), object_pairs_hook=_unique_pairs)
+                    reasons = self._candidate_reasons(item)
+                except (UnicodeError, ValueError, TypeError):
+                    item, reasons = None, ["invalid_json_or_unicode"]
+            if (isinstance(item, dict) and REQUIRED.issubset(item)
+                    and not (set(item) - REQUIRED - {"annotation"})
+                    and all(_clean_string(item[k], required=k not in
+                            ("community", "speaker_consent_ref")) for k in REQUIRED)):
+                code = item["language_id"]
+                if code in candidates:
+                    candidates[code] += 1
+                rid = (code, item["record_id"])
+                signature = (item["lemma"], item["meaning"], item["variant"], item["source_id"],
+                             json.dumps(item.get("annotation"), sort_keys=True, ensure_ascii=False))
+                if rid in record_ids and record_ids[rid] != signature:
+                    reasons.append("record_id_conflict")
+                record_ids[rid] = signature
+                # Unicode normalization is comparison-only, never output rewriting.
+                key = (code, unicodedata.normalize("NFC", item["lemma"]).casefold(), item["variant"])
+                seen = spellings.setdefault(key, set())
+                if seen and (item["lemma"], item["meaning"], item["source_id"]) not in seen:
+                    reasons.append("spelling_meaning_or_provenance_conflict")
+                seen.add((item["lemma"], item["meaning"], item["source_id"]))
+                if not reasons and code in admissible:
+                    admissible[code] += 1
+            if reasons:
+                reviews.append({"line": line_no,
+                                "language_id": item.get("language_id") if isinstance(item, dict) else None,
+                                "reasons": sorted(set(reasons))})
         return {"schema_version": "1.0", "start_line": start_line, "next_line": next_line,
                 "processed": processed, "candidate_counts": candidates,
                 "admissible_candidate_counts_not_published": admissible,
