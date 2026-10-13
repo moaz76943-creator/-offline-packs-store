@@ -3,7 +3,7 @@ import sys
 import unittest
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "tools"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "tools"))
 from linguistic_extensions.cjk.engine import Segmenter, evaluate_partition, validate_unit
 
 
