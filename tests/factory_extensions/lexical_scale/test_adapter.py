@@ -139,6 +139,15 @@ class AdapterTests(unittest.TestCase):
         self.assertEqual(result['accepted_lexemes'], 1)
         self.assertEqual(result['accepted_senses'], 3)
 
+    def test_malformed_input_counted_once_across_four_shards(self):
+        self.write_rows([b'{bad}\n'] + self.rows[:1])
+        self.source['retrieval']['sha256'] = sha((self.root / 'evidence/data.jsonl').read_bytes())
+        self.ledger([self.source])
+        results = [a.ingest(self.root, 'fixture.lex', 'ar', self.root / f'bad-{i}.sqlite',
+                            shard=i, shards=4) for i in range(4)]
+        self.assertEqual(sum(x['rejected_rows'] for x in results), 1)
+        self.assertEqual(sum(x['accepted_lexemes'] for x in results), 1)
+
     def test_detect_uniform_counts_as_warning_only(self):
         d = {x: {'accepted_lexemes': 2500, 'source_rows': 3200} for x in ('ar','de','en','es')}
         self.assertIn('SUSPICIOUS_UNIFORM_COUNTS', a.quality_flags(d))
