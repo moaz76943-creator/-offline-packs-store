@@ -205,7 +205,7 @@ def reviews_index(path, sha, candidate_sha):
 def _text(value):
     return isinstance(value, str) and bool(value.strip()) and len(value) <= 2000
 
-def admit(db, item, ids, ledger, reviews, candidate_sha):
+def admit(db, item, ids, ledger, reviews, candidate_sha, trusted_reviews=False):
     tid = item.get("translation_id")
     if not _text(tid) or len(tid) > 128:
         raise AdmissionError("INVALID_EDGE_ID")
@@ -256,7 +256,7 @@ def admit(db, item, ids, ledger, reviews, candidate_sha):
                and review.get("candidate_sha256") == candidate_sha
                and _text(review.get("reviewer")) and _text(review.get("review_id"))
                and _text(review.get("evidence_locator")))
-    status = "verified" if matched else "review_required"
+    status = "verified" if matched and trusted_reviews else "review_required"
     before = db.execute("SELECT * FROM edges WHERE translation_id=?", (tid,)).fetchone()
     record = (tid, source_lang, target_lang, item["from_sense_id"], item["to_sense_id"],
               status, equivalence, text, item.get("context"), item.get("domain"),
@@ -321,6 +321,12 @@ def execute(*, registry, sources, lexical=None, lexical_sha=None, candidates=Non
         admitted_senses = load_senses(db, document(lexical, lexical_sha) if lexical else None, ids, led, scripts)
         candidate_sha = pinned(candidates, candidates_sha) if candidates else None
         reviews_map = reviews_index(reviews, reviews_sha, candidate_sha) if reviews else {}
+        trust = document(Path(__file__).with_name("editorial_authorities.json"))
+        allow = trust.get("approved_review_sha256", [])
+        if trust.get("schema_version") != "1.0.0" or not isinstance(allow, list) or any(
+                not isinstance(h, str) or not SHA.fullmatch(h) for h in allow) or len(allow) != len(set(allow)):
+            raise AdmissionError("INVALID_EDITORIAL_TRUST_REGISTRY")
+        trusted_reviews = bool(reviews and reviews_sha in allow)
         counts = {"verified":0,"review_required":0,"blocked":0,"shard_candidates":0}
         reasons = {}
         if candidates:
@@ -335,13 +341,15 @@ def execute(*, registry, sources, lexical=None, lexical_sha=None, candidates=Non
                 counts["shard_candidates"] += 1
                 try:
                     with db:
-                        status = admit(db, item, ids, led, reviews_map, candidate_sha)
+                        status = admit(db, item, ids, led, reviews_map, candidate_sha, trusted_reviews)
                     counts[status] += 1
                 except AdmissionError as exc:
                     counts["blocked"] += 1
                     reasons[str(exc)] = reasons.get(str(exc), 0) + 1
         db.commit()
-        all_pairs = coverage(db, ids)
+        count_by_pair = db.execute("""SELECT COUNT(*) FROM
+                    (SELECT DISTINCT source_language,target_language FROM edges)""").fetchone()[0]
+        all_pairs = coverage(db, ids) if matrix else None
         database_sha = digest(database) if database != ":memory:" else None
         report = {"schema_version":"1.0.0","registry_sha256":digest(registry),
                   "database_sha256":database_sha,
@@ -351,8 +359,8 @@ def execute(*, registry, sources, lexical=None, lexical_sha=None, candidates=Non
                   "theoretical_directed_pairs":9900,"admitted_senses":admitted_senses,
                   "shard_count":shard_count,"shard_index":shard_index,
                   "counts":counts,"blocked_reasons":dict(sorted(reasons.items())),
-                  "covered_pairs":sum(not x["unavailable"] for x in all_pairs),
-                  "unavailable_pairs":sum(x["unavailable"] for x in all_pairs),
+                  "covered_pairs":count_by_pair,
+                  "unavailable_pairs":len(ids)*(len(ids)-1)-count_by_pair,
                   "run_id":os.environ.get("GITHUB_RUN_ID"),"run_attempt":os.environ.get("GITHUB_RUN_ATTEMPT"),
                   "commit_sha":os.environ.get("GITHUB_SHA")}
         if matrix:
