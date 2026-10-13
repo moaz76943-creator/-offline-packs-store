@@ -328,58 +328,66 @@ def process_shards(root=ROOT, shards_dir=None, output_dir=None):
     allowed_sources = _load_admission(root)
     if not allowed_sources:
         raise ContractError("BLOCKED_SOURCE: no Route05-approved morphology dataset")
-    output_dir.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="european-seen-") as temporary:
-        db = sqlite3.connect(str(Path(temporary) / "record_ids.sqlite"))
-        try:
-            db.execute("CREATE TABLE seen (record_id TEXT PRIMARY KEY)")
-            for path in paths:
-                if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_SHARD:
-                    raise ContractError("unsafe or oversized evidence shard")
-                digest = sha256_file(path)
-                if path.stem != digest:
-                    raise ContractError("immutable shard filename must equal SHA-256: " + path.name)
-                counts = {lang: _counters() for lang in sorted(PROFILES)}
-                with tempfile.TemporaryDirectory(prefix="european-shard-") as scratch:
-                    files = {s: (Path(scratch) / (s + ".jsonl")).open("wb") for s in STATUSES}
-                    try:
-                        with path.open("rb") as handle:
-                            for number, raw in enumerate(handle, 1):
-                                if number > 500000 or len(raw) > MAX_LINE or not raw.endswith(b"\n"):
-                                    raise ContractError("unbounded/malformed JSONL at line " + str(number))
-                                try:
-                                    record = loads_unique(raw.decode("utf-8"))
-                                except UnicodeError as exc:
-                                    raise ContractError("invalid UTF-8 at line " + str(number)) from exc
-                                row = validate_record(record, allowed_sources)
-                                try:
-                                    db.execute("INSERT INTO seen VALUES (?)", (row["record_id"],))
-                                except sqlite3.IntegrityError as exc:
-                                    raise ContractError("repeated record identity across shards") from exc
-                                counts[row["language_code"]][row["evidence_status"]] += 1
-                                files[row["evidence_status"]].write(_json_bytes(row))
-                    finally:
-                        for stream in files.values():
-                            stream.close()
-                    for status in STATUSES:
-                        draft = Path(scratch) / (status + ".jsonl")
-                        if draft.stat().st_size:
-                            with draft.open("rb") as stream:
-                                target = output_dir / (digest + "." + status + ".jsonl")
-                                # Shards are capped at 64 MiB. Output is deterministic.
-                                _atomic_write(target, stream.read())
-                shard_total = sum(sum(c.values()) for c in counts.values())
-                report["total"] += shard_total
-                for lang in counts:
-                    for status in STATUSES:
-                        report["languages"][lang][status] += counts[lang][status]
-                report["shards"].append({"sha256": digest, "records": shard_total,
-                                         "languages": {k: v for k, v in counts.items()
-                                                       if sum(v.values())}})
-        finally:
-            db.close()
-    report["status"] = "EVIDENCE_CLASSIFIED_NO_AUTO_RELEASE"
-    _atomic_write(output_dir / "summary.json", _json_bytes(report))
+    if output_dir.exists():
+        raise ContractError("immutable run output path already exists; choose a fresh path")
+    output_dir.parent.mkdir(parents=True, exist_ok=True)
+    # Publish only after every source, record, and shard passes. Never leak partial
+    # verified streams if a later shard fails validation.
+    with tempfile.TemporaryDirectory(prefix=".european-inflection-", dir=output_dir.parent) as scratch_dir:
+        staged = Path(scratch_dir) / "release"
+        staged.mkdir()
+        with tempfile.TemporaryDirectory(prefix="european-seen-") as temporary:
+            db = sqlite3.connect(str(Path(temporary) / "record_ids.sqlite"))
+            try:
+                db.execute("CREATE TABLE seen (record_id TEXT PRIMARY KEY)")
+                for path in paths:
+                    if path.is_symlink() or not path.is_file() or path.stat().st_size > MAX_SHARD:
+                        raise ContractError("unsafe or oversized evidence shard")
+                    digest = sha256_file(path)
+                    if path.stem != digest:
+                        raise ContractError("immutable shard filename must equal SHA-256: " + path.name)
+                    counts = {lang: _counters() for lang in sorted(PROFILES)}
+                    with tempfile.TemporaryDirectory(prefix="european-shard-") as scratch:
+                        files = {s: (Path(scratch) / (s + ".jsonl")).open("wb") for s in STATUSES}
+                        try:
+                            with path.open("rb") as handle:
+                                for number, raw in enumerate(handle, 1):
+                                    if number > 500000 or len(raw) > MAX_LINE or not raw.endswith(b"\n"):
+                                        raise ContractError("unbounded/malformed JSONL at line " + str(number))
+                                    try:
+                                        record = loads_unique(raw.decode("utf-8"))
+                                    except UnicodeError as exc:
+                                        raise ContractError("invalid UTF-8 at line " + str(number)) from exc
+                                    row = validate_record(record, allowed_sources)
+                                    try:
+                                        db.execute("INSERT INTO seen VALUES (?)", (row["record_id"],))
+                                    except sqlite3.IntegrityError as exc:
+                                        raise ContractError("repeated record identity across shards") from exc
+                                    counts[row["language_code"]][row["evidence_status"]] += 1
+                                    files[row["evidence_status"]].write(_json_bytes(row))
+                        finally:
+                            for stream in files.values():
+                                stream.close()
+                        for status in STATUSES:
+                            draft = Path(scratch) / (status + ".jsonl")
+                            if draft.stat().st_size:
+                                with draft.open("rb") as stream:
+                                    target = staged / (digest + "." + status + ".jsonl")
+                                    # Shards are capped at 64 MiB. Output is deterministic.
+                                    _atomic_write(target, stream.read())
+                    shard_total = sum(sum(c.values()) for c in counts.values())
+                    report["total"] += shard_total
+                    for lang in counts:
+                        for status in STATUSES:
+                            report["languages"][lang][status] += counts[lang][status]
+                    report["shards"].append({"sha256": digest, "records": shard_total,
+                                             "languages": {k: v for k, v in counts.items()
+                                                           if sum(v.values())}})
+            finally:
+                db.close()
+        report["status"] = "EVIDENCE_CLASSIFIED_NO_AUTO_RELEASE"
+        _atomic_write(staged / "summary.json", _json_bytes(report))
+        os.replace(staged, output_dir)
     return report
 
 
