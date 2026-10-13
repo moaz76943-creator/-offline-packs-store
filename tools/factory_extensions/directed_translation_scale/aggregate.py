@@ -10,7 +10,7 @@ from .graph import AdmissionError, digest, pinned, registry_ids, write_json
 def aggregate(registry, artifact_dir, output):
     ids = registry_ids(registry)
     root = Path(artifact_dir)
-    folders = sorted(x for x in root.glob("shard-*") if x.is_dir() and not x.is_symlink())
+    folders = sorted(x for x in root.glob("directed-graph-shard-*") if x.is_dir() and not x.is_symlink())
     if not folders or len(folders) > 16:
         raise AdmissionError("INCOMPLETE_SHARD_SET")
     keys = ("registry_sha256","source_ledger_sha256","lexical_sha256",
