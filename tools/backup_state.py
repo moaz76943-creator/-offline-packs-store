@@ -19,7 +19,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 def _verify(db):
     if db.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
         raise ValueError('SQLite integrity_check failed')
-    if db.execute('PRAGMA foreign_key_check').fetchall():
+    if db.execute('PRAGMA foreign_key_check').fetchone() is not None:
         raise ValueError('SQLite foreign_key_check failed')
 
 
