@@ -103,6 +103,19 @@ class AcceptanceTests(unittest.TestCase):
                          'BLOCKED_SOURCE')
         self.assertEqual(len(json.loads(destination.read_text(encoding='utf-8'))['languages']),100)
 
+    def test_candidate_requires_external_trusted_version_floor(self):
+        archive=self.root/'candidate.pack.gz'
+        archive.write_bytes(b'not-releasable')
+        put(self.root,'bundle.json',{'candidate':{
+            'language':self.codes[0], 'version':'1.0.0',
+            'sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),
+            'fixture_only':False}})
+        with self.assertRaisesRegex(audit.AcceptanceError,'trusted previous version floor'):
+            audit.evaluate_candidate(self.root,self.root/'bundle.json',
+                                     'candidate.pack.gz',qa_key='missing',
+                                     qa_pin='0'*64,publisher_key='missing',
+                                     publisher_pin='0'*64)
+
     def test_rejects_fake_published_pack_when_source_ledger_empty(self):
         put(self.root,'manifest.json',
             {'total_languages':100,'languages':[{'code':c,'registered':True} for c in self.codes],
