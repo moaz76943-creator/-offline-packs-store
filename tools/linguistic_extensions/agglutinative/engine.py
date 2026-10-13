@@ -17,7 +17,7 @@ MAX_RECORDS = 10000
 MAX_LINE = 16384
 MAX_LOOKUP = 128
 HEX64 = re.compile(r'^[0-9a-f]{64}$')
-PATH = re.compile(r'^' + re.escape(SHARD_DIR) + r'/([a-z]{2})/([A-Za-z0-9_-]+)\.jsonl)
+PATH = re.compile(r'^' + re.escape(SHARD_DIR) + r'/([a-z]{2})/([A-Za-z0-9_-]+)\.jsonl$')
 
 # Explicit language identity; family is never used to infer word-formation rules.
 MODELS = {
