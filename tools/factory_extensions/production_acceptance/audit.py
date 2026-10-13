@@ -105,12 +105,21 @@ def canonical_registry(root):
     registry = read_json(root/'catalog/language_registry.v1.json')
     manifest = read_json(root/'manifest.json')
     readiness = read_json(root/'catalog/content_readiness.v1.json')
-    ids = [item.get('id') for item in registry.get('languages',[])]
-    published_ids = [item.get('code') for item in manifest.get('languages',[])]
-    if (len(ids)!=100 or len(set(ids))!=100 or len(published_ids)!=100 or
-            len(set(published_ids))!=100 or set(ids)!=set(published_ids) or
-            set(readiness.get('states',{}))!=set(ids) or manifest.get('total_languages')!=100 or
-            not all(isinstance(v,str) and v for v in ids) or
+    if (not isinstance(registry,dict) or not isinstance(manifest,dict) or
+            not isinstance(readiness,dict) or
+            not isinstance(registry.get('languages'),list) or
+            not isinstance(manifest.get('languages'),list) or
+            not isinstance(readiness.get('states'),dict) or
+            not all(isinstance(x,dict) for x in registry['languages']) or
+            not all(isinstance(x,dict) for x in manifest['languages'])):
+        raise AcceptanceError('malformed canonical language inventory')
+    ids = [item.get('id') for item in registry['languages']]
+    published_ids = [item.get('code') for item in manifest['languages']]
+    if (len(ids)!=100 or len(published_ids)!=100 or
+            not all(isinstance(v,str) and v and re.fullmatch(r'[a-z]{2,3}(?:-[a-z0-9]{2,8})*',v) for v in ids) or
+            not all(isinstance(v,str) and v for v in published_ids) or
+            len(set(ids))!=100 or len(set(published_ids))!=100 or set(ids)!=set(published_ids) or
+            set(readiness['states'])!=set(ids) or manifest.get('total_languages')!=100 or
             not all(item.get('registered') is True for item in manifest['languages'])):
         raise AcceptanceError('100-language canonical identity mismatch')
     return ids, manifest, readiness
@@ -121,6 +130,8 @@ def snapshot(root):
     ids, manifest, readiness = canonical_registry(root)
     ledger = read_json(root/'legal/ledger/sources.json')
     version = read_json(root/'version.json')
+    if not isinstance(ledger,dict) or not isinstance(version,dict):
+        raise AcceptanceError('invalid canonical source/version metadata')
     sources, packs = ledger.get('sources'), manifest.get('packs')
     if not isinstance(sources,list) or not isinstance(packs,list):
         raise AcceptanceError('invalid canonical inventory')
@@ -149,6 +160,8 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
     root=Path(root).resolve()
     ids,manifest,_ = canonical_registry(root)
     b = read_json(bundle)
+    if not isinstance(b,dict):
+        raise AcceptanceError('invalid candidate envelope')
     item=b.get('candidate')
     if not isinstance(item,dict):
         raise AcceptanceError('candidate identity absent')
@@ -164,14 +177,21 @@ def evaluate_candidate(root,bundle,archive,*,qa_key,qa_pin,publisher_key,publish
     if item.get('fixture_only') is not False:
         raise AcceptanceError('synthetic fixture cannot publish')
     source=item.get('source')
-    if not isinstance(source,dict) or set(source)!={'source_id','dataset_version','sha256'} or not HASH.fullmatch(str(source['sha256'])):
+    if (not isinstance(source,dict) or set(source)!={'source_id','dataset_version','sha256'} or
+            not isinstance(source.get('source_id'),str) or not source['source_id'] or
+            not isinstance(source.get('dataset_version'),str) or not source['dataset_version'] or
+            not HASH.fullmatch(str(source['sha256']))):
         raise AcceptanceError('immutable source identity absent')
     ledger=read_json(root/'legal/ledger/sources.json')
-    matches=[s for s in ledger.get('sources',[]) if s.get('source_id')==source['source_id']]
+    if not isinstance(ledger,dict) or not isinstance(ledger.get('sources'),list):
+        raise AcceptanceError('invalid source ledger')
+    matches=[s for s in ledger['sources'] if isinstance(s,dict) and s.get('source_id')==source['source_id']]
     if len(matches)!=1 or matches[0].get('status')!='APPROVED_FOR_REDISTRIBUTION':
         raise AcceptanceError('source admission absent')
     actual=matches[0]
-    if actual.get('dataset_version')!=source['dataset_version'] or actual.get('retrieval',{}).get('sha256')!=source['sha256']:
+    retrieval=actual.get('retrieval')
+    if (not isinstance(retrieval,dict) or actual.get('dataset_version')!=source['dataset_version'] or
+            retrieval.get('sha256')!=source['sha256']):
         raise AcceptanceError('source SHA/version changed')
     from legal.ledger.admission import evaluate
     dailies=[read_json(p) for p in sorted((root/'legal/ledger/daily').glob('*.json'))]
