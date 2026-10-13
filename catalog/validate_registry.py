@@ -136,6 +136,7 @@ def validate(registry, readiness, manifest=None, required_count=100, source_ledg
                 continue
             evidence = readiness.get("validation_evidence", {}).get(code, {})
             if (not isinstance(evidence, dict)
+                    or not isinstance(evidence.get("pack_sha256"), str)
                     or not re.fullmatch(r"[0-9a-f]{64}", evidence.get("pack_sha256", ""))
                     or evidence.get("validation_method") not in {"automated_quality_gate", "manual_review"}):
                 problem(f"releaseReady content requires independent evidence: {code}")
@@ -157,9 +158,15 @@ def validate(registry, readiness, manifest=None, required_count=100, source_ledg
             admitted = {item.get("source_id"): item for item in (source_ledger or {}).get("sources", [])
                         if isinstance(item, dict) and item.get("status") == "APPROVED_FOR_REDISTRIBUTION"
                         and isinstance(item.get("review"), dict) and item["review"].get("reviewer")
-                        and item["review"].get("decision_url")}
+                        and item["review"].get("decision_url")
+                        and isinstance(item.get("license"), dict)
+                        and item["license"].get("id")
+                        and re.fullmatch(r"[0-9a-f]{64}", item["license"].get("evidence_sha256", ""))
+                        and isinstance(item.get("retrieval"), dict)
+                        and re.fullmatch(r"[0-9a-f]{64}", item["retrieval"].get("sha256", ""))}
             source_ids = evidence.get("source_ids")
             if (not isinstance(source_ids, list) or not source_ids
+                    or any(not isinstance(s, str) or not s for s in source_ids)
                     or len(source_ids) != len(set(source_ids))
                     or any(source_id not in admitted for source_id in source_ids)):
                 problem(f"releaseReady requires independently admitted sources: {code}")
