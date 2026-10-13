@@ -115,7 +115,7 @@ def connect(path):
     """)
     return db
 
-def load_senses(db, lexical, ids, ledger):
+def load_senses(db, lexical, ids, ledger, scripts):
     if not lexical:
         return 0
     if lexical.get("contract_version") != "1.0.0":
@@ -127,6 +127,8 @@ def load_senses(db, lexical, ids, ledger):
             raise AdmissionError("DUPLICATE_LEXEME")
         if item["language"] not in ids:
             raise AdmissionError("NONCANONICAL_LEXEME_LANGUAGE")
+        if item.get("script") not in scripts[item["language"]]:
+            raise AdmissionError("NONCANONICAL_LEXEME_SCRIPT")
         lexemes[lid] = item
     seen = set()
     admitted = 0
@@ -242,7 +244,7 @@ def admit(db, item, ids, ledger, reviews, candidate_sha):
             or evidence.get("from_sense_id") != item["from_sense_id"]
             or evidence.get("to_sense_id") != item["to_sense_id"]
             or evidence.get("source_sha256") != source["artifact_sha256"]
-            or not _text(evidence.get("record_locator"))):
+            or evidence.get("record_locator") != source["record_locator"]):
         raise AdmissionError("DIRECT_SENSE_EVIDENCE_MISSING")
     review = reviews.get(tid, {})
     matched = (review.get("decision") == "approved"
@@ -300,6 +302,8 @@ def execute(*, registry, sources, lexical=None, lexical_sha=None, candidates=Non
             candidates_sha=None, reviews=None, reviews_sha=None, database=":memory:",
             interface_language="ar", shard_count=1, shard_index=0, receipt=None, matrix=None):
     ids = registry_ids(registry)
+    scripts = {lang["id"]: set(lang["scripts"])
+               for lang in document(registry)["languages"]}
     if interface_language not in ids:
         raise AdmissionError("NONCANONICAL_INTERFACE_LANGUAGE")
     if shard_count not in (1,2,4,8,16) or not 0 <= shard_index < shard_count:
@@ -314,7 +318,7 @@ def execute(*, registry, sources, lexical=None, lexical_sha=None, candidates=Non
     led = ledger_index(sources)
     db = connect(database)
     try:
-        admitted_senses = load_senses(db, document(lexical, lexical_sha) if lexical else None, ids, led)
+        admitted_senses = load_senses(db, document(lexical, lexical_sha) if lexical else None, ids, led, scripts)
         candidate_sha = pinned(candidates, candidates_sha) if candidates else None
         reviews_map = reviews_index(reviews, reviews_sha, candidate_sha) if reviews else {}
         counts = {"verified":0,"review_required":0,"blocked":0,"shard_candidates":0}
