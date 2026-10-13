@@ -59,11 +59,8 @@ class EvidenceEngine:
             if not isinstance(sid, str) or not sid or sid in self.sources:
                 raise EvidenceError("invalid/duplicate source identity")
             self.sources[sid] = item
-        self._eligible = {}
 
     def eligible_source(self, source_id):
-        if source_id in self._eligible:
-            return self._eligible[source_id]
         source = self.sources.get(source_id)
         if not source or source.get("kind") != "morphology" or source.get("status") != "APPROVED_FOR_REDISTRIBUTION":
             return False
@@ -97,7 +94,6 @@ class EvidenceEngine:
                 (license_info.get("public_domain_proof") or {}).get(k)
                 for k in ("jurisdiction", "legal_basis", "work_date")):
             return False
-        self._eligible[source_id] = True
         return True
 
     def validate(self, record, language):
@@ -147,6 +143,40 @@ class EvidenceEngine:
                 record.get("source_sha256") != (source.get("retrieval") or {}).get("sha256") or
                 not record.get("evidence_version")):
             raise EvidenceError("source version/hash/evidence mismatch")
+
+        # Exact immutable source-byte witness. An approved artifact hash alone
+        # does not prove an invented conjugation is actually present in it.
+        locator = re.fullmatch(r"byte:(0|[1-9][0-9]*):([1-9][0-9]*)",
+                               record["record_locator"])
+        if locator is None:
+            raise EvidenceError("source attestation needs byte:offset:length locator")
+        offset, length = (int(value) for value in locator.groups())
+        if length > 65536:
+            raise EvidenceError("source attestation slice too large")
+        original = resolve_inside(self.root, source["retrieval"]["artifact_path"])
+        if offset > original.stat().st_size or length > original.stat().st_size - offset:
+            raise EvidenceError("source attestation outside immutable original bytes")
+        try:
+            with original.open("rb") as stream:
+                if offset:
+                    stream.seek(offset - 1)
+                    if stream.read(1) != b"\\n":
+                        raise EvidenceError("source attestation offset is not a row boundary")
+                stream.seek(offset)
+                raw_row = stream.read(length)
+                if not raw_row.endswith(b"\\n"):
+                    raise EvidenceError("source attestation requires an exact JSONL row")
+            observed = json.loads(raw_row.decode("utf-8"))
+        except (UnicodeError, json.JSONDecodeError, OSError) as exc:
+            raise EvidenceError("invalid original source attestation") from exc
+        keys = ("language_code", "lemma_id", "sense_id", "lemma", "form",
+                "pos", "features")
+        if not isinstance(observed, dict) or any(observed.get(key) != record[key]
+                                                  for key in keys):
+            raise EvidenceError("form has no exact source attestation")
+        # Re-check immutable bytes after reading to detect mid-audit tampering.
+        if not self.eligible_source(sid):
+            raise EvidenceError("source attestation changed during validation")
         return record
 
     def audit(self, language, input_path=None, limit=100000):
