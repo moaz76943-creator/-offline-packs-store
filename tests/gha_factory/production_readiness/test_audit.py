@@ -56,10 +56,16 @@ class ReadinessTest(unittest.TestCase):
 
     def test_production_tasks_still_require_real_qa(self):
         create(self.root, approved=True, accepted=True, packs=1)
-        result = inspect(self.root, {'registry_validate', *['lexical_ingest', 'morphology_ingest',
-            'examples_ingest', 'sqlite_compile', 'pack_release']})
+        result = inspect(self.root, {'registry_validate', 'source_backed_real_worker'})
         self.assertEqual(result['status'], 'REQUIRES_PRODUCTION_QA')
         self.assertEqual(result['published_pack_manifest_entries_unverified'], 1)
+        self.assertFalse(result['actual_production_worker_result_verified'])
+
+    def test_unrecognised_worker_type_is_not_claimed_to_be_verified(self):
+        create(self.root, approved=True, accepted=True)
+        report = inspect(self.root, {'registry_validate', 'unknown_worker'})
+        self.assertIn('PRODUCTION_WORKER_RESULT_NOT_VERIFIED', report['blockers'])
+        self.assertFalse(report['actual_production_worker_result_verified'])
 
     def test_duplicate_languages_fail_closed(self):
         create(self.root)
