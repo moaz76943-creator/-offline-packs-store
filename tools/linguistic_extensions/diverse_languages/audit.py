@@ -8,6 +8,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import unicodedata
@@ -37,6 +38,9 @@ REQUIRED = frozenset(("record_id", "language_id", "lemma", "meaning", "variant",
                        "license", "rights_url"))
 MAX_LINE_BYTES = 16_384
 MAX_SHARD_ROWS = 2_000
+MAX_SHARD_BYTES = 40 * 1024 * 1024
+MAX_ROW_REFERENCE = 10_000
+OPTIONAL = frozenset(("source_row_index", "source_row_sha256"))
 
 
 class EvidenceError(ValueError):
@@ -116,20 +120,69 @@ class DiverseAudit:
             "lexical_packs_verified": False,
         }
 
+    @staticmethod
+    def _bounded_line(stream):
+        """One physical JSONL line, even if oversized, without a large allocation."""
+        result = stream.readline(MAX_LINE_BYTES + 1)
+        if not result:
+            return b"", False
+        oversized = len(result) > MAX_LINE_BYTES
+        if not result.endswith(b"\n"):
+            while True:
+                fragment = stream.readline(MAX_LINE_BYTES + 1)
+                if not fragment:
+                    break
+                oversized = True
+                if fragment.endswith(b"\n"):
+                    break
+        return (b"" if oversized else result), oversized
+
+    def _attested_source_row(self, file, candidate):
+        """Verify exact bytes AND identity against one row of the pinned source."""
+        index = candidate.get("source_row_index")
+        sha = candidate.get("source_row_sha256")
+        if (type(index) is not int or not (1 <= index <= MAX_ROW_REFERENCE)
+                or not isinstance(sha, str) or re.fullmatch(r"[0-9a-f]{64}", sha) is None):
+            return False
+        with file.open("rb") as stream:
+            for _ in range(index):
+                raw, oversized = self._bounded_line(stream)
+                if not raw or oversized:
+                    return False
+        if hashlib.sha256(raw).hexdigest() != sha:
+            return False
+        try:
+            row = json.loads(raw.decode("utf-8", "strict"), object_pairs_hook=_unique_pairs)
+        except (ValueError, UnicodeError, TypeError):
+            return False
+        return isinstance(row, dict) and all(
+            row.get(field) == candidate[field]
+            for field in ("record_id", "language_id", "lemma", "meaning", "variant")
+        )
+
     def _candidate_reasons(self, candidate):
         reasons = []
-        if not isinstance(candidate, dict) or set(candidate) != REQUIRED:
+        if (not isinstance(candidate, dict) or not REQUIRED.issubset(candidate)
+                or set(candidate) - (REQUIRED | OPTIONAL)):
             return ["invalid_candidate_schema"]
-        if any(not _clean_string(v, required=k not in ("community", "speaker_consent_ref"))
-               for k, v in candidate.items()):
+        if any(not _clean_string(candidate[k], required=k not in ("community", "speaker_consent_ref"))
+               for k in REQUIRED):
             return ["invalid_or_missing_text"]
         code = candidate["language_id"]
         if code not in RESEARCH_FOCUS:
             reasons.append("uncovered_language_or_alias")
-        if candidate["community"] and not candidate["speaker_consent_ref"]:
-            reasons.append("missing_speaker_consent_reference")
-        if not candidate["variant"] or candidate["variant"] == "auto":
+        if candidate["community"]:
+            # The pending independent community review/consent gate owns approvals.
+            reasons.append("community_consent_not_independently_approved")
+            if not candidate["speaker_consent_ref"]:
+                reasons.append("missing_speaker_consent_reference")
+        if candidate["variant"] == "auto":
             reasons.append("unresolved_variety_or_script")
+        if (type(candidate.get("source_row_index")) is not int
+            or not 1 <= candidate["source_row_index"] <= MAX_ROW_REFERENCE
+            or not isinstance(candidate.get("source_row_sha256"), str)
+            or re.fullmatch(r"[0-9a-f]{64}", candidate["source_row_sha256"]) is None):
+            reasons.append("missing_row_level_source_attestation")
         matches = self.approved_sources.get(candidate["source_id"], [])
         if len(matches) != 1:
             reasons.append("source_not_uniquely_approved")
@@ -139,40 +192,56 @@ class DiverseAudit:
             artifact = retrieval.get("artifact_path", "")
             sha = retrieval.get("sha256", "")
             proof_ok = False
-            if (isinstance(artifact, str) and artifact.startswith("tools/gha_factory/admission/")
+            attested = False
+            if (isinstance(artifact, str)
+                and artifact.startswith("tools/gha_factory/admission/")
                 and isinstance(sha, str) and re.fullmatch(r"[0-9a-f]{64}", sha)):
                 file = (self.root / artifact).resolve()
-                if file.is_relative_to(self.root.resolve()) and file.is_file():
+                if (file.is_relative_to(self.root.resolve()) and file.is_file()
+                        and not file.is_symlink() and file.stat().st_size <= MAX_SHARD_BYTES):
                     digest = hashlib.sha256()
                     with file.open("rb") as stream:
                         for chunk in iter(lambda: stream.read(65536), b""):
                             digest.update(chunk)
                     proof_ok = digest.hexdigest() == sha
+                    if proof_ok:
+                        attested = self._attested_source_row(file, candidate)
             review = source.get("review") or {}
             if (source.get("status") != "APPROVED_FOR_REDISTRIBUTION"
                 or not isinstance(review, dict) or not review.get("approved_by")
                 or not proof_ok or not source.get("license") or not source.get("rights_url")):
                 reasons.append("redistribution_rights_unverified")
+            if not attested:
+                reasons.append("candidate_not_attested_by_source_row")
             if (candidate["publisher"] != source.get("publisher")
                 or candidate["license"] != source.get("license")
                 or candidate["rights_url"] != source.get("rights_url")):
                 reasons.append("provenance_conflict")
-            if code not in source.get("languages", []):
+            if not isinstance(source.get("languages"), list) or code not in source["languages"]:
                 reasons.append("source_language_not_approved")
         return reasons
 
     def audit_shard(self, path, *, start_line=1, max_rows=500):
-        if type(start_line) is not int or start_line < 1:
-            raise EvidenceError("start_line must be positive")
+        if type(start_line) is not int or not 1 <= start_line <= 1_000_000:
+            raise EvidenceError("start_line must be in 1..1000000")
         if type(max_rows) is not int or not 1 <= max_rows <= MAX_SHARD_ROWS:
             raise EvidenceError("max_rows outside approved 1..2000 bound")
+        target = Path(path)
+        if (target.is_symlink() or not target.is_file()
+                or target.stat().st_size > MAX_SHARD_BYTES):
+            raise EvidenceError("untrusted input path or oversized shard")
         reviews, candidates = [], {code: 0 for code in RESEARCH_FOCUS}
         admissible = {code: 0 for code in RESEARCH_FOCUS}
         spellings = {}
         record_ids = {}
         processed, next_line = 0, start_line
-        with Path(path).open("rb") as stream:
-            for line_no, raw in enumerate(stream, 1):
+        with target.open("rb") as stream:
+            line_no = 0
+            while True:
+                raw, oversized = self._bounded_line(stream)
+                if not raw and not oversized:
+                    break
+                line_no += 1
                 if line_no < start_line:
                     continue
                 if processed >= max_rows:
@@ -180,16 +249,19 @@ class DiverseAudit:
                 processed += 1
                 next_line = line_no + 1
                 reasons = []
-                if len(raw) > MAX_LINE_BYTES:
-                    reasons = ["oversized_line"]
-                    item = None
+                if oversized:
+                    reasons, item = ["oversized_line"], None
                 else:
                     try:
                         item = json.loads(raw.decode("utf-8", "strict"), object_pairs_hook=_unique_pairs)
                         reasons = self._candidate_reasons(item)
                     except (UnicodeError, ValueError, TypeError):
                         item, reasons = None, ["invalid_json_or_unicode"]
-                if isinstance(item, dict) and set(item) == REQUIRED:
+                safe_text = (isinstance(item, dict) and REQUIRED.issubset(item)
+                             and all(_clean_string(item[k], required=True)
+                                     for k in ("record_id", "language_id", "lemma",
+                                               "meaning", "variant", "source_id")))
+                if safe_text:
                     code = item["language_id"]
                     if code in candidates:
                         candidates[code] += 1
@@ -207,8 +279,9 @@ class DiverseAudit:
                     if not reasons and code in admissible:
                         admissible[code] += 1
                 if reasons:
+                    lang = item.get("language_id") if isinstance(item, dict) else None
                     reviews.append({"line": line_no,
-                                    "language_id": item.get("language_id") if isinstance(item, dict) else None,
+                                    "language_id": lang if isinstance(lang, str) and lang in RESEARCH_FOCUS else None,
                                     "reasons": sorted(set(reasons))})
         return {"schema_version": "1.0", "start_line": start_line, "next_line": next_line,
                 "processed": processed, "candidate_counts": candidates,

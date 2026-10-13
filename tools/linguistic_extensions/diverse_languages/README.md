@@ -41,7 +41,15 @@ an externally controlled non-personal reference. Only exact canonical language
 IDs are accepted; `fil` must not silently mean `tl`. Source admission needs
 one matching rights ledger entry, recorded approval, authorized language,
 an immutable on-disk artifact under the approved admission area and matching
-SHA-256, plus matching publisher/license/rights URL. No automatic edits.
+SHA-256, plus matching publisher/license/rights URL. To count even a *candidate*
+as admissible for further independent review, include optional JSONL fields
+`source_row_index` (1-based integer) and `source_row_sha256` (exact raw line
+bytes including line-ending). The selected source row must match the submitted
+`record_id`, `language_id`, `lemma`, `meaning`, and `variant` exactly; a file
+hash without row-level evidence is **not sufficient**. Candidate rows are
+still never published by this extension, and source-rights approval requires
+an independent reviewer. Community candidates remain blocked until the
+separate community rights and consent gate is safely integrated. No automatic edits.
 JSONL is decoded strictly as UTF-8; original text is not rewritten.
 Unicode NFC+casefold are used **only** to flag collisions for review.
 
@@ -54,16 +62,25 @@ python3 tools/linguistic_extensions/diverse_languages/audit.py
 python3 tools/linguistic_extensions/diverse_languages/audit.py --input local-candidates.jsonl --start-line 1 --max-rows 500
 ```
 
-Each bounded invocation reads at most 2,000 candidate lines (default 500),
+Each bounded invocation processes at most 2,000 candidate physical lines (default 500)
+from a read-only, non-symlink input of no more than 40 MiB. Each line is read
+with a 16-KiB cap and any oversized physical line is drained in bounded chunks
+and marked for review rather than split into multiple records. Start-line
+checkpoints are bounded to 1,000,000 to prevent unbounded seek behavior.
+Source row attestations are independently hashed and bound to exact spelling,
+meaning, locale/variety and identity. This audit never constitutes legal clearance.
+The invocation
 records a deterministic `next_line` checkpoint, and returns per-language
 candidate counts and a line-number-only review queue for mismatched rights,
 spelling, sense or provenance. Cross-shard conflicts still need a global
 human merge review; shard-level counts **are not** audited production entries.
 No text from rejected candidates or speaker/community identifiers appears in
-review output. The workflow only runs read-only tests and reports, on PRs or
-manual opt-in. No background job is queued while the production rights ledger
-is empty. Integrating community contribution intake awaits non-overlapping,
-reviewed PRs #88, #93 and #94.
+review output. The workflow only runs read-only tests and reports, on PRs, via the
+manual Actions dispatcher, or via a `/diverse-qa` PR comment authored by
+the repository owner (owner-gated `issue_comment` job, on live main). No background job is queued while the production rights ledger
+is empty. The reconciled community intake on current main is not automatically
+considered an authorization for this separate auditor; legacy PRs #88, #93
+and #94 remain independently reviewable. No silent cross-owner integration.
 
 **Current measured state (2026-10-13):** 14 independent profiles; 4 cited
 structural datapoints; 0 approved production lexical sources; 0 verified

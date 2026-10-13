@@ -1,5 +1,6 @@
 """Evidence-gated diverse-language regression tests: synthetic data only."""
 import importlib.util
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -117,6 +118,103 @@ class DiverseAuditTests(unittest.TestCase):
         result = worker.audit_shard(self.rows([self.candidate()]))
         self.assertEqual(result["admissible_candidate_counts_not_published"]["yo"], 0)
         self.assertIn("redistribution_rights_unverified", result["review_queue"][0]["reasons"])
+
+
+    def test_unhashable_attacker_fields_are_reviewed_not_crashed(self):
+        examples = [
+            self.candidate(language_id=["yo"]),
+            self.candidate(record_id={"tricky": "dict"}),
+            self.candidate(lemma=["fake"]),
+            self.candidate(meaning=None),
+            self.candidate(variant={"not": "a variant"}),
+        ]
+        result = self.worker.audit_shard(self.rows(examples))
+        self.assertEqual(result["processed"], 5)
+        self.assertEqual(len(result["review_queue"]), 5)
+        self.assertEqual(sum(result["admissible_candidate_counts_not_published"].values()), 0)
+        self.assertTrue(all("invalid_or_missing_text" in x["reasons"]
+                            for x in result["review_queue"]))
+
+    def test_single_oversized_physical_line_does_not_split_into_candidates(self):
+        path = self.root / "oversize.jsonl"
+        huge = b"!" * (audit.MAX_LINE_BYTES * 3) + b"\\n"
+        path.write_bytes(huge + json.dumps(self.candidate()).encode("utf-8") + b"\\n")
+        result = self.worker.audit_shard(path)
+        self.assertEqual(result["processed"], 2)
+        self.assertEqual(result["next_line"], 3)
+        self.assertEqual(result["candidate_counts"]["yo"], 1)
+        self.assertEqual(result["review_queue"][0]["reasons"], ["oversized_line"])
+
+    def test_over_40mb_input_and_symlink_are_rejected(self):
+        path = self.root / "too-large.jsonl"
+        with path.open("wb") as handle:
+            handle.truncate(audit.MAX_SHARD_BYTES + 1)
+        with self.assertRaises(audit.EvidenceError):
+            self.worker.audit_shard(path)
+        symlink = self.root / "link.jsonl"
+        symlink.symlink_to(self.rows([self.candidate()]))
+        with self.assertRaises(audit.EvidenceError):
+            self.worker.audit_shard(symlink)
+
+    def approved_fixture(self, candidate):
+        evidence_file = self.root / "tools/gha_factory/admission/pinned.jsonl"
+        evidence_file.parent.mkdir(parents=True, exist_ok=True)
+        record = {k: candidate[k] for k in ("record_id", "language_id", "lemma", "meaning", "variant")}
+        original = json.dumps(record, ensure_ascii=False).encode("utf-8") + b"\\n"
+        evidence_file.write_bytes(original)
+        entry = {"source_id": "fake_source", "publisher": "publisher",
+                 "license": "CC BY 4.0", "rights_url": "https://example.org/rights",
+                 "status": "APPROVED_FOR_REDISTRIBUTION",
+                 "review": {"approved_by": "synthetic-test-identity"},
+                 "languages": ["yo"],
+                 "retrieval": {"artifact_path": "tools/gha_factory/admission/pinned.jsonl",
+                               "sha256": hashlib.sha256(original).hexdigest()}}
+        self.write_json("legal/ledger/sources.json", {"sources": [entry]})
+        return original
+
+    def test_verified_source_file_without_row_attestation_is_blocked(self):
+        c = self.candidate()
+        self.approved_fixture(c)
+        worker = audit.DiverseAudit(root=self.root)
+        result = worker.audit_shard(self.rows([c]))
+        self.assertEqual(result["admissible_candidate_counts_not_published"]["yo"], 0)
+        self.assertIn("missing_row_level_source_attestation", result["review_queue"][0]["reasons"])
+
+    def test_exact_source_row_attested_but_never_published(self):
+        c = self.candidate()
+        row = self.approved_fixture(c)
+        c["source_row_index"] = 1
+        c["source_row_sha256"] = hashlib.sha256(row).hexdigest()
+        worker = audit.DiverseAudit(root=self.root)
+        result = worker.audit_shard(self.rows([c]))
+        self.assertEqual(result["admissible_candidate_counts_not_published"]["yo"], 1)
+        self.assertEqual(result["review_queue"], [])
+        self.assertEqual(worker.report(result)["reports"]["yo"]["verified_lexemes_in_production"], 0)
+
+    def test_wrong_lexeme_for_valid_sha_or_wrong_row_sha_is_rejected(self):
+        c = self.candidate()
+        row = self.approved_fixture(c)
+        c["source_row_index"] = 1
+        c["source_row_sha256"] = hashlib.sha256(row).hexdigest()
+        altered = dict(c, meaning="unattested replacement")
+        bad_digest = dict(c, source_row_sha256="0" * 64)
+        worker = audit.DiverseAudit(root=self.root)
+        result = worker.audit_shard(self.rows([altered, bad_digest]))
+        self.assertEqual(result["admissible_candidate_counts_not_published"]["yo"], 0)
+        for item in result["review_queue"]:
+            self.assertIn("candidate_not_attested_by_source_row", item["reasons"])
+
+    def test_community_consent_requires_independent_authorization(self):
+        c = self.candidate(community="synthetic-community",
+                           speaker_consent_ref="consent-reference-only")
+        row = self.approved_fixture(c)
+        c["source_row_index"] = 1
+        c["source_row_sha256"] = hashlib.sha256(row).hexdigest()
+        worker = audit.DiverseAudit(root=self.root)
+        result = worker.audit_shard(self.rows([c]))
+        self.assertEqual(result["admissible_candidate_counts_not_published"]["yo"], 0)
+        self.assertIn("community_consent_not_independently_approved",
+                      result["review_queue"][0]["reasons"])
 
 
 if __name__ == "__main__":
