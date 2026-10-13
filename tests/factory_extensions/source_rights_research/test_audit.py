@@ -167,6 +167,20 @@ class Tests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'nonfinite'):
                 a.load(path)
 
+    def test_license_evidence_rejects_even_ordinary_query_strings(self):
+        self.assertFalse(a.valid_url('https://panlex.org/license?tracking=1'))
+
+    def test_pinned_bytes_reject_symlink_even_within_root(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            contents = b'license evidence'
+            (root / 'real.txt').write_bytes(contents)
+            (root / 'pointer.txt').symlink_to(root / 'real.txt')
+            with patch.object(a, 'REPO', root):
+                self.assertFalse(a.pinned_local_sha(
+                    'pointer.txt', hashlib.sha256(contents).hexdigest()))
+
     def test_source_and_license_urls_are_https_allowlisted(self):
         for url in ('http://panlex.org/license', 'https://127.0.0.1/secrets',
                     'https://panlex.org@evil.example/license',
