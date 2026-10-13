@@ -1,0 +1,61 @@
+# Isolated, read-only QA: no content publication, no private runners or tokens.
+name: Diverse languages evidence and rights QA
+
+on:
+  pull_request:
+    paths:
+      - 'tools/linguistic_extensions/diverse_languages/**'
+      - 'tests/linguistic_extensions/diverse_languages/**'
+      - '.github/workflows/diverse_languages_qa.yml'
+      - 'catalog/language_registry.v1.json'
+      - 'catalog/content_readiness.v1.json'
+      - 'legal/ledger/sources.json'
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Optional canonical diverse-language ID for read-only profile'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: diverse-languages-qa-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evidence-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test independent languages and reject forged approval
+        run: python3 -m unittest discover -s tests/linguistic_extensions/diverse_languages -p 'test_*.py' -v
+      - name: Read-only readiness and source rights gate
+        env:
+          SELECTED_LANGUAGE: ${{ inputs.language }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import os
+          from tools.linguistic_extensions.diverse_languages.audit import DiverseAudit, RESEARCH_FOCUS
+          worker = DiverseAudit()
+          language = os.environ.get("SELECTED_LANGUAGE", "")
+          if language and language not in RESEARCH_FOCUS:
+              raise SystemExit("Unknown or unregistered language identity")
+          report = worker.report()
+          assert len(report["reports"]) == 14
+          if language:
+              print(json.dumps(worker.profile(language), ensure_ascii=False, sort_keys=True))
+          print("COVERED_LANGUAGE_PROFILES", len(report["reports"]))
+          print("VERIFIED_STRUCTURAL_FACTS", sum(r["verified_structural_fact_count"] for r in report["reports"].values()))
+          print("LEDGER_SOURCES", report["ledger_sources_total"])
+          if not report["ledger_sources_total"]:
+              print("BLOCKED_SOURCE: no eligible approved corpus shards; no dispatch")
+          print("NO_PUBLICATION; NO_UNREVIEWED_COMMUNITY_INTAKE")
+          PY
