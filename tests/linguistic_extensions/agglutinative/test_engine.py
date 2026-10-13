@@ -22,6 +22,8 @@ def fixture_root():
     src = json.loads((BASE/'standards/morphology/feature_overrides.json').read_text(encoding='utf-8'))
     (root/'standards/morphology/feature_overrides.json').write_text(json.dumps(src), encoding='utf-8')
     (root/'legal/ledger/sources.json').write_text('{"schema_version":"1.0.0","sources":[]}', encoding='utf-8')
+    (root/'legal/ledger/admission.py').write_text(
+        (BASE/'legal/ledger/admission.py').read_text(encoding='utf-8'), encoding='utf-8')
     return root
 
 
@@ -35,23 +37,53 @@ def sample_form():
 
 
 def approved_fixture(root, record):
+    """Entirely synthetic, temporary Route 05-shaped evidence; never public data."""
     path='tools/linguistic_extensions/agglutinative/shards/tr/fixture.jsonl'
     raw=(json.dumps(record,ensure_ascii=False)+'\n').encode('utf-8')
     (root/path).write_bytes(raw)
     digest=hashlib.sha256(raw).hexdigest()
-    sources={'schema_version':'1.0.0','sources':[{'source_id':'fixture','kind':'morphology',
-             'publisher':'synthetic-test','dataset_version':'v-test','status':'APPROVED_FOR_REDISTRIBUTION',
-             'retrieval':{'sha256':'a'*64},'license':{'id':'CC0-1.0'},
-             'review':{'reviewer':'test-only','decision_url':'https://example.invalid/review'}}]}
-    (root/'legal/ledger/sources.json').write_text(json.dumps(sources), encoding='utf-8')
-    daily={'schema_version':'1.0.0','date':'2026-10-13','release_candidates':[{'asset_id':'fixture',
-           'kind':'morphology','artifact_path':path,'sha256':digest,
-           'source_refs':[{'source_id':'fixture','dataset_version':'v-test','artifact_sha256':'a'*64}],
-           'notices':{'fixture':'synthetic-only'},
-           'review':{'reviewer':'test-only','decision_url':'https://example.invalid/review'}}]}
-    (root/'legal/ledger/daily/2026-10-13.json').write_text(json.dumps(daily),encoding='utf-8')
+    (root/'test_evidence').mkdir()
+    snapshot=b'synthetic source file bytes only - not a licensed dictionary'
+    (root/'test_evidence/source.bin').write_bytes(snapshot)
+    original_sha=hashlib.sha256(snapshot).hexdigest()
+    license_bytes=b'fictional source-specific rights evidence for unit testing only'
+    (root/'test_evidence/license.txt').write_bytes(license_bytes)
+    notice='fixture synthetic-test CC0-1.0 https://example.invalid/source'
+    (root/'test_evidence/notice.txt').write_text(notice,encoding='utf-8')
+    source={'source_id':'fixture','kind':'morphology',
+            'origin_url':'https://example.invalid/source',
+            'publisher':'synthetic-test',
+            'dataset_version':'v-test','status':'APPROVED_FOR_REDISTRIBUTION',
+            'retrieval':{'identity':'synthetic-v1','url':'https://example.invalid/download',
+                         'date':'2026-10-13','artifact_path':'test_evidence/source.bin',
+                         'sha256':original_sha},
+            'license':{'id':'CC0-1.0',
+                       'evidence_url':'https://example.invalid/source/rights',
+                       'evidence_path':'test_evidence/license.txt',
+                       'evidence_sha256':hashlib.sha256(license_bytes).hexdigest()},
+            'alterations':['none - synthetic test fixture'],
+            'review':{'reviewer':'test-only','decision_url':'https://example.invalid/review'}}
+    (root/'legal/ledger/sources.json').write_text(json.dumps({
+        'schema_version':'1.0.0','sources':[source]}),encoding='utf-8')
+    # Match the artificial per-record fingerprint to this artificial source.
+    record['evidence']['artifact_sha256']=original_sha
+    raw=(json.dumps(record,ensure_ascii=False)+'\n').encode('utf-8')
+    (root/path).write_bytes(raw)
+    digest=hashlib.sha256(raw).hexdigest()
+    daily={'schema_version':'1.0.0','date':'2026-10-13',
+           'release_candidates':[{'asset_id':'fixture',
+               'kind':'morphology','artifact_path':path,'sha256':digest,
+               'source_refs':[{'source_id':'fixture','dataset_version':'v-test',
+                               'artifact_sha256':original_sha}],
+               'output_license_id':'CC0-1.0','compiler_license_id':'test-only',
+               'notices':{'fixture':'test_evidence/notice.txt'},
+               'compliance':{},'provenance_mode':'source_set',
+               'record_provenance_reason':'unit-test synthetic one-source shard only',
+               'review':{'reviewer':'test-only',
+                         'decision_url':'https://example.invalid/review'}}]}
+    (root/'legal/ledger/daily/2026-10-13.json').write_text(
+        json.dumps(daily),encoding='utf-8')
     return path,digest
-
 
 class ExtensionTests(unittest.TestCase):
     def setUp(self):
@@ -115,6 +147,28 @@ class ExtensionTests(unittest.TestCase):
         daily=self.root/'legal/ledger/daily/2026-10-13.json'; obj=json.loads(daily.read_text());
         obj['release_candidates'][0]['sha256']=hashlib.sha256(raw).hexdigest();daily.write_text(json.dumps(obj))
         with self.assertRaisesRegex(EvidenceError,'provenance'): Extension(self.root).audit('tr',path)
+
+    def test_corrupted_original_source_bytes_fail_closed(self):
+        path,_=approved_fixture(self.root,sample_form())
+        (self.root/'test_evidence/source.bin').write_bytes(b'source bytes mutated')
+        with self.assertRaisesRegex(EvidenceError,'canonical rights admission blocked'):
+            Extension(self.root).audit('tr',path)
+
+    def test_corrupted_license_evidence_fails_closed(self):
+        path,_=approved_fixture(self.root,sample_form())
+        (self.root/'test_evidence/license.txt').write_bytes(b'changed rights proof')
+        with self.assertRaisesRegex(EvidenceError,'canonical rights admission blocked'):
+            Extension(self.root).audit('tr',path)
+
+    def test_false_approval_strings_cannot_replace_review_evidence(self):
+        path,_=approved_fixture(self.root,sample_form())
+        ledger=self.root/'legal/ledger/sources.json'
+        doc=json.loads(ledger.read_text(encoding='utf-8'))
+        doc['sources'][0]['status']='APPROVED_FOR_REDISTRIBUTION'
+        doc['sources'][0]['license']['evidence_url']='https://creativecommons.org/publicdomain/zero/1.0/'
+        ledger.write_text(json.dumps(doc),encoding='utf-8')
+        with self.assertRaisesRegex(EvidenceError,'canonical rights admission blocked'):
+            Extension(self.root).audit('tr',path)
 
     def test_morpheme_positions_and_unknown_fields_rejected(self):
         record=sample_form();record['morphemes']=[{'kind':'suffix','surface':'x','position':1},{'kind':'stem','surface':'y','position':0}]
