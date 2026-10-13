@@ -152,6 +152,16 @@ class EvidenceIntegrityTests(unittest.TestCase):
         result = self.worker().audit_shard(self.shard([self.candidate()]))
         self.assertIn("source_language_not_approved", result["review_queue"][0]["reasons"])
 
+    def test_malformed_oversized_line_is_discarded_without_losing_next_row(self):
+        path = self.root / "oversized.jsonl"
+        good = (json.dumps(self.candidate(), ensure_ascii=False) + "\n").encode("utf-8")
+        path.write_bytes(b"x" * (audit.MAX_LINE_BYTES * 5) + b"\n" + good)
+        result = self.worker().audit_shard(path)
+        self.assertEqual(result["processed"], 2)
+        self.assertEqual(result["next_line"], 3)
+        self.assertEqual(result["review_queue"][0]["reasons"], ["oversized_line"])
+        self.assertEqual(result["candidate_counts"]["yo"], 1)
+
     def test_tone_orthography_cannot_be_generated_from_unmarked_text(self):
         result = self.worker().audit_shard(self.shard([
             self.candidate(lemma="oro", annotation={"feature": "tone_orthography",
