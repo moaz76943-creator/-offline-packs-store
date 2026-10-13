@@ -118,13 +118,13 @@ def process_file(input_path: Path, output_dir: Path, quarantine_dir: Path, works
 
                 stats[status] = stats.get(status, 0) + 1
 
-                if status in (STATUS_ACCEPT, STATUS_REPAIRABLE, STATUS_REVIEW_REQUIRED):
+                if status in (STATUS_ACCEPT, STATUS_REPAIRABLE):
                     if is_jsonl:
                         out_f.write(json.dumps(modified, ensure_ascii=False) + '\n')
                     else:
                         out_document[collection].append(modified)
 
-                    if status in (STATUS_REVIEW_REQUIRED, STATUS_REPAIRABLE):
+                    if status == STATUS_REPAIRABLE:
                         q_record = {
                             "status": status,
                             "reason": reason,
