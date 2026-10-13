@@ -142,6 +142,15 @@ class PronunciationAuditTests(unittest.TestCase):
         with tarfile.open(first) as archive:
             self.assertEqual(len(archive.getmembers()), 2)
 
+    def test_cross_language_dedup_retains_each_language_coverage(self):
+        other = json.loads(json.dumps(self.record))
+        other.update({"pronunciation_id":"pron_ar_1", "lexeme_id":"lex_ar_1", "language_id":"ar", "language_tag":"ar", "script":"Arab"})
+        other["audio"][0]["asset_id"] = "asset_ar_1"
+        result = self.run_audit([self.record, other])
+        self.assertEqual(result["coverage"]["ar"]["audio_files"], 1)
+        self.assertEqual(result["coverage"]["de"]["audio_files"], 1)
+        self.assertEqual(result["unique_file_count"], 1)
+
     def test_generated_audio_requires_separate_authorization(self):
         rec = json.loads(json.dumps(self.record)); rec["audio"][0]["kind"] = "licensed_generated_recording"
         self.assertIn("generation_rights_missing", self.run_audit([rec])["blocked"][0]["reasons"])
