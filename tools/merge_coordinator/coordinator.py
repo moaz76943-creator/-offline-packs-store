@@ -210,7 +210,7 @@ def decide(api, report, apply, max_merges):
         # Token is intentionally unable to override strict branch protection.
         response = api.put(f"/pulls/{item['number']}/merge",
                            {"sha": item["head_sha"], "merge_method": "squash",
-                            "commit_title": f"Integrate reviewed PR #{item['number']}: {item['title'][:65]}",
+                            "commit_title": f"Integrate verified PR #{item['number']}",
                             "commit_message": "Verified exact-SHA integration through Smart Merge Coordinator."})
         if not response.get("merged") or not response.get("sha"):
             raise ApiError("MERGE", "GitHub did not confirm merge")
