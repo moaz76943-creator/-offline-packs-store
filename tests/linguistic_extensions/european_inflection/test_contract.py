@@ -130,5 +130,44 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(report["counts"]["predicted"], 1)
         self.assertEqual(report["counts"]["gap"], 1)
 
+
+    def test_immutable_shard_streams_attested_and_quarantined_separately(self):
+        from unittest.mock import patch
+        from tools.linguistic_extensions.european_inflection import validator as engine
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            shards = root / "tools/linguistic_extensions/european_inflection/shards"
+            shards.mkdir(parents=True)
+            a = record()
+            b = record("sl", "Latn", "test", {"number": "dual"}, "predicted")
+            b["prediction_note"] = "synthetic quarantine"
+            payload = "".join(json.dumps(x, ensure_ascii=False) + "\n" for x in (a, b))
+            digest = __import__("hashlib").sha256(payload.encode("utf-8")).hexdigest()
+            (shards / (digest + ".jsonl")).write_text(payload, encoding="utf-8")
+            output = root / "output"
+            with patch.object(engine, "validate_profiles", return_value=True), patch.object(
+                    engine, "_load_admission", return_value=SOURCE):
+                result = process_shards(root, shards, output)
+            self.assertEqual(result["total"], 2)
+            self.assertEqual(result["languages"]["ru"]["verified"], 1)
+            self.assertEqual(result["languages"]["sl"]["predicted"], 1)
+            self.assertEqual(len(list(output.glob("*.verified.jsonl"))), 1)
+            self.assertEqual(len(list(output.glob("*.predicted.jsonl"))), 1)
+            verified_text = next(output.glob("*.verified.jsonl")).read_text(encoding="utf-8")
+            self.assertNotIn("synthetic quarantine", verified_text)
+
+    def test_shard_name_must_match_immutable_sha(self):
+        from unittest.mock import patch
+        from tools.linguistic_extensions.european_inflection import validator as engine
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            shards = root / "tools/linguistic_extensions/european_inflection/shards"
+            shards.mkdir(parents=True)
+            (shards / "mutable.jsonl").write_text(json.dumps(record(), ensure_ascii=False) + "\\n", encoding="utf-8")
+            with patch.object(engine, "validate_profiles", return_value=True), patch.object(
+                    engine, "_load_admission", return_value=SOURCE):
+                with self.assertRaises(ContractError):
+                    process_shards(root, shards, root / "out")
+
 if __name__ == "__main__":
     unittest.main()
