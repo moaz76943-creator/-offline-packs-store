@@ -171,6 +171,13 @@ class SenseIntegrityTests(unittest.TestCase):
         self.assertEqual(stats["reviewer_dispositions"]["distinct"], 1)
         self.assertEqual(len(read_jsonl(next_report / "merge-plan.jsonl")), 4)
 
+    def test_entity_id_reuse_across_lexeme_and_sense_is_blocked(self):
+        row = copy.deepcopy(self.records)
+        row["senses"][0]["sense_id"] = "lex.de.bank.a"
+        out = self.run_audit(row, name="cross-kind")
+        codes = {x["code"] for x in read_jsonl(out / "conflicts.jsonl")}
+        self.assertIn("cross_kind_identity_collision", codes)
+
     def test_checkpoint_replay_and_tamper_detection(self):
         output = self.run_audit()
         input_dir = self.base / "inputreport"
