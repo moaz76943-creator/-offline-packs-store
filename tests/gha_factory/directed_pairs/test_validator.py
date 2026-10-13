@@ -41,7 +41,7 @@ class PairValidationTests(unittest.TestCase):
         self.inputs = {
             'detailed': (original('11', 'deu', 'Haus') + original('22', 'ara', 'بيت')).encode(),
             'links': b'11\t22\n22\t11\n',
-            'cc0': b'11\tdeu\tHaus\tfixture-author\n22\tara\t\xd8\xa8\xd9\x8a\xd8\xaa\tfixture-author\n',
+            'cc0': b'11\tdeu\tHaus\t2026-10-10 10:00:00\n22\tara\t\xd8\xa8\xd9\x8a\xd8\xaa\t2026-10-10 10:00:01\n',
         }
         self.inputs['candidates'] = (json.dumps(pair(digest(self.inputs['detailed']), digest(self.inputs['links'])), ensure_ascii=False) + '\n').encode()
 
@@ -84,12 +84,12 @@ class PairValidationTests(unittest.TestCase):
             self.audit()
 
     def test_license_claim_without_matching_cc0_rejected(self):
-        self.inputs['cc0'] = b'11\tdeu\tHaus\tfixture-author\n'
+        self.inputs['cc0'] = b'11\tdeu\tHaus\t2026-10-10 10:00:00\n'
         with self.assertRaisesRegex(PairError, 'LICENSE_CLAIM_MISMATCH'):
             self.audit()
 
     def test_non_cc0_candidate_never_marked_approved(self):
-        self.inputs['cc0'] = b'11\tdeu\tHaus\tfixture-author\n'
+        self.inputs['cc0'] = b'11\tdeu\tHaus\t2026-10-10 10:00:00\n'
         doc = json.loads(self.inputs['candidates'].decode())
         doc['target']['license'] = 'CC-BY-2.0-FR'
         self.mutate(**doc)
@@ -97,8 +97,24 @@ class PairValidationTests(unittest.TestCase):
         self.assertEqual(1, result['counts']['license_review_required'])
         self.assertFalse(result['publication_approved'])
 
-    def test_cc0_author_disagreement_cannot_inherit_license(self):
-        self.inputs['cc0'] = b'11\tdeu\tHaus\tother-author\n22\tara\t\xd8\xa8\xd9\x8a\xd8\xaa\tfixture-author\n'
+    def test_cc0_last_modified_date_is_not_username(self):
+        # Official CC0 export column 4 is Date last modified, not an author.
+        # Username belongs to sentences_detailed and must be checked there.
+        self.inputs['cc0'] = (b'11\tdeu\tHaus\t2026-10-13 20:00:01\n'
+                              b'22\tara\t\xd8\xa8\xd9\x8a\xd8\xaa\t2026-10-13 20:00:02\n')
+        result = self.audit()
+        self.assertEqual(1, result['counts']['cc0_direct_candidates_review_required'])
+
+    def test_tampered_username_must_be_rejected_against_detailed(self):
+        doc = json.loads(self.inputs['candidates'].decode())
+        doc['source']['author'] = 'forged-owner'
+        self.mutate(**doc)
+        with self.assertRaisesRegex(PairError, 'SENTENCE_SOURCE_MISMATCH'):
+            self.audit()
+
+    def test_cc0_text_mismatch_cannot_inherit_license(self):
+        self.inputs['cc0'] = (b'11\tdeu\tHaus\t2026-10-10 10:00:00\n'
+                              b'22\tara\t\xd8\xa8\xd9\x8a\xd8\xaa-CHANGED\t2026-10-10 10:00:01\n')
         with self.assertRaisesRegex(PairError, 'LICENSE_CLAIM_MISMATCH'):
             self.audit()
 
