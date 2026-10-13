@@ -50,7 +50,6 @@ class MorphologyContract(unittest.TestCase):
         for record in rows:
             record["source_sha256"] = digest("original.dat")
         self.record["source_sha256"] = digest("original.dat")
-        self.record["source_sha256"] = digest("original.dat")
         source = {
             "source_id": "verified-de", "kind": "morphology",
             "status": "APPROVED_FOR_REDISTRIBUTION",
