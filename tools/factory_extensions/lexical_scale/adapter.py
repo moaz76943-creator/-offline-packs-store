@@ -235,6 +235,8 @@ def ingest(root, source_id, lang, checkpoint, *, shard=0, shards=1, batch=512, m
                 line += 1
                 processed += 1
                 counts['source_rows'] += 1
+                selected = False
+                invalid_owner = shard_for(None, raw, lang, source_id, shards) == shard
                 try:
                     if oversized:
                         raise ValueError('INVALID_JSONL_FRAMING')
@@ -265,7 +267,9 @@ def ingest(root, source_id, lang, checkpoint, *, shard=0, shards=1, batch=512, m
                         if not lex.get('morphology'):
                             counts['form_gaps'] += 1
                 except (ValueError, TypeError, UnicodeError, OverflowError):
-                    counts['rejected_rows'] += 1
+                    # Count malformed or unroutable records in exactly one deterministic shard.
+                    if selected or invalid_owner:
+                        counts['rejected_rows'] += 1
                 if processed % batch == 0:
                     db.execute('INSERT OR REPLACE INTO state VALUES (1,?,?,?,?)',
                                (key, stream.tell(), line, canonical(counts)))
