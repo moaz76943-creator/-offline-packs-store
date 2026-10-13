@@ -125,6 +125,17 @@ class DirectedGraphTests(unittest.TestCase):
         self.install()
         self.assertEqual(self.run_graph()["blocked_reasons"]["LANGUAGE_IDENTITY_SWAP"],1)
 
+    def test_lexeme_script_outside_canonical_language_is_rejected(self):
+        self.lexemes[0]["script"]="Arab"
+        self.install()
+        with self.assertRaisesRegex(AdmissionError,"NONCANONICAL_LEXEME_SCRIPT"):
+            self.run_graph()
+
+    def test_evidence_locator_must_match_source(self):
+        self.candidate["evidence"]["record_locator"]="unrelated row"
+        self.install()
+        self.assertEqual(self.run_graph()["blocked_reasons"]["DIRECT_SENSE_EVIDENCE_MISSING"],1)
+
     def test_unattested_target_text_is_blocked(self):
         self.candidate["translation_text"]="Bank"
         self.install()
