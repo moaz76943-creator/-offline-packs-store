@@ -169,5 +169,47 @@ class ContractTests(unittest.TestCase):
                 with self.assertRaises(ContractError):
                     process_shards(root, shards, root / "out")
 
+
+    def test_atomic_run_rejects_later_bad_shard_without_partial_publish(self):
+        from hashlib import sha256
+        from unittest.mock import patch
+        from tools.linguistic_extensions.european_inflection import validator as engine
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            shards = root / "tools/linguistic_extensions/european_inflection/shards"
+            shards.mkdir(parents=True)
+            good = (json.dumps(record(), ensure_ascii=False) + "\n").encode("utf-8")
+            # Deliberately sort first by digest: a first valid shard, then invalid.
+            invalid = b'{"record_id": "ru:bad", "language_code":"ru"}\n'
+            for raw in (good, invalid):
+                name = sha256(raw).hexdigest() + ".jsonl"
+                (shards / name).write_bytes(raw)
+            output = root / "out"
+            with patch.object(engine, "validate_profiles", return_value=True), patch.object(
+                    engine, "_load_admission", return_value=SOURCE):
+                with self.assertRaises(ContractError):
+                    process_shards(root, shards, output)
+            self.assertFalse(output.exists())
+            self.assertEqual(list(root.glob(".european-inflection-*")), [])
+
+    def test_immutable_output_never_overwrites_an_existing_run(self):
+        from unittest.mock import patch
+        from tools.linguistic_extensions.european_inflection import validator as engine
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            shards = root / "tools/linguistic_extensions/european_inflection/shards"
+            shards.mkdir(parents=True)
+            from hashlib import sha256
+            payload = (json.dumps(record(), ensure_ascii=False) + "\n").encode("utf-8")
+            (shards / (sha256(payload).hexdigest() + ".jsonl")).write_bytes(payload)
+            output = root / "out"
+            with patch.object(engine, "validate_profiles", return_value=True), patch.object(
+                    engine, "_load_admission", return_value=SOURCE):
+                process_shards(root, shards, output)
+                before = (output / "summary.json").read_bytes()
+                with self.assertRaises(ContractError):
+                    process_shards(root, shards, output)
+                self.assertEqual((output / "summary.json").read_bytes(), before)
+
 if __name__ == "__main__":
     unittest.main()
