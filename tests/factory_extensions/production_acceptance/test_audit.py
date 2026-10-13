@@ -40,6 +40,44 @@ class AcceptanceTests(unittest.TestCase):
                             for x in result['languages']))
         self.assertTrue(all(v is None for v in result['languages'][0]['metrics'].values()))
 
+    def test_registered_flag_cannot_be_missing(self):
+        put(self.root,'manifest.json',
+            {'total_languages':100,'languages':[{'code':c} for c in self.codes],
+             'packs':[]})
+        with self.assertRaises(audit.AcceptanceError):
+            audit.snapshot(self.root)
+
+    def test_approved_source_claim_alone_does_not_prove_language(self):
+        put(self.root,'legal/ledger/sources.json',
+            {'sources':[{'source_id':'claimed','status':'APPROVED_FOR_REDISTRIBUTION'}]})
+        record=audit.snapshot(self.root)
+        self.assertEqual(record['status'],'BLOCKED_EVIDENCE')
+        self.assertEqual(record['source_approved_verified'],0)
+        self.assertTrue(all(x['stages']['SOURCE_APPROVED']=='NOT_EVIDENCED'
+                            for x in record['languages']))
+
+    def test_malformed_canonical_json_is_blocked(self):
+        put(self.root,'catalog/language_registry.v1.json', ['not-a-registry'])
+        with self.assertRaises(audit.AcceptanceError):
+            audit.snapshot(self.root)
+
+    def test_wrong_canonical_language_identity_is_blocked(self):
+        put(self.root,'manifest.json',
+            {'total_languages':100,
+             'languages':[{'code':'invalid-lang','registered':True}]+
+                         [{'code':c,'registered':True} for c in self.codes[1:]],
+             'packs':[]})
+        with self.assertRaises(audit.AcceptanceError):
+            audit.snapshot(self.root)
+
+    def test_malformed_candidate_envelope_is_blocked(self):
+        put(self.root,'bundle.json', {'candidate':[]})
+        with self.assertRaises(audit.AcceptanceError):
+            audit.evaluate_candidate(self.root,self.root/'bundle.json',
+                                     'candidate.pack.gz',qa_key='missing',
+                                     qa_pin='0'*64,publisher_key='missing',
+                                     publisher_pin='0'*64)
+
     def test_rejects_fake_published_pack_when_source_ledger_empty(self):
         put(self.root,'manifest.json',
             {'total_languages':100,'languages':[{'code':c,'registered':True} for c in self.codes],
