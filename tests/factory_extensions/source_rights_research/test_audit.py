@@ -263,6 +263,18 @@ class Tests(unittest.TestCase):
             out = a.capture_public_evidence(one, d, Binary())
             self.assertEqual(out[0]['status'], 'UNAVAILABLE')
 
+    def test_report_output_must_not_modify_repository(self):
+        with self.assertRaisesRegex(ValueError, 'outside repository'):
+            a.main(['--out', str(a.REPO / 'legal' / 'ledger' / 'research-output')])
+
+    def test_public_capture_rejects_untrusted_candidate_filename(self):
+        one = self.mutated()
+        one['candidates'] = one['candidates'][:1]
+        one['candidates'][0]['candidate_id'] = '..'
+        with tempfile.TemporaryDirectory() as directory:
+            with self.assertRaisesRegex(ValueError, 'candidate ID'):
+                a.capture_public_evidence(one, directory, FakeOpener())
+
     def test_daily_ledger_never_modified_by_cli(self):
         before = a.LEDGER.read_bytes()
         with tempfile.TemporaryDirectory() as d:
