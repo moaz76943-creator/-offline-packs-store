@@ -52,13 +52,37 @@ class SentenceScaleTests(unittest.TestCase):
             catalog=self.catalog, ledger=self.ledger, senses=self.senses,
             rules=self.rules, reviewers=self.reviewers)
 
-    def run_rows(self, rows):
+    def run_rows(self, rows, approved_shard_source_id=None):
         path = self.workspace / 'shard.jsonl'
         data = ''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in rows).encode()
         path.write_bytes(data)
-        self.manifest.write_text(json.dumps({'schema_version': 1, 'shards':
-            [{'path': 'shard.jsonl', 'sha256': hashlib.sha256(data).hexdigest()}]}))
+        shard = {'path': 'shard.jsonl', 'sha256': hashlib.sha256(data).hexdigest()}
+        if approved_shard_source_id is not None:
+            shard['approved_shard_source_id'] = approved_shard_source_id
+        self.manifest.write_text(json.dumps({'schema_version': 1, 'shards': [shard]}))
         return self.invoke()
+
+    def add_mock_approved_shard_grant(self, row):
+        """Separate Route05 approval: raw original SHA is not the derived file SHA."""
+        ledger = json.loads(self.ledger.read_text())
+        data = (json.dumps(row, ensure_ascii=False) + '\n').encode()
+        shard_sha = hashlib.sha256(data).hexdigest()
+        parent_sha = row['source']['artifact_sha256']
+        ledger['sources'].append({
+            'source_id': 'demo.shard', 'kind': 'examples',
+            'publisher': 'Example Org', 'dataset_version': '2026-01',
+            'status': 'APPROVED_FOR_REDISTRIBUTION',
+            'origin_url': 'https://example.org/derived/shard',
+            'retrieval': {'identity': 'fixture-verified-shard',
+                          'url': 'https://example.org/derived/shard',
+                          'sha256': shard_sha},
+            'license': {'id': 'CC0-1.0', 'evidence_sha256': 'b' * 64,
+                        'evidence_url': 'https://example.org/licensing/shard'},
+            'review': {'reviewer': 'reviewer.mock',
+                       'decision_url': 'https://example.org/decisions/shard'},
+            'alterations': ['derived_from:demo@' + parent_sha]})
+        self.ledger.write_text(json.dumps(ledger))
+        return 'demo.shard'
 
     def test_empty_route05_ledger_blocks_source(self):
         report = self.run_rows([self.row('1')])
@@ -148,8 +172,9 @@ class SentenceScaleTests(unittest.TestCase):
             'review': {'reviewer': 'reviewer.mock',
                        'decision_url': 'https://example.org/decisions/3'}
         }]}))
+        shard_id = self.add_mock_approved_shard_grant(row)
         with patch.object(worker.canonical, 'validate', return_value=('ACCEPTED', [], [])):
-            result = self.run_rows([row])
+            result = self.run_rows([row], approved_shard_source_id=shard_id)
         self.assertEqual(result['totals']['accepted'], 1)
         self.assertEqual(result['published'], 0)
 
@@ -207,8 +232,9 @@ class SentenceScaleTests(unittest.TestCase):
             'retrieval': {'identity': 'mock', 'url': 'https://example.org/archive', 'sha256': 'a' * 64},
             'license': {'id': 'CC0-1.0', 'evidence_sha256': 'b' * 64},
             'review': {'decision_url': 'https://example.org/decision'}}]}))
+        shard_id = self.add_mock_approved_shard_grant(row)
         with patch.object(worker.canonical, 'validate', return_value=('ACCEPTED', [], [])), patch.object(worker, 'evidence', return_value=True):
-            first = self.run_rows([row])
+            first = self.run_rows([row], approved_shard_source_id=shard_id)
         self.assertEqual(first['totals']['accepted'], 1)
         self.ledger.write_text('{"schema_version":"1.0.0","sources":[]}')
         with patch.object(worker.canonical, 'validate', return_value=('ACCEPTED', [], [])):
@@ -341,6 +367,28 @@ class SentenceScaleTests(unittest.TestCase):
                    (self.out / 'candidates.jsonl').read_text().splitlines()]
         original = next(item for item in records if item['language'] == 'en')
         self.assertIn('translation_equivalence_unverified', original['reasons'])
+
+
+    def test_wrong_approved_shard_digest_fails_closed(self):
+        row = self.row('406')
+        self.ledger.write_text(json.dumps({'schema_version': '1.0.0', 'sources': [{
+            'source_id': 'demo', 'kind': 'examples', 'publisher': 'Example Org',
+            'origin_url': 'https://example.org/sentences/', 'dataset_version': '2026-01',
+            'status': 'APPROVED_FOR_REDISTRIBUTION',
+            'retrieval': {'identity': 'fixture', 'url': 'https://example.org/archive',
+                          'sha256': 'a' * 64},
+            'license': {'id': 'CC0-1.0', 'evidence_sha256': 'b' * 64},
+            'review': {'decision_url': 'https://example.org/decision'}}]}))
+        shard_id = self.add_mock_approved_shard_grant(row)
+        ledger = json.loads(self.ledger.read_text())
+        ledger['sources'][-1]['retrieval']['sha256'] = 'f' * 64
+        self.ledger.write_text(json.dumps(ledger))
+        with patch.object(worker.canonical, 'validate', return_value=('ACCEPTED', [], [])), \
+                patch.object(worker, 'evidence', return_value=True):
+            report = self.run_rows([row], approved_shard_source_id=shard_id)
+        self.assertEqual(report['totals']['rejected'], 1)
+        self.assertIn('source_shard_evidence_conflict',
+                      json.loads((self.out / 'candidates.jsonl').read_text())['reasons'])
 
 
 if __name__ == '__main__':
