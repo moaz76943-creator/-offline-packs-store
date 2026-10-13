@@ -3,13 +3,126 @@
   "scope": "structural_metadata_only_not_lexical_corpus",
   "reviewed_date": "2026-10-13",
   "facts": [
-    {"language_id": "yo", "dimension": "tone", "value": "complex_tone_system", "source": {"publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology", "editors": "Matthew S. Dryer; Martin Haspelmath", "feature_author": "Ian Maddieson", "original_reference": "Bamgbose 1966", "url": "https://wals.info/valuesets/13A-yor", "license": "CC BY 4.0", "redistribution_scope": "attributed_structural_metadata_only", "speaker_or_community_consent": "not_asserted"}},
-    {"language_id": "ig", "dimension": "tone", "value": "simple_tone_system", "source": {"publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology", "editors": "Matthew S. Dryer; Martin Haspelmath", "feature_author": "Ian Maddieson", "original_reference": "Ikekeonwu 1999", "url": "https://wals.info/valuesets/13A-igb", "license": "CC BY 4.0", "redistribution_scope": "attributed_structural_metadata_only", "speaker_or_community_consent": "not_asserted"}},
-    {"language_id": "ha", "dimension": "tone", "value": "simple_tone_system", "source": {"publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology", "editors": "Matthew S. Dryer; Martin Haspelmath", "feature_author": "Ian Maddieson", "original_reference": "Newman 2000; Schuh and Bagari 1999", "url": "https://wals.info/valuesets/13A-hau", "license": "CC BY 4.0", "redistribution_scope": "attributed_structural_metadata_only", "speaker_or_community_consent": "not_asserted"}},
-    {"language_id": "id", "dimension": "reduplication", "value": "wals_full_reduplication_only", "source": {"publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology", "editors": "Matthew S. Dryer; Martin Haspelmath", "feature_author": "Carl Rubino", "original_reference": "Sneddon 1996b", "url": "https://wals.info/valuesets/27A-ind", "license": "CC BY 4.0", "redistribution_scope": "attributed_structural_metadata_only", "speaker_or_community_consent": "not_asserted"}}
+    {
+      "language_id": "yo",
+      "dimension": "tone",
+      "value": "complex_tone_system",
+      "source": {
+        "publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology",
+        "editors": "Matthew S. Dryer; Martin Haspelmath",
+        "feature_author": "Ian Maddieson",
+        "original_reference": "Bamgbose 1966",
+        "url": "https://wals.info/valuesets/13A-yor",
+        "license": "CC BY 4.0",
+        "redistribution_scope": "attributed_structural_metadata_only",
+        "speaker_or_community_consent": "not_asserted"
+      }
+    },
+    {
+      "language_id": "ig",
+      "dimension": "tone",
+      "value": "simple_tone_system",
+      "source": {
+        "publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology",
+        "editors": "Matthew S. Dryer; Martin Haspelmath",
+        "feature_author": "Ian Maddieson",
+        "original_reference": "Ikekeonwu 1999",
+        "url": "https://wals.info/valuesets/13A-igb",
+        "license": "CC BY 4.0",
+        "redistribution_scope": "attributed_structural_metadata_only",
+        "speaker_or_community_consent": "not_asserted"
+      }
+    },
+    {
+      "language_id": "ha",
+      "dimension": "tone",
+      "value": "simple_tone_system",
+      "source": {
+        "publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology",
+        "editors": "Matthew S. Dryer; Martin Haspelmath",
+        "feature_author": "Ian Maddieson",
+        "original_reference": "Newman 2000; Schuh and Bagari 1999",
+        "url": "https://wals.info/valuesets/13A-hau",
+        "license": "CC BY 4.0",
+        "redistribution_scope": "attributed_structural_metadata_only",
+        "speaker_or_community_consent": "not_asserted"
+      }
+    },
+    {
+      "language_id": "id",
+      "dimension": "reduplication",
+      "value": "wals_full_reduplication_only",
+      "source": {
+        "publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology",
+        "editors": "Matthew S. Dryer; Martin Haspelmath",
+        "feature_author": "Carl Rubino",
+        "original_reference": "Sneddon 1996b",
+        "url": "https://wals.info/valuesets/27A-ind",
+        "license": "CC BY 4.0",
+        "redistribution_scope": "attributed_structural_metadata_only",
+        "speaker_or_community_consent": "not_asserted"
+      }
+    },
+    {
+      "language_id": "sw",
+      "dimension": "wals_controller_gender_classes",
+      "value": "five_or_more",
+      "source": {
+        "publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology",
+        "editors": "Matthew S. Dryer; Martin Haspelmath",
+        "license": "CC BY 4.0",
+        "redistribution_scope": "attributed_structural_metadata_only",
+        "speaker_or_community_consent": "not_asserted",
+        "feature_author": "Greville G. Corbett",
+        "original_reference": "Corbett 1991; Gregersen 1967; Wald 1975",
+        "url": "https://wals.info/valuesets/30A-swa"
+      }
+    },
+    {
+      "language_id": "zu",
+      "dimension": "wals_controller_gender_classes",
+      "value": "five_or_more",
+      "source": {
+        "publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology",
+        "editors": "Matthew S. Dryer; Martin Haspelmath",
+        "license": "CC BY 4.0",
+        "redistribution_scope": "attributed_structural_metadata_only",
+        "speaker_or_community_consent": "not_asserted",
+        "feature_author": "Greville G. Corbett",
+        "original_reference": "Ziervogel et al. 1981",
+        "url": "https://wals.info/valuesets/30A-zul"
+      }
+    },
+    {
+      "language_id": "tl",
+      "dimension": "reduplication",
+      "value": "wals_productive_full_and_partial",
+      "source": {
+        "publisher": "WALS Online, Max Planck Institute for Evolutionary Anthropology",
+        "editors": "Matthew S. Dryer; Martin Haspelmath",
+        "license": "CC BY 4.0",
+        "redistribution_scope": "attributed_structural_metadata_only",
+        "speaker_or_community_consent": "not_asserted",
+        "feature_author": "Carl Rubino",
+        "original_reference": "Rubino 1998a",
+        "url": "https://wals.info/valuesets/27A-tag"
+      }
+    }
   ],
   "discovery_sources": [
-    {"publisher": "Glottolog 5.3", "url": "https://glottolog.org/meta/downloads", "license": "CC BY 4.0", "purpose": "language identity and bibliography discovery only", "lexical_admission": "requires_separate_review"},
-    {"publisher": "WALS Online", "url": "https://wals.info/download", "license": "CC BY 4.0", "purpose": "typological evidence discovery only", "lexical_admission": "requires_separate_review"}
+    {
+      "publisher": "Glottolog 5.3",
+      "url": "https://glottolog.org/meta/downloads",
+      "license": "CC BY 4.0",
+      "purpose": "language identity and bibliography discovery only",
+      "lexical_admission": "requires_separate_review"
+    },
+    {
+      "publisher": "WALS Online",
+      "url": "https://wals.info/download",
+      "license": "CC BY 4.0",
+      "purpose": "typological evidence discovery only",
+      "lexical_admission": "requires_separate_review"
+    }
   ]
 }
