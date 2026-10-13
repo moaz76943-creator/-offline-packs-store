@@ -203,7 +203,8 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
                                 'SELECT fingerprint,change_hold FROM records WHERE id=?', (record_id,)).fetchone()
                             hold = bool(previous and (previous[0] != fingerprint or previous[1]))
                             if hold:
-                                status = 'REQUIRES_REVIEW'
+                                if status != 'REJECTED':
+                                    status = 'REQUIRES_REVIEW'
                                 reasons = sorted(set(reasons + ['immutable_sentence_revision']))
                             payload = compact({**row, 'id': record_id, 'text_sha256': digest(text),
                                                'grammar': grammar})
@@ -254,7 +255,7 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
                          source_id=? AND sentence_id=? AND language=?""",
                          (link['target_source_id'], link['target_sentence_id'],
                           link['target_language'])).fetchall()
-                    reviews = [att for att in row.get('translation_reviews', [])
+                    reviews = [att for att in (row.get('translation_reviews') or [])
                                if isinstance(att, dict) and all(
                                    att.get(field) == link.get(field) for field in
                                    ('target_source_id', 'target_sentence_id', 'target_language'))]
