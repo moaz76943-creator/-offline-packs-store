@@ -15,7 +15,7 @@ from types import SimpleNamespace
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-from community.contributions.ingest import ingest, members, unique_json
+from community.contributions.ingest import ingest, members, unique_json, quarantine_submission
 from community.review.state_machine import ReviewStateMachine, sign
 from tools.open_export.exporter import CommunityExporter, ExportError
 
@@ -277,6 +277,19 @@ class SecurityRegression(unittest.TestCase):
         self.machine.mark_published_eligible("item1")
         with self.assertRaisesRegex(ValueError, "attribution metadata"):
             self.export()
+
+
+    def test_quarantine_preserves_rejected_bytes_and_reason(self):
+        rejected = self.root / "malformed.json"
+        rejected.write_bytes(b"{broken")
+        receipt = quarantine_submission(rejected, self.root / "isolation", "Invalid JSON")
+        self.assertEqual(receipt["state"], "QUARANTINED")
+        self.assertFalse(receipt["rights_approved"])
+        isolated = self.root / "isolation/quarantined"
+        self.assertEqual((isolated / (receipt["sha256"] + ".bin")).read_bytes(), b"{broken")
+        self.assertIn("Invalid JSON", (isolated / (receipt["sha256"] + ".json")).read_text())
+        self.assertEqual(rejected.read_bytes(), b"{broken")
+        self.assertEqual(quarantine_submission(rejected, self.root / "isolation", "Invalid JSON"), receipt)
 
 
 if __name__ == "__main__":
