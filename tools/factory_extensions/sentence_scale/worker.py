@@ -15,6 +15,14 @@ from pathlib import Path
 from tools.source_examples import pipeline as canonical
 
 SHA = re.compile(r"[0-9a-f]{64}\Z")
+EVIDENCE_FIELDS = frozenset(('review', 'language_review', 'annotation_review',
+    'translation_reviews', 'editorial_rights_review', 'cefr_evidence_url'))
+
+
+def immutable_fingerprint(row):
+    """Only content/provenance changes freeze a sentence; reviews may improve."""
+    return digest(compact({k: v for k, v in row.items()
+                           if k not in EVIDENCE_FIELDS}))
 MAX_LINE = 32768
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS records (
@@ -68,7 +76,8 @@ def evidence(attestation, text_hash, lang, reviewers):
     except (ValueError, TypeError):
         return False
 
-def validate_extended(row, ledger, sources, senses, rules, reviewers, allowed):
+def validate_extended(row, ledger, sources, senses, rules, reviewers, allowed,
+                      shard_sha=None, shard_source_id=None):
     """Canonical rejection cannot be overridden by new approval metadata."""
     status, reasons, grammar = canonical.validate(row, sources, senses, rules, reviewers)
     reasons = list(reasons)
@@ -89,6 +98,32 @@ def validate_extended(row, ledger, sources, senses, rules, reviewers, allowed):
         if not (retrieval.get('identity') and retrieval.get('url') and rights.get('evidence_sha256')
                 and (origin.get('review') or {}).get('decision_url')):
             reasons.append('route05_evidence_incomplete')
+        # Source metadata alone cannot authorize arbitrary bytes. A separate
+        # independently reviewed Route05 shard grant must bind the actual SHA
+        # of this JSONL shard to the approved original source SHA.
+        grant = ledger.get(shard_source_id) if isinstance(shard_source_id, str) else None
+        if not grant:
+            reasons.append('source_shard_admission_missing')
+        else:
+            gr = grant.get('retrieval') or {}
+            rights2 = grant.get('license') or {}
+            review2 = grant.get('review') or {}
+            lineage = 'derived_from:' + src['source_id'] + '@' + str(retrieval.get('sha256'))
+            if (grant.get('kind') != 'examples'
+                    or grant.get('status') != 'APPROVED_FOR_REDISTRIBUTION'
+                    or grant.get('publisher') != origin.get('publisher')
+                    or grant.get('dataset_version') != origin.get('dataset_version')
+                    or gr.get('sha256') != shard_sha
+                    or rights2.get('id') != rights.get('id')
+                    or lineage not in (grant.get('alterations') or [])
+                    or not gr.get('identity')
+                    or not gr.get('url', '').startswith('https://')
+                    or not rights2.get('evidence_sha256')
+                    or not rights2.get('evidence_url', '').startswith('https://')
+                    or not review2.get('reviewer')
+                    or not review2.get('decision_url', '').startswith('https://')):
+                return 'REJECTED', sorted(set(
+                    reasons + ['source_shard_evidence_conflict'])), grammar
     if not isinstance(src.get('dataset_version'), str) or not src['dataset_version'].strip():
         reasons.append('source_version_missing')
     if not isinstance(src.get('record_locator'), str) or not src['record_locator'].strip():
@@ -222,12 +257,16 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
                             row = json.loads(raw.decode('utf-8', 'strict'), object_pairs_hook=unique_pairs)
                             if not isinstance(row, dict):
                                 raise ValueError('row is not object')
+                            if '_verified_shard_sha256' in row or '_approved_shard_source_id' in row:
+                                raise ValueError('reserved worker provenance fields')
+                            shard_source_id = item.get('approved_shard_source_id')
                             status, reasons, grammar = validate_extended(
                                 row, source_ledger, source_grants, sense_catalog,
-                                rule_catalog, roster, languages)
+                                rule_catalog, roster, languages,
+                                shard_sha=expected, shard_source_id=shard_source_id)
                             record_id = canonical.key_for(row)
                             text, lang = row['text'], row['language']
-                            fingerprint = digest(compact(row))
+                            fingerprint = immutable_fingerprint(row)
                             previous = db.execute(
                                 'SELECT fingerprint,change_hold FROM records WHERE id=?', (record_id,)).fetchone()
                             hold = bool(previous and (previous[0] != fingerprint or previous[1]))
@@ -236,12 +275,16 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
                                     status = 'REQUIRES_REVIEW'
                                 reasons = sorted(set(reasons + ['immutable_sentence_revision']))
                             payload = compact({**row, 'id': record_id, 'text_sha256': digest(text),
-                                               'grammar': grammar})
+                                               'grammar': grammar,
+                                               '_verified_shard_sha256': expected,
+                                               '_approved_shard_source_id': shard_source_id})
                             db.execute("""INSERT INTO records VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                               ON CONFLICT(id) DO UPDATE SET
                               base_status=excluded.base_status,
                               base_reasons=excluded.base_reasons,
                               status=excluded.status,reasons=excluded.reasons,
+                              payload=CASE WHEN excluded.change_hold=0
+                                           THEN excluded.payload ELSE records.payload END,
                               change_hold=excluded.change_hold""",
                               (record_id, lang, row['source']['source_id'], row['source']['sentence_id'],
                                text, digest(text), fingerprint, digest(surface(text)),
@@ -270,7 +313,9 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
                 # on every replay. An immutable source is not an immutable grant.
                 status, reasons, grammar = validate_extended(
                     row, source_ledger, source_grants, sense_catalog,
-                    rule_catalog, roster, languages)
+                    rule_catalog, roster, languages,
+                    shard_sha=row.get('_verified_shard_sha256'),
+                    shard_source_id=row.get('_approved_shard_source_id'))
                 hold = db.execute(
                     'SELECT change_hold FROM records WHERE id=?', (uid,)).fetchone()[0]
                 if hold:
@@ -303,7 +348,9 @@ def process(manifest, workspace, db_file, out, *, catalog, ledger, senses, rules
                                    ('target_source_id', 'target_sentence_id', 'target_language'))]
                     if (len(targets) != 1 or len(reviews) != 1
                             or reviews[0].get('target_sha256') != targets[0][0]
-                            or not evidence(reviews[0], text_hash, lang, roster)):
+                            or not evidence(reviews[0], text_hash, lang, roster)
+                            or not evidence(reviews[0], text_hash,
+                                            link['target_language'], roster)):
                         reasons.append('translation_equivalence_unverified')
                 if status == 'ACCEPTED' and reasons:
                     status = 'REQUIRES_REVIEW'
