@@ -12,7 +12,7 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
-from policy import (REQUIRED_GATE, checks_pass, conflicts, latest_approval,
+from .policy import (REQUIRED_GATE, checks_pass, conflicts, latest_approval,
                     protection_is_enforced, skip_message, state_for)
 
 REPO = "moaz76943-creator/-offline-packs-store"
@@ -79,6 +79,8 @@ class GitHub:
         for page in range(1, 6):
             suffix = "&" if "?" in path else "?"
             batch = self.get(f"{path}{suffix}per_page=100&page={page}")
+            if isinstance(batch, dict) and "/check-runs" in path:
+                batch = batch.get("check_runs")
             if not isinstance(batch, list):
                 raise ApiError("SCHEMA", "expected paginated list")
             results.extend(batch)
