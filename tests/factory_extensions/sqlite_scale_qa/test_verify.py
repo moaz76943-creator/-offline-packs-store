@@ -105,7 +105,7 @@ class SQLiteScaleTests(unittest.TestCase):
 
     def test_control_characters_cannot_be_used_as_fts_queries(self):
         probes = copy.deepcopy(self.probes)
-        probes['cases'][0]['query'] = 'Haus\\x00'
+        probes['cases'][0]['query'] = 'Haus\x00'
         with self.assertRaisesRegex(ValueError, 'invalid query'):
             self.check(probes=probes)
 
