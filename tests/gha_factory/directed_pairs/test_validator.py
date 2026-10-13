@@ -4,10 +4,11 @@ import json
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'tools' / 'gha_factory' / 'directed_pairs'))
-from validator import PILOT, PairError, audit_pairs
+from validator import PILOT, PairError, audit_pairs, main
 
 
 def digest(raw):
@@ -161,6 +162,21 @@ class PairValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(PairError, 'INVALID_CANONICAL_LANGUAGE_MAP'):
             audit_pairs('x', '0'*64, 'x', '0'*64, 'x', '0'*64, 'x', '0'*64,
                         {'deu':'ar', **{k:v for k,v in PILOT.items() if k!='deu'}}, set(PILOT.values()))
+
+    def test_output_tmp_symlink_must_not_overwrite_unrelated_file(self):
+        victim = self.dir / 'victim.txt'
+        victim.write_text('DO_NOT_OVERWRITE', encoding='utf-8')
+        output = self.dir / 'report.json'
+        (self.dir / 'report.json.tmp').symlink_to(victim)
+        catalog = self.dir / 'manifest.json'
+        catalog.write_text(json.dumps({'languages': [{'code': 'x' + str(i)} for i in range(100)]}))
+        args = ['--catalog', str(catalog), '--out', str(output)]
+        for name in ('detailed', 'links', 'cc0', 'candidates'):
+            args.extend(['--' + name, 'irrelevant', '--' + name + '-sha256', 'a'*64])
+        with patch('validator.audit_pairs', return_value={'status': 'QA_ONLY_REVIEW_REQUIRED'}):
+            with self.assertRaisesRegex(PairError, 'UNSAFE_OUTPUT_PATH'):
+                main(args)
+        self.assertEqual('DO_NOT_OVERWRITE', victim.read_text(encoding='utf-8'))
 
     def test_bounded_pair_budget(self):
         with self.assertRaisesRegex(PairError, 'PAIR_BUDGET_EXCEEDED'):
