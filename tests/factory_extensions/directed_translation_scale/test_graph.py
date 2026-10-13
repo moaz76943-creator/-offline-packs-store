@@ -249,6 +249,36 @@ class DirectedGraphTests(unittest.TestCase):
         self.assertEqual(summary["actual_pair_count"],0)
         self.assertEqual(summary["shards_verified"],4)
 
+    def test_shard_aggregation_rejects_missharded_edge(self):
+        from tools.factory_extensions.directed_translation_scale.aggregate import aggregate
+        folders = self.dir / "artifacts"
+        self.install()
+        expected = int(hashlib.sha256(self.candidate["translation_id"].encode()).hexdigest(),16) % 4
+        wrong = (expected + 1) % 4
+        for i in range(4):
+            shard = folders / ("directed-graph-shard-" + str(i))
+            shard.mkdir(parents=True)
+            execute(registry=REGISTRY, sources=self.ledger_path,
+                    shard_count=4, shard_index=i,
+                    database=shard/"graph.sqlite", receipt=shard/"receipt.json")
+        wrong_dir = folders / ("directed-graph-shard-" + str(wrong))
+        with sqlite3.connect(wrong_dir / "graph.sqlite") as db:
+            db.execute("""INSERT INTO senses VALUES (?,?,?,?,?,?,?)""",
+                       ("sense.fake.src","de","lex.fake.src","concept.fake","Latn","fake","fake"))
+            db.execute("""INSERT INTO senses VALUES (?,?,?,?,?,?,?)""",
+                       ("sense.fake.dst","en","lex.fake.dst","concept.fake","Latn","fake","fake"))
+            db.execute("""INSERT INTO edges VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                       (self.candidate["translation_id"],"de","en","sense.fake.src",
+                        "sense.fake.dst","review_required","exact","fake",None,None,
+                        None,None,"src.attested","v1","CC0-1.0","row 1",SHA))
+        rp = wrong_dir / "receipt.json"
+        receipt = json.loads(rp.read_text())
+        receipt["database_sha256"] = hashlib.sha256((wrong_dir/"graph.sqlite").read_bytes()).hexdigest()
+        receipt["counts"]["review_required"] = 1
+        write(rp,receipt)
+        with self.assertRaisesRegex(AdmissionError,"DUPLICATED_OR_MISSHARDED_EDGE"):
+            aggregate(REGISTRY, folders, self.dir / "out.json")
+
     def test_shard_aggregation_detects_modified_database(self):
         from tools.factory_extensions.directed_translation_scale.aggregate import aggregate
         folders = self.dir / "artifacts"
