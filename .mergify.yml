@@ -1,0 +1,50 @@
+# DEUTSCH بالعربي | public language-pack factory
+# CONFIGURATION CANDIDATE: safe/manual by default.
+# Mergify reads this file from GitHub's default branch (main).
+# Do not activate automatic queuing until protection and hosted CI have been verified.
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
+  reset_on_external_merge: always
+  skip_intermediate_results: false
+  queued_label: mergify-queued
+  dequeued_label: mergify-dequeued
+  status_comments: outcomes
+
+queue_rules:
+  - name: verified-public-main
+    merge_method: squash
+    batch_size: 1
+    max_checks_retries: 0
+    queue_conditions:
+      - base = main
+      - -draft
+      - -conflict
+      - label = mergify-approved
+      - check-success = public-pr-merge-gate
+    merge_conditions:
+      - check-success = public-pr-merge-gate
+      - "#approved-reviews-by >= 1"
+
+priority_rules:
+  - name: reviewed-critical-fix
+    conditions:
+      - label = mergify-priority-high
+      - label = mergify-approved
+    priority: high
+
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: true
+  # auto_merge_conditions intentionally omitted: no unattended merges.
+
+merge_protections:
+  - name: public-factory-evidence-gate
+    if:
+      - base = main
+    success_conditions:
+      - -draft
+      - -conflict
+      - label = mergify-approved
+      - check-success = public-pr-merge-gate
+      - "#approved-reviews-by >= 1"
