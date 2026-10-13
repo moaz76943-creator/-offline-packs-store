@@ -1,0 +1,208 @@
+"""Synthetic-only security regression suite; fixture approvals are NOT legal evidence."""
+import hashlib
+import io
+import json
+import os
+import sys
+import tarfile
+import tempfile
+import unittest
+import zipfile
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+from unittest.mock import patch
+from types import SimpleNamespace
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from community.contributions.ingest import ingest, members, unique_json
+from community.review.state_machine import ReviewStateMachine, sign
+from tools.open_export.exporter import CommunityExporter, ExportError
+
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+class SecurityRegression(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        self.src = self.root / "contributions"
+        self.src.mkdir()
+        self.review_root = self.root / "reviews"
+        self.out = self.root / "out"
+        self.auth = {"validator": b"v" * 32, "reviewer": b"r" * 32}
+        self.machine = ReviewStateMachine(self.review_root, self.src,
+                                          validator_keys={"validator": self.auth["validator"]},
+                                          reviewer_keys={"reviewer": self.auth["reviewer"]})
+        self.meta = {"source_id": "src-test", "language": "de", "sense_id": "sense-test",
+                     "license_id": "CC0-1.0", "dataset_version": "1.0", "publisher": "Fixture publisher",
+                     "origin_url": "https://example.org/data", "record_locator": "row-1",
+                     "source_artifact_sha256": "a" * 64, "fixture_only": False,
+                     "rights_status": "APPROVED_FOR_REDISTRIBUTION"}
+        self.ledger = {"schema_version": "1.0.0", "sources": [{"source_id": "src-test",
+                       "status": "APPROVED_FOR_REDISTRIBUTION", "dataset_version": "1.0",
+                       "publisher": "Fixture publisher", "origin_url": "https://example.org/data",
+                       "kind": "dictionary", "retrieval": {"sha256": "a" * 64},
+                       "license": {"id": "CC0-1.0", "evidence_url": "https://example.org/rights"}}]}
+        ledgerpath = self.root / "legal/ledger"
+        ledgerpath.mkdir(parents=True)
+        (ledgerpath / "sources.json").write_text(json.dumps(self.ledger))
+
+    def stage(self, sid="item1", content=b"source-backed bytes"):
+        filename = sid + ".bin"
+        path = self.src / filename
+        path.write_bytes(content)
+        sha = digest(content)
+        self.machine.submit(sid, sha, self.meta, path)
+        return filename, sha
+
+    def certify(self, sid="item1"):
+        self.machine.start_validation(sid)
+        data = self.machine._read(sid)
+        token = sign(self.auth["validator"], self.machine.payload(data, "VALIDATE", "validator"))
+        self.machine.complete_validation(sid, "validator", token)
+        data = self.machine._read(sid)
+        token = sign(self.auth["reviewer"], self.machine.payload(data, "APPROVE", "reviewer"))
+        self.machine.review(sid, "reviewer", True, token)
+        return self.machine.mark_published_eligible(sid)
+
+    def manifest(self, filename, sha, sid="item1"):
+        (self.src / "manifest.json").write_text(json.dumps({"items": [{
+            "id": sid, "type": "lexical", "filename": filename, "sha256": sha,
+            "submission_id": sid, "source_id": "src-test", "license": "CC0-1.0",
+            "source_version": "1.0"}]}))
+
+    def export(self):
+        # A simulated admission gate never replaces real verified rights evidence.
+        with patch.dict(sys.modules, {"legal.ledger.admission": SimpleNamespace(evaluate=lambda *_: [])}):
+            return CommunityExporter(self.src, self.out, self.machine, repository_root=self.root).run()
+
+    def test_reject_path_traversal_and_symlink_in_review(self):
+        for sid in ("../outside", "a/b", "..", "evil.json/../../"):
+            with self.assertRaises(ValueError):
+                self.machine.submit(sid, "0" * 64, self.meta, self.src / "whatever")
+        outside = self.root / "outside"
+        outside.write_bytes(b"hi")
+        (self.src / "link.bin").symlink_to(outside)
+        with self.assertRaises(ValueError):
+            self.machine.submit("item1", digest(b"hi"), self.meta, self.src / "link.bin")
+
+    def test_approval_requires_independent_keys_and_hash_binding(self):
+        self.stage()
+        self.machine.start_validation("item1")
+        with self.assertRaises(PermissionError):
+            self.machine.complete_validation("item1", "validator", "claimed-passed")
+        data = self.machine._read("item1")
+        vtoken = sign(self.auth["validator"], self.machine.payload(data, "VALIDATE", "validator"))
+        self.machine.complete_validation("item1", "validator", vtoken)
+        with self.assertRaises(PermissionError):
+            self.machine.review("item1", "anonymous", True, vtoken)
+        data = self.machine._read("item1")
+        rtoken = sign(self.auth["reviewer"], self.machine.payload(data, "APPROVE", "reviewer"))
+        self.machine.review("item1", "reviewer", True, rtoken)
+        (self.src / "item1.bin").write_bytes(b"tampered")
+        with self.assertRaises(ValueError):
+            self.machine.mark_published_eligible("item1")
+
+    def test_corrections_invalidate_prior_approval(self):
+        self.stage()
+        self.certify()
+        self.stage(content=b"new revision")
+        with self.assertRaises(ValueError):
+            self.machine.verify_handoff("item1")
+        self.assertEqual(self.machine._read("item1")["state"], "SUBMITTED")
+
+    def test_concurrent_same_submission_idempotent(self):
+        filename, sha = self.stage()
+        def same(_):
+            return self.machine.submit("item1", sha, self.meta, self.src / filename)["revision"]
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            self.assertEqual(list(pool.map(same, range(8))), [1] * 8)
+
+    def test_archive_traversal_tar_symlinks_zip_bombs(self):
+        with io.BytesIO() as b:
+            with zipfile.ZipFile(b, "w") as z:
+                z.writestr("../escape.json", "{}")
+            with self.assertRaises(ValueError):
+                list(members(b.getvalue(), "bad.zip"))
+        with io.BytesIO() as b:
+            with tarfile.open(fileobj=b, mode="w:gz") as t:
+                info = tarfile.TarInfo("link.json")
+                info.type = tarfile.SYMTYPE
+                info.linkname = "../../escape"
+                t.addfile(info)
+            with self.assertRaises(ValueError):
+                list(members(b.getvalue(), "bad.tar.gz"))
+        import gzip
+        with self.assertRaises(ValueError):
+            list(members(gzip.compress(b"x" * (16 * 1024 * 1024 + 1)), "bomb.json.gz"))
+
+    def test_intake_duplicate_keys_and_fixture_rejection(self):
+        with self.assertRaises(ValueError):
+            unique_json(b'{"a":1,"a":2}')
+        entry = {"contract_version": "1.0.0", "document_id": "doc-1", "lexemes": [{"source": {
+            "source_id": "src-test", "license_id": "CC0-1.0", "fixture_only": True,
+            "dataset_version": "1", "record_locator": "1", "publisher": "demo",
+            "origin_url": "https://example.org", "artifact_sha256": "a" * 64}}],
+                 "senses": [], "translations": [], "examples": [], "relations": []}
+        content = self.root / "fixture.json"
+        content.write_text(json.dumps(entry))
+        registry = self.root / "registry.json"
+        registry.write_text('{"states":{"de":"unverified"}}')
+        with self.assertRaisesRegex(ValueError, "provenance"):
+            ingest(content, self.root / "stage", registry_path=registry,
+                   validator=lambda *_args, **_kwargs: None, licenses={"CC0-1.0"})
+        entry["lexemes"][0]["source"]["fixture_only"] = False
+        content.write_text(json.dumps(entry))
+        receipt = ingest(content, self.root / "stage", registry_path=registry,
+                         validator=lambda *_args, **_kwargs: None, licenses={"CC0-1.0"})
+        self.assertEqual(receipt["state"], "STAGED_REVIEW_REQUIRED")
+        self.assertFalse(receipt["rights_approved"])
+        self.assertEqual(receipt, ingest(content, self.root / "stage", registry_path=registry,
+                                         validator=lambda *_args, **_kwargs: None, licenses={"CC0-1.0"}))
+
+    def test_export_reject_unreviewed_tampering_and_ledger_mismatch(self):
+        name, sha = self.stage()
+        self.manifest(name, sha)
+        with self.assertRaises((ValueError, FileNotFoundError)):
+            self.export()
+        self.certify()
+        self.ledger["sources"][0]["status"] = "UNVERIFIED_RIGHTS"
+        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
+        with self.assertRaisesRegex(ValueError, "not approved"):
+            self.export()
+        self.ledger["sources"][0]["status"] = "APPROVED_FOR_REDISTRIBUTION"
+        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
+        (self.src / name).write_bytes(b"different content")
+        with self.assertRaisesRegex(ValueError, "SHA-256"):
+            self.export()
+
+    def test_deterministic_export_and_failed_run_preserves_last_good(self):
+        name, sha = self.stage()
+        self.certify()
+        self.manifest(name, sha)
+        first = self.export()
+        second = self.export()
+        self.assertEqual(first, second)
+        with zipfile.ZipFile(self.out / "releases" / first["release"]) as z:
+            self.assertEqual(z.namelist(), ["data/item1.bin", "ATTRIBUTION.json"])
+        (self.src / "manifest.json").write_text('{"items":[{"id":"../../oops"}]}')
+        with self.assertRaises(ValueError):
+            self.export()
+        self.assertEqual(json.loads((self.out / "CURRENT.json").read_text()), first)
+
+    def test_export_unsafe_symlinks_and_bounded_size(self):
+        name, sha = self.stage()
+        self.certify()
+        self.manifest(name, sha)
+        (self.src / name).unlink()
+        (self.src / name).symlink_to(self.root / "legal/ledger/sources.json")
+        with self.assertRaises(ValueError):
+            self.export()
+
+
+if __name__ == "__main__":
+    unittest.main()
