@@ -192,7 +192,8 @@ class CorpusDeduplicator:
                     yield 'duplicate', {'status': 'EXACT_DUPLICATE',
                         'original_id': rec['lexeme_id'], 'duplicate_of': canonical[0],
                         'source': rec.get('source'),
-                        'canonical_source': json.loads(canonical[1]).get('source')}
+                        'canonical_source': json.loads(canonical[1]).get('source'),
+                        'original_record': rec}
                     continue
                 reason = 'incompatible_licenses'
             if reason is None:
