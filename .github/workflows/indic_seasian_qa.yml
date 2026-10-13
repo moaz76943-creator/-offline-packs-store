@@ -1,0 +1,48 @@
+# Public, bounded, source-independent, and read-only language-specific QA.
+name: Indic and Southeast Asian Script QA
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/linguistic_extensions/indic_seasian/**'
+      - 'tests/linguistic_extensions/indic_seasian/**'
+      - '.github/workflows/indic_seasian_qa.yml'
+      - 'catalog/language_registry.v1.json'
+      - 'legal/ledger/sources.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indic-seasian-qa
+  cancel-in-progress: false
+
+jobs:
+  script-contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run 18-language Unicode, safety, and morphology evidence tests
+        run: python3 -m unittest discover -s tests/linguistic_extensions/indic_seasian -p 'test_*.py' -v
+      - name: Run 18 independent language profiles against the canonical public registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          for lang in hi mr ne bn as pa gu or ta te kn ml si ur th lo km my; do
+            python3 -m tools.linguistic_extensions.indic_seasian.processor --language "$lang"
+          done
+      - name: Assert no real corpus was silently admitted
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          ledger = json.loads(Path('legal/ledger/sources.json').read_text(encoding='utf-8'))
+          from tools.linguistic_extensions.indic_seasian.processor import approved_sources
+          a = approved_sources(ledger)
+          print('Language-specific approved source entries:', len(a))
+          print('Synthetic QA completed; content coverage cannot be inferred from profile tests.')
+          PY
