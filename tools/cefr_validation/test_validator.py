@@ -132,7 +132,45 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        # Inject fake source to bypass validation
+        self.validator.catalog.sources["FAKE-CONTENT-SOURCE"] = {
+            "source_id": "FAKE-CONTENT-SOURCE",
+            "version": "1.0",
+            "url": "https://example.com/content",
+            "scope": "content_classification",
+            "sha256": "fake-hash-1234"
+        }
+
+        evidence = [{
+            "source_id": "FAKE-CONTENT-SOURCE",
+            "source_version": "1.0",
+            "source_url": "https://example.com/content",
+            "locator": "A1 word",
+            "method": "published_content_assignment",
+            "reviewer_id": "reviewer-1"
+        }]
+
+        # Test 1: source_attested without CEFR framework support
+        self.validator.supported_languages["xx"] = {
+            "id": "xx",
+            "proficiency": {"framework_ids": []}
+        }
+        rec1 = self.create_record("word-1", "xx", "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec1])
+        self.assertEqual(len(accepted), 0)
+        self.assertEqual(len(rejected), 1)
+        self.assertIn("lacks certified CEFR corpora", rejected[0]["reason"])
+
+        # Test 2: source_attested with CEFR framework support
+        self.validator.supported_languages["yy"] = {
+            "id": "yy",
+            "proficiency": {"framework_ids": ["CEFR"]}
+        }
+        rec2 = self.create_record("word-2", "yy", "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec2])
+        self.assertEqual(len(rejected), 0)
+        self.assertEqual(len(accepted), 1)
+        self.assertEqual(accepted[0]["_resolution"], "verified")
 
 if __name__ == '__main__':
     unittest.main()

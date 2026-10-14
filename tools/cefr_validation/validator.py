@@ -1,3 +1,4 @@
+"""CEFR Validation Engine. Provides validate_stream and process_dataset."""
 import copy
 import json
 from pathlib import Path
