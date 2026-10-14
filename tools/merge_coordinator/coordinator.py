@@ -10,6 +10,7 @@ import re
 import sys
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = 'moaz76943-creator/-offline-packs-store'
@@ -50,9 +51,28 @@ def policy_error(e):
             not all(isinstance(name, str) and name for name in names) or
             'public-pr-merge-gate' not in names or len(set(names)) != len(names)):
         return 'required primary and scoped checks missing'
+    is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
+    expiry_str = e.get('expiry') or e.get('expires_at')
+    if expiry_str is not None:
+        if not isinstance(expiry_str, str):
+            return 'invalid expiry type'
+        try:
+            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
+            if exp_dt.tzinfo is None:
+                return 'expiry must include timezone'
+        except (ValueError, TypeError):
+            return 'invalid expiry timestamp format'
+    elif is_solo:
+        return 'missing expiry for solo maintainer authorization'
+
     reviewers = e.get('reviewers')
-    if not isinstance(reviewers, list) or not reviewers or not all(isinstance(x, str) and x for x in reviewers):
-        return 'independent review not configured'
+    if is_solo:
+        if reviewers is not None and (not isinstance(reviewers, list) or not all(isinstance(x, str) and x for x in reviewers)):
+            return 'malformed reviewers list'
+    else:
+        if not isinstance(reviewers, list) or not reviewers or not all(isinstance(x, str) and x for x in reviewers):
+            return 'independent review not configured'
+
     for key in ('dependencies', 'excludes'):
         items = e.get(key)
         if not isinstance(items, list) or any(not isinstance(x, int) or x <= 0 or x == e['number'] for x in items):
@@ -140,7 +160,7 @@ def authorized_file_conflicts(gh, item, files, authorized):
             conflicts.append(other['number'])
     return sorted(conflicts)
 
-def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False):
+def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False, now=None):
     """Pure readiness classifier; positive result is bound to exact PR/main SHAs."""
     err = policy_error(e)
     if err:
@@ -187,6 +207,19 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
             return 'NOT_RUN', f'check {wanted} lacks exact-head PASS'
     if pr.get('draft'):
         return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
+    expiry_str = e.get('expiry') or e.get('expires_at')
+    if expiry_str:
+        try:
+            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
+            current_time = now if now is not None else datetime.now(timezone.utc)
+            if current_time > exp_dt:
+                return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
+        except Exception:
+            return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
+
+    is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
+    reviewers = e.get('reviewers') or []
+
     latest_review = {}
     for index, review in enumerate(reviews):
         if not isinstance(review, dict):
@@ -204,11 +237,13 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
         login != author and login in latest_review and
         latest_review[login][1].get('state') == 'APPROVED' and
         latest_review[login][1].get('commit_id') == e['head_sha']
-        for login in e['reviewers']
+        for login in reviewers
     )
-    if not approved:
-        return 'NEEDS_REVIEW', 'no independent approval on exact head SHA'
-    return 'VERIFIED_READY', 'exact-head validated'
+    if approved:
+        return 'VERIFIED_READY', 'exact-head validated'
+    if is_solo and not reviewers:
+        return 'VERIFIED_READY', 'exact-head validated'
+    return 'NEEDS_REVIEW', 'no independent approval on exact head SHA'
 
 
 class GitHub:
@@ -282,11 +317,12 @@ class GitHub:
         if result.get('errors') or result.get('data', {}).get('markPullRequestReadyForReview', {}).get('pullRequest', {}).get('isDraft') is not False:
             raise ValueError('promotion not confirmed')
 
-    def squash(self, number, head):
+    def squash(self, number, head, has_independent_review=False):
+        confirmation = "Independent review and scoped QA confirmed." if has_independent_review else "Solo maintainer authorization and scoped QA confirmed."
         return self.request(f'/repos/{REPO}/pulls/{number}/merge', method='PUT', data={
             'sha': head, 'merge_method': 'squash',
             'commit_title': f'integrate: verified public PR #{number}',
-            'commit_message': f'Exact head verified: {head}. Independent review and scoped QA confirmed.'
+            'commit_message': f'Exact head verified: {head}. {confirmation}'
         })
 
 
@@ -353,7 +389,25 @@ def run():
                 if gh.main_sha() != original_main:
                     print('HALT: main changed immediately before squash')
                     return 0
-                result = gh.squash(number, item['head_sha'])
+                latest_rev = {}
+                for idx, r in enumerate(rev):
+                    if isinstance(r, dict):
+                        login = (r.get('user') or {}).get('login')
+                        sub = r.get('submitted_at')
+                        k = (1, sub, idx) if isinstance(sub, str) and sub else (0, '', idx)
+                        if login and (login not in latest_rev or k > latest_rev[login][0]):
+                            latest_rev[login] = (k, r)
+                author = (p.get('user') or {}).get('login')
+                has_independent = any(
+                    login != author and login in latest_rev and
+                    latest_rev[login][1].get('state') == 'APPROVED' and
+                    latest_rev[login][1].get('commit_id') == item['head_sha']
+                    for login in (item.get('reviewers') or [])
+                )
+                try:
+                    result = gh.squash(number, item['head_sha'], has_independent_review=has_independent)
+                except TypeError:
+                    result = gh.squash(number, item['head_sha'])
                 if result.get('merged') is not True:
                     raise ValueError(f'GitHub did not confirm merge for #{number}')
                 new_head = gh.main_sha()
