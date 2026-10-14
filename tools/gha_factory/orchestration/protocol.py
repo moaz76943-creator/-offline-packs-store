@@ -11,8 +11,9 @@ MARKER = '```gha-task-v2\n'
 PREFIX = v1.PREFIX
 TYPES = frozenset(('registry_validate', 'admission_partition_verify',
     'approved_snapshot_verify', 'lexical_partition', 'morphology_partition',
-    'sentence_partition', 'exercise_partition', 'sqlite_candidate_qa',
-    'unicode_search_qa', 'security_fuzz_qa', 'release_evidence_verify'))
+    'sentence_partition', 'exercise_partition', 'examples_partition',
+    'sqlite_candidate_qa', 'unicode_search_qa', 'security_fuzz_qa',
+    'release_candidate_qa', 'release_evidence_verify'))
 # Only independently integrated, audited adapters are executable. Other enum values
 # are contracts, not claims of implementations or production readiness.
 EXECUTABLE = frozenset(('registry_validate','admission_partition_verify','approved_snapshot_verify'))
