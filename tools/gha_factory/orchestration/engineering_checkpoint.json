@@ -1,0 +1,101 @@
+{
+  "checkpoint_schema": "1.0",
+  "status": "IMPLEMENTED_CANDIDATE_NOT_ACTIVATED",
+  "PUBLIC_HEAD": "3b1a79246de4b9dd58a492bd24c8dab8b965e697",
+  "PRIVATE_HEAD": "7a47673045ae9308fef60fece7070a07ebe18394",
+  "QUEUE_SCHEMA_VERSION": [
+    "1.0 unchanged",
+    "2.0 candidate"
+  ],
+  "SUPPORTED_TASK_TYPES": [
+    "admission_partition_verify",
+    "approved_snapshot_verify",
+    "exercise_partition",
+    "lexical_partition",
+    "morphology_partition",
+    "registry_validate",
+    "release_evidence_verify",
+    "security_fuzz_qa",
+    "sentence_partition",
+    "sqlite_candidate_qa",
+    "unicode_search_qa"
+  ],
+  "EXECUTABLE_TASK_TYPES": [
+    "admission_partition_verify",
+    "approved_snapshot_verify",
+    "registry_validate"
+  ],
+  "WORKFLOWS_CREATED": [],
+  "WORKFLOWS_MODIFIED": [
+    ".github/workflows/gha_dispatcher.yml"
+  ],
+  "CRON_SCHEDULES": {
+    "dispatcher": "11 * * * *",
+    "PR68_unmerged_seeder": "02 * * * *"
+  },
+  "TESTS_PASS": {
+    "orchestration_local": 43,
+    "dispatcher_v1_local": 13,
+    "PR68_seeder_local": 15,
+    "PR68_dispatcher_local": 13
+  },
+  "TESTS_FAIL": 0,
+  "HOSTED_VALIDATION": "NOT_RUN",
+  "REAL_RUN_IDS": [
+    38328584584,
+    38332521018
+  ],
+  "NEW_REAL_RUN_IDS": [],
+  "MERGED_PRS": [],
+  "UNMERGED_PRS": [
+    68,
+    67,
+    66,
+    63,
+    70,
+    73,
+    74
+  ],
+  "OPEN_TASKS": [
+    65,
+    69
+  ],
+  "BLOCKED_TASKS": [
+    "unapproved sources",
+    "unintegrated worker contracts",
+    "hosted exact-head validation"
+  ],
+  "REMAINING_DEPENDENCIES": [
+    "PR68 byte/license gates",
+    "PR63 lexical adapter validation",
+    "PR67 durable immutable source handoff",
+    "content-addressed durable corpus checkpoints",
+    "independent worker workflow-run separation",
+    "required-check policy inaccessible to integration (403)"
+  ],
+  "JULES_STATUS": "remote worker lifecycle unavailable; active PR ownership preserved",
+  "PRODUCTION_PUBLICATION": false,
+  "PRODUCTION_RECORDS_ACCEPTED": 0,
+  "source_sha256": {
+    ".github/workflows/gha_dispatcher.yml": "21a04c86b37f97937698a87014fb126f75c63f9f003398808adb007ca72f18c8",
+    "tools/gha_factory/orchestration/api.py": "79e6f136af55b5cdb4db8b45c3f162527bd1ba6c636496146d76f02ad5606f39",
+    "tools/gha_factory/orchestration/cli.py": "fad9c2d271efdb1cf8c1dbad43d3817a972d1a3dc0fc78c6c36656070a963cba",
+    "tools/gha_factory/orchestration/engine.py": "8fd0e92c0ca7d479474ffb855a4189a13acbac41de2139f1d9cdc466c4e42873",
+    "tools/gha_factory/orchestration/protocol.py": "6276ceae7b30dfca2b533bd2bd7bf629d1f4088855c34ea73773de4eca8d0a69",
+    "tests/gha_factory/orchestration/test_engine.py": "c904b0cf5e067f51e5b3c8cb0301ee6636c1829c9c467f56cd2f7982abfadd18",
+    "tests/gha_factory/orchestration/test_protocol.py": "30de50d3b7be490a5bb931cbf6f20ea681839ecc8e98095f9cc86c945b241f57",
+    "tests/gha_factory/orchestration/test_source_gate.py": "c0b509e689d4e0194335b0559d1c73cfdd6f9874baff2ab86252bf78b5d16712"
+  },
+  "REVALIDATION": "main advanced only in nonowned search_qa paths; candidate rebased without shared resets or force push",
+  "DELIVERY_PR": 74,
+  "CANDIDATE_CODE_COMMIT": "de75e809d5860c95639c61ad729d1ad2eef5db06",
+  "MERGEABLE": true,
+  "ACTIVATED": false,
+  "HOSTED_CHECK_RUNS_ON_CANDIDATE": [],
+  "CONNECTOR_LIMITATIONS": [
+    "No Actions workflow_dispatch tool exposed",
+    "workflow metadata endpoints rejected by connector URL allowlist (400)",
+    "required-check configuration inaccessible (403)"
+  ],
+  "LIVE_COMPLETED_V1_RECEIPT_BYTE_COMPATIBILITY": "Issue #58 exact body round-trip PASS"
+}
