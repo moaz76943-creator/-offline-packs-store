@@ -60,6 +60,21 @@ VALID_ENTRIES = [
         "conjugations": {
             "past": "食べた"
         }
+    },
+    {
+        "id": "rus-1",
+        "surface": "книга",
+        "language": "rus",
+        "pos": "noun",
+        "plural": "книги",
+        "senses": [{"id": "rus-1-sense-1"}]
+    },
+    {
+        "id": "hin-1",
+        "surface": "नमस्ते",
+        "language": "hin",
+        "pos": "interjection",
+        "senses": [{"id": "hin-1-sense-1"}]
     }
 ]
 
@@ -132,13 +147,53 @@ INVALID_ENTRIES = [
         "surface": "test",
         "language": "eng",
         "pos": 123
+    },
+    {
+        # Invalid POS value
+        "id": "eng-10",
+        "surface": "test",
+        "language": "eng",
+        "pos": "invalid_pos_value"
+    },
+    {
+        # Duplicate sense ID
+        "id": "eng-11",
+        "surface": "test",
+        "language": "eng",
+        "pos": "noun",
+        "senses": [{"id": "dup-sense-1"}, {"id": "dup-sense-1"}]
+    },
+    {
+        # Language mismatch (translation language matches entry language)
+        "id": "eng-12",
+        "surface": "test",
+        "language": "eng",
+        "pos": "noun",
+        "translations": [{"language": "eng", "text": "same"}]
+    },
+    {
+        # Malformed example (non-dictionary)
+        "id": "eng-13",
+        "surface": "test",
+        "language": "eng",
+        "pos": "noun",
+        "examples": ["just a string"]
+    },
+    {
+        # Absent optional fields (while strictly valid by themselves,
+        # testing structurally malformed empty structures for coverage)
+        "id": "eng-14",
+        "surface": "test",
+        "language": "eng",
+        "pos": "noun",
+        "senses": [{}]
     }
 ]
 
 REVIEW_REQUIRED_ENTRIES = [
     {
         # Noun with conjugations
-        "id": "eng-10",
+        "id": "eng-15",
         "surface": "running",
         "language": "eng",
         "pos": "noun",
@@ -146,10 +201,26 @@ REVIEW_REQUIRED_ENTRIES = [
     },
     {
         # Verb with plural
-        "id": "eng-11",
+        "id": "eng-16",
         "surface": "run",
         "language": "eng",
         "pos": "verb",
         "plural": "runs"
+    },
+    {
+        # Isolating language (Chinese) with plural
+        "id": "zho-2",
+        "surface": "人",
+        "language": "zho",
+        "pos": "noun",
+        "plural": "人们"
+    },
+    {
+        # Isolating language (Thai) with plural
+        "id": "tha-2",
+        "surface": "แมว",
+        "language": "tha",
+        "pos": "noun",
+        "plural": "แมวทั้งหลาย"
     }
 ]

@@ -47,8 +47,10 @@ class TestLexicalValidator(unittest.TestCase):
             self.assertEqual(len(result["errors"]), 0)
             self.assertTrue(len(result["warnings"]) > 0)
 
-    def test_duplicate_senses(self):
-        """Detect duplicate IDs."""
+    def test_duplicate_ids(self):
+        """Detect duplicate entry IDs."""
+        # Reset seen sets
+        self.validator = LexicalValidator()
         entry = {"id": "dup-1", "surface": "word", "language": "eng", "pos": "noun"}
         res1 = self.validator.validate_entry(entry)
         self.assertEqual(res1["status"], "accepted")
@@ -57,6 +59,39 @@ class TestLexicalValidator(unittest.TestCase):
         res2 = self.validator.validate_entry(entry)
         self.assertEqual(res2["status"], "rejected")
         self.assertIn("Duplicate lexical ID: dup-1", res2["errors"])
+
+    def test_duplicate_senses_and_mismatches(self):
+        """Detect duplicate sense IDs within/across entries and language mismatches."""
+        # This uses the new INVALID_ENTRIES added to fixtures
+        for entry in INVALID_ENTRIES:
+            if entry.get("id") == "eng-11": # duplicate senses
+                res = self.validator.validate_entry(entry)
+                self.assertEqual(res["status"], "rejected")
+                self.assertTrue(any("Duplicate sense ID" in err for err in res["errors"]))
+            elif entry.get("id") == "eng-12": # language mismatch
+                res = self.validator.validate_entry(entry)
+                self.assertEqual(res["status"], "rejected")
+                self.assertTrue(any("language cannot be the same as entry language" in err for err in res["errors"]))
+
+    def test_absent_optional_fields_and_malformed_examples(self):
+        """Test absent optional fields handle cleanly and malformed examples are caught."""
+        for entry in INVALID_ENTRIES:
+            if entry.get("id") == "eng-13": # malformed examples
+                res = self.validator.validate_entry(entry)
+                self.assertEqual(res["status"], "rejected")
+                self.assertTrue(any("must be a dictionary" in err for err in res["errors"]))
+            elif entry.get("id") == "eng-14": # malformed sense (absent id)
+                res = self.validator.validate_entry(entry)
+                self.assertEqual(res["status"], "rejected")
+                self.assertTrue(any("missing 'id'" in err for err in res["errors"]))
+
+    def test_isolating_language_grammar(self):
+        """Test isolating language grammar rules for plural/conjugation evidence."""
+        for entry in REVIEW_REQUIRED_ENTRIES:
+            if entry.get("id") in ("zho-2", "tha-2"):
+                res = self.validator.validate_entry(entry)
+                self.assertEqual(res["status"], "reviewRequired")
+                self.assertTrue(any("unusual for isolating languages" in warn for warn in res["warnings"]))
 
     def test_valid_lexical_variations_preserved(self):
         """Valid lexical variations (different IDs) are not falsely deleted."""
