@@ -25,6 +25,7 @@ class ContributionTests(unittest.TestCase):
             "scope": "redistribution",
             "grant_url": "https://example.org/rights/fixture-grant",
             "revoked": False,
+            "cc0_declaration": True,
         }
         self.auth_sha = put(self.root, "evidence/auth.txt",
                             json.dumps(grant, sort_keys=True).encode("utf-8"))
@@ -62,6 +63,7 @@ class ContributionTests(unittest.TestCase):
             "scope": "redistribution",
             "grant_url": "https://example.org/rights/fixture-grant",
             "revoked": False,
+            "cc0_declaration": True if self.manifest.get("license_id") == "CC0-1.0" else None,
         }
 
     def test_unstructured_authorization_proof_not_admissible(self):
@@ -118,7 +120,7 @@ class ContributionTests(unittest.TestCase):
 
     def test_evidence_pass_is_not_legal_clearance(self):
         r = self.check()
-        self.assertEqual(r["status"], "EVIDENCE_PASS", r)
+        self.assertEqual(r["status"], "ACCEPT", r)
         self.assertFalse(r["publication_approved"])
         self.assertTrue(r["receipt"]["evidence_only"])
     def test_forged_asset_hash(self):
@@ -154,9 +156,15 @@ class ContributionTests(unittest.TestCase):
     def test_source_not_approved(self):
         self.source["status"] = "REVIEW_REQUIRED"
         save_ledger(self.root, self.ledger)
-        self.assertEqual(self.check()["status"], "REJECT")
+        self.assertEqual(self.check()["status"], "REVIEW_REQUIRED")
     def test_explicit_fixture_marker(self):
         self.manifest["is_fixture"] = True
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_false_cc0_declaration(self):
+        rights = self._authorization()
+        rights["cc0_declaration"] = False
+        self._replace_authorization(rights)
         self.assertEqual(self.check()["status"], "REJECT")
 
 if __name__ == "__main__":

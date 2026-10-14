@@ -62,6 +62,8 @@ def validate_contribution(manifest_dict, repo_root):
                 ("scope", "redistribution")):
             if grant.get(key) != expected:
                 raise ValueError("Contributor authorization missing or mismatched " + key)
+        if grant.get("license_id") == "CC0-1.0" and grant.get("cc0_declaration") is not True:
+            raise ValueError("CC0 requires explicit declaration")
         if (not text(grant.get("rights_holder")) or
                 not url_ok(grant.get("grant_url")) or
                 grant.get("revoked") is not False):
@@ -89,14 +91,18 @@ def validate_contribution(manifest_dict, repo_root):
         receipt_id = hashlib.sha256(
             (asset_id + "|" + manifest_dict["sha256"] + "|" +
              source["retrieval"]["sha256"]).encode("utf-8")).hexdigest()
-        return {"status": "EVIDENCE_PASS", "reasons": [],
+        return {"status": "ACCEPT" if source.get("status") == "APPROVED_FOR_REDISTRIBUTION" else "REVIEW_REQUIRED", "reasons": [] if source.get("status") == "APPROVED_FOR_REDISTRIBUTION" else ["Source status is not approved"],
                 "publication_approved": False,
                 "receipt": {"receipt_id": receipt_id, "source_id": source["source_id"],
                             "source_version": source["dataset_version"],
                             "source_hash": source["retrieval"]["sha256"],
                             "artifact_sha256": manifest_dict["sha256"],
                             "evidence_only": True}}
-    except (ValueError, KeyError, OSError, TypeError, UnicodeError) as exc:
+    except ValueError as exc:
+        if "REVIEW_REQUIRED" in str(exc) or "source not manually approved" in str(exc):
+            return block(str(exc), "REVIEW_REQUIRED")
+        return block(str(exc))
+    except (KeyError, OSError, TypeError, UnicodeError) as exc:
         return block(str(exc))
 
 def main(argv=None):
@@ -110,7 +116,7 @@ def main(argv=None):
         p.exit(2, "BLOCKED: " + str(exc) + "\n")
     result = validate_contribution(manifest, a.repo_root)
     print(json.dumps(result, indent=2, sort_keys=True))
-    return 0 if result["status"] == "EVIDENCE_PASS" else 1
+    return 0 if result["status"] == "ACCEPT" else 1
 
 if __name__ == "__main__":
     raise SystemExit(main())
