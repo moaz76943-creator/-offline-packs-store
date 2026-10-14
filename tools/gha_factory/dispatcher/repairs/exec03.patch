@@ -1,0 +1,235 @@
+--- a/tools/gha_factory/dispatcher/queue.py
++++ b/tools/gha_factory/dispatcher/queue.py
+@@ -98,7 +98,9 @@
+ 
+ def duplicates(entries):
+     seen=set(); bad=set()
+-    for number,t in sorted(entries):
++    for number,t in sorted(entries, key=lambda entry: (
++            0 if entry[1]['state']=='SUCCEEDED' else
++            1 if entry[1]['state'] in ('CLAIMED','RUNNING') else 2, entry[0])):
+         f=t['task_id']
+         if f in seen:bad.add(number)
+         else:seen.add(f)
+@@ -133,7 +135,7 @@
+     if slots==0:return chosen
+     for number,t in sorted(entries):
+         lock=(t['source_id'],t['language'])
+-        if t['state']=='READY' and lock not in locks:
++        if t['state']=='READY' and t['attempts']<MAX_ATTEMPTS and lock not in locks:
+             locks.add(lock);chosen.append((number,t))
+         if len(chosen)>=slots:break
+     return chosen
+@@ -158,7 +160,11 @@
+ 
+ 
+ def claim(t,now,run_id,run_attempt):
+-    if t['state']!='READY':raise ValueError('cannot claim non-ready task')
++    validate(t)
++    if t['state']!='READY' or t['attempts']>=MAX_ATTEMPTS:
++        raise ValueError('cannot claim non-ready or exhausted task')
++    if type(run_id) is not int or run_id<=0 or type(run_attempt) is not int or run_attempt<=0:
++        raise ValueError('invalid workflow identity')
+     result=dict(t,state='CLAIMED',attempts=t['attempts']+1,run_id=run_id,
+                 run_attempt=run_attempt,lease_until=iso(now+timedelta(minutes=LEASE_MINUTES)),
+                 next_retry_at=None)
+@@ -189,3 +195,20 @@
+     elif receipt['status']=='BLOCKED_SOURCE':result['state']='BLOCKED_SOURCE'
+     else:return backoff(result,now)
+     return validate(result)
++
++
++def renew(t,now,run_id,run_attempt,hard_deadline):
++    """Pure transition; serialized writer must verify the actual live GH attempt.
++
++    hard_deadline comes from authoritative run start + bounded worker duration,
++    never from Issue input. Renewal cannot resurrect an expired claim.
++    """
++    validate(t)
++    if (t['state'] not in ('CLAIMED','RUNNING') or t['run_id']!=run_id
++            or t['run_attempt']!=run_attempt or t['lease_until'] is None
++            or date_value(t['lease_until'])<=now or hard_deadline<=now):
++        raise ValueError('stale lease renewal')
++    deadline=min(hard_deadline,now+timedelta(minutes=LEASE_MINUTES))
++    if deadline<date_value(t['lease_until']):
++        raise ValueError('renewal would shorten lease')
++    return validate(dict(t,lease_until=iso(deadline)))
+--- a/tools/gha_factory/dispatcher/controller.py
++++ b/tools/gha_factory/dispatcher/controller.py
+@@ -26,7 +26,7 @@
+         self.base = f'https://api.github.com/repos/{repo}'
+ 
+     def request(self, path, patch=None):
+-        if not re.fullmatch(r'/issues(?:\?state=open&per_page=100&page=[1-6]|/[1-9][0-9]{0,9})',path):
++        if not re.fullmatch(r'(?:/actions/runs/[1-9][0-9]{0,19}|/issues(?:\?state=open&per_page=100&page=[1-6]|/[1-9][0-9]{0,9}))',path):
+             raise ValueError('unsafe GitHub API path')
+         data = None if patch is None else json.dumps(patch,separators=(',',':')).encode()
+         request = urllib.request.Request(self.base+path, data=data, method='PATCH' if patch is not None else 'GET',
+@@ -54,6 +54,11 @@
+     def update(self,number,t):
+         queue.validate(t)
+         self.request(f'/issues/{int(number)}',{'body':queue.serialize(t)})
++
++    def run(self,run_id):
++        if type(run_id) is not int or run_id<=0:
++            raise ValueError('invalid run ID')
++        return self.request(f'/actions/runs/{run_id}')
+ 
+     def one(self,number):
+         return self.request(f'/issues/{int(number)}')
+@@ -99,14 +104,22 @@
+     return ({'languages':frozenset(langs),'sources':ledger['sources'],'admissions':admissions},hashlib.sha256(registry_bytes).hexdigest())
+ 
+ 
+-def advance(task,now,ctx,registry_sha):
++def advance(task,now,ctx,registry_sha,run=None):
+     old=task
+     if old['state'] in ('RUNNING','CLAIMED'):
+-        task=queue.recover(old,now)
+-    if task['state']=='RETRY_WAIT' and queue.date_value(task['next_retry_at'])<=now:
++        # An expired lease alone does not prove a long worker has stopped.
++        # Missing/inaccessible run records fail closed; completed exact attempts
++        # can safely enter bounded backoff without dropping their checkpoint.
++        if (isinstance(run,dict) and type(run.get('id')) is int
++                and run['id']==old['run_id']
++                and type(run.get('run_attempt')) is int
++                and run['run_attempt']==old['run_attempt']
++                and run.get('status')=='completed'):
++            task=queue.recover(old,now)
++    if task['state']=='RETRY_WAIT' and task['next_retry_at'] is not None and queue.date_value(task['next_retry_at'])<=now:
+         task=dict(task,state='READY',next_retry_at=None)
+     if task['state'] in ('NEW','READY','BLOCKED_SOURCE'):
+-        gate=queue.admission(task,ctx,registry_sha)
++        gate='FAILED' if task['attempts']>=queue.MAX_ATTEMPTS else queue.admission(task,ctx,registry_sha)
+         if gate!=task['state']:
+             task=dict(task,state=gate)
+     return queue.validate(task,ctx['languages'])
+@@ -128,11 +141,28 @@
+     candidates=[]
+     locks=set()
+     active=0
++    def observed_run(t):
++        if t['state'] in ('CLAIMED','RUNNING') and t['lease_until'] is not None and queue.date_value(t['lease_until'])<=now:
++            try:
++                return api.run(t['run_id'])
++            except (AttributeError,OSError,ValueError,TypeError):
++                pass  # No proof that the worker stopped: retain slot/lock.
++        return None
++
+     for number,t in sorted(entries):
+         if number in invalid:
+-            if t['state']!='QUARANTINED':api.update(number,dict(t,state='QUARANTINED'))
++            # Never erase a duplicate live lease: it still consumes real capacity.
++            if t['state'] in ('RUNNING','CLAIMED'):
++                recovered=advance(t,now,ctx,sha,observed_run(t))
++                if recovered['state'] in ('RUNNING','CLAIMED'):
++                    active += 1
++                    locks.add((t['source_id'],t['language']))
++                else:
++                    api.update(number,dict(recovered,state='QUARANTINED',next_retry_at=None))
++            elif t['state'] not in ('QUARANTINED','SUCCEEDED'):
++                api.update(number,dict(t,state='QUARANTINED'))
+             continue
+-        updated=advance(t,now,ctx,sha)
++        updated=advance(t,now,ctx,sha,observed_run(t))
+         if updated!=t:api.update(number,updated)
+         if updated['state'] in ('RUNNING','CLAIMED'):
+             active += 1
+--- a/tools/gha_factory/dispatcher/worker.py
++++ b/tools/gha_factory/dispatcher/worker.py
+@@ -2,6 +2,9 @@
+ import hashlib
+ import importlib.util
+ import json
++import multiprocessing
++import os
++import signal
+ import subprocess
+ import sys
+ from pathlib import Path
+@@ -60,18 +63,83 @@
+     return ('SUCCEEDED',count,count-t['checkpoint'],None,None)
+ 
+ 
++# Existing verification task types are bounded to ten minutes, independently
++# of the 295-minute Actions watchdog. No Issue supplies a command or timeout.
++WORK_TIMEOUT_SECONDS = 600
++
++
++def _execute_work(sender,t,directory,root):
++    if os.name=='posix':
++        os.setsid()  # Include fixed subprocess descendants in timeout cleanup.
++    try:
++        try:
++            result=work(t,directory,root)
++        except (OSError,ValueError,TypeError,KeyError,subprocess.TimeoutExpired):
++            result=('FAILED',t['checkpoint'],0,None,'EXECUTION')
++        try:
++            sender.send(result)
++        except (BrokenPipeError,EOFError):
++            pass  # Parent timed out; never retry a send into a closed channel.
++    finally:
++        sender.close()
++
++
++def _stop_process(process,force=False):
++    if os.name=='posix':
++        try:
++            os.killpg(process.pid,signal.SIGKILL if force else signal.SIGTERM)
++        except ProcessLookupError:
++            pass
++    if process.is_alive():
++        if force:process.kill()
++        else:process.terminate()
++
++
++def bounded_work(t,directory,root,timeout=WORK_TIMEOUT_SECONDS):
++    if not 0<timeout<=WORK_TIMEOUT_SECONDS:
++        raise ValueError('invalid execution bound')
++    ctx=multiprocessing.get_context('spawn')
++    receiver,sender=ctx.Pipe(duplex=False)
++    process=ctx.Process(target=_execute_work,args=(sender,t,directory,root))
++    try:
++        process.start()
++        sender.close()
++        if not receiver.poll(timeout):
++            return ('FAILED',t['checkpoint'],0,None,'TIMEOUT')
++        try:
++            return receiver.recv()
++        except EOFError:
++            return ('FAILED',t['checkpoint'],0,None,'EXECUTION')
++    finally:
++        sender.close()
++        receiver.close()
++        if process.pid is not None:
++            process.join(timeout=1)
++            if process.is_alive():
++                _stop_process(process)
++                process.join(timeout=2)
++            if process.is_alive():
++                _stop_process(process,force=True)
++                process.join(timeout=2)
++            process.close()
++
++
+ def worker(api,number,task_id,run_id,run_attempt,directory,root=controller.ROOT):
+     issue=api.one(number)
+     if (issue.get('user') or {}).get('login')!=controller.OWNER or not issue.get('title','').startswith(queue.PREFIX):
+         raise ValueError('untrusted issue')
+     t=queue.parse(issue.get('body'))
+-    if t['task_id']!=task_id or t['state']!='CLAIMED' or t['run_id']!=run_id or t['run_attempt']!=run_attempt:
++    if (t['task_id']!=task_id or t['state']!='CLAIMED' or t['run_id']!=run_id
++            or t['run_attempt']!=run_attempt or t['lease_until'] is None
++            or queue.date_value(t['lease_until'])<=queue.utc_now()):
+         raise ValueError('worker lease mismatch')
+     directory=Path(directory);directory.mkdir(parents=True,exist_ok=True)
+     try:
+-        status,checkpoint,count,digest,error=work(t,directory,root)
++        status,checkpoint,count,digest,error=bounded_work(t,directory,root)
+     except (OSError,ValueError,TypeError,KeyError,subprocess.TimeoutExpired):
+         status,checkpoint,count,digest,error='FAILED',t['checkpoint'],0,None,'EXECUTION'
++    if queue.date_value(t['lease_until'])<=queue.utc_now():
++        status,checkpoint,count,digest,error='FAILED',t['checkpoint'],0,None,'TIMEOUT'
+     receipt={'schema_version':queue.VERSION,'task_id':t['task_id'],'run_id':run_id,
+              'run_attempt':run_attempt,'status':status,'checkpoint':checkpoint,
+              'candidate_count':count,'candidate_sha256':digest,'error_code':error}
