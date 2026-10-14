@@ -289,7 +289,7 @@ class GitRefStore:
 
     def snapshot(self):
         sha=self._ref()
-        data=self.api.request(f'repos/{self.repo}/contents/{_STATE_PATH}?ref={quote(self.ref,safe="")}')
+        data=self.api.request(f'repos/{self.repo}/contents/{_STATE_PATH}?ref={quote(sha,safe="")}')
         try:
             raw=base64.b64decode(data['content'],validate=False)
             if len(raw)>1_500_000:raise Denied('LEDGER_TOO_LARGE')
