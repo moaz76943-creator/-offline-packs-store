@@ -1,8 +1,8 @@
 """Evidence-preserving, bounded admission partitions -> lexical contract 1.0.0.
 
 This is a staging adapter, not a publisher. Admission's ACCEPTED_FOR_QUEUE
-never grants publication rights. Every output is a single independent lexical
-fixture document suitable for pack_v2.pipeline.compile_pack(fixture_only=True).
+never grants publication rights. Approved source evidence is checked against the
+independent ledger before a nonfixture document can be emitted.
 """
 import argparse
 import hashlib
@@ -96,8 +96,6 @@ def _load_contract(queue_path, repo_root, fixture_only):
     if (queue.get('schema_version') != '1.0.0' or queue.get('status') != 'ACCEPTED_FOR_QUEUE'
             or queue.get('publication_approved') is not False):
         raise AdapterError('BLOCKED_SOURCE: queue status is not staging-only')
-    if not fixture_only:
-        raise AdapterError('BLOCKED_SOURCE: admission queue cannot authorize publication')
     source_id, language = queue.get('source_id'), queue.get('language')
     if not isinstance(source_id, str) or not ID.fullmatch(source_id):
         raise AdapterError('invalid lexical source identity')
@@ -114,12 +112,15 @@ def _load_contract(queue_path, repo_root, fixture_only):
         raise AdapterError('BLOCKED_SOURCE: missing or ambiguous ledger provenance')
     source = found[0]
     retrieval, license_info = source.get('retrieval') or {}, source.get('license') or {}
-    if (source.get('status') != 'FIXTURE_ONLY'
-            or source.get('dataset_version') != queue.get('dataset_version')
+    if (source.get('dataset_version') != queue.get('dataset_version')
             or retrieval.get('sha256') != queue['source_artifact_sha256']
-            or license_info.get('evidence_sha256') != queue['license_evidence_sha256']
-            or license_info.get('id') != 'LicenseRef-SyntheticTestFixture'):
+            or license_info.get('evidence_sha256') != queue['license_evidence_sha256']):
         raise AdapterError('BLOCKED_SOURCE: fixture ledger provenance mismatch')
+    if fixture_only:
+        if source.get('status') != 'FIXTURE_ONLY' or license_info.get('id') != 'LicenseRef-SyntheticTestFixture':
+            raise AdapterError('BLOCKED_SOURCE: only synthetic ledger entries are fixtures')
+    elif source.get('status') != 'APPROVED_FOR_REDISTRIBUTION':
+        raise AdapterError('BLOCKED_SOURCE: independent Route 05 source approval absent')
     if not all(isinstance(source.get(k), str) and source[k] for k in ('origin_url','publisher')):
         raise AdapterError('incomplete fixture provenance')
     if not isinstance(retrieval.get('identity'), str) or not retrieval['identity']:
@@ -134,9 +135,14 @@ def _load_contract(queue_path, repo_root, fixture_only):
         'publisher': source['publisher'], 'dataset_version': source['dataset_version'],
         'retrieval_id': retrieval['identity'], 'license_id': license_info['id'],
         'artifact_sha256': retrieval['sha256'],
-        'publication_approved': False, 'fixture_only': True,
+        'publication_approved': not fixture_only, 'fixture_only': fixture_only,
     }
-    return queue, script, source_template
+    if not fixture_only:
+        # Validate original snapshots, source-specific rights evidence, review and
+        # ledger identity using the compiler's existing gate. Not an auto-release.
+        pipeline.approve_sources([source_template], repo_root)
+    artifact_path = (repo_root / retrieval['artifact_path']).resolve() if not fixture_only else None
+    return queue, script, source_template, artifact_path
 
 
 def _canonical(row, queue, script, source):
@@ -203,7 +209,7 @@ def convert(queue_path, out_dir, repo_root, *, fixture_only=False, max_lexemes=2
         raise AdapterError('invalid maximum lexemes per document')
     if out_dir.exists() or out_dir.is_symlink() or not out_dir.parent.is_dir():
         raise AdapterError('output must not exist and parent must exist')
-    queue, script, source = _load_contract(queue_path, repo_root, fixture_only)
+    queue, script, source, artifact_path = _load_contract(queue_path, repo_root, fixture_only)
     if not isinstance(queue.get('actual_accepted_records'), int) or queue['actual_accepted_records'] <= 0:
         raise AdapterError('invalid admitted record count')
     stage = Path(tempfile.mkdtemp(prefix='.lexical-stage-', dir=out_dir.parent))
@@ -223,7 +229,7 @@ def convert(queue_path, out_dir, repo_root, *, fixture_only=False, max_lexemes=2
         raw = (pipeline.compact(doc) + '\n').encode('utf-8')
         if len(raw) > pipeline.MAX_JSON:
             raise AdapterError('canonical JSON exceeds compiler size limit')
-        pipeline.validate_document(doc, queue['language'], repo_root, True)
+        pipeline.validate_document(doc, queue['language'], repo_root, fixture_only)
         name = f'{queue["language"]}-{idx:08d}.json'
         (stage / name).write_bytes(raw)
         files.append(name)
@@ -231,6 +237,8 @@ def convert(queue_path, out_dir, repo_root, *, fixture_only=False, max_lexemes=2
 
     try:
         seen_db.execute('CREATE TABLE seen(id TEXT PRIMARY KEY, fingerprint TEXT NOT NULL)')
+        if not fixture_only:
+            seen_db.execute('CREATE TABLE original_lines(line_no INTEGER PRIMARY KEY, sha TEXT NOT NULL, content TEXT NOT NULL, excluded TEXT NOT NULL)')
         jobs = queue['jobs']
         admitted = 0
         for index, job in enumerate(jobs):
@@ -258,6 +266,15 @@ def convert(queue_path, out_dir, repo_root, *, fixture_only=False, max_lexemes=2
                     row = json.loads(raw.decode('utf-8'), object_pairs_hook=_object_unique,
                                      parse_constant=_reject_numeric)
                     lexical, meanings = _canonical(row, queue, script, source)
+                    if not fixture_only:
+                        proof = (row['source_line'], row['source_line_sha256'],
+                                 pipeline.compact(row['content']),
+                                 pipeline.compact(row.get('excluded_categories')))
+                        prior = seen_db.execute('SELECT sha,content,excluded FROM original_lines WHERE line_no=?', (proof[0],)).fetchone()
+                        if prior is not None and prior != proof[1:]:
+                            raise AdapterError('conflicting source line proof')
+                        if prior is None:
+                            seen_db.execute('INSERT INTO original_lines VALUES (?,?,?,?)', proof)
                     fp = _fingerprint(row['source_line_sha256'],
                                       pipeline.compact(row['content']))
                     old = seen_db.execute('SELECT fingerprint FROM seen WHERE id=?',
@@ -287,12 +304,35 @@ def convert(queue_path, out_dir, repo_root, *, fixture_only=False, max_lexemes=2
                     admitted += 1
             if actual != expected:
                 raise AdapterError('partition record_count mismatch')
+        if not fixture_only:
+            # A queue receipt + artifact SHA alone does not prove the queued glosses
+            # came from that artifact. Re-extract exact source lines using Route 05's
+            # read-only admission logic, with disk-backed line lookup.
+            from tools.gha_factory.admission.pipeline import extract
+            matched = 0
+            with artifact_path.open('rb') as source_stream:
+                for line_no, raw_source in enumerate(source_stream, start=1):
+                    proof = seen_db.execute('SELECT sha,content,excluded FROM original_lines WHERE line_no=?', (line_no,)).fetchone()
+                    if proof is None:
+                        continue
+                    if hashlib.sha256(raw_source).hexdigest() != proof[0]:
+                        raise AdapterError('original source line SHA256 mismatch')
+                    original = json.loads(raw_source.decode('utf-8'), object_pairs_hook=_object_unique,
+                                          parse_constant=_reject_numeric)
+                    extracted, excluded = extract(original, queue['language'], source['license_id'],
+                                                  source['source_id'], script, line_no)
+                    if pipeline.compact(extracted) != proof[1] or pipeline.compact(excluded) != proof[2]:
+                        raise AdapterError('admission content differs from original source')
+                    matched += 1
+            if matched != seen_db.execute('SELECT COUNT(*) FROM original_lines').fetchone()[0]:
+                raise AdapterError('original source line locator missing')
         if admitted != queue['actual_accepted_records'] or not count:
             raise AdapterError('queue total mismatch/empty canonical content')
         flush()
         seen_db.close()
         (stage / '.seen.sqlite').unlink()
-        summary = {'status': 'FIXTURE_ONLY_NOT_FOR_PUBLICATION',
+        summary = {'status': ('FIXTURE_ONLY_NOT_FOR_PUBLICATION' if fixture_only
+                              else 'SOURCE_APPROVED_CANDIDATE_NOT_PUBLISHED'),
                    'source_id': queue['source_id'], 'language': queue['language'],
                    'accepted_records': admitted, 'converted_lexemes': count,
                    'converted_senses': sense_total, 'deduplicated_records': duplicates,
