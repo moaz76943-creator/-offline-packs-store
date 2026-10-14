@@ -1,6 +1,9 @@
 """Offline font evidence preflight. EVIDENCE_PASS is not legal clearance or pack admission."""
 import hashlib
 from dataclasses import dataclass
+import argparse
+import json
+import sys
 from pathlib import Path
 from typing import Optional
 
@@ -42,6 +45,10 @@ class FontRightsRegistry:
             return {"status": "REJECT", "issues": ["Invalid asset record"], "publication_approved": False}
         if not all(text(x) for x in (asset.id, asset.family, asset.source, asset.version, asset.author)):
             issues.append("Missing font identity, author, source or version")
+        elif asset.source.casefold() == "unknown":
+            issues.append("Unknown sources are rejected")
+        if text(asset.family) and "," in asset.family:
+            issues.append("Mixed font families are not supported")
         if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
         if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
@@ -95,3 +102,43 @@ class FontRightsRegistry:
                 "Metadata-only font has no verified embedded bytes"], "publication_approved": False}
         return {"status": "REJECT" if issues else "EVIDENCE_PASS",
                 "issues": issues, "publication_approved": False}
+
+    def build_script_mapping(self, assets, *, repo_root=None):
+        mapping = {}
+        for asset in assets:
+            result = self.validate_asset(asset, repo_root=repo_root)
+            if result["status"] != "EVIDENCE_PASS":
+                raise ValueError(f"Unverifiable font asset: {asset.id} - {result['issues']}")
+            for script in asset.scripts:
+                mapping.setdefault(script, []).append(asset.id)
+        return mapping
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description="Font Licensing Registry Validator")
+    parser.add_argument("--repo-root", type=Path, default=Path.cwd())
+    parser.add_argument("manifest", type=Path, help="JSON list of font assets")
+    args = parser.parse_args(argv)
+
+    try:
+        raw_assets = json.loads(args.manifest.read_text(encoding="utf-8"))
+        if not isinstance(raw_assets, list):
+            raise ValueError("Manifest must contain a JSON list of assets")
+
+        assets = [FontAsset(**item) for item in raw_assets]
+    except (OSError, ValueError, TypeError) as exc:
+        print(f"ERROR reading manifest: {exc}", file=sys.stderr)
+        return 1
+
+    registry = FontRightsRegistry()
+    try:
+        mapping = registry.build_script_mapping(assets, repo_root=args.repo_root)
+        print(json.dumps(mapping, indent=2))
+        return 0
+    except ValueError as exc:
+        print(f"BLOCK: {exc}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

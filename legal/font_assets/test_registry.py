@@ -87,5 +87,22 @@ class FontEvidenceTests(unittest.TestCase):
         self.asset.license_evidence_url = 123
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_unknown_source_is_rejected(self):
+        self.asset.source = "Unknown"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_mixed_families_are_rejected(self):
+        self.asset.family = "Family A, Family B"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_build_script_mapping_success(self):
+        mapping = self.gate.build_script_mapping([self.asset], repo_root=self.root)
+        self.assertEqual(mapping, {"Latn": ["fixture-font"]})
+
+    def test_build_script_mapping_failure(self):
+        self.asset.source = "Unknown"
+        with self.assertRaises(ValueError):
+            self.gate.build_script_mapping([self.asset], repo_root=self.root)
+
 if __name__ == "__main__":
     unittest.main()
