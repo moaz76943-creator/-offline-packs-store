@@ -43,7 +43,7 @@ jobs:
         run: |
           set -euo pipefail
           case "$SUITE" in
-            admission|dispatcher|linguistics|examples|release) ;;
+            admission|dispatcher|queue_autoseed|linguistics|examples|release) ;;
             *) echo "Unknown suite"; exit 2;;
           esac
           python3 -m unittest discover \
