@@ -69,9 +69,11 @@ class Merge07PolicyRegressions(unittest.TestCase):
 
 
 class FakeGithub:
-    def __init__(self, dependency_changes=False, move_main=False):
+    def __init__(self, dependency_changes=False, move_main=False, overlap=False, move_head=False):
         self.dependency_changes = dependency_changes
         self.move_main = move_main
+        self.overlap = overlap
+        self.move_head = move_head
         self.dependency_calls = 0
         self.main_calls = 0
         self.merged = []
@@ -87,8 +89,19 @@ class FakeGithub:
     def query_pr(self, number, sha):
         self.query_calls += 1
         p = pr(number=number)
+        if self.move_head and self.query_calls > 1:
+            p['head']['sha'] = 'c' * 40
+        filename = 'safe.py' if self.overlap or number == 900 else 'unrelated.py'
         return p, checks(), [review('APPROVED', '2026-10-14T08:00:00Z')], [
-            {'filename': 'tools/merge_coordinator/safe.py'}], 'feat: valid'
+            {'filename': 'tools/merge_coordinator/' + filename}], 'feat: valid'
+
+    def get(self, path):
+        return {'state': 'open'}
+
+    def page(self, path):
+        number = int(path.split('/')[2])
+        filename = 'safe.py' if self.overlap or number == 900 else 'unrelated.py'
+        return [{'filename': 'tools/merge_coordinator/' + filename}]
 
     def related_pr(self, number):
         self.dependency_calls += 1
@@ -124,6 +137,14 @@ class Merge07RaceAndSerialTests(unittest.TestCase):
     def test_only_one_squash_occurs_per_run_with_two_approved_prs(self):
         gh = self.run_fixture(FakeGithub(), [entry(), entry(number=901)])
         self.assertEqual(gh.merged, [(900, SHA_A)])
+
+    def test_same_file_in_two_open_authorized_prs_blocks_unattended_selection(self):
+        gh = self.run_fixture(FakeGithub(overlap=True), [entry(), entry(number=901)])
+        self.assertEqual(gh.merged, [])
+
+    def test_pr_head_changed_between_queries_blocks_squash(self):
+        gh = self.run_fixture(FakeGithub(move_head=True), [entry()])
+        self.assertEqual(gh.merged, [])
 
 
 if __name__ == '__main__':
