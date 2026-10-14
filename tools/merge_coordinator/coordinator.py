@@ -36,7 +36,9 @@ def policy_error(e):
     if e.get('owner') != 'integration-coordinator':
         return 'not integration-coordinator owned'
     allowed = e.get('paths')
-    if not isinstance(allowed, list) or not allowed or len(set(allowed)) != len(allowed):
+    if (not isinstance(allowed, list) or not allowed or
+            not all(isinstance(path, str) for path in allowed) or
+            len(set(allowed)) != len(allowed)):
         return 'empty, duplicated or malformed owned paths'
     for path in allowed:
         if not isinstance(path, str) or not path.endswith('/') or path.startswith('/') or '../' in path or '\\' in path:
@@ -44,7 +46,9 @@ def policy_error(e):
         if not path.startswith(('tools/', 'tests/', 'docs/')) or path.startswith(DENY_PREFIXES):
             return 'prohibited owned path'
     names = e.get('checks')
-    if not isinstance(names, list) or len(names) < 2 or 'public-pr-merge-gate' not in names or len(set(names)) != len(names):
+    if (not isinstance(names, list) or len(names) < 2 or
+            not all(isinstance(name, str) and name for name in names) or
+            'public-pr-merge-gate' not in names or len(set(names)) != len(names)):
         return 'required primary and scoped checks missing'
     reviewers = e.get('reviewers')
     if not isinstance(reviewers, list) or not reviewers or not all(isinstance(x, str) and x for x in reviewers):
@@ -83,6 +87,59 @@ def order_entries(items):
     return order
 
 
+def changed_path_names(files):
+    """Original and resulting paths matter for ownership and collision checks."""
+    if not isinstance(files, list):
+        raise ValueError('file evidence is not a list')
+    names = set()
+    for file in files:
+        if not isinstance(file, dict) or not isinstance(file.get('filename'), str):
+            raise ValueError('malformed changed-file evidence')
+        names.add(file['filename'])
+        if file.get('status') in ('renamed', 'copied') or file.get('previous_filename') is not None:
+            previous = file.get('previous_filename')
+            if not isinstance(previous, str):
+                raise ValueError('missing original path for rename/copy')
+            names.add(previous)
+    return names
+
+
+def authorized_file_conflicts(gh, item, files, authorized):
+    """Check overlapping authorized PRs, preserving dependency topological order.
+
+    Downstream changes depend on this PR merging first, so they cannot
+    block a prerequisite merely because they edit the same file. Unrelated
+    peers and upstream dependencies retain conservative conflict behavior.
+    """
+    if len(authorized) > 25:
+        raise ValueError('more than 25 authorized candidates; partition approval batch')
+    mine = changed_path_names(files)
+    by_number = {candidate['number']: candidate for candidate in authorized}
+
+    def is_downstream(candidate):
+        visited, pending = set(), list(candidate['dependencies'])
+        while pending:
+            parent = pending.pop()
+            if parent == item['number']:
+                return True
+            if parent not in visited:
+                visited.add(parent)
+                if parent in by_number:
+                    pending.extend(by_number[parent]['dependencies'])
+        return False
+
+    conflicts = []
+    for other in authorized:
+        if other['number'] == item['number'] or is_downstream(other):
+            continue
+        candidate = gh.get(f"/pulls/{other['number']}")
+        if candidate.get('state') != 'open':
+            continue
+        theirs = changed_path_names(gh.page(f"/pulls/{other['number']}/files"))
+        if mine & theirs:
+            conflicts.append(other['number'])
+    return sorted(conflicts)
+
 def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False):
     """Pure readiness classifier; positive result is bound to exact PR/main SHAs."""
     err = policy_error(e)
@@ -105,9 +162,16 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
     if not isinstance(files, list) or not files:
         return 'SCOPE_VIOLATION', 'no inspectable changed files'
     for file in files:
-        name = file.get('filename') if isinstance(file, dict) else None
-        if not isinstance(name, str) or name in DENY_EXACT or name.startswith(DENY_PREFIXES) or not any(name.startswith(prefix) for prefix in e['paths']):
-            return 'SCOPE_VIOLATION', f'unapproved or sensitive path {name}'
+        if not isinstance(file, dict):
+            return 'SCOPE_VIOLATION', 'malformed changed file'
+        names = [file.get('filename')]
+        if file.get('status') in ('renamed', 'copied') or file.get('previous_filename') is not None:
+            names.append(file.get('previous_filename'))
+        for name in names:
+            if (not isinstance(name, str) or name in DENY_EXACT or
+                    name.startswith(DENY_PREFIXES) or
+                    not any(name.startswith(prefix) for prefix in e['paths'])):
+                return 'SCOPE_VIOLATION', f'unapproved or sensitive path {name}'
     for num in e['dependencies']:
         if dependencies.get(num, {}).get('merged') is not True:
             return 'BLOCKED_DEPENDENCY', f'#{num} is not merged'
@@ -124,13 +188,24 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
     if pr.get('draft'):
         return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
     latest_review = {}
-    for review in reviews:
+    for index, review in enumerate(reviews):
+        if not isinstance(review, dict):
+            continue
         login = (review.get('user') or {}).get('login')
-        if login:
-            latest_review[login] = review
+        submitted = review.get('submitted_at')
+        # Actual GitHub submissions are timestamped. Preserve order only for
+        # older fixture records without timestamps; never let an older dated
+        # approval override a newer dated CHANGES_REQUESTED event.
+        key = (1, submitted, index) if isinstance(submitted, str) and submitted else (0, '', index)
+        if login and (login not in latest_review or key > latest_review[login][0]):
+            latest_review[login] = (key, review)
     author = (pr.get('user') or {}).get('login')
-    approved = any(login != author and (latest_review.get(login) or {}).get('state') == 'APPROVED'
-                   and latest_review[login].get('commit_id') == e['head_sha'] for login in e['reviewers'])
+    approved = any(
+        login != author and login in latest_review and
+        latest_review[login][1].get('state') == 'APPROVED' and
+        latest_review[login][1].get('commit_id') == e['head_sha']
+        for login in e['reviewers']
+    )
     if not approved:
         return 'NEEDS_REVIEW', 'no independent approval on exact head SHA'
     return 'VERIFIED_READY', 'exact-head validated'
@@ -240,6 +315,11 @@ def run():
             result, reason = evaluate(item, pr, checks, reviews, files, original_main, commit_message, related,
                                       authorization_parent=auth_parent, authorization_only=auth_only)
             print(f'PR=#{number} SHA={item["head_sha"]} STATUS={result}: {reason}')
+            if result in ('PROMOTE_ONLY', 'VERIFIED_READY'):
+                overlap = authorized_file_conflicts(gh, item, files, ordered)
+                if overlap:
+                    print(f'BLOCKED_PATH_CONFLICT #{number}: authorized open PRs {overlap} touch identical files')
+                    continue
             if result == 'PROMOTE_ONLY':
                 if os.getenv('INTEGRATOR_APPLY') == 'true':
                     if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
@@ -256,10 +336,22 @@ def run():
                     print('HALT: main moved; do not merge')
                     return 0
                 p, c, rev, f, msg = gh.query_pr(number, item['head_sha'])
-                fresh, why = evaluate(item, p, c, rev, f, gh.main_sha(), msg, related,
+                # Dependencies/exclusions must be re-read: preliminary results
+                # are not authorization for a later privileged transition.
+                fresh_related = {n: gh.related_pr(n) for n in
+                                 set(item['dependencies'] + item['excludes'])}
+                fresh_main = gh.main_sha()
+                fresh, why = evaluate(item, p, c, rev, f, fresh_main, msg, fresh_related,
                                       authorization_parent=auth_parent, authorization_only=auth_only)
                 if fresh != 'VERIFIED_READY':
                     print(f'HALT: changed evidence {fresh} {why}')
+                    return 0
+                overlap = authorized_file_conflicts(gh, item, f, ordered)
+                if overlap:
+                    print(f'HALT: authorized file overlap changed before squash: {overlap}')
+                    return 0
+                if gh.main_sha() != original_main:
+                    print('HALT: main changed immediately before squash')
                     return 0
                 result = gh.squash(number, item['head_sha'])
                 if result.get('merged') is not True:
