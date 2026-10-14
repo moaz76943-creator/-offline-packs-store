@@ -107,6 +107,49 @@ class ContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             order_entries([entry(number=1,dependencies=[2]),entry(number=2,dependencies=[1])])
 
+    def test_solo_maintainer_authorization_success(self):
+        solo = entry(
+            authorization_mode='solo_maintainer',
+            expiry='2026-10-16T00:00:00Z',
+            reviewers=[],
+        )
+        # In solo maintainer mode without independent reviewer, review list can be empty
+        status, reason = self.decide(e=solo, rv=[])
+        self.assertEqual(status, 'VERIFIED_READY')
+
+    def test_solo_maintainer_missing_or_invalid_expiry_fails(self):
+        no_expiry = entry(authorization_mode='solo_maintainer', reviewers=[])
+        self.assertIn('missing expiry', policy_error(no_expiry))
+
+        bad_format = entry(authorization_mode='solo_maintainer', expiry='invalid-date', reviewers=[])
+        self.assertIn('invalid expiry', policy_error(bad_format))
+
+        no_tz = entry(authorization_mode='solo_maintainer', expiry='2026-10-15 12:00:00', reviewers=[])
+        self.assertIn('timezone', policy_error(no_tz))
+
+    def test_solo_maintainer_expired_timestamp_blocks(self):
+        from datetime import datetime, timezone
+        expired = entry(
+            authorization_mode='solo_maintainer',
+            expiry='2026-10-13T00:00:00Z',
+            reviewers=[],
+        )
+        status, reason = evaluate(
+            expired, pr(), checks(), [], [{'filename': 'tools/merge_coordinator/a.py'}],
+            SHA_B, 'feat: update', {}, now=datetime(2026, 10, 14, 12, 0, tzinfo=timezone.utc),
+        )
+        self.assertEqual(status, 'EXPIRED_AUTHORIZATION')
+
+    def test_solo_maintainer_prohibited_paths_remain_strictly_blocked(self):
+        sensitive_entry = entry(
+            authorization_mode='solo_maintainer',
+            expiry='2026-10-16T00:00:00Z',
+            paths=['legal/'],
+            reviewers=[],
+        )
+        self.assertEqual(policy_error(sensitive_entry), 'prohibited owned path')
+
+
 
 if __name__ == '__main__':
     unittest.main()

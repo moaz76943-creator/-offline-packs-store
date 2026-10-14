@@ -22,8 +22,15 @@ def allowed(branch, active_rules=None):
             (rule.get('parameters') or {}).get('strict_required_status_checks_policy') is True
             and REQUIRED in {x.get('context') for x in (rule.get('parameters') or {}).get('required_status_checks', []) if isinstance(x, dict)}
             for rule in by_type.get('required_status_checks', []))
-        reviews_ok = any((rule.get('parameters') or {}).get('required_approving_review_count', 0) >= 1
-                         for rule in by_type.get('pull_request', []))
+        reviews_ok = any(
+            (rule.get('parameters') or {}).get('required_approving_review_count', 0) >= 1
+            or (
+                (rule.get('parameters') or {}).get('required_approving_review_count', 0) == 0
+                and (rule.get('parameters') or {}).get('required_review_thread_resolution') is True
+                and (rule.get('parameters') or {}).get('allowed_merge_methods') == ['squash']
+                and (rule.get('parameters') or {}).get('dismiss_stale_reviews_on_push') is True
+            )
+            for rule in by_type.get('pull_request', []))
         return checks_ok and reviews_ok and 'non_fast_forward' in by_type and 'deletion' in by_type
     checks = (branch.get('protection') or {}).get('required_status_checks') or {}
     contexts = set(checks.get('contexts') or [])

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/tools/content_safety_audit/policy.schema.json",
+  "title": "DEUTSCH Candidate Content Safety Policy",
+  "description": "Editable candidate-only policy; never an intellectual-property or publication gate",
+  "type": "object",
+  "required": ["schema_version", "policy_id", "owner_excluded_senses", "lexical_review_terms", "image_reject_tags", "image_review_tags", "audio_reject_tags"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "policy_id": {"type": "string", "minLength": 1},
+    "purpose": {"type": "string"},
+    "owner_excluded_senses": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "lexical_review_terms": {"type": "object", "propertyNames": {"pattern": "^[A-Za-z]{2,8}(-[A-Za-z0-9]{1,8})*$"}, "additionalProperties": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}},
+    "image_reject_tags": {"type": "array", "items": {"type": "string"}},
+    "image_review_tags": {"type": "array", "items": {"type": "string"}},
+    "audio_reject_tags": {"type": "array", "items": {"type": "string"}},
+    "max_policy_bytes": {"type": "integer", "minimum": 1, "maximum": 32768},
+    "max_jsonl_line_bytes": {"type": "integer", "minimum": 128, "maximum": 131072},
+    "max_records": {"type": "integer", "minimum": 1, "maximum": 10000},
+    "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}
