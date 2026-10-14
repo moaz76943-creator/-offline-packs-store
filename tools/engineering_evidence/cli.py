@@ -24,11 +24,18 @@ def _persist(directory, data, suffix):
             out.write(raw)
             out.flush()
             os.fsync(out.fileno())
-        try:
-            os.link(name, target)
-        except FileExistsError:
-            if target.is_symlink() or target.read_bytes() != raw:
-                raise EvidenceError('IMMUTABLE_REPORT_COLLISION')
+        if hasattr(os, 'link'):
+            try:
+                os.link(name, target)
+            except FileExistsError:
+                if target.is_symlink() or target.read_bytes() != raw:
+                    raise EvidenceError('IMMUTABLE_REPORT_COLLISION')
+        else:
+            if target.exists():
+                if target.is_symlink() or target.read_bytes() != raw:
+                    raise EvidenceError('IMMUTABLE_REPORT_COLLISION')
+            else:
+                os.replace(name, target)
     finally:
         Path(name).unlink(missing_ok=True)
     return target
