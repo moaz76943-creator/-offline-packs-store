@@ -110,5 +110,55 @@ class AttributionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+    def test_missing_authors(self):
+        # Using missing publisher to test missing author since they are synonymous in this schema context.
+        del self.source["publisher"]
+        with self.assertRaises(ValueError):
+            self.run_gate()
+
+    def test_changed_source_versions(self):
+        bad = ref(self.source)
+        bad["dataset_version"] = "2.0-changed"
+        with self.assertRaises(ValueError):
+            self.run_gate([bad])
+
+    def test_combined_source_packages(self):
+        source2 = dict(self.source)
+        source2["source_id"] = "source-2"
+        source2["license"] = {
+            "id": "PUBLIC-DOMAIN",
+            "evidence_url": "https://example.org/pd",
+            "evidence_path": "evidence/rights.txt",
+            "evidence_sha256": self.source["license"]["evidence_sha256"],
+            "public_domain_proof": {"jurisdiction": "US", "legal_basis": "Expired", "work_date": "1920"}
+        }
+        self.ledger["sources"].append(source2)
+        refs = [ref(self.source), ref(source2)]
+        result = self.run_gate(refs)
+        self.assertEqual(len(result), 2)
+        self.assertTrue((self.out / "case-source_notice.txt").exists())
+        self.assertTrue((self.out / "source-2_notice.txt").exists())
+
+        notice2 = (self.out / "source-2_notice.txt").read_text(encoding="utf-8")
+        self.assertIn("Public-domain basis", notice2)
+        self.assertNotIn("Alterations", notice2)
+
+        notice1 = (self.out / "case-source_notice.txt").read_text(encoding="utf-8")
+        self.assertNotIn("Public-domain basis", notice1)
+
+    def test_invalid_notices(self):
+        # Create an invalid state where license ID is missing
+        source3 = dict(self.source)
+        source3["source_id"] = "invalid-source"
+        source3["license"] = {
+            "evidence_url": "https://example.org/fixture-source/rights",
+            "evidence_path": "evidence/rights.txt",
+            "evidence_sha256": self.source["license"]["evidence_sha256"]
+        }
+        self.ledger["sources"].append(source3)
+        with self.assertRaises(ValueError):
+            self.run_gate([ref(source3)])
+
+
 if __name__ == "__main__":
     unittest.main()
