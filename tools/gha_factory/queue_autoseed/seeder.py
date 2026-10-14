@@ -67,8 +67,8 @@ def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
     if type(limit) is not int or not 1 <= limit <= MAX_NEW_ISSUES:
         raise ValueError('invalid bounded enqueue limit')
     known = _existing_issues(issues)
-    proposed = []
     identities = {}
+    eligible = []
     for key in sorted(context.get('admissions', {})):
         if not isinstance(key, tuple) or len(key) != 4:
             raise ValueError('invalid immutable partition identity')
@@ -87,10 +87,8 @@ def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
             if existing_sid != sid:
                 raise ValueError('source-ID fingerprint collision with an existing issue')
             continue
-        proposed.append(item)
-        if len(proposed) == limit:
-            break
-    return proposed
+        eligible.append(item)
+    return eligible[:limit]
 
 
 
