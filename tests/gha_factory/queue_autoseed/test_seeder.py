@@ -105,6 +105,19 @@ class SeederTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     seeder.plan(context(), REGISTRY_SHA, [], limit=value)
 
+    def test_v2_task_in_existing_issues_deduplicates_partition(self):
+        from tools.gha_factory.orchestration import protocol as proto
+        v2_task = proto.new(SOURCE, SHA, 'de', 'approved_snapshot_verify', 0)
+        v2_issue = {
+            'number': 56,
+            'title': queue.PREFIX + v2_task['task_id'],
+            'body': proto.serialize(v2_task),
+            'user': {'login': seeder.OWNER},
+            'state': 'open',
+        }
+        planned = seeder.plan(context(), REGISTRY_SHA, [v2_issue])
+        self.assertEqual([t['shard'] for t in planned], [1, 2])
+
 
 if __name__ == '__main__':
     unittest.main()

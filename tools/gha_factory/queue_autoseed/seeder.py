@@ -12,6 +12,7 @@ import urllib.request
 from pathlib import Path
 
 from tools.gha_factory.dispatcher import controller, queue
+from tools.gha_factory.orchestration import protocol as proto
 
 REPO = controller.REPO
 OWNER = controller.OWNER
@@ -44,13 +45,14 @@ def proposal(source_id, language, source_sha, shard):
 
 def _existing_issues(items):
     known = {}
+    known_partitions = set()
     for issue in items:
         if (not isinstance(issue, dict)
                 or issue.get('pull_request')
                 or (issue.get('user') or {}).get('login') not in controller.ALLOWED_ISSUE_CREATORS
                 or not issue.get('title', '').startswith(queue.PREFIX)):
             continue
-        task = queue.parse(issue.get('body'))
+        task = proto.parse(issue.get('body'))
         if issue['title'] != queue.PREFIX + task['task_id']:
             raise ValueError('owner-authored queue issue title/body mismatch')
         prior = known.get(task['task_id'])
@@ -59,14 +61,15 @@ def _existing_issues(items):
                 raise ValueError('source-ID fingerprint collision in existing issues')
             raise ValueError('duplicate pre-existing queue issue; halt seeding')
         known[task['task_id']] = task['source_id']
-    return known
+        known_partitions.add((task['source_id'], task['language'], task['source_sha256'], task['shard']))
+    return known, known_partitions
 
 
 def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
     """Return ≤5 new deterministic queue v1 tasks, never speculative source jobs."""
     if type(limit) is not int or not 1 <= limit <= MAX_NEW_ISSUES:
         raise ValueError('invalid bounded enqueue limit')
-    known = _existing_issues(issues)
+    known, known_partitions = _existing_issues(issues)
     identities = {}
     eligible = []
     for key in sorted(context.get('admissions', {})):
@@ -82,6 +85,8 @@ def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
         if prior is not None and prior != sid:
             raise ValueError('source-ID fingerprint collision; queue v1 migration needed')
         identities[item['task_id']] = sid
+        if key in known_partitions:
+            continue
         existing_sid = known.get(item['task_id'])
         if existing_sid is not None:
             if existing_sid != sid:
@@ -104,14 +109,14 @@ def verified_context(context, root, existing_issues=()):
     root = Path(root).resolve()
     approved = {}
     checked_sources = {}
-    known = _existing_issues(existing_issues)
+    known, known_partitions = _existing_issues(existing_issues)
     accepted_root = (root / 'tools/gha_factory/admission/accepted').resolve()
     for key in sorted(context.get('admissions', {})):
         if not isinstance(key, tuple) or len(key) != 4:
             raise ValueError('invalid accepted partition identity')
         source_id, language, digest, shard = key
         task = proposal(source_id, language, digest, shard)
-        if task['task_id'] in known:
+        if task['task_id'] in known or key in known_partitions:
             continue
         if queue.admission(task, context, '0' * 64) != 'READY':
             continue
