@@ -5,14 +5,21 @@ import json
 import shutil
 from pathlib import Path
 
-def compute_sha256(filepath, chunk_size=65536):
+def compute_sha256(filepath, chunk_size=65536, expected_size=None):
     """
     Perform streaming file-hashing with bounded memory usage over actual artifact bytes.
+    Optionally validate the number of bytes read against an expected size.
     """
     hasher = hashlib.sha256()
+    bytes_read = 0
     with open(filepath, 'rb') as f:
         for chunk in iter(lambda: f.read(chunk_size), b''):
+            bytes_read += len(chunk)
             hasher.update(chunk)
+
+    if expected_size is not None and bytes_read != expected_size:
+        raise ValueError(f"Truncated file detected during hash computation: expected {expected_size} bytes, read {bytes_read} bytes")
+
     return hasher.hexdigest()
 
 def secure_resolve_path(base_dir, relative_path):
@@ -73,8 +80,13 @@ def build_digest_index(base_dir, artifact_records, index_out_path):
             target_path = secure_resolve_path(base_dir, rel_path)
             # Re-validate artifact
             validate_artifact(target_path, record)
+
+            declared_size = record.get('size_bytes')
+            if declared_size is None:
+                declared_size = os.path.getsize(target_path)
+
             # Compute hash
-            file_hash = compute_sha256(target_path)
+            file_hash = compute_sha256(target_path, expected_size=declared_size)
 
             index[rel_path] = {
                 'sha256': file_hash,

@@ -73,6 +73,21 @@ class TestDigestEngine(unittest.TestCase):
             validate_artifact(filepath, invalid_meta)
         self.assertIn("Size mismatch", str(ctx.exception))
 
+    def test_truncated_files(self):
+        filepath = os.path.join(self.test_dir, "trunc_test.txt")
+        with open(filepath, 'w') as f: f.write("12345") # 5 bytes
+
+        # Test compute_sha256 rejecting truncation
+        with self.assertRaises(ValueError) as ctx:
+            compute_sha256(filepath, expected_size=10)
+        self.assertIn("Truncated file detected", str(ctx.exception))
+
+        # Test index building marks it as invalid if actual file changes size but declared doesn't match
+        # build_digest_index uses the actual size if not provided, or declared size if provided
+        # Wait, if declared size is larger than actual size, validate_artifact should catch it first.
+        # But if we fake a read error or if file changes after validate but before hash, compute_sha256 catches it.
+        # We can just verify compute_sha256 behavior directly here as above.
+
     def test_missing_files(self):
         filepath = os.path.join(self.test_dir, "missing.txt")
         meta = {'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1'}
@@ -144,6 +159,25 @@ class TestDigestEngine(unittest.TestCase):
         self.assertIn("updated_meta.txt", events['updated'])
         self.assertIn("added.txt", events['updated'])
         self.assertIn("deleted.txt", events['deleted'])
+
+    def test_changed_metadata(self):
+        old_index = {
+            "file.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l1", "asset_id": "a1", "version": "v1"}
+        }
+
+        # Change source_id
+        new_index1 = {
+            "file.txt": {"sha256": "hash1", "source_id": "s2", "license_id": "l1", "asset_id": "a1", "version": "v1"}
+        }
+        events1 = compare_indexes(old_index, new_index1)
+        self.assertIn("file.txt", events1['updated'])
+
+        # Change version
+        new_index2 = {
+            "file.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l1", "asset_id": "a1", "version": "v2"}
+        }
+        events2 = compare_indexes(old_index, new_index2)
+        self.assertIn("file.txt", events2['updated'])
 
     def test_bounded_memory(self):
         # We can't easily test that it truly uses bounded memory without memory profiler,
