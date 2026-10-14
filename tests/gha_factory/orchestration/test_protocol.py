@@ -30,6 +30,12 @@ class ProtocolTests(unittest.TestCase):
         for k,v in [('task_type','sh -c evil'),('source_sha256','bad'),('language','private'),('command','evil')]:
             t=task();t[k]=v
             with self.assertRaises(ValueError):p.validate(t,{'de'})
+    def test_contract_task_types_accepted_but_not_executable(self):
+        for tt in ('examples_partition', 'release_candidate_qa'):
+            t = task(task_type=tt)
+            self.assertEqual(p.validate(t, {'de'}), t)
+            self.assertIn(tt, p.TYPES)
+            self.assertNotIn(tt, p.EXECUTABLE)
     def test_bool_is_not_a_counter(self):
         for key in ('attempts','checkpoint','run_id','shard'):
             t=task();t[key]=True

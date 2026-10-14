@@ -10,10 +10,12 @@
   "SUPPORTED_TASK_TYPES": [
     "admission_partition_verify",
     "approved_snapshot_verify",
+    "examples_partition",
     "exercise_partition",
     "lexical_partition",
     "morphology_partition",
     "registry_validate",
+    "release_candidate_qa",
     "release_evidence_verify",
     "security_fuzz_qa",
     "sentence_partition",
@@ -34,7 +36,7 @@
     "PR68_unmerged_seeder": "02 * * * *"
   },
   "TESTS_PASS": {
-    "orchestration_local": 43,
+    "orchestration_local": 44,
     "dispatcher_v1_local": 13,
     "PR68_seeder_local": 15,
     "PR68_dispatcher_local": 13
