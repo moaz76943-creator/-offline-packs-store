@@ -123,7 +123,7 @@ class AdmissionAdapterFixtureTests(unittest.TestCase):
         convert(self.stage/'queue.json', self.out, self.repo, fixture_only=True)
         original = json.loads((self.out/'de-00000000.json').read_text())
         original_ids = {r['surface']:r['lexeme_id'] for r in original['lexemes']}
-        self.make_queue(list(reversed(self.rows)))
+        self.make_queue([self.rows[1], self.rows[0], self.rows[2]])
         new_out = self.temp/'second'
         convert(self.stage/'queue.json', new_out, self.repo, fixture_only=True)
         new_doc = json.loads((new_out/'de-00000000.json').read_text())
@@ -133,6 +133,14 @@ class AdmissionAdapterFixtureTests(unittest.TestCase):
     def test_production_without_release_clearance_is_blocked(self):
         with self.assertRaisesRegex(AdapterError,'BLOCKED_SOURCE'):
             convert(self.stage/'queue.json', self.out, self.repo, fixture_only=False)
+        self.assertFalse(self.out.exists())
+
+    def test_corrupt_resume_id_fails_closed(self):
+        queue = json.loads((self.stage/'queue.json').read_text())
+        queue['jobs'][0]['resume_id'] = 'srcadm1-tampered'
+        (self.stage/'queue.json').write_text(json.dumps(queue))
+        with self.assertRaisesRegex(AdapterError, 'resume identity mismatch'):
+            convert(self.stage/'queue.json', self.out, self.repo, fixture_only=True)
         self.assertFalse(self.out.exists())
 
     def test_bad_partition_fails_atomically(self):
