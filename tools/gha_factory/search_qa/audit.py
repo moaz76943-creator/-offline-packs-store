@@ -117,7 +117,11 @@ def audit_manifest(root, *, shard=0, shards=10):
     sources = ledger.get('sources')
     if not isinstance(packs,list) or not isinstance(sources,list):
         raise AuditError('malformed manifest or source ledger')
-    if not sources and packs:
+    # Ledger presence alone is not authorization; final rights evidence is
+    # still validated by the canonical release inspector on each archive.
+    approved = [source for source in sources if isinstance(source, dict)
+                and source.get('status') == 'APPROVED_FOR_REDISTRIBUTION']
+    if not approved and packs:
         raise AuditError('production packs advertised with no approved source')
     ids = set()
     indexed = []
@@ -127,12 +131,17 @@ def audit_manifest(root, *, shard=0, shards=10):
         ids.add(pack['id'])
         indexed.append(pack)
     if not indexed:
-        return {'status':'BLOCKED_SOURCE' if not sources else 'NO_PUBLISHED_PACKS',
+        return {'status':'BLOCKED_SOURCE' if not approved else 'NO_PUBLISHED_PACKS',
                 'registered_languages': 100, 'verified_packs':0, 'shard':shard,
                 'shards':shards}
+    selected = sorted(indexed,key=lambda x:x['id'])[shard::shards]
+    if not selected:
+        # Empty shards did not inspect any archive; they must never report QA PASS.
+        return {'status':'NO_PACKS_IN_SHARD', 'registered_languages':100,
+                'verified_packs':0, 'shard':shard, 'shards':shards, 'packs':[]}
     from tools.gha_factory.release import candidate
     verified = []
-    for pack in sorted(indexed,key=lambda x:x['id'])[shard::shards]:
+    for pack in selected:
         language = pack['id']
         version = pack.get('version')
         digest = pack.get('sha256')
