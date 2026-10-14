@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "deutsch-owner-candidate-content-qa-v1",
+  "purpose": "Advisory preflight only; never promotes, deletes or grants publishing rights",
+  "owner_excluded_senses": ["alcoholic_beverage", "theft_crime"],
+  "lexical_review_terms": {
+    "ar": ["خمر", "الخمر", "سرقة", "السرقة"],
+    "de": ["Alkohol", "Wein", "Diebstahl"],
+    "en": ["alcohol", "wine", "theft"],
+    "fr": ["alcool", "vin", "vol"],
+    "es": ["alcohol", "vino", "robo"]
+  },
+  "image_reject_tags": ["nudity", "sexualized_minor", "explicit_sexual_content"],
+  "image_review_tags": ["person", "woman", "modesty_unverified", "violence", "alcohol", "theft"],
+  "audio_reject_tags": ["explicit_sexual_content"],
+  "max_policy_bytes": 32768,
+  "max_jsonl_line_bytes": 131072,
+  "max_records": 10000,
+  "notes": [
+    "Surface matches are risk hints, not proof of sense or wrongdoing.",
+    "Arabic diacritics are preserved and different language pairs are isolated.",
+    "AI or metadata-based screening never substitutes for actual media inspection or independent copyright/provenance admission.",
+    "No SRS, learner data, original raw prompts or original content is logged."
+  ]
+}
