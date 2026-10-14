@@ -184,9 +184,15 @@ def persist_immutable(baseline, definitions, directory, *, expected_head=None, a
             output.write(payload)
             output.flush()
             os.fsync(output.fileno())
-        os.link(temp, target, follow_symlinks=False)
+        if hasattr(os, "link"):
+            os.link(temp, target, follow_symlinks=False)
+        else:
+            if target.exists() or target.is_symlink():
+                raise FileExistsError("version already exists")
+            os.replace(temp, target)
     finally:
-        os.unlink(temp)
+        if os.path.exists(temp):
+            os.unlink(temp)
     return target, fingerprint
 
 
