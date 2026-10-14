@@ -1,0 +1,20 @@
+{
+  "id": "asset4",
+  "concept_id": "concept4",
+  "version": "1.0",
+  "hash": "abcdef",
+  "provenance": "source1",
+  "fallback_label": "concept4",
+  "contrast": {"supported": true},
+  "device_shaping_evidence": true,
+  "labels": [
+    {
+      "language": "en",
+      "script": "Latn",
+      "text": "Valid text",
+      "direction": "ltr",
+      "related_concept_id": "concept4",
+      "verified": true
+    }
+  ]
+}
