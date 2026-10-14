@@ -36,15 +36,10 @@ jobs:
           gh aw compile
           test -s .github/workflows/deutsch-pr-recovery.lock.yml
           grep -q 'workflow_dispatch' .github/workflows/deutsch-pr-recovery.lock.yml
-      - name: Commit only generated lock on own feature branch
+      - name: Export generated lock for authorized integration
         run: |
           set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- .github/workflows/deutsch-pr-recovery.lock.yml
-          if git diff --cached --quiet; then
-            echo 'Compiled lock unchanged.'
-          else
-            git commit -m 'chore(gh-aw): compile bounded public PR triage pilot'
-            git push origin "HEAD:refs/heads/ops/gh-aw-public-triage-20261015"
-          fi
+          echo '__GH_AW_LOCK_B64_START__'
+          base64 -w0 .github/workflows/deutsch-pr-recovery.lock.yml
+          echo
+          echo '__GH_AW_LOCK_B64_END__'
