@@ -103,5 +103,39 @@ class SearchAuditTests(unittest.TestCase):
             audit.audit_manifest(self.root, shard=10, shards=10)
 
 
+    def test_unapproved_ledger_records_do_not_clear_source_gate(self):
+        codes = [chr(97+i//26)+chr(97+i%26) for i in range(100)]
+        (self.root/'manifest.json').write_text(json.dumps({
+            'languages':[{'code':v} for v in codes], 'packs': []}))
+        (self.root/'legal/ledger').mkdir(parents=True)
+        (self.root/'legal/ledger/sources.json').write_text(json.dumps({
+            'sources':[{'source_id':'fixture-only','status':'PENDING_REVIEW'}]}))
+        report = audit.audit_manifest(self.root, shard=0, shards=1)
+        self.assertEqual(report['status'], 'BLOCKED_SOURCE')
+        self.assertEqual(report['verified_packs'], 0)
+
+    def test_unapproved_ledger_cannot_authorize_advertised_pack(self):
+        codes = [chr(97+i//26)+chr(97+i%26) for i in range(100)]
+        (self.root/'manifest.json').write_text(json.dumps({
+            'languages':[{'code':v} for v in codes], 'packs':[{'id':'aa'}]}))
+        (self.root/'legal/ledger').mkdir(parents=True)
+        (self.root/'legal/ledger/sources.json').write_text(json.dumps({
+            'sources':[{'source_id':'fixture-only','status':'PENDING_REVIEW'}]}))
+        with self.assertRaisesRegex(audit.AuditError, 'no approved source'):
+            audit.audit_manifest(self.root, shard=0, shards=10)
+
+    def test_empty_assigned_shard_cannot_claim_qa_pass(self):
+        codes = [chr(97+i//26)+chr(97+i%26) for i in range(100)]
+        (self.root/'manifest.json').write_text(json.dumps({
+            'languages':[{'code':v} for v in codes], 'packs':[{'id':'aa'}]}))
+        (self.root/'legal/ledger').mkdir(parents=True)
+        (self.root/'legal/ledger/sources.json').write_text(json.dumps({
+            'sources':[{'source_id':'reviewed','status':'APPROVED_FOR_REDISTRIBUTION'}]}))
+        report = audit.audit_manifest(self.root, shard=1, shards=10)
+        self.assertEqual(report['status'], 'NO_PACKS_IN_SHARD')
+        self.assertEqual(report['verified_packs'], 0)
+        self.assertNotEqual(report['status'], 'QA_PASS_NOT_RELEASE_APPROVAL')
+
+
 if __name__ == '__main__':
     unittest.main()
