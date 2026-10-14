@@ -28,7 +28,9 @@ class FakeGitHub:
         if path.endswith('/git/ref/heads/coordination/leases') and method=='GET':
             return {'object':{'sha':self.head}}
         if f'/contents/tools/coordination/leases.json?' in path:
-            return {'content':base64.b64encode(json.dumps(self.links[self.head]).encode()).decode()}
+            ref=path.split('?ref=',1)[1] if '?ref=' in path else self.head
+            version=ref if ref in self.links else self.head
+            return {'content':base64.b64encode(json.dumps(self.links[version]).encode()).decode()}
         if '/git/commits/' in path and method=='GET':
             sha=path.rsplit('/',1)[-1]
             return {'tree':{'sha':self.trees[sha]}}
@@ -58,6 +60,20 @@ class GitStoreTests(unittest.TestCase):
         self.assertTrue(store.commit(old,new1))
         self.assertFalse(store.commit(old,new2))
         self.assertEqual(store.snapshot()[1]['events'],[{'marker':1}])
+    def test_snapshot_pins_contents_to_commit_when_branch_moves(self):
+        class MovingAPI(FakeGitHub):
+            def request(self, path, method='GET', body=None):
+                if path.endswith('/git/ref/heads/coordination/leases') and method=='GET':
+                    reply=super().request(path, method, body)
+                    self.head='f'*40
+                    self.links[self.head]={'schema':1,'leases':{},'events':[{'new':True}]}
+                    return reply
+                return super().request(path, method, body)
+        api=MovingAPI();store=GitRefStore(api,Q)
+        snap_sha, state=store.snapshot()
+        self.assertEqual(snap_sha,'b'*40)
+        self.assertEqual(state['events'],[], 'snapshot must use pinned commit, never moving ref')
+
     def test_real_store_lease_claim_retries_optimistically(self):
         api=FakeGitHub();store=GitRefStore(api,Q)
         coord=Coordinator(store,api,clock=lambda:100,actor='tester')
