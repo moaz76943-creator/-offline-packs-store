@@ -43,7 +43,19 @@ Save the returned lease_id and pass it to `renew`, `release`, and `verify-pr`; e
 1. Resolve the competing private PR #118 and #125 implementations under the existing guard's owner; do not overwrite Jules.
 2. Integrate opt-in acquisition/renewal into **all** writers and workers, not merely this CLI.
 3. Attach exact-head PR scope verification to the canonical merge/PR checks, without introducing a second writer (public PR #165 remains Draft).
-4. Test true GitHub concurrency and branch protections against a disposable private test branch before using the production ledger.
+4. Test authenticated, independent clients and private branch protections before activating a production ledger; a bounded isolated GitHub CAS probe has been performed (see below), but all-worker integration remains NOT_RUN.
 5. Keep unpublished external agent reservations and non-Actions recovery **UNKNOWN/BLOCKED** until independently verified.
 
 Neither this new tool nor an Issue/PR comment should be treated as an authoritative claim unless the coordinating branch and GitHub integration have been verified.
+
+## Live GitHub CAS evidence — 2026-10-14 (isolated private scratch)
+
+A **non-production** branch `scratch/improve02-cas-20261014` in the private repo was created from private staging HEAD `8dee49f1ab2a82e023fe6f93067fa980d8471bb8`. The only new tracked file was `tools/coordination/live_cas_probe.json`, containing synthetic fixture values; no learner data, tokens, or Jules files were touched.
+
+- Fixture parent commit: `17baf3bfab98d27f0eb2997d03b46cd8556690fc`.
+- Competing same-parent commits: A=`dc37503e56fef7eece5c71302f306fb0143773bc`, B=`759c1a6594c75aeb1bb73348f0eacb87cb1be996`. Each changed only the scoped test file.
+- A non-force ref update succeeded. The simultaneous B request returned an **ambiguous GraphQL error** and is **not** treated as an authoritative conflict reason.
+- A separately repeated B update with `force=false`, after A became HEAD, was independently rejected by GitHub REST: **HTTP 422, `Update is not a fast forward`**.
+- Final scratch HEAD: `dc37503e56fef7eece5c71302f306fb0143773bc`; downloaded fixture state identifies A. The private development branch was not moved.
+
+This validates real GitHub **stale non-fast-forward rejection** for competing commits, not two independently authenticated clients, not reliable branch protection enforcement, and not global adoption by agents. **Operational activation remains BLOCKED** pending owner arbitration of private PRs #118/#125, protected storage and a mandatory all-writer preflight.
