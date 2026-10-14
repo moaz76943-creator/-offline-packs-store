@@ -108,6 +108,12 @@ class LicensingAuditTests(unittest.TestCase):
         self.source["kind"] = "visual_asset"
         self.assertIn("MEDIA_RIGHTS_REVIEW", self.codes())
 
+    def test_hostile_array_fields_fail_closed_instead_of_crashing(self):
+        source = dict(self.source)
+        source["kind"] = ["dictionary"]
+        source["license"] = {"id": ["CC0-1.0"]}
+        self.assertEqual(self.result(source)["decision"], "BLOCKED")
+
     def test_empty_registry_is_unknown_and_never_release_ready(self):
         report = audit_ledger({"schema_version": "1.0.0", "sources": []}, self.root)
         self.assertEqual(report["status"], "UNKNOWN")
