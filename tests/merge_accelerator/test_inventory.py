@@ -16,7 +16,7 @@ class InventoryTests(unittest.TestCase):
         item = {'number': 7, 'title': '[skip ci] old title', 'draft': False,
                 'base': {'ref': 'main'}, 'head': {'sha': 'a' * 40}, 'user': {'login': 'owner'},
                 'mergeable': True}
-        result = inventory.classify(item, final_message='Fix bug', checks=[{'name': 'public-pr-merge-gate','status':'completed', 'conclusion':'success','head_sha':'a'*40,'id':1}], reviews=[{'user':{'login':'reviewer'},'state':'APPROVED','commit_id':'a'*40}], required_checks=('public-pr-merge-gate',), expected_base='main', changed_files=['tests/x.py'])
+        result = inventory.classify(item, final_message='Fix bug', checks=[{'name': 'public-pr-merge-gate','status':'completed', 'conclusion':'success','head_sha':'a'*40,'id':1, 'app': {'slug': 'github-actions'}}], reviews=[{'user':{'login':'reviewer'},'state':'APPROVED','commit_id':'a'*40}], required_checks=('public-pr-merge-gate',), expected_base='main', changed_files=['tests/x.py'])
         self.assertNotIn('SKIP_CI_TIP', result['blockers'])
         self.assertEqual(result['status'], 'REVIEWED_CANDIDATE_NOT_AUTHORIZED')
 
@@ -28,10 +28,22 @@ class InventoryTests(unittest.TestCase):
 
     def test_older_passing_check_cannot_override_newer_failure(self):
         pr = self.example_pr(draft=False)
-        checks = [{'name':'public-pr-merge-gate','status':'completed','conclusion':'success','head_sha':'a'*40,'id':2},
-                  {'name':'public-pr-merge-gate','status':'completed','conclusion':'failure','head_sha':'a'*40,'id':3}]
+        checks = [{'name':'public-pr-merge-gate','status':'completed','conclusion':'success','head_sha':'a'*40,'id':2,'app':{'slug':'github-actions'}},
+                  {'name':'public-pr-merge-gate','status':'completed','conclusion':'failure','head_sha':'a'*40,'id':3,'app':{'slug':'github-actions'}}]
         r = inventory.classify(pr, 'ok', checks, [], ('public-pr-merge-gate',), 'main', ['tests/x.py'])
         self.assertIn('CI_FAIL:public-pr-merge-gate',r['blockers'])
+
+    def test_spoofed_check_run_app_slug_rejected(self):
+        pr = self.example_pr(draft=False)
+        checks = [{'name':'public-pr-merge-gate','status':'completed','conclusion':'success','head_sha':'a'*40,'id':1,'app':{'slug':'malicious-app'}}]
+        r = inventory.classify(pr, 'ok', checks, [], ('public-pr-merge-gate',), 'main', ['tests/x.py'])
+        self.assertIn('NOT_RUN:public-pr-merge-gate', r['blockers'])
+
+    def test_sensitive_exact_and_prefixes(self):
+        for path in ['manifest.json', 'version.json', 'tools/open_export/export.py', 'community/guidelines.md']:
+            pr = self.example_pr(draft=False)
+            r = inventory.classify(pr, 'ok', [], [], (), 'main', [path])
+            self.assertIn('SENSITIVE_SCOPE', r['blockers'], f'{path} should be sensitive')
 
     def test_stale_check_ignored(self):
         pr = self.example_pr(draft=False)

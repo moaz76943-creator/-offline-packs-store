@@ -23,9 +23,10 @@ SKIP = re.compile(r'\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]|^ski
 SENSITIVE_PREFIXES = (
     '.github/', 'legal/', 'packs/', 'media/', 'assets/', 'catalog/',
     'standards/', 'tools/gha_factory/', 'tools/release_',
-    'tools/merge_coordinator/', 'tools/ci_policy/', 'lib/',
-    'android/',
+    'tools/merge_coordinator/', 'tools/ci_policy/', 'tools/open_export/',
+    'community/', 'lib/', 'android/',
 )
+SENSITIVE_EXACT = ('manifest.json', 'version.json')
 MAX_PAGES = 10
 
 
@@ -104,7 +105,7 @@ def classify(pr, final_message, checks, reviews, required_checks, expected_base,
         block('FILES_UNVERIFIED')
     elif not changed_files:
         block('EMPTY_DIFF')
-    elif any(any(p.startswith(prefix) for prefix in SENSITIVE_PREFIXES)
+    elif any(any(p.startswith(prefix) for prefix in SENSITIVE_PREFIXES) or p in SENSITIVE_EXACT
              for p in changed_files):
         block('SENSITIVE_SCOPE')
 
@@ -112,7 +113,8 @@ def classify(pr, final_message, checks, reviews, required_checks, expected_base,
         block('CI_POLICY_UNVERIFIED')
     for name in required_checks:
         same = [c for c in (checks or []) if c.get('name') == name
-                and c.get('head_sha') == sha]
+                and c.get('head_sha') == sha
+                and (c.get('app') or {}).get('slug') == 'github-actions']
         latest = max(same, key=lambda c: c.get('id') or 0, default=None)
         if latest is None:
             block('NOT_RUN:' + name)
@@ -163,6 +165,9 @@ def read_repository(repo, client, deep_limit, expected_base=None):
             filenames = [f['filename'] for f in changed]
             if len(set(filenames)) != len(filenames):
                 raise ValueError('duplicate changed filename')
+            pr_after = client.get(f'/pulls/{number}')
+            if (pr_after.get('head') or {}).get('sha') != sha:
+                raise ValueError('head changed during audit')
             files_by_pr[number] = filenames
             # Scope-sensitive PRs require additional checks and a source-specific
             # reviewer even when the general gate passes. No auto-authorization.
