@@ -1,0 +1,50 @@
+# TEMPORARY COMPILATION HELPER: remove after lock generation.
+# Compiles an AI workflow from author-reviewed Markdown without running AI.
+name: Compile gh-aw Public Pilot (temporary)
+on:
+  push:
+    branches: [ops/gh-aw-public-triage-20261015]
+    paths:
+      - '.github/workflows/deutsch-pr-recovery.md'
+      - '.github/workflows/compile-gh-aw-pilot.yml'
+permissions:
+  contents: write
+concurrency:
+  group: gh-aw-pilot-compile
+  cancel-in-progress: false
+jobs:
+  compile:
+    if: github.repository == 'moaz76943-creator/-offline-packs-store' && github.ref == 'refs/heads/ops/gh-aw-public-triage-20261015'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install pinned official GitHub Agentic Workflows CLI
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh extension install github/gh-aw --pin v0.88.7
+          gh aw version
+      - name: Compile and verify lock file
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh aw compile
+          test -s .github/workflows/deutsch-pr-recovery.lock.yml
+          grep -q 'workflow_dispatch' .github/workflows/deutsch-pr-recovery.lock.yml
+      - name: Commit only generated lock on own feature branch
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- .github/workflows/deutsch-pr-recovery.lock.yml
+          if git diff --cached --quiet; then
+            echo 'Compiled lock unchanged.'
+          else
+            git commit -m 'chore(gh-aw): compile bounded public PR triage pilot'
+            git push origin "HEAD:refs/heads/ops/gh-aw-public-triage-20261015"
+          fi
