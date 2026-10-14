@@ -12,7 +12,7 @@ A claim records TASK_ID, repository, base branch, BASE_HEAD_SHA, claimed file pa
 
 Patterns allow either a literal path or terminal `/**`; overlapping ancestor/subtree scopes conflict within the same repository regardless of branch. Malformed paths and traversal are rejected. `verify-pr` checks both old and new rename paths, complete changed-file count, PR identity and exact head SHA, base HEAD and live unexpired ownership.
 
-Renew/release require matching owner and lease ID. An expired claim still blocks other writers until the owner releases it or `recover` confirms the recorded GitHub Actions run/attempt has actually terminated. Expiry alone, or an unverified text assertion, never grants recovery. This prevents old lease-ID ABA release/renewal. Non-Actions agents require owner intervention for abandoned claims.
+Renew/release require matching owner and lease ID. An expired claim still blocks other writers until the owner releases it or `recover` confirms the recorded GitHub Actions run/attempt has actually terminated. Expiry alone, or an unverified text assertion, never grants recovery. This prevents old lease-ID ABA release/renewal. Non-Actions agents require owner intervention for abandoned claims. Ledger snapshots fetch file bytes using the immutable Git commit SHA, not a moving branch ref, to avoid mixed-version reads when concurrent writers advance the lease branch.
 
 **Important limitations:** a caller may declare an agent name but multiple agents using the same GitHub identity cannot be distinguished cryptographically. Protect the private ledger branch and restrict write access before operational use. `AUTHORIZED_SCOPE_ONLY` does not establish CI success, security, rights approval or merge eligibility. A raw Git push or a Jules job that ignores this guard is not blocked. The existing public merge coordinator remains the only potential merge authority.
 
@@ -22,7 +22,7 @@ Run from the repository root:
 
     python3 -m unittest discover -s tests/coordination -p 'test_*.py' -q
 
-22 deterministic tests cover 8-way concurrent claims, cross-repo independence, prefix/path safeguards, move/rename preflight, HEAD movement, renew/release fencing, post-expiry recovery with independently terminated run ID/attempt, ABA, and competing Git commits. Real GitHub CAS + Jules integration remains **NOT_RUN**; no live private ledger branch was initialized.
+23 deterministic tests cover 8-way concurrent claims, cross-repo independence, prefix/path safeguards, move/rename preflight, HEAD movement, renew/release fencing, post-expiry recovery with independently terminated run ID/attempt, ABA, and competing Git commits. Real GitHub CAS + Jules integration remains **NOT_RUN**; no live private ledger branch was initialized.
 
 ## Explicit bootstrap after approval (not executed)
 
