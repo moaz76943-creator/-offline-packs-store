@@ -87,6 +87,44 @@ def order_entries(items):
     return order
 
 
+def changed_path_names(files):
+    """Original and resulting paths matter for ownership and collision checks."""
+    if not isinstance(files, list):
+        raise ValueError('file evidence is not a list')
+    names = set()
+    for file in files:
+        if not isinstance(file, dict) or not isinstance(file.get('filename'), str):
+            raise ValueError('malformed changed-file evidence')
+        names.add(file['filename'])
+        if file.get('status') in ('renamed', 'copied') or file.get('previous_filename') is not None:
+            previous = file.get('previous_filename')
+            if not isinstance(previous, str):
+                raise ValueError('missing original path for rename/copy')
+            names.add(previous)
+    return names
+
+
+def authorized_file_conflicts(gh, item, files, authorized):
+    """Bounded read-only check for *actual* overlap with other authorized open PRs.
+
+    Does not replace broad inventory triage or manual conflict decisions.
+    """
+    if len(authorized) > 25:
+        raise ValueError('more than 25 authorized candidates; partition approval batch')
+    mine = changed_path_names(files)
+    conflicts = []
+    for other in authorized:
+        if other['number'] == item['number']:
+            continue
+        candidate = gh.get(f"/pulls/{other['number']}")
+        if candidate.get('state') != 'open':
+            continue
+        theirs = changed_path_names(gh.page(f"/pulls/{other['number']}/files"))
+        if mine & theirs:
+            conflicts.append(other['number'])
+    return sorted(conflicts)
+
+
 def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False):
     """Pure readiness classifier; positive result is bound to exact PR/main SHAs."""
     err = policy_error(e)
@@ -262,6 +300,11 @@ def run():
             result, reason = evaluate(item, pr, checks, reviews, files, original_main, commit_message, related,
                                       authorization_parent=auth_parent, authorization_only=auth_only)
             print(f'PR=#{number} SHA={item["head_sha"]} STATUS={result}: {reason}')
+            if result in ('PROMOTE_ONLY', 'VERIFIED_READY'):
+                overlap = authorized_file_conflicts(gh, item, files, ordered)
+                if overlap:
+                    print(f'BLOCKED_PATH_CONFLICT #{number}: authorized open PRs {overlap} touch identical files')
+                    continue
             if result == 'PROMOTE_ONLY':
                 if os.getenv('INTEGRATOR_APPLY') == 'true':
                     if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
@@ -287,6 +330,10 @@ def run():
                                       authorization_parent=auth_parent, authorization_only=auth_only)
                 if fresh != 'VERIFIED_READY':
                     print(f'HALT: changed evidence {fresh} {why}')
+                    return 0
+                overlap = authorized_file_conflicts(gh, item, f, ordered)
+                if overlap:
+                    print(f'HALT: authorized file overlap changed before squash: {overlap}')
                     return 0
                 if gh.main_sha() != original_main:
                     print('HALT: main changed immediately before squash')
