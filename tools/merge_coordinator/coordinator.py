@@ -36,7 +36,9 @@ def policy_error(e):
     if e.get('owner') != 'integration-coordinator':
         return 'not integration-coordinator owned'
     allowed = e.get('paths')
-    if not isinstance(allowed, list) or not allowed or len(set(allowed)) != len(allowed):
+    if (not isinstance(allowed, list) or not allowed or
+            not all(isinstance(path, str) for path in allowed) or
+            len(set(allowed)) != len(allowed)):
         return 'empty, duplicated or malformed owned paths'
     for path in allowed:
         if not isinstance(path, str) or not path.endswith('/') or path.startswith('/') or '../' in path or '\\' in path:
@@ -44,7 +46,9 @@ def policy_error(e):
         if not path.startswith(('tools/', 'tests/', 'docs/')) or path.startswith(DENY_PREFIXES):
             return 'prohibited owned path'
     names = e.get('checks')
-    if not isinstance(names, list) or len(names) < 2 or 'public-pr-merge-gate' not in names or len(set(names)) != len(names):
+    if (not isinstance(names, list) or len(names) < 2 or
+            not all(isinstance(name, str) and name for name in names) or
+            'public-pr-merge-gate' not in names or len(set(names)) != len(names)):
         return 'required primary and scoped checks missing'
     reviewers = e.get('reviewers')
     if not isinstance(reviewers, list) or not reviewers or not all(isinstance(x, str) and x for x in reviewers):
@@ -105,9 +109,16 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
     if not isinstance(files, list) or not files:
         return 'SCOPE_VIOLATION', 'no inspectable changed files'
     for file in files:
-        name = file.get('filename') if isinstance(file, dict) else None
-        if not isinstance(name, str) or name in DENY_EXACT or name.startswith(DENY_PREFIXES) or not any(name.startswith(prefix) for prefix in e['paths']):
-            return 'SCOPE_VIOLATION', f'unapproved or sensitive path {name}'
+        if not isinstance(file, dict):
+            return 'SCOPE_VIOLATION', 'malformed changed file'
+        names = [file.get('filename')]
+        if file.get('status') in ('renamed', 'copied') or file.get('previous_filename') is not None:
+            names.append(file.get('previous_filename'))
+        for name in names:
+            if (not isinstance(name, str) or name in DENY_EXACT or
+                    name.startswith(DENY_PREFIXES) or
+                    not any(name.startswith(prefix) for prefix in e['paths'])):
+                return 'SCOPE_VIOLATION', f'unapproved or sensitive path {name}'
     for num in e['dependencies']:
         if dependencies.get(num, {}).get('merged') is not True:
             return 'BLOCKED_DEPENDENCY', f'#{num} is not merged'
@@ -124,13 +135,24 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
     if pr.get('draft'):
         return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
     latest_review = {}
-    for review in reviews:
+    for index, review in enumerate(reviews):
+        if not isinstance(review, dict):
+            continue
         login = (review.get('user') or {}).get('login')
-        if login:
-            latest_review[login] = review
+        submitted = review.get('submitted_at')
+        # Actual GitHub submissions are timestamped. Preserve order only for
+        # older fixture records without timestamps; never let an older dated
+        # approval override a newer dated CHANGES_REQUESTED event.
+        key = (1, submitted, index) if isinstance(submitted, str) and submitted else (0, '', index)
+        if login and (login not in latest_review or key > latest_review[login][0]):
+            latest_review[login] = (key, review)
     author = (pr.get('user') or {}).get('login')
-    approved = any(login != author and (latest_review.get(login) or {}).get('state') == 'APPROVED'
-                   and latest_review[login].get('commit_id') == e['head_sha'] for login in e['reviewers'])
+    approved = any(
+        login != author and login in latest_review and
+        latest_review[login][1].get('state') == 'APPROVED' and
+        latest_review[login][1].get('commit_id') == e['head_sha']
+        for login in e['reviewers']
+    )
     if not approved:
         return 'NEEDS_REVIEW', 'no independent approval on exact head SHA'
     return 'VERIFIED_READY', 'exact-head validated'
@@ -256,10 +278,18 @@ def run():
                     print('HALT: main moved; do not merge')
                     return 0
                 p, c, rev, f, msg = gh.query_pr(number, item['head_sha'])
-                fresh, why = evaluate(item, p, c, rev, f, gh.main_sha(), msg, related,
+                # Dependencies/exclusions must be re-read: preliminary results
+                # are not authorization for a later privileged transition.
+                fresh_related = {n: gh.related_pr(n) for n in
+                                 set(item['dependencies'] + item['excludes'])}
+                fresh_main = gh.main_sha()
+                fresh, why = evaluate(item, p, c, rev, f, fresh_main, msg, fresh_related,
                                       authorization_parent=auth_parent, authorization_only=auth_only)
                 if fresh != 'VERIFIED_READY':
                     print(f'HALT: changed evidence {fresh} {why}')
+                    return 0
+                if gh.main_sha() != original_main:
+                    print('HALT: main changed immediately before squash')
                     return 0
                 result = gh.squash(number, item['head_sha'])
                 if result.get('merged') is not True:
