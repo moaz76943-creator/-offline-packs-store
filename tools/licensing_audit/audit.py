@@ -102,7 +102,7 @@ def audit_source(source, root):
     if not isinstance(sid, str) or not sid.strip():
         finding(out, 'SOURCE_ID_MISSING', 'UNKNOWN', 'source has no identity')
     sid = sid if isinstance(sid, str) and sid.strip() else '<missing>'
-    if source.get('kind') not in KINDS:
+    if not isinstance(source.get('kind'), str) or source.get('kind') not in KINDS:
         finding(out, 'KIND_UNKNOWN', 'UNKNOWN', 'source media/text kind not recognized')
     for key in ('origin_url',):
         if not safe_url(source.get(key)):
@@ -130,7 +130,7 @@ def audit_source(source, root):
     lic = source.get('license')
     lic = lic if isinstance(lic, dict) else {}
     lid = lic.get('id')
-    if lid not in SUPPORTED:
+    if not isinstance(lid, str) or lid not in SUPPORTED:
         if isinstance(lid, str) and (NC.search(lid) or ND.search(lid)):
             finding(out, 'RESTRICTED_LICENSE', 'BLOCKED', 'NC/ND license is not approved for commercial corpus')
         else:
@@ -157,7 +157,7 @@ def audit_source(source, root):
         pd = lic.get('public_domain_proof')
         if not isinstance(pd, dict) or not all(isinstance(pd.get(k), str) and pd[k].strip() for k in ('jurisdiction', 'legal_basis', 'work_date')):
             finding(out, 'PUBLIC_DOMAIN_PROOF_MISSING', 'REVIEW_REQUIRED', 'jurisdiction, legal basis and work date required')
-    if source.get('kind') in MEDIA:
+    if isinstance(source.get('kind'), str) and source.get('kind') in MEDIA:
         finding(out, 'MEDIA_RIGHTS_REVIEW', 'REVIEW_REQUIRED', 'independently verify rights for each font, image, artwork or audio item')
     if not isinstance(source.get('alterations'), list) or not source['alterations']:
         finding(out, 'ALTERATIONS_MISSING', 'REVIEW_REQUIRED', 'original versus modified provenance not documented')
