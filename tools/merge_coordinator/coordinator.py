@@ -105,16 +105,32 @@ def changed_path_names(files):
 
 
 def authorized_file_conflicts(gh, item, files, authorized):
-    """Bounded read-only check for *actual* overlap with other authorized open PRs.
+    """Check overlapping authorized PRs, preserving dependency topological order.
 
-    Does not replace broad inventory triage or manual conflict decisions.
+    Downstream changes depend on this PR merging first, so they cannot
+    block a prerequisite merely because they edit the same file. Unrelated
+    peers and upstream dependencies retain conservative conflict behavior.
     """
     if len(authorized) > 25:
         raise ValueError('more than 25 authorized candidates; partition approval batch')
     mine = changed_path_names(files)
+    by_number = {candidate['number']: candidate for candidate in authorized}
+
+    def is_downstream(candidate):
+        visited, pending = set(), list(candidate['dependencies'])
+        while pending:
+            parent = pending.pop()
+            if parent == item['number']:
+                return True
+            if parent not in visited:
+                visited.add(parent)
+                if parent in by_number:
+                    pending.extend(by_number[parent]['dependencies'])
+        return False
+
     conflicts = []
     for other in authorized:
-        if other['number'] == item['number']:
+        if other['number'] == item['number'] or is_downstream(other):
             continue
         candidate = gh.get(f"/pulls/{other['number']}")
         if candidate.get('state') != 'open':
@@ -123,7 +139,6 @@ def authorized_file_conflicts(gh, item, files, authorized):
         if mine & theirs:
             conflicts.append(other['number'])
     return sorted(conflicts)
-
 
 def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False):
     """Pure readiness classifier; positive result is bound to exact PR/main SHAs."""
