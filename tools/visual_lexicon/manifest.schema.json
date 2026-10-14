@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Concept to Visual Token Manifest",
+  "type": "object",
+  "patternProperties": {
+    "^[a-zA-Z0-9_-]+$": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "Maps concept_id to SHA-256 hash of its .vct token"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "concept_id": "concept_circle",
+  "semantic_label": "A simple circle",
+  "alt_text": "Circle icon",
+  "source": {
+    "author": "Public Domain Source",
+    "license": "PUBLIC-DOMAIN"
+  },
+  "viewBox": "0 0 100 100",
+  "palette": ["#000000"],
+  "paths": [
+    {
+      "d": "M 50 0 A 50 50 0 1 0 50 100 A 50 50 0 1 0 50 0 Z",
+      "fill": "#000000"
+    }
+  ]
+}

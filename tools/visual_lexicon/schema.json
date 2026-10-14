@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Compact Vector Semantic Token",
+  "type": "object",
+  "required": [
+    "version",
+    "concept_id",
+    "semantic_label",
+    "source",
+    "viewBox",
+    "paths"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "concept_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "semantic_label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "alt_text": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": ["author", "license"],
+      "properties": {
+        "author": {
+          "type": "string",
+          "minLength": 1
+        },
+        "license": {
+          "type": "string",
+          "enum": ["CC0-1.0", "PUBLIC-DOMAIN"]
+        }
+      }
+    },
+    "viewBox": {
+      "type": "string",
+      "pattern": "^-?\\d+(\\.\\d+)? -?\\d+(\\.\\d+)? -?\\d+(\\.\\d+)? -?\\d+(\\.\\d+)?$"
+    },
+    "palette": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^#[0-9a-fA-F]{3,8}$"
+      }
+    },
+    "paths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["d"],
+        "properties": {
+          "d": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fill": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

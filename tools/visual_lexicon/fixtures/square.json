@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "concept_id": "concept_square",
+  "semantic_label": "A simple square",
+  "alt_text": "Square icon",
+  "source": {
+    "author": "CC0 Creator",
+    "license": "CC0-1.0"
+  },
+  "viewBox": "0 0 100 100",
+  "palette": ["#FF0000"],
+  "paths": [
+    {
+      "d": "M 10 10 H 90 V 90 H 10 Z",
+      "fill": "#FF0000"
+    }
+  ]
+}
