@@ -23,6 +23,34 @@ SHA = re.compile(r'^[0-9a-f]{64}$')
 ID = re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}$')
 MAX_LINE = 1024 * 1024
 
+MAX_LICENSE_NOTICE_BYTES = 1024 * 1024
+# Negative-only guard: text consistency cannot grant redistribution rights.
+LICENSE_NOTICE_PATTERNS = {
+    'CC0-1.0': r'\bcc0[\s-]*1\.0\b',
+    'CC-BY-SA-4.0': r'\bcc[\s-]*by[\s-]*sa[\s-]*4\.0\b|\battribution[\s-]+sharealike[\s-]+4\.0\b',
+    'GFDL-1.3-only': r'\bgfdl[\s-]*1\.3\b|\bgnu free documentation license\s*(?:version\s*)?1\.3\b',
+    'CC-BY-NC-SA-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*sa[\s-]*4\.0\b|\battribution[\s-]+noncommercial[\s-]+sharealike[\s-]+4\.0\b',
+    'CC-BY-NC-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*4\.0\b',
+    'CC-BY-NC-ND-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*nd[\s-]*4\.0\b',
+    'CC-BY-ND-4.0': r'\bcc[\s-]*by[\s-]*nd[\s-]*4\.0\b',
+}
+
+
+def license_notice_conflicts(path, declared_license):
+    """Reject explicit incompatible notices; never infer legal approval."""
+    try:
+        with path.open('rb') as stream:
+            raw = stream.read(MAX_LICENSE_NOTICE_BYTES + 1)
+        if len(raw) > MAX_LICENSE_NOTICE_BYTES:
+            return True
+        notice = raw.decode('utf-8')
+    except (OSError, UnicodeError):
+        return True
+    detected = {name for name, pattern in LICENSE_NOTICE_PATTERNS.items()
+                if re.search(pattern, notice, re.IGNORECASE)}
+    return any(name != declared_license for name in detected)
+
+
 
 class AdmissionError(ValueError):
     """Explicit denial; caller must not enqueue incomplete data."""
@@ -48,7 +76,15 @@ def checked_file(root, relative, expected, label):
     if p.is_absolute() or '..' in p.parts or '.git' in p.parts:
         raise AdmissionError(f'BLOCKED_SOURCE: {label} unsafe path')
     root = root.resolve()
-    resolved=(root/p).resolve()
+    candidate = root
+    for part in p.parts:
+        candidate = candidate / part
+        if candidate.is_symlink():
+            raise AdmissionError(f'BLOCKED_SOURCE: {label} symlink evidence path is forbidden')
+    try:
+        resolved = candidate.resolve()
+    except (OSError, RuntimeError) as exc:
+        raise AdmissionError(f'BLOCKED_SOURCE: {label} unresolvable evidence path') from exc
     if not resolved.is_relative_to(root) or not resolved.is_file():
         raise AdmissionError(f'BLOCKED_SOURCE: {label} missing/escaping evidence file')
     if digest_file(resolved)!=expected:
@@ -134,7 +170,11 @@ def route05_source(repo_root, source_id, dataset_version, input_path, fmt):
     source=checked_file(repo_root,retrieval.get('artifact_path'),retrieval.get('sha256'),'source')
     if source!=input_path.resolve():
         raise AdmissionError('BLOCKED_SOURCE: source path differs from reviewed Route 05 artifact')
-    checked_file(repo_root,license_info.get('evidence_path'),license_info.get('evidence_sha256'),'license evidence')
+    license_proof = checked_file(
+        repo_root, license_info.get('evidence_path'),
+        license_info.get('evidence_sha256'), 'license evidence')
+    if license_notice_conflicts(license_proof, lid):
+        raise AdmissionError('BLOCKED_SOURCE: license notice conflicts with metadata or cannot be safely checked')
     return s
 
 

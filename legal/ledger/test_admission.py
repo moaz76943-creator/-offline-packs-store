@@ -144,5 +144,17 @@ class AdmissionTests(unittest.TestCase):
         self.assertIn('DUPLICATE', str(self.issues()))
 
 
+    def test_internal_symlink_license_proof_rejected_even_with_matching_sha(self):
+        (self.root / 'evidence/license-link.txt').symlink_to('upstream-license.txt')
+        self.source['license']['evidence_path'] = 'evidence/license-link.txt'
+        self.assertIn('EVIDENCE', str(self.issues()))
+
+    def test_cc0_metadata_conflicts_with_noncommercial_license_notice(self):
+        self.put('evidence/upstream-license.txt', b'Official license: CC BY-NC-SA 4.0\n')
+        self.source['license']['evidence_sha256'] = sha256_file(
+            self.root / 'evidence/upstream-license.txt')
+        self.assertIn('LICENSE_CONFLICT', str(self.issues()))
+
+
 if __name__ == '__main__':
     unittest.main()

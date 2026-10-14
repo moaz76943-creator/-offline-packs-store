@@ -22,6 +22,34 @@ OBLIGATIONS = {
 }
 HASH = re.compile(r'^[0-9a-f]{64}$')
 
+MAX_LICENSE_NOTICE_BYTES = 1024 * 1024
+# Negative-only guard: text consistency cannot grant redistribution rights.
+LICENSE_NOTICE_PATTERNS = {
+    'CC0-1.0': r'\bcc0[\s-]*1\.0\b',
+    'CC-BY-SA-4.0': r'\bcc[\s-]*by[\s-]*sa[\s-]*4\.0\b|\battribution[\s-]+sharealike[\s-]+4\.0\b',
+    'GFDL-1.3-only': r'\bgfdl[\s-]*1\.3\b|\bgnu free documentation license\s*(?:version\s*)?1\.3\b',
+    'CC-BY-NC-SA-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*sa[\s-]*4\.0\b|\battribution[\s-]+noncommercial[\s-]+sharealike[\s-]+4\.0\b',
+    'CC-BY-NC-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*4\.0\b',
+    'CC-BY-NC-ND-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*nd[\s-]*4\.0\b',
+    'CC-BY-ND-4.0': r'\bcc[\s-]*by[\s-]*nd[\s-]*4\.0\b',
+}
+
+
+def license_notice_conflicts(path, declared_license):
+    """Reject explicit incompatible notices; never infer legal approval."""
+    try:
+        with path.open('rb') as stream:
+            raw = stream.read(MAX_LICENSE_NOTICE_BYTES + 1)
+        if len(raw) > MAX_LICENSE_NOTICE_BYTES:
+            return True
+        notice = raw.decode('utf-8')
+    except (OSError, UnicodeError):
+        return True
+    detected = {name for name, pattern in LICENSE_NOTICE_PATTERNS.items()
+                if re.search(pattern, notice, re.IGNORECASE)}
+    return any(name != declared_license for name in detected)
+
+
 
 def sha256_file(path):
     digest = hashlib.sha256()
@@ -68,7 +96,17 @@ def artifact(root, relative, expected, out, label):
         issue(out, 'EVIDENCE', f'{label}: path outside approved repository')
         return False
     resolved_root = Path(root).resolve()
-    resolved = (resolved_root / path).resolve()
+    candidate = resolved_root
+    for part in path.parts:
+        candidate = candidate / part
+        if candidate.is_symlink():
+            issue(out, 'EVIDENCE', f'{label}: symlink in evidence path is forbidden')
+            return False
+    try:
+        resolved = candidate.resolve()
+    except (OSError, RuntimeError):
+        issue(out, 'EVIDENCE', f'{label}: unresolvable evidence path')
+        return False
     if not resolved.is_relative_to(resolved_root) or not resolved.is_file():
         issue(out, 'EVIDENCE', f'{label}: missing or escaping local proof file')
         return False
@@ -132,7 +170,12 @@ def evaluate(ledger, manifest, dailies, root):
                 'creativecommons.org/publicdomain/zero/' in url or
                 'gnu.org/licenses/fdl-' in url):
                 issue(out, 'EVIDENCE', f'{label}: generic license terms are not source-specific proof')
-        artifact(root, license_info.get('evidence_path'), license_info.get('evidence_sha256'), out, f'{label} license proof')
+        proof_ok = artifact(root, license_info.get('evidence_path'),
+                            license_info.get('evidence_sha256'), out, f'{label} license proof')
+        if proof_ok and license_notice_conflicts(
+                (Path(root).resolve() / license_info['evidence_path']).resolve(), lid):
+            issue(out, 'LICENSE_CONFLICT',
+                  f'{label}: license notice conflicts with metadata or cannot be safely checked')
         if lid == 'PUBLIC-DOMAIN':
             pd = license_info.get('public_domain_proof') or {}
             if not isinstance(pd, dict) or not all(text(pd.get(k)) for k in ('jurisdiction', 'legal_basis', 'work_date')):

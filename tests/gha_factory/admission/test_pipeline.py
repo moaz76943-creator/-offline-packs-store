@@ -159,4 +159,22 @@ class AdmissionTests(unittest.TestCase):
         self.assertFalse(any(s['status']=='APPROVED_FOR_REDISTRIBUTION' for s in reviewed['sources']))
         self.assertFalse(any(s.get('artifact_sha256') for s in reviewed['sources']))
 
+
+    def test_symlinked_legal_proof_rejected_even_with_matching_hash(self):
+        (self.root / 'input/license-link.txt').symlink_to('license.txt')
+        self.source['license']['evidence_path'] = 'input/license-link.txt'
+        self._ledger()
+        with self.assertRaisesRegex(AdmissionError, 'symlink'):
+            self.run_admit()
+        self.assertFalse((self.root / 'out').exists())
+
+    def test_cc0_metadata_with_noncommercial_notice_rejected_without_queue(self):
+        self.evidence = b'Official license: Attribution-NonCommercial-ShareAlike 4.0\n'
+        (self.root / 'input/license.txt').write_bytes(self.evidence)
+        self.source['license']['evidence_sha256'] = sha(self.evidence)
+        self._ledger()
+        with self.assertRaisesRegex(AdmissionError, 'license notice conflicts'):
+            self.run_admit()
+        self.assertFalse((self.root / 'out').exists())
+
 if __name__=='__main__': unittest.main()
