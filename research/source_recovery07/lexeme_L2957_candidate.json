@@ -1,0 +1,47 @@
+{
+  "candidate_id": "recovery07-wikidata-de-L2957-r2321564793",
+  "record_type": "AUTHENTIC_STRUCTURED_DATA_EXCERPT_NOT_ORIGINAL_BYTES",
+  "source_id": "wikidata-lexeme-L2957-CANDIDATE",
+  "source_url": "https://www.wikidata.org/w/index.php?title=Lexeme:L2957&oldid=2321564793",
+  "canonical_entity_api": "https://www.wikidata.org/wiki/Special:EntityData/L2957.json?revision=2321564793",
+  "source_revision": 2321564793,
+  "original_json_artifact_sha256": null,
+  "original_json_artifact_verified": false,
+  "source_license": "CC0-1.0",
+  "source_specific_license_url": "https://www.wikidata.org/w/index.php?title=Wikidata:Copyright&oldid=1523614187",
+  "original_license_notice_sha256": null,
+  "retrieval_date": "2026-10-14",
+  "admission_status": "REVIEW_REQUIRED",
+  "release_ready": false,
+  "provenance": "Manually transcribed factual lexeme fields from source revision's rendered page; not byte-identical upstream JSON. No external images, audio or third-party example quotations copied.",
+  "lexemes": [
+    {
+      "id": "L2957",
+      "language_item": "Q188",
+      "language_code": "de",
+      "lemma": "Haus",
+      "part_of_speech": "noun",
+      "grammatical_gender": "neuter",
+      "senses": [
+        {"id": "L2957-S1", "gloss_de": "bewohnbares Gebäude"},
+        {"id": "L2957-S2", "gloss_de": "Begriff aus der Astrologie"},
+        {"id": "L2957-S4", "gloss_de": "Schneckenhaus"}
+      ],
+      "forms": [
+        {"id": "L2957-F1", "text": "Häuser", "case": "nominative", "number": "plural"},
+        {"id": "L2957-F2", "text": "Hauses", "case": "genitive", "number": "singular"},
+        {"id": "L2957-F3", "text": "Haus", "case": "nominative", "number": "singular"},
+        {"id": "L2957-F4", "text": "Haus", "case": "dative", "number": "singular"},
+        {"id": "L2957-F5", "text": "Haus", "case": "accusative", "number": "singular"},
+        {"id": "L2957-F6", "text": "Häuser", "case": "genitive", "number": "plural"},
+        {"id": "L2957-F7", "text": "Häusern", "case": "dative", "number": "plural"},
+        {"id": "L2957-F8", "text": "Häuser", "case": "accusative", "number": "plural"}
+      ],
+      "translation_ar": null,
+      "cefr_level": null,
+      "example_sentences": [],
+      "audio_files": [],
+      "images": []
+    }
+  ]
+}
