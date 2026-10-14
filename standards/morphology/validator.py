@@ -43,8 +43,6 @@ class MorphologyValidator:
 
         # 4. Property Mapping Checks
         prop_feature_map = {
-            'root': 'root_pattern',
-            'pattern': 'root_pattern',
             'vowel_harmony_class': 'vowel_harmony',
             'segmentation': 'segmentation',
             'orthographic_variant': 'orthographic_variants',

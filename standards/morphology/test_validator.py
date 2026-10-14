@@ -107,7 +107,7 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
             self.validator.validate(testlang_record)
         self.assertIn("Process 'broken_plural' requires 'nonconcatenative' or 'root_pattern'", str(context.exception))
 
-    def test_invalid_property_root(self):
+    def test_invalid_property_root_fallback(self):
         self.validator.compatibility["testlang"] = {"root_pattern": "not_applicable", "nonconcatenative": "not_applicable"}
         testlang_record = {
             "language_code": "testlang",
@@ -122,7 +122,73 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
         }
         with self.assertRaises(ValueError) as context:
             self.validator.validate(testlang_record)
-        self.assertIn("Property 'root' requires feature 'root_pattern' which is not applicable", str(context.exception))
+        self.assertIn("root/pattern requires root_pattern or nonconcatenative features", str(context.exception))
+
+    def test_invalid_process_exact_match(self):
+        self.validator.compatibility["testlang"] = {"prefix": "not_applicable"}
+        testlang_record = {
+            "language_code": "testlang",
+            "lemma_id": "testlang:word:1",
+            "sense_id": "testlang:word:item",
+            "lemma": "word",
+            "form": "words",
+            "features": {},
+            "processes": ["prefix"],
+            "source_id": "test",
+            "evidence_version": "2026-10-12"
+        }
+        with self.assertRaises(ValueError) as context:
+            self.validator.validate(testlang_record)
+        self.assertIn("Process 'prefix' is explicitly not applicable for language 'testlang'", str(context.exception))
+
+    def test_invalid_process_compound(self):
+        self.validator.compatibility["testlang"] = {"compound": "not_applicable"}
+        testlang_record = {
+            "language_code": "testlang",
+            "lemma_id": "testlang:word:1",
+            "sense_id": "testlang:word:item",
+            "lemma": "word",
+            "form": "words",
+            "features": {},
+            "processes": ["compound_verb"],
+            "source_id": "test",
+            "evidence_version": "2026-10-12"
+        }
+        with self.assertRaises(ValueError) as context:
+            self.validator.validate(testlang_record)
+        self.assertIn("Process 'compound_verb' requires 'compound' feature which is not applicable", str(context.exception))
+
+    def test_invalid_property_vowel_harmony(self):
+        self.validator.compatibility["testlang"] = {"vowel_harmony": "not_applicable"}
+        testlang_record = {
+            "language_code": "testlang",
+            "lemma_id": "testlang:word:1",
+            "sense_id": "testlang:word:item",
+            "lemma": "word",
+            "form": "words",
+            "features": {},
+            "vowel_harmony_class": "back",
+            "source_id": "test",
+            "evidence_version": "2026-10-12"
+        }
+        with self.assertRaises(ValueError) as context:
+            self.validator.validate(testlang_record)
+        self.assertIn("Property 'vowel_harmony_class' requires feature 'vowel_harmony' which is not applicable", str(context.exception))
+
+    def test_valid_morpheme_root_fallback(self):
+        self.validator.compatibility["testlang"] = {"root_pattern": "not_applicable", "nonconcatenative": "supported"}
+        testlang_record = {
+            "language_code": "testlang",
+            "lemma_id": "testlang:word:1",
+            "sense_id": "testlang:word:item",
+            "lemma": "word",
+            "form": "words",
+            "features": {},
+            "morphemes": [{"surface": "x", "kind": "root", "position": 0}],
+            "source_id": "test",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(testlang_record))
 
 if __name__ == '__main__':
     unittest.main()
