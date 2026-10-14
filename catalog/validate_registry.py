@@ -14,7 +14,7 @@ TAG = re.compile(r"^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-
 SCRIPT = re.compile(r"^[A-Z][a-z]{3}$")
 RIGHT_TO_LEFT = {"Arab", "Hebr", "Thaa", "Nkoo", "Adlm", "Syrc"}
 FEATURES = {"gender", "noun_classes", "case", "number", "root_pattern", "inflection", "agglutination", "aspect", "classifiers", "tones", "honorifics", "analytic"}
-STATES = {"unverified", "not_started", "in_progress", "validated", "blocked", "deprecated"}
+STATES = {"unverified", "metadataOnly", "sourceAvailable", "verifiedPack", "installedCapable", "releaseReady"}
 
 
 def validate(registry, readiness, manifest=None, required_count=100):
@@ -132,13 +132,13 @@ def validate(registry, readiness, manifest=None, required_count=100):
         problem("invalid content readiness state")
     else:
         for code, state in statuses.items():
-            if state != "validated":
+            if state != "releaseReady":
                 continue
             evidence = readiness.get("validation_evidence", {}).get(code, {})
             if (not isinstance(evidence, dict)
                     or not re.fullmatch(r"[0-9a-f]{64}", evidence.get("pack_sha256", ""))
                     or evidence.get("validation_method") not in {"automated_quality_gate", "manual_review"}):
-                problem(f"validated content requires independent evidence: {code}")
+                problem(f"releaseReady content requires independent evidence: {code}")
     if manifest is not None:
         published = manifest.get("languages", [])
         current = {x.get("code"): x for x in published if isinstance(x, dict)}

@@ -67,7 +67,7 @@ class TaxonomyValidationTests(unittest.TestCase):
 
     def test_content_not_implicitly_ready(self):
         r, c, m = fixture()
-        c["states"]["aa"] = "validated"
+        c["states"]["aa"] = "releaseReady"
         c["validation_evidence"] = {"other": {"pack_sha256": "a" * 64, "validation_method": "manual_review"}}
         self.assertTrue(any("independent evidence" in s for s in validate(r,c,m)))
 
@@ -82,7 +82,7 @@ class TaxonomyValidationTests(unittest.TestCase):
         manifest = json.loads((HERE.parent / "manifest.json").read_text(encoding="utf-8"))
         self.assertEqual([], validate(registry, readiness, manifest))
         self.assertEqual(100, len(registry["languages"]))
-        self.assertTrue(all(value != "validated" for value in readiness["states"].values()))
+        self.assertTrue(all(value != "releaseReady" for value in readiness["states"].values()))
 
 if __name__ == "__main__":
     unittest.main()
