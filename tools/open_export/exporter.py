@@ -20,6 +20,8 @@ HASH = re.compile(r"^[0-9a-f]{64}$")
 MAX_FILES = 128
 MAX_FILE = 8 * 1024 * 1024
 MAX_TOTAL = 16 * 1024 * 1024
+# ZIP_STORED output may add member headers and bounded attribution metadata.
+MAX_RELEASE_BYTES = MAX_TOTAL + 2 * 1024 * 1024
 ZIP_DATE = (1980, 1, 1, 0, 0, 0)
 
 
@@ -164,11 +166,17 @@ class CommunityExporter:
                             zip_entry(archive, "ATTRIBUTION.json", canonical(notices))
                         stream.flush()
                         os.fsync(stream.fileno())
+                    if os.path.getsize(tmp) > MAX_RELEASE_BYTES:
+                        raise ExportError("generated export exceeds archive byte limit")
                     os.replace(tmp, release)
                 finally:
                     if os.path.exists(tmp):
                         os.unlink(tmp)
             else:
+                # ZIP metadata is decoded before member-level checks; cap the
+                # entire untrusted cached file before opening ZipFile.
+                if not release.is_file() or release.stat().st_size > MAX_RELEASE_BYTES:
+                    raise ExportError("untrusted cached export exceeds archive byte limit")
                 with zipfile.ZipFile(release) as archive:
                     expected_names = ["data/" + aid + ".bin" for aid, _, _ in entries] + ["ATTRIBUTION.json"]
                     if archive.namelist() != expected_names:
