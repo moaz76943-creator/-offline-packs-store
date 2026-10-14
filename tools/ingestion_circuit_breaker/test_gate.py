@@ -7,7 +7,10 @@ from unittest.mock import patch
 import io
 import sys
 
-from gate import process, parse_args, sha256_file
+try:
+    from tools.ingestion_circuit_breaker.gate import process, parse_args, sha256_file
+except ImportError:
+    from gate import process, parse_args, sha256_file
 
 class TestGate(unittest.TestCase):
     def setUp(self):
