@@ -68,6 +68,52 @@ class Merge07PolicyRegressions(unittest.TestCase):
         self.assertEqual(decision(checks={'check_runs': checks()['check_runs'] + [old]})[0], 'NOT_RUN')
 
 
+
+class Merge07PathDependencyTests(unittest.TestCase):
+    """A dependent PR must not prevent its prerequisite from merging."""
+
+    def test_direct_downstream_overlap_does_not_block_prerequisite(self):
+        parent = entry()
+        child = entry(number=901, dependencies=[900])
+        files = [{'filename': 'tools/merge_coordinator/safe.py'}]
+        self.assertEqual(
+            coordinator.authorized_file_conflicts(
+                FakeGithub(overlap=True), parent, files, [parent, child]),
+            [],
+        )
+
+    def test_transitive_downstream_overlap_does_not_block_prerequisite(self):
+        first = entry()
+        second = entry(number=901, dependencies=[900])
+        third = entry(number=902, dependencies=[901])
+        files = [{'filename': 'tools/merge_coordinator/safe.py'}]
+        self.assertEqual(
+            coordinator.authorized_file_conflicts(
+                FakeGithub(overlap=True), first, files, [first, second, third]),
+            [],
+        )
+
+    def test_unrelated_overlap_still_blocks(self):
+        first = entry()
+        unrelated = entry(number=901)
+        files = [{'filename': 'tools/merge_coordinator/safe.py'}]
+        self.assertEqual(
+            coordinator.authorized_file_conflicts(
+                FakeGithub(overlap=True), first, files, [first, unrelated]),
+            [901],
+        )
+
+    def test_upstream_overlap_not_exempt_for_downstream_candidate(self):
+        first = entry()
+        second = entry(number=901, dependencies=[900])
+        files = [{'filename': 'tools/merge_coordinator/safe.py'}]
+        self.assertEqual(
+            coordinator.authorized_file_conflicts(
+                FakeGithub(overlap=True), second, files, [first, second]),
+            [900],
+        )
+
+
 class FakeGithub:
     def __init__(self, dependency_changes=False, move_main=False, overlap=False, move_head=False):
         self.dependency_changes = dependency_changes
