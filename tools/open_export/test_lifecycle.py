@@ -326,6 +326,52 @@ class SecurityRegression(unittest.TestCase):
         self.assertEqual(quarantine_submission(rejected, self.root / "isolation", "Invalid JSON"), receipt)
 
 
+    def test_export_incomplete_sources(self):
+        content = b'{"document_id": "doc1", "lexemes": [{"lexeme_id": "lex1"}]}\n{"document_id": '
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with (self.src / name).open("r+b") as f:
+            f.truncate(10)
+        # Because we check the file's hash against the manifest BEFORE streaming it.
+        # It throws "mismatched content SHA-256" first in _prepare.
+        with self.assertRaisesRegex(ValueError, "mismatched content SHA-256"):
+            self.export()
+
+    def test_export_wrong_hashes(self):
+        content = b'{"document_id": "doc1"}\n'
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with (self.src / name).open("w+b") as f:
+            f.write(b'{"document_id": "doc2"}\n')
+        with self.assertRaisesRegex(ValueError, "mismatched content SHA-256"):
+            self.export()
+
+    def test_export_duplicate_entries(self):
+        content = b'{"document_id": "doc1", "lexemes": [{"lexeme_id": "lex1", "senses": [{"sense_id": "de-sense-1"}]}]}\n{"document_id": "doc2", "lexemes": [{"lexeme_id": "lex2", "senses": [{"sense_id": "de-sense-1"}]}]}\n'
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with self.assertRaisesRegex(ValueError, "duplicate sense_id found in stream"):
+            self.export()
+
+    def test_export_reversed_pairs(self):
+        content = b'{"document_id": "doc1", "translations": [{"language": "fr", "from_sense_id": "en-sense-1", "to_sense_id": "es-sense-1"}]}\n'
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with self.assertRaisesRegex(ValueError, "reversed translation pair detected"):
+            self.export()
+
+    def test_export_path_traversal(self):
+        (self.src / "manifest.json").write_text(json.dumps({"items": [{
+            "id": "../evil", "type": "lexical", "filename": "evil.bin", "sha256": "0"*64,
+            "submission_id": "item1", "source_id": "src-test", "license": "CC0-1.0",
+            "source_version": "1.0"}]}))
+        with self.assertRaises(ValueError):
+            self.export()
+
     def test_operator_cli_requires_signed_decisions(self):
         keyfile = self.root / "operator.json"
         keyfile.write_text(json.dumps({

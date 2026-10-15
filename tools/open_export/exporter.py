@@ -59,13 +59,19 @@ def zip_entry(archive, name, content):
 
 
 class CommunityExporter:
-    def __init__(self, source_dir, output_dir, review_machine, *, repository_root=None):
+    def __init__(self, source_dir, output_dir, review_machine, *, language=None, categories=None, repository_root=None):
         if Path(source_dir).is_symlink():
             raise ExportError("symlink source root")
         self.source = Path(source_dir).resolve()
         self.output = Path(output_dir)
         self.review = review_machine
+        self.language = language
+        self.categories = set(categories) if categories else None
         self.repo = Path(repository_root or Path(__file__).resolve().parents[2]).resolve()
+
+        # Verify repository access and required source contracts
+        if not self.repo.is_dir() or not (self.repo / "catalog").exists() or not (self.repo / "legal").exists():
+            raise ExportError("BLOCKED_REPOSITORY_ACCESS")
 
     def _admitted(self):
         """Use the existing authoritative independent source-rights gate."""
@@ -90,6 +96,10 @@ class CommunityExporter:
         for item in items:
             if not isinstance(item, dict):
                 raise ExportError("invalid export entry")
+
+            if self.categories and item.get("type") not in self.categories:
+                continue
+
             aid = safe_name(item.get("id"))
             if aid in seen:
                 raise ExportError("duplicate export identity")
@@ -110,6 +120,9 @@ class CommunityExporter:
             if handoff["content_hash"] != digest or handoff["artifact"] != item["filename"]:
                 raise ExportError("handoff refers to different content")
             meta = handoff["metadata"]
+            if self.language and meta.get("language") != self.language:
+                continue
+
             if meta["language"] not in languages:
                 raise ExportError("unregistered language in review handoff")
             if (meta["source_id"] != item.get("source_id") or meta["license_id"] != item.get("license") or
@@ -130,7 +143,7 @@ class CommunityExporter:
                              "grammar": "morphology", "semantic": "vector_art"}[item["type"]]
             if source.get("kind") != expected_kind:
                 raise ExportError("source kind does not match export category")
-            entries.append((aid, path, digest))
+            entries.append((aid, path, digest, item["type"], meta["language"]))
             notices.append({"id": aid, "source_id": meta["source_id"], "publisher": meta["publisher"],
                             "origin_url": meta["origin_url"], "dataset_version": meta["dataset_version"],
                             "license_id": meta["license_id"], "license_evidence_url": source["license"]["evidence_url"],
@@ -148,7 +161,7 @@ class CommunityExporter:
         lock_fd = os.open(target / ".export.lock", os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600)
         try:
             fcntl.flock(lock_fd, fcntl.LOCK_EX)
-            digest = hashlib.sha256(canonical({"files": [(a, d) for a, _, d in entries], "notices": notices})).hexdigest()
+            digest = hashlib.sha256(canonical({"files": [(a, d) for a, _, d, _, _ in entries], "notices": notices})).hexdigest()
             release = releases / (digest + ".zip")
             if release.is_symlink():
                 raise ExportError("symlink release target")
@@ -157,12 +170,59 @@ class CommunityExporter:
                 try:
                     with os.fdopen(fd, "wb") as stream:
                         with zipfile.ZipFile(stream, "w", allowZip64=False) as archive:
-                            for aid, path, expected in entries:
-                                with path.open("rb") as source:
-                                    raw = source.read(MAX_FILE + 1)
-                                if len(raw) > MAX_FILE or hashlib.sha256(raw).hexdigest() != expected:
+                            for aid, path, expected, item_type, lang in entries:
+                                h = hashlib.sha256()
+                                size_written = 0
+                                sense_ids = set()
+                                lexeme_ids = set()
+
+                                info = zipfile.ZipInfo("data/" + aid + ".bin", date_time=ZIP_DATE)
+                                info.compress_type = zipfile.ZIP_STORED
+                                info.external_attr = 0o644 << 16
+
+                                with path.open("rb") as source, archive.open(info, "w", force_zip64=False) as dest:
+                                    for line in source:
+                                        if len(line) > 16 * 1024 * 1024:
+                                            raise ExportError("line too long in streaming")
+                                        h.update(line)
+                                        dest.write(line)
+                                        size_written += len(line)
+                                        if size_written > MAX_FILE:
+                                            raise ExportError("file changed during packaging or too large")
+
+                                        if line.strip().startswith(b"{"):
+                                            try:
+                                                obj = json.loads(line.decode("utf-8"))
+                                                if "document_id" in obj and "lexemes" in obj:
+                                                    for lexeme in obj.get("lexemes", []):
+                                                        lid = lexeme.get("lexeme_id")
+                                                        if lid:
+                                                            if lid in lexeme_ids:
+                                                                raise ExportError("duplicate lexeme_id found in stream")
+                                                            lexeme_ids.add(lid)
+                                                        for sense in lexeme.get("senses", []):
+                                                            sid = sense.get("sense_id")
+                                                            if sid:
+                                                                if sid in sense_ids:
+                                                                    raise ExportError("duplicate sense_id found in stream")
+                                                                sense_ids.add(sid)
+
+                                                if "translations" in obj:
+                                                    for tr in obj.get("translations", []):
+                                                        if "from_sense_id" in tr and "to_sense_id" in tr and "language" in tr:
+                                                            target_lang = tr["language"]
+                                                            to_prefix = tr["to_sense_id"].split("-")[0]
+                                                            from_prefix = tr["from_sense_id"].split("-")[0]
+                                                            if target_lang != to_prefix or (lang and from_prefix != lang):
+                                                                raise ExportError("reversed translation pair detected")
+
+                                            except UnicodeDecodeError:
+                                                raise ExportError("invalid unicode in stream")
+                                            except json.JSONDecodeError:
+                                                pass
+
+                                if size_written > MAX_FILE or h.hexdigest() != expected:
                                     raise ExportError("file changed during packaging")
-                                zip_entry(archive, "data/" + aid + ".bin", raw)
                             zip_entry(archive, "ATTRIBUTION.json", canonical(notices))
                         stream.flush()
                         os.fsync(stream.fileno())
@@ -178,16 +238,22 @@ class CommunityExporter:
                 if not release.is_file() or release.stat().st_size > MAX_RELEASE_BYTES:
                     raise ExportError("untrusted cached export exceeds archive byte limit")
                 with zipfile.ZipFile(release) as archive:
-                    expected_names = ["data/" + aid + ".bin" for aid, _, _ in entries] + ["ATTRIBUTION.json"]
+                    expected_names = ["data/" + aid + ".bin" for aid, _, _, _, _ in entries] + ["ATTRIBUTION.json"]
                     if archive.namelist() != expected_names:
                         raise ExportError("corrupt cached export")
                     for info in archive.infolist():
                         if info.compress_type != zipfile.ZIP_STORED or info.file_size > MAX_FILE:
                             raise ExportError("untrusted cached archive member")
-                    for aid, path, expected in entries:
+                    for aid, path, expected, item_type, lang in entries:
                         with archive.open("data/" + aid + ".bin") as stream:
-                            raw = stream.read(MAX_FILE + 1)
-                        if len(raw) > MAX_FILE or hashlib.sha256(raw).hexdigest() != expected:
+                            h = hashlib.sha256()
+                            size = 0
+                            for part in iter(lambda: stream.read(65536), b""):
+                                size += len(part)
+                                h.update(part)
+                                if size > MAX_FILE:
+                                    raise ExportError("cached archive member too large")
+                        if size > MAX_FILE or h.hexdigest() != expected:
                             raise ExportError("cached archive content mismatch")
                     with archive.open("ATTRIBUTION.json") as stream:
                         attribution = stream.read(65537)
@@ -216,6 +282,8 @@ def main(argv=None):
     parser.add_argument("--source", required=True)
     parser.add_argument("--output", required=True)
     parser.add_argument("--review-root", required=True)
+    parser.add_argument("--language", help="Filter by language ID")
+    parser.add_argument("--categories", help="Comma-separated list of categories to export")
     parser.add_argument("--operator-keys", required=True, help="Protected JSON file outside submissions/repository")
     args = parser.parse_args(argv)
     try:
@@ -231,7 +299,8 @@ def main(argv=None):
         validator = {k: base64.b64decode(v, validate=True) for k, v in keys["validators"].items()}
         reviewers = {k: base64.b64decode(v, validate=True) for k, v in keys["reviewers"].items()}
         machine = ReviewStateMachine(args.review_root, args.source, validator_keys=validator, reviewer_keys=reviewers)
-        result = CommunityExporter(args.source, args.output, machine).run()
+        cats = args.categories.split(",") if args.categories else None
+        result = CommunityExporter(args.source, args.output, machine, language=args.language, categories=cats).run()
         print(json.dumps(result, sort_keys=True))
         return 0
     except (ValueError, OSError, KeyError, PermissionError, zipfile.BadZipFile) as exc:
