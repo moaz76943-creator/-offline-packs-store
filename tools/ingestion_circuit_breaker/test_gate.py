@@ -167,5 +167,35 @@ class TestGate(unittest.TestCase):
         self.assertIn("BLOCKED_INTEGRATION", errors)
         self.assertIn("BLOCKED_INTEGRATION", stderr)
 
+    def test_fixture_ingestion_pipeline_halts_on_gate_failure(self):
+        def pipeline(manifest_dict):
+            code, errors, _, _ = self.run_process(manifest_dict)
+            if code != 0:
+                raise RuntimeError(f"Gate failure: {errors}")
+            return "SUCCESS"
+
+        # Valid manifest -> should succeed
+        valid_manifest = {
+            "source_id": "test-source-1",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+            "destination": "packs/out"
+        }
+        self.assertEqual(pipeline(valid_manifest), "SUCCESS")
+
+        # Invalid manifest -> should raise
+        invalid_manifest = {
+            "source_id": "test-source-1",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": "wrong_hash",
+            "intended_output_license": "CC-BY-SA-4.0",
+            "destination": "packs/out"
+        }
+        with self.assertRaises(RuntimeError) as cm:
+            pipeline(invalid_manifest)
+
+        self.assertIn("HASH_MISMATCH_MANIFEST", str(cm.exception))
+
 if __name__ == '__main__':
     unittest.main()
