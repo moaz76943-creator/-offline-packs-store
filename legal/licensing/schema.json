@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/offline-packs-store/blob/main/legal/licensing/schema.json",
+  "title": "Lexical Source Licensing Ledger",
+  "description": "Schema for source-specific licensing records, proving redistribution eligibility.",
+  "type": "object",
+  "required": ["schema_version", "records"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "url", "author", "version", "license", "modification_status"],
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https?://"
+          },
+          "author": {
+            "type": "string",
+            "minLength": 1
+          },
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "modification_status": {
+            "enum": ["unmodified", "modified", "translated"]
+          },
+          "artifact_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "license": {
+            "type": "object",
+            "required": ["declared", "evidence"],
+            "additionalProperties": false,
+            "properties": {
+              "declared": {
+                "enum": ["CC-BY-SA-4.0", "GFDL-1.3-only", "CC0-1.0", "PUBLIC-DOMAIN"]
+              },
+              "evidence": {
+                "type": "object",
+                "required": ["has_evidence"],
+                "properties": {
+                  "has_evidence": {
+                    "type": "boolean"
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                }
+              },
+              "obligations_met": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
