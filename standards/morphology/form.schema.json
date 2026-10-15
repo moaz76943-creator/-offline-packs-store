@@ -41,6 +41,21 @@
         "type": "string"
       }
     },
+    "analyses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["features"],
+        "properties": {
+          "features": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "root": {
       "type": "string"
     },
@@ -109,6 +124,9 @@
       "type": "string"
     },
     "orthographic_variant": {
+      "type": "string"
+    },
+    "transliteration": {
       "type": "string"
     },
     "source_id": {

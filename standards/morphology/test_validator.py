@@ -69,6 +69,13 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
             self.validator.validate(invalid_record)
         self.assertIn("explicitly not applicable for language 'en'", str(context.exception))
 
+    def test_invalid_feature_in_analyses_for_language(self):
+        invalid_record = self.valid_en_base.copy()
+        invalid_record["analyses"] = [{"features": {"grammatical_gender": "feminine"}}]
+        with self.assertRaises(ValueError) as context:
+            self.validator.validate(invalid_record)
+        self.assertIn("explicitly not applicable for language 'en'", str(context.exception))
+
     def test_invalid_morpheme_kind(self):
         invalid_record = self.valid_en_base.copy()
         # Let's say we have a mock language "testlang" with "clitic": "not_applicable"
@@ -192,6 +199,53 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
         }
         self.assertTrue(self.validator.validate(en_record_past))
         self.assertTrue(self.validator.validate(en_record_participle))
+
+    def test_multiple_analyses_in_same_record(self):
+        en_record_ambiguous = {
+            "language_code": "en",
+            "lemma_id": "en:read:1",
+            "sense_id": "en:read:book",
+            "lemma": "read",
+            "form": "read",
+            "features": {},
+            "analyses": [
+                {"features": {"tense": "past"}},
+                {"features": {"verb_form": "past_participle"}}
+            ],
+            "source_id": "wiktionary-en-read",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(en_record_ambiguous))
+
+    def test_analytic_construction(self):
+        vi_record = {
+            "language_code": "vi",
+            "lemma_id": "vi:sách:1",
+            "sense_id": "vi:sách:book",
+            "lemma": "sách",
+            "form": "những quyển sách",
+            "features": {"number": "plural"},
+            "processes": ["analytic"],
+            "components": ["những", "quyển", "sách"],
+            "source_id": "wiktionary-vi-sach",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(vi_record))
+
+    def test_transliteration_and_orthographic_variation(self):
+        sr_record = {
+            "language_code": "sr",
+            "lemma_id": "sr:књига:1",
+            "sense_id": "sr:књига:book",
+            "lemma": "књига",
+            "form": "knjiga",
+            "features": {"number": "singular", "case": "nominative"},
+            "orthographic_variant": "latin",
+            "transliteration": "knjiga",
+            "source_id": "wiktionary-sr-knjiga",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(sr_record))
 
 if __name__ == '__main__':
     unittest.main()

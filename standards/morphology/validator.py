@@ -36,10 +36,14 @@ class MorphologyValidator:
             raise ValueError(f"sense_id '{form_record['sense_id']}' must start with language_code '{lang}:'")
 
         # 3. Feature Compatibility Check
-        features = form_record.get('features', {})
-        for feature, value in features.items():
-            if not self._is_applicable(lang, feature):
-                raise ValueError(f"Feature '{feature}' is explicitly not applicable for language '{lang}'")
+        def check_features(features_dict):
+            for feature, value in features_dict.items():
+                if not self._is_applicable(lang, feature):
+                    raise ValueError(f"Feature '{feature}' is explicitly not applicable for language '{lang}'")
+
+        check_features(form_record.get('features', {}))
+        for analysis in form_record.get('analyses', []):
+            check_features(analysis.get('features', {}))
 
         # 4. Property Mapping Checks
         prop_feature_map = {
