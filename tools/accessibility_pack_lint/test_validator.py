@@ -42,6 +42,12 @@ class TestAccessibilityValidator(unittest.TestCase):
         self.assertEqual(result["status"], "rejected")
         self.assertIn("Missing or structurally invalid vector metadata", result["errors"])
 
+    def test_exceeds_path_count(self):
+        asset = self.load_fixture("exceeds_path_count.json")
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Safe complexity limit exceeded", result["errors"])
+
     def test_unverified_label(self):
         asset = self.load_fixture("valid_asset.json")
         asset["labels"][0]["verified"] = False
