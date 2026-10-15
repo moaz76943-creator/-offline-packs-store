@@ -27,7 +27,7 @@ class MapperTests(unittest.TestCase):
         ]
     def run_gate(self, records=None):
         lines = "\n".join(json.dumps(r) for r in (records if records is not None else self.records))
-        return map_provenance(StringIO(lines), self.ledger, repo_root=self.root)
+        return list(map_provenance(StringIO(lines), self.ledger, repo_root=self.root))
     def test_injected_approved_manifest_cannot_override_canonical_empty_ledger(self):
         save_ledger(self.root, {"schema_version": "1.0.0", "sources": []})
         with self.assertRaisesRegex(ValueError, "canonical"):
@@ -70,6 +70,52 @@ class MapperTests(unittest.TestCase):
             self.run_gate(self.records + [self.records[-1]])
     def test_missing_sense_lexeme_id(self):
         del self.records[0]["lexeme_id"]
+        with self.assertRaises(ValueError):
+            self.run_gate()
+
+    def test_source_mismatch(self):
+        self.records[-1]["source"]["dataset_version"] = "v2"
+        with self.assertRaises(ValueError):
+            self.run_gate()
+
+    def test_invalid_language_direction(self):
+        self.records[0]["language"] = "de"
+        self.records[-1]["from_language"] = "de"
+        with self.assertRaises(ValueError):
+            self.run_gate()
+
+    def test_multiple_senses(self):
+        self.records.extend([
+            {"type": "sense", "sense_id": "sense-en-2", "lexeme_id": "lex-en",
+             "language": "en", "source_locator": "row 4", "source": ref(self.source)},
+            {"type": "sense", "sense_id": "sense-de-2", "lexeme_id": "lex-de",
+             "language": "de", "source_locator": "row 5", "source": ref(self.source)},
+            {"type": "translation", "translation_id": "edge-2",
+             "from_sense_id": "sense-en-2", "to_sense_id": "sense-de-2",
+             "from_language": "en", "to_language": "de", "source": ref(self.source),
+             "translation_evidence": {"source_locator": "row 6",
+                                      "artifact_path": "evidence/translation.txt",
+                                      "sha256": self.translation_sha}}
+        ])
+        data = self.run_gate()
+        self.assertEqual(len(data), 2)
+        self.assertEqual(data[0]["translation_id"], "edge-1")
+        self.assertEqual(data[1]["translation_id"], "edge-2")
+
+    def test_conflicting_translations(self):
+        self.records.append(
+            {"type": "translation", "translation_id": "edge-duplicate",
+             "from_sense_id": "sense-en", "to_sense_id": "sense-de",
+             "from_language": "en", "to_language": "de", "source": ref(self.source),
+             "translation_evidence": {"source_locator": "row 7",
+                                      "artifact_path": "evidence/translation.txt",
+                                      "sha256": self.translation_sha}}
+        )
+        with self.assertRaisesRegex(ValueError, "Conflicting translation"):
+            self.run_gate()
+
+    def test_altered_hashes(self):
+        self.records[-1]["translation_evidence"]["sha256"] = "c" * 64
         with self.assertRaises(ValueError):
             self.run_gate()
 
