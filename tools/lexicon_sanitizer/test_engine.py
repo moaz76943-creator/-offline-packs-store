@@ -98,6 +98,19 @@ class TestSanitizerEngine(unittest.TestCase):
         status2, _, _ = self.engine.validate_and_repair(record2)
         self.assertEqual(status2, SanitizerEngine.STATUS_QUARANTINE)
 
+    def test_duplicate_ids(self):
+        record1 = self.create_valid_record()
+        record2 = self.create_valid_record()
+        record2["lexemes"][0]["lemma"] = "another"
+        record2["senses"][0]["definition"] = "Another definition"
+
+        status1, _, _ = self.engine.validate_and_repair(record1)
+        self.assertEqual(status1, SanitizerEngine.STATUS_ACCEPT)
+
+        status2, _, reason = self.engine.validate_and_repair(record2)
+        self.assertEqual(status2, SanitizerEngine.STATUS_QUARANTINE)
+        self.assertIn("Duplicate document_id", reason)
+
     def test_german_umlauts_preserved(self):
         record1 = self.create_valid_record()
         record1["document_id"] = "doc.de.1"
@@ -152,6 +165,23 @@ class TestSanitizerEngine(unittest.TestCase):
         record["lexemes"][0]["language"] = "xx" # Not in our valid set
         status, repaired, reason = self.engine.validate_and_repair(record)
         self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+    def test_impossible_field_types(self):
+        record = self.create_valid_record()
+        record["document_id"] = "doc.en.type1"
+        # Lemma should be string, giving it an int
+        record["lexemes"][0]["lemma"] = 123
+        status, _, reason = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+        self.assertIn("Invalid type for lemma", reason)
+
+        record = self.create_valid_record()
+        record["document_id"] = "doc.en.type2"
+        # Definition should be string, giving it a dict
+        record["senses"][0]["definition"] = {"def": "value"}
+        status, _, reason = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+        self.assertIn("Invalid type for definition", reason)
 
 if __name__ == '__main__':
     unittest.main()

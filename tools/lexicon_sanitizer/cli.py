@@ -81,6 +81,11 @@ def process_stream(
             stats["review_required"] += 1
             review_stream.write(line + "\n")
 
+    if stats["total"] > 0:
+        stats["retention_rate"] = stats["accept"] / stats["total"]
+    else:
+        stats["retention_rate"] = 0.0
+
     return stats
 
 def main():

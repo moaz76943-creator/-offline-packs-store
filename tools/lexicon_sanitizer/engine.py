@@ -11,6 +11,7 @@ class SanitizerEngine:
     def __init__(self, registry_path: str = "catalog/language_registry.v1.json"):
         self.valid_languages: Set[str] = set()
         self.seen_identities: Set[str] = set()
+        self.seen_doc_ids: Set[str] = set()
         self._load_registry(registry_path)
 
     def _load_registry(self, registry_path: str) -> None:
@@ -30,6 +31,8 @@ class SanitizerEngine:
             raise RuntimeError(f"Required registry file {registry_path} is inaccessible. Halting execution.")
 
     def check_valid_unicode(self, text: str) -> bool:
+        if text is None:
+            return False
         if not isinstance(text, str):
             return False
         # Check for surrogate pairs or other clearly invalid unicode if needed.
@@ -104,6 +107,11 @@ class SanitizerEngine:
             needs_repair = True
             reason = "Repaired leading/trailing spaces in document_id"
 
+        if doc_id in self.seen_doc_ids:
+            return self.STATUS_QUARANTINE, None, "Duplicate document_id"
+        else:
+            self.seen_doc_ids.add(doc_id)
+
         # Check languages and types
         lexemes = repaired_record.get("lexemes", [])
         if not isinstance(lexemes, list):
@@ -130,19 +138,34 @@ class SanitizerEngine:
                  # Check if it's mixed language or something else
                  return self.STATUS_QUARANTINE, None, f"Unsupported language code: {lang}"
 
+            # Check for impossible field types (strict string checks for lemma, surface, pos, dialect)
+            lemma = lexeme.get("lemma")
+            if lemma is not None and not isinstance(lemma, str):
+                 return self.STATUS_QUARANTINE, None, f"Invalid type for lemma in lexeme {i}"
+            surface = lexeme.get("surface")
+            if surface is not None and not isinstance(surface, str):
+                 return self.STATUS_QUARANTINE, None, f"Invalid type for surface in lexeme {i}"
+            pos = lexeme.get("pos")
+            if pos is not None and not isinstance(pos, str):
+                 return self.STATUS_QUARANTINE, None, f"Invalid type for pos in lexeme {i}"
+            dialect = lexeme.get("dialect")
+            if dialect is not None and not isinstance(dialect, str):
+                 return self.STATUS_QUARANTINE, None, f"Invalid type for dialect in lexeme {i}"
+
+            lemma_str = lemma or ""
+            surface_str = surface or ""
+
             # Check lemma and surface for invalid unicode
-            lemma = lexeme.get("lemma", "")
-            surface = lexeme.get("surface", "")
-            if not self.check_valid_unicode(lemma) or not self.check_valid_unicode(surface):
+            if not self.check_valid_unicode(lemma_str) or not self.check_valid_unicode(surface_str):
                  return self.STATUS_QUARANTINE, None, f"Invalid Unicode in lexeme {i}"
 
             # Strip trailing/leading whitespaces on lemma/surface (repairable)
-            if isinstance(lemma, str) and lemma != lemma.strip():
-                lexeme["lemma"] = lemma.strip()
+            if isinstance(lemma_str, str) and lemma_str != lemma_str.strip():
+                lexeme["lemma"] = lemma_str.strip()
                 needs_repair = True
                 reason = "Repaired whitespace in lemma"
-            if isinstance(surface, str) and surface != surface.strip():
-                lexeme["surface"] = surface.strip()
+            if isinstance(surface_str, str) and surface_str != surface_str.strip():
+                lexeme["surface"] = surface_str.strip()
                 needs_repair = True
                 reason = "Repaired whitespace in surface"
 
@@ -165,7 +188,15 @@ class SanitizerEngine:
             if not sense.get("sense_id"):
                  return self.STATUS_QUARANTINE, None, f"Empty sense_id at index {i}"
 
+            # Check for impossible field types (strict string checks for concept_id, definition)
+            concept_id = sense.get("concept_id")
+            if concept_id is not None and not isinstance(concept_id, str):
+                 return self.STATUS_QUARANTINE, None, f"Invalid type for concept_id in sense {i}"
+
             definition = sense.get("definition")
+            if definition is not None and not isinstance(definition, str):
+                 return self.STATUS_QUARANTINE, None, f"Invalid type for definition in sense {i}"
+
             if definition is not None and not self.check_valid_unicode(definition):
                  return self.STATUS_QUARANTINE, None, f"Invalid Unicode in sense {i}"
 
