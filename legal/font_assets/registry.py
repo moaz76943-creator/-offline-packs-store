@@ -42,6 +42,10 @@ class FontRightsRegistry:
             return {"status": "REJECT", "issues": ["Invalid asset record"], "publication_approved": False}
         if not all(text(x) for x in (asset.id, asset.family, asset.source, asset.version, asset.author)):
             issues.append("Missing font identity, author, source or version")
+        if isinstance(asset.source, str) and asset.source.strip().lower() == "unknown":
+            issues.append("Unknown sources are rejected")
+        if isinstance(asset.family, str) and ("," in asset.family or "mixed" in asset.family.lower()):
+            issues.append("Mixed families are rejected")
         if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
         if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
@@ -95,3 +99,63 @@ class FontRightsRegistry:
                 "Metadata-only font has no verified embedded bytes"], "publication_approved": False}
         return {"status": "REJECT" if issues else "EVIDENCE_PASS",
                 "issues": issues, "publication_approved": False}
+
+def main(argv=None):
+    import argparse
+    import json
+    import sys
+
+    parser = argparse.ArgumentParser(description="Offline font evidence preflight")
+    parser.add_argument("--registry", type=Path, required=True, help="Path to the JSON registry of font assets")
+    parser.add_argument("--repo-root", type=Path, default=Path.cwd(), help="Path to repository root")
+    args = parser.parse_args(argv)
+
+    try:
+        data = json.loads(args.registry.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"Failed to read registry: {e}", file=sys.stderr)
+        return 2
+
+    if not isinstance(data, list):
+        print("Registry must be a JSON list of font objects", file=sys.stderr)
+        return 2
+
+    registry = FontRightsRegistry()
+    has_errors = False
+    script_to_fonts = {}
+
+    for item in data:
+        if not isinstance(item, dict):
+            print("Invalid item in registry (not a dictionary)", file=sys.stderr)
+            has_errors = True
+            continue
+
+        try:
+            asset = FontAsset(**item)
+        except TypeError as e:
+            print(f"Invalid font asset configuration: {e}", file=sys.stderr)
+            has_errors = True
+            continue
+
+        result = registry.validate_asset(asset, repo_root=args.repo_root)
+
+        if result["status"] == "REJECT":
+            print(f"REJECT: Font '{asset.id}' has issues: {result['issues']}", file=sys.stderr)
+            has_errors = True
+        elif result["status"] == "REVIEW_REQUIRED":
+            print(f"REVIEW_REQUIRED: Font '{asset.id}' has issues: {result['issues']}", file=sys.stderr)
+        elif result["status"] == "EVIDENCE_PASS":
+            for script in asset.scripts:
+                if script not in script_to_fonts:
+                    script_to_fonts[script] = []
+                script_to_fonts[script].append(asset.id)
+
+    if has_errors:
+        return 1
+
+    print(json.dumps(script_to_fonts, indent=2))
+    return 0
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(main())

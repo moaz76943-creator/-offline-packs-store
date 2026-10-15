@@ -87,5 +87,100 @@ class FontEvidenceTests(unittest.TestCase):
         self.asset.license_evidence_url = 123
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_unknown_source_rejected(self):
+        self.asset.source = "unknown"
+        self.assertEqual(self.check()["status"], "REJECT")
+        self.asset.source = "  UnKnOwN  "
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_mixed_families_rejected(self):
+        self.asset.family = "Noto Sans, Noto Serif"
+        self.assertEqual(self.check()["status"], "REJECT")
+        self.asset.family = "Mixed Fonts"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+
+class RegistryCLITests(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        def put(rel, content):
+            p = self.root / rel
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_bytes(content)
+            return hashlib.sha256(content).hexdigest()
+        self.font_hash = put("fonts/fixture.otf", b"fixture font test bytes ONLY")
+        self.lic_hash = put("evidence/rights.txt", b"Fixture origin font SIL OPEN FONT LICENSE")
+        self.notice_hash = put("notices/OFL.txt", b"SIL OPEN FONT LICENSE fixture")
+        self.review_hash = put("evidence/review.txt", b"Fixture reviewer decision record")
+
+        self.valid_asset = {
+            "id": "fixture-font",
+            "family": "Fixture Font",
+            "source": "fixture-publisher",
+            "version": "1.0",
+            "author": "Fixture Author",
+            "license_id": "OFL-1.1",
+            "scripts": ["Latn"],
+            "embedded": True,
+            "sha256": self.font_hash,
+            "asset_path": "fonts/fixture.otf",
+            "origin_url": "https://example.org/font",
+            "license_evidence_url": "https://example.org/font/license",
+            "license_evidence_path": "evidence/rights.txt",
+            "license_evidence_sha256": self.lic_hash,
+            "license_text_included": True,
+            "distribution_notice_path": "notices/OFL.txt",
+            "distribution_notice_sha256": self.notice_hash,
+            "review": {"reviewer": "fixture-reviewer", "decision_url": "https://example.org/review/1"},
+            "review_evidence_path": "evidence/review.txt",
+            "review_evidence_sha256": self.review_hash
+        }
+
+    def test_main_cli_valid(self):
+        from legal.font_assets.registry import main
+        import json
+        registry_path = self.root / "registry.json"
+        registry_path.write_text(json.dumps([self.valid_asset]))
+
+        import sys
+        from io import StringIO
+        stdout = StringIO()
+
+        old_stdout = sys.stdout
+        sys.stdout = stdout
+        try:
+            exit_code = main(["--registry", str(registry_path), "--repo-root", str(self.root)])
+        finally:
+            sys.stdout = old_stdout
+
+        self.assertEqual(exit_code, 0)
+        output = json.loads(stdout.getvalue())
+        self.assertEqual(output, {"Latn": ["fixture-font"]})
+
+    def test_main_cli_rejects(self):
+        from legal.font_assets.registry import main
+        import json
+        invalid_asset = dict(self.valid_asset)
+        invalid_asset["source"] = "unknown" # will trigger REJECT
+
+        registry_path = self.root / "registry.json"
+        registry_path.write_text(json.dumps([invalid_asset]))
+
+        import sys
+        from io import StringIO
+        stderr = StringIO()
+
+        old_stderr = sys.stderr
+        sys.stderr = stderr
+        try:
+            exit_code = main(["--registry", str(registry_path), "--repo-root", str(self.root)])
+        finally:
+            sys.stderr = old_stderr
+
+        self.assertEqual(exit_code, 1)
+        self.assertIn("REJECT: Font 'fixture-font'", stderr.getvalue())
+
 if __name__ == "__main__":
     unittest.main()
