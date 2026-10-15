@@ -102,7 +102,7 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
     records.sort(key=lambda r: r["source_id"])
     notices = {}
     for r in records:
-        notices[r["notice_file"]] = "\n".join([
+        lines = [
             "Source: " + r["source_id"],
             "Publisher: " + r["publisher"],
             "Origin: " + r["origin_url"],
@@ -112,10 +112,19 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
             "License: " + r["license_id"],
             "Source-specific rights: " + r["license_evidence_url"],
             "Rights proof SHA-256: " + r["license_evidence_sha256"],
-            "Alterations: " + "; ".join(r["alterations"]),
-            "Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"],
-            "Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True)
-        ]) + "\n"
+            "Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"]
+        ]
+
+        if r["license_id"] == "CC-BY-SA-4.0":
+            lines.append("Alterations: " + "; ".join(r["alterations"]))
+        elif r["license_id"] == "GFDL-1.3-only":
+            lines.append("History: " + "; ".join(r["alterations"]))
+        elif r["license_id"] == "PUBLIC-DOMAIN":
+            if not r.get("public_domain_proof"):
+                raise ValueError("Missing public_domain_proof for " + r["source_id"])
+            lines.append("Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True))
+
+        notices[r["notice_file"]] = "\n".join(lines) + "\n"
     notices["attribution.json"] = json.dumps(
         records, sort_keys=True, ensure_ascii=False, indent=2) + "\n"
     _write_notices_safely(out_dir, notices)

@@ -110,5 +110,50 @@ class AttributionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+    def test_combined_source_packages(self):
+        # Create a second source
+        source2 = self.source.copy()
+        source2["source_id"] = "source-2"
+        source2["license"] = self.source["license"].copy()
+        source2["license"]["id"] = "CC-BY-SA-4.0"
+        self.ledger["sources"].append(source2)
+
+        # Run gate with two references
+        result = self.run_gate([ref(self.source), ref(source2)])
+
+        self.assertEqual(len(result), 2)
+        self.assertTrue((self.out / "case-source_notice.txt").exists())
+        self.assertTrue((self.out / "source-2_notice.txt").exists())
+
+        notice2 = (self.out / "source-2_notice.txt").read_text()
+        self.assertIn("License: CC-BY-SA-4.0", notice2)
+        self.assertIn("Alterations:", notice2)
+
+    def test_gfdl_notice(self):
+        self.source["license"]["id"] = "GFDL-1.3-only"
+        self.run_gate()
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("License: GFDL-1.3-only", notice)
+        self.assertIn("History:", notice)
+
+    def test_public_domain_notice(self):
+        self.source["license"]["id"] = "PUBLIC-DOMAIN"
+        self.source["license"]["public_domain_proof"] = {
+            "jurisdiction": "global",
+            "legal_basis": "waived",
+            "work_date": "2024"
+        }
+        self.run_gate()
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("License: PUBLIC-DOMAIN", notice)
+        self.assertIn("Public-domain basis:", notice)
+
+    def test_invalid_notices(self):
+        self.source["license"]["id"] = "PUBLIC-DOMAIN"
+        # Missing public_domain_proof
+        self.source["license"]["public_domain_proof"] = None
+        with self.assertRaises(ValueError):
+            self.run_gate()
+
 if __name__ == "__main__":
     unittest.main()
