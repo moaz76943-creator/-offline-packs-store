@@ -4,17 +4,18 @@ COMPATIBLE denotes *only* license shape + recorded rights evidence, not legal
 clearance; source and release gates remain mandatory.
 """
 from legal.ledger.admission import LICENSES, OBLIGATIONS
-from tools.contribution_gate.evidence import verified_sources
+from tools.contribution_gate.evidence import load_verified_ledger, exact_source_reference
 
-def check_compatibility(sources, output_license, is_derivative=True, *, repo_root=None):
+def check_compatibility(source_refs, output_license, is_derivative=True, *, repo_root=None):
     base = {"status": "REVIEW_REQUIRED", "reason": "", "obligations": set(),
             "publication_approved": False}
     if output_license not in LICENSES:
         return {**base, "reason": "unsupported output license"}
-    if not isinstance(sources, list) or not sources:
+    if not isinstance(source_refs, list) or not source_refs:
         return {**base, "reason": "missing source evidence"}
     try:
-        verified_sources({"schema_version": "1.0.0", "sources": sources}, repo_root)
+        verified_sources_dict = load_verified_ledger(repo_root)
+        sources = [exact_source_reference(ref, verified_sources_dict) for ref in source_refs]
     except (ValueError, TypeError, OSError) as exc:
         return {**base, "reason": str(exc)}
     ids = [s["license"]["id"] for s in sources]
