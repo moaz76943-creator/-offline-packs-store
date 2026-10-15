@@ -279,6 +279,24 @@ class SecurityRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "source kind"):
             self.export()
 
+    def test_pronunciation_kind_must_match(self):
+        name, sha = self.stage()
+        self.certify()
+        self.manifest(name, sha)
+
+        manifest_path = self.src / "manifest.json"
+        content = json.loads(manifest_path.read_text())
+        content["items"][0]["type"] = "pronunciation"
+        manifest_path.write_text(json.dumps(content))
+
+        self.ledger["sources"][0]["retrieval"]["sha256"] = "a" * 64
+        self.ledger["sources"][0]["kind"] = "vector_art"
+        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
+        with self.assertRaisesRegex(ValueError, "source kind"):
+            self.export()
+        self.ledger["sources"][0]["kind"] = "pronunciation"
+        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
+        self.export()
 
     def test_review_handoff_restart_recovery(self):
         self.stage()
