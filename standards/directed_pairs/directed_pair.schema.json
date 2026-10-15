@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/directed_pair.schema.json",
+  "title": "Open Directed-Pair Translation Data Standard 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "translations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "translations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/directed_translation"
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._:-]{2,127}$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "optText": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "lang": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+    },
+    "script": {
+      "type": "string",
+      "pattern": "^[A-Z][a-z]{3}$"
+    },
+    "confidence_level": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "publisher",
+        "version",
+        "license_id"
+      ],
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/id"
+        },
+        "publisher": {
+          "$ref": "#/$defs/text"
+        },
+        "version": {
+          "$ref": "#/$defs/text"
+        },
+        "license_id": {
+          "$ref": "#/$defs/text"
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence_level"
+        }
+      }
+    },
+    "directed_translation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "translation_id",
+        "source_language",
+        "target_language",
+        "source_sense_id",
+        "target_sense_id",
+        "translation",
+        "type",
+        "source"
+      ],
+      "properties": {
+        "translation_id": {
+          "$ref": "#/$defs/id"
+        },
+        "source_language": {
+          "$ref": "#/$defs/lang"
+        },
+        "target_language": {
+          "$ref": "#/$defs/lang"
+        },
+        "source_sense_id": {
+          "$ref": "#/$defs/id"
+        },
+        "target_sense_id": {
+          "$ref": "#/$defs/id"
+        },
+        "translation": {
+          "$ref": "#/$defs/text"
+        },
+        "type": {
+          "enum": [
+            "literal",
+            "contextual",
+            "approximate"
+          ]
+        },
+        "context": {
+          "$ref": "#/$defs/optText"
+        },
+        "domain": {
+          "$ref": "#/$defs/optText"
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        }
+      }
+    }
+  }
+}
