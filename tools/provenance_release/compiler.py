@@ -10,6 +10,9 @@ import logging
 import sys
 from pathlib import Path
 
+# Add repo root to sys.path to allow imports when executed directly
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
 # We reuse the logic from legal.ledger.admission as much as possible for validation.
 from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
 
@@ -126,6 +129,10 @@ class ProvenanceCompiler:
                         is_valid = False
                         block_reason = "source hash mismatch"
 
+                    if not text(src.get('publisher')) and not src.get('authors'):
+                        is_valid = False
+                        block_reason = "missing publisher or authors"
+
                 out_lic = entry.get('output_license_id')
                 if out_lic not in LICENSES:
                     is_valid = False
@@ -208,7 +215,8 @@ class ProvenanceCompiler:
 
         # Write notice
         with open(notice_out, 'w', encoding='utf-8') as f:
-            f.write("ATTRIBUTION NOTICES\n===================\n\n")
+            f.write("ATTRIBUTION NOTICES\n===================\n")
+            f.write("DISCLAIMER: Machine validation is not a legal opinion.\n\n")
             f.write("\n".join(notices))
 
         return statuses
