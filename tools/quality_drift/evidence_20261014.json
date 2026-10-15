@@ -1,0 +1,52 @@
+{
+  "task_id": "DEUTSCH-IMPROVE-11",
+  "snapshot_kind": "READ_ONLY_GITHUB_OBSERVATION_NOT_QUALITY_BASELINE",
+  "observed_date": "2026-10-14",
+  "repository": "moaz76943-creator/-offline-packs-store",
+  "branch": "main",
+  "base_head_sha": "1f9a4b04be8b757a307f5f7e9d1e851a03174bca",
+  "production_baseline_status": "UNKNOWN",
+  "release_status": "BLOCKED_DEPENDENCY",
+  "production_pack_count": 0,
+  "source_ledger_entries": 0,
+  "source_rights_status": "UNVERIFIED_RIGHTS",
+  "metrics": {
+    "word_coverage": "UNKNOWN",
+    "sense_coverage": "UNKNOWN",
+    "cefr_coverage": "UNKNOWN",
+    "example_coverage": "UNKNOWN",
+    "directed_translation_coverage": "UNKNOWN",
+    "stable_id_errors": "NOT_RUN",
+    "license_failures": "NOT_RUN",
+    "sqlite_v2_failures": "NOT_RUN",
+    "fts5_failures": "NOT_RUN",
+    "search_cases_passed": "NOT_RUN",
+    "memory_peak_bytes": "NOT_RUN",
+    "startup_p95_ms": "NOT_RUN",
+    "offline_startup_failures": "NOT_RUN",
+    "srs_failures": "NOT_RUN",
+    "rollback_failures": "NOT_RUN",
+    "test_cases_passed": "UNKNOWN",
+    "test_cases_failed": "UNKNOWN"
+  },
+  "dependencies": {
+    "IMPROVE-03": "DRAFT_PR_191_NOT_VERIFIED",
+    "IMPROVE-07": "UNKNOWN",
+    "IMPROVE-09": "DRAFT_PR_192_NOT_VERIFIED",
+    "IMPROVE-10": "DRAFT_PR_195_NOT_VERIFIED"
+  },
+  "source_evidence": [
+    "https://github.com/moaz76943-creator/-offline-packs-store/blob/1f9a4b04be8b757a307f5f7e9d1e851a03174bca/manifest.json",
+    "https://github.com/moaz76943-creator/-offline-packs-store/blob/1f9a4b04be8b757a307f5f7e9d1e851a03174bca/version.json",
+    "https://github.com/moaz76943-creator/-offline-packs-store/blob/1f9a4b04be8b757a307f5f7e9d1e851a03174bca/legal/ledger/sources.json",
+    "https://github.com/moaz76943-creator/-offline-packs-store/pull/189",
+    "https://github.com/moaz76943-creator/-offline-packs-store/pull/146",
+    "https://github.com/moaz76943-creator/-offline-packs-store/pull/171",
+    "https://github.com/moaz76943-creator/-offline-packs-store/pull/191",
+    "https://github.com/moaz76943-creator/-offline-packs-store/pull/192",
+    "https://github.com/moaz76943-creator/-offline-packs-store/pull/195"
+  ],
+  "quality_score_10": null,
+  "publication_approved": false,
+  "merge_authorized": false
+}
