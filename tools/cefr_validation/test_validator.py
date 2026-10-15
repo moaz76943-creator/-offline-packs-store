@@ -46,6 +46,24 @@ class CEFRValidatorTest(unittest.TestCase):
             "reviewer_id": "reviewer-1"
         }]
 
+    def get_valid_attested_evidence(self):
+        return [{
+            "source_id": "COE-CEFR-2020", # Note: need a content_classification source, actually COE is framework. Let's use a mocked or different source if needed. But in engine.py:
+            # if source["scope"] != "content_classification"
+            # wait, let me look at sources in frameworks.json
+            "source_id": "LOCAL-BANDS-1", # Wait, LOCAL-BANDS-1 has scope local_taxonomy
+            # actually we don't need it to pass engine validate_record for the "certified corpora" test if we bypass engine or just use an estimated one.
+            # wait! The certified CEFR corpora check happens AFTER engine.validate_record() !
+            # BUT it checks: `if status == "source_attested" and "CEFR" not in lang_prof.get("framework_ids", []):`
+            # To reach this check, it must PASS `self.catalog.validate_record(record)`.
+            "source_version": "1.0.0",
+            "source_url": "https://example.com",
+            "locator": "page 10",
+            "method": "published_content_assignment",
+            "reviewer_id": "reviewer-1",
+            "artifact_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }]
+
     def test_all_six_levels(self):
         levels = ["A1", "A2", "B1", "B2", "C1", "C2"]
         coarse_maps = ["beginner", "beginner", "intermediate", "intermediate", "advanced", "advanced"]
@@ -108,12 +126,6 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertEqual(len(rejected), 1) # Second one is rejected due to conflict
         self.assertIn("Substantial source conflict", rejected[0]["reason"])
 
-        # In the rejection flow we keep source dataset immutable so the input is wrapped.
-        # But for conflicts we actually did set `_resolution` in the code, let's just check the wrapper reason here
-        # or we can verify that the rejected item has "conflicting" somewhere.
-        # Since original_record is returned we won't see _resolution on it, but the reason has it.
-        pass
-
     def test_preserves_independent_sources_without_conflict(self):
         # A1 and A2 for the same word is not a "substantial" conflict
         rec1 = self.create_record("word-no-conflict", "en", "estimated", "CEFR", "A1", self.get_valid_evidence())
@@ -132,7 +144,45 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        # To avoid the engine validatior failing, we can mock the validate_record or dynamically inject a source.
+        # Actually since we have full access, let's inject a dummy source into the catalog.
+
+        # When language lacks certified CEFR corpora
+        unsupported_lang = None
+        for lang_id, lang_data in self.validator.supported_languages.items():
+            frameworks = lang_data.get("proficiency", {}).get("framework_ids", [])
+            if "CEFR" not in frameworks:
+                unsupported_lang = lang_id
+                break
+
+        if not unsupported_lang:
+            unsupported_lang = "zza"
+
+        # Dynamically inject dummy source into catalog to pass validate_record
+        dummy_source_id = "DUMMY-CORPUS"
+        self.validator.catalog.sources[dummy_source_id] = {
+            "source_id": dummy_source_id,
+            "publisher": "Dummy",
+            "version": "1.0",
+            "url": "https://dummy.com",
+            "scope": "content_classification",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+
+        evidence = [{
+            "source_id": dummy_source_id,
+            "source_version": "1.0",
+            "source_url": "https://dummy.com",
+            "locator": "page 10",
+            "method": "published_content_assignment",
+            "reviewer_id": "reviewer-1"
+        }]
+
+        rec = self.create_record("word-1", unsupported_lang, "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec])
+        self.assertEqual(len(accepted), 0)
+        self.assertEqual(len(rejected), 1)
+        self.assertIn("lacks certified CEFR corpora", rejected[0]["reason"])
 
 if __name__ == '__main__':
     unittest.main()
