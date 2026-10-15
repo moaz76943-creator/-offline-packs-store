@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from legal.ledger.admission import KINDS, manual_review, text, url_ok
+from legal.ledger.admission import KINDS, manual_review, text, url_ok, OBLIGATIONS
 from tools.contribution_gate.evidence import (
     exact_source_reference, load_verified_ledger, required, verified_artifact
 )
@@ -26,8 +26,22 @@ def validate_contribution(manifest_dict, repo_root):
         if kind not in KINDS:
             raise ValueError("Invalid kind")
         root = Path(repo_root).resolve()
-        src_index = load_verified_ledger(root)
+
+        try:
+            src_index = load_verified_ledger(root)
+        except ValueError as exc:
+            if "REVIEW_REQUIRED" in str(exc):
+                return block(str(exc), status="REVIEW_REQUIRED")
+            raise
+
         source = exact_source_reference(manifest_dict.get("source_ref"), src_index)
+
+        if source.get("status") == "REVIEW_REQUIRED":
+            return block("Source requires review", status="REVIEW_REQUIRED")
+
+        if source.get("status") != "APPROVED_FOR_REDISTRIBUTION":
+            raise ValueError("Source is not approved for redistribution")
+
         if kind != source["kind"] or manifest_dict.get("license_id") != source["license"]["id"]:
             raise ValueError("Content kind or license contradicts canonical source")
         if manifest_dict.get("source_identity") != source["source_id"]:
@@ -66,6 +80,17 @@ def validate_contribution(manifest_dict, repo_root):
                 not url_ok(grant.get("grant_url")) or
                 grant.get("revoked") is not False):
             raise ValueError("Unverified holder, grant URL or revoked rights")
+
+        if source["license"]["id"] == "CC0-1.0":
+            if grant.get("cc0_declaration") is not True:
+                raise ValueError("CC0 requires explicit verified legal declaration")
+
+        if source["license"]["id"] in OBLIGATIONS:
+            compliance = manifest_dict.get("compliance", {})
+            for req in OBLIGATIONS[source["license"]["id"]]:
+                if compliance.get(req) is not True:
+                    raise ValueError(f"License obligation {req} not met")
+
         review_errors = []
         if not manual_review(manifest_dict.get("review"), review_errors, "contribution"):
             raise ValueError("; ".join(review_errors))
@@ -89,7 +114,7 @@ def validate_contribution(manifest_dict, repo_root):
         receipt_id = hashlib.sha256(
             (asset_id + "|" + manifest_dict["sha256"] + "|" +
              source["retrieval"]["sha256"]).encode("utf-8")).hexdigest()
-        return {"status": "EVIDENCE_PASS", "reasons": [],
+        return {"status": "ACCEPT", "reasons": [],
                 "publication_approved": False,
                 "receipt": {"receipt_id": receipt_id, "source_id": source["source_id"],
                             "source_version": source["dataset_version"],
@@ -110,7 +135,7 @@ def main(argv=None):
         p.exit(2, "BLOCKED: " + str(exc) + "\n")
     result = validate_contribution(manifest, a.repo_root)
     print(json.dumps(result, indent=2, sort_keys=True))
-    return 0 if result["status"] == "EVIDENCE_PASS" else 1
+    return 0 if result["status"] == "ACCEPT" else 1
 
 if __name__ == "__main__":
     raise SystemExit(main())
