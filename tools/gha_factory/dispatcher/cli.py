@@ -8,19 +8,20 @@ from pathlib import Path
 
 if __package__ in (None,''):
     sys.path.insert(0,str(Path(__file__).resolve().parents[3]))
-    from tools.gha_factory.dispatcher import controller,worker
+    from tools.gha_factory.dispatcher import controller,worker,bounded_worker
 else:
-    from . import controller,worker
+    from . import controller,worker,bounded_worker
 
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     sub=parser.add_subparsers(dest='command',required=True)
     sub.add_parser('controller')
-    work=sub.add_parser('worker')
-    work.add_argument('--issue',type=int,required=True)
-    work.add_argument('--task-id',required=True)
-    work.add_argument('--out',type=Path,required=True)
+    for name in ('worker', 'worker-exec'):
+        work=sub.add_parser(name, help=argparse.SUPPRESS if name == 'worker-exec' else None)
+        work.add_argument('--issue',type=int,required=True)
+        work.add_argument('--task-id',required=True)
+        work.add_argument('--out',type=Path,required=True)
     finish=sub.add_parser('finalize')
     finish.add_argument('--artifacts',type=Path,required=True)
     opts=parser.parse_args(argv)
@@ -36,9 +37,12 @@ def main(argv=None):
             f.write('jobs='+json.dumps(data,separators=(',',':'))+'\n')
             f.write('has_work='+str(bool(jobs)).lower()+'\n')
         print(json.dumps({'claimed':len(jobs),'run_id':run_id,'run_attempt':attempt}))
-    elif opts.command=='worker':
+    elif opts.command in ('worker', 'worker-exec'):
         if not opts.task_id or opts.issue<=0:parser.error('invalid issue/task')
-        receipt=worker.worker(api,opts.issue,opts.task_id,run_id,attempt,opts.out)
+        if opts.command == 'worker':
+            receipt=bounded_worker.execute(api,opts.issue,opts.task_id,run_id,attempt,opts.out)
+        else:
+            receipt=worker.worker(api,opts.issue,opts.task_id,run_id,attempt,opts.out)
         print(json.dumps({'status':receipt['status'],'task_id':receipt['task_id'],'run_id':run_id}))
         return 0 if receipt['status'] in ('SUCCEEDED','BLOCKED_SOURCE') else 1
     else:
