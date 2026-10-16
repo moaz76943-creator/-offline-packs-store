@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "concept_id": "test_concept_1",
+    "viewBox": "0 0 24 24",
+    "paths": [
+        {
+            "d": "M12 2L2 22h20L12 2z",
+            "fill": "#000000"
+        }
+    ],
+    "palette": ["#000000"],
+    "semantic_label": "triangle",
+    "source_evidence": {
+        "author": "Open Source Maintainer",
+        "license": "CC0",
+        "source": "https://example.com/fixture"
+    }
+}

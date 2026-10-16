@@ -1,0 +1,70 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "version": {
+            "type": "integer"
+        },
+        "concept_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+        },
+        "viewBox": {
+            "type": "string",
+            "pattern": "^[0-9]+ [0-9]+ [0-9]+ [0-9]+$"
+        },
+        "paths": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "d": {
+                        "type": "string"
+                    },
+                    "fill": {
+                        "type": "string"
+                    }
+                },
+                "required": ["d"],
+                "additionalProperties": false
+            },
+            "maxItems": 50
+        },
+        "palette": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "semantic_label": {
+            "type": "string"
+        },
+        "source_evidence": {
+            "type": "object",
+            "properties": {
+                "author": {
+                    "type": "string"
+                },
+                "license": {
+                    "type": "string",
+                    "enum": ["CC0", "Public Domain"]
+                },
+                "source": {
+                    "type": "string"
+                }
+            },
+            "required": ["author", "license", "source"],
+            "additionalProperties": false
+        }
+    },
+    "required": [
+        "version",
+        "concept_id",
+        "viewBox",
+        "paths",
+        "palette",
+        "semantic_label",
+        "source_evidence"
+    ],
+    "additionalProperties": false
+}
