@@ -86,18 +86,24 @@ class LexicalValidator:
         pos_err = self._check_string_field(entry, "pos")
         if pos_err:
             errors.append(pos_err)
-        # We don't strictly reject if not in POS_ALLOWED, but we might warn or mark reviewRequired
-        # Let's keep it structurally open but if it's super weird, maybe reviewRequired?
-        # Actually the requirements mention "validate POS fields" but not strict enum. We'll stick to string validation for rejection.
+        elif entry["pos"] not in POS_ALLOWED:
+            errors.append(f"Invalid POS: {entry['pos']}")
+
+        if entry.get("id") and entry.get("language"):
+            if not entry["id"].startswith(f"{entry['language']}-"):
+                errors.append(f"ID '{entry['id']}' does not match language prefix '{entry['language']}-'")
 
         # 2. Impossible field combinations
         pos = entry.get("pos")
         plural = entry.get("plural")
         conjugations = entry.get("conjugations")
+        lang = entry.get("language")
+
+        if lang in {"zho", "tha", "vie"} and (plural is not None or conjugations is not None):
+            errors.append(f"Isolating language '{lang}' should not have plural or conjugations")
 
         if pos and pos != "verb" and conjugations is not None:
             # While theoretically some languages decline nouns, usually 'conjugation' implies verbs.
-            # We'll just mark reviewRequired instead of rejecting entirely unless we want strict rejection.
             warnings.append(f"Non-verb POS '{pos}' has 'conjugations' field")
 
         if pos and pos not in {"noun", "pronoun", "adjective"} and plural is not None:
