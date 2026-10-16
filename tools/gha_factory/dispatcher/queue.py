@@ -127,6 +127,7 @@ def admission(t, context, registry_sha):
         return 'READY' if t['source_sha256']==registry_sha else 'QUARANTINED'
     matches=[s for s in context['sources'] if s.get('source_id')==t['source_id']]
     if len(matches)!=1:return 'BLOCKED_SOURCE'
+    src=matches[0]
     allowed_kinds = {'dictionary', 'lexical', 'examples', 'qa_evidence'}
     if src.get('kind') not in allowed_kinds or src.get('status')!='APPROVED_FOR_REDISTRIBUTION':
         return 'BLOCKED_SOURCE'
