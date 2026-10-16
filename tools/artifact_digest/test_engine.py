@@ -73,6 +73,34 @@ class TestDigestEngine(unittest.TestCase):
             validate_artifact(filepath, invalid_meta)
         self.assertIn("Size mismatch", str(ctx.exception))
 
+    def test_chunk_size_validation(self):
+        filepath = os.path.join(self.test_dir, "chunk_test.txt")
+        with open(filepath, 'w') as f: f.write("12345") # 5 bytes
+
+        # Test chunk_size=0 (ValueError)
+        with self.assertRaises(ValueError) as ctx:
+            compute_sha256(filepath, chunk_size=0)
+        self.assertIn("strictly positive", str(ctx.exception))
+
+        # Test chunk_size=-1 (ValueError)
+        with self.assertRaises(ValueError) as ctx:
+            compute_sha256(filepath, chunk_size=-1)
+        self.assertIn("strictly positive", str(ctx.exception))
+
+        # Test chunk_size=True (TypeError)
+        with self.assertRaises(TypeError) as ctx:
+            compute_sha256(filepath, chunk_size=True)
+        self.assertIn("exact integer", str(ctx.exception))
+
+        # Test chunk_size oversized (ValueError)
+        with self.assertRaises(ValueError) as ctx:
+            compute_sha256(filepath, chunk_size=999999999)
+        self.assertIn("exceeds maximum allowed bound", str(ctx.exception))
+
+        # Test valid ordinary streamed digest
+        hash_val = compute_sha256(filepath, chunk_size=2)
+        self.assertEqual(len(hash_val), 64)
+
     def test_truncated_files(self):
         filepath = os.path.join(self.test_dir, "trunc_test.txt")
         with open(filepath, 'w') as f: f.write("12345") # 5 bytes

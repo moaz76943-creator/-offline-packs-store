@@ -10,6 +10,19 @@ def compute_sha256(filepath, chunk_size=65536, expected_size=None):
     Perform streaming file-hashing with bounded memory usage over actual artifact bytes.
     Optionally validate the number of bytes read against an expected size.
     """
+    if type(chunk_size) is not int:
+        raise TypeError(f"chunk_size must be an exact integer, got {type(chunk_size).__name__}")
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be strictly positive")
+    if chunk_size > 16777216:  # 16 MB max chunk size bound
+        raise ValueError("chunk_size exceeds maximum allowed bound of 16777216 bytes")
+
+    if expected_size is not None:
+        if type(expected_size) is not int:
+            raise TypeError("expected_size must be an exact integer")
+        if expected_size < 0:
+            raise ValueError("expected_size must be non-negative")
+
     hasher = hashlib.sha256()
     bytes_read = 0
     with open(filepath, 'rb') as f:
