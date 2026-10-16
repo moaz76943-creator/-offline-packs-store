@@ -15,7 +15,10 @@ from tools.pack_v2 import pipeline
 MAX_ARCHIVE = 40 * 1024 * 1024
 MAX_SAMPLES = 12
 MAX_SQLITE_BYTES = pipeline.MAX_DATABASE
-MAX_SQL_VALUE_BYTES = pipeline.MAX_ROW * 4
+# FTS glosses aggregate many individually bounded senses/translations. SQLite's
+# length limit also applies to complete encoded rows, so use the producer's
+# physical database ceiling rather than its per-source-record ceiling.
+MAX_SQL_VALUE_BYTES = pipeline.MAX_DATABASE
 SQL_SECONDS = 30
 HEX = re.compile(r'^[0-9a-f]{64}$')
 VERSION = re.compile(r'^[0-9]+\.[0-9]+\.[0-9]+$')
