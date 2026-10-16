@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/directed_pair.schema.json",
+  "title": "Directed Pair Translation Standard 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "pairs"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "pairs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/directed_pair"}
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9._:-]{2,127}$"},
+    "lang": {"type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"},
+    "text": {"type": "string", "minLength": 1},
+    "directed_pair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pair_id",
+        "source_language",
+        "target_language",
+        "source_sense_id",
+        "target_sense_id",
+        "translation_text",
+        "equivalence",
+        "provenance_id",
+        "source_version",
+        "confidence_evidence"
+      ],
+      "properties": {
+        "pair_id": {"$ref": "#/$defs/id"},
+        "source_language": {"$ref": "#/$defs/lang"},
+        "target_language": {"$ref": "#/$defs/lang"},
+        "source_sense_id": {"$ref": "#/$defs/id"},
+        "target_sense_id": {"$ref": "#/$defs/id"},
+        "translation_text": {"$ref": "#/$defs/text"},
+        "context": {"$ref": "#/$defs/text"},
+        "domain": {"$ref": "#/$defs/text"},
+        "examples": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/text"}
+        },
+        "equivalence": {
+          "enum": ["literal", "contextual", "approximate"]
+        },
+        "provenance_id": {"$ref": "#/$defs/id"},
+        "source_version": {"$ref": "#/$defs/text"},
+        "confidence_evidence": {"$ref": "#/$defs/text"}
+      }
+    }
+  }
+}
