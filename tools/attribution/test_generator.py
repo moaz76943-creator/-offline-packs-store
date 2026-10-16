@@ -11,6 +11,7 @@ class AttributionTests(unittest.TestCase):
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         self.ledger, self.source = fixture(self.root)
+        self.source["author"] = "Test Author"
         self.ledger_file = save_ledger(self.root, self.ledger)
         self.refs_file = self.root / "refs.json"
         self.out = self.root / "out"
@@ -107,6 +108,53 @@ class AttributionTests(unittest.TestCase):
             self.run_gate()
     def test_missing_publisher(self):
         self.source["publisher"] = ""
+        with self.assertRaises(ValueError):
+            self.run_gate()
+    def test_missing_author(self):
+        self.source["author"] = ""
+        with self.assertRaises(ValueError):
+            self.run_gate()
+
+    def test_multi_source_combined_package(self):
+        # We need another source to combine.
+        import copy
+        source2 = copy.deepcopy(self.source)
+        source2["source_id"] = "source-2"
+        source2["author"] = "Another Author"
+        self.ledger["sources"].append(source2)
+        save_ledger(self.root, self.ledger)
+        refs = [ref(self.source), ref(source2)]
+        result = self.run_gate(refs)
+        self.assertEqual(len(result), 2)
+        # Check files are generated
+        self.assertTrue((self.out / "case-source_notice.txt").exists())
+        self.assertTrue((self.out / "source-2_notice.txt").exists())
+        manifest = json.loads((self.out / "attribution.json").read_text())
+        self.assertEqual(len(manifest), 2)
+
+    def test_repeated_generation_is_stable(self):
+        self.run_gate()
+        first_manifest = (self.out / "attribution.json").read_text()
+        first_notice = (self.out / "case-source_notice.txt").read_text()
+
+        self.run_gate()
+        second_manifest = (self.out / "attribution.json").read_text()
+        second_notice = (self.out / "case-source_notice.txt").read_text()
+
+        self.assertEqual(first_manifest, second_manifest)
+        self.assertEqual(first_notice, second_notice)
+
+    def test_changed_source_version(self):
+        bad = ref(self.source)
+        bad["dataset_version"] = "99.0"
+        with self.assertRaises(ValueError):
+            self.run_gate([bad])
+
+    def test_invalid_notice_format_rejected(self):
+        # Test case: we want to verify invalid notices. The generation itself enforces format,
+        # but let's test a case where attribution generation fails because of missing metadata
+        # which would result in an invalid notice.
+        self.source["origin_url"] = ""
         with self.assertRaises(ValueError):
             self.run_gate()
 
