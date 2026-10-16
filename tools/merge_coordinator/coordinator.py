@@ -228,8 +228,6 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
         latest = max(eligible, key=lambda x: x.get('id', 0), default=None)
         if latest is None or latest.get('status') != 'completed' or latest.get('conclusion') != 'success':
             return 'NOT_RUN', f'check {wanted} lacks exact-head PASS'
-    if pr.get('draft'):
-        return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
     expiry_str = e.get('expiry') or e.get('expires_at')
     if expiry_str:
         try:
@@ -239,6 +237,9 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
                 return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
         except Exception:
             return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
+
+    if pr.get('draft'):
+        return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
 
     is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
     reviewers = e.get('reviewers') or []
