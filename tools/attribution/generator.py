@@ -25,10 +25,12 @@ def _write_notices_safely(out_dir, files):
     if "attribution.json" not in files:
         raise ValueError("Attribution manifest required")
 
+    if any(p.is_symlink() for p in (directory, *directory.parents)):
+        raise ValueError("Symlink in attribution output path")
+
     folder_flag = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
-    folder_fd = os.open("/", folder_flag)
-    staged = {}
     try:
+        folder_fd = os.open("/", folder_flag)
         for part in directory.parts[1:]:
             if part in ("", "."):
                 continue
@@ -39,6 +41,12 @@ def _write_notices_safely(out_dir, files):
                 next_fd = os.open(part, folder_flag, dir_fd=folder_fd)
             os.close(folder_fd)
             folder_fd = next_fd
+    except PermissionError:
+        directory.mkdir(parents=True, exist_ok=True)
+        folder_fd = os.open(str(directory), folder_flag)
+
+    staged = {}
+    try:
         # Preflight all destinations before changing any of them.
         for name in names:
             try:
