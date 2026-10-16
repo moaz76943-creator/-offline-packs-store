@@ -5,9 +5,9 @@ This policy resolves the contradiction between a blanket `[skip ci]` habit and
 GitHub-required PR checks. It does not change private Flutter CI or authorize
 release of unapproved language packs.
 
-## Rule: never skip checks on the final integration commit
+## Rule: no CI-skip instructions in any newly authored commit
 
-- Intermediate draft/WIP commits may include `[skip ci]` to suppress redundant runs.
+- **Effective 2026-10-15, retire the historical CI-skip convention for all newly authored commits**, including draft/WIP, Jules, integration, and automated commits. Do not add any of the recognized skip tokens or a `skip-checks: true` trailer. Keep required CI active; reduce cost with targeted tests, caching, and bounded workflow concurrency instead of suppressing checks.
 - **The HEAD commit of a PR intended for review or merge MUST NOT contain**
   `[skip ci]`, `[ci skip]`, `[no ci]`, `[skip actions]`, `[actions skip]`, or a
   `skip-checks: true` trailer. This is an explicit exception to the old blanket
@@ -58,7 +58,9 @@ production verification, even if GitHub allows a skipped job in protection.
 check does **not** satisfy branch-protection-required checks on a PR. Avoid
 `pull_request_target` for running untrusted PR code. The safe recovery for an
 old `[skip ci]` PR is a non-skipping integration tip with standard `pull_request`
-checks, rather than a fabricated green check or admin bypass.
+checks, rather than a fabricated green check or admin bypass. Historical commits
+must remain unchanged; never rewrite or force-push Jules branches just to remove
+old markers. This policy update does not itself repair or validate those PRs.
 
 ## Failure classifications
 
