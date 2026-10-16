@@ -182,6 +182,47 @@ class SemiticContractTests(unittest.TestCase):
         with self.assertRaises(ContractError):
             self.validate(item)
 
+    def test_exact_homographs_preserve_root_and_pattern_ambiguity(self):
+        for field, value in (('root', 'كبت'), ('pattern', 'فَعَل')):
+            with self.subTest(field=field):
+                other = deepcopy(self.ar)
+                other['record'][field] = value
+                self.validate(other)
+                output = self.root / 'homographs.jsonl'
+                output.write_text(''.join(json.dumps(x, ensure_ascii=False) + '\n'
+                                          for x in (self.ar, other)), encoding='utf-8')
+                for limit in (1, 100):
+                    result = lookup(output, self.root, 'ar', self.ar['record']['form'], limit=limit)
+                    self.assertEqual('ambiguous', result['status'])
+                    self.assertEqual(2, result['total_analyses'])
+
+    def test_decomposed_query_selects_its_exact_nfc_analysis(self):
+        first = self.record('ar', 'أ', 'أ', 'other', {})
+        second = self.record('ar', 'إ', 'إ', 'other', {})
+        second['record']['sense_id'] = 'ar:test:other'
+        for row in (first, second):
+            self.validate(row)
+        output = self.root / 'nfc.jsonl'
+        output.write_text(''.join(json.dumps(x, ensure_ascii=False) + '\n'
+                                  for x in (first, second)), encoding='utf-8')
+        result = lookup(output, self.root, 'ar', '\u0627\u0654')
+        self.assertEqual('attested', result['status'])
+        self.assertEqual([first], result['forms'])
+        self.assertTrue(result['normalization_ambiguous'])
+
+    def test_optional_allomorph_requires_language_script_and_string(self):
+        for value in (42, '', 'latin', 'ቤት'):
+            item = deepcopy(self.ar)
+            item['record']['morphemes'] = [dict(surface='كتب', kind='root', position=0,
+                                               allomorph=value)]
+            with self.subTest(value=value), self.assertRaises(ContractError):
+                self.validate(item)
+        for candidate, language, form in ((self.ar, 'ar', 'كتب'), (self.am, 'am', 'ቤት')):
+            item = deepcopy(candidate)
+            item['record']['morphemes'] = [dict(surface=form, kind='root', position=0,
+                                               allomorph=form)]
+            self.assertEqual(item, self.validate(item, lang=language))
+
     def test_empty_ledger_blocks_production(self):
         write_json(self.root / 'legal/ledger/sources.json', {'schema_version': '1.0.0', 'sources': []})
         with self.assertRaisesRegex(ContractError, 'BLOCKED_SOURCE'):

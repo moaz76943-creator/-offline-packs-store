@@ -132,6 +132,8 @@ def validate_candidate(candidate, root, language, source_id, dataset_version, so
         for m in record['morphemes']:
             if not isinstance(m, dict) or not {'surface', 'kind', 'position'}.issubset(m) or not set(m).issubset({'surface', 'kind', 'position', 'allomorph'}) or m['kind'] not in ('root','prefix','suffix','infix','clitic','stem','pattern','compound_member') or type(m['position']) is not int or m['position'] < 0 or not _script_ok(m['surface'], language):
                 raise ContractError('invalid canonical morpheme')
+            if 'allomorph' in m and not _script_ok(m['allomorph'], language):
+                raise ContractError('invalid canonical morpheme allomorph')
     for key in ('vowel_harmony_class', 'orthographic_variant'):
         if key in record and not isinstance(record[key], str):
             raise ContractError('invalid canonical orthographic property')
@@ -177,7 +179,9 @@ def lookup(path, root, language, surface, limit=100):
     """Streaming exact-evidence retrieval; ambiguous folded forms stay ambiguous."""
     load_profile(root, language)
     key = normalize_retrieval(language, surface)
+    exact_surface = unicodedata.normalize('NFC', surface)
     exact, folded, analyses = [], [], set()
+    exact_keys = set()
     matched_count = 0
     with Path(path).open('rb') as stream:
         for line in stream:
@@ -195,14 +199,14 @@ def lookup(path, root, language, surface, limit=100):
             matched_count += 1
             if len(folded) < limit:
                 folded.append(item)
-            if record['form'] == surface and len(exact) < limit:
-                exact.append(item)
+            if record['form'] == exact_surface:
+                # Track every analysis even when returned rows are truncated.
+                exact_keys.add(identity)
+                if len(exact) < limit:
+                    exact.append(item)
     if not folded:
         return {'status': 'unknown', 'forms': [], 'normalization_ambiguous': False}
     selected = exact if exact else folded
-    exact_keys = {(x['record']['lemma_id'], x['record']['sense_id'],
-                   json.dumps(x['record']['features'], sort_keys=True), x['evidence']['variety'],
-                   x['evidence'].get('dialect_tag')) for x in selected}
     ambiguous = len(analyses) > 1
     return {'status': 'ambiguous' if len(exact_keys) > 1 or (not exact and ambiguous) else 'attested',
             'forms': selected, 'normalization_ambiguous': ambiguous, 'total_analyses': len(analyses),

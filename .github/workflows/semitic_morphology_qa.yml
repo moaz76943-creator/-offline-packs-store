@@ -2,6 +2,15 @@ name: Semitic attested morphology QA (public, isolated)
 run-name: Semitic evidence QA ${{ github.run_id }} attempt ${{ github.run_attempt }}
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/linguistic_extensions/semitic/**'
+      - 'tests/linguistic_extensions/semitic/**'
+      - '.github/workflows/semitic_morphology_qa.yml'
+      - 'catalog/language_registry.v1.json'
+      - 'legal/ledger/**'
+      - 'standards/morphology/form.schema.json'
   workflow_dispatch:
     inputs:
       mode:
@@ -53,7 +62,7 @@ jobs:
         run: python3 -m tools.linguistic_extensions.semitic.worker coverage --repo-root .
 
   approved-shard:
-    if: github.repository == 'moaz76943-creator/-offline-packs-store' && github.ref == 'refs/heads/main' && inputs.mode == 'shard'
+    if: github.event_name == 'workflow_dispatch' && github.repository == 'moaz76943-creator/-offline-packs-store' && github.ref == 'refs/heads/main' && inputs.mode == 'shard'
     needs: contract-qa
     runs-on: ubuntu-latest
     timeout-minutes: 45
