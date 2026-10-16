@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 import unittest
 from coordinator import evaluate, policy_error, order_entries
 
@@ -39,12 +40,13 @@ def checks(**changes):
 
 
 class ContractTests(unittest.TestCase):
-    def decide(self, e=None, p=None, c=None, rv=None, fs=None, title='feat: ready', deps=None):
+    def decide(self, e=None, p=None, c=None, rv=None, fs=None, title='feat: ready', deps=None, now=None):
         return evaluate(e or entry(), p or pr(), c or checks(),
                         rv if rv is not None else [{'user': {'login': 'trusted-reviewer'},
                             'state': 'APPROVED', 'commit_id': SHA_A}],
                         fs if fs is not None else [{'filename': 'tools/merge_coordinator/a.py'}],
-                        SHA_B, title, deps if deps is not None else {})
+                        SHA_B, title, deps if deps is not None else {},
+                        now=now)
 
     def test_accepted_exact_sha_with_real_check_and_review(self):
         self.assertEqual(self.decide(), ('VERIFIED_READY', 'exact-head validated'))
@@ -114,7 +116,7 @@ class ContractTests(unittest.TestCase):
             reviewers=[],
         )
         # In solo maintainer mode without independent reviewer, review list can be empty
-        status, reason = self.decide(e=solo, rv=[])
+        status, reason = self.decide(e=solo, rv=[], now=datetime(2026, 10, 15, 12, 0, 0, tzinfo=timezone.utc))
         self.assertEqual(status, 'VERIFIED_READY')
 
     def test_solo_maintainer_missing_or_invalid_expiry_fails(self):
