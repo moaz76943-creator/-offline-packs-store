@@ -11,6 +11,7 @@ class SanitizerEngine:
     def __init__(self, registry_path: str = "catalog/language_registry.v1.json"):
         self.valid_languages: Set[str] = set()
         self.seen_identities: Set[str] = set()
+        self.seen_document_ids: Set[str] = set()
         self._load_registry(registry_path)
 
     def _load_registry(self, registry_path: str) -> None:
@@ -104,12 +105,17 @@ class SanitizerEngine:
             needs_repair = True
             reason = "Repaired leading/trailing spaces in document_id"
 
+        if doc_id in self.seen_document_ids:
+            return self.STATUS_QUARANTINE, None, f"Duplicate document_id: {doc_id}"
+        self.seen_document_ids.add(doc_id)
+
         # Check languages and types
         lexemes = repaired_record.get("lexemes", [])
         if not isinstance(lexemes, list):
             return self.STATUS_QUARANTINE, None, "lexemes is not a list"
 
         repaired_lexemes = []
+        seen_lexeme_ids = set()
         for i, lexeme in enumerate(lexemes):
             if not isinstance(lexeme, dict):
                  return self.STATUS_QUARANTINE, None, f"lexeme at index {i} is not an object"
@@ -147,8 +153,12 @@ class SanitizerEngine:
                 reason = "Repaired whitespace in surface"
 
             # Ensure identifiers aren't empty
-            if not lexeme.get("lexeme_id"):
+            lexeme_id = lexeme.get("lexeme_id")
+            if not lexeme_id:
                 return self.STATUS_QUARANTINE, None, f"Empty lexeme_id at index {i}"
+            if lexeme_id in seen_lexeme_ids:
+                return self.STATUS_QUARANTINE, None, f"Duplicate lexeme_id within record: {lexeme_id}"
+            seen_lexeme_ids.add(lexeme_id)
 
             repaired_lexemes.append(lexeme)
 
@@ -159,11 +169,16 @@ class SanitizerEngine:
         if not isinstance(senses, list):
             return self.STATUS_QUARANTINE, None, "senses is not a list"
 
+        seen_sense_ids = set()
         for i, sense in enumerate(senses):
             if not isinstance(sense, dict):
                  return self.STATUS_QUARANTINE, None, f"sense at index {i} is not an object"
-            if not sense.get("sense_id"):
+            sense_id = sense.get("sense_id")
+            if not sense_id:
                  return self.STATUS_QUARANTINE, None, f"Empty sense_id at index {i}"
+            if sense_id in seen_sense_ids:
+                 return self.STATUS_QUARANTINE, None, f"Duplicate sense_id within record: {sense_id}"
+            seen_sense_ids.add(sense_id)
 
             definition = sense.get("definition")
             if definition is not None and not self.check_valid_unicode(definition):
@@ -173,11 +188,16 @@ class SanitizerEngine:
         translations = repaired_record.get("translations", [])
         if not isinstance(translations, list):
             return self.STATUS_QUARANTINE, None, "translations is not a list"
+        seen_translation_ids = set()
         for i, t in enumerate(translations):
             if not isinstance(t, dict):
                  return self.STATUS_QUARANTINE, None, f"translation at index {i} is not an object"
-            if not t.get("translation_id"):
+            translation_id = t.get("translation_id")
+            if not translation_id:
                 return self.STATUS_QUARANTINE, None, f"Empty translation_id at index {i}"
+            if translation_id in seen_translation_ids:
+                return self.STATUS_QUARANTINE, None, f"Duplicate translation_id within record: {translation_id}"
+            seen_translation_ids.add(translation_id)
 
         # Duplication check
         identity_key = self._generate_identity_key(repaired_record)

@@ -153,5 +153,51 @@ class TestSanitizerEngine(unittest.TestCase):
         status, repaired, reason = self.engine.validate_and_repair(record)
         self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
 
+    def test_duplicate_document_id_quarantine(self):
+        record1 = self.create_valid_record()
+        record2 = self.create_valid_record()
+        # Ensure they are not identically equal on identity_key to avoid identity duplicate check
+        record2["lexemes"][0]["lemma"] = "word2"
+        record2["senses"][0]["concept_id"] = "concept.2"
+
+        status1, _, _ = self.engine.validate_and_repair(record1)
+        self.assertEqual(status1, SanitizerEngine.STATUS_ACCEPT)
+
+        status2, _, _ = self.engine.validate_and_repair(record2)
+        self.assertEqual(status2, SanitizerEngine.STATUS_QUARANTINE)
+
+    def test_duplicate_internal_ids_quarantine(self):
+        # Duplicate lexeme_id
+        record = self.create_valid_record()
+        record["lexemes"].append({
+            "lexeme_id": "lex.en.1",
+            "language": "en",
+            "lemma": "word2",
+            "surface": "word2",
+            "pos": "noun"
+        })
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        # Duplicate sense_id
+        record = self.create_valid_record()
+        record["document_id"] = "doc.en.word2" # Reset for new validation
+        record["senses"].append({
+            "sense_id": "sense.en.1",
+            "concept_id": "concept.2",
+            "definition": "Another definition"
+        })
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        # Duplicate translation_id
+        record = self.create_valid_record()
+        record["document_id"] = "doc.en.word3" # Reset for new validation
+        record["translations"].append({
+            "translation_id": "trans.1"
+        })
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
 if __name__ == '__main__':
     unittest.main()
