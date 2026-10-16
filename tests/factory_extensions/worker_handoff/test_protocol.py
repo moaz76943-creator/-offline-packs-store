@@ -172,8 +172,8 @@ class WorkerHandoffTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'not leased'):
             p.ticket(issue(historical), run(), CODE, NOW)
 
-    def test_v2_unsupported_until_owner_protocol_integrated(self):
-        with self.assertRaisesRegex(ValueError, 'not integrated'):
+    def test_v2_malformed_envelope_rejected_by_integrated_parser(self):
+        with self.assertRaisesRegex(ValueError, 'envelope/version mismatch'):
             p.trusted_task({'number': 1, 'title': p.v1.PREFIX + SHA,
                             'body': '```gha-task-v2\n{}\n```',
                             'user': {'login': 'moaz76943-creator'}})
