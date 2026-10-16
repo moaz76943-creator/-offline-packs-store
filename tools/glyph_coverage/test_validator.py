@@ -17,10 +17,16 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         self.latin_font_path = "tools/glyph_coverage/fixtures/test_latin.ttf"
         self.arabic_font_path = "tools/glyph_coverage/fixtures/test_arabic.ttf"
         self.hebrew_font_path = "tools/glyph_coverage/fixtures/test_hebrew.ttf"
+        self.deva_font_path = "tools/glyph_coverage/fixtures/test_deva.ttf"
+        self.cjk_font_path = "tools/glyph_coverage/fixtures/test_cjk.ttf"
+        self.thai_font_path = "tools/glyph_coverage/fixtures/test_thai.ttf"
 
         self.latin_hash = get_hash(os.path.join(self.repo_root, self.latin_font_path))
         self.arabic_hash = get_hash(os.path.join(self.repo_root, self.arabic_font_path))
         self.hebrew_hash = get_hash(os.path.join(self.repo_root, self.hebrew_font_path))
+        self.deva_hash = get_hash(os.path.join(self.repo_root, self.deva_font_path))
+        self.cjk_hash = get_hash(os.path.join(self.repo_root, self.cjk_font_path))
+        self.thai_hash = get_hash(os.path.join(self.repo_root, self.thai_font_path))
 
         self.evidence_path = "tools/glyph_coverage/fixtures/dummy_evidence.txt"
         self.notice_path = "tools/glyph_coverage/fixtures/dummy_notice.txt"
@@ -87,6 +93,30 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         mapping = self.validator.generate_fallback_mapping("Hebr", [asset])
         self.assertTrue(mapping.cmap_coverage)
         self.assertIn("HebrewTest", mapping.valid_fallback_families)
+        self.assertEqual(len(mapping.unsupported_points), 0)
+
+    def test_generate_fallback_mapping_valid_deva(self):
+        asset = self.build_asset("f1", "DevaTest", ["Deva"], self.deva_font_path, self.deva_hash)
+
+        mapping = self.validator.generate_fallback_mapping("Deva", [asset])
+        self.assertTrue(mapping.cmap_coverage)
+        self.assertIn("DevaTest", mapping.valid_fallback_families)
+        self.assertEqual(len(mapping.unsupported_points), 0)
+
+    def test_generate_fallback_mapping_valid_cjk(self):
+        asset = self.build_asset("f1", "CJKTest", ["Hani"], self.cjk_font_path, self.cjk_hash)
+
+        mapping = self.validator.generate_fallback_mapping("Hani", [asset])
+        self.assertTrue(mapping.cmap_coverage)
+        self.assertIn("CJKTest", mapping.valid_fallback_families)
+        self.assertEqual(len(mapping.unsupported_points), 0)
+
+    def test_generate_fallback_mapping_valid_thai(self):
+        asset = self.build_asset("f1", "ThaiTest", ["Thai"], self.thai_font_path, self.thai_hash)
+
+        mapping = self.validator.generate_fallback_mapping("Thai", [asset])
+        self.assertTrue(mapping.cmap_coverage)
+        self.assertIn("ThaiTest", mapping.valid_fallback_families)
         self.assertEqual(len(mapping.unsupported_points), 0)
 
     def test_generate_fallback_mapping_rejected_not_embedded(self):
