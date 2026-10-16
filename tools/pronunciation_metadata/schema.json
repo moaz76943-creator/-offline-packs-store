@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pronunciation Metadata",
+  "type": "object",
+  "properties": {
+    "lexical_entry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sense_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 3
+    },
+    "script": {
+      "type": "string",
+      "minLength": 4,
+      "maxLength": 4
+    },
+    "locale": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Z][a-z]{3})?(-[A-Z]{2})?(-[a-zA-Z0-9]+)?$"
+    },
+    "dialect": {
+      "type": "string"
+    },
+    "provenance_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "offline_availability": {
+      "type": "string",
+      "enum": ["unknown", "supported", "unsupported"]
+    },
+    "ipa": {
+      "type": "string"
+    },
+    "phonetic_transliteration": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "lexical_entry_id",
+    "language",
+    "provenance_id",
+    "source_version",
+    "offline_availability"
+  ],
+  "additionalProperties": false
+}
