@@ -1,182 +1,202 @@
+import unittest
 import json
 import tempfile
-import unittest
 from pathlib import Path
-import hashlib
-from tools.provenance_release.compiler import ProvenanceCompiler
-
-def sha256_str(data: str) -> str:
-    return hashlib.sha256(data.encode('utf-8')).hexdigest()
+from tools.provenance_release.compiler import compile_provenance
 
 class TestProvenanceCompiler(unittest.TestCase):
     def setUp(self):
-        self.temp_dir = tempfile.TemporaryDirectory()
-        self.root = Path(self.temp_dir.name)
+        self.tmpdir = tempfile.TemporaryDirectory()
+        self.root = Path(self.tmpdir.name)
 
-        self.ledger_path = self.root / 'sources.json'
-        self.daily_dir = self.root / 'daily'
+        self.ledger_path = self.root / "sources.json"
+        self.manifest_path = self.root / "manifest.json"
+        self.daily_dir = self.root / "daily"
         self.daily_dir.mkdir()
 
-        self.manifest_out = self.root / 'release_provenance.json'
-        self.notice_out = self.root / 'NOTICE.txt'
+        self.output_manifest = self.root / "release_provenance.json"
+        self.output_notice = self.root / "NOTICE.txt"
 
-        self.compiler = ProvenanceCompiler(self.root, self.ledger_path, self.daily_dir)
+        self.valid_hash = "ed7002b439e9ac845f22357d822bac1444730fbdb6016d3ec9432297b9ec9f73"
+        self.create_artifact("dummy.txt", b"content")
+        self.create_artifact("packs/test.pack", b"content")
 
-        self.artifact_content = "test content"
-        self.artifact_sha = sha256_str(self.artifact_content)
-        self.artifact_path = self.root / 'artifact.txt'
-        self.artifact_path.write_text(self.artifact_content)
+        # Valid notice content for src1
+        self.notice_content = b"src1 Pub CC0-1.0 https://example.com"
+        self.create_artifact("notice.txt", self.notice_content)
 
-        self.notice_content = "src_id publisher CC-BY-SA-4.0 https://origin"
-        self.notice_path = self.root / 'notice.txt'
-        self.notice_path.write_text(self.notice_content)
+    def tearDown(self):
+        self.tmpdir.cleanup()
 
-        self.base_source = {
-            "source_id": "src_id",
+    def create_artifact(self, path_str, content):
+        p = self.root / path_str
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_bytes(content)
+        return p
+
+    def get_output(self):
+        return json.loads(self.output_manifest.read_text())
+
+    def create_valid_ledger(self, overrides=None):
+        src = {
+            "source_id": "src1",
             "kind": "dictionary",
-            "origin_url": "https://origin",
-            "publisher": "publisher",
+            "origin_url": "https://example.com",
+            "publisher": "Pub",
             "dataset_version": "v1",
-            "retrieval": {
-                "identity": "id",
-                "url": "https://origin/download",
-                "date": "2026-01-01",
-                "artifact_path": "path",
-                "sha256": self.artifact_sha
-            },
-            "license": {
-                "id": "CC-BY-SA-4.0",
-                "evidence_url": "https://ev",
-                "evidence_path": "ev_path",
-                "evidence_sha256": "0"*64
-            },
             "status": "APPROVED_FOR_REDISTRIBUTION",
             "alterations": ["none"],
+            "retrieval": {
+                "identity": "id",
+                "url": "https://example.com/file",
+                "date": "2023-01-01",
+                "artifact_path": "dummy.txt",
+                "sha256": self.valid_hash
+            },
+            "license": {
+                "id": "CC0-1.0",
+                "evidence_url": "https://example.com/license",
+                "evidence_path": "dummy.txt",
+                "evidence_sha256": self.valid_hash
+            },
             "review": {
-                "reviewer": "me",
-                "decision_url": "https://decision"
+                "reviewer": "test",
+                "decision_url": "https://example.com/decision"
             }
         }
+        if overrides:
+            src.update(overrides)
+        return {
+            "schema_version": "1.0.0",
+            "sources": [src]
+        }
 
-        self.base_candidate = {
-            "asset_id": "asset_1",
+    def create_valid_manifest(self):
+        return {
+            "schema_version": "1.0.0",
+            "languages": [],
+            "packs": [{
+                "file": "packs/test.pack"
+            }]
+        }
+
+    def create_valid_daily(self, overrides=None):
+        cand = {
+            "asset_id": "cand1",
             "kind": "dictionary",
-            "artifact_path": "artifact.txt",
-            "sha256": self.artifact_sha,
-            "source_refs": [
-                {
-                    "source_id": "src_id",
-                    "dataset_version": "v1",
-                    "artifact_sha256": self.artifact_sha
-                }
-            ],
-            "output_license_id": "CC-BY-SA-4.0",
-            "compiler_license_id": "compiler_lic",
+            "artifact_path": "packs/test.pack",
+            "sha256": self.valid_hash,
+            "source_refs": [{
+                "source_id": "src1",
+                "dataset_version": "v1",
+                "artifact_sha256": self.valid_hash
+            }],
+            "output_license_id": "CC0-1.0",
+            "compiler_license_id": "CC0-1.0",
             "notices": {
-                "src_id": "notice.txt"
+                "src1": "notice.txt"
             },
-            "compliance": {
-                "attribution": True
-            },
+            "compliance": {},
             "provenance_mode": "source_set",
             "record_provenance_reason": "test",
             "review": {
-                "reviewer": "me",
-                "decision_url": "https://decision"
+                "reviewer": "test",
+                "decision_url": "https://example.com/decision"
             }
         }
-
-    def tearDown(self):
-        self.temp_dir.cleanup()
-
-    def write_ledger(self, sources):
-        self.ledger_path.write_text(json.dumps({"schema_version": "1.0.0", "sources": sources}))
-
-    def write_daily(self, candidates, name="daily.json"):
-        (self.daily_dir / name).write_text(json.dumps({
+        if overrides:
+            cand.update(overrides)
+        return {
             "schema_version": "1.0.0",
-            "date": "2026-01-01",
-            "release_candidates": candidates
-        }))
+            "date": "2023-01-01",
+            "release_candidates": [cand]
+        }
 
-    def test_successful_compilation(self):
-        self.write_ledger([self.base_source])
-        self.write_daily([self.base_candidate])
+    def test_missing_authors(self):
+        ledger = self.create_valid_ledger({"publisher": ""})
+        self.ledger_path.write_text(json.dumps(ledger))
+        self.manifest_path.write_text(json.dumps(self.create_valid_manifest()))
+        (self.daily_dir / "1.json").write_text(json.dumps(self.create_valid_daily()))
 
-        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
-        self.assertEqual(statuses['approved'], ['asset_1'])
-        self.assertEqual(statuses['invalid'], [])
+        res = compile_provenance(self.root, self.ledger_path, self.manifest_path, self.daily_dir, self.output_manifest, self.output_notice)
+        self.assertEqual(res, 1)
+        self.assertNotIn("cand1", self.get_output()["artifacts"])
 
-        manifest = json.loads(self.manifest_out.read_text())
-        self.assertEqual(len(manifest['release_provenance']), 1)
-        self.assertEqual(manifest['release_provenance'][0]['asset_id'], 'asset_1')
-        self.assertEqual(manifest['release_provenance'][0]['sources'][0]['publisher'], 'publisher')
+    def test_mixed_licensing(self):
+        ledger = self.create_valid_ledger()
+        ledger["sources"][0]["license"]["id"] = "CC-BY-SA-4.0"
+        self.ledger_path.write_text(json.dumps(ledger))
+        self.manifest_path.write_text(json.dumps(self.create_valid_manifest()))
 
-    def test_missing_publisher_in_notice(self):
-        self.notice_path.write_text("src_id CC-BY-SA-4.0 https://origin") # missing publisher
-        self.write_ledger([self.base_source])
-        self.write_daily([self.base_candidate])
+        daily = self.create_valid_daily({"output_license_id": "PUBLIC-DOMAIN"})
+        (self.daily_dir / "1.json").write_text(json.dumps(daily))
 
-        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
-        self.assertEqual(statuses['invalid'], ['asset_1'])
+        res = compile_provenance(self.root, self.ledger_path, self.manifest_path, self.daily_dir, self.output_manifest, self.output_notice)
+        self.assertEqual(res, 1)
+        self.assertNotIn("cand1", self.get_output()["artifacts"])
 
-    def test_altered_file_invalid_hash(self):
-        self.artifact_path.write_text("altered content") # Changes hash
-        self.write_ledger([self.base_source])
-        self.write_daily([self.base_candidate])
+    def test_altered_files_invalid_hash(self):
+        ledger = self.create_valid_ledger()
+        ledger["sources"][0]["retrieval"]["sha256"] = "0" * 64
+        self.ledger_path.write_text(json.dumps(ledger))
+        self.manifest_path.write_text(json.dumps(self.create_valid_manifest()))
+        (self.daily_dir / "1.json").write_text(json.dumps(self.create_valid_daily()))
 
-        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
-        self.assertEqual(statuses['invalid'], ['asset_1'])
-
-    def test_mixed_licensing_conflict(self):
-        src2 = self.base_source.copy()
-        src2['source_id'] = 'src2'
-        src2['license'] = src2['license'].copy()
-        src2['license']['id'] = 'GFDL-1.3-only'
-
-        cand = self.base_candidate.copy()
-        cand['source_refs'] = cand['source_refs'] + [{
-            "source_id": "src2",
-            "dataset_version": "v1",
-            "artifact_sha256": self.artifact_sha
-        }]
-
-        self.write_ledger([self.base_source, src2])
-        self.write_daily([cand])
-
-        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
-        self.assertEqual(statuses['invalid'], ['asset_1'])
+        res = compile_provenance(self.root, self.ledger_path, self.manifest_path, self.daily_dir, self.output_manifest, self.output_notice)
+        self.assertEqual(res, 1)
+        self.assertNotIn("cand1", self.get_output()["artifacts"])
 
     def test_duplicate_provenance(self):
-        self.write_ledger([self.base_source])
-        self.write_daily([self.base_candidate, self.base_candidate]) # Duplicate
+        self.ledger_path.write_text(json.dumps(self.create_valid_ledger()))
+        self.manifest_path.write_text(json.dumps(self.create_valid_manifest()))
 
-        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
-        # The first should be valid (if everything else is fine), second invalid because of duplicate asset_id
-        # Actually our implementation will process the first one as valid and second as invalid.
-        # But wait, wait: in the compiler, `seen_cids.add(cid)` will mark the second as duplicate.
-        self.assertIn('asset_1', statuses['approved'])
-        self.assertIn('asset_1', statuses['invalid'])
+        daily1 = self.create_valid_daily()
+        daily2 = self.create_valid_daily() # duplicate cand1
+        (self.daily_dir / "1.json").write_text(json.dumps(daily1))
+        (self.daily_dir / "2.json").write_text(json.dumps(daily2))
+
+        res = compile_provenance(self.root, self.ledger_path, self.manifest_path, self.daily_dir, self.output_manifest, self.output_notice)
+        self.assertEqual(res, 1) # Global evaluate finds duplicate cand1
+        self.assertNotIn("cand1", self.get_output()["artifacts"])
 
     def test_blocked_license(self):
-        src = self.base_source.copy()
-        src['status'] = 'BLOCKED_LICENSE'
-        self.write_ledger([src])
-        self.write_daily([self.base_candidate])
+        ledger = self.create_valid_ledger({"status": "BLOCKED_LICENSE"})
+        self.ledger_path.write_text(json.dumps(ledger))
+        self.manifest_path.write_text(json.dumps(self.create_valid_manifest()))
+        (self.daily_dir / "1.json").write_text(json.dumps(self.create_valid_daily()))
 
-        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
-        self.assertEqual(statuses['blocked'], ['asset_1'])
-        self.assertNotIn('asset_1', statuses['approved'])
+        res = compile_provenance(self.root, self.ledger_path, self.manifest_path, self.daily_dir, self.output_manifest, self.output_notice)
+        self.assertEqual(res, 1)
+        self.assertNotIn("cand1", self.get_output()["artifacts"])
 
     def test_review_required(self):
-        src = self.base_source.copy()
-        src['status'] = 'REVIEW_REQUIRED'
-        self.write_ledger([src])
-        self.write_daily([self.base_candidate])
+        ledger = self.create_valid_ledger({"status": "REVIEW_REQUIRED"})
+        self.ledger_path.write_text(json.dumps(ledger))
+        self.manifest_path.write_text(json.dumps(self.create_valid_manifest()))
+        (self.daily_dir / "1.json").write_text(json.dumps(self.create_valid_daily()))
 
-        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
-        self.assertEqual(statuses['review_required'], ['asset_1'])
-        self.assertNotIn('asset_1', statuses['approved'])
+        res = compile_provenance(self.root, self.ledger_path, self.manifest_path, self.daily_dir, self.output_manifest, self.output_notice)
+        self.assertEqual(res, 1)
+        self.assertNotIn("cand1", self.get_output()["artifacts"])
+
+    def test_success(self):
+        self.ledger_path.write_text(json.dumps(self.create_valid_ledger()))
+        self.manifest_path.write_text(json.dumps(self.create_valid_manifest()))
+        (self.daily_dir / "1.json").write_text(json.dumps(self.create_valid_daily()))
+
+        res = compile_provenance(self.root, self.ledger_path, self.manifest_path, self.daily_dir, self.output_manifest, self.output_notice)
+        self.assertEqual(res, 0)
+
+        out_man = json.loads(self.output_manifest.read_text())
+        self.assertEqual(out_man["schema_version"], "1.0.0")
+        self.assertIn("cand1", out_man["artifacts"])
+        self.assertEqual(out_man["artifacts"]["cand1"]["output_license"], "CC0-1.0")
+        self.assertEqual(out_man["artifacts"]["cand1"]["sources"][0]["status"], "APPROVED_FOR_REDISTRIBUTION")
+
+        notice = self.output_notice.read_text()
+        self.assertIn("Machine validation does not constitute a legal opinion.", notice)
+        self.assertIn("Artifact: cand1", notice)
+        self.assertIn(self.notice_content.decode('utf-8'), notice)
 
 if __name__ == '__main__':
     unittest.main()
