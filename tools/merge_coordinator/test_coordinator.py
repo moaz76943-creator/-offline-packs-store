@@ -151,6 +151,43 @@ class ContractTests(unittest.TestCase):
         )
         self.assertEqual(policy_error(sensitive_entry), 'prohibited owned path')
 
+    def test_vetted_dispatcher_exemption_allows_exact_subpath(self):
+        dispatcher_entry = entry(
+            paths=['tools/gha_factory/dispatcher/'],
+        )
+        self.assertIsNone(policy_error(dispatcher_entry))
+        status, reason = self.decide(
+            e=dispatcher_entry,
+            fs=[{'filename': 'tools/gha_factory/dispatcher/queue.py'}],
+        )
+        self.assertEqual(status, 'VERIFIED_READY')
+
+    def test_unvetted_gha_factory_subpaths_remain_strictly_blocked(self):
+        broad_entry = entry(paths=['tools/gha_factory/'])
+        self.assertEqual(policy_error(broad_entry), 'prohibited owned path')
+
+        release_entry = entry(paths=['tools/gha_factory/release/'])
+        self.assertEqual(policy_error(release_entry), 'prohibited owned path')
+
+    def test_unapproved_extra_file_in_dispatcher_pr_blocks(self):
+        dispatcher_entry = entry(paths=['tools/gha_factory/dispatcher/'])
+        status, reason = self.decide(
+            e=dispatcher_entry,
+            fs=[
+                {'filename': 'tools/gha_factory/dispatcher/queue.py'},
+                {'filename': 'tools/gha_factory/release/candidate.py'},
+            ],
+        )
+        self.assertEqual(status, 'SCOPE_VIOLATION')
+
+    def test_head_sha_tampering_after_authorization_blocks(self):
+        dispatcher_entry = entry(
+            paths=['tools/gha_factory/dispatcher/'],
+            head_sha=SHA_A,
+        )
+        tampered_pr = pr(head={'sha': SHA_B})
+        status, reason = self.decide(e=dispatcher_entry, p=tampered_pr)
+        self.assertEqual(status, 'STALE_HEAD')
 
 
 if __name__ == '__main__':
