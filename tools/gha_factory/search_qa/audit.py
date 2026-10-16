@@ -117,10 +117,25 @@ def audit_manifest(root, *, shard=0, shards=10):
     sources = ledger.get('sources')
     if not isinstance(packs,list) or not isinstance(sources,list):
         raise AuditError('malformed manifest or source ledger')
-    # Ledger presence alone is not authorization; final rights evidence is
-    # still validated by the canonical release inspector on each archive.
-    approved = [source for source in sources if isinstance(source, dict)
-                and source.get('status') == 'APPROVED_FOR_REDISTRIBUTION']
+    # The archive inspector validates structure, not legal admission. Reuse
+    # Route 05 for each approved entry, including immutable rights/source bytes.
+    from legal.ledger import admission
+    source_ids = [s.get('source_id') for s in sources if isinstance(s, dict)
+                  and isinstance(s.get('source_id'), str)]
+    if len(source_ids) != len(set(source_ids)):
+        raise AuditError('duplicate source identity in ledger')
+    approved = {}
+    for source in sources:
+        if not isinstance(source, dict) or source.get('status') != 'APPROVED_FOR_REDISTRIBUTION':
+            continue
+        try:
+            blockers = admission.evaluate(
+                {'schema_version':ledger.get('schema_version'), 'sources':[source]},
+                {'packs':[]}, [], root)
+        except (OSError, ValueError, TypeError, KeyError):
+            continue
+        if not blockers:
+            approved[source['source_id']] = source
     if not approved and packs:
         raise AuditError('production packs advertised with no approved source')
     ids = set()
@@ -154,6 +169,10 @@ def audit_manifest(root, *, shard=0, shards=10):
         if hashlib.sha256(blob).hexdigest() != digest:
             raise AuditError('published archive checksum mismatch')
         canonical = candidate.inspect_archive(blob,language)
+        refs = canonical.get('source_ids')
+        if (not isinstance(refs, list) or not refs or
+                any(not isinstance(sid, str) or sid not in approved for sid in refs)):
+            raise AuditError('unapproved archive source reference')
         members = candidate._members(_json(candidate.bounded_gzip(blob)))
         if 'content/content.sqlite' not in members:
             raise AuditError('archive is missing SQLite content')
