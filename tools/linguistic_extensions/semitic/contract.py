@@ -59,6 +59,11 @@ def _script_ok(value, language):
     letters = [ord(c) for c in value if unicodedata.category(c).startswith('L')]
     if not letters:
         return False
+    expected_mark_name = {'ar': 'ARABIC ', 'am': 'ETHIOPIC '}.get(language)
+    if expected_mark_name is None or any(
+            unicodedata.category(c).startswith('M') and
+            not unicodedata.name(c, '').startswith(expected_mark_name) for c in value):
+        return False
     if language == 'ar':
         return all(0x0600 <= n <= 0x06FF or 0x0750 <= n <= 0x077F or 0x08A0 <= n <= 0x08FF for n in letters)
     if language == 'am':
@@ -194,7 +199,8 @@ def lookup(path, root, language, surface, limit=100):
             if record['language_code'] != language or normalize_retrieval(language, record['form']) != key:
                 continue
             identity = (record['lemma_id'], record['sense_id'], json.dumps(record['features'], sort_keys=True),
-                        record.get('root'), record.get('pattern'), evidence['variety'], evidence.get('dialect_tag'))
+                        record.get('root'), record.get('pattern'), evidence['variety'], evidence.get('dialect_tag'),
+                        evidence['part_of_speech'], evidence.get('verb_stem'))
             analyses.add(identity)
             matched_count += 1
             if len(folded) < limit:

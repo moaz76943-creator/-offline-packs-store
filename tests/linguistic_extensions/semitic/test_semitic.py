@@ -223,6 +223,50 @@ class SemiticContractTests(unittest.TestCase):
                                                allomorph=form)]
             self.assertEqual(item, self.validate(item, lang=language))
 
+    def test_foreign_combining_marks_rejected_in_each_linguistic_field(self):
+        for language, template, mark in (('ar', self.ar, '\u05b0'),
+                                          ('am', self.am, '\u064e')):
+            for field in ('lemma', 'form', 'root', 'pattern', 'morpheme', 'allomorph'):
+                with self.subTest(language=language, field=field):
+                    item = deepcopy(template)
+                    value = item['record']['form']
+                    if field in ('morpheme', 'allomorph'):
+                        morpheme = dict(surface=value, kind='stem', position=0)
+                        morpheme['surface' if field == 'morpheme' else 'allomorph'] = value + mark
+                        item['record']['morphemes'] = [morpheme]
+                    else:
+                        item['record'][field] = value + mark
+                        if field in ('root', 'pattern'):
+                            item['record'].setdefault('root', value)
+                            item['record'].setdefault('pattern', value)
+                            item['evidence']['claim_locators'].update(root='entry:root', pattern='entry:pattern')
+                    with self.assertRaises(ContractError):
+                        self.validate(item, lang=language)
+        item = deepcopy(self.am)
+        item['record']['form'] += '\u135f'
+        self.validate(item, lang='am')  # Ethiopic combining gemination mark.
+        self.validate(self.ar)  # Arabic vowel marks remain valid.
+
+    def test_attested_pos_and_verb_stem_remain_distinct_analyses(self):
+        for field in ('part_of_speech', 'verb_stem'):
+            with self.subTest(field=field):
+                first = self.record('ar', 'كتب', 'كتب', 'other', {})
+                other = deepcopy(first)
+                other['evidence']['part_of_speech'] = 'verb'
+                other['evidence']['verb_stem'] = 'كتب'
+                other['evidence']['claim_locators']['verb_stem'] = 'entry:stem'
+                if field == 'verb_stem':
+                    first = deepcopy(other)
+                    other['evidence']['verb_stem'] = 'كتَب'
+                self.validate(first)
+                self.validate(other)
+                output = self.root / 'pos-analyses.jsonl'
+                output.write_text(''.join(json.dumps(x, ensure_ascii=False) + '\n'
+                                          for x in (first, other)), encoding='utf-8')
+                result = lookup(output, self.root, 'ar', 'كتب', limit=1)
+                self.assertEqual('ambiguous', result['status'])
+                self.assertEqual(2, result['total_analyses'])
+
     def test_empty_ledger_blocks_production(self):
         write_json(self.root / 'legal/ledger/sources.json', {'schema_version': '1.0.0', 'sources': []})
         with self.assertRaisesRegex(ContractError, 'BLOCKED_SOURCE'):
