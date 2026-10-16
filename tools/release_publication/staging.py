@@ -91,7 +91,10 @@ def stage_bytes(root,relative,language,expected_sha):
 def persist_stage(root,payload):
     root=Path(root).resolve()
     directory=root/'tools/release_publication/candidates'
-    if directory.is_symlink():raise StageBlocked('unsafe staging directory')
+    # Reject symlinked ancestors before mkdir: even a rejected candidate must
+    # never create directories outside the repository through a parent link.
+    for ancestor in (root/'tools', root/'tools/release_publication', directory):
+        if ancestor.is_symlink():raise StageBlocked('unsafe staging directory')
     directory.mkdir(parents=True,exist_ok=True)
     if directory.resolve()!=directory.absolute():raise StageBlocked('staging escaped repository')
     final=directory/(hashlib.sha256(payload).hexdigest()+'.tar.gz')

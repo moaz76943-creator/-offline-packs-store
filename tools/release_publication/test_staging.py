@@ -89,6 +89,21 @@ class StageTests(unittest.TestCase):
             with self.assertRaisesRegex(s.StageBlocked,'self-publishing'):
                 s.stage_bytes(self.root,'packs/x.pack.gz','ar',self.sha)
 
+    def test_parent_symlinks_rejected_before_any_external_directory_is_created(self):
+        for ancestor in ('tools', 'tools/release_publication'):
+            with self.subTest(ancestor=ancestor):
+                with tempfile.TemporaryDirectory() as tmp:
+                    root=Path(tmp)/'repository'
+                    outside=Path(tmp)/'outside'
+                    root.mkdir()
+                    outside.mkdir()
+                    link=root/ancestor
+                    link.parent.mkdir(parents=True,exist_ok=True)
+                    link.symlink_to(outside,target_is_directory=True)
+                    with self.assertRaisesRegex(s.StageBlocked,'unsafe staging directory'):
+                        s.persist_stage(root,b'read-only-test-payload')
+                    self.assertEqual(list(outside.iterdir()),[])
+
     def test_immutable_replay_and_collision(self):
         payload,_=self.stage()
         first=s.persist_stage(self.root,payload)
