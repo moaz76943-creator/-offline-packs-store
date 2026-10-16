@@ -8,6 +8,7 @@ import json
 import os
 import tempfile
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch
 
@@ -191,6 +192,54 @@ class Merge07RaceAndSerialTests(unittest.TestCase):
     def test_pr_head_changed_between_queries_blocks_squash(self):
         gh = self.run_fixture(FakeGithub(move_head=True), [entry()])
         self.assertEqual(gh.merged, [])
+
+
+class ExpiryBoundaryTests(unittest.TestCase):
+    run_fixture = Merge07RaceAndSerialTests.run_fixture
+
+    def boundary(self, draft, expire):
+        clock = [datetime(2026, 10, 16, 12, 0, tzinfo=timezone.utc)]
+        expired = datetime(2026, 10, 16, 12, 2, tzinfo=timezone.utc)
+
+        class Clock(datetime):
+            @classmethod
+            def now(cls, tz=None):
+                return clock[0]
+
+        class ExpiringGithub(FakeGithub):
+            def __init__(self):
+                super().__init__()
+                self.promoted = []
+
+            def query_pr(self, number, sha):
+                p, *rest = super().query_pr(number, sha)
+                p['draft'] = draft
+                return (p, *rest)
+
+            def get(self, path):
+                if expire and draft:
+                    clock[0] = expired
+                return {'head': {'sha': SHA_A}, 'state': 'open'}
+
+            def main_sha(self):
+                result = super().main_sha()
+                if expire and not draft and self.main_calls == 5:
+                    clock[0] = expired
+                return result
+
+            def promote(self, number):
+                self.promoted.append(number)
+
+        with patch.object(coordinator, 'datetime', Clock):
+            return self.run_fixture(ExpiringGithub(), [entry(expiry='2026-10-16T12:01:00Z')])
+
+    def test_expiry_during_final_promotion_read_blocks_write(self):
+        self.assertEqual(self.boundary(draft=True, expire=True).promoted, [])
+        self.assertEqual(self.boundary(draft=True, expire=False).promoted, [900])
+
+    def test_expiry_during_final_main_read_blocks_squash(self):
+        self.assertEqual(self.boundary(draft=False, expire=True).merged, [])
+        self.assertEqual(self.boundary(draft=False, expire=False).merged, [(900, SHA_A)])
 
 
 if __name__ == '__main__':

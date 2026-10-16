@@ -184,6 +184,20 @@ def authorized_file_conflicts(gh, item, files, authorized):
             conflicts.append(other['number'])
     return sorted(conflicts)
 
+def authorization_expiry_error(e, now=None):
+    """Check the clock again at each privileged write boundary."""
+    expiry_str = e.get('expiry') or e.get('expires_at')
+    if expiry_str:
+        try:
+            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
+            current_time = now if now is not None else datetime.now(timezone.utc)
+            if current_time >= exp_dt:
+                return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
+        except (ValueError, TypeError, AttributeError):
+            return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
+    return None
+
+
 def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False, now=None):
     """Pure readiness classifier; positive result is bound to exact PR/main SHAs."""
     err = policy_error(e)
@@ -228,15 +242,9 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
         latest = max(eligible, key=lambda x: x.get('id', 0), default=None)
         if latest is None or latest.get('status') != 'completed' or latest.get('conclusion') != 'success':
             return 'NOT_RUN', f'check {wanted} lacks exact-head PASS'
-    expiry_str = e.get('expiry') or e.get('expires_at')
-    if expiry_str:
-        try:
-            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
-            current_time = now if now is not None else datetime.now(timezone.utc)
-            if current_time > exp_dt:
-                return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
-        except Exception:
-            return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
+    expiry_error = authorization_expiry_error(e, now)
+    if expiry_error:
+        return expiry_error
 
     if pr.get('draft'):
         return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
@@ -390,6 +398,9 @@ def run():
                     if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
                         print('HALT: SHA changed before promotion')
                         return 0
+                    if authorization_expiry_error(item):
+                        print('HALT: authorization expired before promotion')
+                        return 0
                     gh.promote(number)
                     print(f'PROMOTED #{number}; stop until new review and checks complete')
                     return 0
@@ -433,6 +444,9 @@ def run():
                     latest_rev[login][1].get('commit_id') == item['head_sha']
                     for login in (item.get('reviewers') or [])
                 )
+                if authorization_expiry_error(item):
+                    print('HALT: authorization expired before squash')
+                    return 0
                 try:
                     result = gh.squash(number, item['head_sha'], has_independent_review=has_independent)
                 except TypeError:

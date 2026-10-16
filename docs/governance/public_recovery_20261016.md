@@ -116,3 +116,24 @@ incumbent coordinator transition at a time. Revalidate #176 after #180.
 Source-rights approval and active queue adapter integration remain separate
 production blockers. Flutter analyze/tests are not applicable to this public
 Python-only repair; no APK build was run.
+
+## Follow-up after independent automated review
+
+On resumption, main and the empty authorization registry were unchanged.
+New proposals #277/#278 increased open PRs to 145 independently of this task.
+The automated review of #180's repaired exact head reports no new findings.
+The next review of #276 correctly found that authorization may expire during
+final API reads. Two red/green race regressions now check both promotion and
+squash: expiry is rechecked immediately before either write, with no intervening
+network reads. The shared expiry helper retains both field aliases and rejects
+the expiry boundary itself. Coordinator suite: 47/47 PASS.
+
+The next review of #117 found foreign-script combining marks and collapsed
+part-of-speech/stem identities. Two further regressions reproduced 14 failing
+subcases. The repair validates mark names against the selected script and
+preserves attested part of speech and verb stem in analysis identity. Semitic
+suite: 22/22 PASS; Arabic vowels and Ethiopic gemination remain accepted.
+These are additional repairs, not an independent approval or permission to
+populate approved.json. The local fixture pipeline initially could not run
+without jsonschema in the resumed runtime; the missing dependency was restored
+outside the repository before final verification.
