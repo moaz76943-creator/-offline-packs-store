@@ -1,0 +1,91 @@
+{
+  "task_id": "SQLITE-CONFORMANCE-20261013",
+  "status": "LOCAL_VERIFIED_PENDING_PR",
+  "public_base_head": "3b1a79246de4b9dd58a492bd24c8dab8b965e697",
+  "owned_paths": [
+    "tools/pack_conformance/",
+    ".github/workflows/gha_pack_conformance.yml"
+  ],
+  "active_scopes_preserved": [
+    40,
+    41,
+    42,
+    63,
+    66,
+    67,
+    68,
+    70,
+    73,
+    74,
+    75
+  ],
+  "regressions_red_before_fix": 4,
+  "local_tests": {
+    "pack_conformance": 19,
+    "GHA06": 12,
+    "GHA08": 8,
+    "GHA10": 10,
+    "canonical_pack_v2": 7,
+    "GHA11_readonly_detached": 6,
+    "total_passed": 62,
+    "failed": 0
+  },
+  "GHA11_review_head": "fdc498e16a5c368a2597952ae3f5a239112c5f7b",
+  "GHA11_campaign": {
+    "cases": 39,
+    "failures": 0,
+    "diagnostic_findings": [
+      "duplicate_json_key",
+      "noncanonical_json",
+      "false_production_ready",
+      "fake_signature_flag"
+    ],
+    "note": "Whitespace-only noncanonical_json is not by itself a security vulnerability. Draft not merged or modified."
+  },
+  "proven_canonical_bypasses_closed_in_adapter": [
+    "duplicate JSON envelope/metadata keys",
+    "nonfinite numbers",
+    "tampered unsampled FTS lemma/gloss/language",
+    "missing per-record source proof",
+    "self-asserted release flags",
+    "fixture flag promotion"
+  ],
+  "canonical_bypasses_remain_in_original_inspector": true,
+  "synthetic_registry_probes": 100,
+  "real_production_packs_verified": 0,
+  "published_packs": 0,
+  "production_ready_languages": 0,
+  "registered_languages": 100,
+  "approved_ledger_sources": 0,
+  "source_status": "BLOCKED_SOURCE",
+  "source_sha256": null,
+  "license_evidence_sha256": null,
+  "signature_status": "NOT_RUN",
+  "private_consumer_tests": "NOT_RUN",
+  "android_installation": "NOT_RUN",
+  "hosted_conformance_tests": "NOT_RUN",
+  "action_run_ids": [],
+  "dispatch_status": "NOT_DISPATCHED",
+  "queue_status": "BLOCKED_DEPENDENCY: GHA-02 v1 lacks candidate task type; PR74 owns versioned handoff",
+  "checkpoints": [],
+  "workflow": ".github/workflows/gha_pack_conformance.yml",
+  "performance_benchmarks": "NOT_RUN",
+  "peak_memory": "NOT_MEASURED",
+  "publication_approved": false,
+  "manifest_modified": false,
+  "compiler_modified": false,
+  "no_paid_resources": true,
+  "runner": "ubuntu-latest",
+  "artifact_uploads": 0,
+  "caches": 0,
+  "remaining": [
+    "Route07/GHA06 owner integration of strict adapter",
+    "GHA02 candidate QA task/receipt versioned contract",
+    "approved immutable corpus/license snapshots",
+    "trusted consumer signing/replay/downgrade policy",
+    "hosted execution evidence",
+    "private consumer/device compatibility",
+    "real production performance benchmarks",
+    "remaining checkpoint/staging/replay adversarial matrix"
+  ]
+}
