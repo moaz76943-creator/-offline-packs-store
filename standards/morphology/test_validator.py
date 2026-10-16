@@ -193,5 +193,52 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
         self.assertTrue(self.validator.validate(en_record_past))
         self.assertTrue(self.validator.validate(en_record_participle))
 
+    def test_analytic_construction(self):
+        vi_record = {
+            "language_code": "vi",
+            "lemma_id": "vi:ăn:1",
+            "sense_id": "vi:ăn:eat",
+            "lemma": "ăn",
+            "form": "đang ăn",
+            "features": {"tense": "present", "aspect": "continuous"},
+            "processes": ["analytic"],
+            "components": ["đang", "ăn"],
+            "source_id": "wiktionary-vi-an",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(vi_record))
+
+    def test_orthographic_variation_and_transliteration(self):
+        sr_record = {
+            "language_code": "sr",
+            "lemma_id": "sr:језик:1",
+            "sense_id": "sr:језик:language",
+            "lemma": "језик",
+            "form": "језици",
+            "features": {"number": "plural", "case": "nominative"},
+            "orthographic_variant": "jezici",
+            "transliteration": "jezici",
+            "source_id": "wiktionary-sr-jezik",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(sr_record))
+
+    def test_transliteration_only(self):
+        ar_record = {
+            "language_code": "ar",
+            "lemma_id": "ar:kitab:1",
+            "sense_id": "ar:kitab:book",
+            "lemma": "كِتَاب",
+            "form": "كُتُب",
+            "features": {"number": "plural", "grammatical_gender": "masculine"},
+            "root": "ك-ت-ب",
+            "pattern": "فُعُل",
+            "processes": ["broken_plural", "nonconcatenative"],
+            "transliteration": "kutub",
+            "source_id": "wiktionary-ar-kitab",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(ar_record))
+
 if __name__ == '__main__':
     unittest.main()
