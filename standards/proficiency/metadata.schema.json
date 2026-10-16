@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open Proficiency Metadata Standard",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "language",
+    "entry_level_classification",
+    "example_level_classification"
+  ],
+  "properties": {
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$"
+    },
+    "entry_level_classification": {
+      "$ref": "#/$defs/classification"
+    },
+    "example_level_classification": {
+      "$ref": "#/$defs/classification"
+    }
+  },
+  "$defs": {
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classification_status",
+        "cefr_level",
+        "coarse_difficulty"
+      ],
+      "properties": {
+        "classification_status": {
+          "enum": [
+            "verified",
+            "estimated",
+            "unverified",
+            "unknown"
+          ]
+        },
+        "cefr_level": {
+          "enum": [
+            "A1",
+            "A2",
+            "B1",
+            "B2",
+            "C1",
+            "C2",
+            "unknown"
+          ]
+        },
+        "coarse_difficulty": {
+          "enum": [
+            "beginner",
+            "intermediate",
+            "advanced",
+            "unknown"
+          ]
+        },
+        "source_identity": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "evaluation_method": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "descriptor_guided_review",
+            "published_content_assignment",
+            "corpus_frequency_heuristic",
+            null
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "review_status": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
