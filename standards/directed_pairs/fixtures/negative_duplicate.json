@@ -1,0 +1,48 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.pairs.en-es.negative3",
+  "source_language": "en",
+  "target_language": "es",
+  "translations": [
+    {
+      "translation_id": "tr.dup",
+      "from_sense_id": "sense.en.bank",
+      "to_sense_id": "sense.es.banco",
+      "translation_text": "banco",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.fixture",
+        "origin_url": "https://example.com/fixture",
+        "publisher": "SyntheticTestFixture",
+        "dataset_version": "1.0",
+        "retrieval_id": "test-id",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "line 1",
+        "publication_approved": false,
+        "fixture_only": true
+      },
+      "from_language": "en",
+      "to_language": "es"
+    },
+    {
+      "translation_id": "tr.dup",
+      "from_sense_id": "sense.en.river",
+      "to_sense_id": "sense.es.rio",
+      "translation_text": "rio",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.fixture",
+        "origin_url": "https://example.com/fixture",
+        "publisher": "SyntheticTestFixture",
+        "dataset_version": "1.0",
+        "retrieval_id": "test-id",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "line 2",
+        "publication_approved": false,
+        "fixture_only": true
+      },
+      "from_language": "en",
+      "to_language": "es"
+    }
+  ]
+}
