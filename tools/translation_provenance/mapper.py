@@ -41,7 +41,6 @@ def map_provenance(stream, sources_manifest, *, repo_root=None):
     if not senses or not translations:
         raise ValueError("Independent source-linked sense and translation records required")
     seen = set()
-    records = []
     for entry in translations:
         tid = required(entry.get("translation_id"), "translation_id")
         if tid in seen:
@@ -55,6 +54,7 @@ def map_provenance(stream, sources_manifest, *, repo_root=None):
         from_sense, to_sense = senses[source_id], senses[target_id]
         from_language = from_sense["language"]
         to_language = to_sense["language"]
+
         if from_language == to_language:
             raise ValueError("Invalid language direction")
         if (entry.get("from_language", from_language) != from_language or
@@ -82,12 +82,15 @@ def map_provenance(stream, sources_manifest, *, repo_root=None):
             "translation_evidence_sha256": evidence["sha256"],
             "evidence_only": True
         }
+        if "regional_variant" in entry:
+            record["regional_variant"] = entry["regional_variant"]
+        if "contextual_labels" in entry:
+            record["contextual_labels"] = entry["contextual_labels"]
         record["provenance_hash"] = hashlib.sha256(
             json.dumps(record, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
         ).hexdigest()
-        records.append(record)
-    # Not a streaming generator: no partial stdout if a later record fails.
-    return records
+        yield record
+
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
