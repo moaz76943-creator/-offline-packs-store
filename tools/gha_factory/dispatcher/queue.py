@@ -92,7 +92,15 @@ def serialize(t):
 def parse(body,language_ids=None):
     if not isinstance(body,str) or len(body.encode('utf-8'))>12000 or not body.startswith(MARKER) or not body.endswith('\n```'):
         raise ValueError('invalid queue issue envelope')
-    t=json.loads(body[len(MARKER):-4])
+    def reject_duplicate_keys(pairs):
+        values = {}
+        for key, value in pairs:
+            if key in values:
+                raise ValueError('duplicate JSON key in queue task envelope')
+            values[key] = value
+        return values
+
+    t=json.loads(body[len(MARKER):-4], object_pairs_hook=reject_duplicate_keys)
     return validate(t,language_ids)
 
 
