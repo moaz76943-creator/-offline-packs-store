@@ -137,3 +137,20 @@ These are additional repairs, not an independent approval or permission to
 populate approved.json. The local fixture pipeline initially could not run
 without jsonschema in the resumed runtime; the missing dependency was restored
 outside the repository before final verification.
+
+Final boundary reassessment also exercised the real `GitHub.promote` method,
+whose internal PR read happens after the outer check. The additional regression
+reproduced expiration during that read. Authorization and exact head are now
+checked inside the method immediately before the GraphQL mutation, in addition
+to the outer guards. Coordinator suite: 48/48 PASS. Reproduction used the real
+method with mock API/clock boundaries; no production transition was attempted.
+
+Additional source/decomposition review findings were reproduced and repaired
+on the existing PRs. #117 now requires per-claim locators for optional
+components, segmentation and morpheme/allomorph fields, and uses the full
+grammatical record (excluding spelling/provenance) as analysis identity.
+Semitic suite: 24/24 PASS. #176 now reuses canonical Route 05 admission for
+source/license bytes and review evidence, rejects duplicate ledger identities
+and verifies that every inspected archive source ID belongs to the validated
+source set. Its three new negative regressions failed before the repair;
+search suite: 16/16 PASS. No source approval or production execution occurred.

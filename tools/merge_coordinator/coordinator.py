@@ -346,10 +346,14 @@ class GitHub:
         p = self.get(f'/pulls/{n}')
         return {'state': p['state'], 'merged': p['merged']}
 
-    def promote(self, number):
+    def promote(self, number, authorization):
         pr = self.get(f'/pulls/{number}')
+        if pr.get('head', {}).get('sha') != authorization['head_sha']:
+            raise ValueError('PR head changed inside promotion')
         body = {'query': 'mutation($id:ID!){markPullRequestReadyForReview(input:{pullRequestId:$id}){pullRequest{isDraft}}}',
                 'variables': {'id': pr['node_id']}}
+        if authorization_expiry_error(authorization):
+            raise ValueError('authorization expired inside promotion')
         result = self.request('/graphql', method='POST', data=body)
         if result.get('errors') or result.get('data', {}).get('markPullRequestReadyForReview', {}).get('pullRequest', {}).get('isDraft') is not False:
             raise ValueError('promotion not confirmed')
@@ -401,7 +405,7 @@ def run():
                     if authorization_expiry_error(item):
                         print('HALT: authorization expired before promotion')
                         return 0
-                    gh.promote(number)
+                    gh.promote(number, item)
                     print(f'PROMOTED #{number}; stop until new review and checks complete')
                     return 0
             elif result == 'VERIFIED_READY':
