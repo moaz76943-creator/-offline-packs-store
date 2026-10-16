@@ -42,6 +42,11 @@ class FontRightsRegistry:
             return {"status": "REJECT", "issues": ["Invalid asset record"], "publication_approved": False}
         if not all(text(x) for x in (asset.id, asset.family, asset.source, asset.version, asset.author)):
             issues.append("Missing font identity, author, source or version")
+        else:
+            if "unknown" in asset.source.lower():
+                issues.append("Unknown sources are rejected")
+            if "mixed" in asset.family.lower():
+                issues.append("Mixed families are rejected")
         if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
         if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
@@ -95,3 +100,38 @@ class FontRightsRegistry:
                 "Metadata-only font has no verified embedded bytes"], "publication_approved": False}
         return {"status": "REJECT" if issues else "EVIDENCE_PASS",
                 "issues": issues, "publication_approved": False}
+
+def main(argv=None):
+    import argparse
+    import json
+    import sys
+
+    parser = argparse.ArgumentParser(description="Font Rights Registry CLI")
+    parser.add_argument('--repo-root', type=Path, default=Path.cwd())
+    parser.add_argument('inputs', nargs='*', type=Path, help='JSON files with list of font assets')
+    args = parser.parse_args(argv)
+
+    registry = FontRightsRegistry()
+    script_mapping = {}
+
+    for path in args.inputs:
+        try:
+            data = json.loads(path.read_text(encoding='utf-8'))
+            if not isinstance(data, list):
+                data = [data]
+            for item in data:
+                asset = FontAsset(**item)
+                result = registry.validate_asset(asset, repo_root=args.repo_root)
+                if result['status'] == 'EVIDENCE_PASS':
+                    for script in asset.scripts:
+                        script_mapping.setdefault(script, []).append(asset.id)
+        except Exception as e:
+            print(f"Error processing {path}: {e}", file=sys.stderr)
+            return 1
+
+    print(json.dumps(script_mapping, indent=2, sort_keys=True))
+    return 0
+
+if __name__ == '__main__':
+    import sys
+    sys.exit(main())

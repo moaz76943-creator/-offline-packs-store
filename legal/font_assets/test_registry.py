@@ -87,5 +87,13 @@ class FontEvidenceTests(unittest.TestCase):
         self.asset.license_evidence_url = 123
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_unknown_source_rejected(self):
+        self.asset.source = "Unknown"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_mixed_family_rejected(self):
+        self.asset.family = "Mixed Family"
+        self.assertEqual(self.check()["status"], "REJECT")
+
 if __name__ == "__main__":
     unittest.main()
