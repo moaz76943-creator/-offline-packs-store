@@ -49,7 +49,65 @@ class RulesetEvidenceTests(unittest.TestCase):
         bad[0] = {'type':'required_status_checks', 'parameters':{
             'strict_required_status_checks_policy':False,
             'required_status_checks':[{'context':'public-pr-merge-gate'}]}}
-        self.assertFalse(allowed(self.branch, bad))
         bad[0]['parameters']['strict_required_status_checks_policy'] = True
         bad[0]['parameters']['required_status_checks'] = [{'context':'unrelated'}]
         self.assertFalse(allowed(self.branch, bad))
+
+    def test_solo_maintainer_ruleset_permits_when_squash_and_thread_resolution_strict(self):
+        solo_rules = [
+            {'type': 'required_status_checks', 'parameters': {
+                'strict_required_status_checks_policy': True,
+                'required_status_checks': [{'context': 'public-pr-merge-gate'}]}},
+            {'type': 'pull_request', 'parameters': {
+                'required_approving_review_count': 0,
+                'dismiss_stale_reviews_on_push': True,
+                'required_review_thread_resolution': True,
+                'allowed_merge_methods': ['squash']}},
+            {'type': 'non_fast_forward'},
+            {'type': 'deletion'},
+        ]
+        self.assertTrue(allowed(self.branch, solo_rules))
+
+    def test_solo_maintainer_ruleset_rejects_loose_conditions(self):
+        bad_methods = [
+            {'type': 'required_status_checks', 'parameters': {
+                'strict_required_status_checks_policy': True,
+                'required_status_checks': [{'context': 'public-pr-merge-gate'}]}},
+            {'type': 'pull_request', 'parameters': {
+                'required_approving_review_count': 0,
+                'dismiss_stale_reviews_on_push': True,
+                'required_review_thread_resolution': True,
+                'allowed_merge_methods': ['squash', 'merge']}},
+            {'type': 'non_fast_forward'},
+            {'type': 'deletion'},
+        ]
+        self.assertFalse(allowed(self.branch, bad_methods))
+
+        bad_threads = [
+            {'type': 'required_status_checks', 'parameters': {
+                'strict_required_status_checks_policy': True,
+                'required_status_checks': [{'context': 'public-pr-merge-gate'}]}},
+            {'type': 'pull_request', 'parameters': {
+                'required_approving_review_count': 0,
+                'dismiss_stale_reviews_on_push': True,
+                'required_review_thread_resolution': False,
+                'allowed_merge_methods': ['squash']}},
+            {'type': 'non_fast_forward'},
+            {'type': 'deletion'},
+        ]
+        self.assertFalse(allowed(self.branch, bad_threads))
+
+        bad_stale = [
+            {'type': 'required_status_checks', 'parameters': {
+                'strict_required_status_checks_policy': True,
+                'required_status_checks': [{'context': 'public-pr-merge-gate'}]}},
+            {'type': 'pull_request', 'parameters': {
+                'required_approving_review_count': 0,
+                'dismiss_stale_reviews_on_push': False,
+                'required_review_thread_resolution': True,
+                'allowed_merge_methods': ['squash']}},
+            {'type': 'non_fast_forward'},
+            {'type': 'deletion'},
+        ]
+        self.assertFalse(allowed(self.branch, bad_stale))
+
