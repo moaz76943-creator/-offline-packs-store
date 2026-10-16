@@ -36,7 +36,7 @@ class SemiticContractTests(unittest.TestCase):
             {'id': 'so', 'family': 'Cushitic', 'scripts': ['Latn']},
         ]})
         fields = ('language_code lemma_id sense_id lemma form features root pattern processes '
-                  'components morphemes script orthographic_variant source_id evidence_version').split()
+                  'components segmentation morphemes script orthographic_variant source_id evidence_version').split()
         write_json(self.root / 'standards/morphology/form.schema.json', {
             'required': ['language_code', 'lemma_id', 'sense_id', 'lemma', 'form', 'features', 'source_id', 'evidence_version'],
             'properties': {name: {} for name in fields}})
@@ -60,6 +60,15 @@ class SemiticContractTests(unittest.TestCase):
 
     def validate(self, candidate, lang='ar', sha='a' * 64):
         return validate_candidate(candidate, self.root, lang, 'source-morph', 'snapshot-1', sha)
+
+    def optional_claims(self, item):
+        claims = item['evidence']['claim_locators']
+        for field in ('components', 'segmentation'):
+            for index, _ in enumerate(item['record'].get(field, [])):
+                claims[f'{field}.{index}'] = 'entry:explicit-claim'
+        for index, morpheme in enumerate(item['record'].get('morphemes', [])):
+            for field in morpheme:
+                claims[f'morphemes.{index}.{field}'] = 'entry:explicit-claim'
 
     def make_approved(self, entries):
         # Raw corpus entries deliberately omit their own source SHA: worker binds
@@ -221,7 +230,39 @@ class SemiticContractTests(unittest.TestCase):
             item = deepcopy(candidate)
             item['record']['morphemes'] = [dict(surface=form, kind='root', position=0,
                                                allomorph=form)]
+            self.optional_claims(item)
             self.assertEqual(item, self.validate(item, lang=language))
+
+    def test_optional_decompositions_need_per_claim_locators(self):
+        for field, value in (('components', ['كتب']), ('segmentation', ['ك', 'تب']),
+                              ('morphemes', [dict(surface='كتب', kind='root', position=0, allomorph='كتب')])):
+            item = deepcopy(self.ar)
+            item['record'][field] = value
+            with self.subTest(field=field), self.assertRaises(ContractError):
+                self.validate(item)
+            self.optional_claims(item)
+            self.assertEqual(item, self.validate(item))
+
+    def test_attested_process_and_decomposition_differences_are_distinct(self):
+        for field, values in (('processes', (['broken_plural'], ['reduplication'])),
+                               ('components', (['كتب'], ['كبت'])),
+                               ('segmentation', (['ك', 'تب'], ['كت', 'ب'])),
+                               ('morphemes', ([dict(surface='كتب', kind='root', position=0)],
+                                              [dict(surface='كتب', kind='stem', position=0)]))):
+            with self.subTest(field=field):
+                rows = [deepcopy(self.ar), deepcopy(self.ar)]
+                for row, value in zip(rows, values):
+                    row['record'][field] = value
+                    if field == 'processes':
+                        row['evidence']['claim_locators'].pop('processes.broken_plural')
+                        row['evidence']['claim_locators']['processes.' + value[0]] = 'entry:process'
+                    self.optional_claims(row)
+                    self.validate(row)
+                output = self.root / 'decomposition.jsonl'
+                output.write_text(''.join(json.dumps(x, ensure_ascii=False) + '\n' for x in rows), encoding='utf-8')
+                result = lookup(output, self.root, 'ar', self.ar['record']['form'], limit=1)
+                self.assertEqual('ambiguous', result['status'])
+                self.assertEqual(2, result['total_analyses'])
 
     def test_foreign_combining_marks_rejected_in_each_linguistic_field(self):
         for language, template, mark in (('ar', self.ar, '\u05b0'),

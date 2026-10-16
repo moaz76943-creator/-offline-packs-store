@@ -171,6 +171,11 @@ def validate_candidate(candidate, root, language, source_id, dataset_version, so
     claims = evidence['claim_locators']
     keys = {'form'} | {'features.' + k for k in features} | set(k for k in ('root','pattern') if k in record)
     keys.update('processes.' + p for p in processes)
+    for field in ('components', 'segmentation'):
+        keys.update(f'{field}.{index}' for index, _ in enumerate(record.get(field, [])))
+    for index, morpheme in enumerate(record.get('morphemes', [])):
+        keys.update(f'morphemes.{index}.{field}' for field in morpheme)
+    keys.update(field for field in ('orthographic_variant', 'vowel_harmony_class') if field in record)
     if pos == 'verb':
         keys.add('verb_stem')
     if not isinstance(claims, dict) or set(claims) != keys or any(
@@ -198,8 +203,12 @@ def lookup(path, root, language, surface, limit=100):
             record, evidence = item['record'], item['evidence']
             if record['language_code'] != language or normalize_retrieval(language, record['form']) != key:
                 continue
-            identity = (record['lemma_id'], record['sense_id'], json.dumps(record['features'], sort_keys=True),
-                        record.get('root'), record.get('pattern'), evidence['variety'], evidence.get('dialect_tag'),
+            # All grammatical fields define an analysis, including optional
+            # process/segmentation claims. Spelling and provenance are separate.
+            analysis_record = {field: value for field, value in record.items()
+                               if field not in ('form', 'source_id', 'evidence_version')}
+            identity = (json.dumps(analysis_record, sort_keys=True),
+                        evidence['variety'], evidence.get('dialect_tag'),
                         evidence['part_of_speech'], evidence.get('verb_stem'))
             analyses.add(identity)
             matched_count += 1
