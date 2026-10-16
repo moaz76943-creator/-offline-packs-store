@@ -1,0 +1,18 @@
+{
+  "animal.mammal.bat": {
+    "author": "Original Vector Author",
+    "concept_id": "animal.mammal.bat",
+    "file": "animal.mammal.bat.vct",
+    "hash": "d9cfe8aec02580aafa072931ffb7da2d4445273d76f91932c4f36f8082f26610",
+    "license": "CC0-1.0",
+    "source": "https://example.com/cc0-bat"
+  },
+  "food.fruit.apple": {
+    "author": "Original Vector Author",
+    "concept_id": "food.fruit.apple",
+    "file": "food.fruit.apple.vct",
+    "hash": "ed7291f182a013efb89543475c49bb334cfbfefc1d0056531fee04f0dd9ccbae",
+    "license": "CC0-1.0",
+    "source": "https://example.com/cc0-apple"
+  }
+}
