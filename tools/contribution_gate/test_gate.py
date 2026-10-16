@@ -118,7 +118,7 @@ class ContributionTests(unittest.TestCase):
 
     def test_evidence_pass_is_not_legal_clearance(self):
         r = self.check()
-        self.assertEqual(r["status"], "EVIDENCE_PASS", r)
+        self.assertEqual(r["status"], "ACCEPT", r)
         self.assertFalse(r["publication_approved"])
         self.assertTrue(r["receipt"]["evidence_only"])
     def test_forged_asset_hash(self):
@@ -154,10 +154,34 @@ class ContributionTests(unittest.TestCase):
     def test_source_not_approved(self):
         self.source["status"] = "REVIEW_REQUIRED"
         save_ledger(self.root, self.ledger)
-        self.assertEqual(self.check()["status"], "REJECT")
+        self.assertEqual(self.check()["status"], "REVIEW_REQUIRED")
     def test_explicit_fixture_marker(self):
         self.manifest["is_fixture"] = True
         self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_missing_alterations_for_copyleft(self):
+        self.source["license"]["id"] = "CC-BY-SA-4.0"
+        save_ledger(self.root, self.ledger)
+        rights = self._authorization()
+        rights["license_id"] = "CC-BY-SA-4.0"
+        self._replace_authorization(rights)
+        self.manifest["license_id"] = "CC-BY-SA-4.0"
+        # CC-BY-SA-4.0 requires alterations list in manifest
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_copyleft_with_alterations_accepted(self):
+        self.source["license"]["id"] = "CC-BY-SA-4.0"
+        save_ledger(self.root, self.ledger)
+        rights = self._authorization()
+        rights["license_id"] = "CC-BY-SA-4.0"
+        self._replace_authorization(rights)
+        self.manifest["license_id"] = "CC-BY-SA-4.0"
+        # Adding alterations satisfies the copyleft 'changes_disclosed' obligation
+        self.manifest["alterations"] = []
+        # We need to recreate the notice to include the new license id
+        notice = ("case-source Example Test Publisher https://example.org/fixture-source CC-BY-SA-4.0")
+        self.manifest["attribution_notice"]["sha256"] = put(self.root, "notices/notice.txt", notice.encode())
+        self.assertEqual(self.check()["status"], "ACCEPT")
 
 if __name__ == "__main__":
     unittest.main()

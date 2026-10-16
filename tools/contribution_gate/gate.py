@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from legal.ledger.admission import KINDS, manual_review, text, url_ok
+from legal.ledger.admission import KINDS, OBLIGATIONS, manual_review, text, url_ok
 from tools.contribution_gate.evidence import (
     exact_source_reference, load_verified_ledger, required, verified_artifact
 )
@@ -86,10 +86,13 @@ def validate_contribution(manifest_dict, repo_root):
             rights_info = source["license"]
             for key in ("artwork_evidence_url", "artwork_evidence_path", "artwork_evidence_sha256"):
                 required(rights_info.get(key), "separate artwork rights evidence")
+        if "changes_disclosed" in OBLIGATIONS.get(source["license"]["id"], ()):
+            if not isinstance(manifest_dict.get("alterations"), list):
+                raise ValueError("Missing modifications disclosure for copyleft license")
         receipt_id = hashlib.sha256(
             (asset_id + "|" + manifest_dict["sha256"] + "|" +
              source["retrieval"]["sha256"]).encode("utf-8")).hexdigest()
-        return {"status": "EVIDENCE_PASS", "reasons": [],
+        return {"status": "ACCEPT", "reasons": [],
                 "publication_approved": False,
                 "receipt": {"receipt_id": receipt_id, "source_id": source["source_id"],
                             "source_version": source["dataset_version"],
@@ -97,7 +100,8 @@ def validate_contribution(manifest_dict, repo_root):
                             "artifact_sha256": manifest_dict["sha256"],
                             "evidence_only": True}}
     except (ValueError, KeyError, OSError, TypeError, UnicodeError) as exc:
-        return block(str(exc))
+        msg = str(exc)
+        return block(msg, status="REVIEW_REQUIRED" if "REVIEW_REQUIRED" in msg else "REJECT")
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
@@ -110,7 +114,7 @@ def main(argv=None):
         p.exit(2, "BLOCKED: " + str(exc) + "\n")
     result = validate_contribution(manifest, a.repo_root)
     print(json.dumps(result, indent=2, sort_keys=True))
-    return 0 if result["status"] == "EVIDENCE_PASS" else 1
+    return 0 if result["status"] == "ACCEPT" else 1
 
 if __name__ == "__main__":
     raise SystemExit(main())
