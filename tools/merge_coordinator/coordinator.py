@@ -8,6 +8,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -23,8 +24,31 @@ DENY_PREFIXES = (
     'tools/open_export/', 'tools/pack_conformance/', 'tools/open_index/',
     'tools/gha_factory/', '.github/', 'catalog/', 'standards/',
 )
+VETTED_EXEMPT_PREFIXES = (
+    'tools/gha_factory/dispatcher/',
+)
 DENY_EXACT = {'manifest.json', 'version.json', 'deutsch_deep_master.pack.gz',
               'perfect_public_store.py', 'pubspec.yaml', 'setup_repo.py'}
+
+
+def is_prohibited_prefix(path):
+    for denied in DENY_PREFIXES:
+        if path.startswith(denied):
+            if any(path.startswith(exempt) for exempt in VETTED_EXEMPT_PREFIXES):
+                continue
+            return True
+    return False
+
+
+def is_denied_file(name):
+    if name in DENY_EXACT:
+        return True
+    for denied in DENY_PREFIXES:
+        if name.startswith(denied):
+            if any(name.startswith(exempt) for exempt in VETTED_EXEMPT_PREFIXES):
+                continue
+            return True
+    return False
 
 
 def policy_error(e):
@@ -44,7 +68,7 @@ def policy_error(e):
     for path in allowed:
         if not isinstance(path, str) or not path.endswith('/') or path.startswith('/') or '../' in path or '\\' in path:
             return 'unsafe allowed path'
-        if not path.startswith(('tools/', 'tests/', 'docs/')) or path.startswith(DENY_PREFIXES):
+        if not path.startswith(('tools/', 'tests/', 'docs/')) or is_prohibited_prefix(path):
             return 'prohibited owned path'
     names = e.get('checks')
     if (not isinstance(names, list) or len(names) < 2 or
@@ -188,8 +212,7 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
         if file.get('status') in ('renamed', 'copied') or file.get('previous_filename') is not None:
             names.append(file.get('previous_filename'))
         for name in names:
-            if (not isinstance(name, str) or name in DENY_EXACT or
-                    name.startswith(DENY_PREFIXES) or
+            if (not isinstance(name, str) or is_denied_file(name) or
                     not any(name.startswith(prefix) for prefix in e['paths'])):
                 return 'SCOPE_VIOLATION', f'unapproved or sensitive path {name}'
     for num in e['dependencies']:
@@ -295,8 +318,13 @@ class GitHub:
                          changed[0].get('status') in ('modified', 'added'))
         return (parents[0]['sha'] if parents else None, approved_only)
 
-    def query_pr(self, number, head_sha):
+    def query_pr(self, number, head_sha, max_retries=2):
         pr = self.get(f'/pulls/{number}')
+        retries = 0
+        while retries < max_retries and (pr.get('mergeable') is None or pr.get('mergeable_state') == 'unknown'):
+            time.sleep(1.5)
+            retries += 1
+            pr = self.get(f'/pulls/{number}')
         checks = self.get(f'/commits/{head_sha}/check-runs?per_page=100')
         if checks.get('total_count', 0) > 100:
             raise ValueError('check runs pagination incomplete')
