@@ -2,10 +2,11 @@
 import hashlib
 import json
 import tempfile
+import tracemalloc
 import unittest
 from pathlib import Path
 
-from tools.gha_factory.examples.factory import (Rejected, bounded_tsv, digest,
+from tools.gha_factory.examples.factory import (MAX_LINE, Rejected, bounded_tsv, digest,
     make_cloze, run, source_approval, source_path, verified_catalog)
 
 
@@ -137,6 +138,33 @@ class FactoryTests(unittest.TestCase):
         lines=list(bounded_tsv(p,2))
         self.assertIsNone(lines[1][1])
         self.assertIsNotNone(lines[2][2])
+
+    def test_oversized_tsv_line_has_bounded_memory_and_preserves_next_row(self):
+        path = self.source / 'giant.tsv'
+        path.write_bytes(b'x' * (MAX_LINE * 128) + b'\n2\tvalid\n')
+        tracemalloc.start()
+        try:
+            rows = list(bounded_tsv(path, 2))
+            _, peak = tracemalloc.get_traced_memory()
+        finally:
+            tracemalloc.stop()
+        self.assertEqual(rows, [(1, None, 'oversized_line'), (2, ['2', 'valid'], None)])
+        self.assertLess(peak, MAX_LINE * 8)
+
+    def test_tsv_line_byte_limit_and_crlf_are_preserved(self):
+        path = self.source / 'limits.tsv'
+        accepted = b'1\t' + b'x' * (MAX_LINE - 4) + b'\r\n'
+        rejected = b'2\t' + b'x' * (MAX_LINE - 3) + b'\r\n'
+        path.write_bytes(accepted + rejected + '3\tصحيح\n'.encode())
+        rows = list(bounded_tsv(path, 2))
+        self.assertEqual(rows[0], (1, ['1', 'x' * (MAX_LINE - 4)], None))
+        self.assertEqual(rows[1], (2, None, 'oversized_line'))
+        self.assertEqual(rows[2], (3, ['3', 'صحيح'], None))
+
+    def test_oversized_tsv_line_without_newline_is_rejected_once(self):
+        path = self.source / 'unterminated.tsv'
+        path.write_bytes(b'x' * (MAX_LINE * 3))
+        self.assertEqual(list(bounded_tsv(path, 2)), [(1, None, 'oversized_line')])
 
     def test_deterministic_partitions_and_checkpoint(self):
         a = self.process()

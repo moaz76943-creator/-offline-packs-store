@@ -77,8 +77,17 @@ def source_path(workspace, snapshot):
 
 def bounded_tsv(path, columns):
     with open(path, 'rb') as stream:
-        for line, data in enumerate(stream, 1):
+        line = 0
+        while True:
+            data = stream.readline(MAX_LINE + 1)
+            if not data:
+                break
+            line += 1
             if len(data) > MAX_LINE:
+                # Drain one physical line in bounded chunks, retaining neither
+                # its bytes nor a decoded copy. Resume at the next real row.
+                while data and not data.endswith(b'\n'):
+                    data = stream.readline(MAX_LINE + 1)
                 yield line, None, 'oversized_line'
                 continue
             try:
