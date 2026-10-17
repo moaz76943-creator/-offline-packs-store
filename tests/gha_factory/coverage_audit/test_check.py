@@ -187,6 +187,27 @@ class CoverageAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(checker.AuditError, 'duplicate provenance'):
             checker.audit(self.root, shard=0, shards=1)
 
+    def test_verifier_import_uses_repo_root_not_process_pythonpath(self):
+        module = self.root / 'tools/pack_v2/pipeline.py'
+        module.parent.mkdir(parents=True)
+        module.write_text('def check_envelope(blob, language): return {"test": language}\n', encoding='utf-8')
+        self.assertEqual(checker._load_pack_checker(self.root)(b'bytes', 'aa'), {'test': 'aa'})
+
+    def test_translation_target_mismatch_not_counted_as_coverage(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            database = Path(temporary) / 'directed.sqlite'
+            with closing(sqlite3.connect(database)) as db:
+                db.executescript("""
+                    CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                    CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                    CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT, language_code TEXT);
+                    INSERT INTO lexicon VALUES('l1','aa'),('l2','ab');
+                    INSERT INTO senses VALUES('s1','l1'),('s2','l2');
+                    INSERT INTO translations VALUES('s1','s2','aa');
+                """)
+            with self.assertRaisesRegex(checker.AuditError, 'translation target language mismatch'):
+                checker._directed_pairs(database.read_bytes(), {'aa','ab'})
+
 
 if __name__ == '__main__':
     unittest.main()
