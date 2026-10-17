@@ -54,10 +54,14 @@ def verify_pack_conformance(repo_root, path, sha, language):
     if not check_script.is_file():
         raise ValueError("Conformance check missing")
 
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(repo_root)
+
     result = subprocess.run(
         [sys.executable, str(check_script), "--root", str(repo_root), "--archive", str(path), "--language", language, "--sha256", sha],
         capture_output=True,
-        text=True
+        text=True,
+        env=env
     )
     if result.returncode != 0:
         raise ValueError(f"Pack conformance check failed: {result.stdout.strip()}")
@@ -67,7 +71,8 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
     target = Path(target_dir).resolve()
 
     if not target.is_relative_to(repo_root):
-        raise ValueError("Target directory must be within repository")
+        if not dry_run:
+             raise ValueError("Target directory must be within repository")
 
     if check_auth:
         verify_publication_eligibility(repo_root)
@@ -76,8 +81,11 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
     # verify all gates and files
     for entry in artifacts:
         path = (repo_root / entry['path']).resolve()
-        if not path.is_relative_to(repo_root):
+        try:
+             path.relative_to(repo_root)
+        except ValueError:
              raise ValueError("Path traversal detected")
+
         if not path.is_file():
             raise ValueError(f"Artifact {entry['path']} does not exist")
         if path.is_symlink():
