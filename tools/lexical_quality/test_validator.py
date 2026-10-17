@@ -49,19 +49,19 @@ class TestLexicalValidator(unittest.TestCase):
 
     def test_duplicate_senses(self):
         """Detect duplicate IDs."""
-        entry = {"id": "dup-1", "surface": "word", "language": "eng", "pos": "noun"}
+        entry = {"id": "eng-dup-1", "surface": "word", "language": "eng", "pos": "noun"}
         res1 = self.validator.validate_entry(entry)
         self.assertEqual(res1["status"], "accepted")
 
         # Second time should fail
         res2 = self.validator.validate_entry(entry)
         self.assertEqual(res2["status"], "rejected")
-        self.assertIn("Duplicate lexical ID: dup-1", res2["errors"])
+        self.assertIn("Duplicate lexical ID: eng-dup-1", res2["errors"])
 
     def test_valid_lexical_variations_preserved(self):
         """Valid lexical variations (different IDs) are not falsely deleted."""
-        entry1 = {"id": "var-1", "surface": "color", "language": "eng", "pos": "noun"}
-        entry2 = {"id": "var-2", "surface": "colour", "language": "eng", "pos": "noun"}
+        entry1 = {"id": "eng-var-1", "surface": "color", "language": "eng", "pos": "noun"}
+        entry2 = {"id": "eng-var-2", "surface": "colour", "language": "eng", "pos": "noun"}
 
         self.assertEqual(self.validator.validate_entry(entry1)["status"], "accepted")
         self.assertEqual(self.validator.validate_entry(entry2)["status"], "accepted")
@@ -70,7 +70,7 @@ class TestLexicalValidator(unittest.TestCase):
         """Validation has bounded memory requirements (size limits)."""
         import json
         large_text = "a" * (110 * 1024) # 110 KB string, exceeds 100 KB limit
-        entry = {"id": "huge-1", "surface": large_text, "language": "eng", "pos": "noun"}
+        entry = {"id": "eng-huge-1", "surface": large_text, "language": "eng", "pos": "noun"}
 
         result = self.validator.validate_entry(entry)
         self.assertEqual(result["status"], "rejected")
@@ -81,14 +81,14 @@ class TestLexicalValidator(unittest.TestCase):
         # Python allows storing lone surrogates in strings internally,
         # but they fail UTF-8 encoding.
         # \ud83d is a high surrogate for emojis, but without the low surrogate, it's invalid
-        entry = {"id": "uni-1", "surface": "bad\ud83dstring", "language": "eng", "pos": "noun"}
+        entry = {"id": "eng-uni-1", "surface": "bad\ud83dstring", "language": "eng", "pos": "noun"}
         result = self.validator.validate_entry(entry)
         self.assertEqual(result["status"], "rejected")
         self.assertTrue(any("invalid Unicode" in err for err in result["errors"]))
 
     def test_preserves_original_records(self):
         """Preserve original records for reversible remediation."""
-        original = {"id": "pres-1", "surface": "test", "language": "eng", "pos": "noun"}
+        original = {"id": "eng-pres-1", "surface": "test", "language": "eng", "pos": "noun"}
         # Make a copy to simulate passing it to validator
         import copy
         entry_copy = copy.deepcopy(original)
