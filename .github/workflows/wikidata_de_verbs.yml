@@ -77,7 +77,16 @@ jobs:
           mkdir -p "$work/in"
           curl -fsSL --retry 2 --max-time 90 -o "$work/in/wikidata-${DUMP_DATE}-sha1sums.txt" "$base/wikidata-${DUMP_DATE}-sha1sums.txt"
           last=$((MAX_BYTES - 1))
-          curl -fL --retry 2 --max-time 180 -o "$work/in/$file" -r "0-${last}" "$base/$file"
+          http_code="$(curl -fL --retry 2 --max-time 180 --max-filesize "$MAX_BYTES" -o "$work/in/$file" -w '%{http_code}' -r "0-${last}" "$base/$file")"
+          if [ "$http_code" != "206" ]; then
+            echo "dump download must return HTTP 206, got ${http_code}" >&2
+            exit 1
+          fi
+          downloaded="$(wc -c < "$work/in/$file" | tr -d '[:space:]')"
+          if ! [[ "$downloaded" =~ ^[0-9]+$ ]] || [ "$downloaded" -lt 1 ] || [ "$downloaded" -gt "$MAX_BYTES" ]; then
+            echo "downloaded dump is ${downloaded:-missing} bytes; limit is ${MAX_BYTES}" >&2
+            exit 1
+          fi
           python3 tools/wikidata_lexemes/extract_de_verbs.py \
             --dump "$work/in/$file" \
             --checksums "$work/in/wikidata-${DUMP_DATE}-sha1sums.txt" \

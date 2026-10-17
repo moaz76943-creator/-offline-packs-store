@@ -1,13 +1,14 @@
 """Fixture-only Wikidata lexeme extract. No network and no ledger edits."""
 import gzip
 import hashlib
+import io
 import json
 import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
 
-from tools.wikidata_lexemes.extract_de_verbs import ExtractError, extract, gunzip_bytes
+from tools.wikidata_lexemes.extract_de_verbs import ExtractError, GzipLineReader, extract, gunzip_bytes
 
 ROOT = Path(__file__).resolve().parents[2]
 BLOCKLIST = Path(__file__).with_name('blocklist.json')
@@ -239,11 +240,58 @@ class ExtractTests(unittest.TestCase):
                     origin_url=ORIGIN, repo_root=ROOT)
         self.assertFalse((ROOT / 'packs' / 'de-verbs.sqlite').exists())
 
+    def test_out_of_order_sense_id_is_preserved_and_invalid_ids_quarantine(self):
+        report = self.extract_dump([
+            _lexeme('L10', 'gehen', senses=[_sense('L10-S4', 'sich fortbewegen', 'Q42')]),
+            _lexeme('L11', 'kommen', senses=[_sense('L11-S0', 'ankommen', 'Q43')]),
+            _lexeme('L12', 'sehen', senses=[_sense('L99-S1', 'wahrnehmen', 'Q44')]),
+        ])
+        self.assertEqual(report['written'], 1)
+        self.assertEqual(report['quarantined'], 2)
+        with sqlite3.connect(self.output) as conn:
+            row = conn.execute('SELECT sense_id, payload_json FROM senses').fetchone()
+        self.assertEqual(row[0], 'sense.de.l10.s4')
+        payload = json.loads(row[1])
+        self.assertEqual(payload['source']['record_locator'], 'L10-S4')
+        quarantined = self.output.with_suffix('.quarantine.jsonl').read_text(encoding='utf-8')
+        self.assertIn('L11', quarantined)
+        self.assertIn('L12', quarantined)
+        self.assertNotIn('L10', quarantined)
+
+    def test_stream_stops_at_max_lexemes_before_later_members(self):
+        verb = _lexeme('L40', 'gehen', senses=[_sense('L40-S1', 'sich fortbewegen', 'Q42')])
+        head = b'[\n' + json.dumps(verb).encode('utf-8') + b',\n'
+        tail = (b'{"type":"item","id":"Q9","labels":{"en":{"value":"' + (b'A' * 200) + b'"}}}\n') * 2000
+        tail += b']\n'
+        self.assertGreater(len(tail), 400_000)
+        blob = gzip.compress(head) + gzip.compress(tail)
+        reader = GzipLineReader(io.BytesIO(blob))
+        try:
+            first = next(line for line in reader if line.strip().startswith('{'))
+        finally:
+            pulled = reader.decompressed_bytes
+            reader.close()
+        self.assertIn('L40', first)
+        self.assertLess(pulled, len(tail))
+        self.assertFalse(reader.gzip_complete)
+        report = self.extract_dump([], raw=blob, max_lexemes=1)
+        self.assertEqual(report['written'], 1)
+        self.assertEqual(report['german_verbs_considered'], 1)
+        self.assertFalse(report['gzip_complete'])
+        self.assertFalse(report['checksum_verified'])
+        self.assertLess(report['decompressed_bytes'], len(tail))
+        with sqlite3.connect(self.output) as conn:
+            surfaces = {row[0] for row in conn.execute('SELECT surface FROM lexicon')}
+        self.assertEqual(surfaces, {'gehen'})
+
     def test_workflow_is_manual_and_bounded(self):
         text = (ROOT / '.github/workflows/wikidata_de_verbs.yml').read_text(encoding='utf-8')
         self.assertIn('workflow_dispatch:', text)
         self.assertIn('contents: read', text)
         self.assertIn('268435456', text)
+        self.assertIn('--max-filesize "$MAX_BYTES"', text)
+        self.assertIn("-w '%{http_code}'", text)
+        self.assertIn('[ "$http_code" != "206" ]', text)
         self.assertNotIn('git push', text)
         self.assertNotIn('legal/ledger/sources.json', text)
         self.assertNotIn('[skip ci]', text)

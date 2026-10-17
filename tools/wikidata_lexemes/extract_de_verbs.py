@@ -9,6 +9,7 @@ local file is the complete dump and matches wikidata-YYYYMMDD-sha1sums.txt.
 import argparse
 import codecs
 import hashlib
+import io
 import json
 import re
 import sys
@@ -22,7 +23,9 @@ SENSE_ITEM = 'P5137'
 MEDIA_PROPERTIES = frozenset({'P443', 'P18'})
 QID = re.compile(r'^Q[1-9][0-9]*$')
 LEXEME_ID = re.compile(r'^L[1-9][0-9]*$')
+SENSE_NUMBER = re.compile(r'^S([1-9][0-9]*)$')
 HARD_MAX_BYTES = 256 * 1024 * 1024
+_DECOMPRESS_CHUNK = 8192
 HERE = Path(__file__).resolve().parent
 LEXICAL_DIR = HERE.parents[1] / 'standards' / 'lexical'
 FORBIDDEN_OUTPUTS = {'manifest.json', 'legal/ledger/sources.json'}
@@ -67,41 +70,168 @@ def publisher_sha1(checksum_text, filename):
     return found
 
 
+class _GzipStream:
+    """Pull bounded decompressed output, one gzip member at a time.
+
+    Each read returns at most _DECOMPRESS_CHUNK plaintext bytes. Complete is
+    true only after the final member ends and no compressed bytes remain. A
+    truncated member keeps earlier plaintext and leaves gzip_complete false.
+    """
+
+    def __init__(self, fileobj):
+        self._fh = fileobj
+        self._z = zlib.decompressobj(16 + zlib.MAX_WBITS)
+        self._pending = b''
+        self._input_done = False
+        self._finished = False
+        self._member_open = False
+        self._saw_end = False
+        self.gzip_complete = False
+        self.decompressed_bytes = 0
+
+    def read(self):
+        if self._finished:
+            return b''
+        while not self._finished:
+            if not self._pending and not self._input_done:
+                nxt = self._fh.read(_DECOMPRESS_CHUNK)
+                if nxt:
+                    self._pending = nxt
+                else:
+                    self._input_done = True
+            if not self._pending and self._input_done:
+                self._finished = True
+                self.gzip_complete = self._saw_end and not self._member_open
+                return b''
+            before = self._pending
+            try:
+                piece = self._z.decompress(self._pending, _DECOMPRESS_CHUNK)
+            except zlib.error as exc:
+                self._finished = True
+                self.gzip_complete = False
+                if self.decompressed_bytes == 0:
+                    raise ExtractError('lexeme dump is not gzip data') from exc
+                return b''
+            self._pending = self._z.unconsumed_tail
+            self._member_open = True
+            if self._z.eof:
+                # flush() appends a duplicate of unused_data; keep the pre-flush tail.
+                unused = self._z.unused_data
+                try:
+                    piece += self._z.flush()
+                except zlib.error as exc:
+                    self._finished = True
+                    self.gzip_complete = False
+                    if piece:
+                        self.decompressed_bytes += len(piece)
+                        return piece
+                    if self.decompressed_bytes == 0:
+                        raise ExtractError('lexeme dump gzip trailer is invalid') from exc
+                    return b''
+                self._pending = unused
+                self._z = zlib.decompressobj(16 + zlib.MAX_WBITS)
+                self._member_open = False
+                self._saw_end = True
+                if piece:
+                    self.decompressed_bytes += len(piece)
+                    return piece
+                continue
+            if piece:
+                self.decompressed_bytes += len(piece)
+                return piece
+            if self._pending == before:
+                if self._input_done:
+                    self._finished = True
+                    self.gzip_complete = False
+                    return b''
+                more = self._fh.read(_DECOMPRESS_CHUNK)
+                if not more:
+                    self._input_done = True
+                    continue
+                self._pending += more
+        return b''
+
+    def close(self):
+        self._fh = None
+        self._z = None
+
+
+class GzipLineReader:
+    """Decode newline-terminated text incrementally. The trailing partial line is remainder."""
+
+    def __init__(self, source):
+        self._owned = None
+        if isinstance(source, (str, Path)):
+            self._owned = open(source, 'rb')
+            fileobj = self._owned
+        else:
+            fileobj = source
+        self._stream = _GzipStream(fileobj)
+        self._text = codecs.getincrementaldecoder('utf-8')()
+        self._pending = ''
+        self._lines_done = False
+        self.remainder = ''
+
+    def close(self):
+        self._stream.close()
+        if self._owned is not None:
+            self._owned.close()
+            self._owned = None
+
+    @property
+    def gzip_complete(self):
+        return self._stream.gzip_complete
+
+    @property
+    def decompressed_bytes(self):
+        return self._stream.decompressed_bytes
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self._lines_done:
+            raise StopIteration
+        while '\n' not in self._pending:
+            piece = self._stream.read()
+            if not piece:
+                self._lines_done = True
+                try:
+                    self._pending += self._text.decode(b'', final=self._stream.gzip_complete)
+                except UnicodeError as exc:
+                    raise ExtractError('lexeme dump is not UTF-8') from exc
+                self.remainder = self._pending
+                self._pending = ''
+                raise StopIteration
+            try:
+                self._pending += self._text.decode(piece, final=False)
+            except UnicodeError as exc:
+                raise ExtractError('lexeme dump is not UTF-8') from exc
+        line, self._pending = self._pending.split('\n', 1)
+        return line
+
+
 def gunzip_bytes(raw):
     """Decompress every gzip member.
 
     Wikidata dumps are concatenated gzip members. Complete is true only when
-    the final member ends on eof and leaves no unused bytes. A truncated or
-    range-limited download stays incomplete so the caller cannot treat the
-    publisher checksum as verified.
+    the final member ends cleanly. A truncated or range-limited download stays
+    incomplete so the caller cannot treat the publisher checksum as verified.
     """
     if not isinstance(raw, (bytes, bytearray)) or not raw:
-        return _decode_plaintext(b'', False), False
+        return '', False
+    stream = _GzipStream(io.BytesIO(bytes(raw)))
     chunks = []
-    remaining = bytes(raw)
-    while remaining:
-        decoder = zlib.decompressobj(16 + zlib.MAX_WBITS)
-        try:
-            piece = decoder.decompress(remaining)
-        except zlib.error as exc:
-            if not chunks:
-                raise ExtractError('lexeme dump is not gzip data') from exc
-            return _decode_plaintext(b''.join(chunks), False), False
-        if not decoder.eof:
+    try:
+        while True:
+            piece = stream.read()
+            if not piece:
+                break
             chunks.append(piece)
-            return _decode_plaintext(b''.join(chunks), False), False
-        try:
-            piece += decoder.flush()
-        except zlib.error as exc:
-            raise ExtractError('lexeme dump gzip trailer is invalid') from exc
-        chunks.append(piece)
-        unused = decoder.unused_data
-        if not unused:
-            return _decode_plaintext(b''.join(chunks), True), True
-        if len(unused) >= len(remaining):
-            return _decode_plaintext(b''.join(chunks), False), False
-        remaining = unused
-    return _decode_plaintext(b''.join(chunks), False), False
+        complete = stream.gzip_complete
+    finally:
+        stream.close()
+    return _decode_plaintext(b''.join(chunks), complete), complete
 
 
 def _decode_plaintext(text, complete):
@@ -113,29 +243,45 @@ def _decode_plaintext(text, complete):
     return codecs.getincrementaldecoder('utf-8')().decode(text, final=False)
 
 
-def iter_entities(plaintext, gzip_complete):
-    """Yield JSON objects from a Wikidata JSON array, one entity per line."""
-    lines = plaintext.splitlines()
-    if not lines:
-        return
-    start = 1 if lines[0].strip() == '[' else 0
-    end = len(lines)
-    if lines[-1].strip() == ']':
-        end -= 1
-    elif not gzip_complete:
-        end -= 1
-    for line in lines[start:end]:
-        row = line.strip().rstrip(',')
-        if not row:
-            continue
-        try:
-            entity = json.loads(row)
-        except json.JSONDecodeError as exc:
-            if gzip_complete:
-                raise ExtractError('lexeme dump contains a malformed JSON line') from exc
-            break
-        if isinstance(entity, dict):
+def _entity_from_line(line, strict):
+    row = line.strip().rstrip(',')
+    if not row or row in {'[', ']'}:
+        return None
+    try:
+        entity = json.loads(row)
+    except json.JSONDecodeError as exc:
+        if strict:
+            raise ExtractError('lexeme dump contains a malformed JSON line') from exc
+        return None
+    return entity if isinstance(entity, dict) else None
+
+
+def iter_entities(reader):
+    """Yield one JSON object per complete line. A truncated tail is not parsed."""
+    for line in reader:
+        entity = _entity_from_line(line, strict=True)
+        if entity is not None:
             yield entity
+    if reader.gzip_complete and reader.remainder:
+        entity = _entity_from_line(reader.remainder, strict=True)
+        if entity is not None:
+            yield entity
+
+
+def sense_identity(lexeme_id, sense):
+    """Return (number, source id) when sense['id'] is {lexeme}-S<nonzero>."""
+    if not isinstance(sense, dict):
+        return None
+    sense_id = sense.get('id')
+    if not isinstance(sense_id, str):
+        return None
+    prefix = f'{lexeme_id}-'
+    if not sense_id.startswith(prefix):
+        return None
+    match = SENSE_NUMBER.fullmatch(sense_id[len(prefix):])
+    if not match:
+        return None
+    return match.group(1), sense_id
 
 
 def _text(value):
@@ -246,7 +392,12 @@ def classify_lexeme(entity, blocked_concepts, blocked_lemmas):
     blocked_senses = 0
     allowed_senses = 0
     ambiguous = False
+    seen_sense_ids = set()
     for sense in senses:
+        identity = sense_identity(lexeme_id, sense)
+        if identity is None or identity[1] in seen_sense_ids:
+            return 'quarantine', 'invalid_sense_id'
+        seen_sense_ids.add(identity[1])
         status, qids = sense_items(sense)
         linked = any(qid in blocked_concepts for qid in qids)
         if linked:
@@ -303,20 +454,24 @@ def to_document(entities, dataset_version, origin_url, artifact_sha256):
             'morphology': {'conjugations': forms_of(entity)},
             'source': source,
         })
-        for index, sense in enumerate(entity.get('senses') or [], start=1):
+        for sense in entity.get('senses') or []:
+            identity = sense_identity(locator, sense)
+            if identity is None:
+                continue
+            number, sense_id = identity
             status, qids = sense_items(sense)
             if status != 'ok':
                 continue
             gloss = gloss_of(sense)
             if not gloss:
                 continue
-            concept = f'concept.{qids[0].lower()}' if qids else f'concept.de.{token}.s{index}'
+            concept = f'concept.{qids[0].lower()}' if qids else f'concept.de.{token}.s{number}'
             senses.append({
-                'sense_id': f'sense.de.{token}.s{index}',
+                'sense_id': f'sense.de.{token}.s{number}',
                 'lexeme_id': f'lex.de.{token}',
                 'concept_id': concept,
                 'definition': gloss,
-                'source': source_record(dataset_version, origin_url, f'{locator}-S{index}', artifact_sha256),
+                'source': source_record(dataset_version, origin_url, sense_id, artifact_sha256),
             })
     return {
         'contract_version': '1.0.0',
@@ -345,6 +500,16 @@ def _write_jsonl(path, rows):
     path.write_text(''.join(json.dumps(row, ensure_ascii=False, sort_keys=True) + '\n' for row in rows), encoding='utf-8')
 
 
+def _digest_file(path):
+    sha1 = hashlib.sha1()
+    sha256 = hashlib.sha256()
+    with open(path, 'rb') as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b''):
+            sha1.update(chunk)
+            sha256.update(chunk)
+    return sha1.hexdigest(), sha256.hexdigest()
+
+
 def extract(dump_path, checksum_path, blocklist_path, output, *, max_bytes, max_lexemes,
             dataset_version, origin_url, repo_root):
     if not isinstance(max_bytes, int) or max_bytes < 1 or max_bytes > HARD_MAX_BYTES:
@@ -361,33 +526,39 @@ def extract(dump_path, checksum_path, blocklist_path, output, *, max_bytes, max_
     size = dump_path.stat().st_size
     if size > max_bytes:
         raise ExtractError(f'dump exceeds max-bytes ({size} > {max_bytes})')
-    raw = dump_path.read_bytes()
-    local_sha1 = hashlib.sha1(raw).hexdigest()
+    local_sha1, file_sha256 = _digest_file(dump_path)
     expected = publisher_sha1(Path(checksum_path).read_text(encoding='utf-8'), dump_path.name)
-    plaintext, gzip_complete = gunzip_bytes(raw)
-    checksum_verified = gzip_complete and local_sha1 == expected
-    if gzip_complete and local_sha1 != expected:
-        raise ExtractError('complete dump does not match the publisher SHA-1')
-    artifact_sha256 = hashlib.sha256(raw).hexdigest() if checksum_verified else None
     blocked_concepts, blocked_lemmas = load_blocklist(blocklist_path)
+    reader = GzipLineReader(dump_path)
     kept = []
     excluded = []
     quarantined = []
     seen = 0
-    for entity in iter_entities(plaintext, gzip_complete):
-        decision, reason = classify_lexeme(entity, blocked_concepts, blocked_lemmas)
-        if decision == 'skip':
-            continue
-        seen += 1
-        if seen > max_lexemes:
-            break
-        record = {'id': entity.get('id'), 'lemma': lemma_of(entity), 'reason': reason}
-        if decision == 'exclude':
-            excluded.append(record)
-        elif decision == 'quarantine':
-            quarantined.append(record)
-        else:
-            kept.append(entity)
+    stopped_early = False
+    try:
+        for entity in iter_entities(reader):
+            decision, reason = classify_lexeme(entity, blocked_concepts, blocked_lemmas)
+            if decision == 'skip':
+                continue
+            seen += 1
+            record = {'id': entity.get('id'), 'lemma': lemma_of(entity), 'reason': reason}
+            if decision == 'exclude':
+                excluded.append(record)
+            elif decision == 'quarantine':
+                quarantined.append(record)
+            else:
+                kept.append(entity)
+            if seen >= max_lexemes:
+                stopped_early = True
+                break
+    finally:
+        decompressed_bytes = reader.decompressed_bytes
+        reader.close()
+    gzip_complete = (not stopped_early) and reader.gzip_complete
+    checksum_verified = gzip_complete and local_sha1 == expected
+    if gzip_complete and local_sha1 != expected:
+        raise ExtractError('complete dump does not match the publisher SHA-1')
+    artifact_sha256 = file_sha256 if checksum_verified else None
     document = to_document(kept, dataset_version, origin_url, artifact_sha256)
     if str(LEXICAL_DIR) not in sys.path:
         sys.path.insert(0, str(LEXICAL_DIR))
@@ -402,6 +573,7 @@ def extract(dump_path, checksum_path, blocklist_path, output, *, max_bytes, max_
         'local_sha1': local_sha1,
         'bytes': size,
         'gzip_complete': gzip_complete,
+        'decompressed_bytes': decompressed_bytes,
         'german_verbs_considered': min(seen, max_lexemes),
         'written': len(kept),
         'excluded': len(excluded),
