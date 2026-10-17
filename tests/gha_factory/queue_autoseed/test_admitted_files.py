@@ -20,7 +20,7 @@ class AdmissionFileTests(unittest.TestCase):
         t = tempfile.TemporaryDirectory()
         self.addCleanup(t.cleanup)
         self.root = Path(t.name)
-        source_bytes = b'{"synthetic_fixture_only":true}\n'
+        source_bytes = b'{"lang_code":"de","word":"Haus","pos":"noun","senses":[{"glosses":["house"]}]}\n'
         proof_bytes = b'synthetic evidence for a mocked approved source; test only\n'
         part_bytes = b'{"synthetic_partition_only":true}\n'
         self.source_sha = digest(source_bytes)
@@ -71,6 +71,12 @@ class AdmissionFileTests(unittest.TestCase):
         self.job['license_evidence_sha256'] = self.proof_sha
         self.job['resume_id'] = 'srcadm1-' + digest(
             pipeline.canon([self.source_sha, self.job]))[:40]
+        registry = self.root / 'catalog' / 'language_registry.v1.json'
+        registry.parent.mkdir(parents=True)
+        registry.write_text(json.dumps({
+            'schema_version': '1.0.0',
+            'languages': [{'id': LANG, 'default_script': 'Latn'}]
+        }), encoding='utf-8')
         self.key = (SID, LANG, self.source_sha, 0)
         self.ctx = {'languages': frozenset((LANG,)), 'sources': [self.source],
                     'admissions': {self.key: {'folder': self.folder, 'report': self.report, 'job': self.job}}}
@@ -140,6 +146,49 @@ class AdmissionFileTests(unittest.TestCase):
     def test_matching_digest_with_wrong_record_count_is_blocked(self):
         self.job['record_count'] = 2
         self.assertEqual(self.tasks(), [])
+
+    def test_rehashed_forged_content_does_not_pass_reviewed_source_provenance(self):
+        from tools.gha_factory.admission import pipeline
+        self.row['content']['senses'] = ['forged meaning']
+        self.part_path.write_bytes(pipeline.canon(self.row))
+        self.job['sha256'] = digest(self.part_path.read_bytes())
+        self.job['resume_id'] = 'srcadm1-' + digest(pipeline.canon([
+            self.source_sha, {k: v for k, v in self.job.items() if k != 'resume_id'}
+        ]))[:40]
+        self.assertEqual(self.tasks(), [])
+
+    def test_forged_source_line_digest_does_not_pass(self):
+        from tools.gha_factory.admission import pipeline
+        self.row['source_line_sha256'] = 'f' * 64
+        self.part_path.write_bytes(pipeline.canon(self.row))
+        self.job['sha256'] = digest(self.part_path.read_bytes())
+        self.job['resume_id'] = 'srcadm1-' + digest(pipeline.canon([
+            self.source_sha, {k: v for k, v in self.job.items() if k != 'resume_id'}
+        ]))[:40]
+        self.assertEqual(self.tasks(), [])
+
+    def test_historical_collision_after_five_eligible_partitions(self):
+        from tools.gha_factory.admission import pipeline
+        from tools.gha_factory.dispatcher import queue
+        for shard in range(1, 8):
+            file = self.folder / f'partition-{shard:08d}.jsonl'
+            file.write_bytes(pipeline.canon(self.row))
+            job = dict(self.job, path=file.name, partition_index=shard,
+                       sha256=digest(file.read_bytes()))
+            job.pop('resume_id', None)
+            job['resume_id'] = 'srcadm1-' + digest(
+                pipeline.canon([self.source_sha, job]))[:40]
+            self.ctx['admissions'][(SID, LANG, self.source_sha, shard)] = {
+                'folder': self.folder, 'job': job, 'report': self.report
+            }
+        collision = seeder.proposal(SID, LANG, self.source_sha, 7)
+        collision['source_id'] = 'another.reviewed.source'
+        self.assertEqual(collision['task_id'], queue.fingerprint(collision))
+        issue = {'number': 100, 'title': queue.PREFIX + collision['task_id'],
+                 'body': queue.serialize(collision), 'user': {'login': seeder.OWNER},
+                 'state': 'closed'}
+        with self.assertRaisesRegex(ValueError, 'collision'):
+            seeder.verified_context(self.ctx, self.root, [issue])
 
     def test_partition_license_identity_must_match_reviewed_source(self):
         self.job['license_evidence_sha256'] = 'f' * 64

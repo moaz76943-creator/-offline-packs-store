@@ -108,8 +108,8 @@ def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
 
 
 
-def _verified_partition(partition, job, report, source):
-    """Check exact admitted bytes AND row count/provenance, never just a descriptor SHA."""
+def _verified_partition(partition, job, report, source, source_file, script):
+    """Re-derive accepted rows from the SHA-verified source, not mutable shard metadata."""
     from tools.gha_factory.admission import pipeline
 
     expected = {
@@ -120,10 +120,10 @@ def _verified_partition(partition, job, report, source):
         'license_evidence_sha256': report['license_evidence_sha256'],
         'license_id': source['license']['id'],
     }
-    actual_count = 0
+    actual_count = source_line = 0
     digest = hashlib.sha256()
-    with partition.open('rb') as stream:
-        for raw in stream:
+    with partition.open('rb') as stream, source_file.open('rb') as upstream:
+        for raw in iter(lambda: stream.readline(2_000_001), b''):
             actual_count += 1
             if (actual_count > job['record_count'] or not raw.endswith(b'\n')
                     or len(raw) > 2_000_000):
@@ -132,11 +132,27 @@ def _verified_partition(partition, job, report, source):
             if (not isinstance(row, dict)
                     or any(row.get(k) != v for k, v in expected.items())
                     or type(row.get('source_line')) is not int
-                    or row['source_line'] < 1
+                    or row['source_line'] <= source_line
                     or not queue.HEX.fullmatch(str(row.get('source_line_sha256', '')))
                     or not isinstance(row.get('content'), dict)
                     or not isinstance(row.get('excluded_categories'), list)
                     or pipeline.canon(row) != raw):
+                return False
+            # Follow the original source's physical JSONL lines in ascending order.
+            while source_line < row['source_line']:
+                original = upstream.readline(pipeline.MAX_LINE + 1)
+                if (not original or len(original) > pipeline.MAX_LINE
+                        or not original.endswith(b'\n')):
+                    return False
+                source_line += 1
+            if hashlib.sha256(original).hexdigest() != row['source_line_sha256']:
+                return False
+            doc = json.loads(original.decode('utf-8'),
+                             parse_constant=lambda value: (_ for _ in ()).throw(ValueError(value)))
+            derived_content, derived_excluded = pipeline.extract(
+                doc, report['language'], source['license']['id'],
+                report['source_id'], script, source_line)
+            if row['content'] != derived_content or row['excluded_categories'] != derived_excluded:
                 return False
             digest.update(raw)
     return actual_count == job['record_count'] and digest.hexdigest() == job['sha256']
@@ -170,6 +186,10 @@ def verified_context(context, root, existing_issues=()):
         prior_source = admitted_sources.get(identity)
         if prior_source is not None and prior_source != source_id:
             raise ValueError('source-ID collision in accepted partition inventory')
+        existing_source = partition_sources.get(identity)
+        if ((item['task_id'] in known and known[item['task_id']] != source_id)
+                or (existing_source is not None and existing_source != source_id)):
+            raise ValueError('source-ID collision with existing queue history')
         admitted_sources[identity] = source_id
     for key in sorted(context.get('admissions', {})):
         if not isinstance(key, tuple) or len(key) != 4:
@@ -229,7 +249,9 @@ def verified_context(context, root, existing_issues=()):
                     root, source_id, report['dataset_version'], source_file, 'wiktextract-jsonl')
                 if verified_source != source:
                     continue
-                checked_sources[src_key] = True
+                checked_sources[src_key] = source_file
+            else:
+                source_file = checked_sources[src_key]
             raw_folder = Path(item['folder'])
             if raw_folder.is_symlink():
                 continue
@@ -243,7 +265,9 @@ def verified_context(context, root, existing_issues=()):
             if (not partition.is_relative_to(folder) or not partition.is_file()
                     or not 0 < partition.stat().st_size <= 40_000_000):
                 continue
-            if not _verified_partition(partition, job, report, source):
+            if not _verified_partition(
+                    partition, job, report, source, source_file,
+                    pipeline.registry_metadata(root)[language]):
                 continue
         except (pipeline.AdmissionError, OSError, ValueError, KeyError, TypeError, UnicodeError):
             continue
