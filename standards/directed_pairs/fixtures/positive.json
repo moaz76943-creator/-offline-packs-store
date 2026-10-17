@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0.0",
+  "document_id": "doc.pairs.001",
+  "senses": [
+    {
+      "sense_id": "sense.en.bank.1",
+      "language": "en",
+      "definition": "A financial institution"
+    },
+    {
+      "sense_id": "sense.de.bank.1",
+      "language": "de",
+      "definition": "Ein Finanzinstitut"
+    },
+    {
+      "sense_id": "sense.en.bank.2",
+      "language": "en",
+      "definition": "The land alongside or sloping down to a river or lake"
+    },
+    {
+      "sense_id": "sense.de.ufer.1",
+      "language": "de",
+      "definition": "Ufer eines Flusses"
+    }
+  ],
+  "pairs": [
+    {
+      "pair_id": "pair.1",
+      "from_sense_id": "sense.en.bank.1",
+      "to_sense_id": "sense.de.bank.1",
+      "translation_text": "Bank",
+      "equivalence": "literal",
+      "context": "Finance context",
+      "source": {
+        "provenance_id": "prov.1",
+        "source_version": "v1",
+        "confidence": 0.95
+      }
+    },
+    {
+      "pair_id": "pair.2",
+      "from_sense_id": "sense.de.bank.1",
+      "to_sense_id": "sense.en.bank.1",
+      "translation_text": "Bank",
+      "equivalence": "literal",
+      "source": {
+        "provenance_id": "prov.1",
+        "source_version": "v1",
+        "confidence": 0.95
+      }
+    },
+    {
+      "pair_id": "pair.3",
+      "from_sense_id": "sense.en.bank.2",
+      "to_sense_id": "sense.de.ufer.1",
+      "translation_text": "Ufer",
+      "equivalence": "literal",
+      "source": {
+        "provenance_id": "prov.1",
+        "source_version": "v1",
+        "confidence": 0.9
+      }
+    }
+  ]
+}

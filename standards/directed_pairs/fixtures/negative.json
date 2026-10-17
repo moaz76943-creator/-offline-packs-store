@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "document_id": "doc.pairs.002",
+  "senses": [
+    {
+      "sense_id": "sense.en.apple.1",
+      "language": "en",
+      "definition": "Fruit"
+    }
+  ],
+  "pairs": [
+    {
+      "pair_id": "pair.bad",
+      "from_sense_id": "sense.en.apple.1",
+      "to_sense_id": "sense.missing.1",
+      "translation_text": "Apfel",
+      "equivalence": "literal",
+      "source": {
+        "provenance_id": "prov.1",
+        "source_version": "v1",
+        "confidence": 1.0
+      }
+    }
+  ]
+}
