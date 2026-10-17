@@ -42,6 +42,10 @@ class FontRightsRegistry:
             return {"status": "REJECT", "issues": ["Invalid asset record"], "publication_approved": False}
         if not all(text(x) for x in (asset.id, asset.family, asset.source, asset.version, asset.author)):
             issues.append("Missing font identity, author, source or version")
+        if isinstance(asset.source, str) and "unknown" in asset.source.lower():
+            issues.append("Unknown source is explicitly rejected")
+        if isinstance(asset.family, str) and "mixed" in asset.family.lower():
+            issues.append("Mixed families are explicitly rejected")
         if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
         if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
@@ -95,3 +99,23 @@ class FontRightsRegistry:
                 "Metadata-only font has no verified embedded bytes"], "publication_approved": False}
         return {"status": "REJECT" if issues else "EVIDENCE_PASS",
                 "issues": issues, "publication_approved": False}
+
+    def generate_script_mapping(self, assets: list[FontAsset], repo_root=None):
+        mapping = {}
+        for asset in assets:
+            if self.validate_asset(asset, repo_root=repo_root).get("status") == "EVIDENCE_PASS":
+                for script in asset.scripts:
+                    mapping.setdefault(script, []).append(asset.id)
+        return mapping
+
+if __name__ == "__main__":
+    import sys
+    import json
+
+    registry = FontRightsRegistry()
+    raw_assets = json.load(sys.stdin)
+    assets = [FontAsset(**a) for a in raw_assets]
+    repo_root = sys.argv[1] if len(sys.argv) > 1 else None
+
+    mapping = registry.generate_script_mapping(assets, repo_root=repo_root)
+    json.dump(mapping, sys.stdout, indent=2)
