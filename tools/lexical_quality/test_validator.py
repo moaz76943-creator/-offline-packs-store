@@ -49,19 +49,19 @@ class TestLexicalValidator(unittest.TestCase):
 
     def test_duplicate_senses(self):
         """Detect duplicate IDs."""
-        entry = {"id": "dup-1", "surface": "word", "language": "eng", "pos": "noun"}
+        entry = {"id": "eng-dup-1", "surface": "word", "language": "eng", "pos": "noun"}
         res1 = self.validator.validate_entry(entry)
         self.assertEqual(res1["status"], "accepted")
 
         # Second time should fail
         res2 = self.validator.validate_entry(entry)
         self.assertEqual(res2["status"], "rejected")
-        self.assertIn("Duplicate lexical ID: dup-1", res2["errors"])
+        self.assertIn("Duplicate lexical ID: eng-dup-1", res2["errors"])
 
     def test_valid_lexical_variations_preserved(self):
         """Valid lexical variations (different IDs) are not falsely deleted."""
-        entry1 = {"id": "var-1", "surface": "color", "language": "eng", "pos": "noun"}
-        entry2 = {"id": "var-2", "surface": "colour", "language": "eng", "pos": "noun"}
+        entry1 = {"id": "eng-var-1", "surface": "color", "language": "eng", "pos": "noun"}
+        entry2 = {"id": "eng-var-2", "surface": "colour", "language": "eng", "pos": "noun"}
 
         self.assertEqual(self.validator.validate_entry(entry1)["status"], "accepted")
         self.assertEqual(self.validator.validate_entry(entry2)["status"], "accepted")
@@ -70,7 +70,7 @@ class TestLexicalValidator(unittest.TestCase):
         """Validation has bounded memory requirements (size limits)."""
         import json
         large_text = "a" * (110 * 1024) # 110 KB string, exceeds 100 KB limit
-        entry = {"id": "huge-1", "surface": large_text, "language": "eng", "pos": "noun"}
+        entry = {"id": "eng-huge-1", "surface": large_text, "language": "eng", "pos": "noun"}
 
         result = self.validator.validate_entry(entry)
         self.assertEqual(result["status"], "rejected")
@@ -81,14 +81,14 @@ class TestLexicalValidator(unittest.TestCase):
         # Python allows storing lone surrogates in strings internally,
         # but they fail UTF-8 encoding.
         # \ud83d is a high surrogate for emojis, but without the low surrogate, it's invalid
-        entry = {"id": "uni-1", "surface": "bad\ud83dstring", "language": "eng", "pos": "noun"}
+        entry = {"id": "eng-uni-1", "surface": "bad\ud83dstring", "language": "eng", "pos": "noun"}
         result = self.validator.validate_entry(entry)
         self.assertEqual(result["status"], "rejected")
         self.assertTrue(any("invalid Unicode" in err for err in result["errors"]))
 
     def test_preserves_original_records(self):
         """Preserve original records for reversible remediation."""
-        original = {"id": "pres-1", "surface": "test", "language": "eng", "pos": "noun"}
+        original = {"id": "eng-pres-1", "surface": "test", "language": "eng", "pos": "noun"}
         # Make a copy to simulate passing it to validator
         import copy
         entry_copy = copy.deepcopy(original)
@@ -98,6 +98,55 @@ class TestLexicalValidator(unittest.TestCase):
         self.assertEqual(result["entry"], original)
         # Check that it didn't mutate the input dictionary in unexpected ways
         self.assertEqual(entry_copy, original)
+
+    def test_language_mismatch(self):
+        """Reject entries where IDs don't match the language prefix."""
+        entry = {"id": "eng-1", "surface": "hello", "language": "deu", "pos": "noun"}
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "rejected")
+        self.assertTrue(any("Language prefix mismatch" in err for err in result["errors"]))
+
+    def test_isolating_language(self):
+        """Mark isolating language with grammatical fields as reviewRequired."""
+        entry = {"id": "zho-1", "surface": "苹果", "language": "zho", "pos": "noun", "plural": "苹果s"}
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "reviewRequired")
+        self.assertTrue(any("unexpected 'plural' field" in warn for warn in result["warnings"]))
+
+        entry_verb = {"id": "tha-1", "surface": "สวัสดี", "language": "tha", "pos": "verb", "conjugations": {"past": "test"}}
+        result_verb = self.validator.validate_entry(entry_verb)
+        self.assertEqual(result_verb["status"], "reviewRequired")
+        self.assertTrue(any("unexpected 'conjugations' field" in warn for warn in result_verb["warnings"]))
+
+    def test_absent_optional_fields(self):
+        """Valid entries without optional fields like translations and examples are accepted."""
+        entry = {"id": "jpn-1", "surface": "食べる", "language": "jpn", "pos": "verb"}
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "accepted")
+
+    def test_malformed_examples(self):
+        """Detect malformed examples."""
+        entry = {
+            "id": "heb-1",
+            "surface": "שָׁלוֹם",
+            "language": "heb",
+            "pos": "noun",
+            "examples": "not a list"
+        }
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "rejected")
+        self.assertTrue(any("Field 'examples' must be a list" in err for err in result["errors"]))
+
+        entry2 = {
+            "id": "ara-1",
+            "surface": "كتاب",
+            "language": "ara",
+            "pos": "noun",
+            "examples": [{"not_text": "hello"}]
+        }
+        result2 = self.validator.validate_entry(entry2)
+        self.assertEqual(result2["status"], "rejected")
+        self.assertTrue(any("Example at index 0 missing 'text'" in err for err in result2["errors"]))
 
 if __name__ == '__main__':
     unittest.main()

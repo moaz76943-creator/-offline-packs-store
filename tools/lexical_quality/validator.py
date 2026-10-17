@@ -83,6 +83,11 @@ class LexicalValidator:
         elif not LANGUAGE_REGEX.match(entry["language"]):
             errors.append(f"Invalid language format: {entry['language']}")
 
+        if not id_err and not lang_err:
+            expected_prefix = entry["language"] + "-"
+            if not entry["id"].startswith(expected_prefix):
+                errors.append(f"Language prefix mismatch: ID '{entry['id']}' does not match language '{entry['language']}'")
+
         pos_err = self._check_string_field(entry, "pos")
         if pos_err:
             errors.append(pos_err)
@@ -102,6 +107,13 @@ class LexicalValidator:
 
         if pos and pos not in {"noun", "pronoun", "adjective"} and plural is not None:
             warnings.append(f"POS '{pos}' has 'plural' field, which is unusual")
+
+        lang = entry.get("language")
+        if lang in {"zho", "tha", "vie"}:
+            if plural is not None:
+                warnings.append(f"Isolating language '{lang}' has unexpected 'plural' field")
+            if conjugations is not None:
+                warnings.append(f"Isolating language '{lang}' has unexpected 'conjugations' field")
 
         # 3. Structure of translations
         if "translations" in entry:
