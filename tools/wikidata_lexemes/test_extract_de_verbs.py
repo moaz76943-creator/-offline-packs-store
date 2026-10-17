@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from tools.wikidata_lexemes.extract_de_verbs import ExtractError, extract
+from tools.wikidata_lexemes.extract_de_verbs import ExtractError, extract, gunzip_bytes
 
 ROOT = Path(__file__).resolve().parents[2]
 BLOCKLIST = Path(__file__).with_name('blocklist.json')
@@ -55,13 +55,24 @@ def _lexeme(lid, lemma, language='Q188', category='Q24905', senses=None, forms=N
     }
 
 
-def _dump(entities):
+def _dump_text(entities):
     lines = ['[\n']
     for index, entity in enumerate(entities):
         suffix = ',' if index < len(entities) - 1 else ''
         lines.append(json.dumps(entity, ensure_ascii=False) + suffix + '\n')
     lines.append(']\n')
-    return gzip.compress(''.join(lines).encode('utf-8'))
+    return ''.join(lines).encode('utf-8')
+
+
+def _dump(entities):
+    return gzip.compress(_dump_text(entities))
+
+
+def _multi_member_dump(entities):
+    """One JSON array split across two gzip members, as Wikidata dumps are."""
+    payload = _dump_text(entities)
+    midpoint = max(1, len(payload) // 2)
+    return gzip.compress(payload[:midpoint]) + gzip.compress(payload[midpoint:])
 
 
 class ExtractTests(unittest.TestCase):
@@ -164,6 +175,49 @@ class ExtractTests(unittest.TestCase):
         self.assertFalse(report['checksum_verified'])
         self.assertFalse(report['gzip_complete'])
         self.assertTrue(self.output.is_file())
+
+    def test_multi_member_gzip_decompresses_every_member(self):
+        entities = [
+            _lexeme('L30', 'gehen', senses=[_sense('L30-S1', 'sich fortbewegen', 'Q42')]),
+            _lexeme('L31', 'kommen', senses=[_sense('L31-S1', 'ankommen', 'Q43')]),
+        ]
+        blob = _multi_member_dump(entities)
+        self.assertGreaterEqual(blob.count(b'\x1f\x8b'), 2)
+        text, complete = gunzip_bytes(blob)
+        self.assertTrue(complete)
+        self.assertEqual(text.encode('utf-8'), _dump_text(entities))
+        report = self.extract_dump([], raw=blob)
+        self.assertTrue(report['gzip_complete'])
+        self.assertTrue(report['checksum_verified'])
+        self.assertEqual(report['written'], 2)
+        with sqlite3.connect(self.output) as conn:
+            surfaces = {row[0] for row in conn.execute('SELECT surface FROM lexicon')}
+        self.assertEqual(surfaces, {'gehen', 'kommen'})
+
+    def test_truncated_later_member_is_incomplete_and_unverified(self):
+        entities = [
+            _lexeme('L32', 'gehen', senses=[_sense('L32-S1', 'sich fortbewegen', 'Q42')]),
+            _lexeme('L33', 'kommen', senses=[_sense('L33-S1', 'ankommen', 'Q43')]),
+        ]
+        payload = _dump_text(entities)
+        midpoint = payload.index(b'\n', 2)
+        first = gzip.compress(payload[:midpoint])
+        second = gzip.compress(payload[midpoint:])
+        self.assertGreater(len(second), 8)
+        blob = first + second[:-1]
+        text, complete = gunzip_bytes(blob)
+        self.assertFalse(complete)
+        self.assertIn('gehen', text)
+        report = self.extract_dump([], raw=blob)
+        self.assertFalse(report['gzip_complete'])
+        self.assertFalse(report['checksum_verified'])
+        self.assertTrue(self.output.is_file())
+        with sqlite3.connect(self.output) as conn:
+            rows = conn.execute('SELECT fields_json FROM lexicon').fetchall()
+        self.assertTrue(rows)
+        for (fields_json,) in rows:
+            source = json.loads(fields_json)['source']
+            self.assertIsNone(source['artifact_sha256'])
 
     def test_complete_dump_with_wrong_checksum_is_rejected(self):
         blob = _dump([_lexeme('L21', 'kommen')])

@@ -68,19 +68,40 @@ def publisher_sha1(checksum_text, filename):
 
 
 def gunzip_bytes(raw):
-    """Return plaintext and whether the gzip member completed."""
-    decoder = zlib.decompressobj(16 + zlib.MAX_WBITS)
-    try:
-        text = decoder.decompress(raw)
-    except zlib.error as exc:
-        raise ExtractError('lexeme dump is not gzip data') from exc
-    if decoder.eof:
+    """Decompress every gzip member.
+
+    Wikidata dumps are concatenated gzip members. Complete is true only when
+    the final member ends on eof and leaves no unused bytes. A truncated or
+    range-limited download stays incomplete so the caller cannot treat the
+    publisher checksum as verified.
+    """
+    if not isinstance(raw, (bytes, bytearray)) or not raw:
+        return _decode_plaintext(b'', False), False
+    chunks = []
+    remaining = bytes(raw)
+    while remaining:
+        decoder = zlib.decompressobj(16 + zlib.MAX_WBITS)
         try:
-            text += decoder.flush()
+            piece = decoder.decompress(remaining)
+        except zlib.error as exc:
+            if not chunks:
+                raise ExtractError('lexeme dump is not gzip data') from exc
+            return _decode_plaintext(b''.join(chunks), False), False
+        if not decoder.eof:
+            chunks.append(piece)
+            return _decode_plaintext(b''.join(chunks), False), False
+        try:
+            piece += decoder.flush()
         except zlib.error as exc:
             raise ExtractError('lexeme dump gzip trailer is invalid') from exc
-        return _decode_plaintext(text, True), True
-    return _decode_plaintext(text, False), False
+        chunks.append(piece)
+        unused = decoder.unused_data
+        if not unused:
+            return _decode_plaintext(b''.join(chunks), True), True
+        if len(unused) >= len(remaining):
+            return _decode_plaintext(b''.join(chunks), False), False
+        remaining = unused
+    return _decode_plaintext(b''.join(chunks), False), False
 
 
 def _decode_plaintext(text, complete):
