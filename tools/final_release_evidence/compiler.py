@@ -8,21 +8,110 @@ import logging
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
+APPROVED_STATUS = 'APPROVED_FOR_REDISTRIBUTION'
+BLOCKED_STATUS = 'BLOCKED_DEPENDENCY'
+# A source admits a language only through an explicit code. An unscoped
+# approval does not cover the registry.
+_SOURCE_LANGUAGE_KEYS = ('languages', 'language', 'language_codes')
+_PACK_LANGUAGE_KEYS = ('id', 'language', 'lang', 'code', 'lang_code', 'languages')
+
+
+def _explicit_codes(value):
+    if isinstance(value, str):
+        code = value.strip()
+        if code and code not in {'*', 'all', 'any'}:
+            return {code}
+        return set()
+    if isinstance(value, list):
+        codes = set()
+        for item in value:
+            codes |= _explicit_codes(item)
+        return codes
+    return set()
+
+
+def admitted_languages(ledger):
+    """Languages named by an APPROVED_FOR_REDISTRIBUTION source.
+
+    Fail closed: missing ledger, non-approved status, or a source with no
+    language field admits nothing. One approved source does not admit every
+    registered language.
+    """
+    if not isinstance(ledger, dict):
+        return set()
+    sources = ledger.get('sources')
+    if not isinstance(sources, list):
+        return set()
+    admitted = set()
+    for source in sources:
+        if not isinstance(source, dict) or source.get('status') != APPROVED_STATUS:
+            continue
+        for key in _SOURCE_LANGUAGE_KEYS:
+            admitted |= _explicit_codes(source.get(key))
+    return admitted
+
+
+def manifest_pack_languages(manifest):
+    """Languages present in manifest['packs']. Legacy languages[] entries do not count."""
+    if not isinstance(manifest, dict):
+        return set()
+    packs = manifest.get('packs')
+    if not isinstance(packs, list):
+        return set()
+    published = set()
+    for pack in packs:
+        if not isinstance(pack, dict):
+            continue
+        for key in _PACK_LANGUAGE_KEYS:
+            published |= _explicit_codes(pack.get(key))
+    return published
+
+
 class EvidenceCompiler:
-    def __init__(self, registry_path='catalog/language_registry.v1.json', manifest_path='manifest.json', packs_dir='packs'):
+    def __init__(self, registry_path='catalog/language_registry.v1.json', manifest_path='manifest.json', packs_dir='packs', ledger_path='legal/ledger/sources.json'):
         self.registry_path = registry_path
         self.manifest_path = manifest_path
         self.packs_dir = packs_dir
+        self.ledger_path = ledger_path
 
     def load_registry(self):
         with open(self.registry_path, 'r') as f:
             data = json.load(f)
         return {lang['id']: lang for lang in data.get('languages', [])}
 
-    def load_manifest(self):
+    def load_manifest_document(self):
         with open(self.manifest_path, 'r') as f:
             data = json.load(f)
-        return {lang['code']: lang for lang in data.get('languages', [])}
+        if not isinstance(data, dict):
+            raise ValueError('manifest must be an object')
+        return data
+
+    def load_manifest(self):
+        data = self.load_manifest_document()
+        return {lang['code']: lang for lang in data.get('languages', []) if isinstance(lang, dict) and 'code' in lang}
+
+    def load_ledger(self):
+        if not os.path.exists(self.ledger_path):
+            return {'schema_version': '1.0.0', 'sources': []}
+        with open(self.ledger_path, 'r') as f:
+            data = json.load(f)
+        if not isinstance(data, dict):
+            return {'schema_version': '1.0.0', 'sources': []}
+        return data
+
+    def blocked_dependency(self, lang_code, admitted, published):
+        """No legacy pack file is treated as valid while admission is missing."""
+        reasons = []
+        if lang_code not in admitted:
+            reasons.append('No APPROVED_FOR_REDISTRIBUTION source names this language.')
+        if lang_code not in published:
+            reasons.append('No pack for this language in manifest.packs.')
+        return {
+            'lang_code': lang_code,
+            'status': BLOCKED_STATUS,
+            'packs': [],
+            'reasons': reasons,
+        }
 
     def compute_sha256(self, filepath):
         h = hashlib.sha256()
@@ -159,17 +248,26 @@ class EvidenceCompiler:
 
     def compile(self, output_path='tools/final_release_evidence/release_evidence.json'):
         registry_data = self.load_registry()
-        manifest_data = self.load_manifest()
+        manifest_document = self.load_manifest_document()
+        manifest_data = {
+            lang['code']: lang for lang in manifest_document.get('languages', [])
+            if isinstance(lang, dict) and 'code' in lang
+        }
+        admitted = admitted_languages(self.load_ledger())
+        published = manifest_pack_languages(manifest_document)
 
         results = {
             'schema_version': '1.0.0',
+            'readiness_rule': 'releaseReady requires an APPROVED_FOR_REDISTRIBUTION source that names the language and a pack in manifest.packs',
             'total_languages': len(registry_data),
             'languages': {}
         }
 
         for lang_code in sorted(registry_data.keys()):
-            manifest_info = manifest_data.get(lang_code)
-            evidence = self.verify_pack(lang_code, manifest_info)
+            if lang_code not in admitted or lang_code not in published:
+                evidence = self.blocked_dependency(lang_code, admitted, published)
+            else:
+                evidence = self.verify_pack(lang_code, manifest_data.get(lang_code))
             results['languages'][lang_code] = evidence
 
         tmp_path = output_path + '.tmp'

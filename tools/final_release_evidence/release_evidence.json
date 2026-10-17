@@ -2,2327 +2,906 @@
   "languages": {
     "af": {
       "lang_code": "af",
-      "packs": [
-        {
-          "actual_sha256": "c53ecc990901b71df14c1169409a31d83127010f6d9c6966b4c60506fdf67ea7",
-          "file": "af_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "cf0a803e1aae028d4d49a30ae7daf0ee2c7f982f123220672e636fab69667039",
-          "file": "af_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "am": {
       "lang_code": "am",
-      "packs": [
-        {
-          "actual_sha256": "ec8b1d2d1582ee7adba579667836ab147958b491f9a44c0dd6809fdf4e3c765b",
-          "file": "am_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "8d1fc2aeef6198cfb34cabc99f05150333908debb940e4a6824da7da32504279",
-          "file": "am_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ar": {
       "lang_code": "ar",
-      "packs": [
-        {
-          "actual_sha256": "b25369a9348d7a6670a485718149f18969f3903562a36fc1d4c08fc48b9d74db",
-          "file": "ar_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "815df4f9371046c86002486e89014846c9619829d9b7b476fe9d24832667ab57",
-          "file": "ar_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "as": {
       "lang_code": "as",
-      "packs": [
-        {
-          "actual_sha256": "085518096473a629a34a818966574a5aa7dc2fdc11620c19abf8b422d3d04b2a",
-          "file": "as_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e63170e113ced8f5b9175968de4278f93fab9878015b03e25900471bcb439286",
-          "file": "as_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "az": {
       "lang_code": "az",
-      "packs": [
-        {
-          "actual_sha256": "66e30565d6d0c129d647ed0443f4136e29ed10d20bec8645474ffdbd57867945",
-          "file": "az_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "5693a1469e34c08b95f845a5d01b28342d774393c47dc1842bce5ee51d4abf09",
-          "file": "az_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ba": {
       "lang_code": "ba",
-      "packs": [
-        {
-          "actual_sha256": "e5b4af7f53a4dba4d8d976816b43f46ac8e7ea20e0e389a58fe05c0a83163239",
-          "file": "ba_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "aaf6c512c3deafb83c68163f997c46ddf23c8f477d2c54b6c6340d130e1ba820",
-          "file": "ba_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "be": {
       "lang_code": "be",
-      "packs": [
-        {
-          "actual_sha256": "22077f11af10ff2da052a914177c0c87ca723e29b8ac1bb840d774973d62942f",
-          "file": "be_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "25b439561ccbfefbb486c48f031780fe3c7b18789192c37a2c798b8e0fc76db2",
-          "file": "be_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "bg": {
       "lang_code": "bg",
-      "packs": [
-        {
-          "actual_sha256": "fe4028577930060184a5506df4c580afb0889231f322cb3ad79cd789f29cb273",
-          "file": "bg_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "40ade9bd631160aac185059aa716b4e7a38e6b1d751c8bf9ad5390f439407130",
-          "file": "bg_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "bn": {
       "lang_code": "bn",
-      "packs": [
-        {
-          "actual_sha256": "3ae2cb110f10c239dc59b2ce5227d2a435e3abd0aa0bd1edbe7a7bb5a28c60c2",
-          "file": "bn_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "bb97c2fa684f8058148c7dfa3d3100861962b48b8dc26aa819ed85c6ec651d32",
-          "file": "bn_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "br": {
       "lang_code": "br",
-      "packs": [
-        {
-          "actual_sha256": "4790d59e424f9d020a11593dc623c80525410c6ba711c9433fac0b5c4271bf1f",
-          "file": "br_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "7148be326b33d94b0d54e55eb4ef4710b77476c3bb0f608a7cebe7545cd140e4",
-          "file": "br_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "bs": {
       "lang_code": "bs",
-      "packs": [
-        {
-          "actual_sha256": "0f11c635f16f4c5873d8fd1da74d376d3c8d5bb84a5a05ea6c82ed1b3e2bd439",
-          "file": "bs_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "298f27eb4daccd153e6472a853abaeecc233f8f62792ea5a54a33cfd87025b61",
-          "file": "bs_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ca": {
       "lang_code": "ca",
-      "packs": [
-        {
-          "actual_sha256": "52414c59321e7c31f9c3c1248f0b126787b86a9e4b364ee532c645c12a04edb3",
-          "file": "ca_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e6634ddd6afeb14bd0b95aa79136ac1db3f9e02eb3eba28e39a6f8f173928e48",
-          "file": "ca_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "cs": {
       "lang_code": "cs",
-      "packs": [
-        {
-          "actual_sha256": "ede6cfb2c199f0793ae2224fe9b4836ddf5ede2140cb7e369481869c7fb348ce",
-          "file": "cs_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "3e18c2d03cbc1292d350d64c0863b1c2877a0ea95fa27845784704bdac91dfcb",
-          "file": "cs_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "cy": {
       "lang_code": "cy",
-      "packs": [
-        {
-          "actual_sha256": "e242302235ab311dcf52c384d4be0fa844d07715a2eadec269d4822caba2e95a",
-          "file": "cy_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "48fec8d5dafd59e2004e270e696cede93be216f252f4c8783fab45688076cd0d",
-          "file": "cy_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "da": {
       "lang_code": "da",
-      "packs": [
-        {
-          "actual_sha256": "c484c5374f6000fb3728013f2df88ce1e84d2556aee51582e63cfeb1a2d7fe81",
-          "file": "da_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "09624b47957849146fc1106e2cf56cac22ca67a5a2dc4951fc99a3e82155e4b3",
-          "file": "da_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "de": {
       "lang_code": "de",
-      "packs": [
-        {
-          "actual_sha256": "69686be61ee25f200cf6ac8c1b1dcb9726ead7eaa91822db4af537e1e5f7dfc6",
-          "file": "de_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "3f3f3cca2d275d11a601c18355420d560497212400fd1264174e01438a56de27",
-          "error": "Mismatched internal lang_code 'None' != 'de'",
-          "file": "de_verbs_a1.pack.gz",
-          "valid": false
-        },
-        {
-          "actual_sha256": "e0d74b566c5ea169fd441d06abee1c6e91c9c7768a4e06ed646185c8aee96867",
-          "error": "Mismatched internal lang_code 'None' != 'de'",
-          "file": "de_vocab_a1.pack.gz",
-          "valid": false
-        },
-        {
-          "actual_sha256": "227a5422d5d1c80f9ce5548a17926e93fe9062b98c27d271cbac7551f4de6a1c",
-          "file": "de_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "a928a05fe1fed33bfb4cd846e5951e34d9d27eafc8c71f67da39d243453bb523",
-          "error": "Mismatched internal lang_code 'None' != 'de'",
-          "file": "de_grammar_a1.pack.gz",
-          "valid": false
-        }
-      ],
+      "packs": [],
       "reasons": [
-        "de_verbs_a1.pack.gz: Mismatched internal lang_code.",
-        "de_vocab_a1.pack.gz: Mismatched internal lang_code.",
-        "de_grammar_a1.pack.gz: Mismatched internal lang_code."
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "status": "invalidPack"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "dv": {
       "lang_code": "dv",
-      "packs": [
-        {
-          "actual_sha256": "1c198f6bb4959601313936904ea527daa1aaaec36182c33e4579043602baace1",
-          "file": "dv_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "25e7aec6ba2a3959c2a3846408f4f2b5fc2fb0505d6e9da6fda53b22c6d26cbc",
-          "file": "dv_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "el": {
       "lang_code": "el",
-      "packs": [
-        {
-          "actual_sha256": "56bb70e78a96955967ed520a17ddb7e5513f1ed80938eba85866cd7cbf55dceb",
-          "file": "el_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "bbb97fa48914eb2b2735cb720c3f90a7c8d7367bc81cdb9343449f0ddb2b923e",
-          "file": "el_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "en": {
       "lang_code": "en",
-      "packs": [
-        {
-          "actual_sha256": "069178f2aff98df7c9f3721af739464be79330720ab0a96e458d86d8925f189f",
-          "file": "en_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "f20cbf3a2f60550882860842977ca901c6c369643b46ddad5f5abcdd0eb31b41",
-          "file": "en_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "eo": {
       "lang_code": "eo",
-      "packs": [
-        {
-          "actual_sha256": "ffbc63cad037af4d5d68e4a02aa30cc71630e5ae19b6b31a2ed342acfb27a78d",
-          "file": "eo_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "14ec50f52506465ee57c3ade98c360d1d7a0698d2335b9b9100307b4d9033a46",
-          "file": "eo_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "es": {
       "lang_code": "es",
-      "packs": [
-        {
-          "actual_sha256": "2ce82e37666f22a32092dbf592c306c927074bc82cc8ecb474e5c38d67937b27",
-          "file": "es_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "979ec3d18e6b2be760f40bc5038aadf1aa0bbec6a64d1e3c3fae9d834da017e9",
-          "file": "es_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "et": {
       "lang_code": "et",
-      "packs": [
-        {
-          "actual_sha256": "013fb3ffed935d8d37b28f2c7c2f93210b7542509a92b4211754693c47eed8d0",
-          "file": "et_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e51bef3cfb41b8d3eb40fee7c1ee822c9c8d2d66ea4feb1e4e415405f0eaa56e",
-          "file": "et_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "eu": {
       "lang_code": "eu",
-      "packs": [
-        {
-          "actual_sha256": "33b6ac2c61cbbec42e055c44a2cd8934bc6ce4b2481b281d03d5a610ed0e4de3",
-          "file": "eu_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "2c294d351f0c72432f5bd49ab14cb10406192629a1a0305dcb5ac5b369265e87",
-          "file": "eu_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "fa": {
       "lang_code": "fa",
-      "packs": [
-        {
-          "actual_sha256": "f96ccfae45ed72b5277757253814a2850cad79da9f0b0b1adb0631c3da465678",
-          "file": "fa_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "c9a667ea1eba64507c56e05c3c012e2b14c61433b1bd07de9f40b7d70036569c",
-          "file": "fa_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "fi": {
       "lang_code": "fi",
-      "packs": [
-        {
-          "actual_sha256": "05fe765e598c8a82f41a26c22542bacd86461ac6e6008f8af5cc8638a306d3c7",
-          "file": "fi_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "92bb7a609ef9dd5bbaff475c6694473ff7d8a6cc589b6bcf9e1f86bb081c29d1",
-          "file": "fi_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "fo": {
       "lang_code": "fo",
-      "packs": [
-        {
-          "actual_sha256": "42fc86d6c130cd43a7bac0a4cd57d699ca4e9774f7e18f773ba41bdd4134527e",
-          "file": "fo_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "4e455291af3aa45d988c2044f01dfeab31b5ae0f6561cf4ccba83137c073a292",
-          "file": "fo_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "fr": {
       "lang_code": "fr",
-      "packs": [
-        {
-          "actual_sha256": "4f0af5aaf245f862ebd5fa627843c28186fe6b02297bd230b8feaa84da9c8e0e",
-          "file": "fr_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e343a79710bc097c927560fe2099758d39e6637714da3355e2746aaf114d21f7",
-          "file": "fr_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "fy": {
       "lang_code": "fy",
-      "packs": [
-        {
-          "actual_sha256": "1ff54ebfc5a4cf60f360a8f17a9b6ec265acb40b481f5f54f10f712694b351dc",
-          "file": "fy_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "2d56f992192f2a71878957a318a4e2f6bd8d1ce7b14e582bb3780c36a06037f2",
-          "file": "fy_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ga": {
       "lang_code": "ga",
-      "packs": [
-        {
-          "actual_sha256": "fc532a3e14f26ff2d1149355e0dd12b9f04531fa98cfa11582388da8fa8489a5",
-          "file": "ga_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "94dca4f54a609bd84fb8bf882fe5cf719ae7d71a0c8f5da38f7fcf49fe313a85",
-          "file": "ga_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "gd": {
       "lang_code": "gd",
-      "packs": [
-        {
-          "actual_sha256": "6747c42c62b349aa07d54342f4cce071e5e0d62d54a98ae5b024d6743d277bb1",
-          "file": "gd_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "cf77743857d69723808745c2a76dd6ef6f162543bc81ec48af517e777166cb9d",
-          "file": "gd_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "gl": {
       "lang_code": "gl",
-      "packs": [
-        {
-          "actual_sha256": "854a9e379e7056fa12a7b93af1ab4324e2fe1bb6203d3b03272c9c82eb2768dc",
-          "file": "gl_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "dcef4df0fc1195f3d7bf1545aa28c3b42ce6e553545934aa420214f0a38e8ee8",
-          "file": "gl_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "gu": {
       "lang_code": "gu",
-      "packs": [
-        {
-          "actual_sha256": "9b3c14646ab997a560de42af5379527495822b9bc7908aefd32607f511688b83",
-          "file": "gu_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "9a6edd23926badc24223d1670a4ac0b8b8be42214d3e95c855f590ffef1910bf",
-          "file": "gu_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ha": {
       "lang_code": "ha",
-      "packs": [
-        {
-          "actual_sha256": "6f006df6f20cb8e1808fc243053d9c5155e7198621f664d1792f720779dc1099",
-          "file": "ha_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "b0f33cacf387323201830e6b422b6142f63351e41df211bfeb756b5489061380",
-          "file": "ha_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "hi": {
       "lang_code": "hi",
-      "packs": [
-        {
-          "actual_sha256": "7d32b74751ae81f79f144d4b8160eb402533c0ca6faadde7d2e3955f5870fe17",
-          "file": "hi_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "c8970d450d54c0a29ef96f94f9b2466272dff173be21e5e418cebc50da5c090c",
-          "file": "hi_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "hr": {
       "lang_code": "hr",
-      "packs": [
-        {
-          "actual_sha256": "8f17062cef872f7cd3dc088d07f9e4efa78935dd898c67501e42ba393a3703e7",
-          "file": "hr_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "98e4ba398d6ff4e57d638658d5e04e1a6c79970f08db1aff716759ff941b9bf1",
-          "file": "hr_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "hu": {
       "lang_code": "hu",
-      "packs": [
-        {
-          "actual_sha256": "ff8eb935cc39ba55b44c806e9d301d7ebf70a2e4aa07fed32e8eacd188e3ed51",
-          "file": "hu_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "9239e4b50650e5ed6c547e1401453234b36b4b75c7d170e736ef28fec4bb2f08",
-          "file": "hu_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "hy": {
       "lang_code": "hy",
-      "packs": [
-        {
-          "actual_sha256": "c557e4c1aca7edfd3ba4fdf9e0cb0269534d3960a5ea6fd5810d75e146343145",
-          "file": "hy_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "0ae4f1fe1223712e5d9354d93d80a6c5f3af5e43eb86bfd3044b57dc0f51bedc",
-          "file": "hy_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "id": {
       "lang_code": "id",
-      "packs": [
-        {
-          "actual_sha256": "43356579fb73f51bcd5668d1ca0f7661deb32884baf9fb0d20060c67d1897ccd",
-          "file": "id_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "79fc33a32de88bbf4808864d710515d65aae5de7a60a5c6da5be0e7b6a4f4c90",
-          "file": "id_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ig": {
       "lang_code": "ig",
-      "packs": [
-        {
-          "actual_sha256": "c77b2e34e6dd2ce21008b882d2d03d4a22eb4ade733a3f03595e57ae8f97ffd3",
-          "file": "ig_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "717d3a250cff0e83a9390778db16382af9e3256475b88b8213ad1953120389f9",
-          "file": "ig_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "is": {
       "lang_code": "is",
-      "packs": [
-        {
-          "actual_sha256": "57e4666d487647ad9cadd9b80b387236caa38e096ac05244be4a99335213cbb6",
-          "file": "is_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "bf32496144e644f41b98eac53121e3b37e344c721b30f35c5ec5badbcb1c3135",
-          "file": "is_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "it": {
       "lang_code": "it",
-      "packs": [
-        {
-          "actual_sha256": "dc841f882764ac474c224e92cc814f2749a88ff2590f012ce90c9df138a4e9d0",
-          "file": "it_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "fb68794a408e7eba1c3baf4706f692356e428d161e2fbdf55888dda23e190e4f",
-          "file": "it_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ja": {
       "lang_code": "ja",
-      "packs": [
-        {
-          "actual_sha256": "7e8dae50dfec39db01d0812243da59d8d1692520dc1a9e0d02dc62c054864a3d",
-          "file": "ja_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "137d419ed09d70ab0cecb5f76f3e928ce03d0efd05efce02667f96466d8f600d",
-          "file": "ja_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ka": {
       "lang_code": "ka",
-      "packs": [
-        {
-          "actual_sha256": "3051feac05e86f76391a531953cddf7e9526b3f517313426f9e1c9158fde1057",
-          "file": "ka_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "9e1119d20327248de1b5ee93ca62179ab9381385b06c6db3762c4316c42a99d4",
-          "file": "ka_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "kk": {
       "lang_code": "kk",
-      "packs": [
-        {
-          "actual_sha256": "f5b0f7b870ed3a4ed923823edc8f84bfa236033257c1933237987550e8ea51d7",
-          "file": "kk_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "dc5bd084cf58d93d1f0557ac6fda3f695ef3347ea7f5d7d25889a0a2df294d2b",
-          "file": "kk_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "km": {
       "lang_code": "km",
-      "packs": [
-        {
-          "actual_sha256": "7d94ac0d438f07b605a5ff9a9103bdaf9b3440a1f11a9140c2920e76a655905e",
-          "file": "km_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "bd66b1b7e504b36e941dee83398cb91e47a189e26214295822038c5402dc8b2e",
-          "file": "km_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "kn": {
       "lang_code": "kn",
-      "packs": [
-        {
-          "actual_sha256": "b8eca479474185024f2a343498bd4610b04968fdf68f9f3a63c320230d70068c",
-          "file": "kn_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "ced526b0913bbae9cad95c261d92a5458183049416770ecf4438b346f7ada563",
-          "file": "kn_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ko": {
       "lang_code": "ko",
-      "packs": [
-        {
-          "actual_sha256": "ded1a624297ea5e105ca6b5c87a64f2717eab0c256d3c16b122b140dfb7e8abf",
-          "file": "ko_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "9671333965af5140d57b7cd0db783c11c0f98c2b3454a58a3907378b9f64ecfd",
-          "file": "ko_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ku": {
       "lang_code": "ku",
-      "packs": [
-        {
-          "actual_sha256": "75b981b57bf3ff99d2531e8fa596ae5aca10d3e07a54c5ffa10205b3ca101936",
-          "file": "ku_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e00c74d2d55e1c0cc593e12d01a449cd62eaad60b79adbea52aa0d416c49c1af",
-          "file": "ku_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ky": {
       "lang_code": "ky",
-      "packs": [
-        {
-          "actual_sha256": "10879d5cf06a909ef958b09d3c2d3cd5ec5e75e5392e84f6f44c1ca4bd82bf62",
-          "file": "ky_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "cb07ced0eda980d2b2826c230cf665a3640486acdcdba209b951980f52645da2",
-          "file": "ky_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "la": {
       "lang_code": "la",
-      "packs": [
-        {
-          "actual_sha256": "a160a8eebe7ec1eafe21154908a6be9dfc209df0fe6ecc3615239fa3eac4c69a",
-          "file": "la_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "b7aa6cd4c0222ac752944c85763467d342d5669203f00ab109a8645ac178ecfc",
-          "file": "la_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "lb": {
       "lang_code": "lb",
-      "packs": [
-        {
-          "actual_sha256": "b099ff52aa0b3d962644e527ea4c7c1022fe209daefbadd7d14425a4f5456d2e",
-          "file": "lb_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "6dd7047c6860a84baad0975593672f279401eaf38fddc0a3bbdf81cc85bb4fa5",
-          "file": "lb_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "lo": {
       "lang_code": "lo",
-      "packs": [
-        {
-          "actual_sha256": "59438bef6a190328dc72fd2069d831ff5921207d4b4a0d0a969d3235ba3bdb0e",
-          "file": "lo_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "449421bca0860faa0b015a79f4098c4a1110232013fb3f9900de38360b5959e1",
-          "file": "lo_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "lt": {
       "lang_code": "lt",
-      "packs": [
-        {
-          "actual_sha256": "b7f9f46b6e37ea1c9652f792d2696ee85aa7283be0af2da15b4182c6557ae9c7",
-          "file": "lt_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "b654599ae731ce117014d1577eab2b425fb530d4b8f8da51e3b0fd084a80ddc6",
-          "file": "lt_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "lv": {
       "lang_code": "lv",
-      "packs": [
-        {
-          "actual_sha256": "a5d025ab2b117600a35f2cbfd83830c9663e4fcebef22b6340f6e1a4d33c0277",
-          "file": "lv_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "c0d57478d50f32701551555ddc169e0aadf3ef5ff4bcaa0e6b6f14a2ff7db706",
-          "file": "lv_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "mg": {
       "lang_code": "mg",
-      "packs": [
-        {
-          "actual_sha256": "051e77f71e03fe3082fab264ad8c9be4beafe51951082ebcb368ae2a1ddaeac5",
-          "file": "mg_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "9fb00229467422ba860e374913d98e44dcb1fa682e3ab8bcc342323a827e509a",
-          "file": "mg_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "mk": {
       "lang_code": "mk",
-      "packs": [
-        {
-          "actual_sha256": "46c32c86345bce93259537d636de5aa18128481d5391d4bf9fb75c5b4a530c8f",
-          "file": "mk_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "880c1fd7d0c740f916aa6fc938dd2a614ead37765387bd75bd3b701ec34020d0",
-          "file": "mk_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ml": {
       "lang_code": "ml",
-      "packs": [
-        {
-          "actual_sha256": "f07509d2d6bc8ce9ce47eeb3d14184fb279cb4cc0ed1d4fc1e0bb0654554c009",
-          "file": "ml_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "9e6c4881f1d837698e86b8e701ac1cf913f4c825ab7d3d27c08f789b30bc1e04",
-          "file": "ml_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "mn": {
       "lang_code": "mn",
-      "packs": [
-        {
-          "actual_sha256": "a0e1707f28619a4a69c4855a9a999eddfa21d136438371f49a607c0ecde209b9",
-          "file": "mn_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "cdada0495245d9b1236ce4cf970f9c2d462fb2e3afc720ce78e2039a89cb5909",
-          "file": "mn_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "mr": {
       "lang_code": "mr",
-      "packs": [
-        {
-          "actual_sha256": "6fe3d56c3b52bf9871e250a1747c54edcb3ad6dbf3a2027faaf6589dce5ea1d8",
-          "file": "mr_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "fb1ff88fda6805377640918d9eace2e2a37348aace0b9cf6aa0332a321cb1f7a",
-          "file": "mr_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ms": {
       "lang_code": "ms",
-      "packs": [
-        {
-          "actual_sha256": "51fc8b48c842fa3dbe8f30039f577b0298b8ae132f2ef105d4462a0c7b9836f8",
-          "file": "ms_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "5922dae5191826e726995c664266022035af3989446c8fbdb67753a6b825f938",
-          "file": "ms_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "mt": {
       "lang_code": "mt",
-      "packs": [
-        {
-          "actual_sha256": "7a8853507b19a4b0d88762bc3688310a52ce32763f408c987741f96fe9bb7e97",
-          "file": "mt_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "3e8bb9ef133c33b246038c4a58e5a9df23b20eafa5e11bc41ad3119996204122",
-          "file": "mt_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "my": {
       "lang_code": "my",
-      "packs": [
-        {
-          "actual_sha256": "82852a4ee720998fe17d608a1290fb54b8ef48795ec18e6b92399d2933623e24",
-          "file": "my_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "51de0bcd73985e9f5e00e29c441b2d899f429697df1e14c3ee5c0e01601cb998",
-          "file": "my_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ne": {
       "lang_code": "ne",
-      "packs": [
-        {
-          "actual_sha256": "aaeb9f5517f1bb87e6a4964a5efdf3e4de617f9e509416fca42ffd2b5f650d50",
-          "file": "ne_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "f5cbe502ab75653cd7cfc3a86d6ec0fd533047e1ab6343d477c433aa1d9e17d7",
-          "file": "ne_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "nl": {
       "lang_code": "nl",
-      "packs": [
-        {
-          "actual_sha256": "33522fc72785b7850ccfa5e8e21dabe5cb04a527a32fa7afd9e3c255c310e5a8",
-          "file": "nl_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "7218eb2278a3899a5e064c5f50b1bf362bcfb6a30ef2e4fecc8704290414b217",
-          "file": "nl_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "no": {
       "lang_code": "no",
-      "packs": [
-        {
-          "actual_sha256": "b74653c7d87c89ca8a3509f9de1aab2d62a8ae008357c830ae803bae985edd62",
-          "file": "no_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "563b8b9becb6a9075da1c1a38672afb10c54697bcd85093f49d7220a032882d3",
-          "file": "no_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "or": {
       "lang_code": "or",
-      "packs": [
-        {
-          "actual_sha256": "0b4cfddb3b580bc5b1bf9e80b1e33e4f34b036f86e588a3e27f099619d266150",
-          "file": "or_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "6c5875aceab99db9e7025a026db6323b9afae7ed56ae15ec97e4b7bbf32edeb8",
-          "file": "or_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "pa": {
       "lang_code": "pa",
-      "packs": [
-        {
-          "actual_sha256": "00dde72d73c8f5bacad38af00aaa0228166cf6e4c1e18308f1aa3fbce89f2869",
-          "file": "pa_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "d9e8364cba997e666d67581ff8b936fea7182b1fd945a2270315f206e431fbcb",
-          "file": "pa_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "pl": {
       "lang_code": "pl",
-      "packs": [
-        {
-          "actual_sha256": "89a7fd7ff5c38a794136d3246b940f9f86a6789f11cf0c5d30f636ad0da468bd",
-          "file": "pl_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "b5135754ed6a9f2101ca868316934cc344b8d28a720d0c91dea5af09218fcf8f",
-          "file": "pl_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ps": {
       "lang_code": "ps",
-      "packs": [
-        {
-          "actual_sha256": "fde51d533b7235c40bd6a5b49416ac566185776bb4a45fad289498c8f6b86245",
-          "file": "ps_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "d5df40ca2da6f6d13d14f348fb2d03d9f3dbca5f48b036d718ccf7b6cf7d352a",
-          "file": "ps_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "pt": {
       "lang_code": "pt",
-      "packs": [
-        {
-          "actual_sha256": "8f5ddc3a70a9e63e7104ee4e0d8eb35091c437d491e611e12ead2dea9926e4b6",
-          "file": "pt_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e2a4eca61f871f0bbdc92a4b1e3cba0722553a3ce241f1009da112c3d45237e5",
-          "file": "pt_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ro": {
       "lang_code": "ro",
-      "packs": [
-        {
-          "actual_sha256": "61ae84a7a7418fd4a7c1a84f79b93c72e43f7ef4004e0e100cb1fd33c80fb94c",
-          "file": "ro_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "614632fdd3333bb42b48c8f5744cd4e7fa41eac45138b4284b9eaf5f129375db",
-          "file": "ro_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ru": {
       "lang_code": "ru",
-      "packs": [
-        {
-          "actual_sha256": "7bc4438cf4ca6bbceae99bdf27f9e979394dd30393ee28ee2d68a34ed3d9d2f8",
-          "file": "ru_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "757ed6e987e43c35eee5d211093f5e35e440fd7c0b897517b5274bd2b91b95be",
-          "file": "ru_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "rw": {
       "lang_code": "rw",
-      "packs": [
-        {
-          "actual_sha256": "ec4a3e777b9d9caf494195853f267e455b6f04d3a864c7bbb29dd81503e06288",
-          "file": "rw_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "01b46951511ccd2668b29944b3373dcf4fd8d03e56f50e2ff8a59e7dfe6f5c86",
-          "file": "rw_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "sd": {
       "lang_code": "sd",
-      "packs": [
-        {
-          "actual_sha256": "a0695314f32c0c82aba01cda6a58d6172dc5ed7123dc34a16b04d46e743e5ec5",
-          "file": "sd_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e0da46405edef56a7f5802fad69f4e796155c257a442d4462bad90492430e225",
-          "file": "sd_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "si": {
       "lang_code": "si",
-      "packs": [
-        {
-          "actual_sha256": "3a7cef0693437481a798b65be667cc6f9449ace21e8793d05ac09f17d97f9ac8",
-          "file": "si_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "d42053fd73de450a9072169db11eafe9b838981c765f288765c36763b812e331",
-          "file": "si_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "sk": {
       "lang_code": "sk",
-      "packs": [
-        {
-          "actual_sha256": "0c830c182b3d5cd2026697c02620ceb778e2f52c4335c998f993045f2590af24",
-          "file": "sk_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "cd6477eb1101eaabba5a5ad5e42991d0fb8aebdb5bf2d0ec45f29366025150db",
-          "file": "sk_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "sl": {
       "lang_code": "sl",
-      "packs": [
-        {
-          "actual_sha256": "c024c09d1f6f57be5ccc2fe6bbdbe85f3ffff74e9c531d131451d24b4e0fce23",
-          "file": "sl_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "f239a488ad36d61a4dda69c81479947f4b9c639cb9af127905a45155bff798b2",
-          "file": "sl_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "sn": {
       "lang_code": "sn",
-      "packs": [
-        {
-          "actual_sha256": "6b1be48d27ba9d644cb6a6a0a9ab7eee230193e83e8f27a8556280c80a204b87",
-          "file": "sn_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "81f9cf291774950013127b1974bfc22ef6ac84dc87a9d50b146fea9c6cf223a3",
-          "file": "sn_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "so": {
       "lang_code": "so",
-      "packs": [
-        {
-          "actual_sha256": "de5acbab870f334a93e5f30f50c3c43c90415d56865aa9d22eb6b37c19985e78",
-          "file": "so_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "24dd8769c572b42145dfbec9dd69091e1c633e8bd5d7af1e0a685fe8d07f8d68",
-          "file": "so_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "sq": {
       "lang_code": "sq",
-      "packs": [
-        {
-          "actual_sha256": "a971e7eda112bcb9c389300c1e449772b100cf86de1f58e025d9b23021dd0bfc",
-          "file": "sq_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "813db851f6952b0bd687ca0f2df6c7d1a146c51def6e36448b768a91bce22660",
-          "file": "sq_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "sr": {
       "lang_code": "sr",
-      "packs": [
-        {
-          "actual_sha256": "03f7bff5641c44736b44912b70a61466f38a432a4785a3266cd06af3f6fdaa0b",
-          "file": "sr_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "1038de17915ad61f1438eba72e913a81a486b9bda65b3a41761af911ce5be2ca",
-          "file": "sr_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "sv": {
       "lang_code": "sv",
-      "packs": [
-        {
-          "actual_sha256": "c2af66a5b3b34d49a1a5b1d2bd102d6bb04f8c3d08dd35493b58041d86b7667f",
-          "file": "sv_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "c03b63f015d711484fecfe0b3a93f8eda3efd11498d21f621d208fec2bcffec6",
-          "file": "sv_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "sw": {
       "lang_code": "sw",
-      "packs": [
-        {
-          "actual_sha256": "ed6e277bc100a9b0a37660664997d2d2043beff6e702c79e1a6f50cb69157a2f",
-          "file": "sw_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "c38539df13038e83bbb53e83547a1ba5d0b19fb5d0b9cd5ca10c6fca3d1b82cf",
-          "file": "sw_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ta": {
       "lang_code": "ta",
-      "packs": [
-        {
-          "actual_sha256": "c1549ec71a9a021a825e5f7b5d6b8c8761f76b5828adb68b42394776665599e6",
-          "file": "ta_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "35f276229b16053faa414399b07fa7dcaa300027bd0559e59b11912a62b9a88d",
-          "file": "ta_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "te": {
       "lang_code": "te",
-      "packs": [
-        {
-          "actual_sha256": "3fac7fce96168d3ee66c057d7b52b04ca24cc7089b0caaabdc447a1fea193436",
-          "file": "te_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "19e4e6b497a4447ba84e8e19f65e7dc7159092ee5153b20493726ca11605c707",
-          "file": "te_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "tg": {
       "lang_code": "tg",
-      "packs": [
-        {
-          "actual_sha256": "a786b072a11e4173134b79f082bac1313aa2cf91ef9526706e5994a524187d77",
-          "file": "tg_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "f1496122e4a05be0bdf3a717c163dd3c288d0ad0aa77f3f174d7fcc3ce9050bd",
-          "file": "tg_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "th": {
       "lang_code": "th",
-      "packs": [
-        {
-          "actual_sha256": "dc09ca0148cd29607d6ed597432db6208a9812f4dc55ab0587998b9a0e55064f",
-          "file": "th_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "6caf7a6587851a1deddf879d44a77e6da65c7a892b2cd1a4c3563662b98331e6",
-          "file": "th_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "tk": {
       "lang_code": "tk",
-      "packs": [
-        {
-          "actual_sha256": "864bada5c1b31bb6d8f19f9bba291550fd633d40bbedf29abbd04b986dce0f8f",
-          "file": "tk_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "c2acd7401e83c35745d34872c5c05d49d04f193d256c7753dc637fa7fbcdc45a",
-          "file": "tk_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "tl": {
       "lang_code": "tl",
-      "packs": [
-        {
-          "actual_sha256": "6f6cfb683af36e5bf903c21992ff13c391f4f994d047a2238f75feb69487ce37",
-          "file": "tl_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "5e58bddb47ba8065cca2b989fb53f833b6e047915c253d04aa0e6d85f65e0f9f",
-          "file": "tl_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "tr": {
       "lang_code": "tr",
-      "packs": [
-        {
-          "actual_sha256": "dea99b77a9500f2ab0c86622a534d3e6d77f814c0cb87bb64e1fb0abbe221bd7",
-          "file": "tr_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "002e9250396454543438cefb05d361f35c2bda5c458bf5343c0126a571f95814",
-          "file": "tr_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "tt": {
       "lang_code": "tt",
-      "packs": [
-        {
-          "actual_sha256": "b62d7e9104a05a7ff6ab6954755130c34a62f0a1666b7df4e8c977f5bc624ca9",
-          "file": "tt_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e499e49c1c69a3648f21901123b263e5f113dc3b6df3f89b95cbf4163da0277a",
-          "file": "tt_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ug": {
       "lang_code": "ug",
-      "packs": [
-        {
-          "actual_sha256": "a1a86cd6ce14fc726913c37cd371e6d1cd0efa3d1f650b72c7573563ccef183a",
-          "file": "ug_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "79c219823ef99bdf1201713044035e482524a82a3042f3a5eaaafa6e0a0970e8",
-          "file": "ug_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "uk": {
       "lang_code": "uk",
-      "packs": [
-        {
-          "actual_sha256": "e9a27f99130a2a241984ff4c823f92aa817891d874723c0860b9a824db49dc4d",
-          "file": "uk_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "fc441f14e9c5b62a6da933522e90cd0cad570fed509e82d77ca113b169b23755",
-          "file": "uk_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "ur": {
       "lang_code": "ur",
-      "packs": [
-        {
-          "actual_sha256": "4c213f46eb242ce476922ec9fcda3286621361ac30663f9a25f7b2a3cea785e6",
-          "file": "ur_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "621327f6b60ebc491d15ce2167d064d3cb933c545c0d7d7d5cda271ae2e20baf",
-          "file": "ur_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "uz": {
       "lang_code": "uz",
-      "packs": [
-        {
-          "actual_sha256": "8047be963eb7516e024ec8437c72e951c9da29376e52dbc8a20e2c903e17845b",
-          "file": "uz_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "88b8a1c5301d45d520d407d03b778e1d5fa89820670abb8ebd9a09e347e30fc5",
-          "file": "uz_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "vi": {
       "lang_code": "vi",
-      "packs": [
-        {
-          "actual_sha256": "bae2531477e6fa3002f212a8973397cda7cdb0ec4e52f56faf5ecd2cf60687d7",
-          "file": "vi_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "537cc1c474ba3513712612f48dddb8630f441df715eb5390837523b2be45a64f",
-          "file": "vi_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "xh": {
       "lang_code": "xh",
-      "packs": [
-        {
-          "actual_sha256": "dd03879d15ac64590138499d1e511c9bd93b215754fb6c49a14a4cf83ada05b5",
-          "file": "xh_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "32fadfdc9ef3256ba31042f6e6565f833802c8468b8424102f6c1c735cf1e7b3",
-          "file": "xh_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "yo": {
       "lang_code": "yo",
-      "packs": [
-        {
-          "actual_sha256": "0d938dec5e28ca4309bb7b294ef6f77bb3f8457b81ee12f15658f0debfdabc7b",
-          "file": "yo_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        },
-        {
-          "actual_sha256": "1ba8636194c6ff2e40d1ae263f053d8a61237ffd2826e38a2ed7c34d3e144dc2",
-          "file": "yo_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "zh": {
       "lang_code": "zh",
-      "packs": [
-        {
-          "actual_sha256": "8e9badb93ff909bb719a192be4743e6cc10d9cab2a44cd661af366ce8511f50d",
-          "file": "zh_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "e9e83ae432c8f1df2cb2aeb866e5e0860ea84a471d1bf3ffeb6a9dc547463eaf",
-          "file": "zh_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     },
     "zu": {
       "lang_code": "zu",
-      "packs": [
-        {
-          "actual_sha256": "7c5b820ef7e51bda07a4794c901b64058fe26f04371e593ced5f23a1f80f387d",
-          "file": "zu_universal_v1.pack.gz",
-          "level": "A1, A2, B1, B2, C1, C2",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 0,
-          "valid": true
-        },
-        {
-          "actual_sha256": "7e830c48312adb21c155ff9dc65c88c25dc6d71169efaaa6758f1f0ceff6d07d",
-          "file": "zu_core_a1.pack.gz",
-          "level": "A1",
-          "license": "Public Domain / Zero Copyright",
-          "terms_count": 150,
-          "valid": true
-        }
+      "packs": [],
+      "reasons": [
+        "No APPROVED_FOR_REDISTRIBUTION source names this language.",
+        "No pack for this language in manifest.packs."
       ],
-      "reasons": [],
-      "status": "releaseReady"
+      "status": "BLOCKED_DEPENDENCY"
     }
   },
+  "readiness_rule": "releaseReady requires an APPROVED_FOR_REDISTRIBUTION source that names the language and a pack in manifest.packs",
   "schema_version": "1.0.0",
   "total_languages": 100
 }
