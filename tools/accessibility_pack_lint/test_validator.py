@@ -112,6 +112,12 @@ class TestAccessibilityValidator(unittest.TestCase):
         self.assertEqual(result["status"], "rejected")
         self.assertIn("Vector complexity missing", result["errors"])
 
+    def test_vector_path_count_exceeded(self):
+        asset = self.load_fixture("bad_vector_path_count.json")
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Vector path count exceeds safe complexity limits (max 50)", result["errors"])
+
     def test_missing_version(self):
         asset = self.load_fixture("valid_asset.json")
         del asset["version"]
