@@ -52,3 +52,21 @@ class LicenseNoticeTests(unittest.TestCase):
 
     def test_cc_by_sa_3_0_is_not_relabeled_as_4_0(self):
         self.assertNotIn('CC-BY-SA-4.0', detected_licenses('CC BY-SA 3.0 Unported'))
+
+    def test_real_cc0_wordings_do_not_treat_public_domain_as_a_conflict(self):
+        for notice in (
+            'Creative Commons CC0 License',
+            'CC0 1.0 Universal',
+            'publicdomain/zero/1.0',
+            'CC0 1.0 Universal. Dedicated the work to the public domain.',
+        ):
+            self.assertIn('CC0-1.0', detected_licenses(notice))
+            self.assertFalse(self.conflicts(notice, 'CC0-1.0'))
+        self.assertTrue(self.conflicts(
+            'CC0 1.0 Universal. Dedicated the work to the public domain.',
+            'PUBLIC-DOMAIN'))
+        self.assertFalse(self.conflicts(
+            'Creative Commons CC0 License. Some other datasets are Non-Commercial.',
+            'CC0-1.0'))
+        self.assertTrue(self.conflicts(
+            'Creative Commons CC0 License and CC BY-NC.', 'CC0-1.0'))

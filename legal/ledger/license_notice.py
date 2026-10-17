@@ -13,6 +13,11 @@ MAX_LICENSE_NOTICE_BYTES = 1024 * 1024
 # number, so "CC-BY-SA 3.0" is not silently relabeled as CC-BY-SA-4.0.
 _MARKERS = (
     ('CC0-1.0', 'cc0-1-0', False),
+    ('CC0-1.0', 'cc0-license', False),
+    ('CC0-1.0', 'creative-commons-cc0', False),
+    ('CC0-1.0', 'creative-commons-zero', False),
+    ('CC0-1.0', 'publicdomain-zero-1-0', False),
+    ('PUBLIC-DOMAIN', 'public-domain', False),
     ('CC-BY-SA-4.0', 'cc-by-sa-4-0', False),
     ('CC-BY-SA-4.0', 'attribution-sharealike-4-0', False),
     ('CC-BY-SA-4.0', 'cc-by-sa', True),

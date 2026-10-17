@@ -15,7 +15,12 @@ python -m tools.gha_factory.admission.verified_snapshot \
   --language de --dataset-version OWNER_REVIEWED_VERSION
 ```
 
-The existing Route05 ledger schema remains unchanged. A separate, owner-reviewed
+The decision URL must be an issue or pull request on
+`github.com/moaz76943-creator/-offline-packs-store`. Notice text is scanned by
+the shared `legal.ledger.license_notice` module: real CC0 wordings are
+recognized, a public-domain dedication does not conflict with CC0, and
+restricted-license identifiers (not the bare words "Non-Commercial") still
+conflict. A separate, owner-reviewed
 `legal/ledger/review_snapshots/<source_id>.json` companion descriptor is required:
 
 ```json
@@ -25,7 +30,7 @@ The existing Route05 ledger schema remains unchanged. A separate, owner-reviewed
   "source_sha256": "ACTUAL_SOURCE_SHA256",
   "license_evidence_sha256": "ACTUAL_LICENSE_NOTICE_SHA256",
   "reviewer": "INDEPENDENT_REVIEWER",
-  "decision_url": "https://publisher.example/review",
+  "decision_url": "https://github.com/moaz76943-creator/-offline-packs-store/issues/179#issuecomment-1",
   "evidence_path": "legal/ledger/evidence/owner-review.txt",
   "evidence_sha256": "ACTUAL_REVIEW_FILE_SHA256"
 }

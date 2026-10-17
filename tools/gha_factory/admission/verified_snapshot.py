@@ -11,8 +11,15 @@ from pathlib import Path
 import re
 import stat
 import tempfile
+from urllib.parse import parse_qs, urlsplit
 
+from legal.ledger.license_notice import (
+    ALWAYS_CONFLICT, conflicting_license_ids, detected_licenses, read_notice,
+)
 from . import pipeline
+
+_DECISION_PREFIX = '/moaz76943-creator/-offline-packs-store/'
+_DECISION_PATH = re.compile(r'(?:issues|pull)/\d+/?\Z')
 
 MAX_SOURCE_BYTES = 256 * 1024 * 1024
 MAX_PROOF_BYTES = 1024 * 1024
@@ -59,23 +66,35 @@ def copy_snapshot(root, relative, destination, expected=None, limit=MAX_PROOF_BY
         raise pipeline.AdmissionError('BLOCKED_SOURCE: snapshot unavailable') from exc
 
 
-def license_notice(path, license_id):
-    """Negative evidence check only; text recognition is NOT a legal decision."""
+def repo_decision_url(value):
+    """Owner decision links must be an issue or pull request on this repository."""
+    if not isinstance(value, str) or not value:
+        return False
     try:
-        notice = path.read_text(encoding='utf-8').lower()
-    except UnicodeError as exc:
-        raise pipeline.AdmissionError('BLOCKED_SOURCE: unreadable rights snapshot') from exc
-    normalized = re.sub(r'[^a-z0-9]+', '-', notice)
-    if any(marker in normalized for marker in ('cc-by-nc', 'noncommercial', 'non-commercial', 'all-rights-reserved')):
+        parts = urlsplit(value)
+    except ValueError:
+        return False
+    forbidden = {'token', 'key', 'access_token', 'signature', 'auth', 'password'}
+    return (parts.scheme == 'https' and parts.hostname == 'github.com'
+            and not parts.username and not parts.password
+            and not (set(parse_qs(parts.query)) & forbidden)
+            and parts.path.startswith(_DECISION_PREFIX)
+            and bool(_DECISION_PATH.fullmatch(parts.path[len(_DECISION_PREFIX):])))
+
+
+def license_notice(path, license_id, co_offered=()):
+    """Shared-scanner check only; text recognition is NOT a legal decision."""
+    notice = read_notice(path)
+    if notice is None:
+        raise pipeline.AdmissionError('BLOCKED_SOURCE: unreadable rights snapshot')
+    detected = detected_licenses(notice)
+    conflicts = conflicting_license_ids(detected, license_id, co_offered)
+    if conflicts & ALWAYS_CONFLICT:
         raise pipeline.AdmissionError('BLOCKED_SOURCE: conflicting restricted rights notice')
-    markers = {'CC0-1.0': ('cc0-1-0',),
-               'CC-BY-SA-4.0': ('cc-by-sa-4-0', 'attribution-sharealike-4-0'),
-               'PUBLIC-DOMAIN': ('public-domain',)}
-    if license_id not in markers or not any(m in normalized for m in markers[license_id]):
+    if conflicts:
+        raise pipeline.AdmissionError('BLOCKED_SOURCE: license metadata/notice conflict')
+    if license_id not in detected:
         raise pipeline.AdmissionError('BLOCKED_SOURCE: rights notice requires independent reconciliation')
-    for lid, tokens in markers.items():
-        if lid != license_id and any(t in normalized for t in tokens):
-            raise pipeline.AdmissionError('BLOCKED_SOURCE: license metadata/notice conflict')
 
 
 def admit_verified(*, repo_root, source_id, input_path, out_dir, language,
@@ -98,6 +117,9 @@ def admit_verified(*, repo_root, source_id, input_path, out_dir, language,
             retrieval, rights, review = (source.get(k) for k in ('retrieval', 'license', 'review'))
             if not all(isinstance(v, dict) for v in (retrieval, rights, review)):
                 raise pipeline.AdmissionError('BLOCKED_SOURCE: malformed evidence metadata')
+            if not repo_decision_url(review.get('decision_url')):
+                raise pipeline.AdmissionError(
+                    'BLOCKED_SOURCE: reviewer decision must link to this repository')
             # Companion descriptor preserves the existing strict ledger schema.
             descriptor_path = pinned / 'review-snapshot.json'
             copy_snapshot(root, f'legal/ledger/review_snapshots/{source_id}.json', descriptor_path)
@@ -121,9 +143,12 @@ def admit_verified(*, repo_root, source_id, input_path, out_dir, language,
                 if not isinstance(relative, str):
                     raise pipeline.AdmissionError('BLOCKED_SOURCE: missing evidence path')
                 copy_snapshot(root, relative, pinned / relative, expected, bound, lines)
-            if Path(input_path).absolute() != (root / retrieval['artifact_path']).absolute():
+            reviewed_input = (root / retrieval['artifact_path']).resolve()
+            if Path(input_path).resolve() != reviewed_input:
                 raise pipeline.AdmissionError('BLOCKED_SOURCE: input differs from reviewed snapshot')
-            license_notice(pinned / rights['evidence_path'], rights.get('id'))
+            license_notice(
+                pinned / rights['evidence_path'], rights.get('id'),
+                rights.get('co_offered_licenses', ()))
             copy_snapshot(root, 'catalog/language_registry.v1.json', pinned / 'catalog/language_registry.v1.json')
             # Only selected source is exposed to the legacy adapter; pinned bytes
             # prevent source/ledger changes between preflight and partitioning.
