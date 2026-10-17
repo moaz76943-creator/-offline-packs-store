@@ -76,6 +76,9 @@ def build_digest_index(base_dir, artifact_records, index_out_path):
             # Compute hash
             file_hash = compute_sha256(target_path)
 
+            if 'sha256' in record and record['sha256'] != file_hash:
+                raise ValueError(f"Hash mismatch for {rel_path}: declared {record['sha256']}, actual {file_hash}")
+
             index[rel_path] = {
                 'sha256': file_hash,
                 'size_bytes': os.path.getsize(target_path),

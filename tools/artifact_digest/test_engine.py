@@ -19,6 +19,31 @@ class TestDigestEngine(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.test_dir)
 
+    def test_content_identity_validation(self):
+        base_dir = os.path.join(self.test_dir, "base_identity")
+        os.makedirs(base_dir)
+
+        file1 = "ident.txt"
+        with open(os.path.join(base_dir, file1), 'w') as f:
+            f.write("content identity")
+
+        real_hash = compute_sha256(os.path.join(base_dir, file1))
+
+        records = [
+            {'path': file1, 'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1', 'size_bytes': 16, 'sha256': 'wrong_hash'}
+        ]
+
+        out_path = os.path.join(self.test_dir, "identity_index.json")
+        build_digest_index(base_dir, records, out_path)
+
+        self.assertTrue(os.path.exists(out_path))
+        with open(out_path, 'r') as f:
+            index = json.load(f)
+
+        self.assertIn(file1, index)
+        self.assertTrue(index[file1].get('invalid'))
+        self.assertIn("Hash mismatch", index[file1].get('error'))
+
     def test_tampered_bytes(self):
         file1 = os.path.join(self.test_dir, "file1.txt")
         file2 = os.path.join(self.test_dir, "file2.txt")
