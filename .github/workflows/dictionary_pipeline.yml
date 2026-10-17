@@ -71,3 +71,11 @@ jobs:
         with:
           name: domain-packs-${{ github.event.inputs.language }}
           path: dist_packs/
+
+      - name: Trigger Next Run If Incomplete
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo '[Auto-Loop] Checking if more batches are pending...'
+          gh workflow run dictionary_pipeline.yml -f language=${{ github.event.inputs.language || 'de' }} || true
