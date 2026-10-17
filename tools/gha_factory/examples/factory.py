@@ -70,6 +70,13 @@ def source_path(workspace, snapshot):
     root = Path(workspace).resolve()
     if rel.is_absolute() or '..' in rel.parts or '.git' in rel.parts:
         raise Rejected('BLOCKED_SOURCE: unsafe source path')
+    # resolve() follows symlinks; checking is_symlink() on the resolved
+    # destination alone fails to catch linked files or parent directories.
+    probe = root
+    for component in rel.parts:
+        probe = probe / component
+        if probe.is_symlink():
+            raise Rejected('BLOCKED_SOURCE: symlink snapshot path')
     path = (root / rel).resolve()
     if not path.is_relative_to(root) or not path.is_file() or path.is_symlink():
         raise Rejected('BLOCKED_SOURCE: source missing or escapes workspace')
