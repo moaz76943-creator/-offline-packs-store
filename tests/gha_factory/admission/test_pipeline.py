@@ -221,7 +221,7 @@ class AdmissionTests(unittest.TestCase):
 
     def test_oversized_jsonl_line_is_rejected_without_queue(self):
         from tools.gha_factory.admission import pipeline
-        oversized = b'x' * (pipeline.MAX_LINE + 1) + b'\\n'
+        oversized = b'x' * (pipeline.MAX_LINE + 1) + b'\n'
         (self.root / 'input/raw.jsonl').write_bytes(oversized)
         self.source['retrieval']['sha256'] = sha(oversized)
         self._ledger()
