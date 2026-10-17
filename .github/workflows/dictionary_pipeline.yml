@@ -1,0 +1,60 @@
+name: Build Multilingual Domain Dictionaries
+
+on:
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Target language code (e.g., de, ar, en)'
+        required: true
+        default: 'de'
+
+jobs:
+  build-dictionary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Processing Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install google-genai google-generativeai || true
+
+      - name: Fetch Raw Lexical Data
+        run: |
+          mkdir -p raw_data dist_packs
+          case "${{ github.event.inputs.language }}" in
+            de) LANG_NAME="German" ;;
+            en) LANG_NAME="English" ;;
+            es) LANG_NAME="Spanish" ;;
+            fr) LANG_NAME="French" ;;
+            ar) LANG_NAME="Arabic" ;;
+            *) LANG_NAME="${{ github.event.inputs.language }}" ;;
+          esac
+          echo "Fetching Kaikki data for $LANG_NAME..."
+          curl -fSL "https://kaikki.org/dictionary/${LANG_NAME}/kaikki.org-dictionary-${LANG_NAME}.jsonl" | gzip -c > raw_data/dictionary.jsonl.gz
+
+      - name: Process & Categorize by Semantic Domain and CEFR
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python3 tools/build_domain_packs.py \
+            --input raw_data/dictionary.jsonl.gz \
+            --out-dir dist_packs \
+            --lang ${{ github.event.inputs.language }}
+
+      - name: Clean Raw Data
+        run: rm -rf raw_data
+
+      - name: Upload Pack Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: domain-packs-${{ github.event.inputs.language }}
+          path: dist_packs/
