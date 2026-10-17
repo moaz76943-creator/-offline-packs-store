@@ -125,7 +125,7 @@ def _verified_partition(partition, job, report, source):
     with partition.open('rb') as stream:
         for raw in stream:
             actual_count += 1
-            if (actual_count > job['record_count'] or not raw.endswith(b'\\n')
+            if (actual_count > job['record_count'] or not raw.endswith(b'\n')
                     or len(raw) > 2_000_000):
                 return False
             row = json.loads(raw)
