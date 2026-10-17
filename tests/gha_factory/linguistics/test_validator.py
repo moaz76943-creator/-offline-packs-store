@@ -66,6 +66,50 @@ class LinguisticsTests(unittest.TestCase):
         with self.assertRaises(LinguisticError):
             validate_form({**form(),'lemma_id':'ar:book:1'},{'de'})
 
+    def test_bidi_format_controls_are_rejected_but_joiners_preserved(self):
+        # Synthetic Unicode QA, not a licensed linguistic attestation.
+        for value in ('Buch\\u202e', 'Buch\\u2067', 'Buch\\u200f', 'Buch\\ufeff'):
+            with self.subTest(value=repr(value)):
+                with self.assertRaises(LinguisticError):
+                    validate_form(form(word=value), {'de'})
+        with self.assertRaises(LinguisticError):
+            validate_form(form(features={'variant':'x\\u202e'}), {'de'})
+        self.assertTrue(validate_form(form('hi', 'क्\\u200dष', lemma='क्\\u200dष'), {'hi'}))
+
+    def test_nfc_equivalent_answers_do_not_become_spelling_errors(self):
+        expected = form(word='Café', features={})
+        self.assertEqual('correct', classify_answer('Cafe\\u0301', expected))
+        self.assertEqual('spelling_error', classify_answer('Cafe', expected))
+        alternate = form(word='Été', features={'number':'singular'})
+        self.assertEqual('morphology_error', classify_answer('E\\u0301té', expected, [alternate]))
+
+    def test_unhashable_morpheme_kinds_fail_closed(self):
+        candidate = form(morphemes=[{'surface':'Buch','kind':[], 'position':0}])
+        with self.assertRaises(LinguisticError):
+            validate_form(candidate, {'de'})
+
+    def test_streaming_reader_must_use_a_bounded_readline(self):
+        import io
+        from unittest.mock import patch
+        raw = (json.dumps(form(), ensure_ascii=False) + '\\n').encode('utf-8')
+        class CheckedStream:
+            def __init__(self):
+                self.data = io.BytesIO(raw)
+            def __enter__(self):
+                return self
+            def __exit__(self, *args):
+                self.data.close()
+            def __iter__(self):
+                raise AssertionError('unbounded file iteration is forbidden')
+            def readline(self, size=-1):
+                if size < 0 or size > 1_048_577:
+                    raise AssertionError('unbounded readline')
+                return self.data.readline(size)
+        with patch.object(Path, 'open', lambda self, mode='r': CheckedStream()):
+            result = audit_stream(Path('synthetic.jsonl'), hashlib.sha256(raw).hexdigest(),
+                                  {'de'}, 'fixture-evidence')
+        self.assertEqual(1, result['records'])
+
     def test_spelling_morphology_unverified_and_ambiguity(self):
         expected=form()
         singular=form(word='Buch', features={'number':'singular','case':'nominative'})
