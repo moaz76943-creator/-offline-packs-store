@@ -7,6 +7,8 @@ import tracemalloc
 import unittest
 from pathlib import Path
 
+import tools.gha_factory.examples.factory as example_factory
+
 from tools.gha_factory.examples.factory import (MAX_LINE, Rejected, bounded_tsv, digest,
     make_cloze, run, source_approval, source_path, verified_catalog)
 
@@ -187,6 +189,51 @@ class FactoryTests(unittest.TestCase):
         after = {p.relative_to(self.out).as_posix(): digest(p)
                  for p in self.out.rglob('*') if p.is_file()}
         self.assertEqual(before, after)
+
+    def test_failed_jsonl_write_keeps_last_complete_candidate_set(self):
+        """A write failure after one pair must not publish a partial JSONL part."""
+        self.process()
+        before = {p.relative_to(self.out).as_posix(): digest(p)
+                  for p in self.out.rglob('*') if p.is_file()}
+        original_writer = example_factory.canonical
+
+        def interrupted_writer(obj):
+            if (isinstance(obj, dict) and
+                    obj.get('link_proof') == 'tatoeba_explicit_reciprocal' and
+                    obj['target']['sentence_id'] == '3'):
+                raise Rejected('simulated interrupted JSONL write')
+            return original_writer(obj)
+
+        with patch('tools.gha_factory.examples.factory.canonical',
+                   side_effect=interrupted_writer):
+            with self.assertRaisesRegex(Rejected, 'interrupted JSONL'):
+                self.process()
+        after = {p.relative_to(self.out).as_posix(): digest(p)
+                 for p in self.out.rglob('*') if p.is_file()}
+        self.assertEqual(before, after)
+
+    def test_source_symlink_inside_workspace_is_rejected(self):
+        alias = self.source / 'alias.tsv'
+        alias.symlink_to('detailed.tsv')
+        with self.assertRaisesRegex(Rejected, 'symlink'):
+            source_path(self.source, {
+                'path': 'alias.tsv', 'sha256': digest(self.source / 'detailed.tsv')})
+
+    def test_multi_thousand_row_tsv_import_with_invalid_tail(self):
+        path = self.source / 'detailed.tsv'
+        data = ''.join(
+            f'{i}\tdeu\tGuten Tag {i}!\twriter\t2026\t2026\n'
+            for i in range(1, 4097))
+        path.write_bytes(data.encode('utf-8') + b'\xff\tbroken\n')
+        self.snapshots['detailed']['sha256'] = digest(path)
+        self.job['snapshots'] = self.snapshots
+        self.save_config()
+        report = run(self.source, self.config, self.catalog, self.ledger, self.out,
+                     partition_size=1024, deadline_seconds=10)
+        self.assertEqual(report['counts']['candidate_sentences'], 4096)
+        self.assertEqual(report['counts']['rejected_sentences'], 1)
+        self.assertEqual(report['counts'].get('translation_pairs_verified', 0), 0)
+        self.assertEqual(list((self.out / 'verified_candidates').glob('*.jsonl')), [])
 
     def test_deterministic_partitions_and_checkpoint(self):
         a = self.process()
