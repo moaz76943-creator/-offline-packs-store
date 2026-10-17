@@ -117,3 +117,19 @@ class LicenseNoticeTests(unittest.TestCase):
         self.assertTrue(self.conflicts(
             'CC0 1.0. Creative Commons Attribution-NonCommercial 4.0 International',
             'CC0-1.0'))
+
+    def test_spelled_out_unknown_versions_conflict_with_cc0(self):
+        notices = (
+            'Attribution-NonCommercial 3.0',
+            'Creative Commons Attribution-NonCommercial 3.0 Unported',
+            'Attribution-NoDerivatives 3.0',
+        )
+        for notice in notices:
+            found = detected_licenses(notice)
+            self.assertTrue(
+                {'CC-BY-NC-3.0', 'CC-BY-ND-3.0'} & found,
+                notice,
+            )
+            self.assertNotIn('CC-BY-NC-4.0', found, notice)
+            self.assertNotIn('CC-BY-ND-4.0', found, notice)
+            self.assertTrue(self.conflicts(notice, 'CC0-1.0'), notice)

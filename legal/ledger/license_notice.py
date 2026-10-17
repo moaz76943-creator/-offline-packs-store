@@ -50,6 +50,10 @@ CO_OFFERABLE = frozenset({'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DO
 # its own id (CC-BY-NC-3.0). Do not scan bare "attribution-sharealike": the
 # Wikidata copyright page names Attribution-ShareAlike 3.0 beside CC0.
 _VERSIONED_FAMILIES = (
+    ('CC-BY-NC-SA', 'attribution-noncommercial-sharealike'),
+    ('CC-BY-NC-ND', 'attribution-noncommercial-noderivatives'),
+    ('CC-BY-NC', 'attribution-noncommercial'),
+    ('CC-BY-ND', 'attribution-noderivatives'),
     ('CC-BY-NC-SA', 'cc-by-nc-sa'),
     ('CC-BY-NC-ND', 'cc-by-nc-nd'),
     ('CC-BY-NC', 'cc-by-nc'),
