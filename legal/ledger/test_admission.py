@@ -155,6 +155,20 @@ class AdmissionTests(unittest.TestCase):
             self.root / 'evidence/upstream-license.txt')
         self.assertIn('LICENSE_CONFLICT', str(self.issues()))
 
+    def test_cc_by_sa_and_gfdl_needs_an_explicit_co_offer(self):
+        notice = b'made available under CC-BY-SA and GFDL\n'
+        self.put('evidence/upstream-license.txt', notice)
+        self.source['license']['id'] = 'CC-BY-SA-4.0'
+        self.source['license']['evidence_sha256'] = sha256_file(
+            self.root / 'evidence/upstream-license.txt')
+        self.assertIn('license notice conflicts', str(self.issues()))
+        self.source['license']['co_offered_licenses'] = ['GFDL-1.3-only']
+        self.assertNotIn('license notice conflicts', str(self.issues()))
+        self.put('evidence/upstream-license.txt', b'CC-BY-SA and GFDL and CC BY-NC 4.0\n')
+        self.source['license']['evidence_sha256'] = sha256_file(
+            self.root / 'evidence/upstream-license.txt')
+        self.assertIn('license notice conflicts', str(self.issues()))
+
 
 if __name__ == '__main__':
     unittest.main()

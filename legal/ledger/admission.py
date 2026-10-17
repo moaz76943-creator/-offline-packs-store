@@ -22,33 +22,10 @@ OBLIGATIONS = {
 }
 HASH = re.compile(r'^[0-9a-f]{64}$')
 
-MAX_LICENSE_NOTICE_BYTES = 1024 * 1024
-# Negative-only guard: text consistency cannot grant redistribution rights.
-LICENSE_NOTICE_PATTERNS = {
-    'CC0-1.0': r'\bcc0[\s-]*1\.0\b',
-    'CC-BY-SA-4.0': r'\bcc[\s-]*by[\s-]*sa[\s-]*4\.0\b|\battribution[\s-]+sharealike[\s-]+4\.0\b',
-    'GFDL-1.3-only': r'\bgfdl[\s-]*1\.3\b|\bgnu free documentation license\s*(?:version\s*)?1\.3\b',
-    'CC-BY-NC-SA-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*sa[\s-]*4\.0\b|\battribution[\s-]+noncommercial[\s-]+sharealike[\s-]+4\.0\b',
-    'CC-BY-NC-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*4\.0\b',
-    'CC-BY-NC-ND-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*nd[\s-]*4\.0\b',
-    'CC-BY-ND-4.0': r'\bcc[\s-]*by[\s-]*nd[\s-]*4\.0\b',
-}
-
-
-def license_notice_conflicts(path, declared_license):
-    """Reject explicit incompatible notices; never infer legal approval."""
-    try:
-        with path.open('rb') as stream:
-            raw = stream.read(MAX_LICENSE_NOTICE_BYTES + 1)
-        if len(raw) > MAX_LICENSE_NOTICE_BYTES:
-            return True
-        notice = raw.decode('utf-8')
-    except (OSError, UnicodeError):
-        return True
-    detected = {name for name, pattern in LICENSE_NOTICE_PATTERNS.items()
-                if re.search(pattern, notice, re.IGNORECASE)}
-    return any(name != declared_license for name in detected)
-
+try:
+    from .license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+except ImportError:  # admission.py is also imported as a top-level module
+    from license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
 
 
 def sha256_file(path):
@@ -173,7 +150,8 @@ def evaluate(ledger, manifest, dailies, root):
         proof_ok = artifact(root, license_info.get('evidence_path'),
                             license_info.get('evidence_sha256'), out, f'{label} license proof')
         if proof_ok and license_notice_conflicts(
-                (Path(root).resolve() / license_info['evidence_path']).resolve(), lid):
+                (Path(root).resolve() / license_info['evidence_path']).resolve(), lid,
+                license_info.get('co_offered_licenses', ())):
             issue(out, 'LICENSE_CONFLICT',
                   f'{label}: license notice conflicts with metadata or cannot be safely checked')
         if lid == 'PUBLIC-DOMAIN':

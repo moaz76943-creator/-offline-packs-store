@@ -177,6 +177,25 @@ class AdmissionTests(unittest.TestCase):
             self.run_admit()
         self.assertFalse((self.root / 'out').exists())
 
+    def test_cc_by_sa_and_gfdl_is_accepted_only_when_co_offered(self):
+        self.evidence = b'made available under CC-BY-SA and GFDL\n'
+        (self.root / 'input/license.txt').write_bytes(self.evidence)
+        self.source['license']['id'] = 'CC-BY-SA-4.0'
+        self.source['license']['evidence_sha256'] = sha(self.evidence)
+        self._ledger()
+        with self.assertRaisesRegex(AdmissionError, 'license notice conflicts'):
+            self.run_admit()
+        self.source['license']['co_offered_licenses'] = ['GFDL-1.3-only']
+        self._ledger()
+        report = self.run_admit()
+        self.assertEqual(report['actual_accepted_records'], 1)
+        self.evidence = b'CC-BY-SA and GFDL plus CC BY-ND 4.0\n'
+        (self.root / 'input/license.txt').write_bytes(self.evidence)
+        self.source['license']['evidence_sha256'] = sha(self.evidence)
+        self._ledger()
+        with self.assertRaisesRegex(AdmissionError, 'license notice conflicts'):
+            self.run_admit()
+
 
     def test_jsonl_source_stream_has_bounded_reads(self):
         # A normal fixture still parses; no path may use unbounded iteration.

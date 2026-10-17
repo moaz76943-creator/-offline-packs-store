@@ -17,39 +17,13 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from legal.ledger.license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+
 SOURCE_SCHEMA = '1.0.0'
 ROUTE05_LICENSES = frozenset({'CC0-1.0','CC-BY-SA-4.0','GFDL-1.3-only','PUBLIC-DOMAIN'})
 SHA = re.compile(r'^[0-9a-f]{64}$')
 ID = re.compile(r'^[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}$')
 MAX_LINE = 1024 * 1024
-
-MAX_LICENSE_NOTICE_BYTES = 1024 * 1024
-# Negative-only guard: text consistency cannot grant redistribution rights.
-LICENSE_NOTICE_PATTERNS = {
-    'CC0-1.0': r'\bcc0[\s-]*1\.0\b',
-    'CC-BY-SA-4.0': r'\bcc[\s-]*by[\s-]*sa[\s-]*4\.0\b|\battribution[\s-]+sharealike[\s-]+4\.0\b',
-    'GFDL-1.3-only': r'\bgfdl[\s-]*1\.3\b|\bgnu free documentation license\s*(?:version\s*)?1\.3\b',
-    'CC-BY-NC-SA-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*sa[\s-]*4\.0\b|\battribution[\s-]+noncommercial[\s-]+sharealike[\s-]+4\.0\b',
-    'CC-BY-NC-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*4\.0\b',
-    'CC-BY-NC-ND-4.0': r'\bcc[\s-]*by[\s-]*nc[\s-]*nd[\s-]*4\.0\b',
-    'CC-BY-ND-4.0': r'\bcc[\s-]*by[\s-]*nd[\s-]*4\.0\b',
-}
-
-
-def license_notice_conflicts(path, declared_license):
-    """Reject explicit incompatible notices; never infer legal approval."""
-    try:
-        with path.open('rb') as stream:
-            raw = stream.read(MAX_LICENSE_NOTICE_BYTES + 1)
-        if len(raw) > MAX_LICENSE_NOTICE_BYTES:
-            return True
-        notice = raw.decode('utf-8')
-    except (OSError, UnicodeError):
-        return True
-    detected = {name for name, pattern in LICENSE_NOTICE_PATTERNS.items()
-                if re.search(pattern, notice, re.IGNORECASE)}
-    return any(name != declared_license for name in detected)
-
 
 
 class AdmissionError(ValueError):
@@ -173,7 +147,8 @@ def route05_source(repo_root, source_id, dataset_version, input_path, fmt):
     license_proof = checked_file(
         repo_root, license_info.get('evidence_path'),
         license_info.get('evidence_sha256'), 'license evidence')
-    if license_notice_conflicts(license_proof, lid):
+    if license_notice_conflicts(
+            license_proof, lid, license_info.get('co_offered_licenses', ())):
         raise AdmissionError('BLOCKED_SOURCE: license notice conflicts with metadata or cannot be safely checked')
     return s
 
