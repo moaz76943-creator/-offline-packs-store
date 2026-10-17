@@ -16,7 +16,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.manifest_path = os.path.join(self.test_dir, 'manifest.json')
 
         self.registry_data = {
-            'languages': [
+            'languages': [{'id': f'lang_{i}'} for i in range(1, 96)] + [
                 {'id': 'ar'}, {'id': 'ru'}, {'id': 'de'}, {'id': 'fr'}, {'id': 'es'}
             ]
         }
@@ -50,13 +50,13 @@ class TestEvidenceCompiler(unittest.TestCase):
         return path
 
     def test_all_registered_ids_processed(self):
-        # We have 5 registered IDs
+        # We have 100 registered IDs
         output_path = os.path.join(self.test_dir, 'out.json')
         self.compiler.compile(output_path)
         with open(output_path, 'r') as f:
             res = json.load(f)
-        self.assertEqual(res['total_languages'], 5)
-        self.assertEqual(len(res['languages']), 5)
+        self.assertEqual(res['total_languages'], 100)
+        self.assertEqual(len(res['languages']), 100)
 
     def test_missing_package(self):
         # No packs exist yet
