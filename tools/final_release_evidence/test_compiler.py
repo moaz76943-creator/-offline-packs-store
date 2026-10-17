@@ -12,16 +12,8 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.packs_dir = os.path.join(self.test_dir, 'packs')
         os.makedirs(self.packs_dir)
 
-        self.registry_path = os.path.join(self.test_dir, 'registry.json')
+        self.registry_path = 'catalog/language_registry.v1.json'
         self.manifest_path = os.path.join(self.test_dir, 'manifest.json')
-
-        self.registry_data = {
-            'languages': [
-                {'id': 'ar'}, {'id': 'ru'}, {'id': 'de'}, {'id': 'fr'}, {'id': 'es'}
-            ]
-        }
-        with open(self.registry_path, 'w') as f:
-            json.dump(self.registry_data, f)
 
         self.manifest_data = {
             'languages': [
@@ -50,13 +42,12 @@ class TestEvidenceCompiler(unittest.TestCase):
         return path
 
     def test_all_registered_ids_processed(self):
-        # We have 5 registered IDs
         output_path = os.path.join(self.test_dir, 'out.json')
         self.compiler.compile(output_path)
         with open(output_path, 'r') as f:
             res = json.load(f)
-        self.assertEqual(res['total_languages'], 5)
-        self.assertEqual(len(res['languages']), 5)
+        self.assertEqual(res['total_languages'], 100)
+        self.assertEqual(len(res['languages']), 100)
 
     def test_missing_package(self):
         # No packs exist yet
@@ -148,6 +139,46 @@ class TestEvidenceCompiler(unittest.TestCase):
 
         # Verify no .tmp file left behind
         self.assertFalse(os.path.exists(output_path + '.tmp'))
+
+    def test_verified_vs_release_ready(self):
+        # Valid pack with everything
+        pack_ready = {
+            "lang_code": "es",
+            "license": "CC0-1.0",
+            "terms_count": 100,
+            "level": "A1",
+            "domains": [{"icon_vector": "icon1"}]
+        }
+        p1 = self.write_pack("es_universal_v1.pack.gz", pack_ready)
+
+        # Valid pack but missing media
+        pack_verified_only = {
+            "lang_code": "ru",
+            "license": "CC0-1.0",
+            "terms_count": 100,
+            "level": "A1"
+        }
+        p2 = self.write_pack("ru_core_a1.pack.gz", pack_verified_only)
+
+        # We need to compute hashes and add them to the manifest
+        self.manifest_data['languages'].append({'code': 'es', 'pack_file': 'es_universal_v1.pack.gz', 'sha256': self.compiler.compute_sha256(p1)})
+        # Update ru hash
+        for lang in self.manifest_data['languages']:
+            if lang['code'] == 'ru':
+                lang['sha256'] = self.compiler.compute_sha256(p2)
+
+        with open(self.manifest_path, 'w') as f:
+            json.dump(self.manifest_data, f)
+
+        output_path = os.path.join(self.test_dir, 'out.json')
+        self.compiler.compile(output_path)
+        with open(output_path, 'r') as f:
+            res = json.load(f)
+
+        self.assertEqual(res['languages']['es']['status'], 'releaseReady')
+        self.assertEqual(res['languages']['ru']['status'], 'verified')
+        self.assertEqual(res['languages']['es']['packs'][0]['version'], 'v1')
+        self.assertEqual(res['languages']['es']['packs'][0]['media_identities'], ['icon1'])
 
 if __name__ == '__main__':
     unittest.main()

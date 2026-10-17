@@ -1,3 +1,4 @@
+import re
 import json
 import gzip
 import hashlib
@@ -74,6 +75,8 @@ class EvidenceCompiler:
 
             actual_hash = self.compute_sha256(p)
             pack_info['actual_sha256'] = actual_hash
+            m = re.search(r'(v\d+|a\d+)\.pack\.gz$', os.path.basename(p))
+            pack_info['version'] = m.group(1) if m else 'unknown'
 
             expected_hash = None
             if expected_manifest_data and expected_manifest_data.get('pack_file') == os.path.basename(p):
@@ -132,9 +135,14 @@ class EvidenceCompiler:
 
             pack_info['license'] = license_str
             pack_info['terms_count'] = data.get('terms_count', 0)
-            pack_info['level'] = data.get('level', '')
+            pack_info['cefr_evidence'] = []
+            pack_info['media_identities'] = [d.get('icon_vector') for d in data.get('domains', []) if 'icon_vector' in d]
+            level_data = data.get('level', '')
+            if level_data:
+                pack_info['cefr_evidence'].extend([l.strip() for l in level_data.split(',') if l.strip()])
             if 'header' in data:
-                pack_info['level'] = ', '.join(data['header'].get('levels', []))
+                pack_info['cefr_evidence'].extend(data['header'].get('levels', []))
+            pack_info['level'] = ', '.join(pack_info['cefr_evidence'])
 
             if not self.is_valid_license(license_str):
                 pack_info['error'] = f"Invalid or restricted license: {license_str}"
@@ -148,12 +156,27 @@ class EvidenceCompiler:
             has_valid_pack = True
             evidence['packs'].append(pack_info)
 
+
         if evidence['status'] not in ['invalidPack']:
             if has_valid_pack:
-                evidence['status'] = 'releaseReady'
-                evidence['reasons'] = []
+                is_release_ready = True
+                has_cefr = False
+                has_media = False
+                for p_info in evidence['packs']:
+                    if p_info.get('level'):
+                        has_cefr = True
+                    if p_info.get('media_identities'):
+                        has_media = True
+
+                if has_cefr and has_media and any(p.get('terms_count', 0) > 0 for p in evidence['packs']):
+                    evidence['status'] = 'releaseReady'
+                else:
+                    evidence['status'] = 'verified'
+                    evidence['reasons'].append('Missing CEFR, media, or lexical counts.')
+                evidence['reasons'] = [r for r in evidence['reasons'] if r != 'No package files found.']
             elif all_packs_license_blocked and pack_files:
                 evidence['status'] = 'licenseBlocked'
+
 
         return evidence
 
