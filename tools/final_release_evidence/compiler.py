@@ -131,10 +131,20 @@ class EvidenceCompiler:
             license_str = license_str or ''
 
             pack_info['license'] = license_str
-            pack_info['terms_count'] = data.get('terms_count', 0)
-            pack_info['level'] = data.get('level', '')
+            pack_info['lexical_counts'] = data.get('terms_count', 0)
+            pack_info['cefr_evidence'] = data.get('level', '')
             if 'header' in data:
-                pack_info['level'] = ', '.join(data['header'].get('levels', []))
+                pack_info['cefr_evidence'] = ', '.join(data['header'].get('levels', []))
+
+            pack_version = data.get('version', 'unknown')
+            if 'header' in data and 'version' in data['header']:
+                pack_version = data['header'].get('version', 'unknown')
+            pack_info['pack_version'] = pack_version
+
+            media_identities = data.get('media_identities', [])
+            if 'header' in data and 'media_identities' in data['header']:
+                media_identities = data['header'].get('media_identities', [])
+            pack_info['media_identities'] = media_identities
 
             if not self.is_valid_license(license_str):
                 pack_info['error'] = f"Invalid or restricted license: {license_str}"
@@ -150,7 +160,10 @@ class EvidenceCompiler:
 
         if evidence['status'] not in ['invalidPack']:
             if has_valid_pack:
-                evidence['status'] = 'releaseReady'
+                if expected_manifest_data and expected_manifest_data.get('pack_verified'):
+                    evidence['status'] = 'releaseReady'
+                else:
+                    evidence['status'] = 'verified'
                 evidence['reasons'] = []
             elif all_packs_license_blocked and pack_files:
                 evidence['status'] = 'licenseBlocked'
