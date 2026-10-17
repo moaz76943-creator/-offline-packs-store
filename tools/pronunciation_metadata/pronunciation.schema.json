@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/tools/pronunciation_metadata/pronunciation.schema.json",
+  "title": "Public multilingual pronunciation metadata registry 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version", "document_id", "pronunciations"],
+  "properties": {
+    "contract_version": {"const": "1.0.0"},
+    "document_id": {"$ref": "#/$defs/id"},
+    "pronunciations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/pronunciation_record"}
+    }
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9._:-]{2,127}$"},
+    "text": {"type": "string", "minLength": 1},
+    "optText": {"type": ["string", "null"], "minLength": 1},
+    "lang": {"type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"},
+    "script": {"type": "string", "pattern": "^[A-Z][a-z]{3}$"},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "dataset_version"],
+      "properties": {
+        "source_id": {"$ref": "#/$defs/id"},
+        "dataset_version": {"$ref": "#/$defs/text"},
+        "publication_approved": {"type": "boolean"},
+        "fixture_only": {"type": "boolean"}
+      }
+    },
+    "pronunciation_record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lexeme_id", "language", "script", "locale", "notation", "value", "offline_voice_support", "source"],
+      "properties": {
+        "lexeme_id": {"$ref": "#/$defs/id"},
+        "sense_id": {"type": ["string", "null"], "pattern": "^[a-z][a-z0-9._:-]{2,127}$"},
+        "language": {"$ref": "#/$defs/lang"},
+        "script": {"$ref": "#/$defs/script"},
+        "locale": {"$ref": "#/$defs/lang"},
+        "dialect": {"$ref": "#/$defs/optText"},
+        "notation": {"enum": ["ipa", "phonetic", "romanization", "other"]},
+        "value": {"$ref": "#/$defs/text"},
+        "offline_voice_support": {"enum": ["installed", "unknown", "unsupported"]},
+        "source": {"$ref": "#/$defs/source"}
+      }
+    }
+  }
+}
