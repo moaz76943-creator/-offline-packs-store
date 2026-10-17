@@ -136,6 +136,19 @@ class SearchQualityTests(unittest.TestCase):
             with self.assertRaises(audit.AuditError):
                 audit.probe_search(db, "de", "Wort", limit=0)
 
+    def test_thousand_record_probe_is_bounded_and_read_only(self):
+        self.make_db("de", tuple(f"Wort{i:05}" for i in range(1000)))
+        before = hashlib.sha256(self.path.read_bytes()).hexdigest()
+        with sqlite3.connect(self.path) as db:
+            candidates = audit.probe_search(db, "de", "Wort", limit=12)
+            self.assertEqual(len(candidates), 12)
+            self.assertEqual(len({identity for identity, _ in candidates}), 12)
+            self.assertTrue(all(tier == "PREFIX" for _, tier in candidates))
+        report = audit.check_sqlite(self.path, "de")
+        self.assertEqual(report["sampled"], 12)
+        self.assertEqual(report["ranked_samples"], 12)
+        self.assertEqual(before, hashlib.sha256(self.path.read_bytes()).hexdigest())
+
     def test_structurally_fake_fts_table_rejected(self):
         self.make_db("de", ("Wort",))
         with sqlite3.connect(self.path) as db:
