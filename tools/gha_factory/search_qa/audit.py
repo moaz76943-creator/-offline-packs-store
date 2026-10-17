@@ -152,7 +152,26 @@ def audit_manifest(root, *, shard=0, shards=10):
     sources = ledger.get('sources')
     if not isinstance(packs,list) or not isinstance(sources,list):
         raise AuditError('malformed manifest or source ledger')
-    if not sources and packs:
+    # The archive inspector validates structure, not legal admission. Reuse
+    # Route 05 for each approved entry, including immutable rights/source bytes.
+    from legal.ledger import admission
+    source_ids = [s.get('source_id') for s in sources if isinstance(s, dict)
+                  and isinstance(s.get('source_id'), str)]
+    if len(source_ids) != len(set(source_ids)):
+        raise AuditError('duplicate source identity in ledger')
+    approved = {}
+    for source in sources:
+        if not isinstance(source, dict) or source.get('status') != 'APPROVED_FOR_REDISTRIBUTION':
+            continue
+        try:
+            blockers = admission.evaluate(
+                {'schema_version':ledger.get('schema_version'), 'sources':[source]},
+                {'packs':[]}, [], root)
+        except (OSError, ValueError, TypeError, KeyError):
+            continue
+        if not blockers:
+            approved[source['source_id']] = source
+    if not approved and packs:
         raise AuditError('production packs advertised with no approved source')
     ids = set()
     indexed = []
@@ -162,12 +181,17 @@ def audit_manifest(root, *, shard=0, shards=10):
         ids.add(pack['id'])
         indexed.append(pack)
     if not indexed:
-        return {'status':'BLOCKED_SOURCE' if not sources else 'NO_PUBLISHED_PACKS',
+        return {'status':'BLOCKED_SOURCE' if not approved else 'NO_PUBLISHED_PACKS',
                 'registered_languages': 100, 'verified_packs':0, 'shard':shard,
                 'shards':shards}
+    selected = sorted(indexed,key=lambda x:x['id'])[shard::shards]
+    if not selected:
+        # Empty shards did not inspect any archive; they must never report QA PASS.
+        return {'status':'NO_PACKS_IN_SHARD', 'registered_languages':100,
+                'verified_packs':0, 'shard':shard, 'shards':shards, 'packs':[]}
     from tools.gha_factory.release import candidate
     verified = []
-    for pack in sorted(indexed,key=lambda x:x['id'])[shard::shards]:
+    for pack in selected:
         language = pack['id']
         version = pack.get('version')
         digest = pack.get('sha256')
@@ -180,6 +204,10 @@ def audit_manifest(root, *, shard=0, shards=10):
         if hashlib.sha256(blob).hexdigest() != digest:
             raise AuditError('published archive checksum mismatch')
         canonical = candidate.inspect_archive(blob,language)
+        refs = canonical.get('source_ids')
+        if (not isinstance(refs, list) or not refs or
+                any(not isinstance(sid, str) or sid not in approved for sid in refs)):
+            raise AuditError('unapproved archive source reference')
         members = candidate._members(_json(candidate.bounded_gzip(blob)))
         if 'content/content.sqlite' not in members:
             raise AuditError('archive is missing SQLite content')
