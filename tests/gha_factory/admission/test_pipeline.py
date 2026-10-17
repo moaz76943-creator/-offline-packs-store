@@ -177,4 +177,56 @@ class AdmissionTests(unittest.TestCase):
             self.run_admit()
         self.assertFalse((self.root / 'out').exists())
 
+
+    def test_jsonl_source_stream_has_bounded_reads(self):
+        # A normal fixture still parses; no path may use unbounded iteration.
+        from unittest.mock import patch
+        from tools.gha_factory.admission import pipeline
+        source_path = self.root / 'input/raw.jsonl'
+        original_open = Path.open
+        read_opens = 0
+
+        class BoundedStream:
+            def __init__(self, stream):
+                self.stream = stream
+
+            def __enter__(self):
+                self.stream.__enter__()
+                return self
+
+            def __exit__(self, *args):
+                return self.stream.__exit__(*args)
+
+            def __iter__(self):
+                raise AssertionError('unbounded JSONL stream iteration')
+
+            def readline(self, limit=-1):
+                if limit != pipeline.MAX_LINE + 1:
+                    raise AssertionError('unbounded JSONL readline')
+                return self.stream.readline(limit)
+
+        def guarded_open(path, *args, **kwargs):
+            nonlocal read_opens
+            stream = original_open(path, *args, **kwargs)
+            if Path(path) == source_path and args and args[0] == 'rb':
+                read_opens += 1
+                if read_opens == 2:
+                    return BoundedStream(stream)
+            return stream
+
+        with patch.object(Path, 'open', guarded_open):
+            report = self.run_admit()
+        self.assertEqual(read_opens, 2)
+        self.assertEqual(report['actual_accepted_records'], 1)
+
+    def test_oversized_jsonl_line_is_rejected_without_queue(self):
+        from tools.gha_factory.admission import pipeline
+        oversized = b'x' * (pipeline.MAX_LINE + 1) + b'\\n'
+        (self.root / 'input/raw.jsonl').write_bytes(oversized)
+        self.source['retrieval']['sha256'] = sha(oversized)
+        self._ledger()
+        with self.assertRaisesRegex(AdmissionError, 'JSONL framing'):
+            self.run_admit()
+        self.assertFalse((self.root / 'out').exists())
+
 if __name__=='__main__': unittest.main()
