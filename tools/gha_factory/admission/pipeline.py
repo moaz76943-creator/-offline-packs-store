@@ -251,7 +251,7 @@ def admit(*,repo_root,source_id,input_path,out_dir,language,dataset_version,
     try:
         h=None;file_handle=None;part_records=0;part_file=None
         with input_path.open('rb') as stream:
-            for line,raw in enumerate(stream,start=1):
+            for line,raw in enumerate(iter(lambda: stream.readline(MAX_LINE + 1), b''), start=1):
                 if not raw or len(raw)>MAX_LINE or not raw.endswith(b'\n') or raw.startswith(b'\xef\xbb\xbf'):
                     raise AdmissionError(f'REJECTED_RECORD: line {line}: invalid JSONL framing/encoding')
                 try:
