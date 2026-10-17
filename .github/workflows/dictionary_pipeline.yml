@@ -54,6 +54,7 @@ jobs:
         run: rm -rf raw_data
 
       - name: Upload Pack Artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: domain-packs-${{ github.event.inputs.language }}
