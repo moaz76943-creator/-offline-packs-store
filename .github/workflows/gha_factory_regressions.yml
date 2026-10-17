@@ -29,9 +29,11 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 10
       matrix:
-        suite: [admission, dispatcher, queue_autoseed, linguistics, examples, release]
+        # Ten independent, existing public QA tracks. Heavy production stays
+        # inside gha_dispatcher with its separate max-parallel: 3 limit.
+        suite: [admission, dispatcher, queue_autoseed, linguistics, examples, release, source_snapshots, pack_conformance, search_qa, coverage_audit]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -43,7 +45,7 @@ jobs:
         run: |
           set -euo pipefail
           case "$SUITE" in
-            admission|dispatcher|queue_autoseed|linguistics|examples|release) ;;
+            admission|dispatcher|queue_autoseed|linguistics|examples|release|source_snapshots|pack_conformance|search_qa|coverage_audit) ;;
             *) echo "Unknown suite"; exit 2;;
           esac
           python3 -m unittest discover \
