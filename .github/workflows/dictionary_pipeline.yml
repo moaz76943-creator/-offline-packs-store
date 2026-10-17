@@ -12,7 +12,6 @@ jobs:
   build-dictionary:
     runs-on: ubuntu-latest
     timeout-minutes: 360
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -25,23 +24,26 @@ jobs:
       - name: Install Processing Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install zstandard orjson
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install google-genai google-generativeai || true
 
       - name: Fetch Raw Lexical Data
-      run: |
-        mkdir -p raw_data dist_packs
-        case "${{ github.event.inputs.language }}" in
-          de) LANG_NAME="German" ;;
-          en) LANG_NAME="English" ;;
-          es) LANG_NAME="Spanish" ;;
-          fr) LANG_NAME="French" ;;
-          ar) LANG_NAME="Arabic" ;;
-          *) LANG_NAME="${{ github.event.inputs.language }}" ;;
-        esac
-        echo "Fetching Kaikki data for $LANG_NAME..."
-        curl -fSL "https://kaikki.org/dictionary/${LANG_NAME}/kaikki.org-dictionary-${LANG_NAME}.jsonl" | gzip -c > raw_data/dictionary.jsonl.gz
+        run: |
+          mkdir -p raw_data dist_packs
+          case "${{ github.event.inputs.language }}" in
+            de) LANG_NAME="German" ;;
+            en) LANG_NAME="English" ;;
+            es) LANG_NAME="Spanish" ;;
+            fr) LANG_NAME="French" ;;
+            ar) LANG_NAME="Arabic" ;;
+            *) LANG_NAME="${{ github.event.inputs.language }}" ;;
+          esac
+          echo "Fetching Kaikki data for $LANG_NAME..."
+          curl -fSL "https://kaikki.org/dictionary/${LANG_NAME}/kaikki.org-dictionary-${LANG_NAME}.jsonl" | gzip -c > raw_data/dictionary.jsonl.gz
 
-    - name: Process & Categorize by Semantic Domain and CEFR
+      - name: Process & Categorize by Semantic Domain and CEFR
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           python3 tools/build_domain_packs.py \
             --input raw_data/dictionary.jsonl.gz \
@@ -49,9 +51,7 @@ jobs:
             --lang ${{ github.event.inputs.language }}
 
       - name: Clean Raw Data
-        run: |
-          echo "حذف البيانات الخام لضمان الاكتفاء الذاتي للمخرجات..."
-          rm -rf raw_data
+        run: rm -rf raw_data
 
       - name: Upload Pack Artifacts
         uses: actions/upload-artifact@v4
