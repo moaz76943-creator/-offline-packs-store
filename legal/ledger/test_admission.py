@@ -1,6 +1,9 @@
 import copy
 import hashlib
+import importlib.util
 import json
+import runpy
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -168,6 +171,55 @@ class AdmissionTests(unittest.TestCase):
         self.source['license']['evidence_sha256'] = sha256_file(
             self.root / 'evidence/upstream-license.txt')
         self.assertIn('license notice conflicts', str(self.issues()))
+
+
+class AdmissionPathImportTests(unittest.TestCase):
+    def test_admission_loads_by_file_path_without_ledger_on_sys_path(self):
+        ledger = Path(__file__).resolve().parent
+        admission_path = ledger / 'admission.py'
+        saved_path = list(sys.path)
+        hidden = ('admission', 'license_notice', 'legal.ledger.admission',
+                  'legal.ledger.license_notice')
+        saved_modules = {name: sys.modules.pop(name) for name in hidden if name in sys.modules}
+
+        def on_ledger(entry):
+            try:
+                candidate = Path.cwd() if entry in ('', '.') else Path(entry)
+                return candidate.resolve() == ledger
+            except OSError:
+                return False
+
+        try:
+            sys.path[:] = [entry for entry in sys.path if not on_ledger(entry)]
+            spec = importlib.util.spec_from_file_location('admission_by_path', admission_path)
+            self.assertIsNotNone(spec)
+            self.assertIsNotNone(spec.loader)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            self.assertTrue(callable(module.evaluate))
+            self.assertTrue(callable(module.license_notice_conflicts))
+            notice_nc = self._notice_file('CC BY-NC 3.0\n')
+            self.assertTrue(module.license_notice_conflicts(notice_nc, 'CC0-1.0'))
+
+            namespace = runpy.run_path(str(admission_path), run_name='admission_via_runpy')
+            self.assertTrue(callable(namespace['evaluate']))
+            notice_sa = self._notice_file('CC BY-SA 3.0\n')
+            self.assertTrue(namespace['license_notice_conflicts'](notice_sa, 'CC-BY-SA-4.0'))
+            self.assertIsInstance(namespace['evaluate']({}, {}, [], ledger), list)
+        finally:
+            sys.path[:] = saved_path
+            sys.modules.update(saved_modules)
+            sys.modules.pop('admission_by_path', None)
+            sys.modules.pop('admission_via_runpy', None)
+            sys.modules.pop('_ledger_license_notice', None)
+
+    def _notice_file(self, text):
+        handle = tempfile.NamedTemporaryFile(delete=False)
+        handle.write(text.encode('utf-8'))
+        handle.close()
+        path = Path(handle.name)
+        self.addCleanup(path.unlink)
+        return path
 
 
 if __name__ == '__main__':

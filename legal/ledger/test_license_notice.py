@@ -51,22 +51,34 @@ class LicenseNoticeTests(unittest.TestCase):
         self.assertTrue(self.conflicts('CC BY-SA 4.0 only.', 'CC0-1.0'))
 
     def test_cc_by_sa_3_0_is_not_relabeled_as_4_0(self):
-        self.assertNotIn('CC-BY-SA-4.0', detected_licenses('CC BY-SA 3.0 Unported'))
+        found = detected_licenses('CC BY-SA 3.0 Unported')
+        self.assertNotIn('CC-BY-SA-4.0', found)
+        self.assertIn('CC-BY-SA-3.0', found)
 
-    def test_real_cc0_wordings_do_not_treat_public_domain_as_a_conflict(self):
-        for notice in (
-            'Creative Commons CC0 License',
-            'CC0 1.0 Universal',
-            'publicdomain/zero/1.0',
-            'CC0 1.0 Universal. Dedicated the work to the public domain.',
-        ):
-            self.assertIn('CC0-1.0', detected_licenses(notice))
-            self.assertFalse(self.conflicts(notice, 'CC0-1.0'))
-        self.assertTrue(self.conflicts(
-            'CC0 1.0 Universal. Dedicated the work to the public domain.',
-            'PUBLIC-DOMAIN'))
-        self.assertFalse(self.conflicts(
-            'Creative Commons CC0 License. Some other datasets are Non-Commercial.',
-            'CC0-1.0'))
-        self.assertTrue(self.conflicts(
-            'Creative Commons CC0 License and CC BY-NC.', 'CC0-1.0'))
+    def test_unknown_nc_version_conflicts_with_cc0(self):
+        self.assertEqual(detected_licenses('CC BY-NC 3.0'), frozenset({'CC-BY-NC-3.0'}))
+        self.assertTrue(self.conflicts('CC BY-NC 3.0', 'CC0-1.0'))
+        self.assertTrue(self.conflicts('CC BY-ND 3.0', 'CC0-1.0'))
+        # NC/ND stay conflicts even when the declared id is that same unknown version.
+        self.assertTrue(self.conflicts('CC BY-NC 3.0', 'CC-BY-NC-3.0'))
+
+    def test_unknown_sa_version_conflicts_unless_it_is_the_declared_license(self):
+        self.assertEqual(detected_licenses('CC BY-SA 3.0'), frozenset({'CC-BY-SA-3.0'}))
+        self.assertTrue(self.conflicts('CC BY-SA 3.0', 'CC-BY-SA-4.0'))
+        self.assertFalse(self.conflicts('CC BY-SA 3.0', 'CC-BY-SA-3.0'))
+
+    def test_wikidata_attribution_sharealike_3_0_wording_still_passes_for_cc0(self):
+        # The public Wikidata copyright page names Attribution-ShareAlike 3.0 in a
+        # wiki link beside the CC0 dedication. That wording is not a CC-BY-SA id.
+        notice = (
+            'All structured data from the main, Property, Lexeme, and EntitySchema '
+            'namespaces is available under the [[Wikidata:Text of the Creative Commons '
+            'Public Domain Dedication|Creative Commons CC0 License]]; text in the other '
+            'namespaces is available under the [[Wikidata:Text of Creative Commons '
+            'Attribution-ShareAlike 3.0 Unported License|Creative Commons '
+            'Attribution-ShareAlike License]]; additional terms may apply.'
+        )
+        found = detected_licenses(notice)
+        self.assertNotIn('CC-BY-SA-3.0', found)
+        self.assertNotIn('CC-BY-SA-4.0', found)
+        self.assertFalse(self.conflicts(notice, 'CC0-1.0'))

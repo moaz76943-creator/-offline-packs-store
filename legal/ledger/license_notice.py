@@ -13,11 +13,6 @@ MAX_LICENSE_NOTICE_BYTES = 1024 * 1024
 # number, so "CC-BY-SA 3.0" is not silently relabeled as CC-BY-SA-4.0.
 _MARKERS = (
     ('CC0-1.0', 'cc0-1-0', False),
-    ('CC0-1.0', 'cc0-license', False),
-    ('CC0-1.0', 'creative-commons-cc0', False),
-    ('CC0-1.0', 'creative-commons-zero', False),
-    ('CC0-1.0', 'publicdomain-zero-1-0', False),
-    ('PUBLIC-DOMAIN', 'public-domain', False),
     ('CC-BY-SA-4.0', 'cc-by-sa-4-0', False),
     ('CC-BY-SA-4.0', 'attribution-sharealike-4-0', False),
     ('CC-BY-SA-4.0', 'cc-by-sa', True),
@@ -40,6 +35,26 @@ ALWAYS_CONFLICT = frozenset({
     'ALL-RIGHTS-RESERVED',
 })
 CO_OFFERABLE = frozenset({'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN'})
+# Longer tokens first. A numeric suffix that no known marker records becomes
+# its own id (CC-BY-NC-3.0). Do not scan bare "attribution-sharealike": the
+# Wikidata copyright page names Attribution-ShareAlike 3.0 beside CC0.
+_VERSIONED_FAMILIES = (
+    ('CC-BY-NC-SA', 'cc-by-nc-sa'),
+    ('CC-BY-NC-ND', 'cc-by-nc-nd'),
+    ('CC-BY-NC', 'cc-by-nc'),
+    ('CC-BY-ND', 'cc-by-nd'),
+    ('CC-BY-SA', 'cc-by-sa'),
+    ('GFDL', 'gfdl'),
+)
+
+
+def is_unconditional_conflict(license_id):
+    """NC and ND conflict at every version, including ones the schema does not list."""
+    if not isinstance(license_id, str):
+        return False
+    if license_id in ALWAYS_CONFLICT:
+        return True
+    return license_id.startswith('CC-BY-NC') or license_id.startswith('CC-BY-ND')
 
 
 def normalize_notice(text):
@@ -64,6 +79,44 @@ def _has_marker(normalized, token, unversioned):
         start = index + 1
 
 
+def _dotted_version(normalized, end):
+    """Return a dotted numeric suffix immediately after a family token, if any."""
+    if end >= len(normalized) or normalized[end] != '-':
+        return None
+    parts = []
+    for segment in normalized[end + 1:].split('-'):
+        if not segment.isdigit():
+            break
+        parts.append(segment)
+    if not parts:
+        return None
+    return '.'.join(parts)
+
+
+def _unrecognized_version_ids(normalized, already):
+    """Record CC-BY-NC-3.0-style ids when a known marker does not already cover them."""
+    extra = set()
+    for family, token in _VERSIONED_FAMILIES:
+        start = 0
+        while True:
+            index = normalized.find(token, start)
+            if index < 0:
+                break
+            end = index + len(token)
+            before_ok = index == 0 or normalized[index - 1] == '-'
+            if before_ok:
+                version = _dotted_version(normalized, end)
+                if version:
+                    license_id = f'{family}-{version}'
+                    covered = license_id in already or any(
+                        existing.startswith(f'{family}-{version}') for existing in already
+                    )
+                    if not covered:
+                        extra.add(license_id)
+            start = index + 1
+    return extra
+
+
 def detected_licenses(text):
     if not isinstance(text, str):
         return frozenset()
@@ -72,6 +125,7 @@ def detected_licenses(text):
     for license_id, token, unversioned in _MARKERS:
         if _has_marker(normalized, token, unversioned):
             found.add(license_id)
+    found |= _unrecognized_version_ids(normalized, found)
     return frozenset(found)
 
 
@@ -99,7 +153,7 @@ def allowed_license_set(declared_license, co_offered=()):
     for item in co_offered:
         if item == declared_license:
             continue
-        if item not in CO_OFFERABLE or item in ALWAYS_CONFLICT:
+        if item not in CO_OFFERABLE or is_unconditional_conflict(item):
             return None
         allowed.add(item)
     return frozenset(allowed)
@@ -115,7 +169,8 @@ def conflicting_license_ids(detected, declared_license, co_offered=()):
         # PUBLIC-DOMAIN plus a CC0 identifier) stays a conflict.
         present.discard('PUBLIC-DOMAIN')
     return frozenset(
-        name for name in present if name in ALWAYS_CONFLICT or name not in allowed
+        name for name in present
+        if is_unconditional_conflict(name) or name not in allowed
     )
 
 

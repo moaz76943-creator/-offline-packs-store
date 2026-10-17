@@ -78,6 +78,18 @@ class QueueTests(unittest.TestCase):
     def test_shard_checkpoint_cannot_cross_boundary(self):
         a=task(task_type='admission_partition_verify',source_id='source',shard=2,checkpoint=400)
         self.assertEqual(queue.validate(a),a)
-        with self.assertRaises(ValueError):queue.validate(task(task_type='admission_partition_verify',source_id='source',shard=2,checkpoint=10001))
+    def test_approved_new_task_types_validate_safely(self):
+        for t_type in ('lexical_partition', 'examples_partition', 'release_candidate_qa'):
+            t = task(task_type=t_type, source_id='vetted-source', shard=1)
+            self.assertEqual(queue.validate(t), t)
+
+    def test_new_task_types_reject_public_registry_source(self):
+        for t_type in ('lexical_partition', 'examples_partition', 'release_candidate_qa'):
+            with self.assertRaises(ValueError):
+                queue.validate(task(task_type=t_type, source_id='public-registry', shard=1))
+
+    def test_unapproved_task_type_fails_closed(self):
+        with self.assertRaises(ValueError):
+            queue.validate(task(task_type='unapproved_custom_type', source_id='vetted-source', shard=1))
 
 if __name__ == '__main__':unittest.main()

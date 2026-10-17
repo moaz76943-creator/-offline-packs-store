@@ -22,10 +22,33 @@ OBLIGATIONS = {
 }
 HASH = re.compile(r'^[0-9a-f]{64}$')
 
-try:
-    from .license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
-except ImportError:  # admission.py is also imported as a top-level module
-    from license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+def _load_license_notice():
+    """Bind the sibling scanner for package, path, and top-level imports.
+
+    runpy.run_path and spec_from_file_location load this file with no package
+    parent and do not put legal/ledger on sys.path, so both the relative import
+    and `import license_notice` fail. The file next to this module is the scanner.
+    """
+    try:
+        from .license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+        return MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+    except ImportError:
+        pass
+    try:
+        from license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+        return MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+    except ImportError:
+        import importlib.util
+        path = Path(__file__).resolve().parent / 'license_notice.py'
+        spec = importlib.util.spec_from_file_location('_ledger_license_notice', path)
+        if spec is None or spec.loader is None:
+            raise ImportError(f'cannot load license notice scanner from {path}')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module.MAX_LICENSE_NOTICE_BYTES, module.license_notice_conflicts
+
+
+MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts = _load_license_notice()
 
 
 def sha256_file(path):
