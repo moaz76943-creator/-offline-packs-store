@@ -7,8 +7,13 @@ class FakeGH:
     self.pr=pr; self.files=files; self.comments=comments or []; self.merges=[]; self.main=MAIN; self.q=0
   def page(self,path,limit=300):
     if path.startswith('/pulls?'):return [{'number':1,'head':{'sha':SHA},'state':'open','draft':False}]
-    if path.endswith('/comments'):return self.comments
     return []
+  def request(self,path,method='GET',data=None):
+    if path != '/graphql': raise ValueError('unexpected API call')
+    return {'data': {'repository': {'pullRequest': {'reviewThreads': {
+        'nodes': [{'isResolved':False}] if self.comments else [],
+        'pageInfo': {'hasNextPage':False,'endCursor':None}
+    }}}}}
   def main_sha(self):return self.main
   def query_pr(self,num,head):self.q+=1;return self.pr,CHECKS,[],self.files,'feat: docs'
   def get(self,path):
@@ -26,8 +31,15 @@ class FlowTests(unittest.TestCase):
     with patch.dict(sys.modules,{'protection_gate':m}):
       f=FakeGH();self.assertEqual(run_auto(f,MAIN),0);self.assertEqual(f.merges,[(1,SHA)]);self.assertEqual(f.q,2)
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
-  def test_review_comments_block(self):
+  def test_unresolved_review_comments_block(self):
     f=FakeGH(comments=[{'body':'P1 outstanding'}]);self.assertEqual(run_auto(f,MAIN),0);self.assertEqual(f.merges,[])
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_resolved_historical_comments_do_not_block(self):
+    import sys, types
+    m=types.ModuleType('protection_gate');m.allowed=lambda branch,rules:True
+    with patch.dict(sys.modules,{'protection_gate':m}):
+      f=FakeGH();self.assertEqual(run_auto(f,MAIN),0)
+      self.assertEqual(f.merges,[(1,SHA)])
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
   def test_sensitive_paths_block(self):
     f=FakeGH(files=[{'filename':'legal/ledger/sources.json','status':'modified'}]);self.assertEqual(run_auto(f,MAIN),0);self.assertEqual(f.merges,[])

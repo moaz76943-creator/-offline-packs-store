@@ -28,3 +28,28 @@ class PolicyTests(unittest.TestCase):
         x={'check_runs':CHECKS['check_runs']+[{'id':10,'name':'validate','head_sha':SHA,'conclusion':'failure','status':'completed','app':{'slug':'github-actions'}}]}
         self.assertFalse(self.check(checks=x)[0])
     def test_no_skip_or_sensitive_automerge(self): self.assertFalse(self.check(files=[{'filename':'docs/guide.md','status':'modified'},{'filename':'tools/release_gate/gate.py','status':'modified'}])[0])
+
+    def test_scoped_search_qa_requires_targeted_hosted_checks(self):
+        files = [{'filename':'tools/gha_factory/search_qa/audit.py','status':'modified'},
+                 {'filename':'tests/gha_factory/search_qa/test_alignment.py','status':'added'}]
+        names = ('public-pr-merge-gate', 'validate', 'audit (0, 1)',
+                 'Validate no fictitious licensed packs', 'admission public regression')
+        checks = {'check_runs': [{'id':i+1, 'name':name, 'head_sha':SHA,
+                    'status':'completed', 'conclusion':'success',
+                    'app':{'slug':'github-actions'}} for i,name in enumerate(names)]}
+        self.assertTrue(self.check(files=files,checks=checks)[0])
+        checks['check_runs'] = [x for x in checks['check_runs'] if x['name']!='audit (0, 1)']
+        self.assertFalse(self.check(files=files,checks=checks)[0])
+
+    def test_scoped_qa_does_not_mix_with_unrelated_files(self):
+        fs=[{'filename':'tools/gha_factory/search_qa/audit.py','status':'modified'},
+            {'filename':'docs/notes.md','status':'added'}]
+        self.assertFalse(auto_safe_files(fs))
+
+    def test_later_approval_resolves_earlier_changes_requested(self):
+        older={'user':{'login':'reviewer'},'state':'CHANGES_REQUESTED',
+               'submitted_at':'2026-10-15T12:00:00Z'}
+        newer={'user':{'login':'reviewer'},'state':'APPROVED',
+               'submitted_at':'2026-10-16T12:00:00Z'}
+        self.assertTrue(self.check(reviews=[newer,older])[0])
+        self.assertFalse(self.check(reviews=[older])[0])
