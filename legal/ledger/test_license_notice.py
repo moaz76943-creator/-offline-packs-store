@@ -82,3 +82,54 @@ class LicenseNoticeTests(unittest.TestCase):
         self.assertNotIn('CC-BY-SA-3.0', found)
         self.assertNotIn('CC-BY-SA-4.0', found)
         self.assertFalse(self.conflicts(notice, 'CC0-1.0'))
+
+    def test_real_cc0_wordings_do_not_treat_public_domain_as_a_conflict(self):
+        for notice in (
+            'Creative Commons CC0 License',
+            'CC0 1.0 Universal',
+            'publicdomain/zero/1.0',
+            'CC0 1.0 Universal. Dedicated the work to the public domain.',
+        ):
+            self.assertIn('CC0-1.0', detected_licenses(notice))
+            self.assertFalse(self.conflicts(notice, 'CC0-1.0'))
+        self.assertTrue(self.conflicts(
+            'CC0 1.0 Universal. Dedicated the work to the public domain.',
+            'PUBLIC-DOMAIN'))
+        self.assertFalse(self.conflicts(
+            'Creative Commons CC0 License. Some other datasets are Non-Commercial.',
+            'CC0-1.0'))
+        self.assertTrue(self.conflicts(
+            'Creative Commons CC0 License and CC BY-NC.', 'CC0-1.0'))
+
+    def test_spelled_out_noncommercial_and_noderivatives_always_conflict(self):
+        cases = (
+            ('Creative Commons Attribution-NonCommercial 4.0 International', 'CC-BY-NC-4.0'),
+            ('Attribution-NonCommercial', 'CC-BY-NC-4.0'),
+            ('Attribution-NonCommercial-NoDerivatives 4.0', 'CC-BY-NC-ND-4.0'),
+            ('Attribution-NonCommercial-NoDerivatives', 'CC-BY-NC-ND-4.0'),
+            ('Attribution-NoDerivatives 4.0', 'CC-BY-ND-4.0'),
+            ('Attribution-NoDerivatives', 'CC-BY-ND-4.0'),
+        )
+        for notice, license_id in cases:
+            found = detected_licenses(notice)
+            self.assertIn(license_id, found, notice)
+            self.assertTrue(self.conflicts(notice, 'CC0-1.0'), notice)
+        self.assertTrue(self.conflicts(
+            'CC0 1.0. Creative Commons Attribution-NonCommercial 4.0 International',
+            'CC0-1.0'))
+
+    def test_spelled_out_unknown_versions_conflict_with_cc0(self):
+        notices = (
+            'Attribution-NonCommercial 3.0',
+            'Creative Commons Attribution-NonCommercial 3.0 Unported',
+            'Attribution-NoDerivatives 3.0',
+        )
+        for notice in notices:
+            found = detected_licenses(notice)
+            self.assertTrue(
+                {'CC-BY-NC-3.0', 'CC-BY-ND-3.0'} & found,
+                notice,
+            )
+            self.assertNotIn('CC-BY-NC-4.0', found, notice)
+            self.assertNotIn('CC-BY-ND-4.0', found, notice)
+            self.assertTrue(self.conflicts(notice, 'CC0-1.0'), notice)
