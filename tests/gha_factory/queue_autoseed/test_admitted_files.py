@@ -54,6 +54,23 @@ class AdmissionFileTests(unittest.TestCase):
                        'source_artifact_sha256': self.source_sha,
                        'license_evidence_sha256': self.proof_sha,
                        'status': 'ACCEPTED_FOR_QUEUE', 'publication_approved': False}
+        # Real Route05 adapter output envelope, but entirely synthetic test data.
+        from tools.gha_factory.admission import pipeline
+        self.row = {
+            'source_id': SID, 'dataset_version': self.source['dataset_version'],
+            'language': LANG, 'license_id': self.source['license']['id'],
+            'source_artifact_sha256': self.source_sha,
+            'license_evidence_sha256': self.proof_sha,
+            'source_line': 1, 'source_line_sha256': digest(source_bytes),
+            'excluded_categories': [],
+            'content': {'word': 'Haus', 'pos': 'noun', 'senses': ['house']},
+        }
+        self.part_path.write_bytes(pipeline.canon(self.row))
+        self.job['sha256'] = digest(self.part_path.read_bytes())
+        self.job['license_id'] = self.source['license']['id']
+        self.job['license_evidence_sha256'] = self.proof_sha
+        self.job['resume_id'] = 'srcadm1-' + digest(
+            pipeline.canon([self.source_sha, self.job]))[:40]
         self.key = (SID, LANG, self.source_sha, 0)
         self.ctx = {'languages': frozenset((LANG,)), 'sources': [self.source],
                     'admissions': {self.key: {'folder': self.folder, 'report': self.report, 'job': self.job}}}
@@ -106,6 +123,30 @@ class AdmissionFileTests(unittest.TestCase):
 
     def test_evidence_source_ids_are_bound_to_report(self):
         self.report['source_id'] = 'different.source'
+        self.assertEqual(self.tasks(), [])
+
+
+    def test_digest_matching_partition_with_wrong_record_identity_is_blocked(self):
+        self.row['source_id'] = 'another.approved.source'
+        from tools.gha_factory.admission import pipeline
+        self.part_path.write_bytes(pipeline.canon(self.row))
+        self.job['sha256'] = digest(self.part_path.read_bytes())
+        # Recompute the descriptor's bound resume identity: hash alone is not evidence.
+        self.job['resume_id'] = 'srcadm1-' + digest(pipeline.canon([
+            self.source_sha, {k: v for k, v in self.job.items() if k != 'resume_id'}
+        ]))[:40]
+        self.assertEqual(self.tasks(), [])
+
+    def test_matching_digest_with_wrong_record_count_is_blocked(self):
+        self.job['record_count'] = 2
+        self.assertEqual(self.tasks(), [])
+
+    def test_partition_license_identity_must_match_reviewed_source(self):
+        self.job['license_evidence_sha256'] = 'f' * 64
+        self.assertEqual(self.tasks(), [])
+
+    def test_exact_job_resume_identity_is_required(self):
+        self.job['resume_id'] = 'srcadm1-' + '0' * 40
         self.assertEqual(self.tasks(), [])
 
 
