@@ -118,7 +118,7 @@ class ContributionTests(unittest.TestCase):
 
     def test_evidence_pass_is_not_legal_clearance(self):
         r = self.check()
-        self.assertEqual(r["status"], "EVIDENCE_PASS", r)
+        self.assertEqual(r["status"], "ACCEPT", r)
         self.assertFalse(r["publication_approved"])
         self.assertTrue(r["receipt"]["evidence_only"])
     def test_forged_asset_hash(self):
@@ -154,9 +154,25 @@ class ContributionTests(unittest.TestCase):
     def test_source_not_approved(self):
         self.source["status"] = "REVIEW_REQUIRED"
         save_ledger(self.root, self.ledger)
-        self.assertEqual(self.check()["status"], "REJECT")
+        self.assertEqual(self.check()["status"], "REVIEW_REQUIRED")
     def test_explicit_fixture_marker(self):
         self.manifest["is_fixture"] = True
+        self.assertEqual(self.check()["status"], "REJECT")
+    def test_false_cc0_declaration(self):
+        self.manifest["output_license_id"] = "PUBLIC-DOMAIN"
+        self.assertEqual(self.check()["status"], "REJECT")
+    def test_incomplete_attribution(self):
+        incomplete_notice = "Example Test Publisher CC0-1.0"
+        self.manifest["attribution_notice"]["sha256"] = put(self.root, "notices/notice.txt", incomplete_notice.encode())
+        self.assertEqual(self.check()["status"], "REJECT")
+    def test_conflicting_obligations(self):
+        self.source["license"]["id"] = "CC-BY-SA-4.0"
+        save_ledger(self.root, self.ledger)
+        self.manifest["license_id"] = "CC-BY-SA-4.0"
+        auth = self._authorization()
+        auth["license_id"] = "CC-BY-SA-4.0"
+        self._replace_authorization(auth)
+        self.manifest["compliance"] = {"attribution": True} # Missing share_alike
         self.assertEqual(self.check()["status"], "REJECT")
 
 if __name__ == "__main__":
