@@ -1,0 +1,54 @@
+name: Build Multilingual Domain Dictionaries
+
+on:
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Target language code (e.g., de, ar, en)'
+        required: true
+        default: 'de'
+
+jobs:
+  build-dictionary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Processing Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install zstandard orjson
+
+      - name: Fetch Raw Lexical Data
+        run: |
+          echo "جاري تنزيل قاموس اللغة المستهدفة..."
+          # مثال لتحميل ملف Wiktextract المدمج الخاص باللغة المحددة
+          mkdir -p raw_data dist_packs
+          # تنزيل آمن للبيانات المضغوطة
+          curl -L "https://kaikki.org/dictionary/${{ github.event.inputs.language }}/kaikki.org-dictionary-${{ github.event.inputs.language }}.jsonl.gz" -o raw_data/dictionary.jsonl.gz
+
+      - name: Process & Categorize by Semantic Domain and CEFR
+        run: |
+          python3 tools/build_domain_packs.py \
+            --input raw_data/dictionary.jsonl.gz \
+            --out-dir dist_packs \
+            --lang ${{ github.event.inputs.language }}
+
+      - name: Clean Raw Data
+        run: |
+          echo "حذف البيانات الخام لضمان الاكتفاء الذاتي للمخرجات..."
+          rm -rf raw_data
+
+      - name: Upload Pack Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: domain-packs-${{ github.event.inputs.language }}
+          path: dist_packs/
