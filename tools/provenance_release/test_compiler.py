@@ -120,6 +120,15 @@ class TestProvenanceCompiler(unittest.TestCase):
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['invalid'], ['asset_1'])
 
+    def test_missing_author_or_source_id(self):
+        # We test that missing source_id in notice also fails
+        self.notice_path.write_text("publisher CC-BY-SA-4.0 https://origin")
+        self.write_ledger([self.base_source])
+        self.write_daily([self.base_candidate])
+
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], ['asset_1'])
+
     def test_altered_file_invalid_hash(self):
         self.artifact_path.write_text("altered content") # Changes hash
         self.write_ledger([self.base_source])
@@ -168,6 +177,9 @@ class TestProvenanceCompiler(unittest.TestCase):
         self.assertEqual(statuses['blocked'], ['asset_1'])
         self.assertNotIn('asset_1', statuses['approved'])
 
+        manifest = json.loads(self.manifest_out.read_text())
+        self.assertIn('asset_1', manifest.get('blocked', []))
+
     def test_review_required(self):
         src = self.base_source.copy()
         src['status'] = 'REVIEW_REQUIRED'
@@ -177,6 +189,9 @@ class TestProvenanceCompiler(unittest.TestCase):
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['review_required'], ['asset_1'])
         self.assertNotIn('asset_1', statuses['approved'])
+
+        manifest = json.loads(self.manifest_out.read_text())
+        self.assertIn('asset_1', manifest.get('review_required', []))
 
 if __name__ == '__main__':
     unittest.main()

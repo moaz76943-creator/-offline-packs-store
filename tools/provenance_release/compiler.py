@@ -203,7 +203,9 @@ class ProvenanceCompiler:
         with open(manifest_out, 'w', encoding='utf-8') as f:
             json.dump({
                 "schema_version": "1.0.0",
-                "release_provenance": provenance
+                "release_provenance": provenance,
+                "blocked": sorted(statuses['blocked']),
+                "review_required": sorted(statuses['review_required'])
             }, f, indent=2)
 
         # Write notice
@@ -227,7 +229,14 @@ def main(argv=None):
     daily_dir = args.daily_dir or root / 'legal/ledger/daily'
 
     compiler = ProvenanceCompiler(root, ledger_path, daily_dir)
-    compiler.compile(args.manifest_out, args.notice_out)
+    statuses = compiler.compile(args.manifest_out, args.notice_out)
+
+    print("Machine validation is not a legal opinion.", file=sys.stderr)
+
+    if statuses.get('invalid'):
+        print(f"Compilation failed due to {len(statuses['invalid'])} invalid candidates.", file=sys.stderr)
+        return 1
+
     return 0
 
 if __name__ == '__main__':
