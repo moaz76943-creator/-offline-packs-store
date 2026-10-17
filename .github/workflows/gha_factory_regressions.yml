@@ -38,6 +38,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Install pack conformance compiler dependency
+        if: matrix.suite == 'pack_conformance'
+        run: timeout 90s python3 -m pip install --disable-pip-version-check --no-cache-dir jsonschema==4.26.0
       - name: Execute the actual merged source suite
         shell: bash
         env:
