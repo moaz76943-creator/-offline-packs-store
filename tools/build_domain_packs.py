@@ -54,6 +54,19 @@ def process_batch(batch, lang, api_key):
         return []
 
 def main():
+
+    existing_words = set()
+    import glob, json
+    for p in glob.glob('data/dictionaries/*.json'):
+        try:
+            with open(p, 'r', encoding='utf-8') as jf:
+                d = json.load(jf)
+                if isinstance(d, dict):
+                    existing_words.update(d.keys())
+        except Exception:
+            pass
+    print(f'[Checkpoint] Loaded {len(existing_words)} existing words to skip.')
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", required=True)
     parser.add_argument("--out-dir", required=True)
