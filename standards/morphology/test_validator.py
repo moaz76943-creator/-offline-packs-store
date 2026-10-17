@@ -193,5 +193,19 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
         self.assertTrue(self.validator.validate(en_record_past))
         self.assertTrue(self.validator.validate(en_record_participle))
 
+    def test_transliteration_support(self):
+        ar_record_translit = {
+            "language_code": "ar",
+            "lemma_id": "ar:kitab:1",
+            "sense_id": "ar:kitab:book",
+            "lemma": "كِتَاب",
+            "form": "كُتُب",
+            "transliteration": "kutub",
+            "features": {"number": "plural"},
+            "source_id": "wiktionary-ar-kitab",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(ar_record_translit))
+
 if __name__ == '__main__':
     unittest.main()
