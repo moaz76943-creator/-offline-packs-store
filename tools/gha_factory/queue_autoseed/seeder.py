@@ -5,6 +5,7 @@ Consumes GHA-01 immutable queue manifests through GHA-02 controller.context.
 Creates owner-authored GitHub Issues using the unchanged queue v1 contract.
 No download, corpus generation, manifest changes or production publication.
 """
+import hashlib
 import json
 import os
 import sys
@@ -46,6 +47,7 @@ def proposal(source_id, language, source_sha, shard):
 def _existing_issues(items):
     known = {}
     known_partitions = set()
+    partition_sources = {}
     for issue in items:
         if (not isinstance(issue, dict)
                 or issue.get('pull_request')
@@ -62,14 +64,20 @@ def _existing_issues(items):
             raise ValueError('duplicate pre-existing queue issue; halt seeding')
         known[task['task_id']] = task['source_id']
         known_partitions.add((task['source_id'], task['language'], task['source_sha256'], task['shard']))
-    return known, known_partitions
+        if task['task_type'] != 'registry_validate':
+            identity = (task['source_sha256'], task['language'], task['shard'])
+            previous_source = partition_sources.get(identity)
+            if previous_source is not None and previous_source != task['source_id']:
+                raise ValueError('source-ID collision across existing queue issues')
+            partition_sources[identity] = task['source_id']
+    return known, known_partitions, partition_sources
 
 
 def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
     """Return ≤5 new deterministic queue v1 tasks, never speculative source jobs."""
     if type(limit) is not int or not 1 <= limit <= MAX_NEW_ISSUES:
         raise ValueError('invalid bounded enqueue limit')
-    known, known_partitions = _existing_issues(issues)
+    known, known_partitions, partition_sources = _existing_issues(issues)
     identities = {}
     eligible = []
     for key in sorted(context.get('admissions', {})):
@@ -81,6 +89,9 @@ def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
         # stable registry identity, and admission report identity.
         if queue.admission(item, context, registry_sha) != 'READY':
             continue
+        existing_source = partition_sources.get((digest, lang, shard))
+        if existing_source is not None and existing_source != sid:
+            raise ValueError('source-ID collision with existing partition history')
         prior = identities.get(item['task_id'])
         if prior is not None and prior != sid:
             raise ValueError('source-ID fingerprint collision; queue v1 migration needed')
@@ -97,6 +108,40 @@ def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
 
 
 
+def _verified_partition(partition, job, report, source):
+    """Check exact admitted bytes AND row count/provenance, never just a descriptor SHA."""
+    from tools.gha_factory.admission import pipeline
+
+    expected = {
+        'source_id': report['source_id'],
+        'language': report['language'],
+        'dataset_version': report['dataset_version'],
+        'source_artifact_sha256': report['source_artifact_sha256'],
+        'license_evidence_sha256': report['license_evidence_sha256'],
+        'license_id': source['license']['id'],
+    }
+    actual_count = 0
+    digest = hashlib.sha256()
+    with partition.open('rb') as stream:
+        for raw in stream:
+            actual_count += 1
+            if (actual_count > job['record_count'] or not raw.endswith(b'\\n')
+                    or len(raw) > 2_000_000):
+                return False
+            row = json.loads(raw)
+            if (not isinstance(row, dict)
+                    or any(row.get(k) != v for k, v in expected.items())
+                    or type(row.get('source_line')) is not int
+                    or row['source_line'] < 1
+                    or not queue.HEX.fullmatch(str(row.get('source_line_sha256', '')))
+                    or not isinstance(row.get('content'), dict)
+                    or not isinstance(row.get('excluded_categories'), list)
+                    or pipeline.canon(row) != raw):
+                return False
+            digest.update(raw)
+    return actual_count == job['record_count'] and digest.hexdigest() == job['sha256']
+
+
 def verified_context(context, root, existing_issues=()):
     """Allow only immutable, SHA-verified Route05/GHA01 source partitions.
 
@@ -109,16 +154,35 @@ def verified_context(context, root, existing_issues=()):
     root = Path(root).resolve()
     approved = {}
     checked_sources = {}
-    known, known_partitions = _existing_issues(existing_issues)
+    known, known_partitions, partition_sources = _existing_issues(existing_issues)
     accepted_root = (root / 'tools/gha_factory/admission/accepted').resolve()
+    # V1 fingerprints omit source_id: check ALL admitted descriptors before
+    # the bounded five-issue batch so later collisions cannot be hidden.
+    admitted_sources = {}
+    for key in sorted(context.get('admissions', {})):
+        if not isinstance(key, tuple) or len(key) != 4:
+            raise ValueError('invalid accepted partition identity')
+        source_id, language, digest, shard = key
+        item = proposal(source_id, language, digest, shard)
+        if queue.admission(item, context, '0' * 64) != 'READY':
+            continue
+        identity = (digest, language, shard)
+        prior_source = admitted_sources.get(identity)
+        if prior_source is not None and prior_source != source_id:
+            raise ValueError('source-ID collision in accepted partition inventory')
+        admitted_sources[identity] = source_id
     for key in sorted(context.get('admissions', {})):
         if not isinstance(key, tuple) or len(key) != 4:
             raise ValueError('invalid accepted partition identity')
         source_id, language, digest, shard = key
         task = proposal(source_id, language, digest, shard)
-        if task['task_id'] in known or key in known_partitions:
-            continue
         if queue.admission(task, context, '0' * 64) != 'READY':
+            continue
+        existing_source = partition_sources.get((digest, language, shard))
+        if ((task['task_id'] in known and known[task['task_id']] != source_id)
+                or (existing_source is not None and existing_source != source_id)):
+            raise ValueError('source-ID collision with existing queue history')
+        if task['task_id'] in known or key in known_partitions:
             continue
         item = context['admissions'][key]
         source_matches = [s for s in context['sources']
@@ -141,10 +205,17 @@ def verified_context(context, root, existing_issues=()):
                 or job.get('dataset_version') != report['dataset_version']
                 or job.get('category') != 'dictionary'
                 or job.get('partition_index') != shard
+                or job.get('license_id') != (source.get('license') or {}).get('id')
+                or job.get('license_evidence_sha256') != report['license_evidence_sha256']
                 or job.get('path') != f'partition-{shard:08d}.jsonl'
                 or type(job.get('record_count')) is not int
                 or not 1 <= job['record_count'] <= queue.MAX_PARTITION_RECORDS
                 or not queue.HEX.fullmatch(str(job.get('sha256', '')))):
+            continue
+        expected_resume = 'srcadm1-' + hashlib.sha256(pipeline.canon([
+            digest, {k: v for k, v in job.items() if k != 'resume_id'}
+        ])).hexdigest()[:40]
+        if job.get('resume_id') != expected_resume:
             continue
         try:
             src_key = (source_id, digest, report['dataset_version'])
@@ -172,9 +243,9 @@ def verified_context(context, root, existing_issues=()):
             if (not partition.is_relative_to(folder) or not partition.is_file()
                     or not 0 < partition.stat().st_size <= 40_000_000):
                 continue
-            if pipeline.digest_file(partition) != job['sha256']:
+            if not _verified_partition(partition, job, report, source):
                 continue
-        except (pipeline.AdmissionError, OSError, ValueError, KeyError, TypeError):
+        except (pipeline.AdmissionError, OSError, ValueError, KeyError, TypeError, UnicodeError):
             continue
         approved[key] = item
         if len(approved) >= MAX_NEW_ISSUES:
