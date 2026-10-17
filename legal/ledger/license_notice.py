@@ -13,6 +13,11 @@ MAX_LICENSE_NOTICE_BYTES = 1024 * 1024
 # number, so "CC-BY-SA 3.0" is not silently relabeled as CC-BY-SA-4.0.
 _MARKERS = (
     ('CC0-1.0', 'cc0-1-0', False),
+    ('CC0-1.0', 'cc0-license', False),
+    ('CC0-1.0', 'creative-commons-cc0', False),
+    ('CC0-1.0', 'creative-commons-zero', False),
+    ('CC0-1.0', 'publicdomain-zero-1-0', False),
+    ('PUBLIC-DOMAIN', 'public-domain', False),
     ('CC-BY-SA-4.0', 'cc-by-sa-4-0', False),
     ('CC-BY-SA-4.0', 'attribution-sharealike-4-0', False),
     ('CC-BY-SA-4.0', 'cc-by-sa', True),
@@ -22,11 +27,17 @@ _MARKERS = (
     ('GFDL-1.3-only', 'gfdl', True),
     ('CC-BY-NC-SA-4.0', 'cc-by-nc-sa-4-0', False),
     ('CC-BY-NC-SA-4.0', 'attribution-noncommercial-sharealike-4-0', False),
+    ('CC-BY-NC-ND-4.0', 'attribution-noncommercial-noderivatives-4-0', False),
+    ('CC-BY-NC-ND-4.0', 'attribution-noncommercial-noderivatives', True),
     ('CC-BY-NC-4.0', 'cc-by-nc-4-0', False),
     ('CC-BY-NC-4.0', 'cc-by-nc', True),
+    ('CC-BY-NC-4.0', 'attribution-noncommercial-4-0', False),
+    ('CC-BY-NC-4.0', 'attribution-noncommercial', True),
     ('CC-BY-NC-ND-4.0', 'cc-by-nc-nd-4-0', False),
     ('CC-BY-ND-4.0', 'cc-by-nd-4-0', False),
     ('CC-BY-ND-4.0', 'cc-by-nd', True),
+    ('CC-BY-ND-4.0', 'attribution-noderivatives-4-0', False),
+    ('CC-BY-ND-4.0', 'attribution-noderivatives', True),
     ('ALL-RIGHTS-RESERVED', 'all-rights-reserved', False),
 )
 
@@ -39,6 +50,10 @@ CO_OFFERABLE = frozenset({'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DO
 # its own id (CC-BY-NC-3.0). Do not scan bare "attribution-sharealike": the
 # Wikidata copyright page names Attribution-ShareAlike 3.0 beside CC0.
 _VERSIONED_FAMILIES = (
+    ('CC-BY-NC-SA', 'attribution-noncommercial-sharealike'),
+    ('CC-BY-NC-ND', 'attribution-noncommercial-noderivatives'),
+    ('CC-BY-NC', 'attribution-noncommercial'),
+    ('CC-BY-ND', 'attribution-noderivatives'),
     ('CC-BY-NC-SA', 'cc-by-nc-sa'),
     ('CC-BY-NC-ND', 'cc-by-nc-nd'),
     ('CC-BY-NC', 'cc-by-nc'),
