@@ -68,20 +68,20 @@ class LinguisticsTests(unittest.TestCase):
 
     def test_bidi_format_controls_are_rejected_but_joiners_preserved(self):
         # Synthetic Unicode QA, not a licensed linguistic attestation.
-        for value in ('Buch\\u202e', 'Buch\\u2067', 'Buch\\u200f', 'Buch\\ufeff'):
+        for value in ('Buch\u202e', 'Buch\u2067', 'Buch\u200f', 'Buch\ufeff'):
             with self.subTest(value=repr(value)):
                 with self.assertRaises(LinguisticError):
                     validate_form(form(word=value), {'de'})
         with self.assertRaises(LinguisticError):
-            validate_form(form(features={'variant':'x\\u202e'}), {'de'})
-        self.assertTrue(validate_form(form('hi', 'क्\\u200dष', lemma='क्\\u200dष'), {'hi'}))
+            validate_form(form(features={'variant':'x\u202e'}), {'de'})
+        self.assertTrue(validate_form(form('hi', 'क्\u200dष', lemma='क्\u200dष'), {'hi'}))
 
     def test_nfc_equivalent_answers_do_not_become_spelling_errors(self):
         expected = form(word='Café', features={})
-        self.assertEqual('correct', classify_answer('Cafe\\u0301', expected))
+        self.assertEqual('correct', classify_answer('Cafe\u0301', expected))
         self.assertEqual('spelling_error', classify_answer('Cafe', expected))
         alternate = form(word='Été', features={'number':'singular'})
-        self.assertEqual('morphology_error', classify_answer('E\\u0301té', expected, [alternate]))
+        self.assertEqual('morphology_error', classify_answer('E\u0301té', expected, [alternate]))
 
     def test_unhashable_morpheme_kinds_fail_closed(self):
         candidate = form(morphemes=[{'surface':'Buch','kind':[], 'position':0}])
@@ -91,7 +91,7 @@ class LinguisticsTests(unittest.TestCase):
     def test_streaming_reader_must_use_a_bounded_readline(self):
         import io
         from unittest.mock import patch
-        raw = (json.dumps(form(), ensure_ascii=False) + '\\n').encode('utf-8')
+        raw = (json.dumps(form(), ensure_ascii=False) + '\n').encode('utf-8')
         class CheckedStream:
             def __init__(self):
                 self.data = io.BytesIO(raw)
