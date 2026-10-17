@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open Proficiency Metadata Standard",
+  "version": "1.0.0",
+  "description": "Standard for describing proficiency metadata for entries and examples.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "level",
+    "coarse_difficulty",
+    "status",
+    "classification_type"
+  ],
+  "properties": {
+    "level": {
+      "type": "string",
+      "enum": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1",
+        "C2",
+        "unknown"
+      ]
+    },
+    "coarse_difficulty": {
+      "type": "string",
+      "enum": [
+        "beginner",
+        "intermediate",
+        "advanced",
+        "unknown"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "estimated",
+        "unverified"
+      ]
+    },
+    "classification_type": {
+      "type": "string",
+      "enum": [
+        "entry-level",
+        "example-level"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "reviewed",
+        "rejected"
+      ]
+    },
+    "source_identity": {
+      "type": "string"
+    },
+    "evaluation_method": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$"
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "local_evidence": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
