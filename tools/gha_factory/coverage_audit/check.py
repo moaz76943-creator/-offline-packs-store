@@ -2,6 +2,7 @@
 import argparse
 import gzip
 import hashlib
+import importlib.util
 import json
 import sqlite3
 import tempfile
@@ -155,6 +156,15 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
         db = sqlite3.connect(f'file:{path}?mode=ro', uri=True)
         try:
             db.execute('PRAGMA query_only=ON')
+            mismatch = db.execute("""
+                SELECT 1 FROM translations AS t
+                JOIN senses AS s ON s.sense_id = t.to_sense_id
+                JOIN lexicon AS target ON target.id = s.lexeme_id
+                WHERE t.language_code <> target.language_code
+                LIMIT 1
+            """).fetchone()
+            if mismatch:
+                raise AuditError('translation target language mismatch')
             rows = db.execute("""
                 SELECT source.language_code, target.language_code, COUNT(*)
                 FROM translations AS t
@@ -172,6 +182,20 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
         raise AuditError('translation references unregistered language')
     return [{'source_language': a, 'target_language': b, 'verified_count': count}
             for a, b, count in rows]
+
+
+
+def _load_pack_checker(root):
+    """Load the checked-out public pack verifier regardless of sys.path or CWD."""
+    path = root / 'tools/pack_v2/pipeline.py'
+    if not path.is_file() or path.is_symlink():
+        raise AuditError('canonical v2 verifier missing or unsafe')
+    spec = importlib.util.spec_from_file_location('_public_coverage_pack_v2', path)
+    if spec is None or spec.loader is None:
+        raise AuditError('cannot load canonical v2 verifier')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.check_envelope
 
 
 def _verify_pack(root, pack, language):
@@ -196,8 +220,7 @@ def _verify_pack(root, pack, language):
             blob = fh.read(MAX_ENVELOPE_BYTES + 1)
         if len(blob) > MAX_ENVELOPE_BYTES:
             raise AuditError('inflated package exceeds maximum envelope size')
-        from tools.pack_v2.pipeline import check_envelope
-        contents = check_envelope(blob, language)
+        contents = _load_pack_checker(root)(blob, language)
     except (OSError, EOFError, ValueError, KeyError) as error:
         raise AuditError(f'invalid SQLite v2 envelope: {error}') from error
     payload = json.loads(contents['metadata/pack.json'])
