@@ -126,6 +126,21 @@ class SearchQualityTests(unittest.TestCase):
         with self.assertRaisesRegex(audit.AuditError, "stable lexical identity"):
             audit.check_sqlite(self.path, "de")
 
+    def test_canonical_long_surface_is_not_rejected_by_short_probe_limit(self):
+        # Producer accepts records up to MAX_ROW, while interactive probes
+        # remain limited to MAX_SEARCH_TERM_BYTES for predictable cost.
+        surface = "W" * (audit.MAX_SEARCH_TERM_BYTES + 1)
+        self.assertLess(len(surface.encode("utf-8")), audit.pipeline.MAX_ROW)
+        self.make_db("de", (surface,))
+        before = hashlib.sha256(self.path.read_bytes()).hexdigest()
+        report = audit.check_sqlite(self.path, "de")
+        self.assertEqual(report["ranked_samples"], 1)
+        self.assertEqual(report["matched_samples"], 1)
+        self.assertEqual(before, hashlib.sha256(self.path.read_bytes()).hexdigest())
+        with sqlite3.connect(self.path) as db:
+            with self.assertRaises(audit.AuditError):
+                audit.probe_search(db, "de", surface)
+
     def test_probe_rejects_unbounded_or_non_nfc_input(self):
         self.make_db("de", ("Wort",))
         with sqlite3.connect(self.path) as db:

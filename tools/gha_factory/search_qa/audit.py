@@ -22,6 +22,7 @@ MAX_SQLITE_BYTES = pipeline.MAX_DATABASE
 MAX_SQL_VALUE_BYTES = pipeline.MAX_DATABASE
 SQL_SECONDS = 30
 MAX_SEARCH_TERM_BYTES = 8192
+MAX_LEXICAL_SURFACE_BYTES = pipeline.MAX_ROW  # Producer's serialized-row ceiling.
 HEX = re.compile(r'^[0-9a-f]{64}$')
 VERSION = re.compile(r'^[0-9]+\.[0-9]+\.[0-9]+$')
 
@@ -163,7 +164,7 @@ def check_sqlite(path, language):
                     raise AuditError('invalid stable lexical identity')
                 if (not isinstance(surface, str) or not surface.strip()
                         or '\x00' in surface
-                        or len(surface.encode('utf-8')) > MAX_SEARCH_TERM_BYTES):
+                        or len(surface.encode('utf-8')) > MAX_LEXICAL_SURFACE_BYTES):
                     raise AuditError('invalid/oversized lexical surface')
                 if not unicodedata.is_normalized('NFC', surface):
                     raise AuditError('non-NFC lexical surface')
@@ -197,10 +198,20 @@ def check_sqlite(path, language):
                 if not found:
                     raise AuditError('short-query fallback failed')
                 fallback += 1
-                ordered = probe_search(con, language, surface)
-                if (not ordered or ordered[0][1] != 'EXACT'
-                        or ordered != probe_search(con, language, surface)):
-                    raise AuditError('unstable exact/prefix/FTS5 ranking')
+                # Long canonical surfaces are legal pack data but are not
+                # valid interactive search probes (bounded to 8 KiB).
+                if len(surface.encode('utf-8')) <= MAX_SEARCH_TERM_BYTES:
+                    ordered = probe_search(con, language, surface)
+                    if (not ordered or ordered[0][1] != 'EXACT'
+                            or ordered != probe_search(con, language, surface)):
+                        raise AuditError('unstable exact/prefix/FTS5 ranking')
+                else:
+                    exact = con.execute(
+                        'SELECT id FROM lexicon WHERE rowid=? AND language_code=? '
+                        'AND surface=? COLLATE BINARY',
+                        (rowid, language, surface)).fetchone()
+                    if not exact or not isinstance(exact[0], str):
+                        raise AuditError('long lexical surface exact lookup failed')
                 ranked += 1
                 if any(char.isalnum() for char in surface):
                     phrase = '"' + surface.replace('"','""') + '"'
