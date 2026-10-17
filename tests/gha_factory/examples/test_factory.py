@@ -2,6 +2,7 @@
 import hashlib
 import json
 import tempfile
+from unittest.mock import patch
 import tracemalloc
 import unittest
 from pathlib import Path
@@ -165,6 +166,27 @@ class FactoryTests(unittest.TestCase):
         path = self.source / 'unterminated.tsv'
         path.write_bytes(b'x' * (MAX_LINE * 3))
         self.assertEqual(list(bounded_tsv(path, 2)), [(1, None, 'oversized_line')])
+
+    def test_failed_retry_keeps_last_complete_candidate_set(self):
+        """An interrupted import must not destroy an earlier verified candidate set."""
+        self.process()
+        before = {p.relative_to(self.out).as_posix(): digest(p)
+                  for p in self.out.rglob('*') if p.is_file()}
+        original_reader = bounded_tsv
+
+        def interrupted_links(path, columns):
+            for row in original_reader(path, columns):
+                yield row
+                if columns == 2:
+                    raise Rejected('simulated interrupted link import')
+
+        with patch('tools.gha_factory.examples.factory.bounded_tsv',
+                   side_effect=interrupted_links):
+            with self.assertRaisesRegex(Rejected, 'interrupted link'):
+                self.process()
+        after = {p.relative_to(self.out).as_posix(): digest(p)
+                 for p in self.out.rglob('*') if p.is_file()}
+        self.assertEqual(before, after)
 
     def test_deterministic_partitions_and_checkpoint(self):
         a = self.process()
