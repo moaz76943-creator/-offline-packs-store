@@ -10,6 +10,9 @@ from legal.ledger.admission import HASH, artifact, evaluate, text, url_ok
 
 SAFE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$")
 
+class EvidenceError(ValueError):
+    pass
+
 def required(value, label):
     if not text(value):
         raise ValueError("Missing " + label)
@@ -47,6 +50,8 @@ def verified_sources(ledger, repo_root):
         raise ValueError("Duplicate source identities")
     errors = evaluate(ledger, {"languages": [], "packs": []}, [], Path(repo_root))
     if errors:
+        if any("REVIEW_REQUIRED" in err for err in errors):
+            raise EvidenceError("REVIEW_REQUIRED: Ledger evidence rejected: " + "; ".join(errors))
         raise ValueError("Ledger evidence rejected: " + "; ".join(errors))
     return {item["source_id"]: item for item in entries}
 
@@ -75,6 +80,8 @@ def exact_source_reference(ref, sources):
     sha = ref.get("artifact_sha256")
     if not isinstance(sha, str) or not HASH.fullmatch(sha) or sha != src["retrieval"]["sha256"]:
         raise ValueError("Missing, malformed or conflicting source hash: " + sid)
+    if src.get("status") == "REVIEW_REQUIRED":
+        raise EvidenceError("REVIEW_REQUIRED: Source not approved")
     return src
 
 def verified_artifact(root, path, sha, label):
