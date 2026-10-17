@@ -6,7 +6,7 @@ import time
 import argparse
 from pathlib import Path
 
-MODEL_NAME = "gemini-2.5-pro"
+MODEL_NAME = "gemini-3.1-pro-preview"
 
 def call_gemini(prompt, api_key):
     for attempt in range(5):
