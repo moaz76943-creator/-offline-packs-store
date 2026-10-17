@@ -100,6 +100,19 @@ class VerifiedSnapshotTests(unittest.TestCase):
     def test_missing_decision_file(self):
         (self.root / 'input/decision.txt').unlink(); self.assert_blocked()
 
+    def test_empty_review_and_license_evidence_rejected(self):
+        empty = hashlib.sha256(b'').hexdigest()
+        (self.root / 'input/decision.txt').write_bytes(b'')
+        self.descriptor['evidence_sha256'] = empty
+        self._descriptor()
+        self.assert_blocked()
+        (self.root / 'input/decision.txt').write_bytes(b'Independent fixture decision only.\n')
+        self.descriptor['evidence_sha256'] = sha(b'Independent fixture decision only.\n')
+        self._descriptor()
+        self.use_notice(b'')
+        self.assertEqual(self.source['license']['evidence_sha256'], empty)
+        self.assert_blocked()
+
     def test_symlink_decision(self):
         (self.root / 'input/alias').symlink_to('decision.txt')
         self.descriptor['evidence_path'] = 'input/alias'; self._descriptor()

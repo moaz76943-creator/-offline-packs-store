@@ -45,7 +45,7 @@ def copy_snapshot(root, relative, destination, expected=None, limit=MAX_PROOF_BY
         fd = os.open(path, flags)
         with os.fdopen(fd, 'rb') as stream:
             info = os.fstat(stream.fileno())
-            if not stat.S_ISREG(info.st_mode) or info.st_size > limit:
+            if not stat.S_ISREG(info.st_mode) or info.st_size > limit or info.st_size == 0:
                 raise pipeline.AdmissionError('BLOCKED_SOURCE: snapshot type/size limit')
             destination.parent.mkdir(parents=True, exist_ok=True)
             digest = hashlib.sha256()
