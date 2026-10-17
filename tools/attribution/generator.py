@@ -85,37 +85,58 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
         if sid in unique:
             raise ValueError("Duplicate source reference " + sid)
         unique.add(sid)
+        author = source.get("author") or source.get("publisher")
+        if not author:
+            raise ValueError("Missing author or publisher for source " + sid)
+
+        license_id = source["license"]["id"]
+        pd_proof = source["license"].get("public_domain_proof")
+        if license_id == "PUBLIC-DOMAIN" and not pd_proof:
+            raise ValueError("Missing public_domain_proof for PUBLIC-DOMAIN source " + sid)
+
         records.append({
-            "source_id": sid, "publisher": source["publisher"],
+            "source_id": sid, "author": author,
             "origin_url": source["origin_url"], "dataset_version": source["dataset_version"],
             "artifact_sha256": source["retrieval"]["sha256"],
             "retrieval_identity": source["retrieval"]["identity"],
             "retrieval_url": source["retrieval"]["url"],
-            "license_id": source["license"]["id"],
+            "license_id": license_id,
             "license_evidence_url": source["license"]["evidence_url"],
             "license_evidence_sha256": source["license"]["evidence_sha256"],
             "alterations": source["alterations"],
             "review": source["review"],
-            "public_domain_proof": source["license"].get("public_domain_proof"),
+            "public_domain_proof": pd_proof,
             "notice_file": sid + "_notice.txt"
         })
     records.sort(key=lambda r: r["source_id"])
     notices = {}
     for r in records:
-        notices[r["notice_file"]] = "\n".join([
+        lines = [
             "Source: " + r["source_id"],
-            "Publisher: " + r["publisher"],
+            "Author/Publisher: " + r["author"],
             "Origin: " + r["origin_url"],
             "Version: " + r["dataset_version"],
             "Retrieved snapshot: " + r["retrieval_identity"],
             "Snapshot SHA-256: " + r["artifact_sha256"],
-            "License: " + r["license_id"],
+            "License: " + r["license_id"]
+        ]
+        if r["license_id"] == "CC-BY-SA-4.0":
+            lines.append("Notice: This material is distributed under the Creative Commons Attribution-ShareAlike 4.0 International License.")
+        elif r["license_id"] == "GFDL-1.3-only":
+            lines.append("Notice: This material is distributed under the GNU Free Documentation License, Version 1.3 only.")
+        elif r["license_id"] == "PUBLIC-DOMAIN":
+            lines.append("Notice: This material is dedicated to the public domain.")
+
+        lines.extend([
             "Source-specific rights: " + r["license_evidence_url"],
             "Rights proof SHA-256: " + r["license_evidence_sha256"],
             "Alterations: " + "; ".join(r["alterations"]),
-            "Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"],
-            "Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True)
-        ]) + "\n"
+            "Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"]
+        ])
+        if r["public_domain_proof"]:
+            lines.append("Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True))
+
+        notices[r["notice_file"]] = "\n".join(lines) + "\n"
     notices["attribution.json"] = json.dumps(
         records, sort_keys=True, ensure_ascii=False, indent=2) + "\n"
     _write_notices_safely(out_dir, notices)

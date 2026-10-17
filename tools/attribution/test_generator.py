@@ -110,5 +110,48 @@ class AttributionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+    def test_missing_author(self):
+        self.source["publisher"] = ""
+        if "author" in self.source:
+            del self.source["author"]
+        with self.assertRaisesRegex(ValueError, "publisher and exact dataset version required|Missing author or publisher"):
+            self.run_gate()
+
+    def test_changed_source_versions(self):
+        # Different version
+        bad = ref(self.source)
+        bad["dataset_version"] = "2.0"
+        with self.assertRaisesRegex(ValueError, "Missing or stale dataset_version"):
+            self.run_gate([bad])
+
+    def test_combined_source_packages(self):
+        import copy
+        source2 = copy.deepcopy(self.source)
+        source2["source_id"] = "case-source-2"
+        self.ledger["sources"].append(source2)
+        refs = [ref(self.source), ref(source2)]
+
+        result = self.run_gate(refs)
+        self.assertEqual(len(result), 2)
+
+        manifest_path = self.out / "attribution.json"
+        self.assertTrue(manifest_path.exists())
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        self.assertEqual(len(manifest), 2)
+
+        notice1 = self.out / "case-source_notice.txt"
+        notice2 = self.out / "case-source-2_notice.txt"
+        self.assertTrue(notice1.exists())
+        self.assertTrue(notice2.exists())
+
+    def test_invalid_notices(self):
+        self.source["license"]["id"] = "PUBLIC-DOMAIN"
+        # Removing public_domain_proof should raise an error
+        if "public_domain_proof" in self.source["license"]:
+            del self.source["license"]["public_domain_proof"]
+
+        with self.assertRaisesRegex(ValueError, "jurisdiction, legal basis and work date required|Missing public_domain_proof"):
+            self.run_gate()
+
 if __name__ == "__main__":
     unittest.main()
