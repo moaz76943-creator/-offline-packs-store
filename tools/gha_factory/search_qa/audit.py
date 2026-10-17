@@ -1,5 +1,6 @@
 """Read-only bounded SQLite v2 Unicode/FTS5 search QA; never publishes packs."""
 import argparse
+from contextlib import closing
 import hashlib
 import json
 from pathlib import Path
@@ -7,9 +8,18 @@ import re
 import sqlite3
 import sys
 import tempfile
+import time
+
+from tools.pack_v2 import pipeline
 
 MAX_ARCHIVE = 40 * 1024 * 1024
 MAX_SAMPLES = 12
+MAX_SQLITE_BYTES = pipeline.MAX_DATABASE
+# FTS glosses aggregate many individually bounded senses/translations. SQLite's
+# length limit also applies to complete encoded rows, so use the producer's
+# physical database ceiling rather than its per-source-record ceiling.
+MAX_SQL_VALUE_BYTES = pipeline.MAX_DATABASE
+SQL_SECONDS = 30
 HEX = re.compile(r'^[0-9a-f]{64}$')
 VERSION = re.compile(r'^[0-9]+\.[0-9]+\.[0-9]+$')
 
@@ -39,8 +49,16 @@ def check_sqlite(path, language):
     path = Path(path)
     if not path.is_file() or path.is_symlink():
         raise AuditError('missing/unsafe SQLite file')
+    if path.stat().st_size > MAX_SQLITE_BYTES:
+        raise AuditError('oversized SQLite file')
     try:
-        with sqlite3.connect(path.as_uri() + '?mode=ro&immutable=1', uri=True) as con:
+        with closing(sqlite3.connect(path.resolve().as_uri() + '?mode=ro&immutable=1',
+                                     uri=True)) as con:
+            deadline = time.monotonic() + SQL_SECONDS
+            con.set_progress_handler(lambda: int(time.monotonic() > deadline), 1000)
+            con.setlimit(sqlite3.SQLITE_LIMIT_LENGTH, MAX_SQL_VALUE_BYTES)
+            con.execute('PRAGMA cache_size=-4096')
+            con.execute('PRAGMA temp_store=FILE')
             con.execute('PRAGMA query_only=ON')
             con.execute('PRAGMA trusted_schema=OFF')
             con.execute('PRAGMA busy_timeout=500')
@@ -63,8 +81,25 @@ def check_sqlite(path, language):
                 raise AuditError('empty lexical corpus is not search-ready')
             if con.execute('SELECT COUNT(*) FROM lexicon_fts').fetchone()[0] != total:
                 raise AuditError('FTS5 count mismatch')
-            if con.execute('SELECT COUNT(*) FROM lexicon WHERE language_code != ?',
-                           (language,)).fetchone()[0]:
+            # Count equality does not prove row identity. Check the complete set
+            # in both directions without collecting the corpus in Python memory.
+            if con.execute(
+                'SELECT 1 FROM lexicon l LEFT JOIN lexicon_fts f ON f.rowid=l.rowid '
+                'WHERE f.rowid IS NULL LIMIT 1'
+            ).fetchone() or con.execute(
+                'SELECT 1 FROM lexicon_fts f LEFT JOIN lexicon l ON l.rowid=f.rowid '
+                'WHERE l.rowid IS NULL LIMIT 1'
+            ).fetchone():
+                raise AuditError('FTS5 rowid alignment mismatch')
+            # IS NOT also rejects NULL projections, unlike !=.
+            if con.execute(
+                'SELECT 1 FROM lexicon l JOIN lexicon_fts f ON f.rowid=l.rowid '
+                'WHERE f.surface IS NOT l.surface OR '
+                'f.language_code IS NOT l.language_code LIMIT 1'
+            ).fetchone():
+                raise AuditError('FTS5 surface/language mismatch')
+            if con.execute('SELECT 1 FROM lexicon WHERE language_code IS NOT ? LIMIT 1',
+                           (language,)).fetchone():
                 raise AuditError('wrong language in lexicon')
             samples = con.execute('SELECT rowid,surface FROM lexicon WHERE language_code=? '
                                   'ORDER BY id LIMIT ?', (language, MAX_SAMPLES)).fetchall()
