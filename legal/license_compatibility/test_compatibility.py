@@ -50,5 +50,55 @@ class CompatibilityTests(unittest.TestCase):
         self.assertEqual(self.run_gate(output="CC-BY-SA-4.0", derivative=False)["status"],
                          "REVIEW_REQUIRED")
 
+    def test_multiple_sources_with_categorized_obligations(self):
+        source1 = copy.deepcopy(self.source)
+        source1["source_id"] = "src1"
+        source1["license"]["id"] = "CC-BY-SA-4.0"
+
+        source2 = copy.deepcopy(self.source)
+        source2["source_id"] = "src2"
+        source2["license"]["id"] = "CC0-1.0"
+
+        self.ledger["sources"] = [source1, source2]
+        save_ledger(self.tmp.name, self.ledger)
+
+        r = self.run_gate(sources=[source1, source2], output="CC-BY-SA-4.0")
+        self.assertEqual(r["status"], "COMPATIBLE")
+        self.assertTrue(r["obligations"]["share_alike"])
+        self.assertTrue(r["obligations"]["attribution"])
+        self.assertTrue(r["obligations"]["modification"])
+        self.assertTrue(r["obligations"]["redistribution"])
+
+    def test_public_domain_sources_explicitly(self):
+        self.source["license"]["id"] = "PUBLIC-DOMAIN"
+        self.source["license"]["public_domain_proof"] = {
+            "jurisdiction": "US",
+            "legal_basis": "zero_copyright",
+            "work_date": "1900-01-01"
+        }
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(output="PUBLIC-DOMAIN")
+        self.assertEqual(r["status"], "COMPATIBLE")
+        self.assertFalse(r["obligations"]["share_alike"])
+        self.assertFalse(r["obligations"]["attribution"])
+        self.assertFalse(r["obligations"]["modification"])
+        self.assertFalse(r["obligations"]["redistribution"])
+
+    def test_conflicting_share_alike_obligations(self):
+        source1 = copy.deepcopy(self.source)
+        source1["source_id"] = "src1"
+        source1["license"]["id"] = "CC-BY-SA-4.0"
+
+        source2 = copy.deepcopy(self.source)
+        source2["source_id"] = "src2"
+        source2["license"]["id"] = "GFDL-1.3-only"
+
+        self.ledger["sources"] = [source1, source2]
+        save_ledger(self.tmp.name, self.ledger)
+
+        r = self.run_gate(sources=[source1, source2], output="CC-BY-SA-4.0")
+        self.assertEqual(r["status"], "INCOMPATIBLE")
+        self.assertEqual(r["reason"], "GFDL and CC BY-SA derivative conflict")
+
 if __name__ == "__main__":
     unittest.main()
