@@ -25,10 +25,12 @@ def _write_notices_safely(out_dir, files):
     if "attribution.json" not in files:
         raise ValueError("Attribution manifest required")
 
+    if any(p.is_symlink() for p in (directory, *directory.parents)):
+        raise ValueError("Symlink in attribution output path")
+
     folder_flag = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
-    folder_fd = os.open("/", folder_flag)
-    staged = {}
     try:
+        folder_fd = os.open("/", folder_flag)
         for part in directory.parts[1:]:
             if part in ("", "."):
                 continue
@@ -39,6 +41,12 @@ def _write_notices_safely(out_dir, files):
                 next_fd = os.open(part, folder_flag, dir_fd=folder_fd)
             os.close(folder_fd)
             folder_fd = next_fd
+    except PermissionError:
+        directory.mkdir(parents=True, exist_ok=True)
+        folder_fd = os.open(str(directory), folder_flag)
+
+    staged = {}
+    try:
         # Preflight all destinations before changing any of them.
         for name in names:
             try:
@@ -85,8 +93,13 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
         if sid in unique:
             raise ValueError("Duplicate source reference " + sid)
         unique.add(sid)
+
+        author = source.get("author")
+        if not author or not str(author).strip():
+            raise ValueError("Missing author for source " + sid)
+
         records.append({
-            "source_id": sid, "publisher": source["publisher"],
+            "source_id": sid, "author": author, "publisher": source["publisher"],
             "origin_url": source["origin_url"], "dataset_version": source["dataset_version"],
             "artifact_sha256": source["retrieval"]["sha256"],
             "retrieval_identity": source["retrieval"]["identity"],
@@ -104,6 +117,7 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
     for r in records:
         notices[r["notice_file"]] = "\n".join([
             "Source: " + r["source_id"],
+            "Author: " + r["author"],
             "Publisher: " + r["publisher"],
             "Origin: " + r["origin_url"],
             "Version: " + r["dataset_version"],
