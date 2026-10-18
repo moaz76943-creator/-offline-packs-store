@@ -12,13 +12,15 @@ from urllib.parse import parse_qs, urlsplit
 SCHEMA = '1.0.0'
 KINDS = {'dictionary', 'morphology', 'examples', 'font', 'pronunciation',
          'vector_art', 'visual_asset'}
-LICENSES = {'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN'}
+LICENSES = {'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN', 'CC-BY-2.0-FR'}
 OBLIGATIONS = {
     'CC-BY-SA-4.0': ('attribution', 'license_link', 'changes_disclosed',
                      'sharealike', 'no_additional_restrictions'),
     'GFDL-1.3-only': ('license_copy', 'copyright_notices', 'history',
                       'invariant_sections_checked', 'cover_texts_checked',
                       'transparent_copy_checked'),
+    # CC BY 2.0 France requires attribution and the license link. It is not share-alike.
+    'CC-BY-2.0-FR': ('attribution', 'license_link'),
 }
 HASH = re.compile(r'^[0-9a-f]{64}$')
 
