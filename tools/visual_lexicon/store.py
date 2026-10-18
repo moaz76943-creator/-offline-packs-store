@@ -33,8 +33,8 @@ class ConceptStore:
 
     def add_token(self, concept_id: str, token_data: dict, manifest_data: dict):
         """
-        Validates rights and geometries, encodes to binary token format,
-        and saves to the target directory. Updates the master manifest.
+        Checks the synthetic-fixture manifest and geometries, encodes the
+        token, and saves it. This does not record a license or a source right.
         """
         # Ensure semantic consistency
         if token_data.get('concept_id') != concept_id:
