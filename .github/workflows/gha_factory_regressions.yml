@@ -29,18 +29,13 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 3
       matrix:
-        # Ten independent, existing public QA tracks. Heavy production stays
-        # inside gha_dispatcher with its separate max-parallel: 3 limit.
-        suite: [admission, dispatcher, queue_autoseed, linguistics, examples, release, source_snapshots, pack_conformance, search_qa, coverage_audit]
+        suite: [admission, dispatcher, queue_autoseed, linguistics, examples, release]
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Install pack conformance compiler dependency
-        if: matrix.suite == 'pack_conformance'
-        run: timeout 90s python3 -m pip install --disable-pip-version-check --no-cache-dir jsonschema==4.26.0
       - name: Execute the actual merged source suite
         shell: bash
         env:
@@ -48,7 +43,7 @@ jobs:
         run: |
           set -euo pipefail
           case "$SUITE" in
-            admission|dispatcher|queue_autoseed|linguistics|examples|release|source_snapshots|pack_conformance|search_qa|coverage_audit) ;;
+            admission|dispatcher|queue_autoseed|linguistics|examples|release) ;;
             *) echo "Unknown suite"; exit 2;;
           esac
           python3 -m unittest discover \

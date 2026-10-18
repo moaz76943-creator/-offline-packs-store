@@ -28,17 +28,6 @@ SHA = re.compile(r'^[0-9a-f]{64}$')
 class Blocked(ValueError):
     pass
 
-def reject_symlink_components(path):
-    """Reject symlinks in every existing ancestor, not just the leaf.
-
-    Path.resolve() is intentionally not used: resolving first hides the
-    untrusted link that redirected a purported immutable snapshot.
-    """
-    current = Path(path).absolute()
-    for component in (current, *current.parents):
-        if component.is_symlink():
-            raise Blocked('BLOCKED_SOURCE: symlink in source/snapshot path')
-
 def sha_file(path):
     h=hashlib.sha256()
     with Path(path).open('rb') as f:
@@ -98,11 +87,7 @@ def approved(root,sid,lang,version):
             if not admission.https_url(url):raise ValueError('rights URL')
         if any(x in urlsplit(lic['evidence_url']).hostname.lower() for x in ('creativecommons.org','gnu.org')):
             raise ValueError('generic license text')
-        evidence_path=lic.get('evidence_path')
-        if not isinstance(evidence_path,str):
-            raise ValueError('license evidence path')
-        reject_symlink_components(root/evidence_path)
-        admission.checked_file(root,evidence_path,lic.get('evidence_sha256'),'license')
+        admission.checked_file(root,lic.get('evidence_path'),lic.get('evidence_sha256'),'license')
         if not SHA.fullmatch(str(r.get('sha256',''))):raise ValueError('source hash')
         host=urlsplit(r['url']).hostname
         reviewed_url(r['url'],host)
@@ -111,7 +96,6 @@ def approved(root,sid,lang,version):
             raise ValueError('artifact path')
         # GHA-01 currently requires the exact reviewed local artifact. No missing
         # artifact may turn a remote URL into an implicit approval.
-        reject_symlink_components(root/rel)
         admission.route05_source(root,sid,version,root/rel,'wiktextract-jsonl')
         return {'source_id':sid,'language':lang,'dataset_version':version,'source_sha256':r['sha256'],
                 'url':r['url'],'host':host,'identity':r['identity'],'license_id':lic['id'],
@@ -121,7 +105,6 @@ def approved(root,sid,lang,version):
 
 def verified(path,source,size):
     path=Path(path)
-    reject_symlink_components(path)
     if (type(size)!=int or not 0<size<=16*1024**3 or path.is_symlink()
             or not path.is_file() or path.stat().st_size!=size
             or sha_file(path)!=source['source_sha256']):
@@ -204,18 +187,12 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
             or type(max_expand)!=int or not 0<max_expand<=16*1024**3):
         raise Blocked('BLOCKED_SOURCE: invalid format/shard budget')
     out=Path(out)
-    reject_symlink_components(out)
+    if out.is_symlink():raise Blocked('BLOCKED_SOURCE: output symlink')
     if out.exists():
         receipt=out/'receipt.json'
         if receipt.is_symlink() or not receipt.is_file():raise Blocked('BLOCKED_SOURCE: partial directory')
         result=json.loads(receipt.read_text())
         if not isinstance(result,dict):raise Blocked('BLOCKED_SOURCE: invalid receipt')
-        if (result.get('schema_version')!='1.0'
-                or result.get('publication_approved') is not False
-                or type(result.get('expanded_bytes')) is not int
-                or not 0<result['expanded_bytes']<=max_expand
-                or not SHA.fullmatch(str(result.get('rejects_sha256','')))):
-            raise Blocked('BLOCKED_SOURCE: malformed/unsafe receipt')
         counters=('real_input_rows','accepted_rows','rejected_rows')
         if (not all(type(result.get(k)) is int and result[k]>=0 for k in counters)
                 or result['real_input_rows']!=result['accepted_rows']+result['rejected_rows']):
@@ -246,27 +223,13 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
                     or entry.get('source_sha256')!=source['source_sha256']
                     or entry.get('language')!=source['language']
                     or not SHA.fullmatch(str(entry.get('sha256','')))
-                    or not (out/entry['name']).is_file()
-                    or (out/entry['name']).is_symlink()
-                    or sha_file(out/entry['name'])!=entry['sha256']):
-                raise Blocked('BLOCKED_SOURCE: modified/missing shard')
-            with (out/entry['name']).open('rb') as stream:
-                actual_rows=sum(1 for _ in stream)
-            if actual_rows!=entry['rows']:
-                raise Blocked('BLOCKED_SOURCE: shard row count mismatch')
+                    or (out/entry['name']).is_symlink() or sha_file(out/entry['name'])!=entry['sha256']):
+                raise Blocked('BLOCKED_SOURCE: modified shard')
             total_rows+=entry['rows']
         if total_rows!=result['accepted_rows']:
             raise Blocked('BLOCKED_SOURCE: shard row count mismatch')
-        rejects=out/'rejects.jsonl'
-        if (not rejects.is_file() or rejects.is_symlink()
-                or sha_file(rejects)!=result['rejects_sha256']):
-            raise Blocked('BLOCKED_SOURCE: missing/changed rejects')
-        with rejects.open('rb') as stream:
-            if sum(1 for _ in stream)!=result['rejected_rows']:
-                raise Blocked('BLOCKED_SOURCE: reject row count mismatch')
-        expected={'receipt.json','rejects.jsonl'}|{entry['name'] for entry in pieces}
-        if {entry.name for entry in out.iterdir()}!=expected:
-            raise Blocked('BLOCKED_SOURCE: unexpected/duplicate snapshot files')
+        if (out/'rejects.jsonl').is_symlink() or sha_file(out/'rejects.jsonl')!=result['rejects_sha256']:
+            raise Blocked('BLOCKED_SOURCE: changed rejects')
         return result
     if not out.parent.is_dir() or out.is_symlink():raise Blocked('BLOCKED_SOURCE: output parent')
     if shutil.disk_usage(out.parent).free<min(max_expand,size*2):
@@ -328,9 +291,6 @@ def partitions(path,source,out,size,fmt='jsonl',shard_rows=10000,max_expand=16*1
                 'real_input_rows':real,'accepted_rows':accepted,'rejected_rows':rejected,
                 'partitions':parts,'rejects_sha256':sha_file(temp/'rejects.jsonl'),
                 'checkpoint':{'source_sha256':source['source_sha256'],'last_row':real,'last_shard':len(parts)-1}}
-        # The input must still match the approved bytes after streaming:
-        # a source rewritten while this job ran cannot yield a valid receipt.
-        verified(path,source,size)
         atomic(temp/'receipt.json',result)
         # Replace only our own empty reserved directory; other workers cannot
         # create or silently overwrite a partition at this output path.

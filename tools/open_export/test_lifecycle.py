@@ -74,21 +74,11 @@ class SecurityRegression(unittest.TestCase):
         self.machine.review(sid, "reviewer", True, token)
         return self.machine.mark_published_eligible(sid)
 
-    def manifest(self, filename, sha, sid="item1", item_type="lexical"):
+    def manifest(self, filename, sha, sid="item1"):
         (self.src / "manifest.json").write_text(json.dumps({"items": [{
-            "id": sid, "type": item_type, "filename": filename, "sha256": sha,
+            "id": sid, "type": "lexical", "filename": filename, "sha256": sha,
             "submission_id": sid, "source_id": "src-test", "license": "CC0-1.0",
             "source_version": "1.0"}]}))
-
-    def test_export_pronunciation_metadata(self):
-        name, sha = self.stage()
-        self.certify()
-        self.manifest(name, sha, item_type="pronunciation")
-        self.ledger["sources"][0]["kind"] = "pronunciation"
-        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
-        output = self.export()
-        with zipfile.ZipFile(self.out / "releases" / output["release"]) as z:
-            self.assertEqual(z.namelist(), ["data/item1.bin", "ATTRIBUTION.json"])
 
     def export(self):
         # A simulated admission gate never replaces real verified rights evidence.

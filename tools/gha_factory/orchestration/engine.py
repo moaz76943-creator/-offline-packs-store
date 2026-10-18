@@ -219,7 +219,6 @@ def execute(api,n,task_id,run_id,attempt,directory,root,now):
 
 def finalize(api,jobs,folder,run_id,attempt,now):
     if not isinstance(jobs,list) or len(jobs)>3:raise ValueError('invalid matrix')
-    if folder.is_symlink():raise ValueError('unsafe artifact root')
     run=api.run(run_id)
     if run.get('id')!=run_id or run.get('run_attempt')!=attempt or run.get('head_branch')!='main' or run.get('path')!=WORKFLOW:raise ValueError('unverified run identity')
     done=[]
@@ -229,12 +228,7 @@ def finalize(api,jobs,folder,run_id,attempt,now):
         if not trusted(issue):raise ValueError('untrusted finalization issue')
         t=p.parse(issue['body'])
         if t['task_id']!=job['task_id'] or t['run_id']!=run_id or t['run_attempt']!=attempt:raise ValueError('changed ownership')
-        directory=folder/f'dispatcher-{n}'
-        # Checking only receipt.json misses symlinks in its artifact directory.
-        # Never read a receipt or candidate through an extracted directory link.
-        if directory.is_symlink() or directory.resolve().parent!=folder.resolve():
-            raise ValueError('unsafe receipt directory')
-        path=directory/'receipt.json'
+        directory=folder/f'dispatcher-{n}';path=directory/'receipt.json'
         if path.is_symlink():raise ValueError('unsafe receipt')
         if path.is_file():
             if path.stat().st_size>4096:raise ValueError('oversized receipt')

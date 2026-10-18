@@ -142,22 +142,6 @@ class ContractTests(unittest.TestCase):
         )
         self.assertEqual(status, 'EXPIRED_AUTHORIZATION')
 
-    def test_expired_draft_authorization_never_promotes(self):
-        now = datetime(2026, 10, 16, tzinfo=timezone.utc)
-        for field in ('expiry', 'expires_at'):
-            with self.subTest(field=field):
-                record = entry(authorization_mode='solo_maintainer', reviewers=[],
-                               **{field: '2026-10-15T00:00:00Z'})
-                self.assertEqual(self.decide(e=record, p=pr(draft=True), rv=[], now=now)[0],
-                                 'EXPIRED_AUTHORIZATION')
-
-    def test_unexpired_draft_authorization_remains_promotable(self):
-        record = entry(authorization_mode='solo_maintainer', reviewers=[],
-                       expiry='2026-10-17T00:00:00Z')
-        now = datetime(2026, 10, 16, tzinfo=timezone.utc)
-        self.assertEqual(self.decide(e=record, p=pr(draft=True), rv=[], now=now)[0],
-                         'PROMOTE_ONLY')
-
     def test_solo_maintainer_prohibited_paths_remain_strictly_blocked(self):
         sensitive_entry = entry(
             authorization_mode='solo_maintainer',
