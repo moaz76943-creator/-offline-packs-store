@@ -157,4 +157,67 @@ class Tests(unittest.TestCase):
         f=self.root/'empty';f.write_bytes(b'')
         with self.assertRaises(p.Blocked):p.partitions(f,source,self.root/'out',0)
 
+
+    def test_reject_symlinked_parent_of_input_or_output(self):
+        source=self.job()
+        alias=self.root/'alias'
+        alias.symlink_to(self.root/'not-committed',target_is_directory=True)
+        with self.assertRaisesRegex(p.Blocked,'symlink'):
+            p.partitions(alias/'snapshot.gz',source,self.root/'out',len(self.zip),fmt='jsonl.gz')
+        (self.root/'destination').mkdir()
+        output_link=self.root/'output-link'
+        output_link.symlink_to(self.root/'destination',target_is_directory=True)
+        with self.assertRaisesRegex(p.Blocked,'symlink'):
+            p.partitions(self.root/'not-committed/snapshot.gz',source,
+                         output_link/'out',len(self.zip),fmt='jsonl.gz')
+        self.assertFalse((self.root/'destination/out').exists())
+
+    def test_reject_symlinked_license_evidence_parent(self):
+        link=self.root/'proof-link'
+        link.symlink_to(self.root,target_is_directory=True)
+        self.src['license']['evidence_path']='proof-link/proof.txt'
+        self.save()
+        with self.assertRaises(p.Blocked):
+            self.job()
+
+    def test_replay_rejects_unlisted_or_missing_files(self):
+        source=self.job()
+        file=self.root/'not-committed/snapshot.gz'
+        out=self.root/'out'
+        p.partitions(file,source,out,len(self.zip),fmt='jsonl.gz')
+        (out/'unlisted-copy.jsonl').write_bytes((out/'part-00000000.jsonl').read_bytes())
+        with self.assertRaisesRegex(p.Blocked,'unexpected/duplicate'):
+            p.partitions(file,source,out,len(self.zip),fmt='jsonl.gz')
+        (out/'unlisted-copy.jsonl').unlink()
+        (out/'part-00000000.jsonl').unlink()
+        with self.assertRaises(p.Blocked):
+            p.partitions(file,source,out,len(self.zip),fmt='jsonl.gz')
+
+    def test_replay_rejects_forged_publication_and_counts(self):
+        source=self.job()
+        file=self.root/'not-committed/snapshot.gz'
+        out=self.root/'out'
+        original=p.partitions(file,source,out,len(self.zip),fmt='jsonl.gz')
+        receipt=out/'receipt.json'
+        for change in ({'publication_approved':True},
+                       {'schema_version':'unreviewed'},
+                       {'expanded_bytes':-1},
+                       {'rejected_rows':0,'accepted_rows':4}):
+            receipt.write_text(json.dumps(dict(original,**change)))
+            with self.assertRaises(p.Blocked):
+                p.partitions(file,source,out,len(self.zip),fmt='jsonl.gz')
+
+    def test_independent_stage_reproduces_exact_receipt_and_bytes(self):
+        source=self.job()
+        file=self.root/'not-committed/snapshot.gz'
+        first=self.root/'replay-first'
+        second=self.root/'replay-second'
+        a=p.partitions(file,source,first,len(self.zip),fmt='jsonl.gz',shard_rows=2)
+        b=p.partitions(file,source,second,len(self.zip),fmt='jsonl.gz',shard_rows=2)
+        self.assertEqual(a,b)
+        self.assertEqual({x.name:x.read_bytes() for x in first.iterdir()},
+                         {x.name:x.read_bytes() for x in second.iterdir()})
+        self.assertEqual(a['status'],'STAGED_ONLY')
+        self.assertFalse(a['publication_approved'])
+
 if __name__=='__main__':unittest.main()

@@ -94,7 +94,7 @@ class CommunityExporter:
             if aid in seen:
                 raise ExportError("duplicate export identity")
             seen.add(aid)
-            if item.get("type") not in ("lexical", "sentences", "grammar", "semantic"):
+            if item.get("type") not in ("lexical", "sentences", "grammar", "semantic", "pronunciation"):
                 raise ExportError("disallowed artifact type")
             digest = item.get("sha256")
             if not isinstance(digest, str) or not HASH.fullmatch(digest):
@@ -127,7 +127,8 @@ class CommunityExporter:
             if meta["license_id"] not in ("CC0-1.0", "PUBLIC-DOMAIN"):
                 raise ExportError("license obligations not implemented for this export format")
             expected_kind = {"lexical": "dictionary", "sentences": "examples",
-                             "grammar": "morphology", "semantic": "vector_art"}[item["type"]]
+                             "grammar": "morphology", "semantic": "vector_art",
+                             "pronunciation": "pronunciation"}[item["type"]]
             if source.get("kind") != expected_kind:
                 raise ExportError("source kind does not match export category")
             entries.append((aid, path, digest))
