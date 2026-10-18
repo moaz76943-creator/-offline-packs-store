@@ -1,0 +1,38 @@
+name: Agent harvest Wikidata
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7 0,6,12,18 * * *'
+    - cron: '37 3,9,15,21 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: agent-harvest-wikidata
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Load the last committed snapshot
+        run: bash tools/agents/prepare.sh
+      - name: Run harvest-wikidata
+        id: work
+        continue-on-error: true
+        env:
+          AGENTS_HALT: ${{ vars.AGENTS_HALT }}
+          LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -m tools.agents.cli harvest-wikidata
+
+      - name: Publish the checkpoint
+        if: always()
+        run: bash tools/agents/publish.sh harvest-wikidata
+      - name: Record the agent result
+        if: steps.work.outcome == 'failure'
+        run: exit 1
