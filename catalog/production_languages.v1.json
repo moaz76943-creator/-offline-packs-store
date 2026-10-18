@@ -1,0 +1,478 @@
+{
+  "schema_version": "1.0.0",
+  "priority_basis": "Static editorial order of expected Wikidata lexeme volume. It is not a measured dump count. The scheduler rotates every enabled language; priority only sets the rotation order.",
+  "batch_size": 3,
+  "max_parallel": 2,
+  "proof_languages": [
+    "de",
+    "ar",
+    "en",
+    "fr",
+    "es",
+    "tr"
+  ],
+  "languages": [
+    {
+      "id": "en",
+      "wikidata": "Q1860",
+      "priority": 1,
+      "enabled": true
+    },
+    {
+      "id": "fr",
+      "wikidata": "Q150",
+      "priority": 2,
+      "enabled": true
+    },
+    {
+      "id": "de",
+      "wikidata": "Q188",
+      "priority": 3,
+      "enabled": true
+    },
+    {
+      "id": "nl",
+      "wikidata": "Q7411",
+      "priority": 4,
+      "enabled": true
+    },
+    {
+      "id": "sv",
+      "wikidata": "Q9027",
+      "priority": 5,
+      "enabled": true
+    },
+    {
+      "id": "es",
+      "wikidata": "Q1321",
+      "priority": 6,
+      "enabled": true
+    },
+    {
+      "id": "ru",
+      "wikidata": "Q7737",
+      "priority": 7,
+      "enabled": true
+    },
+    {
+      "id": "it",
+      "wikidata": "Q652",
+      "priority": 8,
+      "enabled": true
+    },
+    {
+      "id": "pl",
+      "wikidata": "Q809",
+      "priority": 9,
+      "enabled": true
+    },
+    {
+      "id": "pt",
+      "wikidata": "Q5146",
+      "priority": 10,
+      "enabled": true
+    },
+    {
+      "id": "ja",
+      "wikidata": "Q5287",
+      "priority": 11,
+      "enabled": true
+    },
+    {
+      "id": "zh",
+      "wikidata": "Q7850",
+      "priority": 12,
+      "enabled": true
+    },
+    {
+      "id": "ar",
+      "wikidata": "Q13955",
+      "priority": 13,
+      "enabled": true
+    },
+    {
+      "id": "tr",
+      "wikidata": "Q256",
+      "priority": 14,
+      "enabled": true
+    },
+    {
+      "id": "uk",
+      "wikidata": "Q8798",
+      "priority": 15,
+      "enabled": true
+    },
+    {
+      "id": "cs",
+      "wikidata": "Q9056",
+      "priority": 16,
+      "enabled": true
+    },
+    {
+      "id": "ca",
+      "wikidata": "Q7026",
+      "priority": 17,
+      "enabled": true
+    },
+    {
+      "id": "fi",
+      "wikidata": "Q1412",
+      "priority": 18,
+      "enabled": true
+    },
+    {
+      "id": "hu",
+      "wikidata": "Q9067",
+      "priority": 19,
+      "enabled": true
+    },
+    {
+      "id": "ro",
+      "wikidata": "Q7913",
+      "priority": 20,
+      "enabled": true
+    },
+    {
+      "id": "da",
+      "wikidata": "Q9035",
+      "priority": 21,
+      "enabled": true
+    },
+    {
+      "id": "no",
+      "wikidata": "Q9043",
+      "priority": 22,
+      "enabled": true
+    },
+    {
+      "id": "el",
+      "wikidata": "Q9129",
+      "priority": 23,
+      "enabled": true
+    },
+    {
+      "id": "ko",
+      "wikidata": "Q9176",
+      "priority": 24,
+      "enabled": true
+    },
+    {
+      "id": "hi",
+      "wikidata": "Q1568",
+      "priority": 25,
+      "enabled": true
+    },
+    {
+      "id": "id",
+      "wikidata": "Q9240",
+      "priority": 26,
+      "enabled": true
+    },
+    {
+      "id": "vi",
+      "wikidata": "Q9199",
+      "priority": 27,
+      "enabled": true
+    },
+    {
+      "id": "th",
+      "wikidata": "Q9217",
+      "priority": 28,
+      "enabled": true
+    },
+    {
+      "id": "fa",
+      "wikidata": "Q9168",
+      "priority": 29,
+      "enabled": true
+    },
+    {
+      "id": "bg",
+      "wikidata": "Q7918",
+      "priority": 30,
+      "enabled": true
+    },
+    {
+      "id": "hr",
+      "wikidata": "Q6654",
+      "priority": 31,
+      "enabled": true
+    },
+    {
+      "id": "sk",
+      "wikidata": "Q9058",
+      "priority": 32,
+      "enabled": true
+    },
+    {
+      "id": "sl",
+      "wikidata": "Q9063",
+      "priority": 33,
+      "enabled": true
+    },
+    {
+      "id": "sr",
+      "wikidata": "Q9299",
+      "priority": 34,
+      "enabled": true
+    },
+    {
+      "id": "bn",
+      "wikidata": "Q9610",
+      "priority": 35,
+      "enabled": true
+    },
+    {
+      "id": "ur",
+      "wikidata": "Q1617",
+      "priority": 36,
+      "enabled": true
+    },
+    {
+      "id": "ta",
+      "wikidata": "Q5885",
+      "priority": 37,
+      "enabled": true
+    },
+    {
+      "id": "te",
+      "wikidata": "Q8097",
+      "priority": 38,
+      "enabled": true
+    },
+    {
+      "id": "ml",
+      "wikidata": "Q36236",
+      "priority": 39,
+      "enabled": true
+    },
+    {
+      "id": "kn",
+      "wikidata": "Q33673",
+      "priority": 40,
+      "enabled": true
+    },
+    {
+      "id": "mr",
+      "wikidata": "Q1571",
+      "priority": 41,
+      "enabled": true
+    },
+    {
+      "id": "gu",
+      "wikidata": "Q5137",
+      "priority": 42,
+      "enabled": true
+    },
+    {
+      "id": "pa",
+      "wikidata": "Q58635",
+      "priority": 43,
+      "enabled": true
+    },
+    {
+      "id": "sw",
+      "wikidata": "Q7838",
+      "priority": 44,
+      "enabled": true
+    },
+    {
+      "id": "af",
+      "wikidata": "Q14196",
+      "priority": 45,
+      "enabled": true
+    },
+    {
+      "id": "eu",
+      "wikidata": "Q8752",
+      "priority": 46,
+      "enabled": true
+    },
+    {
+      "id": "gl",
+      "wikidata": "Q9307",
+      "priority": 47,
+      "enabled": true
+    },
+    {
+      "id": "la",
+      "wikidata": "Q397",
+      "priority": 48,
+      "enabled": true
+    },
+    {
+      "id": "eo",
+      "wikidata": "Q143",
+      "priority": 49,
+      "enabled": true
+    },
+    {
+      "id": "is",
+      "wikidata": "Q294",
+      "priority": 50,
+      "enabled": true
+    },
+    {
+      "id": "et",
+      "wikidata": "Q9072",
+      "priority": 51,
+      "enabled": true
+    },
+    {
+      "id": "lv",
+      "wikidata": "Q9078",
+      "priority": 52,
+      "enabled": true
+    },
+    {
+      "id": "lt",
+      "wikidata": "Q9083",
+      "priority": 53,
+      "enabled": true
+    },
+    {
+      "id": "ga",
+      "wikidata": "Q9142",
+      "priority": 54,
+      "enabled": true
+    },
+    {
+      "id": "cy",
+      "wikidata": "Q9309",
+      "priority": 55,
+      "enabled": true
+    },
+    {
+      "id": "ne",
+      "wikidata": "Q33823",
+      "priority": 56,
+      "enabled": true
+    },
+    {
+      "id": "si",
+      "wikidata": "Q13267",
+      "priority": 57,
+      "enabled": true
+    },
+    {
+      "id": "my",
+      "wikidata": "Q9228",
+      "priority": 58,
+      "enabled": true
+    },
+    {
+      "id": "km",
+      "wikidata": "Q9205",
+      "priority": 59,
+      "enabled": true
+    },
+    {
+      "id": "ka",
+      "wikidata": "Q8108",
+      "priority": 60,
+      "enabled": true
+    },
+    {
+      "id": "hy",
+      "wikidata": "Q8785",
+      "priority": 61,
+      "enabled": true
+    },
+    {
+      "id": "az",
+      "wikidata": "Q9292",
+      "priority": 62,
+      "enabled": true
+    },
+    {
+      "id": "kk",
+      "wikidata": "Q9252",
+      "priority": 63,
+      "enabled": true
+    },
+    {
+      "id": "uz",
+      "wikidata": "Q9264",
+      "priority": 64,
+      "enabled": true
+    },
+    {
+      "id": "be",
+      "wikidata": "Q9091",
+      "priority": 65,
+      "enabled": true
+    },
+    {
+      "id": "mk",
+      "wikidata": "Q9296",
+      "priority": 66,
+      "enabled": true
+    },
+    {
+      "id": "bs",
+      "wikidata": "Q9303",
+      "priority": 67,
+      "enabled": true
+    },
+    {
+      "id": "sq",
+      "wikidata": "Q8748",
+      "priority": 68,
+      "enabled": true
+    },
+    {
+      "id": "mt",
+      "wikidata": "Q9166",
+      "priority": 69,
+      "enabled": true
+    },
+    {
+      "id": "ms",
+      "wikidata": "Q9237",
+      "priority": 70,
+      "enabled": true
+    },
+    {
+      "id": "ha",
+      "wikidata": "Q56475",
+      "priority": 71,
+      "enabled": true
+    },
+    {
+      "id": "am",
+      "wikidata": "Q28244",
+      "priority": 72,
+      "enabled": true
+    },
+    {
+      "id": "ps",
+      "wikidata": "Q58680",
+      "priority": 73,
+      "enabled": true
+    },
+    {
+      "id": "mn",
+      "wikidata": "Q9246",
+      "priority": 74,
+      "enabled": true
+    },
+    {
+      "id": "or",
+      "wikidata": "Q33810",
+      "priority": 75,
+      "enabled": true
+    },
+    {
+      "id": "zu",
+      "wikidata": "Q10179",
+      "priority": 76,
+      "enabled": true
+    },
+    {
+      "id": "xh",
+      "wikidata": "Q13218",
+      "priority": 77,
+      "enabled": true
+    }
+  ]
+}
