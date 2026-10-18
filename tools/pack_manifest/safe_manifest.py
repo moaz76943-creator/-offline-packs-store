@@ -9,9 +9,14 @@ import json
 import os
 from pathlib import Path
 import re
+import stat
 import sys
 import tempfile
 import zlib
+
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 SHA=re.compile(r'^[a-f0-9]{64}$')
 LANGUAGE=re.compile(r'^[a-z]{2,3}(?:-[a-zA-Z0-9]+)*$')
@@ -55,9 +60,31 @@ def confined(root,rel):
 
 
 def archive_bytes(path):
-    if path.stat().st_size>MAX_ARCHIVE:
-        raise ManifestBlocked('candidate archive exceeds max bytes')
-    return path.read_bytes()
+    """Open once, no-follow, and refuse anything larger than MAX_ARCHIVE."""
+    try:
+        fd = os.open(path, os.O_RDONLY | os.O_CLOEXEC | os.O_NOFOLLOW)
+    except OSError as exc:
+        raise ManifestBlocked('unreadable candidate archive') from exc
+    try:
+        info = os.fstat(fd)
+        if not stat.S_ISREG(info.st_mode):
+            raise ManifestBlocked('candidate archive is not a regular file')
+        if info.st_size > MAX_ARCHIVE:
+            raise ManifestBlocked('candidate archive exceeds max bytes')
+        chunks = []
+        remaining = MAX_ARCHIVE + 1
+        while remaining > 0:
+            block = os.read(fd, min(1024 * 1024, remaining))
+            if not block:
+                break
+            chunks.append(block)
+            remaining -= len(block)
+        data = b''.join(chunks)
+        if len(data) > MAX_ARCHIVE:
+            raise ManifestBlocked('candidate archive exceeds max bytes')
+        return data
+    finally:
+        os.close(fd)
 
 
 def inspect_gzip_bounded(blob):

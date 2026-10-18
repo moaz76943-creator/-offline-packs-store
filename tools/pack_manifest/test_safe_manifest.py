@@ -2,7 +2,10 @@
 import gzip
 import hashlib
 import json
+import os
 from pathlib import Path
+import stat
+import subprocess
 import sys
 import tempfile
 from types import ModuleType
@@ -108,5 +111,36 @@ class ManifestTests(unittest.TestCase):
         plan=m.diff(old,new)
         self.assertEqual(plan['removed_pending_review'],['ar'])
         self.assertFalse(plan['safe_to_apply'])
+
+    def test_cli_imports_checker_without_pythonpath(self):
+        spec=self.root/'candidates.json'
+        spec.write_text(json.dumps(self.claims),encoding='utf-8')
+        script=Path(__file__).resolve().parent/'safe_manifest.py'
+        env=os.environ.copy()
+        env.pop('PYTHONPATH',None)
+        completed=subprocess.run([sys.executable,str(script),'--repo-root',str(self.root),
+                                  '--candidate-spec',str(spec)],
+                                 cwd=self.root,env=env,capture_output=True,text=True,check=False)
+        combined=completed.stdout+completed.stderr
+        self.assertNotIn("No module named 'tools'",combined)
+        self.assertNotIn('ModuleNotFoundError',combined)
+        self.assertIn('publication_approved',completed.stdout)
+
+    def test_archive_open_does_not_follow_final_symlink(self):
+        secret=self.root/'secret.pack.gz'
+        secret.write_bytes(b'private-archive-bytes')
+        link=self.root/'packs'/'alias.pack.gz'
+        link.symlink_to(secret)
+        with self.assertRaises(m.ManifestBlocked):
+            m.archive_bytes(link)
+        self.assertEqual(secret.read_bytes(),b'private-archive-bytes')
+
+    def test_stat_size_cannot_authorize_an_oversized_read(self):
+        path=self.root/'packs'/'grown.pack.gz'
+        path.write_bytes(b'X'*300)
+        fake=os.stat_result((stat.S_IFREG,0,0,1,0,0,10,0,0,0))
+        with patch.object(m,'MAX_ARCHIVE',100),patch.object(Path,'stat',lambda _self,*_a,**_k: fake):
+            with self.assertRaisesRegex(m.ManifestBlocked,'exceeds max bytes'):
+                m.archive_bytes(path)
 
 if __name__=='__main__':unittest.main()
