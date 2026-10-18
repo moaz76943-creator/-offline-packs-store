@@ -152,6 +152,8 @@ def evaluate(ledger, manifest, dailies, root):
                 issue(out, 'EVIDENCE', f'{label}: exact HTTPS {key} required')
         if not text(source.get('publisher')) or not text(source.get('dataset_version')):
             issue(out, 'EVIDENCE', f'{label}: publisher and exact dataset version required')
+        if not text(source.get('author')):
+            issue(out, 'EVIDENCE', f'{label}: author required')
         retrieval = source.get('retrieval') or {}
         if not isinstance(retrieval, dict):
             retrieval = {}
