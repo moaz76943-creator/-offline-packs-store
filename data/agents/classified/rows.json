@@ -1,6 +1,41 @@
 {
   "rows": [
     {
+      "concept_id": "concept.q2941309",
+      "forms": [
+        "solbær",
+        "solbærret",
+        "solbær",
+        "solbærrene",
+        "solbærren",
+        "solbærrens"
+      ],
+      "language": "da",
+      "lemma": "solbær",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L619108",
+      "pos": "",
+      "qids": [
+        "Q146604",
+        "Q2941309"
+      ],
+      "record_id": "L619108",
+      "retrieval_date": "2026-10-18",
+      "revision": "2312972724",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L619108-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q2941309"
+    },
+    {
       "concept_id": "concept.q105688",
       "forms": [
         "hypoksi",
@@ -29,6 +64,201 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q2941309",
+      "forms": [
+        "Aalbeere",
+        "Aalbeere",
+        "Aalbeere",
+        "Aalbeere",
+        "Aalbeeren",
+        "Aalbeeren",
+        "Aalbeeren",
+        "Aalbeeren"
+      ],
+      "language": "de",
+      "lemma": "Aalbeere",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1234846",
+      "pos": "",
+      "qids": [
+        "Q2941309"
+      ],
+      "record_id": "L1234846",
+      "retrieval_date": "2026-10-18",
+      "revision": "2508819060",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1234846-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q2941309"
+    },
+    {
+      "concept_id": "concept.q147651",
+      "forms": [
+        "Erdnussbutter",
+        "Erdnussbutter",
+        "Erdnussbutter",
+        "Erdnussbutter"
+      ],
+      "language": "de",
+      "lemma": "Erdnussbutter",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L400201",
+      "pos": "",
+      "qids": [
+        "Q147651"
+      ],
+      "record_id": "L400201",
+      "retrieval_date": "2026-10-18",
+      "revision": "2453739790",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L400201-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q147651"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "Nudel",
+        "Nudel",
+        "Nudel",
+        "Nudel",
+        "Nudeln",
+        "Nudeln",
+        "Nudeln",
+        "Nudeln"
+      ],
+      "language": "de",
+      "lemma": "Nudel",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L493393",
+      "pos": "",
+      "qids": [
+        "Q178",
+        "Q192874"
+      ],
+      "record_id": "L493393",
+      "retrieval_date": "2026-10-18",
+      "revision": "2514879859",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L493393-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
+    },
+    {
+      "concept_id": "concept.q2941309",
+      "forms": [
+        "blackcurrant",
+        "blackcurrants"
+      ],
+      "language": "en",
+      "lemma": "blackcurrant",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L58100",
+      "pos": "",
+      "qids": [
+        "Q2941309"
+      ],
+      "record_id": "L58100",
+      "retrieval_date": "2026-10-18",
+      "revision": "2508394084",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L58100-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q2941309"
+    },
+    {
+      "concept_id": "concept.q147651",
+      "forms": [
+        "peanut butter",
+        "peanut butters"
+      ],
+      "language": "en",
+      "lemma": "peanut butter",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1259881",
+      "pos": "",
+      "qids": [
+        "Q147651"
+      ],
+      "record_id": "L1259881",
+      "retrieval_date": "2026-10-18",
+      "revision": "2466088451",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1259881-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q147651"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "noodle",
+        "noodles"
+      ],
+      "language": "en",
+      "lemma": "noodle",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L56521",
+      "pos": "",
+      "qids": [
+        "Q192874"
+      ],
+      "record_id": "L56521",
+      "retrieval_date": "2026-10-18",
+      "revision": "2549893541",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L56521-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
     },
     {
       "concept_id": "concept.q105688",
@@ -122,6 +352,70 @@
       "wikidata": "Q193211"
     },
     {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "tritiko",
+        "tritikon",
+        "tritikoj",
+        "tritikojn"
+      ],
+      "language": "eo",
+      "lemma": "tritiko",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L311463",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q15645384"
+      ],
+      "record_id": "L311463",
+      "retrieval_date": "2026-10-18",
+      "revision": "2532345038",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L311463-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "trigo",
+        "trigos"
+      ],
+      "language": "es",
+      "lemma": "trigo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L307438",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q15645384"
+      ],
+      "record_id": "L307438",
+      "retrieval_date": "2026-10-18",
+      "revision": "2402672380",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L307438-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
       "concept_id": "concept.q105688",
       "forms": [
         "hypoxie",
@@ -180,6 +474,37 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "frumento",
+        "frumenti"
+      ],
+      "language": "it",
+      "lemma": "frumento",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L689572",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q15645384"
+      ],
+      "record_id": "L689572",
+      "retrieval_date": "2026-10-18",
+      "revision": "2230360687",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L689572-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
     },
     {
       "concept_id": "concept.q105688",
@@ -242,6 +567,101 @@
       "wikidata": "Q193211"
     },
     {
+      "concept_id": "concept.q147651",
+      "forms": [
+        "ピーナッツ・バター"
+      ],
+      "language": "ja",
+      "lemma": "ピーナッツ・バター",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1716524",
+      "pos": "",
+      "qids": [
+        "Q147651"
+      ],
+      "record_id": "L1716524",
+      "retrieval_date": "2026-10-18",
+      "revision": "2549860131",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1716524-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q147651"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "麺",
+        "めん"
+      ],
+      "language": "ja",
+      "lemma": "麺",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=1; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1500014",
+      "pos": "",
+      "qids": [
+        "Q192874"
+      ],
+      "record_id": "L1500014",
+      "retrieval_date": "2026-10-18",
+      "revision": "2466479879",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1500014-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
+    },
+    {
+      "concept_id": "concept.q2941309",
+      "forms": [
+        "aalbes",
+        "aalbessen",
+        "aalbesje",
+        "aalbesjes"
+      ],
+      "language": "nl",
+      "lemma": "aalbes",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1553430",
+      "pos": "",
+      "qids": [
+        "Q146604",
+        "Q2941309",
+        "Q146661",
+        "Q14714085",
+        "Q104818518"
+      ],
+      "record_id": "L1553430",
+      "retrieval_date": "2026-10-18",
+      "revision": "2508390435",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1553430-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q2941309"
+    },
+    {
       "concept_id": "concept.q12199",
       "forms": [
         "dżuma XX wieku",
@@ -277,6 +697,44 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "пшеница",
+        "пшеницы",
+        "пшенице",
+        "пшеницу",
+        "пшеницей",
+        "пшеницею",
+        "пшенице",
+        "пшеницы"
+      ],
+      "language": "ru",
+      "lemma": "пшеница",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L154347",
+      "pos": "",
+      "qids": [
+        "Q15645384",
+        "Q12106",
+        "Q161098"
+      ],
+      "record_id": "L154347",
+      "retrieval_date": "2026-10-18",
+      "revision": "2236812992",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L154347-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
     },
     {
       "concept_id": "concept.q105688",
@@ -391,6 +849,74 @@
       "wikidata": "Q6279182"
     },
     {
+      "concept_id": "concept.q147651",
+      "forms": [
+        "jordnötssmör",
+        "jordnötssmöret",
+        "jordnötssmörs",
+        "jordnötssmörets"
+      ],
+      "language": "sv",
+      "lemma": "jordnötssmör",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L588219",
+      "pos": "",
+      "qids": [
+        "Q147651"
+      ],
+      "record_id": "L588219",
+      "retrieval_date": "2026-10-18",
+      "revision": "2484061465",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L588219-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q147651"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "nudel",
+        "nudeln",
+        "nudlar",
+        "nudlarna",
+        "nudels",
+        "nudelns",
+        "nudlars",
+        "nudlarnas"
+      ],
+      "language": "sv",
+      "lemma": "nudel",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L240055",
+      "pos": "",
+      "qids": [
+        "Q192874"
+      ],
+      "record_id": "L240055",
+      "retrieval_date": "2026-10-18",
+      "revision": "2546533090",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L240055-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
+    },
+    {
       "concept_id": "concept.q12199",
       "forms": [
         "aids",
@@ -455,6 +981,95 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q193211"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "கோதுமை"
+      ],
+      "language": "ta",
+      "lemma": "கோதுமை",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L40897",
+      "pos": "",
+      "qids": [
+        "Q15645384",
+        "Q12106"
+      ],
+      "record_id": "L40897",
+      "retrieval_date": "2026-10-18",
+      "revision": "2165592434",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L40897-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "локшина"
+      ],
+      "language": "uk",
+      "lemma": "локшина",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1225536",
+      "pos": "",
+      "qids": [
+        "Q192874"
+      ],
+      "record_id": "L1225536",
+      "retrieval_date": "2026-10-18",
+      "revision": "2055971369",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1225536-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "mì",
+        "mỳ"
+      ],
+      "language": "vi",
+      "lemma": "mì",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1869",
+      "pos": "",
+      "qids": [
+        "Q192874"
+      ],
+      "record_id": "L1869",
+      "retrieval_date": "2026-10-18",
+      "revision": "2175095065",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1869-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
     }
   ],
   "schema_version": "1.0.0"
