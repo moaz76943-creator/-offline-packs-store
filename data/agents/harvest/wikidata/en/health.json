@@ -1,0 +1,86 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q105688",
+      "forms": [
+        "hypoxia",
+        "hypoxias"
+      ],
+      "language": "en",
+      "lemma": "hypoxia",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L102219",
+      "pos": "",
+      "qids": [
+        "Q1641506",
+        "Q105688"
+      ],
+      "record_id": "L102219",
+      "retrieval_date": "2026-10-18",
+      "revision": "2549910771",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L102219-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q12199",
+      "forms": [
+        "AIDS",
+        "Aids"
+      ],
+      "language": "en",
+      "lemma": "AIDS",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L315899",
+      "pos": "",
+      "qids": [
+        "Q12199"
+      ],
+      "record_id": "L315899",
+      "retrieval_date": "2026-10-18",
+      "revision": "2466148915",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L315899-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q193211",
+      "forms": [
+        "cyst",
+        "cysts"
+      ],
+      "language": "en",
+      "lemma": "cyst",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L16615",
+      "pos": "",
+      "qids": [
+        "Q193211"
+      ],
+      "record_id": "L16615",
+      "retrieval_date": "2026-10-18",
+      "revision": "2549811883",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L16615-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q193211"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "health",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}
