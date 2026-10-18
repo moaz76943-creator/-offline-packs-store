@@ -1,0 +1,16 @@
+{
+  "action": "recorded",
+  "issue_body": "## Signature\n`agent-harvest-universal-dependencies`\n\n## Root cause\nThe run failed with signature Agent harvest Universal Dependencies.\n\n## Structural fix\nChange the producer so this signature cannot recur: one output file per shard, schema_version on the contract, and a regression test. Do not rerun the job.\n\nOne issue per signature. If ROOT_CAUSES.md already describes this cause, close this issue.\n",
+  "issue_number": null,
+  "issue_title": "Root cause: agent-harvest-universal-dependencies",
+  "last_run_id": "39092721468",
+  "raw_signature": "Agent harvest Universal Dependencies",
+  "retries": 0,
+  "root_cause": "The run failed with signature Agent harvest Universal Dependencies.",
+  "schema_version": "1.0.0",
+  "seen_count": 1,
+  "signature": "agent-harvest-universal-dependencies",
+  "structural_fix": "Change the producer so this signature cannot recur: one output file per shard, schema_version on the contract, and a regression test. Do not rerun the job.",
+  "tracked_in": "",
+  "warning": ""
+}
