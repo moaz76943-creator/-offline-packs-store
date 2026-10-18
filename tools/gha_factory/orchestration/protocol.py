@@ -129,6 +129,13 @@ def finish(t,r,now):
     if r['candidate_sha256'] is not None and (not isinstance(r['candidate_sha256'],str) or not v1.HEX.fullmatch(r['candidate_sha256'])):raise ValueError('invalid output hash')
     if t['schema_version']==VERSION and r['candidate_count']>0 and r['candidate_sha256'] is None:raise ValueError('missing candidate digest')
     if r['error_code'] not in (None,'EXECUTION','SOURCE_NOT_APPROVED','SOURCE_CHANGED','INVALID_INPUT','TIMEOUT','INJECTED_FAILURE'):raise ValueError('invalid error code')
+    # A blocked source has produced no durable work. Advancing its checkpoint or
+    # reporting candidates here could silently skip records on a later retry.
+    # Historical v1 receipts retain their original transition semantics.
+    if (t['schema_version']==VERSION and r['status']=='BLOCKED_SOURCE'
+            and (r['checkpoint']!=t['checkpoint'] or r['candidate_count']!=0
+                 or r['candidate_sha256'] is not None)):
+        raise ValueError('blocked source cannot advance checkpoint or output')
     compact={k:r[k] for k in ('status','checkpoint','candidate_count','candidate_sha256','error_code')}
     if t['state']=='SUCCEEDED':
         if t['receipt']==compact:return t
