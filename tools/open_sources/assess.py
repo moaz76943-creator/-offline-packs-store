@@ -2,7 +2,9 @@
 
 from legal.ledger.license_notice import conflicting_license_ids, detected_licenses
 
-ALLOWED = frozenset({'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN'})
+ALLOWED = frozenset({
+    'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN', 'CC-BY-2.0-FR',
+})
 
 
 def positive_match(notice, declared, co_offered=()):
