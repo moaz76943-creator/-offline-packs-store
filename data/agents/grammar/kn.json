@@ -1,0 +1,26 @@
+{
+  "language": "kn",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "kn",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:kn:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Knda"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "kn",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:kn:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}

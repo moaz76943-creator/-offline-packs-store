@@ -1,0 +1,26 @@
+{
+  "language": "dv",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "dv",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:dv:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Thaa"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "dv",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:dv:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "rtl"
+    }
+  ]
+}

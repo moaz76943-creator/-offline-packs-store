@@ -1,0 +1,26 @@
+{
+  "language": "ga",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "ga",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:ga:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Latn"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "ga",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:ga:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "language": "kk",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "kk",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:kk:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Cyrl"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "kk",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:kk:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}

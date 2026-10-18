@@ -1,0 +1,26 @@
+{
+  "language": "am",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "am",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:am:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Ethi"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "am",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:am:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}

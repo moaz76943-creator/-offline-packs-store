@@ -1,0 +1,26 @@
+{
+  "language": "km",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "km",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:km:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Khmr"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "km",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:km:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}

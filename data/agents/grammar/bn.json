@@ -1,0 +1,26 @@
+{
+  "language": "bn",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "bn",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:bn:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Beng"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "bn",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:bn:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}

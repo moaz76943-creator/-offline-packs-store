@@ -1,0 +1,26 @@
+{
+  "language": "ne",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "ne",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:ne:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Deva"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "ne",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:ne:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}

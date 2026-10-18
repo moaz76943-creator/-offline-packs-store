@@ -1,0 +1,26 @@
+{
+  "language": "sw",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "sw",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:sw:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Latn"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "sw",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:sw:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "language": "ml",
+  "schema_version": "1.0.0",
+  "slots": [
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.script",
+      "language": "ml",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:ml:script",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "Mlym"
+    },
+    {
+      "evidence": "language_profiles.v1.json",
+      "id": "grammar.direction",
+      "language": "ml",
+      "license_id": "CC0-1.0",
+      "record_id": "profile:ml:direction",
+      "retrieval_date": "registry",
+      "source_id": "catalog.language_profiles",
+      "value": "ltr"
+    }
+  ]
+}
