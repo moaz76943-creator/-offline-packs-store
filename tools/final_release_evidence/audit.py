@@ -38,10 +38,20 @@ def audit(root,job_receipt=None):
     if not all(isinstance(value,dict) for value in (manifest,ledger,version)):
         raise EvidenceBlocked('canonical evidence JSON must be objects')
     languages=manifest.get('languages')
-    if not isinstance(languages,list):
+    registry=strict_json(root/'catalog/language_registry.v1.json')
+    if not isinstance(languages,list) or not isinstance(registry,dict):
         raise EvidenceBlocked('canonical registered languages absent')
+    registry_languages=registry.get('languages')
+    if not isinstance(registry_languages,list):
+        raise EvidenceBlocked('canonical registered languages absent')
+    canonical=[]
+    for entry in registry_languages:
+        if not isinstance(entry,dict) or not isinstance(entry.get('id'),str) or not entry['id']:
+            raise EvidenceBlocked('canonical registered languages absent')
+        canonical.append(entry['id'])
     ids=[x.get('code') for x in languages if isinstance(x,dict)]
-    if len(ids)!=len(languages) or len(ids)!=100 or len(set(ids))!=100:
+    if (len(ids)!=len(languages) or len(canonical)!=len(set(canonical))
+            or len(ids)!=len(canonical) or set(ids)!=set(canonical)):
         raise EvidenceBlocked('100 language identities not preserved')
     if not isinstance(ledger.get('sources'),list):
         raise EvidenceBlocked('invalid source rights ledger')
@@ -83,9 +93,19 @@ def audit(root,job_receipt=None):
             'release_ready':False,'publication_approved':False}
 
 
+_BLOCKED_TRUE=('publication_approved','release_ready','corpus_processing_succeeded',
+                 'workflow_jobs_independently_verified')
+_ALLOWED_STATUS={'BLOCKED_SOURCE','BLOCKED_DEPENDENCY'}
+
+
 def persist(root,report):
     root=Path(root).resolve()
-    if report.get('publication_approved') is not False or report.get('release_ready') is not False:
+    if not isinstance(report,dict):
+        raise EvidenceBlocked('cannot issue publication approval from metadata')
+    success_claim=(any(report.get(key) is not False for key in _BLOCKED_TRUE)
+                   or report.get('verified_real_packs')!=0
+                   or report.get('status') not in _ALLOWED_STATUS)
+    if success_claim:
         raise EvidenceBlocked('cannot issue publication approval from metadata')
     directory=root/'tools/final_release_evidence/handoffs'
     if directory.is_symlink():raise EvidenceBlocked('unsafe output directory')
