@@ -33,6 +33,13 @@ class CJKTests(unittest.TestCase):
                          [("银行", "accepted"), ("。", "unmatched")])
         self.assertEqual(tokens[0].units[0]["unit_id"], "bank")
 
+    def test_combining_mark_stays_with_the_unattested_cluster(self):
+        parser = Segmenter("zh", [unit("zh", "漢", "han")])
+        tokens = parser.segment("漢\u0301")
+        self.assertEqual([(t.raw, t.status) for t in tokens], [("漢\u0301", "unmatched")])
+        attested = Segmenter("zh", [unit("zh", "漢\u0301", "marked")])
+        self.assertEqual(attested.segment("漢\u0301")[0].status, "accepted")
+
     def test_chinese_no_unapproved_single_han_translation(self):
         self.assertEqual(Segmenter("zh", [unit("zh", "银行", "bank")])
                          .segment("行")[0].status, "unmatched")

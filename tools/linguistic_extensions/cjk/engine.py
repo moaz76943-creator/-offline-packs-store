@@ -148,6 +148,11 @@ class Segmenter:
                 if candidate in self.forms:
                     best = candidate
                     break
+            # A dictionary hit must not end inside a grapheme cluster. A combining
+            # mark that survives NFC belongs to the preceding base, so the bare
+            # surface was not the attested input.
+            if best is not None and i + len(best) < len(raw) and unicodedata.combining(raw[i + len(best)]):
+                best = None
             if best is not None:
                 out.append(Match(i, i + len(best), best, "accepted", tuple(self.forms[best])))
                 i += len(best)
