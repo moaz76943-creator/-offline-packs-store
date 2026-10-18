@@ -232,5 +232,9 @@ class ContractTests(unittest.TestCase):
         self.assertNotIn('while', publish)
 
 
+# The existing agent CI command also runs real-git checkpoint regressions.
+from tools.agents.test_publish import PublishTests
+
+
 if __name__ == '__main__':
     unittest.main()
