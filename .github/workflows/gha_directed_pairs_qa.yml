@@ -1,0 +1,31 @@
+name: Directed language-pair evidence QA
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/gha_factory/directed_pairs/**'
+      - 'tests/gha_factory/directed_pairs/**'
+      - '.github/workflows/gha_directed_pairs_qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  synthetic-qa-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Direct-link evidence negative and positive regression tests
+        run: python3 -m unittest discover -s tests/gha_factory/directed_pairs -p 'test_*.py' -v
+      - name: Verify production rights remain separate
+        run: |
+          python3 - <<'PY'
+          import json
+          source=json.load(open('legal/ledger/sources.json', encoding='utf-8'))
+          print('APPROVED_SOURCES_IN_LEDGER:', sum(s.get('status')=='APPROVED_FOR_REDISTRIBUTION' for s in source.get('sources', [])))
+          print('NO_PRODUCTION_PACKS_OR_TRANSLATIONS_PUBLISHED')
+          PY
