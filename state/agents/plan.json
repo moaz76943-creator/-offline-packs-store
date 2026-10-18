@@ -1,5 +1,5 @@
 {
-  "next_index": 320,
+  "next_index": 400,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,323 +9,323 @@
   "warning": "",
   "window": [
     {
+      "language": "es",
+      "section": "home"
+    },
+    {
+      "language": "et",
+      "section": "home"
+    },
+    {
+      "language": "eu",
+      "section": "home"
+    },
+    {
+      "language": "fa",
+      "section": "home"
+    },
+    {
+      "language": "fi",
+      "section": "home"
+    },
+    {
+      "language": "fo",
+      "section": "home"
+    },
+    {
+      "language": "fr",
+      "section": "home"
+    },
+    {
+      "language": "fy",
+      "section": "home"
+    },
+    {
+      "language": "ga",
+      "section": "home"
+    },
+    {
+      "language": "gd",
+      "section": "home"
+    },
+    {
+      "language": "gl",
+      "section": "home"
+    },
+    {
+      "language": "gu",
+      "section": "home"
+    },
+    {
+      "language": "ha",
+      "section": "home"
+    },
+    {
+      "language": "hi",
+      "section": "home"
+    },
+    {
+      "language": "hr",
+      "section": "home"
+    },
+    {
+      "language": "hu",
+      "section": "home"
+    },
+    {
+      "language": "hy",
+      "section": "home"
+    },
+    {
+      "language": "id",
+      "section": "home"
+    },
+    {
+      "language": "ig",
+      "section": "home"
+    },
+    {
+      "language": "is",
+      "section": "home"
+    },
+    {
       "language": "it",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ja",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ka",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "kk",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "km",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "kn",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ko",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ku",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ky",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "la",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "lb",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "lo",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "lt",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "lv",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "mg",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "mk",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ml",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "mn",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "mr",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ms",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "mt",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "my",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ne",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "nl",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "no",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "or",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "pa",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "pl",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ps",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "pt",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ro",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ru",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "rw",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "sd",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "si",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "sk",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "sl",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "sn",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "so",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "sq",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "sr",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "sv",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "sw",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ta",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "te",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "tg",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "th",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "tk",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "tl",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "tr",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "tt",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ug",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "uk",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ur",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "uz",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "vi",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "xh",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "yo",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "zh",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "zu",
-      "section": "food"
-    },
-    {
-      "language": "af",
-      "section": "home"
-    },
-    {
-      "language": "am",
-      "section": "home"
-    },
-    {
-      "language": "ar",
-      "section": "home"
-    },
-    {
-      "language": "as",
-      "section": "home"
-    },
-    {
-      "language": "az",
-      "section": "home"
-    },
-    {
-      "language": "ba",
-      "section": "home"
-    },
-    {
-      "language": "be",
-      "section": "home"
-    },
-    {
-      "language": "bg",
-      "section": "home"
-    },
-    {
-      "language": "bn",
-      "section": "home"
-    },
-    {
-      "language": "br",
-      "section": "home"
-    },
-    {
-      "language": "bs",
-      "section": "home"
-    },
-    {
-      "language": "ca",
-      "section": "home"
-    },
-    {
-      "language": "cs",
-      "section": "home"
-    },
-    {
-      "language": "cy",
-      "section": "home"
-    },
-    {
-      "language": "da",
-      "section": "home"
-    },
-    {
-      "language": "de",
-      "section": "home"
-    },
-    {
-      "language": "dv",
-      "section": "home"
-    },
-    {
-      "language": "el",
-      "section": "home"
-    },
-    {
-      "language": "en",
-      "section": "home"
-    },
-    {
-      "language": "eo",
       "section": "home"
     }
   ]
