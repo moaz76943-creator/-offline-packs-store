@@ -100,5 +100,50 @@ class CompatibilityTests(unittest.TestCase):
         self.assertEqual(r["status"], "INCOMPATIBLE")
         self.assertEqual(r["reason"], "GFDL and CC BY-SA derivative conflict")
 
+    def test_gfdl_copyleft_reports_share_alike(self):
+        self.source["license"]["id"] = "GFDL-1.3-only"
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(output="GFDL-1.3-only")
+        self.assertEqual(r["status"], "COMPATIBLE", r)
+        self.assertTrue(r["obligations"]["share_alike"])
+
+    def test_public_domain_does_not_cancel_copyleft_redistribution(self):
+        source_sa = copy.deepcopy(self.source)
+        source_sa["source_id"] = "src-sa"
+        source_sa["license"]["id"] = "CC-BY-SA-4.0"
+        source_pd = copy.deepcopy(self.source)
+        source_pd["source_id"] = "src-pd"
+        source_pd["license"]["id"] = "PUBLIC-DOMAIN"
+        source_pd["license"]["public_domain_proof"] = {
+            "jurisdiction": "US",
+            "legal_basis": "zero_copyright",
+            "work_date": "1900-01-01",
+        }
+        self.ledger["sources"] = [source_sa, source_pd]
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(sources=[source_sa, source_pd], output="CC-BY-SA-4.0")
+        self.assertEqual(r["status"], "COMPATIBLE", r)
+        self.assertTrue(r["obligations"]["redistribution"])
+        self.assertTrue(r["obligations"]["share_alike"])
+
+    def test_public_domain_does_not_cancel_gfdl_redistribution(self):
+        source_gfdl = copy.deepcopy(self.source)
+        source_gfdl["source_id"] = "src-gfdl"
+        source_gfdl["license"]["id"] = "GFDL-1.3-only"
+        source_pd = copy.deepcopy(self.source)
+        source_pd["source_id"] = "src-pd"
+        source_pd["license"]["id"] = "PUBLIC-DOMAIN"
+        source_pd["license"]["public_domain_proof"] = {
+            "jurisdiction": "US",
+            "legal_basis": "zero_copyright",
+            "work_date": "1900-01-01",
+        }
+        self.ledger["sources"] = [source_gfdl, source_pd]
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(sources=[source_gfdl, source_pd], output="GFDL-1.3-only")
+        self.assertEqual(r["status"], "COMPATIBLE", r)
+        self.assertTrue(r["obligations"]["redistribution"])
+        self.assertTrue(r["obligations"]["share_alike"])
+
 if __name__ == "__main__":
     unittest.main()

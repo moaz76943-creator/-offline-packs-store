@@ -32,10 +32,11 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
     raw_obligations = set().union(*(set(OBLIGATIONS.get(lid, ())) for lid in ids))
 
     obligations = {
-        "share_alike": "sharealike" in raw_obligations,
+        "share_alike": "sharealike" in raw_obligations or "GFDL-1.3-only" in ids,
         "attribution": "attribution" in raw_obligations or "copyright_notices" in raw_obligations,
         "modification": "changes_disclosed" in raw_obligations or "history" in raw_obligations,
-        "redistribution": any(lid in LICENSES for lid in ids) and all(lid != "PUBLIC-DOMAIN" for lid in ids)
+        # A public-domain source adds no obligation and must not cancel one.
+        "redistribution": any(lid in LICENSES and lid != "PUBLIC-DOMAIN" for lid in ids)
     }
 
     base["obligations"] = obligations
