@@ -18,6 +18,7 @@ from tools.agents.ops import (
     docs_check,
     duplicate_issues,
     janitor_action,
+    unresolved_review_threads,
     urls_well_formed,
 )
 from tools.agents.root_cause import open_recorded_issue, repair_update
@@ -171,13 +172,20 @@ class ContractTests(unittest.TestCase):
     def test_janitor_cleanup_and_repair_do_not_force_or_touch_main(self):
         green = {
             'branch': 'cursor/example-cf19',
+            'merge_state': 'CLEAN',
+            'unresolved': False,
             'checks': [
                 {'name': 'public-pr-merge-gate', 'status': 'completed', 'conclusion': 'success'},
             ],
         }
         self.assertEqual(janitor_action(green)[0], 'merge')
-        behind = dict(green, behind=True)
+        behind = dict(green, behind=True, merge_state='BEHIND')
         self.assertEqual(janitor_action(behind)[0], 'update')
+        self.assertEqual(janitor_action(dict(green, unresolved=True))[0], 'leave')
+        self.assertEqual(janitor_action(dict(green, unresolved=None))[0], 'leave')
+        self.assertEqual(janitor_action(dict(green, merge_state='BLOCKED'))[0], 'leave')
+        self.assertEqual(janitor_action(dict(green, merge_state='UNKNOWN'))[0], 'leave')
+        self.assertEqual(janitor_action({'branch': 'cursor/example-cf19', 'checks': green['checks']})[0], 'leave')
         self.assertEqual(janitor_action({'branch': 'feature/human', 'checks': green['checks']})[0], 'leave')
         self.assertFalse(branch_deletable('main', True))
         self.assertFalse(branch_deletable('agents/data', True))
@@ -207,6 +215,24 @@ class ContractTests(unittest.TestCase):
         self.assertEqual([item['number'] for item in dupes], [2])
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
+
+    def test_janitor_uses_exact_review_thread_evidence(self):
+        clean = {'data': {'repository': {'pullRequest': {'reviewThreads': {
+            'nodes': [], 'pageInfo': {'hasNextPage': False},
+        }}}}}
+        self.assertFalse(unresolved_review_threads(clean))
+        dirty = json.loads(json.dumps(clean))
+        dirty['data']['repository']['pullRequest']['reviewThreads']['nodes'] = [
+            {'isResolved': False},
+        ]
+        self.assertTrue(unresolved_review_threads(dirty))
+        dirty['data']['repository']['pullRequest']['reviewThreads']['nodes'][0]['isResolved'] = True
+        self.assertFalse(unresolved_review_threads(dirty))
+        dirty['data']['repository']['pullRequest']['reviewThreads']['pageInfo']['hasNextPage'] = True
+        self.assertTrue(unresolved_review_threads(dirty))
+        self.assertTrue(unresolved_review_threads({'errors': [{'message': 'forbidden'}]}))
+        self.assertTrue(unresolved_review_threads({}))
+        self.assertTrue(unresolved_review_threads({'data': {'repository': None}}))
 
     def test_root_cause_issue_opens_once_and_workflows_do_not_retry(self):
         calls = []
