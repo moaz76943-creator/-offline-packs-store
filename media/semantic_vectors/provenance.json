@@ -3,6 +3,13 @@
   "sources": [
     {
       "author": "Original project-commissioned generated vector outputs",
+      "bound_source_sha256": [
+        "2244a34f2726cb98328b80d7a0c703410b8474c547c33d0d326f14d57a793ca7",
+        "491190ca1d71769f8e304d451b3595233d72bc259f6270e0027a742ec353066f",
+        "7a3e9a1f121570fb6aa7cf78d54732e81d292bd469386d1134f954f1cb0a1701",
+        "9bc778084a6a734bc3835c4f86fa0a2fd55d9ee643d3f6e4b5d5863984310565",
+        "a0d8ced2cdb1e80fbe75266d05f6037042fa677afe045dc91276c7b4733d6c56"
+      ],
       "evidence": "AUTHORSHIP.md",
       "evidence_sha256": "bd6fa873011d12e8dca454d0929c3a985e4c4f54c595e0a8b806e0104f1d6e78",
       "license_id": "cc0-project-original-v1",

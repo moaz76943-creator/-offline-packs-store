@@ -58,6 +58,19 @@ class CompactTests(unittest.TestCase):
         with self.assertRaises(VectorError):
             render_svg(compile_svg(SVG), '')
 
+    def test_rejects_filled_polygons_with_no_drawable_area(self):
+        degenerate = [
+            '<svg viewBox="0 0 24 24"><polygon points="1,1 1,1" fill="#112233" stroke="none"/></svg>',
+            '<svg viewBox="0 0 24 24"><polygon points="1,1 2,2" fill="#112233" stroke="none"/></svg>',
+            '<svg viewBox="0 0 24 24"><polygon points="1,1 2,2 3,3" fill="#112233" stroke="none"/></svg>',
+            '<svg viewBox="0 0 24 24"><polygon points="1,1 1,1 2,2 2,2" fill="#112233" stroke="#172b4d"/></svg>',
+        ]
+        for payload in degenerate:
+            with self.subTest(payload=payload), self.assertRaises(VectorError):
+                compile_svg(payload)
+        triangle = '<svg viewBox="0 0 24 24"><polygon points="1,1 5,1 3,4" fill="#112233" stroke="none"/></svg>'
+        self.assertIn('<polygon ', render_svg(compile_svg(triangle), 'Triangle'))
+
 
 if __name__ == '__main__':
     unittest.main()

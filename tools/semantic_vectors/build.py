@@ -86,6 +86,15 @@ def _rights(provenance, parent):
         file = parent / evidence
         if file.is_symlink() or not file.is_file() or not SHA.fullmatch(str(item.get('evidence_sha256', ''))) or digest(file.read_bytes()) != item['evidence_sha256']:
             raise BuildError('unverifiable rights evidence')
+        bound = item.get('bound_source_sha256')
+        if not isinstance(bound, list) or not bound:
+            raise BuildError('rights evidence is not bound to source hashes')
+        seen_hashes = []
+        for source_hash in bound:
+            if not isinstance(source_hash, str) or not SHA.fullmatch(source_hash) or source_hash in seen_hashes:
+                raise BuildError('invalid bound source hash')
+            seen_hashes.append(source_hash)
+        item['bound_source_sha256'] = seen_hashes
         contracts[key] = item
     return contracts
 
@@ -165,6 +174,9 @@ def build_pack(meta_path, rights_path, sources_dir, output_dir, manifest_path, d
             raise BuildError('unknown license evidence')
         source = _safe_inside(sources_dir, item.get('source'))
         content = source.read_bytes()
+        source_sha = digest(content)
+        if source_sha not in contracts[license_id]['bound_source_sha256']:
+            raise BuildError('source hash is not covered by cited rights evidence')
         try:
             token = compile_svg(content)
             render_svg(token, item['labels']['en'])
@@ -178,7 +190,7 @@ def build_pack(meta_path, rights_path, sources_dir, output_dir, manifest_path, d
         record = {
             'concept_id': item['concept_id'], 'sense_id': sense, 'domain': item['domain'],
             'source_path': f'sources/{source.name}', 'source_version': item['source_version'],
-            'source_sha256': digest(content), 'license_id': license_id,
+            'source_sha256': source_sha, 'license_id': license_id,
             'rights_evidence_sha256': contracts[license_id]['evidence_sha256'],
             'token_path': f'fixtures/{token_sha}.cvt', 'token_bytes': len(token),
             'token_sha256': token_sha, 'labels': item['labels'], 'lexemes': item['lexemes'],

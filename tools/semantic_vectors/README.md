@@ -15,7 +15,9 @@ python3 tools/semantic_vectors/build.py --root media/semantic_vectors --day 2026
 Workflow for daily additions: author a new small SVG using supported geometry
 and explicit paint, add a **new** `concept_id` and specific `sense_id` with
 language mappings, cite its verifiable CC0/original authorship in
-`provenance.json` with a SHA-256-matched evidence file, then run the build with
+`provenance.json` with a SHA-256-matched evidence file, and list that SVG's
+SHA-256 in the same rights record's `bound_source_sha256`. Reusing a provenance
+id does not cover any other file. Then run the build with
 the day's date. The builder validates every declared item before writing,
 never deletes existing fixtures, refuses mutation of approved concepts, and
 publishes the manifest **last** via atomic replace. Repeat with unchanged

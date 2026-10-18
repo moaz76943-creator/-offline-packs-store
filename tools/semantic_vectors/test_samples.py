@@ -16,6 +16,9 @@ class ShippedFixtureTests(unittest.TestCase):
         source = rights['sources'][0]
         self.assertEqual(source['spdx_license'], 'CC0-1.0')
         self.assertEqual(hashlib.sha256((ROOT / source['evidence']).read_bytes()).hexdigest(), source['evidence_sha256'])
+        bound = source['bound_source_sha256']
+        self.assertEqual(len(bound), 5)
+        self.assertEqual(len(set(bound)), 5)
         self.assertEqual({x['domain'] for x in manifest['assets']}, {'home', 'food', 'transport', 'education', 'healthcare'})
         self.assertEqual(len(manifest['assets']), 5)
         self.assertEqual(manifest['release_status'], 'decoder_pending')
@@ -26,6 +29,7 @@ class ShippedFixtureTests(unittest.TestCase):
                 self.assertLess(len(raw), 2048)
                 self.assertEqual(hashlib.sha256(raw).hexdigest(), asset['token_sha256'])
                 self.assertEqual(hashlib.sha256((ROOT / asset['source_path']).read_bytes()).hexdigest(), asset['source_sha256'])
+                self.assertIn(asset['source_sha256'], bound)
                 self.assertEqual(asset['rights_evidence_sha256'], source['evidence_sha256'])
                 self.assertEqual(len(asset['lexemes']), 3)
                 self.assertEqual({x['language'] for x in asset['lexemes']}, {'en','de','ar'})

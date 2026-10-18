@@ -28,6 +28,7 @@ class BuildTests(unittest.TestCase):
         self.prov = {'license_id': 'cc0-project-original-v1', 'spdx_license': 'CC0-1.0', 'origin_type': 'project_original', 'author': 'Project original illustration author', 'source_version': '1.0.0', 'evidence': 'AUTHORSHIP.md', 'rights_confirmed': True}
         (self.base / 'AUTHORSHIP.md').write_text('Original vector source declaration.', encoding='utf-8')
         self.prov['evidence_sha256'] = hashlib.sha256((self.base / 'AUTHORSHIP.md').read_bytes()).hexdigest()
+        self.prov['bound_source_sha256'] = [hashlib.sha256((self.src / 'box.svg').read_bytes()).hexdigest()]
         self.rights.write_text(json.dumps({'schema_version':1, 'sources': [self.prov]}), encoding='utf-8')
 
     def build(self):
@@ -72,11 +73,26 @@ class BuildTests(unittest.TestCase):
     def test_adds_one_concept_without_replacing_old_token(self):
         old = self.build()['assets'][0]
         (self.src / 'bag.svg').write_text(SVG.replace('width="16"', 'width="15"'), encoding='utf-8')
+        self.prov['bound_source_sha256'] = [
+            hashlib.sha256((self.src / 'box.svg').read_bytes()).hexdigest(),
+            hashlib.sha256((self.src / 'bag.svg').read_bytes()).hexdigest(),
+        ]
+        self.rights.write_text(json.dumps({'schema_version':1, 'sources': [self.prov]}), encoding='utf-8')
         second = dict(self.item, concept_id='concept.test.bag.object', sense_id='test.bag.object.1', source='bag.svg', lexemes=[{'language':'en', 'lemma':'bag', 'sense_id':'test.bag.object.1'}])
         self.meta.write_text(json.dumps({'schema_version':1, 'concepts':[self.item, second]}), encoding='utf-8')
         current = self.build()
         self.assertEqual(next(x for x in current['assets'] if x['concept_id'] == old['concept_id']), old)
         self.assertEqual(len(current['assets']), 2)
+
+    def test_unbound_svg_cannot_reuse_provenance_id(self):
+        self.build()
+        original = self.manifest.read_bytes()
+        (self.src / 'extra.svg').write_text(SVG.replace('width="16"', 'width="14"'), encoding='utf-8')
+        extra = dict(self.item, concept_id='concept.test.extra.object', sense_id='test.extra.object.1', source='extra.svg', lexemes=[{'language':'en', 'lemma':'extra', 'sense_id':'test.extra.object.1'}])
+        self.meta.write_text(json.dumps({'schema_version':1, 'concepts':[self.item, extra]}), encoding='utf-8')
+        with self.assertRaises(BuildError):
+            self.build()
+        self.assertEqual(original, self.manifest.read_bytes())
 
 
 if __name__ == '__main__':

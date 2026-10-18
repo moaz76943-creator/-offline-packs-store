@@ -84,6 +84,33 @@ def _points(raw):
     return ' '.join(number(p) for p in parts)
 
 
+def _require_filled_polygon(geo):
+    """Filled polygons need three distinct vertices that are not collinear."""
+    parts = geo.split(' ')
+    if len(parts) < 6 or len(parts) % 2:
+        raise VectorError('filled polygon has no drawable area')
+    distinct = []
+    seen = set()
+    for index in range(0, len(parts), 2):
+        try:
+            point = (Decimal(parts[index]), Decimal(parts[index + 1]))
+        except InvalidOperation as exc:
+            raise VectorError('invalid polygon vertices') from exc
+        if point not in seen:
+            seen.add(point)
+            distinct.append(point)
+    if len(distinct) < 3:
+        raise VectorError('filled polygon has no drawable area')
+    origin_x, origin_y = distinct[0]
+    for index in range(1, len(distinct) - 1):
+        left_x, left_y = distinct[index]
+        for right_x, right_y in distinct[index + 1:]:
+            cross = (left_x - origin_x) * (right_y - origin_y) - (left_y - origin_y) * (right_x - origin_x)
+            if cross != 0:
+                return
+    raise VectorError('filled polygon has no drawable area')
+
+
 def _paint(node):
     fill = node.attrib.get('fill', 'none').lower()
     stroke = node.attrib.get('stroke', '#172b4d').lower()
@@ -140,10 +167,13 @@ def _parse_svg(source):
         kind, attrs = GEOMETRY[name]
         if set(node.attrib) - set(attrs) - PAINT or any(a not in node.attrib for a in attrs):
             raise VectorError('invalid or executable SVG attribute')
+        paint = _paint(node)
         if kind == 'p':
             geo = normalize_path(node.attrib['d'])
         elif kind in ('g', 'y'):
             geo = _points(node.attrib['points'])
+            if kind == 'g' and paint[0] != 'none':
+                _require_filled_polygon(geo)
         else:
             geo = ' '.join(number(node.attrib[a]) for a in attrs)
             values = [float(number(node.attrib[a])) for a in attrs]
@@ -151,7 +181,7 @@ def _parse_svg(source):
                 raise VectorError('rectangle outside viewBox')
             if kind == 'c' and (not values[2] or values[0]-values[2] < 0 or values[1]-values[2] < 0 or values[0]+values[2] > 24 or values[1]+values[2] > 24):
                 raise VectorError('circle outside viewBox')
-        shapes.append([kind, geo] + _paint(node))
+        shapes.append([kind, geo] + paint)
     if not shapes:
         raise VectorError('empty vector')
     return shapes
@@ -208,6 +238,8 @@ def decode_token(token):
             elif kind in ('g', 'y'):
                 if _points(geo) != geo:
                     raise VectorError('noncanonical vertices')
+                if kind == 'g' and fill != 'none':
+                    _require_filled_polygon(geo)
             else:
                 expected = {'r':4,'c':3,'l':4}[kind]
                 parts = geo.split(' ')
