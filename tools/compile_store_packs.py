@@ -32,6 +32,8 @@ def inside(path,root):
 
 
 def atomic_write(path, data):
+    if path.is_symlink():
+        raise ValueError('symlinked output path forbidden')
     if path.is_file() and path.read_bytes()==data:
         return False
     path.parent.mkdir(parents=True,exist_ok=True)
@@ -48,7 +50,6 @@ def atomic_write(path, data):
             os.unlink(name)
     return True
 
-
 def check_legacy(languages,output):
     for item in languages:
         if not isinstance(item,dict):
@@ -61,14 +62,18 @@ def check_legacy(languages,output):
         name=item['pack_file']
         if not isinstance(name,str) or Path(name).name!=name or not name.endswith('.pack.gz'):
             raise ValueError('unsafe legacy filename')
-        raw=(output/name).read_bytes()
+        path=output/name
+        if not inside(path,output):
+            raise ValueError('unsafe legacy pack path')
+        raw=path.read_bytes()
         if len(raw)!=item['size_bytes'] or file_hash(raw)!=item['sha256']:
             raise ValueError('legacy package hash/size mismatch')
         if item.get('pack_url',f'{REPO_CDN}/{name}')!=f'{REPO_CDN}/{name}':
             raise ValueError('legacy package URL mismatch')
 
-
 def run(args):
+    if args.manifest.is_symlink():
+        raise ValueError('symlinked manifest path forbidden')
     if args.fixture_only and (inside(args.output_dir,REPO_ROOT) or inside(args.manifest,REPO_ROOT)):
         raise ValueError('test-only fixtures may not be published in the public repository')
     if not args.source_dir.is_dir():
@@ -89,7 +94,10 @@ def run(args):
         name=f"{item['id']}-{item.get('version',VERSION)}.pack.gz"
         if Path(name).name!=name:
             raise ValueError('unsafe retained filename')
-        raw=(args.output_dir/name).read_bytes()
+        retained_path=args.output_dir/name
+        if not inside(retained_path,args.output_dir):
+            raise ValueError('unsafe retained package path')
+        raw=retained_path.read_bytes()
         if len(raw)!=item.get('archiveSizeBytes') or file_hash(raw)!=item.get('sha256'):
             raise ValueError('retained package hash/size mismatch')
         if item.get('archiveUrl')!=f'{REPO_CDN}/{name}':
@@ -98,6 +106,8 @@ def run(args):
     for source in sorted(args.source_dir.iterdir()):
         if not source.is_file() or source.suffix not in ('.json','.sqlite') or source.name.endswith(('.meta.json','.grammar.json')):
             continue
+        if not inside(source,args.source_dir):
+            raise ValueError('unsafe source path: '+source.name)
         lang=source.stem
         if not CODE.fullmatch(lang) or lang in sources:
             raise ValueError('invalid/duplicate language file')
@@ -122,6 +132,8 @@ def run(args):
             print(f'{"DRY-RUN" if args.dry_run else "VALID"} {language}: sha256={item["sha256"]}')
         for language,(raw,item) in produced.items():
             path=args.output_dir/f'{language}-{VERSION}.pack.gz'
+            if not inside(path,args.output_dir):
+                raise ValueError('unsafe output package path')
             if path.exists() and path.read_bytes()!=raw:
                 raise ValueError(f'refusing to overwrite previously accepted package: {path.name}')
             indexed[language]=item
@@ -142,6 +154,8 @@ def run(args):
         try:
             for language,(raw,_) in sorted(produced.items()):
                 path=args.output_dir/f'{language}-{VERSION}.pack.gz'
+                if not inside(path,args.output_dir):
+                    raise ValueError('unsafe output package path')
                 if not path.exists():
                     atomic_write(path,raw)
                     created.append(path)

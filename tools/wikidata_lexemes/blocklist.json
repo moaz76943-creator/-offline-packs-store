@@ -1,0 +1,6 @@
+{
+  "schema_version": "1.0.0",
+  "note": "Owner-reviewable. Add concept QIDs or lemmas here. This tool does not fetch a P279 subclass closure.",
+  "blocked_concepts": ["Q154", "Q11416", "Q154136", "Q11639"],
+  "blocked_lemmas": []
+}
