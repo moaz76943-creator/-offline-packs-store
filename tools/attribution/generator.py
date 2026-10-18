@@ -10,6 +10,18 @@ from tools.contribution_gate.evidence import (
     exact_source_reference, verified_sources
 )
 
+def _open_directory(parent_fd, name):
+    """Open one path component from parent_fd without following symlinks.
+
+    O_RDONLY needs read permission, which an execute-only ancestor denies.
+    The retry stays descriptor-relative and no-follow via O_PATH.
+    """
+    flags = os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC
+    try:
+        return os.open(name, os.O_RDONLY | flags, dir_fd=parent_fd)
+    except PermissionError:
+        return os.open(name, os.O_PATH | flags, dir_fd=parent_fd)
+
 def _write_notices_safely(out_dir, files):
     """Stage notices with fd-relative, no-follow operations; manifest is written last.
 
@@ -25,20 +37,30 @@ def _write_notices_safely(out_dir, files):
     if "attribution.json" not in files:
         raise ValueError("Attribution manifest required")
 
-    folder_flag = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
-    folder_fd = os.open("/", folder_flag)
+    if any(p.is_symlink() for p in (directory, *directory.parents)):
+        raise ValueError("Symlink in attribution output path")
+
+    folder_fd = None
     staged = {}
     try:
+        folder_fd = os.open("/", os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC)
         for part in directory.parts[1:]:
             if part in ("", "."):
                 continue
+            next_fd = None
             try:
-                next_fd = os.open(part, folder_flag, dir_fd=folder_fd)
-            except FileNotFoundError:
-                os.mkdir(part, mode=0o700, dir_fd=folder_fd)
-                next_fd = os.open(part, folder_flag, dir_fd=folder_fd)
-            os.close(folder_fd)
+                try:
+                    next_fd = _open_directory(folder_fd, part)
+                except FileNotFoundError:
+                    os.mkdir(part, mode=0o700, dir_fd=folder_fd)
+                    next_fd = _open_directory(folder_fd, part)
+            except Exception:
+                if next_fd is not None:
+                    os.close(next_fd)
+                raise
+            previous = folder_fd
             folder_fd = next_fd
+            os.close(previous)
         # Preflight all destinations before changing any of them.
         for name in names:
             try:
@@ -60,12 +82,16 @@ def _write_notices_safely(out_dir, files):
             os.replace(staged[name], name, src_dir_fd=folder_fd, dst_dir_fd=folder_fd)
             del staged[name]
     finally:
-        for temporary in staged.values():
-            try:
-                os.unlink(temporary, dir_fd=folder_fd)
-            except FileNotFoundError:
-                pass
-        os.close(folder_fd)
+        try:
+            if folder_fd is not None:
+                for temporary in staged.values():
+                    try:
+                        os.unlink(temporary, dir_fd=folder_fd)
+                    except FileNotFoundError:
+                        pass
+        finally:
+            if folder_fd is not None:
+                os.close(folder_fd)
 
 
 def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
