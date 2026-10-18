@@ -4,7 +4,9 @@ import hashlib
 import io
 import json
 import sqlite3
+import sys
 import tempfile
+import types
 import unittest
 from pathlib import Path
 
@@ -137,6 +139,25 @@ class ExtractTests(unittest.TestCase):
                              'Q110786,Q1317831')
             definition = conn.execute('SELECT definition FROM senses').fetchone()[0]
             self.assertEqual(definition, 'sich fortbewegen')
+
+    def test_builder_import_ignores_a_colliding_sqlite_v2_module(self):
+        decoy = types.ModuleType('sqlite_v2')
+
+        def build(*_args, **_kwargs):
+            raise AssertionError('colliding sqlite_v2 builder was used')
+
+        decoy.build = build
+        sys.modules['sqlite_v2'] = decoy
+        try:
+            report = self.extract_dump([
+                _lexeme('L10', 'gehen', senses=[_sense('L10-S1', 'sich fortbewegen', 'Q42')]),
+            ])
+        finally:
+            sys.modules.pop('sqlite_v2', None)
+        self.assertEqual(report['written'], 1)
+        self.assertFalse(report['publication_approved'])
+        with sqlite3.connect(self.output) as conn:
+            self.assertEqual(conn.execute('SELECT surface FROM lexicon').fetchone()[0], 'gehen')
 
     def test_blocked_concepts_are_excluded_and_ambiguous_senses_quarantined(self):
         block = self.root / 'blocklist.json'
