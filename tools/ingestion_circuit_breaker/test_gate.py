@@ -9,8 +9,10 @@ import sys
 
 try:
     from tools.ingestion_circuit_breaker.gate import process, parse_args, sha256_file
+    from tools.ingestion_circuit_breaker.pipeline import run_fixture_pipeline
 except ImportError:
     from gate import process, parse_args, sha256_file
+    from pipeline import run_fixture_pipeline
 
 class TestGate(unittest.TestCase):
     def setUp(self):
@@ -168,27 +170,43 @@ class TestGate(unittest.TestCase):
         self.assertIn("BLOCKED_INTEGRATION", stderr)
 
     def test_fixture_ingestion_pipeline_halts_on_gate_failure(self):
-        import subprocess
-        # We will create an invalid manifest and run gate.py using subprocess
-        # to ensure it strictly returns a non-zero exit code.
         manifest = {
-            "source_id": "unknown-source-subprocess",
+            "source_id": "unknown-source-pipeline",
         }
-        self.manifest_file.write_text(json.dumps(manifest))
-
-        # Determine the path to gate.py
-        gate_script = Path(__file__).parent / 'gate.py'
-
-        result = subprocess.run([
-            sys.executable, str(gate_script),
+        publish_path = self.root / 'out' / 'published.json'
+        args = parse_args([
             '--repo-root', str(self.root),
             '--manifest', str(self.manifest_file),
-            '--quarantine', str(self.q_dir)
-        ], capture_output=True, text=True)
+            '--quarantine', str(self.q_dir),
+        ])
+        self.manifest_file.write_text(json.dumps(manifest))
+        code, errors, published = run_fixture_pipeline(args, publish_path, b'{"published":true}\n')
+        self.assertNotEqual(code, 0)
+        self.assertIn("UNKNOWN_SOURCE", errors)
+        self.assertFalse(published)
+        self.assertFalse(publish_path.exists())
+        self.assertFalse((self.root / 'out').exists())
 
-        # Prove the ingestion pipeline halts (nonzero exit code)
-        self.assertNotEqual(result.returncode, 0)
-        self.assertIn("BLOCK: UNKNOWN_SOURCE", result.stderr)
+    def test_fixture_ingestion_pipeline_publishes_only_after_admission(self):
+        manifest = {
+            "source_id": "test-source-1",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+            "destination": "packs/out",
+        }
+        publish_path = self.root / 'out' / 'published.json'
+        self.manifest_file.write_text(json.dumps(manifest))
+        args = parse_args([
+            '--repo-root', str(self.root),
+            '--manifest', str(self.manifest_file),
+            '--quarantine', str(self.q_dir),
+        ])
+        code, errors, published = run_fixture_pipeline(args, publish_path, b'{"published":true}\n')
+        self.assertEqual(code, 0)
+        self.assertEqual(errors, [])
+        self.assertTrue(published)
+        self.assertEqual(publish_path.read_bytes(), b'{"published":true}\n')
 
 if __name__ == '__main__':
     unittest.main()
