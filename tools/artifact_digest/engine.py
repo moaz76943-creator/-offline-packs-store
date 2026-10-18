@@ -76,8 +76,10 @@ def build_digest_index(base_dir, artifact_records, index_out_path):
             # Compute hash
             file_hash = compute_sha256(target_path)
 
-            if 'sha256' in record and record['sha256'] != file_hash:
-                raise ValueError(f"Hash mismatch for {rel_path}: declared {record['sha256']}, actual {file_hash}")
+            # JSON null means the optional digest was omitted, matching size_bytes.
+            declared_sha = record.get('sha256')
+            if declared_sha is not None and declared_sha != file_hash:
+                raise ValueError(f"Hash mismatch for {rel_path}: declared {declared_sha}, actual {file_hash}")
 
             index[rel_path] = {
                 'sha256': file_hash,

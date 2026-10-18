@@ -44,6 +44,26 @@ class TestDigestEngine(unittest.TestCase):
         self.assertTrue(index[file1].get('invalid'))
         self.assertIn("Hash mismatch", index[file1].get('error'))
 
+    def test_null_optional_digest_is_absent(self):
+        base_dir = os.path.join(self.test_dir, "base_null_digest")
+        os.makedirs(base_dir)
+
+        file1 = "optional.txt"
+        with open(os.path.join(base_dir, file1), 'w') as f:
+            f.write("content identity")
+
+        real_hash = compute_sha256(os.path.join(base_dir, file1))
+        records = [
+            {'path': file1, 'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1', 'sha256': None, 'size_bytes': None}
+        ]
+        out_path = os.path.join(self.test_dir, "null_digest_index.json")
+        build_digest_index(base_dir, records, out_path)
+
+        with open(out_path, 'r') as f:
+            index = json.load(f)
+        self.assertNotIn('invalid', index[file1])
+        self.assertEqual(index[file1]['sha256'], real_hash)
+
     def test_tampered_bytes(self):
         file1 = os.path.join(self.test_dir, "file1.txt")
         file2 = os.path.join(self.test_dir, "file2.txt")
