@@ -157,7 +157,7 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        if not all(term in content for term in (sid, src.get('author', ''), src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:
@@ -193,6 +193,7 @@ class ProvenanceCompiler:
                     prov['sources'].append({
                         "source_id": src.get('source_id'),
                         "dataset_version": src.get('dataset_version'),
+                        "author": src.get('author'),
                         "publisher": src.get('publisher'),
                         "license": src.get('license', {}).get('id'),
                         "alterations": src.get('alterations', [])
@@ -203,12 +204,14 @@ class ProvenanceCompiler:
         with open(manifest_out, 'w', encoding='utf-8') as f:
             json.dump({
                 "schema_version": "1.0.0",
+                "disclaimer": "Machine validation is not a legal opinion.",
                 "release_provenance": provenance
             }, f, indent=2)
 
         # Write notice
         with open(notice_out, 'w', encoding='utf-8') as f:
-            f.write("ATTRIBUTION NOTICES\n===================\n\n")
+            f.write("ATTRIBUTION NOTICES\n===================\n")
+            f.write("DISCLAIMER: Machine validation is not a legal opinion.\n\n")
             f.write("\n".join(notices))
 
         return statuses
