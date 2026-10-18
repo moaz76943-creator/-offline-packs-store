@@ -186,5 +186,102 @@ class StorePipelineTest(unittest.TestCase):
         with sqlite3.connect(path) as db:
             self.assertEqual(db.execute('SELECT title FROM grammar').fetchone()[0],'Dative example')
 
+
+    def test_legacy_regular_package_path_remains_valid(self):
+        self.packs.mkdir(exist_ok=True)
+        raw=b'previously published legacy archive bytes'
+        (self.packs/'de.pack.gz').write_bytes(raw)
+        meta={'pack_file':'de.pack.gz','size_bytes':len(raw),
+              'sha256':hashlib.sha256(raw).hexdigest()}
+        compile_store_packs.check_legacy([meta],self.packs)
+
+    def test_legacy_symlink_escape_rejected_even_with_matching_digest(self):
+        self.packs.mkdir(exist_ok=True)
+        raw=b'outside archive bytes'
+        outside=self.root/'outside.pack.gz'
+        outside.write_bytes(raw)
+        (self.packs/'de.pack.gz').symlink_to(outside)
+        meta={'pack_file':'de.pack.gz','size_bytes':len(raw),
+              'sha256':hashlib.sha256(raw).hexdigest()}
+        with self.assertRaisesRegex(ValueError,'unsafe legacy pack path'):
+            compile_store_packs.check_legacy([meta],self.packs)
+        self.assertEqual(outside.read_bytes(),raw)
+
+    def test_retained_v2_pack_symlink_escape_fails_before_publication(self):
+        self.packs.mkdir(exist_ok=True)
+        raw=b'outside retained bytes'
+        outside=self.root/'outside.pack.gz'
+        outside.write_bytes(raw)
+        name='de-1.0.0.pack.gz'
+        (self.packs/name).symlink_to(outside)
+        previous={'id':'de','version':'1.0.0','archiveSizeBytes':len(raw),
+                  'sha256':hashlib.sha256(raw).hexdigest(),
+                  'archiveUrl':f'{compile_store_packs.REPO_CDN}/{name}'}
+        self.manifest.write_text(json.dumps({'languages':[],'packs':[previous]}),encoding='utf-8')
+        before=self.manifest.read_bytes()
+        result=self.invoke()
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('unsafe retained package path',result.stderr)
+        self.assertEqual(self.manifest.read_bytes(),before)
+        self.assertEqual(outside.read_bytes(),raw)
+
+    def test_existing_new_archive_symlink_escape_fails_closed(self):
+        self.packs.mkdir(exist_ok=True)
+        raw=b'outside candidate archive bytes'
+        outside=self.root/'outside.pack.gz'
+        outside.write_bytes(raw)
+        (self.packs/'de-1.0.0.pack.gz').symlink_to(outside)
+        before=self.manifest.read_bytes()
+        result=self.invoke()
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('unsafe output package path',result.stderr)
+        self.assertEqual(self.manifest.read_bytes(),before)
+        self.assertEqual(outside.read_bytes(),raw)
+
+
+    def test_external_source_symlink_fails_closed_without_publication(self):
+        original=self.manifest.read_bytes()
+        outside=self.root/'external-fixture.json'
+        outside.write_text(json.dumps(fixture_doc('de'),ensure_ascii=False),encoding='utf-8')
+        (self.sources/'de.json').unlink()
+        (self.sources/'de.json').symlink_to(outside)
+        result=self.invoke()
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('unsafe source path',result.stderr)
+        self.assertEqual(self.manifest.read_bytes(),original)
+        self.assertFalse(self.packs.exists())
+        self.assertTrue(outside.is_file())
+
+    def test_internal_source_symlink_is_accepted(self):
+        nested=self.sources/'approved-symlink-target'
+        nested.mkdir()
+        (self.sources/'de.json').rename(nested/'de.json')
+        (self.sources/'de.json').symlink_to(nested/'de.json')
+        result=self.invoke()
+        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertTrue((self.packs/'de-1.0.0.pack.gz').is_file())
+
+    def test_manifest_symlink_rejected_before_reading_or_publishing(self):
+        external=self.root/'external-manifest.json'
+        external.write_text('{"languages":[]}',encoding='utf-8')
+        saved=external.read_bytes()
+        self.manifest.unlink()
+        self.manifest.symlink_to(external)
+        result=self.invoke()
+        self.assertNotEqual(result.returncode,0)
+        self.assertIn('symlinked manifest',result.stderr)
+        self.assertEqual(external.read_bytes(),saved)
+        self.assertFalse(self.packs.exists())
+
+    def test_atomic_write_rejects_existing_symlink_even_if_bytes_match(self):
+        outside=self.root/'outside-content.bin'
+        outside.write_bytes(b'unchanged sensitive original')
+        link=self.root/'symlinked-manifest.json'
+        link.symlink_to(outside)
+        with self.assertRaisesRegex(ValueError,'symlinked output'):
+            compile_store_packs.atomic_write(link,b'unchanged sensitive original')
+        self.assertEqual(outside.read_bytes(),b'unchanged sensitive original')
+        self.assertTrue(link.is_symlink())
+
 if __name__=='__main__':
     unittest.main()

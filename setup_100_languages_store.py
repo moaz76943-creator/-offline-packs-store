@@ -1,7 +1,5 @@
 import os
 import json
-import gzip
-import hashlib
 
 # 1. إنشاء مجلدات العمل
 os.makedirs('packs', exist_ok=True)
