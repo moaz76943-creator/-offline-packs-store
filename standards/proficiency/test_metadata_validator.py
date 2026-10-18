@@ -49,8 +49,8 @@ class TestProficiencyValidator(unittest.TestCase):
             },
             "evaluation_method": "descriptor_guided_review",
             "source_evidence": {
-                "source_id": "TEST_SOURCE_02",
-                "source_version": "2.0"
+                "source_id": "COE-CEFR-2020",
+                "source_version": "2020 Companion volume"
             }
         }
         self.validator.validate(metadata)
@@ -211,9 +211,41 @@ class TestProficiencyValidator(unittest.TestCase):
             "label_status": "estimated", "cefr_level": "A1",
             "coarse_difficulty": {"beginner":False, "intermediate":True, "advanced":False},
             "evaluation_method": "descriptor_guided_review",
-            "source_evidence": {"source_id":"TEST_SOURCE_02", "source_version":"1.0"}
+            "source_evidence": {"source_id":"COE-CEFR-2020", "source_version":"2020 Companion volume"}
         }
         with self.assertRaisesRegex(ProficiencyValidationError, "coarse difficulty"):
+            self.validator.validate(record)
+
+    def test_classified_unknown_level_rejected(self):
+        record = {
+            "schema_version": "1.0.0", "language": "en",
+            "classification_target": "entry", "target_id": "lex.demo",
+            "label_status": "verified", "cefr_level": "unknown",
+            "coarse_difficulty": {"beginner": False, "intermediate": False, "advanced": False},
+            "evaluation_method": "published_content_assignment",
+            "source_evidence": {"source_id": "TEST_SOURCE_01", "source_version": "1.0"}
+        }
+        unknown_proof = dict(self.validator.approved_assignments["TEST_SOURCE_01"], cefr_level="unknown")
+        validator = ProficiencyValidator(
+            trusted_framework_mappings={"en": "CEFR"},
+            approved_assignments={"TEST_SOURCE_01": unknown_proof})
+        with self.assertRaisesRegex(ProficiencyValidationError, "A1-C2"):
+            validator.validate(record)
+        record["label_status"] = "estimated"
+        record["evaluation_method"] = "descriptor_guided_review"
+        with self.assertRaisesRegex(ProficiencyValidationError, "A1-C2"):
+            validator.validate(record)
+
+    def test_invented_estimated_source_rejected(self):
+        record = {
+            "schema_version": "1.0.0", "language": "es",
+            "classification_target": "example", "target_id": "lex.demo",
+            "label_status": "estimated", "cefr_level": "A1",
+            "coarse_difficulty": {"beginner": True, "intermediate": False, "advanced": False},
+            "evaluation_method": "descriptor_guided_review",
+            "source_evidence": {"source_id": "TEST_SOURCE_02", "source_version": "2.0"}
+        }
+        with self.assertRaisesRegex(ProficiencyValidationError, "trusted catalog source"):
             self.validator.validate(record)
 
     def test_verified_assignment_cannot_cross_target(self):
