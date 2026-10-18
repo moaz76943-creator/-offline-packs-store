@@ -36,6 +36,31 @@ class TestCorpusDeduplicator(unittest.TestCase):
         self.assertEqual(len(self.deduplicator.duplicates), 1)
         self.assertEqual(self.deduplicator.duplicates[0]['status'], 'EXACT_DUPLICATE')
 
+    def test_cross_source_duplicates(self):
+        # We need a deduplicator that admits multiple sources
+        dedup = CorpusDeduplicator(admitted_source_licenses={'src.a': ('CC-BY', '1'), 'src.b': ('CC-BY', '1')})
+        rec1 = {
+            'lexeme_id': 'l1', 'language': 'en', 'pos': 'noun', 'lemma': 'cat',
+            'senses': [{'concept_id': 'concept.cat', 'definition': 'A small domesticated carnivorous mammal',
+                        'source': {'source_id': 'src.a', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'loc1', 'publication_approved': True, 'fixture_only': False}}],
+            'source': {'source_id': 'src.a', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'loc1', 'publication_approved': True, 'fixture_only': False}
+        }
+        rec2 = {
+            'lexeme_id': 'l2', 'language': 'en', 'pos': 'noun', 'lemma': 'cat',
+            'senses': [{'concept_id': 'concept.cat', 'definition': 'A small domesticated carnivorous mammal',
+                        'source': {'source_id': 'src.b', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'loc2', 'publication_approved': True, 'fixture_only': False}}],
+            'source': {'source_id': 'src.b', 'license_id': 'CC-BY', 'dataset_version': '1', 'record_locator': 'loc2', 'publication_approved': True, 'fixture_only': False}
+        }
+        dedup.process_record(rec1)
+        dedup.process_record(rec2)
+        dedup.resolve()
+
+        self.assertEqual(len(dedup.canonical), 1)
+        self.assertEqual(len(dedup.duplicates), 1)
+        self.assertEqual(dedup.duplicates[0]['status'], 'EXACT_DUPLICATE')
+        self.assertEqual(dedup.duplicates[0]['original_record']['source']['source_id'], 'src.b')
+        self.assertEqual(dedup.duplicates[0]['canonical_source']['source_id'], 'src.a')
+
     def test_incompatible_licenses(self):
         rec1 = {
             'lexeme_id': 'l1', 'language': 'en', 'pos': 'noun', 'lemma': 'cat',
