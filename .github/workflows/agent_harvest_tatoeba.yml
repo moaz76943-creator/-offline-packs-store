@@ -1,0 +1,37 @@
+name: Agent harvest Tatoeba
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '27 2,8,14,20 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: agent-harvest-tatoeba
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Load the last committed snapshot
+        run: bash tools/agents/prepare.sh
+      - name: Run harvest-tatoeba
+        id: work
+        continue-on-error: true
+        env:
+          AGENTS_HALT: ${{ vars.AGENTS_HALT }}
+          LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -m tools.agents.cli harvest-tatoeba
+
+      - name: Publish the checkpoint
+        if: always()
+        run: bash tools/agents/publish.sh harvest-tatoeba
+      - name: Record the agent result
+        if: steps.work.outcome == 'failure'
+        run: exit 1

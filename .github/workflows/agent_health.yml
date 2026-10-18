@@ -1,0 +1,40 @@
+name: Agent health
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '8 0,4,8,12,16,20 * * *'
+permissions:
+  contents: write
+  actions: read
+  issues: write
+concurrency:
+  group: agent-health
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Load the last committed snapshot
+        run: bash tools/agents/prepare.sh
+      - name: Run health
+        id: work
+        continue-on-error: true
+        env:
+          AGENTS_HALT: ${{ vars.AGENTS_HALT }}
+          LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          signature="$(gh run list --limit 20 --json conclusion,name,status --jq '[.[] | select(.conclusion=="failure")][0].name' || true)"
+          python3 -m tools.agents.cli repair --signature "${signature:-no-signature}"
+
+      - name: Publish the checkpoint
+        if: always()
+        run: bash tools/agents/publish.sh health
+      - name: Record the agent result
+        if: steps.work.outcome == 'failure'
+        run: exit 1

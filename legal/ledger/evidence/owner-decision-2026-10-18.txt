@@ -1,0 +1,17 @@
+Owner decision, given in chat on 2026-10-18.
+Chat: https://cursor.com/agents/bc-7a06156e-03a6-58fc-aac5-03072971cf19
+Reviewer: moaz76943-creator
+
+Verbatim: "يلا موافق اعمل كل شيء تشوفه مناسب وقانوني"
+Meaning recorded with the message: agreed, do everything you see as appropriate and legal.
+
+The same chat approves publication of:
+- Wikidata Lexemes under CC0
+- Kaikki/Wiktionary under CC-BY-SA-4.0 and GFDL, with attribution and share-alike
+- Tatoeba sentences under CC-BY-2.0-FR, with the author named
+
+It does not approve GPL, CC-BY-SA-3.0-only, NC, ND, UniMorph, Apertium, or OmegaWiki.
+A later chat the same day asked for scheduled agents. That does not add a license.
+
+This file quotes the decision. It is not a source artifact hash and it does not by itself
+satisfy legal/ledger/sources.json, which still requires a retrieved artifact and a license snapshot.
