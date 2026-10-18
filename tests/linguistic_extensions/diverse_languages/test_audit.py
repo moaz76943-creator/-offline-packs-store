@@ -1,5 +1,6 @@
 """Evidence-gated diverse-language regression tests: synthetic data only."""
 import importlib.util
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -27,7 +28,7 @@ class DiverseAuditTests(unittest.TestCase):
                      for c in self.codes]
         self.write_json("catalog/language_registry.v1.json", {"languages": languages})
         self.write_json("catalog/content_readiness.v1.json", {"states": dict.fromkeys(self.codes, "unverified")})
-        self.write_json("legal/ledger/sources.json", {"sources": []})
+        self.write_json("legal/ledger/sources.json", {"schema_version": "1.0.0", "sources": []})
         self.worker = audit.DiverseAudit(root=self.root)
 
     def write_json(self, path, value):
@@ -109,7 +110,7 @@ class DiverseAuditTests(unittest.TestCase):
             self.worker.audit_shard(path, max_rows=2001)
 
     def test_forged_approval_without_retrieval_proof_rejected(self):
-        self.write_json("legal/ledger/sources.json", {"sources": [{"source_id": "fake_source",
+        self.write_json("legal/ledger/sources.json", {"schema_version": "1.0.0", "sources": [{"source_id": "fake_source",
             "status": "APPROVED_FOR_REDISTRIBUTION", "review": {"ok": True},
             "retrieval": {"not_sha": "fake"}, "license": "CC BY 4.0", "publisher": "publisher",
             "rights_url": "https://example.org/rights", "languages": ["yo"]}]})
@@ -117,6 +118,63 @@ class DiverseAuditTests(unittest.TestCase):
         result = worker.audit_shard(self.rows([self.candidate()]))
         self.assertEqual(result["admissible_candidate_counts_not_published"]["yo"], 0)
         self.assertIn("redistribution_rights_unverified", result["review_queue"][0]["reasons"])
+
+
+    def test_evidence_row_matches_exact_identity_and_digest_only(self):
+        c = self.candidate()
+        source_path = self.root / "tools/linguistic_extensions/diverse_languages/test.jsonl"
+        source_path.parent.mkdir(parents=True, exist_ok=True)
+        row = {k: c[k] for k in audit.SOURCE_ROW_FIELDS}
+        payload = json.dumps(row, ensure_ascii=False).encode("utf-8") + b"\n"
+        source_path.write_bytes(payload)
+        source = {"retrieval": {"artifact_path":
+                  "tools/linguistic_extensions/diverse_languages/test.jsonl"}}
+        c["source_row_index"] = 1
+        c["source_row_sha256"] = hashlib.sha256(payload).hexdigest()
+        self.assertTrue(self.worker._source_row_attests(source, c))
+        self.assertFalse(self.worker._source_row_attests(source, dict(c, meaning="fabricated")))
+        self.assertFalse(self.worker._source_row_attests(source,
+                         dict(c, source_row_sha256="0" * 64)))
+        self.assertFalse(self.worker._source_row_attests(source,
+                         dict(c, source_row_index=2)))
+
+    def test_row_claim_is_not_same_as_publication_permission(self):
+        c = self.candidate(source_row_index=1, source_row_sha256="1" * 64)
+        result = self.worker.audit_shard(self.rows([c]))
+        self.assertEqual(result["candidate_counts"]["yo"], 1)
+        self.assertEqual(result["admissible_candidate_counts_not_published"]["yo"], 0)
+        self.assertIn("source_not_uniquely_approved", result["review_queue"][0]["reasons"])
+
+    def test_malformed_unhashable_fields_cannot_crash_or_leak_review(self):
+        variants = [self.candidate(language_id=["yo"]), self.candidate(record_id={}),
+                    self.candidate(meaning=[]), self.candidate(lemma=None)]
+        result = self.worker.audit_shard(self.rows(variants))
+        self.assertEqual(result["processed"], 4)
+        self.assertEqual(len(result["review_queue"]), 4)
+        self.assertIsNone(result["review_queue"][0]["language_id"])
+        self.assertTrue(all("invalid_or_missing_text" in x["reasons"]
+                            for x in result["review_queue"]))
+
+    def test_symlink_and_sparse_overlarge_shards_rejected(self):
+        file = self.rows([self.candidate()])
+        symlink = self.root / "aliased.jsonl"
+        symlink.symlink_to(file)
+        with self.assertRaises(audit.EvidenceError):
+            self.worker.audit_shard(symlink)
+        large = self.root / "sparse.jsonl"
+        with large.open("wb") as handle:
+            handle.truncate(audit.MAX_SHARD_BYTES + 1)
+        with self.assertRaises(audit.EvidenceError):
+            self.worker.audit_shard(large)
+
+    def test_oversized_physical_line_drained_once(self):
+        file = self.root / "physical.jsonl"
+        file.write_bytes(b"x" * (audit.MAX_LINE_BYTES * 3) + b"\n" +
+                         json.dumps(self.candidate(), ensure_ascii=False).encode("utf-8") + b"\n")
+        result = self.worker.audit_shard(file)
+        self.assertEqual((result["processed"], result["next_line"]), (2, 3))
+        self.assertEqual(result["review_queue"][0]["reasons"], ["oversized_line"])
+        self.assertEqual(result["candidate_counts"]["yo"], 1)
 
 
 if __name__ == "__main__":

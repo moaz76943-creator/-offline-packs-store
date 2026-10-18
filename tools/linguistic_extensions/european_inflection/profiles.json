@@ -1,0 +1,634 @@
+{
+  "schema_version": "1.0.0",
+  "independent_language_profiles": {
+    "ru": {
+      "family": "Slavic",
+      "scripts": [
+        "Cyrl"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "instrumental",
+        "prepositional",
+        "locative_secondary"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "uk": {
+      "family": "Slavic",
+      "scripts": [
+        "Cyrl"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "pl": {
+      "family": "Slavic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate",
+        "masculine_personal"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "cs": {
+      "family": "Slavic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "sk": {
+      "family": "Slavic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "bg": {
+      "family": "Slavic",
+      "scripts": [
+        "Cyrl"
+      ],
+      "cases": [
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "sr": {
+      "family": "Slavic",
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "hr": {
+      "family": "Slavic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "bs": {
+      "family": "Slavic",
+      "scripts": [
+        "Latn",
+        "Cyrl"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "sl": {
+      "family": "Slavic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "dual",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "mk": {
+      "family": "Slavic",
+      "scripts": [
+        "Cyrl"
+      ],
+      "cases": [
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "be": {
+      "family": "Slavic",
+      "scripts": [
+        "Cyrl"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "instrumental",
+        "prepositional"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [
+        "animate",
+        "inanimate"
+      ],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": []
+    },
+    "el": {
+      "family": "Hellenic",
+      "scripts": [
+        "Grek"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "accusative",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine",
+        "neuter"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [
+        "perfective",
+        "imperfective"
+      ],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": [
+        "source_marked"
+      ]
+    },
+    "lt": {
+      "family": "Baltic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "instrumental",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": [
+        "mobile",
+        "fixed",
+        "source_marked"
+      ]
+    },
+    "lv": {
+      "family": "Baltic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "accusative",
+        "locative",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [],
+      "mutations": [],
+      "constructions": [],
+      "stress_modes": [
+        "fixed_initial",
+        "syllable_intonation",
+        "source_marked"
+      ]
+    },
+    "ga": {
+      "family": "Celtic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [],
+      "mutations": [
+        "lenition",
+        "eclipsis",
+        "h_prothesis",
+        "t_prothesis"
+      ],
+      "constructions": [
+        "copular",
+        "verbal_noun",
+        "prepositional_pronoun"
+      ],
+      "stress_modes": []
+    },
+    "cy": {
+      "family": "Celtic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [],
+      "genders": [
+        "masculine",
+        "feminine"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [],
+      "mutations": [
+        "soft",
+        "nasal",
+        "aspirate"
+      ],
+      "constructions": [
+        "periphrastic",
+        "verbal_noun",
+        "prepositional"
+      ],
+      "stress_modes": []
+    },
+    "gd": {
+      "family": "Celtic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [
+        "nominative",
+        "genitive",
+        "dative",
+        "vocative"
+      ],
+      "genders": [
+        "masculine",
+        "feminine"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [],
+      "mutations": [
+        "lenition",
+        "h_prothesis",
+        "t_prothesis"
+      ],
+      "constructions": [
+        "periphrastic",
+        "verbal_noun",
+        "prepositional_pronoun"
+      ],
+      "stress_modes": []
+    },
+    "br": {
+      "family": "Celtic",
+      "scripts": [
+        "Latn"
+      ],
+      "cases": [],
+      "genders": [
+        "masculine",
+        "feminine"
+      ],
+      "numbers": [
+        "singular",
+        "plural"
+      ],
+      "animacy": [],
+      "aspects": [],
+      "mutations": [
+        "soft",
+        "hard",
+        "mixed"
+      ],
+      "constructions": [
+        "periphrastic",
+        "verbal_noun",
+        "prepositional"
+      ],
+      "stress_modes": []
+    }
+  },
+  "policy": {
+    "coverage": "attestation_only",
+    "paradigm_complete": false,
+    "unlisted_feature": "reject",
+    "cross_language_transfer": "forbidden",
+    "public_capability_claims": "never infer unsupported or unknown from family",
+    "sources": "Route05 ledger admission mandatory for production",
+    "scripts": "exact registry scripts; no implicit transliteration"
+  }
+}

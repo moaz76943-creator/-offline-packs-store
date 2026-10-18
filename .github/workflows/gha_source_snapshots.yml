@@ -1,0 +1,36 @@
+name: Public source snapshot contract checks
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: public-source-snapshots-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.repository == 'moaz76943-creator/-offline-packs-store'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Offline synthetic contract tests (no source downloads)
+        run: python3 -m unittest discover -s tests/gha_factory/source_snapshots -p 'test_*.py' -v
+      - name: Report blocking external contracts without dispatch
+        run: |
+          python3 - <<'PY'
+          import json
+          from tools.gha_factory.dispatcher import queue
+          ledger=json.load(open('legal/ledger/sources.json',encoding='utf-8'))
+          n=sum(x.get('status')=='APPROVED_FOR_REDISTRIBUTION' for x in ledger['sources'])
+          print(json.dumps({'approved_sources':n,
+             'snapshot_task_supported':'source_snapshot' in queue.TASK_TYPES,
+             'actual_run_id_or_not_dispatched':'NOT_DISPATCHED',
+             'real_input_rows':0,'accepted_rows':0,'released_packs':0}))
+          PY
+# A schedule and at most three <=300-minute production workers may be added
+# only AFTER the GHA-02 owner implements durable snapshot leases/receipts and
+# the GHA-01 owner approves a real immutable external-artifact handoff.
