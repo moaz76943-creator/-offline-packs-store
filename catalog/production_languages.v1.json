@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "priority_basis": "Static editorial order of expected Wikidata lexeme volume. It is not a measured dump count. The scheduler rotates every enabled language; priority only sets the rotation order.",
   "batch_size": 3,
-  "max_parallel": 2,
+  "max_parallel": 20,
   "proof_languages": [
     "de",
     "ar",
