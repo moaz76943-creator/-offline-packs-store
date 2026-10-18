@@ -1,0 +1,4721 @@
+{
+  "schema_version": "1.0.0",
+  "independent_of": [
+    "packs",
+    "legal/ledger",
+    "manifest"
+  ],
+  "note": "Derived from catalog/language_registry.v1.json. Script, direction, and morphology features are copied from that registry. A feature that is absent stays unknown; this file does not invent a gender, case, plural, or honorific system.",
+  "languages": [
+    {
+      "id": "ar",
+      "script": "Arab",
+      "direction": "rtl",
+      "rtl": true,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "root_pattern",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "de",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "en",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "es",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "fr",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "it",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "tr",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ru",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "zh",
+      "script": "Hans",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "aspect",
+        "classifiers",
+        "tones",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "HSK"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ja",
+      "script": "Jpan",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection",
+        "agglutination",
+        "aspect",
+        "classifiers",
+        "honorifics"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "JLPT"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ko",
+      "script": "Kore",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection",
+        "agglutination",
+        "aspect",
+        "classifiers",
+        "honorifics"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "TOPIK"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "pt",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "nl",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "pl",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "sv",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "no",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "da",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "fi",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "el",
+      "script": "Grek",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "hi",
+      "script": "Deva",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect",
+        "honorifics"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ur",
+      "script": "Arab",
+      "direction": "rtl",
+      "rtl": true,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect",
+        "honorifics"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "fa",
+      "script": "Arab",
+      "direction": "rtl",
+      "rtl": true,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection",
+        "aspect",
+        "honorifics"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "id",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "classifiers",
+        "honorifics",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ms",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "classifiers",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "vi",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "classifiers",
+        "tones",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "th",
+      "script": "Thai",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "classifiers",
+        "tones",
+        "honorifics",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "bn",
+      "script": "Beng",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "honorifics"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "pa",
+      "script": "Guru",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "honorifics"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ta",
+      "script": "Taml",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "te",
+      "script": "Telu",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "mr",
+      "script": "Deva",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "gu",
+      "script": "Gujr",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "uk",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "cs",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ro",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "hu",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "bg",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "sk",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "hr",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "sr",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "bs",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "sq",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "hy",
+      "script": "Armn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ka",
+      "script": "Geor",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "az",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "kk",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "uz",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "sw",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "noun_classes",
+        "number",
+        "inflection",
+        "agglutination",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "tl",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "af",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "et",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "lv",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "lt",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "sl",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "mk",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "is",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ga",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "cy",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "eu",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ca",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "gl",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "be",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "mn",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ne",
+      "script": "Deva",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "honorifics"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "si",
+      "script": "Sinh",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "my",
+      "script": "Mymr",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "classifiers",
+        "tones",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "km",
+      "script": "Khmr",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "classifiers",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "lo",
+      "script": "Laoo",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "classifiers",
+        "tones",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "am",
+      "script": "Ethi",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "root_pattern",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "so",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ha",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "tones"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "yo",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "tones",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ig",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "tones",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "zu",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "noun_classes",
+        "number",
+        "inflection",
+        "agglutination",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "xh",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "noun_classes",
+        "number",
+        "inflection",
+        "agglutination",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "sn",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "noun_classes",
+        "number",
+        "inflection",
+        "agglutination",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "rw",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "noun_classes",
+        "number",
+        "inflection",
+        "agglutination",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "mg",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "analytic"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "eo",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "la",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "kn",
+      "script": "Knda",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ml",
+      "script": "Mlym",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "or",
+      "script": "Orya",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "as",
+      "script": "Beng",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "sd",
+      "script": "Arab",
+      "direction": "rtl",
+      "rtl": true,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ps",
+      "script": "Arab",
+      "direction": "rtl",
+      "rtl": true,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "case",
+        "number",
+        "inflection",
+        "aspect"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ku",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "tg",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "tk",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ky",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "tt",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ba",
+      "script": "Cyrl",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "ug",
+      "script": "Arab",
+      "direction": "rtl",
+      "rtl": true,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "case",
+        "number",
+        "inflection",
+        "agglutination"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "dv",
+      "script": "Thaa",
+      "direction": "rtl",
+      "rtl": true,
+      "transliteration_needed": true,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "mt",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "gender",
+        "number",
+        "root_pattern",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "lb",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "fo",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "fy",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "gd",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    },
+    {
+      "id": "br",
+      "script": "Latn",
+      "direction": "ltr",
+      "rtl": false,
+      "transliteration_needed": false,
+      "vertical": false,
+      "gender": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "case": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "number": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "plural": {
+        "applicability": "applicable",
+        "evidence": "registry.morphology.features",
+        "review_status": "provisional"
+      },
+      "honorifics": {
+        "applicability": "unknown",
+        "evidence": "registry.morphology.features does not list this feature",
+        "review_status": "provisional"
+      },
+      "verb_classes": {
+        "applicability": "unknown",
+        "note": "Verb subclass slots stay unknown until a source distinguishes them. No class list is invented."
+      },
+      "morphology_features": [
+        "number",
+        "inflection"
+      ],
+      "morphology_review_status": "provisional",
+      "proficiency_framework_ids": [
+        "CEFR"
+      ],
+      "proficiency_mapping_status": "not_mapped"
+    }
+  ]
+}
