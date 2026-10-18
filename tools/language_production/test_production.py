@@ -23,7 +23,7 @@ from tools.language_production.publish import merge_decision
 from tools.language_production.repair import note_failure, plan_repair, slice_budget
 from tools.language_production.schedule import enabled_languages, rotation_slot, select_batch, select_coverage_batch
 from tools.language_production.sections import section_for_items
-from tools.language_production.source_gate import missing_issue_titles, owner_approved
+from tools.language_production.source_gate import issues_to_close, missing_issue_titles, owner_approved
 from tools.language_production.status_report import render_status
 
 DATE = '20261014'
@@ -107,7 +107,7 @@ class CatalogTests(unittest.TestCase):
         self.assertTrue(set(ids) <= set(registry))
         self.assertEqual(catalog['proof_languages'], ['de', 'ar', 'en', 'fr', 'es', 'tr'])
         self.assertIn('not a measured dump count', catalog['priority_basis'])
-        self.assertEqual(catalog['max_parallel'], 2)
+        self.assertEqual(catalog['max_parallel'], 20)
         self.assertGreaterEqual(catalog['batch_size'], 2)
 
     def test_sections_come_from_classes_not_lemma_text(self):
@@ -341,9 +341,10 @@ class ScheduleRepairTests(unittest.TestCase):
             {'user': 'someone-else', 'body': 'decision: approve'},
             {'login': 'moaz76943-creator', 'body': 'decision: approved'},
         ]))
+        self.assertEqual(missing_issue_titles(['Source decision: Tatoeba']), [])
         self.assertEqual(
-            missing_issue_titles(['Source decision: Tatoeba']),
-            ['Source decision: Wikidata Lexemes'],
+            issues_to_close(['Source decision: Tatoeba', 'unrelated']),
+            ['Source decision: Tatoeba'],
         )
         checks = [
             {'name': 'public-pr-merge-gate', 'status': 'completed', 'conclusion': 'success'},
@@ -377,7 +378,9 @@ class WorkflowTests(unittest.TestCase):
     def test_schedule_is_bounded_and_does_not_redispatch(self):
         text = WORKFLOW.read_text(encoding='utf-8')
         report = REPORT.read_text(encoding='utf-8')
-        self.assertIn("cron: '17 4 * * *'", text)
+        harvest = (ROOT / '.github/workflows/agent_harvest_wikidata.yml').read_text(encoding='utf-8')
+        self.assertIn("cron: '7 0,6,12,18 * * *'", harvest)
+        self.assertIn('workflow_dispatch', text)
         self.assertIn('ubuntu-latest', text)
         self.assertIn('max-parallel: 2', text)
         self.assertIn('LANGUAGE_PRODUCTION_HALT', text)

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "checked_date": "2026-10-13",
+  "purpose": "Live candidate research; no legal admission, reviewer approval or license grant",
+  "ledger_modified": false,
+  "approved_source_count": 0,
+  "source_sha256": null,
+  "approved_license_proof_sha256": null,
+  "findings": [
+    {
+      "candidate": "panlex-snapshots",
+      "official_page": "https://panlex.org/license/",
+      "observed_terms": "CC-BY-NC-SA-4.0; commercial use requires written permission from PanLex",
+      "conflicting_metadata_path": "docs/gha_factory/provenance/reviewed_sources.json",
+      "conflicting_claim": "CC0-1.0",
+      "decision": "BLOCKED_COMMERCIAL_OR_REVIEW_REQUIRED",
+      "next_evidence": "Reconcile exact snapshot-specific official license and any written permission; do not treat historical or candidate CC0 claim as approval"
+    },
+    {
+      "candidate": "wiktionary-kaikki-en-extract",
+      "official_page": "https://kaikki.org/dictionary/rawdata.html",
+      "rights_page": "https://en.wiktionary.org/wiki/Wiktionary:Copyrights",
+      "observed_snapshot": "enwiktionary dump 2026-09-02; extracted 2026-10-03",
+      "observed_rights": "Original entry text: CC-BY-SA-4.0 and GFDL; external examples, images and sounds may have separate rights",
+      "size_observation": "Whole English-edition raw extract advertised as 23.9 GB; gzip as 2.8 GB. Whole extract exceeds this adapter's 16 GiB expansion cap; use independently approved bounded subsets",
+      "definition_language": "en",
+      "decision": "REVIEW_REQUIRED",
+      "next_evidence": "Actual immutable artifact SHA, source-specific proof SHA, reviewer decision proof, attribution and third-party exclusions"
+    },
+    {
+      "candidate": "tatoeba-sentences-and-audio",
+      "official_page": "https://tatoeba.org/en/downloads",
+      "observed_text_rights": "CC-BY-2.0-FR, with a separately available CC0-1.0 sentence subset",
+      "observed_audio_rights": "Contributor-selected individual license; text license does not authorize audio",
+      "decision": "REVIEW_REQUIRED_SEPARATE_ADAPTER_AND_RIGHTS"
+    },
+    {
+      "candidate": "unimorph-deu-ara-eng-spa-fra",
+      "official_page": "https://github.com/unimorph",
+      "decision": "PER_REPOSITORY_RIGHTS_NOT_INDEPENDENTLY_VERIFIED_THIS_RUN",
+      "note": "Existing candidate reports are not source admission; no blanket license or source hash asserted"
+    }
+  ]
+}
