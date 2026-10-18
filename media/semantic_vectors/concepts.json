@@ -1,0 +1,155 @@
+{
+  "concepts": [
+    {
+      "concept_id": "concept.home.house.building",
+      "domain": "home",
+      "labels": {
+        "ar": "منزل",
+        "de": "Haus",
+        "en": "House"
+      },
+      "lexemes": [
+        {
+          "language": "en",
+          "lemma": "House",
+          "sense_id": "home.house.building"
+        },
+        {
+          "language": "de",
+          "lemma": "Haus",
+          "sense_id": "home.house.building"
+        },
+        {
+          "language": "ar",
+          "lemma": "منزل",
+          "sense_id": "home.house.building"
+        }
+      ],
+      "license_id": "cc0-project-original-v1",
+      "sense_id": "home.house.building",
+      "source": "house.svg",
+      "source_version": "1.0.0"
+    },
+    {
+      "concept_id": "concept.food.apple.fruit",
+      "domain": "food",
+      "labels": {
+        "ar": "تفاحة",
+        "de": "Apfel",
+        "en": "Apple"
+      },
+      "lexemes": [
+        {
+          "language": "en",
+          "lemma": "Apple",
+          "sense_id": "food.apple.fruit"
+        },
+        {
+          "language": "de",
+          "lemma": "Apfel",
+          "sense_id": "food.apple.fruit"
+        },
+        {
+          "language": "ar",
+          "lemma": "تفاحة",
+          "sense_id": "food.apple.fruit"
+        }
+      ],
+      "license_id": "cc0-project-original-v1",
+      "sense_id": "food.apple.fruit",
+      "source": "apple.svg",
+      "source_version": "1.0.0"
+    },
+    {
+      "concept_id": "concept.transport.bus.road_vehicle",
+      "domain": "transport",
+      "labels": {
+        "ar": "حافلة",
+        "de": "Bus",
+        "en": "Bus"
+      },
+      "lexemes": [
+        {
+          "language": "en",
+          "lemma": "Bus",
+          "sense_id": "transport.bus.road_vehicle"
+        },
+        {
+          "language": "de",
+          "lemma": "Bus",
+          "sense_id": "transport.bus.road_vehicle"
+        },
+        {
+          "language": "ar",
+          "lemma": "حافلة",
+          "sense_id": "transport.bus.road_vehicle"
+        }
+      ],
+      "license_id": "cc0-project-original-v1",
+      "sense_id": "transport.bus.road_vehicle",
+      "source": "bus.svg",
+      "source_version": "1.0.0"
+    },
+    {
+      "concept_id": "concept.education.book.printed_volume",
+      "domain": "education",
+      "labels": {
+        "ar": "كتاب",
+        "de": "Buch",
+        "en": "Book"
+      },
+      "lexemes": [
+        {
+          "language": "en",
+          "lemma": "Book",
+          "sense_id": "education.book.printed_volume"
+        },
+        {
+          "language": "de",
+          "lemma": "Buch",
+          "sense_id": "education.book.printed_volume"
+        },
+        {
+          "language": "ar",
+          "lemma": "كتاب",
+          "sense_id": "education.book.printed_volume"
+        }
+      ],
+      "license_id": "cc0-project-original-v1",
+      "sense_id": "education.book.printed_volume",
+      "source": "book.svg",
+      "source_version": "1.0.0"
+    },
+    {
+      "concept_id": "concept.healthcare.first_aid.medical_cross",
+      "domain": "healthcare",
+      "labels": {
+        "ar": "رمز الإسعافات الأولية",
+        "de": "Erste-Hilfe-Symbol",
+        "en": "First-aid symbol"
+      },
+      "lexemes": [
+        {
+          "language": "en",
+          "lemma": "First-aid symbol",
+          "sense_id": "healthcare.first_aid.medical_cross"
+        },
+        {
+          "language": "de",
+          "lemma": "Erste-Hilfe-Symbol",
+          "sense_id": "healthcare.first_aid.medical_cross"
+        },
+        {
+          "language": "ar",
+          "lemma": "رمز الإسعافات الأولية",
+          "sense_id": "healthcare.first_aid.medical_cross"
+        }
+      ],
+      "license_id": "cc0-project-original-v1",
+      "sense_id": "healthcare.first_aid.medical_cross",
+      "source": "first_aid.svg",
+      "source_version": "1.0.0"
+    }
+  ],
+  "schema_version": 1
+}
