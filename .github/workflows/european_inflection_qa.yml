@@ -1,0 +1,45 @@
+name: European inflection evidence QA
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/linguistic_extensions/european_inflection/**'
+      - 'tests/linguistic_extensions/european_inflection/**'
+      - '.github/workflows/european_inflection_qa.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/linguistic_extensions/european_inflection/**'
+      - 'tests/linguistic_extensions/european_inflection/**'
+      - '.github/workflows/european_inflection_qa.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: europe-inflection-qa-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evidence_qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate independent language contracts and negatives
+        run: |
+          set -euo pipefail
+          python3 -m unittest discover -s tests/linguistic_extensions/european_inflection -p 'test_*.py' -v
+      - name: Run deterministic Route05-gated shard audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Run ID: $GITHUB_RUN_ID / attempt: $GITHUB_RUN_ATTEMPT"
+          python3 tools/linguistic_extensions/european_inflection/validator.py \
+            --repo-root "$GITHUB_WORKSPACE" \
+            --shards-dir "$GITHUB_WORKSPACE/tools/linguistic_extensions/european_inflection/shards" \
+            --output-dir "$RUNNER_TEMP/european-inflection-evidence"
+          echo "No pack publication or unreviewed source fetch is authorized."
