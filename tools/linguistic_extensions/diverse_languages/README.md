@@ -130,3 +130,20 @@ production QA run/checkpoint. Seven identities lack even a reviewed
 structural datapoint here. `report()` gives individual readiness and the
 unresolved-source status of each language. Tests use synthetic data only;
 they do not increase production evidence counts.
+
+## 2026-10-13 row-attestation hardening
+
+The existing Route05 admission and independent language/variety binding gate remain
+mandatory. Candidate review additionally accepts optional `source_row_index`
+(1-based) and `source_row_sha256` (SHA-256 of the exact raw source JSONL line,
+including its line ending). Missing, forged, out-of-range or mismatched row
+evidence is blocking, even when a source file has a valid overall hash.
+The bound row must exactly match record, language, lemma, meaning, and variety;
+this is **not** an authorization to publish the candidate. Source rows and shard
+inputs are capped at 40 MiB, resumed line numbers at 1,000,000, and symlink
+shard inputs are rejected. Review summaries suppress malformed language IDs.
+
+The read-only QA workflow may also be invoked through a GitHub pull-request
+comment with the **exact** body `/diverse-qa` from the repository owner.
+On any other comment it skips without executing. Such QA establishes only
+engineering test status, never linguistic coverage or redistribution clearance.

@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT))
 from community.contributions.ingest import ingest, members, unique_json, quarantine_submission
 from community.review.state_machine import ReviewStateMachine, sign
 from community.review.cli import main as review_cli_main
-from tools.open_export.exporter import CommunityExporter, ExportError
+from tools.open_export.exporter import CommunityExporter, ExportError, MAX_RELEASE_BYTES
 
 
 def digest(data):
@@ -232,6 +232,38 @@ class SecurityRegression(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "untrusted cached"):
             self.export()
         self.assertEqual(json.loads((self.out / "CURRENT.json").read_text()), output)
+
+    def test_cached_export_rejects_oversized_padded_zip(self):
+        name, sha = self.stage()
+        self.certify()
+        self.manifest(name, sha)
+        receipt = self.export()
+        release = self.out / "releases" / receipt["release"]
+        pointer = (self.out / "CURRENT.json").read_bytes()
+        with zipfile.ZipFile(release) as archive:
+            entries = [(name, archive.read(name)) for name in archive.namelist()]
+        # A sparse prefix keeps the fixture small in memory; the ZIP itself
+        # remains well-formed and its members/hash metadata are unchanged.
+        with release.open("wb") as stream:
+            stream.truncate(MAX_RELEASE_BYTES + 1)
+        with zipfile.ZipFile(release, "a", compression=zipfile.ZIP_STORED) as archive:
+            for filename, content in entries:
+                archive.writestr(filename, content, compress_type=zipfile.ZIP_STORED)
+        self.assertGreater(release.stat().st_size, MAX_RELEASE_BYTES)
+        with self.assertRaisesRegex(ExportError, "archive byte limit"):
+            self.export()
+        self.assertEqual((self.out / "CURRENT.json").read_bytes(), pointer)
+
+    def test_manifest_self_approval_cannot_replace_signed_handoff(self):
+        name, sha = self.stage()
+        self.manifest(name, sha)
+        manifest_path = self.src / "manifest.json"
+        content = json.loads(manifest_path.read_text())
+        content["items"][0]["evidence"] = "approved_by_admin"
+        content["items"][0]["rights_status"] = "APPROVED_FOR_REDISTRIBUTION"
+        manifest_path.write_text(json.dumps(content))
+        with self.assertRaises((ValueError, FileNotFoundError)):
+            self.export()
 
     def test_ledger_artifact_and_kind_must_match(self):
         name, sha = self.stage()

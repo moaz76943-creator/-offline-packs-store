@@ -13,6 +13,15 @@ from . import queue
 ROOT = Path(__file__).resolve().parents[3]
 REPO = 'moaz76943-creator/-offline-packs-store'
 OWNER = REPO.split('/')[0]
+ALLOWED_ISSUE_CREATORS = frozenset((OWNER, 'github-actions[bot]'))
+
+
+def owned_queue_issue(issue):
+    """Owner and own-repo GitHub Actions are authorized; ordinary users are not."""
+    return (isinstance(issue, dict) and 'pull_request' not in issue
+            and isinstance(issue.get('title'), str)
+            and issue['title'].startswith(queue.PREFIX)
+            and (issue.get('user') or {}).get('login') in ALLOWED_ISSUE_CREATORS)
 
 
 class GitHub:
@@ -44,8 +53,7 @@ class GitHub:
             if not isinstance(items,list):
                 raise ValueError('invalid issue listing')
             for issue in items:
-                if ('pull_request' not in issue and issue.get('title','').startswith(queue.PREFIX)
-                        and (issue.get('user') or {}).get('login') == OWNER):
+                if owned_queue_issue(issue):
                     yield issue
             if len(items)<100:
                 return
@@ -157,7 +165,7 @@ def finish(api,jobs,artifact_dir,run_id,run_attempt,now=None):
             raise ValueError('invalid matrix job')
         number=job['number']
         issue=api.one(number)
-        if (issue.get('user') or {}).get('login')!=OWNER or not issue.get('title','').startswith(queue.PREFIX):
+        if not owned_queue_issue(issue):
             raise ValueError('untrusted task ownership')
         t=queue.parse(issue['body'])
         if t['task_id']!=job['task_id'] or t['run_id']!=run_id or t['run_attempt']!=run_attempt:
