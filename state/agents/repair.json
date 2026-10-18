@@ -1,6 +1,7 @@
 {
   "action": "recorded",
-  "last_signature": "agent-harvest-universal-dependencies",
   "retries": 0,
-  "schema_version": "1.0.0"
+  "schema_version": "1.0.0",
+  "seen_count": 0,
+  "signature": "no-signature"
 }
