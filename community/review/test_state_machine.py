@@ -1,3 +1,14 @@
+"""Review-state machine tests.
+
+Direct invocation from any working directory:
+
+    python3 community/review/test_state_machine.py
+
+Discoverable suite from the repository root:
+
+    python3 -m unittest discover -s community/review -p 'test_*.py' -v
+"""
+import sys
 import unittest
 import os
 import tempfile
@@ -5,6 +16,10 @@ import json
 import hashlib
 import hmac
 from pathlib import Path
+
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 from community.review.state_machine import (
     ReviewStateMachine,
