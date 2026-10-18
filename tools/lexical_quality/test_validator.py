@@ -49,19 +49,19 @@ class TestLexicalValidator(unittest.TestCase):
 
     def test_duplicate_senses(self):
         """Detect duplicate IDs."""
-        entry = {"id": "dup-1", "surface": "word", "language": "eng", "pos": "noun"}
+        entry = {"id": "eng-dup-1", "surface": "word", "language": "eng", "pos": "noun"}
         res1 = self.validator.validate_entry(entry)
         self.assertEqual(res1["status"], "accepted")
 
         # Second time should fail
         res2 = self.validator.validate_entry(entry)
         self.assertEqual(res2["status"], "rejected")
-        self.assertIn("Duplicate lexical ID: dup-1", res2["errors"])
+        self.assertIn("Duplicate lexical ID: eng-dup-1", res2["errors"])
 
     def test_valid_lexical_variations_preserved(self):
         """Valid lexical variations (different IDs) are not falsely deleted."""
-        entry1 = {"id": "var-1", "surface": "color", "language": "eng", "pos": "noun"}
-        entry2 = {"id": "var-2", "surface": "colour", "language": "eng", "pos": "noun"}
+        entry1 = {"id": "eng-var-1", "surface": "color", "language": "eng", "pos": "noun"}
+        entry2 = {"id": "eng-var-2", "surface": "colour", "language": "eng", "pos": "noun"}
 
         self.assertEqual(self.validator.validate_entry(entry1)["status"], "accepted")
         self.assertEqual(self.validator.validate_entry(entry2)["status"], "accepted")
@@ -98,6 +98,32 @@ class TestLexicalValidator(unittest.TestCase):
         self.assertEqual(result["entry"], original)
         # Check that it didn't mutate the input dictionary in unexpected ways
         self.assertEqual(entry_copy, original)
+
+    def test_strict_pos_checking(self):
+        """Strict POS checking."""
+        entry = {"id": "eng-pos", "surface": "test", "language": "eng", "pos": "invalidpos"}
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "rejected")
+        self.assertTrue(any("Invalid POS" in err for err in result["errors"]))
+
+    def test_id_language_mismatch(self):
+        """Reject if ID prefix doesn't match language."""
+        entry = {"id": "fra-1", "surface": "test", "language": "eng", "pos": "noun"}
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "rejected")
+        self.assertTrue(any("ID prefix does not match language" in err for err in result["errors"]))
+
+    def test_isolating_languages(self):
+        """Reject plural/conjugations for isolating languages."""
+        entry_zho = {"id": "zho-1", "surface": "word", "language": "zho", "pos": "noun", "plural": "words"}
+        result1 = self.validator.validate_entry(entry_zho)
+        self.assertEqual(result1["status"], "rejected")
+        self.assertTrue(any("should not have 'plural' field" in err for err in result1["errors"]))
+
+        entry_tha = {"id": "tha-1", "surface": "word", "language": "tha", "pos": "verb", "conjugations": {"past": "worded"}}
+        result2 = self.validator.validate_entry(entry_tha)
+        self.assertEqual(result2["status"], "rejected")
+        self.assertTrue(any("should not have 'conjugations' field" in err for err in result2["errors"]))
 
 if __name__ == '__main__':
     unittest.main()

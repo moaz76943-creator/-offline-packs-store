@@ -132,6 +132,36 @@ INVALID_ENTRIES = [
         "surface": "test",
         "language": "eng",
         "pos": 123
+    },
+    {
+        # Strict POS failure
+        "id": "eng-100",
+        "surface": "test",
+        "language": "eng",
+        "pos": "unknown_pos_type"
+    },
+    {
+        # ID and language mismatch
+        "id": "deu-1",
+        "surface": "test",
+        "language": "eng",
+        "pos": "noun"
+    },
+    {
+        # Isolating language with plural
+        "id": "zho-2",
+        "surface": "测试",
+        "language": "zho",
+        "pos": "noun",
+        "plural": "测试们"
+    },
+    {
+        # Isolating language with conjugations
+        "id": "tha-2",
+        "surface": "วิ่ง",
+        "language": "tha",
+        "pos": "verb",
+        "conjugations": {"past": "วิ่งแล้ว"}
     }
 ]
 
