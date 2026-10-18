@@ -10,6 +10,16 @@ from legal.ledger.admission import HASH, artifact, manual_review, text, url_ok
 # OFL/UFL/Apache/MIT font sources. Never present this result as ledger approval.
 FONT_LICENSES = frozenset({"OFL-1.1", "UFL-1.0", "Apache-2.0", "MIT", "CC0-1.0", "PUBLIC-DOMAIN"})
 
+# Whole-label placeholders only. Substring checks reject real names such as "Unmixed Sans".
+UNKNOWN_SOURCE_LABELS = frozenset({"unknown", "unknown vendor"})
+MIXED_FAMILY_LABELS = frozenset({"mixed", "mixed families"})
+
+
+def _normalized_label(value):
+    if not isinstance(value, str):
+        return ""
+    return " ".join(value.casefold().split())
+
 @dataclass
 class FontAsset:
     id: str
@@ -42,6 +52,10 @@ class FontRightsRegistry:
             return {"status": "REJECT", "issues": ["Invalid asset record"], "publication_approved": False}
         if not all(text(x) for x in (asset.id, asset.family, asset.source, asset.version, asset.author)):
             issues.append("Missing font identity, author, source or version")
+        if _normalized_label(asset.source) in UNKNOWN_SOURCE_LABELS:
+            issues.append("Unknown source is explicitly rejected")
+        if _normalized_label(asset.family) in MIXED_FAMILY_LABELS:
+            issues.append("Mixed families are explicitly rejected")
         if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
         if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
@@ -95,3 +109,32 @@ class FontRightsRegistry:
                 "Metadata-only font has no verified embedded bytes"], "publication_approved": False}
         return {"status": "REJECT" if issues else "EVIDENCE_PASS",
                 "issues": issues, "publication_approved": False}
+
+    def generate_script_mapping(self, assets: list[FontAsset], repo_root=None):
+        mapping = {}
+        seen_ids = set()
+        for asset in assets:
+            if self.validate_asset(asset, repo_root=repo_root).get("status") != "EVIDENCE_PASS":
+                continue
+            if asset.id in seen_ids:
+                raise ValueError("Duplicate font asset id: " + str(asset.id))
+            seen_ids.add(asset.id)
+            seen_scripts = set()
+            for script in asset.scripts:
+                if script in seen_scripts:
+                    continue
+                seen_scripts.add(script)
+                mapping.setdefault(script, []).append(asset.id)
+        return mapping
+
+if __name__ == "__main__":
+    import sys
+    import json
+
+    registry = FontRightsRegistry()
+    raw_assets = json.load(sys.stdin)
+    assets = [FontAsset(**a) for a in raw_assets]
+    repo_root = sys.argv[1] if len(sys.argv) > 1 else None
+
+    mapping = registry.generate_script_mapping(assets, repo_root=repo_root)
+    json.dump(mapping, sys.stdout, indent=2)
