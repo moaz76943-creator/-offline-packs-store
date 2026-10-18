@@ -283,6 +283,132 @@ class Tests(unittest.TestCase):
             self.assertEqual(out['approved_by_this_tool'], 0)
         self.assertEqual(a.LEDGER.read_bytes(), before)
 
+    def test_unrelated_file_digest_does_not_clear_byte_blockers(self):
+        data = self.mutated()
+        candidate = data['candidates'][0]
+        relative = 'tools/factory_extensions/source_rights_research/candidates.json'
+        digest = hashlib.sha256((a.REPO / relative).read_bytes()).hexdigest()
+        candidate['dataset_artifact_path'] = relative
+        candidate['dataset_sha256'] = digest
+        candidate['acquisition_date'] = '2026-10-13'
+        evidence = candidate['evidence'][0]
+        evidence['snapshot_path'] = relative
+        evidence['snapshot_sha256'] = digest
+        blockers = self.audit(data)['human_approval_queue'][0]['blockers']
+        self.assertIn('MISSING_OR_UNVERIFIED_DOWNLOADED_BYTES_AND_SHA256', blockers)
+        self.assertIn('MISSING_OR_UNVERIFIED_IMMUTABLE_LICENSE_PROOF_SNAPSHOT', blockers)
+
+    def test_candidate_path_without_capture_binding_stays_blocked(self):
+        from unittest.mock import patch
+        data = self.mutated()
+        candidate = data['candidates'][0]
+        body = b'unbound license bytes'
+        digest = hashlib.sha256(body).hexdigest()
+        relative = ('tools/factory_extensions/source_rights_research/captures/'
+                    'wiktionary-kaikki/evidence/0')
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            target = root / relative
+            target.parent.mkdir(parents=True)
+            target.write_bytes(body)
+            candidate['evidence'][0]['snapshot_path'] = relative
+            candidate['evidence'][0]['snapshot_sha256'] = digest
+            with patch.object(a, 'REPO', root):
+                blockers = self.audit(data)['human_approval_queue'][0]['blockers']
+        self.assertIn('MISSING_OR_UNVERIFIED_IMMUTABLE_LICENSE_PROOF_SNAPSHOT', blockers)
+
+    def test_bound_capture_metadata_clears_only_the_snapshot_blocker(self):
+        from unittest.mock import patch
+        data = self.mutated()
+        candidate = data['candidates'][0]
+        body = b'official license snapshot bytes'
+        digest = hashlib.sha256(body).hexdigest()
+        relative = ('tools/factory_extensions/source_rights_research/captures/'
+                    'wiktionary-kaikki/evidence/0')
+        meta = {'candidate_id': 'wiktionary-kaikki', 'url': candidate['evidence'][0]['url'],
+                'path': relative, 'sha256': digest}
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            target = root / relative
+            target.parent.mkdir(parents=True)
+            target.write_bytes(body)
+            (root / (relative + '.capture.json')).write_text(json.dumps(meta), encoding='utf-8')
+            candidate['evidence'][0]['snapshot_path'] = relative
+            candidate['evidence'][0]['snapshot_sha256'] = digest
+            with patch.object(a, 'REPO', root):
+                blockers = self.audit(data)['human_approval_queue'][0]['blockers']
+        self.assertNotIn('MISSING_OR_UNVERIFIED_IMMUTABLE_LICENSE_PROOF_SNAPSHOT', blockers)
+        self.assertIn('MISSING_AUTHORIZED_HUMAN_REDISTRIBUTION_DECISION', blockers)
+        self.assertIn('MISSING_OR_UNVERIFIED_DOWNLOADED_BYTES_AND_SHA256', blockers)
+
+    def test_cli_refuses_symlinked_report_target(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            protected = root / 'sources.json'
+            protected.write_bytes(b'{"protected":true}\n')
+            out = root / 'out'
+            out.mkdir()
+            (out / 'rights_audit.json').symlink_to(protected)
+            before = protected.read_bytes()
+            with self.assertRaisesRegex(ValueError, 'symlink'):
+                a.main(['--out', str(out)])
+            self.assertEqual(protected.read_bytes(), before)
+
+    def test_capture_refuses_symlinked_snapshot_target(self):
+        one = self.mutated()
+        one['candidates'] = one['candidates'][:1]
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            protected = root / 'sources.json'
+            protected.write_bytes(b'{"protected":true}\n')
+            (root / 'wiktionary-kaikki-0.html').symlink_to(protected)
+            before = protected.read_bytes()
+            with self.assertRaisesRegex(ValueError, 'symlink'):
+                a.capture_public_evidence(one, root, FakeOpener())
+            self.assertEqual(protected.read_bytes(), before)
+
+    def test_capture_stops_at_aggregate_budget(self):
+        class Counting:
+            def __init__(self):
+                self.calls = 0
+                self.read_bytes = 0
+
+            def open(self, req, timeout=None):
+                self.calls += 1
+                body = b'y' * a.MAX_EVIDENCE
+                parent = self
+
+                class Response:
+                    def __init__(self):
+                        self.url = req.full_url
+                        self.buffer = BytesIO(body)
+                        self.headers = {'Content-Type': 'text/html'}
+
+                    def geturl(self):
+                        return self.url
+
+                    def read(self, n):
+                        chunk = self.buffer.read(n)
+                        parent.read_bytes += len(chunk)
+                        return chunk
+
+                    def __enter__(self):
+                        return self
+
+                    def __exit__(self, *_):
+                        self.buffer.close()
+
+                return Response()
+
+        counter = Counting()
+        with tempfile.TemporaryDirectory() as directory:
+            findings = a.capture_public_evidence(self.registry, directory, counter)
+        self.assertLessEqual(counter.read_bytes, a.MAX_CAPTURE)
+        self.assertLess(counter.calls, len(self.registry['candidates']))
+        self.assertTrue(any(item['status'] == 'UNAVAILABLE' for item in findings))
+        saved = [item for item in findings if item['status'] == 'SNAPSHOT_ONLY']
+        self.assertLessEqual(sum(item['bytes'] for item in saved), a.MAX_CAPTURE)
+
 
 if __name__ == '__main__':
     unittest.main()

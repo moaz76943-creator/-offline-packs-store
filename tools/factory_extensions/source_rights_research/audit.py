@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Read-only legal research triage. NEVER writes to legal/ledger or approves a source."""
 import argparse
+import errno
 import hashlib
 import ipaddress
 import json
+import os
 import re
 import urllib.error
 import urllib.request
@@ -21,6 +23,8 @@ SHA = re.compile(r'^[0-9a-f]{64}$')
 MAX_JSON = 300_000
 MAX_EVIDENCE = 256_000
 MAX_CAPTURE = 1_024_000
+CAPTURE_PREFIX = ('tools', 'factory_extensions', 'source_rights_research', 'captures')
+MAX_BINDING = 16_384
 ALLOW_HOSTS = frozenset({
     'kaikki.org', 'en.wiktionary.org', 'www.wikidata.org', 'unimorph.github.io',
     'github.com', 'tatoeba.org', 'panlex.org', 'dev.panlex.org',
@@ -86,29 +90,95 @@ def is_date(s):
         return False
 
 
-def pinned_local_sha(relative, expected, max_bytes=64_000_000):
-    """Verify real immutable local bytes only; no symlinks, path escapes or huge reads."""
-    if not isinstance(relative, str) or not relative or not is_sha(expected):
-        return False
+class UnsafeOutput(ValueError):
+    """Refused write: the destination is a symlink or otherwise not a new regular file."""
+
+
+def safe_repo_file(relative, max_bytes):
+    """Return a regular in-repo file, or None. Symlinks and path escapes never qualify."""
+    if not isinstance(relative, str) or not relative:
+        return None
     candidate = Path(relative)
     if candidate.is_absolute() or '..' in candidate.parts or '.git' in candidate.parts:
-        return False
+        return None
     root = REPO.resolve()
     cursor = root
     for component in candidate.parts:
         cursor = cursor / component
         if cursor.is_symlink():
-            return False
+            return None
     path = cursor.resolve()
     if not path.is_relative_to(root) or not path.is_file() or path.is_symlink():
-        return False
+        return None
     if path.stat().st_size > max_bytes:
+        return None
+    return path
+
+
+def pinned_local_sha(relative, expected, max_bytes=64_000_000):
+    """Verify real immutable local bytes only; no symlinks, path escapes or huge reads."""
+    if not is_sha(expected):
+        return False
+    path = safe_repo_file(relative, max_bytes)
+    if path is None:
         return False
     digest = hashlib.sha256()
     with path.open('rb') as stream:
         for chunk in iter(lambda: stream.read(65536), b''):
             digest.update(chunk)
     return digest.hexdigest() == expected
+
+
+def bound_local_capture(candidate_id, url, relative, expected, max_bytes):
+    """A matching digest is not provenance.
+
+    Accepted bytes must live under captures/<candidate_id>/ and a sibling
+    sidecar must bind that candidate, URL, path, and digest together.
+    """
+    if not isinstance(candidate_id, str) or ID.fullmatch(candidate_id) is None:
+        return False
+    if not valid_url(url) or not pinned_local_sha(relative, expected, max_bytes):
+        return False
+    parts = Path(relative).parts
+    prefix = CAPTURE_PREFIX + (candidate_id,)
+    if len(parts) <= len(prefix) or parts[:len(prefix)] != prefix:
+        return False
+    meta_path = safe_repo_file(relative + '.capture.json', MAX_BINDING)
+    if meta_path is None:
+        return False
+    try:
+        meta = json.loads(meta_path.read_text(encoding='utf-8'), object_pairs_hook=unique_pairs,
+                          parse_constant=lambda value: (_ for _ in ()).throw(ValueError('nonfinite JSON')))
+    except (OSError, UnicodeError, ValueError):
+        return False
+    return (isinstance(meta, dict) and set(meta) == {'candidate_id', 'url', 'path', 'sha256'}
+            and meta['candidate_id'] == candidate_id and meta['url'] == url
+            and meta['path'] == relative and meta['sha256'] == expected)
+
+
+def write_bytes_nofollow(path, data):
+    """Create or replace a regular file. Never follow a symlink at the destination."""
+    path = Path(path)
+    if path.is_symlink():
+        raise UnsafeOutput('refusing to follow output symlink')
+    flags = os.O_WRONLY | os.O_CREAT | os.O_TRUNC | os.O_NOFOLLOW
+    try:
+        fd = os.open(path, flags, 0o644)
+    except OSError as exc:
+        if path.is_symlink() or exc.errno == errno.ELOOP:
+            raise UnsafeOutput('refusing to follow output symlink') from exc
+        raise
+    try:
+        view = data
+        while view:
+            written = os.write(fd, view)
+            view = view[written:]
+    finally:
+        os.close(fd)
+
+
+def write_text_nofollow(path, text):
+    write_bytes_nofollow(path, text.encode('utf-8'))
 
 
 def warnings(candidate):
@@ -211,10 +281,12 @@ def audit(catalog, registry, ledger):
         if c['dataset_version'] is None:
             blocks.append('MISSING_EXACT_DATASET_VERSION')
         if (c['acquisition_date'] is None or c['dataset_sha256'] is None or
-                not pinned_local_sha(c['dataset_artifact_path'], c['dataset_sha256'])):
+                not bound_local_capture(cid, c['source_url'], c['dataset_artifact_path'],
+                                        c['dataset_sha256'], 64_000_000)):
             blocks.append('MISSING_OR_UNVERIFIED_DOWNLOADED_BYTES_AND_SHA256')
         if any(e['snapshot_sha256'] is None or not
-               pinned_local_sha(e['snapshot_path'], e['snapshot_sha256'], MAX_EVIDENCE)
+               bound_local_capture(cid, e['url'], e['snapshot_path'], e['snapshot_sha256'],
+                                   MAX_EVIDENCE)
                for e in c['evidence']):
             blocks.append('MISSING_OR_UNVERIFIED_IMMUTABLE_LICENSE_PROOF_SNAPSHOT')
         if not c['copyright_notices']:
@@ -263,6 +335,11 @@ def capture_public_evidence(registry, output, opener=None):
             url = evidence['url']
             if not valid_url(url):
                 raise ValueError('untrusted external evidence')
+            # Exhausted budget stops further network reads; later pages are not fetched.
+            if total >= MAX_CAPTURE:
+                findings.append({'candidate_id': cid, 'url': url,
+                                 'status': 'UNAVAILABLE', 'error_type': 'ValueError'})
+                continue
             req = urllib.request.Request(url, headers={'User-Agent': 'DEUTSCH-source-rights-audit/1.0',
                                                       'Accept': 'text/html,text/plain'})
             try:
@@ -272,20 +349,33 @@ def capture_public_evidence(registry, output, opener=None):
                     media = response.headers.get('Content-Type', '').split(';')[0].strip().lower()
                     if media not in ('text/html', 'text/plain'):
                         raise ValueError('unexpected evidence content type')
-                    raw = response.read(MAX_EVIDENCE + 1)
-                    if len(raw) > MAX_EVIDENCE or total + len(raw) > MAX_CAPTURE:
-                        raise ValueError('evidence byte budget exceeded')
+                    remaining = MAX_CAPTURE - total
+                    read_cap = min(MAX_EVIDENCE, remaining)
+                    raw = response.read(read_cap)
                     total += len(raw)
+                    if len(raw) > MAX_EVIDENCE or total > MAX_CAPTURE:
+                        raise ValueError('evidence byte budget exceeded')
+                    # A full cap without a one-byte EOF probe is an incomplete capture.
+                    # The probe itself is network capture and must fit in the budget.
+                    if len(raw) == read_cap:
+                        if MAX_CAPTURE - total <= 0:
+                            raise ValueError('evidence byte budget exceeded')
+                        extra = response.read(1)
+                        total += len(extra)
+                        if extra:
+                            raise ValueError('evidence byte budget exceeded')
                     sha = hashlib.sha256(raw).hexdigest()
-                    dest = output / (c['candidate_id'] + '-' + str(idx) + '.html')
-                    dest.write_bytes(raw)
-                    findings.append({'candidate_id': c['candidate_id'], 'url': url,
+                    dest = output / (cid + '-' + str(idx) + '.html')
+                    write_bytes_nofollow(dest, raw)
+                    findings.append({'candidate_id': cid, 'url': url,
                                      'sha256': sha, 'bytes': len(raw), 'status': 'SNAPSHOT_ONLY'})
+            except UnsafeOutput:
+                raise
             except (OSError, ValueError, urllib.error.URLError) as err:
-                findings.append({'candidate_id': c['candidate_id'], 'url': url,
+                findings.append({'candidate_id': cid, 'url': url,
                                  'status': 'UNAVAILABLE', 'error_type': type(err).__name__})
-    (output / 'evidence_snapshot_report.json').write_text(
-        json.dumps(findings, sort_keys=True, indent=2) + '\n', encoding='utf-8')
+    write_text_nofollow(output / 'evidence_snapshot_report.json',
+                        json.dumps(findings, sort_keys=True, indent=2) + '\n')
     return findings
 
 
@@ -299,9 +389,8 @@ def main(argv=None):
     report = audit(load(CATALOG), load(REGISTRY), load(LEDGER))
     report['canonical_registry_sha256'] = hashlib.sha256(CATALOG.read_bytes()).hexdigest()
     opts.out.mkdir(parents=True, exist_ok=True)
-    (opts.out / 'rights_audit.json').write_text(
-        json.dumps(report, sort_keys=True, indent=2, ensure_ascii=False) + '\n',
-        encoding='utf-8')
+    write_text_nofollow(opts.out / 'rights_audit.json',
+                        json.dumps(report, sort_keys=True, indent=2, ensure_ascii=False) + '\n')
     if opts.capture_public_evidence:
         capture_public_evidence(load(REGISTRY), opts.out / 'evidence_snapshots')
     print(json.dumps({'research_candidates': report['research_candidate_count'],
