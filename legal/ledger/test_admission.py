@@ -20,6 +20,7 @@ class AdmissionTests(unittest.TestCase):
         self.source = {
             'source_id': 'fixture-source', 'kind': 'dictionary',
             'origin_url': 'https://example.org/data', 'publisher': 'Fixture Publisher',
+            'author': 'Fixture Author',
             'dataset_version': '2026.10',
             'retrieval': {'identity': 'fixture-snapshot-v1', 'url': 'https://example.org/data',
                           'date': '2026-10-12', 'artifact_path': 'evidence/upstream.json',
@@ -57,6 +58,10 @@ class AdmissionTests(unittest.TestCase):
 
     def test_valid_evidence_does_not_auto_approve_but_accepts_documented_review(self):
         self.assertEqual([], self.issues())
+
+    def test_missing_author_is_rejected(self):
+        self.source.pop('author')
+        self.assertTrue(any('author' in item for item in self.issues()))
 
     def test_unknown_rights_are_blocked(self):
         self.source['license']['id'] = 'PUBLIC_DOMAIN_ZERO_COPYRIGHT'

@@ -25,12 +25,13 @@
     "kind": {"enum": ["dictionary", "morphology", "examples", "font", "pronunciation", "vector_art", "visual_asset"]},
     "source": {
       "type": "object", "additionalProperties": false,
-      "required": ["source_id", "kind", "origin_url", "publisher", "dataset_version", "retrieval", "license", "status", "alterations"],
+      "required": ["source_id", "kind", "origin_url", "publisher", "author", "dataset_version", "retrieval", "license", "status", "alterations"],
       "properties": {
         "source_id": {"type": "string", "minLength": 1},
         "kind": {"$ref": "#/$defs/kind"},
         "origin_url": {"type": "string", "format": "uri", "pattern": "^https://"},
         "publisher": {"type": "string", "minLength": 1},
+        "author": {"type": "string", "minLength": 1},
         "dataset_version": {"type": "string", "minLength": 1},
         "retrieval": {
           "type": "object", "additionalProperties": false,
