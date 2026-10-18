@@ -4,9 +4,9 @@ import hashlib
 import json
 from pathlib import Path
 
-from legal.ledger.admission import KINDS, manual_review, text, url_ok
+from legal.ledger.admission import KINDS, LICENSES, OBLIGATIONS, manual_review, text, url_ok
 from tools.contribution_gate.evidence import (
-    exact_source_reference, load_verified_ledger, required, verified_artifact
+    EvidenceError, exact_source_reference, load_verified_ledger, required, verified_artifact
 )
 
 MAX_BYTES = 50 * 1024 * 1024
@@ -30,6 +30,26 @@ def validate_contribution(manifest_dict, repo_root):
         source = exact_source_reference(manifest_dict.get("source_ref"), src_index)
         if kind != source["kind"] or manifest_dict.get("license_id") != source["license"]["id"]:
             raise ValueError("Content kind or license contradicts canonical source")
+
+        out_lic = manifest_dict.get("output_license_id")
+        src_lic = source["license"]["id"]
+        if "output_license_id" in manifest_dict and out_lic not in LICENSES:
+            raise ValueError("unsupported output license")
+        if src_lic in OBLIGATIONS and out_lic != src_lic:
+            raise ValueError(f"{source['source_id']} cannot be relicensed to {out_lic}")
+        if src_lic == "CC0-1.0" and out_lic == "PUBLIC-DOMAIN":
+            raise ValueError("CC0 is not a blanket public-domain claim")
+        if out_lic == "PUBLIC-DOMAIN" and src_lic != "PUBLIC-DOMAIN":
+            raise ValueError("public-domain label contradicts original rights")
+
+        if src_lic in OBLIGATIONS:
+            compliance = manifest_dict.get("compliance")
+            if not isinstance(compliance, dict):
+                raise ValueError(f"{src_lic} compliance record must be an object")
+            for obligation in OBLIGATIONS[src_lic]:
+                if compliance.get(obligation) is not True:
+                    raise ValueError(f"{src_lic} requires {obligation}")
+
         if manifest_dict.get("source_identity") != source["source_id"]:
             raise ValueError("Missing or contradictory source identity")
         if manifest_dict.get("origin_url") != source["origin_url"]:
@@ -89,13 +109,17 @@ def validate_contribution(manifest_dict, repo_root):
         receipt_id = hashlib.sha256(
             (asset_id + "|" + manifest_dict["sha256"] + "|" +
              source["retrieval"]["sha256"]).encode("utf-8")).hexdigest()
-        return {"status": "EVIDENCE_PASS", "reasons": [],
+        return {"status": "ACCEPT", "reasons": [],
                 "publication_approved": False,
                 "receipt": {"receipt_id": receipt_id, "source_id": source["source_id"],
                             "source_version": source["dataset_version"],
                             "source_hash": source["retrieval"]["sha256"],
                             "artifact_sha256": manifest_dict["sha256"],
                             "evidence_only": True}}
+    except EvidenceError as exc:
+        if str(exc).startswith("REVIEW_REQUIRED:"):
+            return {"status": "REVIEW_REQUIRED", "reasons": [str(exc)], "publication_approved": False}
+        return block(str(exc))
     except (ValueError, KeyError, OSError, TypeError, UnicodeError) as exc:
         return block(str(exc))
 
@@ -110,7 +134,7 @@ def main(argv=None):
         p.exit(2, "BLOCKED: " + str(exc) + "\n")
     result = validate_contribution(manifest, a.repo_root)
     print(json.dumps(result, indent=2, sort_keys=True))
-    return 0 if result["status"] == "EVIDENCE_PASS" else 1
+    return 0 if result["status"] == "ACCEPT" else 1
 
 if __name__ == "__main__":
     raise SystemExit(main())
