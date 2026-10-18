@@ -1,0 +1,35 @@
+name: Curriculum Evidence QA (public and read-only)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/factory_extensions/curriculum_evidence/**'
+      - 'tests/factory_extensions/curriculum_evidence/**'
+      - '.github/workflows/curriculum_evidence_qa.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Isolated contract tests
+        run: python3 -m unittest discover -s tests/factory_extensions/curriculum_evidence -p 'test_*.py' -v
+      - name: Source-gated 100-language evidence audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          INPUT=tools/factory_extensions/curriculum_evidence/approved_input.jsonl
+          if [ -f "$INPUT" ]; then
+            python3 -m tools.factory_extensions.curriculum_evidence.audit --input "$INPUT" --output "$RUNNER_TEMP/curriculum_receipt.json"
+          else
+            python3 -m tools.factory_extensions.curriculum_evidence.audit --output "$RUNNER_TEMP/curriculum_receipt.json"
+          fi
+          python3 -c 'import json,sys; r=json.load(open(sys.argv[1])); assert len(r["languages"]) == 100; print("Curriculum evidence:", r["admission_status"], "| languages:", len(r["languages"]), "| approved sources:", r["approved_ledger_sources"], "| audited rows:", r["audited_rows"], "| accepted:", r["accepted_metadata"], "| rejected:", r["rejected"])' "$RUNNER_TEMP/curriculum_receipt.json" | tee -a "$GITHUB_STEP_SUMMARY"
