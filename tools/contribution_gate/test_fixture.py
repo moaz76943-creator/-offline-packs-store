@@ -15,7 +15,8 @@ def fixture(root, source_id="case-source"):
     rights_sha = put(root, "evidence/rights.txt", b"Test author grants CC0 to fixture data")
     source = {
         "source_id": source_id, "kind": "dictionary", "origin_url": origin,
-        "publisher": "Example Test Publisher", "dataset_version": "1.0",
+        "publisher": "Example Test Publisher", "author": "Test Author",
+        "dataset_version": "1.0",
         "retrieval": {"identity": "test-capture", "url": origin, "date": "2026-10-12",
                       "artifact_path": "evidence/upstream.bin", "sha256": original_sha},
         "license": {"id": "CC0-1.0", "evidence_url": origin + "/rights",
