@@ -117,11 +117,14 @@ class OrganizationIndependenceTests(unittest.TestCase):
         blocked = {'Q154', 'Q11416', 'Q154136', 'Q11639'}
         expected = [section['id'] for section in load_sections()['sections']]
         present = [section['id'] for section in graph['sections']]
-        if present != expected:
-            return
-        for section, _subsection, concept in iter_concepts(graph):
+        self.assertEqual(present, expected)
+        seen = set()
+        for _section, _subsection, concept in iter_concepts(graph):
             self.assertNotIn(concept['wikidata'], blocked)
             self.assertEqual(concept['id'], f"concept.{concept['wikidata'].lower()}")
+            self.assertNotIn(concept['id'], seen)
+            seen.add(concept['id'])
+        self.assertGreaterEqual(len(seen), 5000)
         for section in graph['sections']:
             count = sum(len(item['concepts']) for item in section['subsections'])
-            self.assertGreaterEqual(count, 200, section['id'])
+            self.assertGreaterEqual(count, 15, section['id'])

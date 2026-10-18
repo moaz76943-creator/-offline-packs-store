@@ -22,7 +22,7 @@ Sentence source: issue titled `Source decision: Tatoeba`. Only `moaz76943-creato
 
 ## Organization coverage
 
-Language profiles: 100 registry languages. Concept fill is 0 until a licensed record names a concept in the graph. Open gaps are the unfilled concept slots. No word is invented to close a gap.
+Language profiles: 100 registry languages. Concept graph: 5,182 Wikidata-anchored concepts across 20 sections. Redistributable concept fill: 0. Open concept gaps: 5,182 per language, 518,200 across the registry. No word is invented to close a gap. Shopping has 15 concepts because that is the Wikidata instance/subclass count for its class, not a padded list.
 
 | Source | Stated license | Ledger-compatible | Candidate rows |
 | --- | --- | --- | --- |
