@@ -44,6 +44,16 @@
         "notation": {"enum": ["ipa", "phonetic", "romanization", "other"]},
         "value": {"$ref": "#/$defs/text"},
         "offline_voice_support": {"enum": ["installed", "unknown", "unsupported"]},
+        "offline_voice_scope": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["device", "platform", "capability"],
+          "properties": {
+            "device": {"type": "string", "minLength": 1},
+            "platform": {"type": "string", "minLength": 1},
+            "capability": {"type": "string", "minLength": 1}
+          }
+        },
         "source": {"$ref": "#/$defs/source"}
       }
     }
