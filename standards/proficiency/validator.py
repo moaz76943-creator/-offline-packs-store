@@ -6,64 +6,18 @@ assignment or a source identity and version already present in frameworks.json.
 Neither path treats the submitted metadata as its own proof.
 """
 import json
-import re
 from pathlib import Path
 from typing import Any, Dict
-from urllib.parse import urlparse
+
+import jsonschema
 
 CLASSIFIED_LEVELS = ("A1", "A2", "B1", "B2", "C1", "C2")
-_TYPES = {
-    "object": lambda v: isinstance(v, dict),
-    "string": lambda v: isinstance(v, str),
-    "boolean": lambda v: isinstance(v, bool),
-    "number": lambda v: isinstance(v, (int, float)) and not isinstance(v, bool),
-}
-
 
 class ProficiencyValidationError(ValueError):
     """Exception raised for validation errors in proficiency metadata."""
 
-
 def _fail_schema(message: str) -> None:
     raise ProficiencyValidationError(f"Schema validation failed: {message}")
-
-
-def _check_schema(value: Any, spec: dict, path: str = "$") -> None:
-    """Interpret the keywords used by metadata.schema.json. No third-party package."""
-    expected = spec.get("type")
-    if isinstance(expected, str):
-        expected = [expected]
-    if expected and not any(_TYPES[kind](value) for kind in expected):
-        _fail_schema(f"type mismatch at {path}")
-    if "enum" in spec and value not in spec["enum"]:
-        _fail_schema(f"unknown value at {path}")
-    if isinstance(value, str):
-        if len(value) < spec.get("minLength", 0):
-            _fail_schema(f"text too short at {path}")
-        pattern = spec.get("pattern")
-        if pattern and re.fullmatch(pattern, value) is None:
-            _fail_schema(f"invalid text at {path}")
-        if spec.get("format") == "uri":
-            parsed = urlparse(value)
-            if parsed.scheme not in {"http", "https"} or not parsed.netloc:
-                _fail_schema(f"invalid URI at {path}")
-    if isinstance(value, (int, float)) and not isinstance(value, bool):
-        if "minimum" in spec and value < spec["minimum"]:
-            _fail_schema(f"numeric bound at {path}")
-        if "maximum" in spec and value > spec["maximum"]:
-            _fail_schema(f"numeric bound at {path}")
-    if isinstance(value, dict):
-        for key in spec.get("required", []):
-            if key not in value:
-                _fail_schema(f"missing {path}.{key}")
-        properties = spec.get("properties", {})
-        for key, child in value.items():
-            if key not in properties:
-                if spec.get("additionalProperties") is False:
-                    _fail_schema(f"unexpected {path}.{key}")
-                continue
-            _check_schema(child, properties[key], f"{path}.{key}")
-
 
 class ProficiencyValidator:
     def __init__(self, *, trusted_framework_mappings=None, approved_assignments=None,
@@ -104,7 +58,11 @@ class ProficiencyValidator:
         """Validate proficiency metadata against the schema and independent evidence."""
         if not isinstance(metadata, dict):
             _fail_schema("metadata must be an object")
-        _check_schema(metadata, self.schema)
+
+        try:
+            jsonschema.validate(instance=metadata, schema=self.schema)
+        except jsonschema.exceptions.ValidationError as e:
+            _fail_schema(e.message)
 
         label_status = metadata["label_status"]
         cefr_level = metadata["cefr_level"]

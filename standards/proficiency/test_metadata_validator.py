@@ -1,16 +1,34 @@
 import unittest
-from standards.proficiency.validator import ProficiencyValidator, ProficiencyValidationError
+
+from standards.proficiency.validator import ProficiencyValidationError, ProficiencyValidator
+
 
 class TestProficiencyValidator(unittest.TestCase):
     def setUp(self):
         self.validator = ProficiencyValidator(
-            trusted_framework_mappings={"en":"CEFR"},
+            trusted_framework_mappings={"en": "CEFR"},
             approved_assignments={
-                "TEST_SOURCE_01": {"language":"en", "target_id":"lex.demo", "classification_target":"entry",
-                                   "source_version":"1.0", "cefr_level":"B2", "review_status":"approved"},
-                "TEST_SOURCE_03": {"language":"en", "target_id":"lex.demo", "classification_target":"entry",
-                                   "source_version":"1.0", "cefr_level":"C2", "review_status":"approved"}
-            })
+                "TEST_SOURCE_01": {
+                    "language": "en",
+                    "target_id": "lex.demo",
+                    "classification_target": "entry",
+                    "source_version": "1.0",
+                    "cefr_level": "B2",
+                    "review_status": "approved"
+                },
+                "TEST_SOURCE_03": {
+                    "language": "en",
+                    "target_id": "lex.demo",
+                    "classification_target": "entry",
+                    "source_version": "1.0",
+                    "cefr_level": "C2",
+                    "review_status": "approved"
+                }
+            },
+            trusted_sources={
+                "COE-CEFR-2020": {"source_id": "COE-CEFR-2020", "version": "2020 Companion volume"}
+            }
+        )
 
     def test_valid_verified_metadata(self):
         metadata = {
@@ -31,14 +49,13 @@ class TestProficiencyValidator(unittest.TestCase):
                 "source_version": "1.0"
             }
         }
-        # Should not raise
         self.validator.validate(metadata)
 
     def test_valid_estimated_metadata(self):
         metadata = {
             "schema_version": "1.0.0",
             "language": "es",
-            "classification_target": "example",
+            "classification_target": "entry",
             "target_id": "lex.demo",
             "label_status": "estimated",
             "cefr_level": "A1",
@@ -71,7 +88,7 @@ class TestProficiencyValidator(unittest.TestCase):
         }
         self.validator.validate(metadata)
 
-    def test_missing_source_evidence(self):
+    def test_missing_source_evidence_raises(self):
         metadata = {
             "schema_version": "1.0.0",
             "language": "en",
@@ -278,5 +295,150 @@ class TestProficiencyValidator(unittest.TestCase):
             self.validator.validate(metadata)
         self.assertIn("Schema validation failed", str(ctx.exception))
 
+    def test_valid_a1_level(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo.a1",
+            "label_status": "estimated",
+            "cefr_level": "A1",
+            "coarse_difficulty": {
+                "beginner": True,
+                "intermediate": False,
+                "advanced": False
+            },
+            "evaluation_method": "descriptor_guided_review",
+            "source_evidence": {
+                "source_id": "COE-CEFR-2020",
+                "source_version": "2020 Companion volume"
+            }
+        }
+        self.validator.validate(metadata)
+
+    def test_valid_a2_level(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo.a2",
+            "label_status": "estimated",
+            "cefr_level": "A2",
+            "coarse_difficulty": {
+                "beginner": True,
+                "intermediate": False,
+                "advanced": False
+            },
+            "evaluation_method": "descriptor_guided_review",
+            "source_evidence": {
+                "source_id": "COE-CEFR-2020",
+                "source_version": "2020 Companion volume"
+            }
+        }
+        self.validator.validate(metadata)
+
+    def test_valid_b1_level(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo.b1",
+            "label_status": "estimated",
+            "cefr_level": "B1",
+            "coarse_difficulty": {
+                "beginner": False,
+                "intermediate": True,
+                "advanced": False
+            },
+            "evaluation_method": "descriptor_guided_review",
+            "source_evidence": {
+                "source_id": "COE-CEFR-2020",
+                "source_version": "2020 Companion volume"
+            }
+        }
+        self.validator.validate(metadata)
+
+    def test_valid_c1_level(self):
+        self.validator.approved_assignments["TEST_SOURCE_C1"] = {
+            "language": "en",
+            "target_id": "lex.demo.c1",
+            "classification_target": "entry",
+            "source_version": "1.0",
+            "cefr_level": "C1",
+            "review_status": "approved"
+        }
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo.c1",
+            "label_status": "verified",
+            "cefr_level": "C1",
+            "coarse_difficulty": {
+                "beginner": False,
+                "intermediate": False,
+                "advanced": True
+            },
+            "evaluation_method": "published_content_assignment",
+            "source_evidence": {
+                "source_id": "TEST_SOURCE_C1",
+                "source_version": "1.0"
+            }
+        }
+        self.validator.validate(metadata)
+
+    def test_unknown_difficulty_unverified(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo.unknown",
+            "label_status": "unverified",
+            "cefr_level": "unknown",
+            "coarse_difficulty": {
+                "beginner": False,
+                "intermediate": False,
+                "advanced": False
+            }
+        }
+        self.validator.validate(metadata)
+
 if __name__ == "__main__":
     unittest.main()
+
+    def test_missing_source_evidence(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo",
+            "label_status": "verified",
+            "cefr_level": "C1",
+            "coarse_difficulty": {
+                "beginner": False,
+                "intermediate": False,
+                "advanced": True
+            },
+            "evaluation_method": "published_content_assignment"
+        }
+        with self.assertRaises(ProficiencyValidationError) as ctx:
+            self.validator.validate(metadata)
+        self.assertIn("Verified and estimated labels must have source evidence", str(ctx.exception))
+
+    def test_wrong_language_metadata_raises(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "nonexistent",
+            "classification_target": "entry",
+            "target_id": "lex.demo",
+            "label_status": "unverified",
+            "cefr_level": "unknown",
+            "coarse_difficulty": {
+                "beginner": False,
+                "intermediate": False,
+                "advanced": False
+            }
+        }
+        with self.assertRaises(ProficiencyValidationError) as ctx:
+            self.validator.validate(metadata)
+        self.assertIn("Schema validation failed", str(ctx.exception))
