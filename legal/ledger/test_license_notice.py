@@ -50,6 +50,17 @@ class LicenseNoticeTests(unittest.TestCase):
         self.assertFalse(self.conflicts('CC BY-SA 4.0 only.', 'CC-BY-SA-4.0'))
         self.assertTrue(self.conflicts('CC BY-SA 4.0 only.', 'CC0-1.0'))
 
+    def test_cc_by_2_0_fr_is_not_sharealike(self):
+        notice = 'Creative Commons Attribution 2.0 France license (CC-BY 2.0 FR)'
+        found = detected_licenses(notice)
+        self.assertIn('CC-BY-2.0-FR', found)
+        self.assertNotIn('CC-BY-SA-4.0', found)
+        self.assertFalse(self.conflicts(notice, 'CC-BY-2.0-FR'))
+        self.assertTrue(self.conflicts(notice, 'CC-BY-SA-4.0'))
+        self.assertNotIn('CC-BY-2.0-FR', detected_licenses('CC BY-SA 4.0 and GFDL'))
+        self.assertTrue(self.conflicts('CC BY-SA 4.0 and GFDL', 'CC-BY-2.0-FR'))
+        self.assertNotIn('CC-BY-2.0-FR', detected_licenses('CC BY-SA 2.0'))
+
     def test_cc_by_sa_3_0_is_not_relabeled_as_4_0(self):
         found = detected_licenses('CC BY-SA 3.0 Unported')
         self.assertNotIn('CC-BY-SA-4.0', found)
