@@ -118,6 +118,22 @@ class LinguisticsTests(unittest.TestCase):
         with self.assertRaises(LinguisticError):
             validate_form({**x,'components':['']},{'de'})
 
+    def test_transliteration_passes_form_and_stream_qa(self):
+        attested=form('ar','كُتُب',lemma='كِتَاب',features={'number':'plural'},transliteration='kutub')
+        self.assertTrue(validate_form(attested, {'ar'}))
+        with self.assertRaises(LinguisticError):
+            validate_form({**attested,'transliteration':'bad\x00'}, {'ar'})
+        with self.assertRaises(LinguisticError):
+            validate_form({**attested,'transliteration':'   '}, {'ar'})
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'forms.jsonl'
+            raw=(json.dumps(attested,ensure_ascii=False)+'\n').encode()
+            p.write_bytes(raw)
+            report=audit_stream(p, hashlib.sha256(raw).hexdigest(), {'ar'}, 'fixture-evidence')
+        self.assertEqual('QA_ONLY_BLOCKED_SOURCE', report['status'])
+        self.assertEqual(1, report['records'])
+        self.assertFalse(report['distributable'])
+
 
 if __name__=='__main__':
     unittest.main()

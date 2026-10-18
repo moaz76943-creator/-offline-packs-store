@@ -16,7 +16,7 @@ from pathlib import Path
 FIELDS = frozenset(('language_code','lemma_id','sense_id','lemma','form','features',
                     'root','pattern','processes','components','morphemes',
                     'vowel_harmony_class','segmentation','script',
-                    'orthographic_variant','source_id','evidence_version'))
+                    'orthographic_variant','transliteration','source_id','evidence_version'))
 REQUIRED = frozenset(('language_code','lemma_id','sense_id','lemma','form',
                       'features','source_id','evidence_version'))
 PERSON = frozenset(('first','second','third'))
@@ -57,7 +57,7 @@ def validate_form(record, registered_languages, *, pos=None):
         raise LinguisticError('features must be a map')
     for name,value in features.items():
         _text(name,'feature name');_text(value,'feature value')
-    for key in ('root','pattern','vowel_harmony_class','script','orthographic_variant'):
+    for key in ('root','pattern','vowel_harmony_class','script','orthographic_variant','transliteration'):
         if key in record:
             _text(record[key],key)
     for key in ('processes','components','segmentation'):
