@@ -32,3 +32,17 @@ class ExportReportTests(AdapterTests):
         self.assertEqual(data['languages']['ar']['accepted_lexemes'], 2)
         with self.assertRaisesRegex(ValueError, 'DUPLICATE'):
             coverage(self.root, [receipt, receipt])
+
+    def test_alternate_shard_layouts_are_conflicts_not_sums(self):
+        from tools.factory_extensions.lexical_scale.report import coverage
+        base = {
+            'status': 'REVIEW_REQUIRED', 'language': 'ar', 'source_id': 'fixture.lex',
+            'source_sha256': 'ab' * 32, 'complete': True, 'source_rows': 4,
+            'accepted_lexemes': 2, 'accepted_senses': 2, 'rejected_rows': 0,
+            'coverage_gaps': [],
+        }
+        single = dict(base, shard=0, shards=1, checkpoint_id='layout-1')
+        split = [dict(base, shard=index, shards=2, checkpoint_id=f'layout-2-{index}')
+                 for index in range(2)]
+        with self.assertRaisesRegex(ValueError, 'CONFLICTING_SHARD_LAYOUT'):
+            coverage(self.root, [single, *split])

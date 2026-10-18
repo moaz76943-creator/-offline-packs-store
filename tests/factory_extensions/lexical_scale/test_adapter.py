@@ -148,6 +148,24 @@ class AdapterTests(unittest.TestCase):
         self.assertEqual(sum(x['rejected_rows'] for x in results), 1)
         self.assertEqual(sum(x['accepted_lexemes'] for x in results), 1)
 
+    def test_romanization_and_foreign_script_are_not_inflections(self):
+        row = dict(self.rows[0])
+        row['forms'] = [
+            {'form': 'أعلام', 'tags': ['plural']},
+            {'form': 'alam', 'tags': ['romanization']},
+            {'form': 'flag', 'tags': ['plural']},
+            {'form': 'عَلَم', 'tags': ['romanization']},
+        ]
+        self.write_rows([row])
+        self.source['retrieval']['sha256'] = sha((self.root / 'evidence/data.jsonl').read_bytes())
+        self.ledger([self.source])
+        self.run_ingestion()
+        with sqlite3.connect(self.db) as cx:
+            lexemes = [json.loads(item[0]) for item in cx.execute('select payload from lexemes')]
+        surfaces = [form['surface'] for lex in lexemes
+                    for form in lex.get('morphology', {}).get('inflections', [])]
+        self.assertEqual(surfaces, ['أعلام'])
+
     def test_detect_uniform_counts_as_warning_only(self):
         d = {x: {'accepted_lexemes': 2500, 'source_rows': 3200} for x in ('ar','de','en','es')}
         self.assertIn('SUSPICIOUS_UNIFORM_COUNTS', a.quality_flags(d))

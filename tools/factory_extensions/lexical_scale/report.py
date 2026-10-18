@@ -27,9 +27,12 @@ def coverage(root, receipts):
         # Every independent shard scans the complete input; source rows must not be summed.
         by_source = {}
         for x in entries:
-            group = by_source.setdefault((x['source_id'], x['source_sha256'], x['shards']), [])
+            # Shard count is a layout of one snapshot, not a different source.
+            group = by_source.setdefault((x['source_id'], x['source_sha256']), [])
             group.append(x)
         for group in by_source.values():
+            if len({x['shards'] for x in group}) != 1:
+                raise ValueError('CONFLICTING_SHARD_LAYOUT')
             if len(group) != group[0]['shards'] or {x['shard'] for x in group} != set(range(group[0]['shards'])):
                 raise ValueError('INCOMPLETE_SHARD_SET')
             if len({x['source_rows'] for x in group}) != 1:

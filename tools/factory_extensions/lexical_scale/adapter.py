@@ -118,7 +118,10 @@ def attested(row, lang, script, source, line):
             tags = form.get('tags', [])
             if not isinstance(tags, list) or not all(isinstance(t, str) for t in tags):
                 continue
-            if any(tag in ('canonical', 'table-tags') for tag in tags):
+            if any(tag in ('canonical', 'table-tags', 'romanization') for tag in tags):
+                continue
+            # Inflections must use the headword script. Latin transliterations are not Arabic forms.
+            if not gha01.script_valid(form['form'], script):
                 continue
             features = {'tag_' + str(i): tag for i, tag in enumerate(tags[:20])}
             item = {'surface': form['form'], 'features': features, 'attested': True, 'source': src}
