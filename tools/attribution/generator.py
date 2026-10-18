@@ -85,8 +85,13 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
         if sid in unique:
             raise ValueError("Duplicate source reference " + sid)
         unique.add(sid)
+
+        author = source.get("author")
+        if not author or not str(author).strip():
+            raise ValueError("Missing author for source " + sid)
+
         records.append({
-            "source_id": sid, "publisher": source["publisher"],
+            "source_id": sid, "author": author, "publisher": source["publisher"],
             "origin_url": source["origin_url"], "dataset_version": source["dataset_version"],
             "artifact_sha256": source["retrieval"]["sha256"],
             "retrieval_identity": source["retrieval"]["identity"],
@@ -104,6 +109,7 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
     for r in records:
         notices[r["notice_file"]] = "\n".join([
             "Source: " + r["source_id"],
+            "Author: " + r["author"],
             "Publisher: " + r["publisher"],
             "Origin: " + r["origin_url"],
             "Version: " + r["dataset_version"],
