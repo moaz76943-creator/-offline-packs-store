@@ -1,11 +1,72 @@
 """Source-accurate attribution output; never approves redistribution."""
 import argparse
 import json
+import os
+import secrets
+import stat
 from pathlib import Path
 
 from tools.contribution_gate.evidence import (
     exact_source_reference, verified_sources
 )
+
+def _write_notices_safely(out_dir, files):
+    """Stage notices with fd-relative, no-follow operations; manifest is written last.
+
+    Neither output directory components nor existing output files may be symlinks.
+    A completed attribution.json is the final commit marker of the batch.
+    """
+    directory = Path(out_dir).absolute()
+    if ".." in directory.parts:
+        raise ValueError("Parent traversal in attribution output path")
+    names = list(files)
+    if any(not name or name in (".", "..") or "/" in name or "\\" in name for name in names):
+        raise ValueError("Unsafe attribution output filename")
+    if "attribution.json" not in files:
+        raise ValueError("Attribution manifest required")
+
+    folder_flag = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+    folder_fd = os.open("/", folder_flag)
+    staged = {}
+    try:
+        for part in directory.parts[1:]:
+            if part in ("", "."):
+                continue
+            try:
+                next_fd = os.open(part, folder_flag, dir_fd=folder_fd)
+            except FileNotFoundError:
+                os.mkdir(part, mode=0o700, dir_fd=folder_fd)
+                next_fd = os.open(part, folder_flag, dir_fd=folder_fd)
+            os.close(folder_fd)
+            folder_fd = next_fd
+        # Preflight all destinations before changing any of them.
+        for name in names:
+            try:
+                info = os.stat(name, dir_fd=folder_fd, follow_symlinks=False)
+            except FileNotFoundError:
+                continue
+            if not stat.S_ISREG(info.st_mode):
+                raise ValueError("Attribution destination is a symlink or non-file: " + name)
+        for name in names:
+            temporary = ".rights-attribution-" + secrets.token_hex(16)
+            fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW,
+                         mode=0o600, dir_fd=folder_fd)
+            staged[name] = temporary
+            with os.fdopen(fd, "wb") as handle:
+                handle.write(files[name].encode("utf-8"))
+                handle.flush()
+                os.fsync(handle.fileno())
+        for name in [n for n in names if n != "attribution.json"] + ["attribution.json"]:
+            os.replace(staged[name], name, src_dir_fd=folder_fd, dst_dir_fd=folder_fd)
+            del staged[name]
+    finally:
+        for temporary in staged.values():
+            try:
+                os.unlink(temporary, dir_fd=folder_fd)
+            except FileNotFoundError:
+                pass
+        os.close(folder_fd)
+
 
 def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
     if repo_root is None:
@@ -24,8 +85,13 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
         if sid in unique:
             raise ValueError("Duplicate source reference " + sid)
         unique.add(sid)
+
+        author = source.get("author")
+        if not author or not str(author).strip():
+            raise ValueError("Missing author for source " + sid)
+
         records.append({
-            "source_id": sid, "publisher": source["publisher"],
+            "source_id": sid, "author": author, "publisher": source["publisher"],
             "origin_url": source["origin_url"], "dataset_version": source["dataset_version"],
             "artifact_sha256": source["retrieval"]["sha256"],
             "retrieval_identity": source["retrieval"]["identity"],
@@ -39,11 +105,11 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
             "notice_file": sid + "_notice.txt"
         })
     records.sort(key=lambda r: r["source_id"])
-    output = Path(out_dir)
-    output.mkdir(parents=True, exist_ok=True)
+    notices = {}
     for r in records:
-        notice = "\n".join([
+        notices[r["notice_file"]] = "\n".join([
             "Source: " + r["source_id"],
+            "Author: " + r["author"],
             "Publisher: " + r["publisher"],
             "Origin: " + r["origin_url"],
             "Version: " + r["dataset_version"],
@@ -56,10 +122,9 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
             "Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"],
             "Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True)
         ]) + "\n"
-        (output / r["notice_file"]).write_text(notice, encoding="utf-8")
-    (output / "attribution.json").write_text(
-        json.dumps(records, sort_keys=True, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8")
+    notices["attribution.json"] = json.dumps(
+        records, sort_keys=True, ensure_ascii=False, indent=2) + "\n"
+    _write_notices_safely(out_dir, notices)
     return records
 
 def main(argv=None):
