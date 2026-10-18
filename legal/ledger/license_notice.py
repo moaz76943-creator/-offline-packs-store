@@ -21,6 +21,10 @@ _MARKERS = (
     ('CC-BY-SA-4.0', 'cc-by-sa-4-0', False),
     ('CC-BY-SA-4.0', 'attribution-sharealike-4-0', False),
     ('CC-BY-SA-4.0', 'cc-by-sa', True),
+    # French 2.0 Attribution port. Not share-alike, and not a match for CC-BY-SA.
+    ('CC-BY-2.0-FR', 'cc-by-2-0-fr', False),
+    ('CC-BY-2.0-FR', 'creative-commons-attribution-2-0-france', False),
+    ('CC-BY-2.0-FR', 'attribution-2-0-france', False),
     ('GFDL-1.3-only', 'gfdl-1-3', False),
     ('GFDL-1.3-only', 'gnu-free-documentation-license-version-1-3', False),
     ('GFDL-1.3-only', 'gnu-free-documentation-license-1-3', False),

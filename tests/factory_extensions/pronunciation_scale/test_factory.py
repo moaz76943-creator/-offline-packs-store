@@ -9,6 +9,7 @@ import wave
 from tools.factory_extensions.pronunciation_scale.factory import (
     AUDIO_LIMIT, EVIDENCE_LIMIT, admit_package, audit, offline_tts_ready, package,
 )
+from legal.ledger.synthetic import synthetic_source
 
 
 class PronunciationAuditTests(unittest.TestCase):
@@ -31,16 +32,10 @@ class PronunciationAuditTests(unittest.TestCase):
         self.license_path.write_text("synthetic rights evidence fixture", encoding="utf-8")
         self.source_path = self.root / "source.txt"
         self.source_path.write_text("synthetic original fixture", encoding="utf-8")
-        self.ledger = {"schema_version": "1.0.0", "sources": [{
-            "source_id": "synthetic_source", "kind": "pronunciation", "status": "APPROVED_FOR_REDISTRIBUTION",
-            "publisher": "Synthetic publisher", "dataset_version": "v1",
-            "origin_url": "https://example.org/original", "review": {"reviewer": "Fixture", "decision_url": "https://example.org/review"},
-            "retrieval": {"identity": "fixture-snapshot-v1", "url": "https://example.org/original", "date": "2026-10-12",
-                          "artifact_path": "source.txt", "sha256": hashlib.sha256(self.source_path.read_bytes()).hexdigest()},
-            "license": {"id": "CC0-1.0", "evidence_url": "https://example.org/rights", "evidence_path": "license.txt",
-                        "evidence_sha256": hashlib.sha256(self.license_path.read_bytes()).hexdigest()},
-            "alterations": ["none"],
-        }]}
+        self.ledger = {"schema_version": "1.0.0", "sources": [
+            synthetic_source(self.root, source_id="synthetic_source", kind="pronunciation",
+                             publisher="Synthetic publisher", dataset_version="v1")
+        ]}
         self.lexical = {
             "lexemes": {"lex_de_1": "de", "lex_ar_1": "ar", "lex_zh_1": "zh"},
             "senses": {"sense_de_1": "lex_de_1", "sense_ar_1": "lex_ar_1", "sense_zh_1": "lex_zh_1"},
