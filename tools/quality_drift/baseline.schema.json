@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEUTSCH Quality Drift Baseline v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "version",
+    "branch",
+    "head_sha",
+    "repository",
+    "data_class",
+    "approval",
+    "metrics",
+    "source_refs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+    },
+    "branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "head_sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "repository": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "data_class": {
+      "enum": [
+        "production",
+        "fixture"
+      ]
+    },
+    "previous_digest": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "approval": {
+      "type": "object",
+      "required": [
+        "status",
+        "evidence_url"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "APPROVED",
+            "PENDING",
+            "REJECTED"
+          ]
+        },
+        "evidence_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "source_refs": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "repository",
+          "head_sha",
+          "branch"
+        ],
+        "properties": {
+          "repository": {
+            "type": "string"
+          },
+          "head_sha": {
+            "type": "string"
+          },
+          "branch": {
+            "type": "string"
+          },
+          "sanitized_export": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "status",
+          "value",
+          "source",
+          "evidence_url"
+        ],
+        "properties": {
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_RUN",
+              "UNKNOWN",
+              "STALE"
+            ]
+          },
+          "value": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "source": {
+            "type": "string"
+          },
+          "evidence_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence_sha": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "test_fixture": {
+            "type": "boolean"
+          },
+          "measurement_method": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "status": "research_backlog_only_no_rules_approved",
+  "languages": {
+    "de": [
+      "case-marking",
+      "separable-verbs",
+      "adjective-endings",
+      "clause-order"
+    ],
+    "ar": [
+      "root-pattern-morphology",
+      "agreement",
+      "case-in-context"
+    ],
+    "sw": [
+      "noun-class-agreement",
+      "verbal-prefixes"
+    ],
+    "zu": [
+      "noun-class-agreement"
+    ],
+    "xh": [
+      "noun-class-agreement"
+    ],
+    "tr": [
+      "vowel-harmony",
+      "suffix-order"
+    ],
+    "az": [
+      "vowel-harmony",
+      "suffix-order"
+    ],
+    "ru": [
+      "lexical-aspect"
+    ],
+    "zh": [
+      "classifiers",
+      "aspect-markers",
+      "tone-readings"
+    ],
+    "ja": [
+      "counters",
+      "honorifics",
+      "particles"
+    ],
+    "ko": [
+      "honorifics",
+      "speech-levels"
+    ],
+    "vi": [
+      "tone-readings",
+      "classifiers"
+    ],
+    "th": [
+      "tone-readings",
+      "classifiers"
+    ],
+    "id": [
+      "affixation",
+      "clause-structure"
+    ],
+    "tl": [
+      "focus-system",
+      "verbal-aspect"
+    ]
+  }
+}
