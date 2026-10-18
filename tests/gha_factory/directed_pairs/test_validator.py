@@ -8,7 +8,7 @@ from unittest.mock import patch
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / 'tools' / 'gha_factory' / 'directed_pairs'))
-from validator import PILOT, PairError, audit_pairs, main
+from validator import PILOT, PairError, _pin_verified, audit_pairs, main
 
 
 def digest(raw):
@@ -58,6 +58,14 @@ class PairValidationTests(unittest.TestCase):
         doc = json.loads(self.inputs['candidates'].decode())
         doc.update(kwargs)
         self.inputs['candidates'] = (json.dumps(doc, ensure_ascii=False) + '\n').encode()
+
+    def test_pinned_copy_ignores_a_later_replacement(self):
+        raw = self.inputs['detailed']
+        path = self.dir / 'detailed.txt'
+        path.write_bytes(raw)
+        pinned = _pin_verified(path, digest(raw), self.dir)
+        path.write_bytes(b'99\teng\treplaced\tauthor\tcreated\tupdated\n')
+        self.assertEqual(pinned.read_bytes(), raw)
 
     def test_explicit_direct_reciprocal_is_only_review_candidate(self):
         report = self.audit()

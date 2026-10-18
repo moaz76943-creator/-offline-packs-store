@@ -42,6 +42,41 @@ def _verify(path, sha):
         raise PairError('SOURCE_SHA_MISMATCH')
 
 
+def _pin_verified(path, sha, directory):
+    """Hash and copy from one open file so a later replacement cannot be parsed."""
+    if not isinstance(sha, str) or not SHA.fullmatch(sha):
+        raise PairError('INVALID_SOURCE_SHA')
+    source = Path(path)
+    if not source.is_file() or source.is_symlink():
+        raise PairError('SOURCE_SHA_MISMATCH')
+    dest = Path(directory) / f'{sha}.pinned'
+    suffix = 0
+    while dest.exists():
+        suffix += 1
+        dest = Path(directory) / f'{sha}-{suffix}.pinned'
+    digest = hashlib.sha256()
+    flags = os.O_RDONLY
+    if hasattr(os, 'O_NOFOLLOW'):
+        flags |= os.O_NOFOLLOW
+    try:
+        fd = os.open(source, flags)
+    except OSError as exc:
+        raise PairError('SOURCE_SHA_MISMATCH') from exc
+    try:
+        with os.fdopen(fd, 'rb') as stream, dest.open('wb') as out:
+            for part in iter(lambda: stream.read(65_536), b''):
+                digest.update(part)
+                out.write(part)
+    except OSError as exc:
+        dest.unlink(missing_ok=True)
+        raise PairError('SOURCE_SHA_MISMATCH') from exc
+    if digest.hexdigest() != sha:
+        dest.unlink(missing_ok=True)
+        raise PairError('SOURCE_SHA_MISMATCH')
+    os.chmod(dest, 0o444)
+    return dest
+
+
 def _json(pairs):
     out = {}
     for key, value in pairs:
@@ -109,11 +144,12 @@ def audit_pairs(detailed, detailed_sha256, links, links_sha256, cc0_file, cc0_sh
         for src, dst in language_map.items()
     ) or any(language_map.get(k) != v for k, v in PILOT.items()) or len(set(language_map.values())) != len(language_map):
         raise PairError('INVALID_CANONICAL_LANGUAGE_MAP')
-    for path, sha in ((detailed, detailed_sha256), (links, links_sha256),
-                      (cc0_file, cc0_sha256), (candidates, candidates_sha256)):
-        _verify(path, sha)
     counters = Counter()
     with tempfile.TemporaryDirectory(prefix='gha-directed-pair-qa-') as directory:
+        detailed, links, cc0_file, candidates = (
+            _pin_verified(path, sha, directory)
+            for path, sha in ((detailed, detailed_sha256), (links, links_sha256),
+                              (cc0_file, cc0_sha256), (candidates, candidates_sha256)))
         with sqlite3.connect(str(Path(directory) / 'lookup.sqlite')) as db:
             db.executescript('''CREATE TABLE sentence(id TEXT PRIMARY KEY,lang TEXT NOT NULL,text TEXT NOT NULL,author TEXT NOT NULL);
                 CREATE TABLE cc0(id TEXT PRIMARY KEY,lang TEXT NOT NULL,text TEXT NOT NULL,modified_at TEXT NOT NULL);
