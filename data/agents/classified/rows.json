@@ -1,4 +1,461 @@
 {
-  "rows": [],
+  "rows": [
+    {
+      "concept_id": "concept.q105688",
+      "forms": [
+        "hypoksi",
+        "hypoksien"
+      ],
+      "language": "da",
+      "lemma": "hypoksi",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L641176",
+      "pos": "",
+      "qids": [
+        "Q105688"
+      ],
+      "record_id": "L641176",
+      "retrieval_date": "2026-10-18",
+      "revision": "1568742694",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L641176-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q105688",
+      "forms": [
+        "hypoxia",
+        "hypoxias"
+      ],
+      "language": "en",
+      "lemma": "hypoxia",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L102219",
+      "pos": "",
+      "qids": [
+        "Q1641506",
+        "Q105688"
+      ],
+      "record_id": "L102219",
+      "retrieval_date": "2026-10-18",
+      "revision": "2549910771",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L102219-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q12199",
+      "forms": [
+        "AIDS",
+        "Aids"
+      ],
+      "language": "en",
+      "lemma": "AIDS",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L315899",
+      "pos": "",
+      "qids": [
+        "Q12199"
+      ],
+      "record_id": "L315899",
+      "retrieval_date": "2026-10-18",
+      "revision": "2466148915",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L315899-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q193211",
+      "forms": [
+        "cyst",
+        "cysts"
+      ],
+      "language": "en",
+      "lemma": "cyst",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L16615",
+      "pos": "",
+      "qids": [
+        "Q193211"
+      ],
+      "record_id": "L16615",
+      "retrieval_date": "2026-10-18",
+      "revision": "2549811883",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L16615-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q193211"
+    },
+    {
+      "concept_id": "concept.q105688",
+      "forms": [
+        "hypoxie",
+        "hypoxies"
+      ],
+      "language": "fr",
+      "lemma": "hypoxie",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1583885",
+      "pos": "",
+      "qids": [
+        "Q105688"
+      ],
+      "record_id": "L1583885",
+      "retrieval_date": "2026-10-18",
+      "revision": "2531652845",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L1583885-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q12199",
+      "forms": [
+        "sida",
+        "sidas"
+      ],
+      "language": "fr",
+      "lemma": "sida",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L562055",
+      "pos": "",
+      "qids": [
+        "Q12199"
+      ],
+      "record_id": "L562055",
+      "retrieval_date": "2026-10-18",
+      "revision": "1791598848",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L562055-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q105688",
+      "forms": [
+        "ipossia",
+        "ipossie"
+      ],
+      "language": "it",
+      "lemma": "ipossia",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1169894",
+      "pos": "",
+      "qids": [
+        "Q105688"
+      ],
+      "record_id": "L1169894",
+      "retrieval_date": "2026-10-18",
+      "revision": "2196550790",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L1169894-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q193211",
+      "forms": [
+        "cisti",
+        "cisti"
+      ],
+      "language": "it",
+      "lemma": "cisti",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1260624",
+      "pos": "",
+      "qids": [
+        "Q193211"
+      ],
+      "record_id": "L1260624",
+      "retrieval_date": "2026-10-18",
+      "revision": "2230330670",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L1260624-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q193211"
+    },
+    {
+      "concept_id": "concept.q12199",
+      "forms": [
+        "dżuma XX wieku",
+        "dżumy XX wieku",
+        "dżumie XX wieku",
+        "dżumę XX wieku",
+        "dżumą XX wieku",
+        "dżumie XX wieku",
+        "dżumo XX wieku",
+        "dżumy XX wieku"
+      ],
+      "language": "pl",
+      "lemma": "dżuma XX wieku",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L35132",
+      "pos": "",
+      "qids": [
+        "Q12199",
+        "Q128135"
+      ],
+      "record_id": "L35132",
+      "retrieval_date": "2026-10-18",
+      "revision": "893436563",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L35132-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q105688",
+      "forms": [
+        "гипоксия",
+        "гипоксии",
+        "гипоксии",
+        "гипоксию",
+        "гипоксией",
+        "гипоксиею",
+        "гипоксии",
+        "гипоксии"
+      ],
+      "language": "ru",
+      "lemma": "гипоксия",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L101093",
+      "pos": "",
+      "qids": [
+        "Q105688"
+      ],
+      "record_id": "L101093",
+      "retrieval_date": "2026-10-18",
+      "revision": "2237393032",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L101093-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q193211",
+      "forms": [
+        "киста",
+        "кисты",
+        "кисте",
+        "кисту",
+        "кистой",
+        "кистою",
+        "кисте",
+        "кисты"
+      ],
+      "language": "ru",
+      "lemma": "киста",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L117003",
+      "pos": "",
+      "qids": [
+        "Q193211"
+      ],
+      "record_id": "L117003",
+      "retrieval_date": "2026-10-18",
+      "revision": "2237314096",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L117003-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q193211"
+    },
+    {
+      "concept_id": "concept.q6279182",
+      "forms": [
+        "припадок",
+        "припадка",
+        "припадку",
+        "припадок",
+        "припадком",
+        "припадке",
+        "припадки",
+        "припадков"
+      ],
+      "language": "ru",
+      "lemma": "припадок",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L151365",
+      "pos": "",
+      "qids": [
+        "Q6279182",
+        "Q102187224",
+        "Q21651863",
+        "Q1970348",
+        "Q12048201"
+      ],
+      "record_id": "L151365",
+      "retrieval_date": "2026-10-18",
+      "revision": "2236659560",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L151365-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q6279182"
+    },
+    {
+      "concept_id": "concept.q12199",
+      "forms": [
+        "aids",
+        "aids"
+      ],
+      "language": "sv",
+      "lemma": "aids",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1508387",
+      "pos": "",
+      "qids": [
+        "Q12199"
+      ],
+      "record_id": "L1508387",
+      "retrieval_date": "2026-10-18",
+      "revision": "2514038017",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L1508387-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q193211",
+      "forms": [
+        "cysta",
+        "cystan",
+        "cystor",
+        "cystorna",
+        "cystas",
+        "cystans",
+        "cystors",
+        "cystornas"
+      ],
+      "language": "sv",
+      "lemma": "cysta",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L487834",
+      "pos": "",
+      "qids": [
+        "Q193211"
+      ],
+      "record_id": "L487834",
+      "retrieval_date": "2026-10-18",
+      "revision": "2504664566",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L487834-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q193211"
+    }
+  ],
   "schema_version": "1.0.0"
 }
