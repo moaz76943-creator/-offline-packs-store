@@ -1,5 +1,20 @@
 {
   "problems": [],
   "schema_version": "1.0.0",
-  "warnings": []
+  "warnings": [
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded",
+    "wikidata.lexemes: notice not loaded"
+  ]
 }
