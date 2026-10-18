@@ -95,6 +95,16 @@ class FontEvidenceTests(unittest.TestCase):
         self.asset.family = "Mixed Families"
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_unmixed_family_name_can_pass(self):
+        self.asset.family = "Unmixed Sans"
+        result = self.check()
+        self.assertEqual(result["status"], "EVIDENCE_PASS", result)
+
+    def test_source_name_containing_unknown_substring_can_pass(self):
+        self.asset.source = "The Unknowns Collective"
+        result = self.check()
+        self.assertEqual(result["status"], "EVIDENCE_PASS", result)
+
     def test_generate_script_mapping(self):
         asset2 = FontAsset(
             id="fixture-font-2", family="Fixture Font 2", source="fixture-publisher",
@@ -127,6 +137,16 @@ class FontEvidenceTests(unittest.TestCase):
         mapping = self.gate.generate_script_mapping([self.asset, asset2, asset_rejected], repo_root=self.root)
         self.assertEqual(mapping.get("Latn"), ["fixture-font", "fixture-font-2"])
         self.assertEqual(mapping.get("Cyrl"), ["fixture-font-2"])
+
+    def test_repeated_script_is_mapped_once(self):
+        self.asset.scripts = ["Latn", "Latn"]
+        mapping = self.gate.generate_script_mapping([self.asset], repo_root=self.root)
+        self.assertEqual(mapping.get("Latn"), ["fixture-font"])
+
+    def test_duplicate_asset_ids_are_rejected(self):
+        twin = FontAsset(**self.asset.__dict__)
+        with self.assertRaises(ValueError):
+            self.gate.generate_script_mapping([self.asset, twin], repo_root=self.root)
 
 if __name__ == "__main__":
     unittest.main()
