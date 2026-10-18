@@ -1,0 +1,180 @@
+# Manual research run only. Classifies a bounded Kaikki sample with Gemini and
+# uploads an unverified candidate artifact. It does not commit, push, retrigger
+# itself, or update manifest.json / legal/ledger.
+name: Build Multilingual Domain Dictionaries
+
+on:
+  workflow_dispatch:
+    inputs:
+      language:
+        description: 'Target language code (de, en, es, fr, ar)'
+        required: true
+        default: 'de'
+        type: string
+      batch_size:
+        description: 'Entries to classify this run (1-25). Safe default is 10.'
+        required: true
+        default: '10'
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dictionary-pipeline-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-dictionary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Processing Dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then python -m pip install -r requirements.txt; fi
+          python -m pip install google-genai google-generativeai
+
+      - name: Validate dispatch inputs
+        shell: bash
+        env:
+          LANGUAGE: ${{ inputs.language }}
+          BATCH_SIZE: ${{ inputs.batch_size }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          set -euo pipefail
+          case "$LANGUAGE" in
+            de|en|es|fr|ar) ;;
+            *)
+              echo "Unsupported language code." >&2
+              exit 1
+              ;;
+          esac
+          case "$BATCH_SIZE" in
+            [1-9]|1[0-9]|2[0-5]) ;;
+            *)
+              echo "batch_size must be an integer from 1 to 25." >&2
+              exit 1
+              ;;
+          esac
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "GEMINI_API_KEY is not set." >&2
+            exit 1
+          fi
+
+      - name: Fetch bounded lexical sample
+        shell: bash
+        env:
+          LANGUAGE: ${{ inputs.language }}
+          BATCH_SIZE: ${{ inputs.batch_size }}
+        run: |
+          set -euo pipefail
+          mkdir -p raw_data dist_packs
+          case "$LANGUAGE" in
+            de) LANG_NAME="German" ;;
+            en) LANG_NAME="English" ;;
+            es) LANG_NAME="Spanish" ;;
+            fr) LANG_NAME="French" ;;
+            ar) LANG_NAME="Arabic" ;;
+            *)
+              echo "Unsupported language code." >&2
+              exit 1
+              ;;
+          esac
+          url="https://kaikki.org/dictionary/${LANG_NAME}/kaikki.org-dictionary-${LANG_NAME}.jsonl"
+          sample="$(mktemp)"
+          # head closes the pipe after BATCH_SIZE lines; curl then exits 23.
+          # Copy PIPESTATUS immediately; the next command replaces it.
+          set +e
+          curl -fSL --retry 3 --retry-delay 2 --connect-timeout 30 --max-time 180 \
+            "$url" | head -n "$BATCH_SIZE" > "$sample"
+          pipeline_status=("${PIPESTATUS[@]}")
+          set -e
+          curl_status="${pipeline_status[0]}"
+          head_status="${pipeline_status[1]}"
+          if [ "$head_status" -ne 0 ]; then
+            echo "Failed to read a bounded dictionary sample." >&2
+            exit 1
+          fi
+          if [ "$curl_status" -ne 0 ] && [ "$curl_status" -ne 23 ]; then
+            echo "Dictionary download failed with curl status ${curl_status}." >&2
+            exit 1
+          fi
+          lines="$(wc -l < "$sample" | tr -d '[:space:]')"
+          if [ "$lines" -lt 1 ]; then
+            echo "Dictionary sample was empty." >&2
+            exit 1
+          fi
+          gzip -c "$sample" > raw_data/dictionary.jsonl.gz
+          rm -f "$sample"
+
+      - name: Process and categorize sample
+        shell: bash
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          LANGUAGE: ${{ inputs.language }}
+          BATCH_SIZE: ${{ inputs.batch_size }}
+        run: |
+          set -euo pipefail
+          python3 tools/build_domain_packs.py \
+            --input raw_data/dictionary.jsonl.gz \
+            --out-dir dist_packs \
+            --lang "$LANGUAGE" \
+            --batch-size "$BATCH_SIZE"
+
+      - name: Label unverified candidate output
+        shell: bash
+        env:
+          LANGUAGE: ${{ inputs.language }}
+          BATCH_SIZE: ${{ inputs.batch_size }}
+        run: |
+          set -euo pipefail
+          python3 - << 'PY'
+          import os
+          from pathlib import Path
+
+          lang = os.environ["LANGUAGE"]
+          batch = os.environ["BATCH_SIZE"]
+          notice = (
+              "UNVERIFIED CANDIDATE / RESEARCH OUTPUT\n"
+              f"Language: {lang}\n"
+              f"Batch size: {batch}\n"
+              "This artifact is model-generated research output from a manual workflow_dispatch run.\n"
+              "It is not production content. Do not commit it to main.\n"
+              "Do not add it to manifest.json or legal/ledger.\n"
+              "It has not been reviewed for accuracy and it is not a license admission.\n"
+          )
+          Path("dist_packs/UNVERIFIED_CANDIDATE_RESEARCH_OUTPUT.txt").write_text(notice, encoding="utf-8")
+          summary = os.environ.get("GITHUB_STEP_SUMMARY")
+          if summary:
+              with open(summary, "a", encoding="utf-8") as handle:
+                  handle.write("## Unverified candidate / research output\n\n")
+                  handle.write(f"Language `{lang}`, batch size `{batch}`.\n\n")
+                  handle.write("Uploaded as an artifact. Not committed to main, manifest.json, or legal/ledger.\n")
+          PY
+
+      - name: Remove raw download
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf raw_data
+
+      - name: Upload unverified candidate artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: unverified-candidate-research-output
+          path: dist_packs/
+          retention-days: 14
+          if-no-files-found: error
