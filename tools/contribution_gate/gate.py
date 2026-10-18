@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from legal.ledger.admission import KINDS, OBLIGATIONS, manual_review, text, url_ok
+from legal.ledger.admission import KINDS, LICENSES, OBLIGATIONS, manual_review, text, url_ok
 from tools.contribution_gate.evidence import (
     EvidenceError, exact_source_reference, load_verified_ledger, required, verified_artifact
 )
@@ -33,12 +33,21 @@ def validate_contribution(manifest_dict, repo_root):
 
         out_lic = manifest_dict.get("output_license_id")
         src_lic = source["license"]["id"]
-        if out_lic == "PUBLIC-DOMAIN" and src_lic == "CC0-1.0":
+        if "output_license_id" in manifest_dict and out_lic not in LICENSES:
+            raise ValueError("unsupported output license")
+        if src_lic in OBLIGATIONS and out_lic != src_lic:
+            raise ValueError(f"{source['source_id']} cannot be relicensed to {out_lic}")
+        if src_lic == "CC0-1.0" and out_lic == "PUBLIC-DOMAIN":
             raise ValueError("CC0 is not a blanket public-domain claim")
+        if out_lic == "PUBLIC-DOMAIN" and src_lic != "PUBLIC-DOMAIN":
+            raise ValueError("public-domain label contradicts original rights")
 
         if src_lic in OBLIGATIONS:
+            compliance = manifest_dict.get("compliance")
+            if not isinstance(compliance, dict):
+                raise ValueError(f"{src_lic} compliance record must be an object")
             for obligation in OBLIGATIONS[src_lic]:
-                if manifest_dict.get("compliance", {}).get(obligation) is not True:
+                if compliance.get(obligation) is not True:
                     raise ValueError(f"{src_lic} requires {obligation}")
 
         if manifest_dict.get("source_identity") != source["source_id"]:

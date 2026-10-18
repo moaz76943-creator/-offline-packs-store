@@ -50,7 +50,11 @@ def verified_sources(ledger, repo_root):
         raise ValueError("Duplicate source identities")
     errors = evaluate(ledger, {"languages": [], "packs": []}, [], Path(repo_root))
     if errors:
-        if any("REVIEW_REQUIRED" in err for err in errors):
+        # Review holds only when every blocker is a review hold. A missing
+        # artifact, malformed record, or hash mismatch stays a hard rejection.
+        review_only = all(
+            isinstance(err, str) and err.startswith("REVIEW_REQUIRED:") for err in errors)
+        if review_only:
             raise EvidenceError("REVIEW_REQUIRED: Ledger evidence rejected: " + "; ".join(errors))
         raise ValueError("Ledger evidence rejected: " + "; ".join(errors))
     return {item["source_id"]: item for item in entries}
