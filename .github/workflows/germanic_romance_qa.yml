@@ -1,0 +1,97 @@
+# Public read-only QA; no corpus downloads, pack writing or publication.
+name: Germanic and Romance Morphology Evidence QA
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/germanic_romance_qa.yml'
+      - 'tools/linguistic_extensions/germanic_romance/**'
+      - 'tests/linguistic_extensions/germanic_romance/**'
+      - 'catalog/language_registry.v1.json'
+      - 'standards/morphology/**'
+      - 'legal/ledger/sources.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: germanic-romance-qa-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate_and_plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      has_shards: ${{ steps.plan.outputs.has_shards }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Scoped synthetic regression suite
+        run: python3 -m unittest discover -s tests/linguistic_extensions/germanic_romance -p 'test_*.py' -v
+      - name: Gate production work on admitted immutable inputs
+        id: plan
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, 'tools/linguistic_extensions/germanic_romance')
+          from engine import EvidenceEngine
+          engine = EvidenceEngine(Path('.'))
+          approved = [sid for sid in engine.sources if engine.eligible_source(sid)]
+          shard_root = Path('tools/linguistic_extensions/germanic_romance/shards')
+          shards = []
+          if approved:
+              for code in sorted(engine.profiles):
+                  if (shard_root / (code + '.jsonl')).is_file():
+                      shards.append({'language': code})
+          eligible = bool(shards)
+          matrix = {'include': shards or [{'language': '__none__'}]}
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+              out.write('matrix=' + json.dumps(matrix, separators=(',', ':')) + '\n')
+              out.write('has_shards=' + str(eligible).lower() + '\n')
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as out:
+              out.write('### Germanic/Romance source-gated morphology QA\n')
+              out.write(f'- registered profiles: {len(engine.profiles)}\n')
+              out.write(f'- locally hash-verified approved sources: {len(approved)}\n')
+              out.write(f'- available input shards: {len(shards)}\n')
+              if not eligible:
+                  out.write('- production dispatch: BLOCKED_NO_ADMITTED_SHARDS (no phantom work)\n')
+          PY
+
+  language_shard:
+    needs: validate_and_plan
+    if: ${{ needs.validate_and_plan.outputs.has_shards == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJson(needs.validate_and_plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Check immutable SHA and audit bounded morphology shard
+        shell: bash
+        env:
+          LANGUAGE: ${{ matrix.language }}
+          PINNED_SHA: ${{ github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$PINNED_SHA"
+          shard="tools/linguistic_extensions/germanic_romance/shards/${LANGUAGE}.jsonl"
+          checkpoint="${RUNNER_TEMP}/morphology/${PINNED_SHA}/${LANGUAGE}.json"
+          python3 tools/linguistic_extensions/germanic_romance/engine.py \
+            --root . --language "$LANGUAGE" --input "$shard" --checkpoint "$checkpoint"
+          echo "### Morphology language: $LANGUAGE" >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~json' >> "$GITHUB_STEP_SUMMARY"
+          cat "$checkpoint" >> "$GITHUB_STEP_SUMMARY"
+          echo '~~~' >> "$GITHUB_STEP_SUMMARY"
