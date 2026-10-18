@@ -214,20 +214,24 @@ class PronunciationAuditTests(unittest.TestCase):
 
     def test_rights_snapshot_is_not_capped_at_audio_limit(self):
         self.assertGreater(EVIDENCE_LIMIT, AUDIO_LIMIT)
-        big = self.root / "rights-large.txt"
-        big.write_bytes(b"R" * (AUDIO_LIMIT + 1))
-        digest = hashlib.sha256(big.read_bytes()).hexdigest()
+        archive = self.root / "source-large.bin"
+        archive.write_bytes(b"A" * (AUDIO_LIMIT + 1))
+        rights = self.root / "rights-large.bin"
+        rights.write_bytes(b"R" * (AUDIO_LIMIT + 1))
         ledger = json.loads(json.dumps(self.ledger))
-        ledger["sources"][0]["license"]["evidence_path"] = "rights-large.txt"
-        ledger["sources"][0]["license"]["evidence_sha256"] = digest
-        result = self.run_audit(ledger=ledger)
+        ledger["sources"][0]["retrieval"]["artifact_path"] = "source-large.bin"
+        ledger["sources"][0]["retrieval"]["sha256"] = hashlib.sha256(archive.read_bytes()).hexdigest()
+        rec = json.loads(json.dumps(self.record))
+        rec["audio"][0]["rights_evidence_path"] = "rights-large.bin"
+        rec["audio"][0]["rights_evidence_sha256"] = hashlib.sha256(rights.read_bytes()).hexdigest()
+        result = self.run_audit([rec], ledger)
         self.assertEqual(result["blocked"], [])
         self.assertEqual(result["accepted"][0]["asset_id"], "asset_1")
-        huge = self.root / "rights-huge.txt"
+        huge = self.root / "source-huge.bin"
         huge.write_bytes(b"H" * (EVIDENCE_LIMIT + 1))
-        ledger["sources"][0]["license"]["evidence_path"] = "rights-huge.txt"
-        ledger["sources"][0]["license"]["evidence_sha256"] = hashlib.sha256(huge.read_bytes()).hexdigest()
-        self.assertIn("source_not_approved", self.run_audit(ledger=ledger)["blocked"][0]["reasons"])
+        ledger["sources"][0]["retrieval"]["artifact_path"] = "source-huge.bin"
+        ledger["sources"][0]["retrieval"]["sha256"] = hashlib.sha256(huge.read_bytes()).hexdigest()
+        self.assertIn("source_not_approved", self.run_audit([rec], ledger)["blocked"][0]["reasons"])
 
     def _daily_candidate(self, digest, **overrides):
         notice = self.root / "notice.txt"
