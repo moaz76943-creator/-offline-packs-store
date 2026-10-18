@@ -6,6 +6,12 @@ on:
       - 'tools/factory_extensions/pronunciation_scale/**'
       - 'tests/factory_extensions/pronunciation_scale/**'
       - '.github/workflows/pronunciation_scale_qa.yml'
+      - 'catalog/language_registry.v1.json'
+      - 'legal/ledger/sources.json'
+      - 'legal/ledger/daily/**'
+      - 'legal/ledger/admission.py'
+      - 'legal/ledger/generated_audio_rights.json'
+      - 'standards/lexical/**'
 permissions:
   contents: read
 concurrency:
