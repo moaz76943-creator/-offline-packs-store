@@ -117,6 +117,29 @@ class EngineTests(unittest.TestCase):
             folder=Path(d)/'dispatcher-1';folder.mkdir();(folder/'receipt.json').write_text('{}')
             with self.assertRaises(ValueError):e.finalize(api,jobs,Path(d),1,1,NOW)
         self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+    def test_finalizer_rejects_symlinked_receipt_directory(self):
+        api=FakeAPI([(1,task())]);jobs=self.run_controller(api)
+        t=p.parse(api.one(1)['body'])
+        with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as external:
+            folder=Path(d);outside=Path(external)
+            (outside/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+            (folder/'dispatcher-1').symlink_to(outside,target_is_directory=True)
+            writes=len(api.writes)
+            with self.assertRaises(ValueError):e.finalize(api,jobs,folder,1,1,NOW)
+            self.assertEqual(len(api.writes),writes)
+        self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+    def test_finalizer_rejects_symlinked_artifact_root(self):
+        api=FakeAPI([(1,task())]);jobs=self.run_controller(api)
+        t=p.parse(api.one(1)['body'])
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);real=root/'real';real.mkdir()
+            directory=real/'dispatcher-1';directory.mkdir()
+            (directory/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+            alias=root/'alias';alias.symlink_to(real,target_is_directory=True)
+            writes=len(api.writes)
+            with self.assertRaises(ValueError):e.finalize(api,jobs,alias,1,1,NOW)
+            self.assertEqual(len(api.writes),writes)
+        self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
     def test_actual_started_job_marks_running(self):
         t=p.claim(task(state='READY'),NOW,10,1)
         api=FakeAPI([(1,t)])
