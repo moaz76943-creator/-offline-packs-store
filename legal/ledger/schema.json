@@ -31,6 +31,7 @@
         "kind": {"$ref": "#/$defs/kind"},
         "origin_url": {"type": "string", "format": "uri", "pattern": "^https://"},
         "publisher": {"type": "string", "minLength": 1},
+        "author": {"type": "string", "minLength": 1, "description": "Named author, or synthetic-fixture for tests. Presence is not a redistribution approval."},
         "dataset_version": {"type": "string", "minLength": 1},
         "retrieval": {
           "type": "object", "additionalProperties": false,
