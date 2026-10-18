@@ -1,18 +1,44 @@
 """Small synthetic fixtures; never approved content or production packages."""
+import hashlib
 import json
 import tempfile
 import unittest
 from pathlib import Path
 from tools.gha_factory.production_readiness.audit import inspect
 
+ARTIFACT = b'{"synthetic":true}\n'
+LICENSE = b'synthetic license evidence'
 
-def create(root, approved=False, accepted=False, packs=0):
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def create(root, approved=False, accepted=False, packs=0, evidence=True):
+    source = {'kind': 'dictionary', 'status': 'APPROVED_FOR_REDISTRIBUTION', 'source_id': 'synthetic'}
+    if approved and evidence:
+        (root / 'evidence').mkdir(parents=True, exist_ok=True)
+        (root / 'evidence/artifact.jsonl').write_bytes(ARTIFACT)
+        (root / 'evidence/license.txt').write_bytes(LICENSE)
+        source.update({
+            'dataset_version': 'v1',
+            'origin_url': 'https://example.org/source',
+            'publisher': 'TEST ONLY',
+            'alterations': ['synthetic fixture'],
+            'retrieval': {
+                'identity': 'fixture', 'url': 'https://example.org/source.jsonl',
+                'date': '2026-10-13', 'artifact_path': 'evidence/artifact.jsonl',
+                'sha256': digest(ARTIFACT)},
+            'license': {
+                'id': 'CC0-1.0', 'evidence_url': 'https://example.org/license',
+                'evidence_path': 'evidence/license.txt', 'evidence_sha256': digest(LICENSE)},
+            'review': {'reviewer': 'TEST ONLY', 'decision_url': 'https://example.org/review'},
+        })
     data = {
         'catalog/language_registry.v1.json': {
             'schema_version': '1.0.0', 'languages': [{'id': f'x{i:03d}'} for i in range(100)]},
         'legal/ledger/sources.json': {
-            'schema_version': '1.0.0', 'sources': ([{'kind': 'dictionary',
-                'status': 'APPROVED_FOR_REDISTRIBUTION', 'source_id': 'synthetic'}] if approved else [])},
+            'schema_version': '1.0.0', 'sources': ([source] if approved else [])},
         'manifest.json': {'total_languages': 100, 'packs': [{'test_only': True}] * packs},
     }
     for name, content in data.items():
@@ -20,11 +46,18 @@ def create(root, approved=False, accepted=False, packs=0):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(content), encoding='utf-8')
     if accepted:
+        job = {
+            'source_id': 'synthetic', 'language': 'x000', 'dataset_version': 'v1',
+            'category': 'dictionary', 'path': 'partition-00000000.jsonl',
+            'sha256': 'a' * 64, 'record_count': 1, 'partition_index': 0,
+        }
         p = root / 'tools/gha_factory/admission/accepted/synthetic/queue.json'
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(json.dumps({'schema_version': '1.0.0',
-            'status': 'ACCEPTED_FOR_QUEUE', 'publication_approved': False,
-            'jobs': [{'synthetic': True}]}), encoding='utf-8')
+        p.write_text(json.dumps({
+            'schema_version': '1.0.0', 'status': 'ACCEPTED_FOR_QUEUE',
+            'publication_approved': False, 'source_id': 'synthetic', 'language': 'x000',
+            'dataset_version': 'v1', 'source_artifact_sha256': digest(ARTIFACT),
+            'jobs': [job]}), encoding='utf-8')
 
 
 class ReadinessTest(unittest.TestCase):
@@ -64,8 +97,34 @@ class ReadinessTest(unittest.TestCase):
     def test_unrecognised_worker_type_is_not_claimed_to_be_verified(self):
         create(self.root, approved=True, accepted=True)
         report = inspect(self.root, {'registry_validate', 'unknown_worker'})
-        self.assertIn('PRODUCTION_WORKER_RESULT_NOT_VERIFIED', report['blockers'])
+        self.assertEqual(report['status'], 'BLOCKED_PIPELINE')
+        self.assertIn('QUEUE_SUPPORTS_VERIFICATION_NOT_PRODUCTION', report['blockers'])
+        self.assertNotIn('PRODUCTION_WORKER_RESULT_NOT_VERIFIED', report['blockers'])
         self.assertFalse(report['actual_production_worker_result_verified'])
+
+    def test_declaration_without_evidence_stays_blocked_source(self):
+        create(self.root, approved=True, evidence=False)
+        result = inspect(self.root, {'registry_validate', 'admission_partition_verify'})
+        self.assertEqual(result['status'], 'BLOCKED_SOURCE')
+        self.assertIn('NO_APPROVED_DICTIONARY_SOURCE', result['blockers'])
+
+    def test_stale_license_evidence_stays_blocked_source(self):
+        create(self.root, approved=True, accepted=True)
+        (self.root / 'evidence/license.txt').write_bytes(b'stale evidence')
+        result = inspect(self.root, {'source_backed_real_worker'})
+        self.assertEqual(result['status'], 'BLOCKED_SOURCE')
+        self.assertIn('NO_APPROVED_DICTIONARY_SOURCE', result['blockers'])
+
+    def test_malformed_jobs_are_not_admitted_partitions(self):
+        create(self.root, approved=True, accepted=True)
+        path = self.root / 'tools/gha_factory/admission/accepted/synthetic/queue.json'
+        report = json.loads(path.read_text(encoding='utf-8'))
+        report['jobs'] = [{}]
+        path.write_text(json.dumps(report), encoding='utf-8')
+        result = inspect(self.root, {'source_backed_real_worker'})
+        self.assertEqual(result['admission_manifest_partition_count_unverified'], 0)
+        self.assertEqual(result['status'], 'BLOCKED_PIPELINE')
+        self.assertIn('NO_ADMITTED_SOURCE_PARTITIONS', result['blockers'])
 
     def test_duplicate_languages_fail_closed(self):
         create(self.root)
