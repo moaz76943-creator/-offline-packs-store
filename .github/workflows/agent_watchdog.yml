@@ -1,0 +1,49 @@
+name: Agent watchdog
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '48 * * * *'
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: agent-watchdog
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Load the last committed snapshot
+        run: bash tools/agents/prepare.sh
+      - name: Run watchdog
+        id: work
+        continue-on-error: true
+        env:
+          AGENTS_HALT: ${{ vars.AGENTS_HALT }}
+          LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -m tools.agents.cli watchdog > /tmp/dispatch.txt
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+          from tools.agents.roster import by_name
+          for name in Path('/tmp/dispatch.txt').read_text(encoding='utf-8').splitlines():
+              row = by_name(name.strip())
+              if not row:
+                  continue
+              workflow = row['workflow'].rsplit('/', 1)[-1]
+              subprocess.run(['gh', 'workflow', 'run', workflow], check=False)
+          PY
+
+      - name: Publish the checkpoint
+        if: always()
+        run: bash tools/agents/publish.sh watchdog
+      - name: Record the agent result
+        if: steps.work.outcome == 'failure'
+        run: exit 1
