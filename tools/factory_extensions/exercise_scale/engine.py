@@ -115,23 +115,96 @@ def _sense(refs, sid, language, lexeme=None):
         fail("LEXICAL_SENSE_EVIDENCE_REQUIRED")
 
 
+def _nfc_tree(value):
+    if isinstance(value, str):
+        return _nfc(value)
+    if isinstance(value, list):
+        return [_nfc_tree(item) for item in value]
+    if isinstance(value, dict):
+        return {key: _nfc_tree(item) for key, item in value.items()}
+    return value
+
+
+def reviewed_payload(candidate):
+    """Fields a reviewer must bind. NFC so equivalent spellings share one digest."""
+    return {
+        "type": candidate.get("type"),
+        "prompt": _nfc_tree(candidate.get("prompt")),
+        "correct_answers": _nfc_tree(candidate.get("correct_answers")),
+        "ambiguous_answers": _nfc_tree(candidate.get("ambiguous_answers")),
+        "choices": _nfc_tree(candidate.get("choices")),
+        "matching_pairs": _nfc_tree(candidate.get("matching_pairs")),
+        "features": candidate.get("features"),
+        "explanation": _nfc_tree(candidate.get("explanation")),
+    }
+
+
+def reviewed_sha256(candidate):
+    return _hash(canonical(reviewed_payload(candidate)))
+
+
+def _answer_digest(answers):
+    return _hash(canonical([_nfc(answer) for answer in answers]))
+
+
+def _iter_receipts(reviews):
+    if isinstance(reviews, list):
+        for item in reviews:
+            if isinstance(item, dict):
+                yield item.get("reviewer_id"), item
+        return
+    if not isinstance(reviews, dict):
+        return
+    for key, value in reviews.items():
+        if isinstance(value, dict):
+            yield value.get("reviewer_id", key), value
+        elif isinstance(value, list):
+            for item in value:
+                if isinstance(item, dict):
+                    yield item.get("reviewer_id", key), item
+
+
 def _independent_review(c, refs):
     """A candidate's own approved flag is never a reviewer authority.
 
     Editorial receipts must be independently supplied, immutable and
-    source/sense/answer-bound. Receipt authenticity still belongs to
-    the upstream authenticated editorial system; this gate cannot sign it.
+    bound to the reviewed candidate payload. One reviewer may approve
+    many exercises; receipts are selected by reviewer and decision URL.
+    Receipt authenticity still belongs to the upstream editorial system.
     """
     claim = c["review"]
-    receipt = refs.get("editor_reviews", {}).get(claim["reviewer_id"])
-    answer_sha = _hash(canonical(c["correct_answers"]))
-    if (not isinstance(receipt, dict) or receipt.get("approved") is not True
-            or receipt.get("decision_url") != claim["decision_url"]
+    matches = [receipt for reviewer_id, receipt in _iter_receipts(refs.get("editor_reviews"))
+               if reviewer_id == claim.get("reviewer_id") and receipt.get("decision_url") == claim.get("decision_url")]
+    if len(matches) != 1:
+        fail("INDEPENDENT_EDITORIAL_EVIDENCE_REQUIRED")
+    receipt = matches[0]
+    expected = reviewed_sha256(c)
+    digest_fields = [receipt.get("reviewed_sha256"), receipt.get("answers_sha256")]
+    present = [value for value in digest_fields if value is not None]
+    if (receipt.get("approved") is not True or not present or any(value != expected for value in present)
             or receipt.get("source_id") != c["evidence"]["source_id"]
             or receipt.get("record_sha256") != c["evidence"]["record_sha256"]
-            or receipt.get("sense_id") != c["sense_id"]
-            or receipt.get("answers_sha256") != answer_sha):
+            or receipt.get("sense_id") != c["sense_id"]):
         fail("INDEPENDENT_EDITORIAL_EVIDENCE_REQUIRED")
+
+
+def _bind_answers(c, refs):
+    """Recognition-style answers must match sense evidence, not the candidate's own list."""
+    if c["type"] not in {"recognition", "recall", "multiple_choice", "spelling", "grammar"}:
+        return
+    sense = refs.get("senses", {}).get(c["sense_id"])
+    if not isinstance(sense, dict):
+        fail("ANSWER_SENSE_EVIDENCE_MISMATCH")
+    attested = sense.get("attested_answers")
+    digest = sense.get("answer_sha256")
+    have_text = isinstance(attested, list) and bool(attested) and all(isinstance(item, str) and _text(item) for item in attested)
+    have_digest = isinstance(digest, str) and bool(SHA.fullmatch(digest))
+    if not have_text and not have_digest:
+        fail("ANSWER_SENSE_EVIDENCE_MISMATCH")
+    if have_text and sorted(map(_nfc, attested)) != sorted(map(_nfc, c["correct_answers"])):
+        fail("ANSWER_SENSE_EVIDENCE_MISMATCH")
+    if have_digest and digest != _answer_digest(c["correct_answers"]):
+        fail("ANSWER_SENSE_EVIDENCE_MISMATCH")
 
 
 def _direction(c, refs):
@@ -259,15 +332,20 @@ def validate_candidate(c, refs):
         fail("EDITORIAL_REVIEW_REQUIRED")
     _source(c, refs)
     _sense(refs, c["sense_id"], c["target_language"], c["lexeme_id"])
+    _bind_answers(c, refs)
     _independent_review(c, refs)
     _direction(c, refs)
     prof = c["proficiency"]
     if not isinstance(prof, dict) or set(prof) != {"framework_id", "level_id", "evidence_id"}:
         fail("PROFICIENCY_EVIDENCE_REQUIRED")
     trusted = refs.get("proficiency", {}).get(prof["evidence_id"])
+    subjects = {value for value in (c.get("sense_id"), c.get("lexeme_id"), c.get("grammar_rule_id"),
+                                    c.get("form_evidence_id")) if isinstance(value, str) and value}
+    bound = [trusted.get(key) for key in ("sense_id", "lexeme_id", "rule_id", "form_id", "subject_id")] if isinstance(trusted, dict) else []
     if (not isinstance(trusted, dict) or trusted.get("approved") is not True
             or any(trusted.get(k) != v for k, v in (("language", c["target_language"]),
-                ("framework_id", prof["framework_id"]), ("level_id", prof["level_id"])))):
+                ("framework_id", prof["framework_id"]), ("level_id", prof["level_id"])))
+            or not any(isinstance(value, str) and value in subjects for value in bound)):
         fail("PROFICIENCY_EVIDENCE_MISMATCH")
     _grammar(c, refs)
     _choice_qa(c, refs)
@@ -297,8 +375,7 @@ def validate_candidate(c, refs):
             fail("ATTESTED_FORM_REQUIRED")
     elif c.get("form_evidence_id") is not None:
         fail("UNEXPECTED_FORM_EVIDENCE")
-    if c["type"] not in ("cloze", "matching") and any(
-            _nfc(answer).casefold() in _nfc(c["prompt"]).casefold() for answer in answers):
+    if c["type"] not in ("cloze", "matching") and _answer_leaks(c["prompt"], answers):
         fail("ANSWER_LEAK_OR_TRIVIAL")
     if c["type"] == "cloze" and not c["prompt"].replace("____", "").strip():
         fail("ANSWER_LEAK_OR_TRIVIAL")
@@ -306,6 +383,31 @@ def validate_candidate(c, refs):
             "exercise_type": c["type"], "difficulty": c["difficulty"],
             "status": "REVIEW_REQUIRED", "publication_approved": False,
             "fixture_only": c["fixture_only"]}
+
+
+def _answer_leaks(prompt, answers):
+    """Reject exposed answers at token or script boundaries, not inside unrelated words."""
+    text = _nfc(prompt).casefold()
+    for answer in answers:
+        token = _nfc(answer).casefold()
+        if not token:
+            continue
+        if token == text.strip():
+            return True
+        if re.search(r"(?<!\w)" + re.escape(token) + r"(?!\w)", text):
+            return True
+    return False
+
+
+def _fingerprint(candidate):
+    pairs = []
+    for pair in candidate["matching_pairs"]:
+        pairs.append({"edge_id": pair.get("edge_id"), "left": _nfc(pair.get("left", "")),
+                      "right": _nfc(pair.get("right", ""))})
+    return _hash(canonical([
+        candidate["type"], candidate["target_language"], candidate["sense_id"],
+        _nfc(candidate["prompt"]), [_nfc(answer) for answer in candidate["correct_answers"]], pairs,
+    ]))
 
 
 def _unique_pairs(pairs):
@@ -325,21 +427,29 @@ def sha_file(path):
     return digest.hexdigest()
 
 
-def audit_partition(path, declared_sha256, refs, *, max_records=100000):
+def audit_partition(path, declared_sha256, refs, *, max_records=100000, references_sha256=None):
     """Replay immutable JSONL, use temporary disk-based duplicate index."""
     if not isinstance(declared_sha256, str) or not SHA.fullmatch(declared_sha256):
         fail("INPUT_SHA256_MISMATCH")
+    if references_sha256 is not None and (not isinstance(references_sha256, str) or not SHA.fullmatch(references_sha256)):
+        fail("REFERENCES_SHA256_MISMATCH")
     if sha_file(path) != declared_sha256:
         fail("INPUT_SHA256_MISMATCH")
     counts = {language: {} for language in sorted(refs["languages"])}
     by_type, slots = Counter(), Counter()
     records = 0
+    record_limit = 1048576
     with tempfile.TemporaryDirectory(prefix="exercises-qa-") as temp:
         with sqlite3.connect(str(Path(temp) / "seen.sqlite")) as db:
             db.execute("CREATE TABLE seen (key TEXT PRIMARY KEY)")
             with Path(path).open("rb") as handle:
-                for line_no, raw in enumerate(handle, 1):
-                    if line_no > max_records or len(raw) > 1048576:
+                line_no = 0
+                while True:
+                    raw = handle.readline(record_limit + 1)
+                    if raw == b"":
+                        break
+                    line_no += 1
+                    if line_no > max_records or len(raw) > record_limit:
                         fail("PARTITION_BOUNDS_EXCEEDED")
                     try:
                         c = json.loads(raw.decode("utf-8"),
@@ -348,10 +458,8 @@ def audit_partition(path, declared_sha256, refs, *, max_records=100000):
                     except (UnicodeError, ValueError) as exc:
                         raise ExerciseError("INVALID_JSONL") from exc
                     result = validate_candidate(c, refs)
-                    fingerprint = _hash(canonical([c["type"], c["target_language"],
-                        c["sense_id"], c["prompt"], c["correct_answers"], c["matching_pairs"]]))
                     try:
-                        db.execute("INSERT INTO seen VALUES (?)", (fingerprint,))
+                        db.execute("INSERT INTO seen VALUES (?)", (_fingerprint(c),))
                     except sqlite3.IntegrityError as exc:
                         raise ExerciseError("DUPLICATE_EXERCISE") from exc
                     lang, kind, difficulty = (result["language"], result["exercise_type"],
@@ -361,15 +469,17 @@ def audit_partition(path, declared_sha256, refs, *, max_records=100000):
                     records += 1
                     by_type[kind] += 1
                     if kind == "multiple_choice":
+                        accepted = {_nfc(answer) for answer in c["correct_answers"]}
                         for index, option in enumerate(c["choices"]):
-                            if option["text"] in c["correct_answers"]:
+                            if _nfc(option["text"]) in accepted:
                                 slots[index] += 1
                                 break
     if by_type["multiple_choice"] >= 4 and max(slots.values(), default=0) == by_type["multiple_choice"]:
         fail("REPEATED_ANSWER_POSITION")
     return {"schema_version": "1.0.0", "status": "REVIEW_REQUIRED_NOT_PUBLISHED",
             "immutable_input_sha256": declared_sha256,
-            "checkpoint_sha256": _hash(canonical([declared_sha256, counts])),
+            "references_sha256": references_sha256,
+            "checkpoint_sha256": _hash(canonical([declared_sha256, references_sha256, counts])),
             "records_processed": records, "candidates_review_required": records,
             "verified_exercises": 0, "publication_approved": False,
             "count_by_language": counts, "count_by_type": dict(sorted(by_type.items()))}
@@ -410,7 +520,7 @@ def main(argv=None):
                               object_pairs_hook=_unique_pairs)
         for name in ("senses", "pairs", "forms", "rules", "proficiency", "distractors", "editor_reviews"):
             refs[name] = supplied.get(name, {})
-        result = audit_partition(args.input, args.input_sha256, refs)
+        result = audit_partition(args.input, args.input_sha256, refs, references_sha256=args.references_sha256)
     else:
         if args.references or args.input_sha256 or args.references_sha256:
             fail("MISSING_IMMUTABLE_INPUT")
