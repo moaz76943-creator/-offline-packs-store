@@ -32,6 +32,23 @@ class SyntheticLedgerContractTest(unittest.TestCase):
             )
         self.assertEqual(errors, [])
 
+    def test_search_qa_reviewed_source_reuses_the_shared_fixture(self):
+        from tests.gha_factory.search_qa.test_audit import SearchAuditTests
+
+        with tempfile.TemporaryDirectory() as tmp:
+            case = SearchAuditTests()
+            case.root = Path(tmp)
+            source = case.reviewed_source()
+            errors = evaluate(
+                {"schema_version": "1.0.0", "sources": [source]},
+                {"languages": [], "packs": []},
+                [],
+                tmp,
+            )
+        self.assertEqual(errors, [])
+        self.assertEqual(source["author"], "synthetic-fixture")
+        self.assertEqual(source["source_id"], "fixture-source")
+
     def test_dropping_a_required_field_is_visible(self):
         with tempfile.TemporaryDirectory() as tmp:
             source = synthetic_source(tmp)
