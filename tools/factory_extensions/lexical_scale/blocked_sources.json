@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0.0",
+  "as_of": "2026-10-13",
+  "source_ledger": "legal/ledger/sources.json",
+  "source_ledger_source_entries": 0,
+  "status": "BLOCKED_SOURCE",
+  "reason": "No approved immutable dictionary snapshots or source-specific proof hashes exist in the live Route05 ledger.",
+  "registered_language_count": 100,
+  "admitted_production_source_count": 0,
+  "processed_real_source_rows": 0,
+  "accepted_production_lexemes": 0,
+  "accepted_production_senses": 0,
+  "real_source_rejected_rows": 0,
+  "production_run_ids": [],
+  "production_task_ids": [],
+  "production_checkpoint_ids": [],
+  "coverage_classification": "NOT_PROCESSED",
+  "held_dependencies": [
+    {
+      "key": "GHA-02",
+      "status": "NO_LEXICAL_TASK_TYPE_IN_LIVE_QUEUE"
+    },
+    {
+      "key": "PR-63",
+      "status": "OPEN_UNMERGED_LEXICAL_WORKER"
+    },
+    {
+      "key": "PR-70",
+      "status": "OPEN_DRAFT_CONTENT_ADAPTER"
+    },
+    {
+      "key": "Route05",
+      "status": "ZERO_APPROVED_SOURCES"
+    }
+  ],
+  "benchmark": {
+    "type": "synthetic_unpublishable",
+    "rows": 25000,
+    "elapsed_seconds": 8.59,
+    "scanned_rows_per_second": 2911,
+    "python_allocation_peak_bytes": 3291510,
+    "process_rss_bytes": null
+  },
+  "qa": {
+    "local_stubbed_admission_tests_passed": 20,
+    "hosted_exact_commit": "NOT_RUN"
+  },
+  "notes": [
+    "No real corpus was downloaded or accepted.",
+    "This evidence is a snapshot of 2026-10-13, not a future live assertion.",
+    "A source must be re-admitted for each actual production invocation.",
+    "No invented lexeme, translation, pronunciation, CEFR assignment or hosted run ID."
+  ]
+}
