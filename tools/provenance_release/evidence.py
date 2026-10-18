@@ -154,10 +154,23 @@ def persist(root,report):
     return output
 
 
+def install_repo_import_path(root):
+    """Put the checkout on sys.path so a direct script run can import legal.*.
+
+    `python tools/provenance_release/evidence.py` sets sys.path[0] to
+    tools/provenance_release, which cannot see legal.ledger.admission.
+    """
+    resolved=str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
+
+
 def main(argv=None):
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--repo-root',required=True,type=Path)
     args=ap.parse_args(argv)
+    install_repo_import_path(args.repo_root)
     try:
         report=compile_provenance(args.repo_root)
         path=persist(args.repo_root,report)

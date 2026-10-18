@@ -1,7 +1,9 @@
 """Isolated bounded and immutable provenance compiler tests; mock rights grants are never published."""
 import hashlib
 import json
+import os
 from pathlib import Path
+import subprocess
 import sys
 import tempfile
 from types import ModuleType
@@ -113,6 +115,23 @@ class ProvenanceTests(unittest.TestCase):
     def test_no_approval_to_write(self):
         with self.assertRaisesRegex(evidence.ProvenanceBlocked,'not eligible'):
             evidence.persist(self.root,{'assets':[1],'publication_approved':True})
+
+    def test_direct_cli_imports_admission_gate_without_pythonpath(self):
+        self.fixture()
+        admission=self.root/'legal/ledger/admission.py'
+        admission.write_text('def evaluate(ledger, manifest, dailies, root):\n    return []\n')
+        script=Path(evidence.__file__).resolve()
+        env=os.environ.copy()
+        env.pop('PYTHONPATH', None)
+        env['PYTHONDONTWRITEBYTECODE']='1'
+        result=subprocess.run(
+            [sys.executable, str(script), '--repo-root', str(self.root)],
+            cwd='/tmp', env=env, capture_output=True, text=True, check=False)
+        self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
+        payload=json.loads(result.stdout)
+        self.assertEqual(payload['status'], 'QUARANTINED_PENDING_PACK_AND_SIGNATURE_QA')
+        self.assertFalse(payload['publication_approved'])
+        self.assertNotIn('No module named', result.stdout+result.stderr)
 
 if __name__=='__main__':
     unittest.main()
