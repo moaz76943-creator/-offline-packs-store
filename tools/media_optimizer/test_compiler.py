@@ -50,6 +50,7 @@ class TestMediaCompiler(unittest.TestCase):
         source = {
             'source_id': 'fixture-vector', 'kind': 'vector_art',
             'origin_url': 'https://example.org/art', 'publisher': 'Fixture Publisher',
+            'author': 'Fixture Author',
             'dataset_version': '2026.10',
             'retrieval': {
                 'identity': 'fixture-snapshot-v1', 'url': 'https://example.org/art',
