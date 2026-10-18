@@ -1,0 +1,49 @@
+# Read-only candidate checks. No production signing, manifest update or publication.
+name: SQLite v2 candidate validation (quarantined)
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tools/gha_factory/release/**'
+      - 'tests/gha_factory/release/**'
+      - '.github/workflows/gha_release_candidate.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gha-release-candidate
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run isolated negative, rollback and SQLite tests
+        run: python3 -m unittest discover -s tests/gha_factory/release -p 'test_*.py' -v
+      - name: Verify production source gate without publishing
+        shell: bash
+        run: |
+          set +e
+          python3 tools/gha_factory/release/candidate.py --repo-root . > candidate-source-status.json
+          rc=$?
+          set -e
+          cat candidate-source-status.json
+          python3 - <<'PY'
+          import json
+          x=json.load(open('candidate-source-status.json'))
+          assert x['publication_approved'] is False
+          assert x['status'] in ('BLOCKED_SOURCE','PENDING_CANDIDATE_VERIFICATION')
+          PY
+          if [ "$rc" -ne 0 ] && [ "$rc" -ne 2 ]; then exit "$rc"; fi
+      - name: Upload small machine-readable status only
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-candidate-source-status
+          path: candidate-source-status.json
+          retention-days: 1

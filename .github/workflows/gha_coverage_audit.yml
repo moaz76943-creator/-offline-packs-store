@@ -1,0 +1,73 @@
+# Public-only read-only audit. No secret, repo write, cache or artifact uploads.
+name: GHA-08 Public 100-Language Coverage Audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '41 5 * * 1,4'
+  pull_request:
+    paths:
+      - '.github/workflows/gha_coverage_audit.yml'
+      - 'tools/gha_factory/coverage_audit/**'
+      - 'tests/gha_factory/coverage_audit/**'
+      - 'catalog/language_registry.v1.json'
+      - 'catalog/content_readiness.v1.json'
+      - 'legal/ledger/sources.json'
+      - 'manifest.json'
+      - 'version.json'
+      - 'packs/**'
+      - 'tools/pack_v2/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gha-coverage-audit-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.shards.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test independent public coverage scanner
+        run: python3 -m unittest discover -s tests/gha_factory/coverage_audit -v
+      - name: Plan proportional shards based on actual published packs
+        id: shards
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          packs = json.loads(Path('manifest.json').read_text(encoding='utf-8')).get('packs', [])
+          count = 10 if packs else 1
+          matrix = {'include': [{'shard': i, 'shards': count} for i in range(count)]}
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as out:
+              out.write('matrix=' + json.dumps(matrix, separators=(',', ':')) + '\n')
+          print(f'Actual published SQLite v2 pack entries: {len(packs)}; audit shards: {count}')
+          PY
+
+  audit:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Audit deterministic public language shard and any real v2 archive
+        run: >-
+          python3 tools/gha_factory/coverage_audit/check.py
+          --root .
+          --shards ${{ matrix.shards }}
+          --shard ${{ matrix.shard }}

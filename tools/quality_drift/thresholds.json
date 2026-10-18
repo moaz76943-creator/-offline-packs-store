@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "metrics": {
+    "word_coverage": {
+      "direction": "higher",
+      "unit": "count",
+      "relative_drop_pct": 2
+    },
+    "sense_coverage": {
+      "direction": "higher",
+      "unit": "count",
+      "relative_drop_pct": 2
+    },
+    "cefr_coverage": {
+      "direction": "higher",
+      "unit": "count",
+      "relative_drop_pct": 2
+    },
+    "example_coverage": {
+      "direction": "higher",
+      "unit": "count",
+      "relative_drop_pct": 2
+    },
+    "directed_translation_coverage": {
+      "direction": "higher",
+      "unit": "count",
+      "relative_drop_pct": 1
+    },
+    "stable_id_errors": {
+      "direction": "lower",
+      "unit": "count",
+      "absolute_increase": 0
+    },
+    "license_failures": {
+      "direction": "lower",
+      "unit": "count",
+      "absolute_increase": 0
+    },
+    "sqlite_v2_failures": {
+      "direction": "lower",
+      "unit": "count",
+      "absolute_increase": 0
+    },
+    "fts5_failures": {
+      "direction": "lower",
+      "unit": "count",
+      "absolute_increase": 0
+    },
+    "search_cases_passed": {
+      "direction": "higher",
+      "unit": "count",
+      "relative_drop_pct": 1
+    },
+    "test_cases_passed": {
+      "direction": "higher",
+      "unit": "count",
+      "absolute_drop": 0
+    },
+    "test_cases_failed": {
+      "direction": "lower",
+      "unit": "count",
+      "absolute_increase": 0
+    },
+    "memory_peak_bytes": {
+      "direction": "lower",
+      "unit": "bytes",
+      "relative_increase_pct": 10
+    },
+    "startup_p95_ms": {
+      "direction": "lower",
+      "unit": "ms",
+      "relative_increase_pct": 10
+    },
+    "offline_startup_failures": {
+      "direction": "lower",
+      "unit": "count",
+      "absolute_increase": 0
+    },
+    "srs_failures": {
+      "direction": "lower",
+      "unit": "count",
+      "absolute_increase": 0
+    },
+    "rollback_failures": {
+      "direction": "lower",
+      "unit": "count",
+      "absolute_increase": 0
+    }
+  }
+}

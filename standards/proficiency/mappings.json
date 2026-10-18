@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "published_reference_mappings": [
+    {
+      "from_framework": "JLPT",
+      "from_level": "N5",
+      "to_framework": "CEFR",
+      "to_level": "A1",
+      "minimum_score": 80,
+      "maximum_score": 180,
+      "source_id": "JLPT-CEFR-REFERENCE"
+    },
+    {
+      "from_framework": "JLPT",
+      "from_level": "N4",
+      "to_framework": "CEFR",
+      "to_level": "A2",
+      "minimum_score": 90,
+      "maximum_score": 180,
+      "source_id": "JLPT-CEFR-REFERENCE"
+    },
+    {
+      "from_framework": "JLPT",
+      "from_level": "N3",
+      "to_framework": "CEFR",
+      "to_level": "A2",
+      "minimum_score": 95,
+      "maximum_score": 103,
+      "source_id": "JLPT-CEFR-REFERENCE"
+    },
+    {
+      "from_framework": "JLPT",
+      "from_level": "N3",
+      "to_framework": "CEFR",
+      "to_level": "B1",
+      "minimum_score": 104,
+      "maximum_score": 180,
+      "source_id": "JLPT-CEFR-REFERENCE"
+    },
+    {
+      "from_framework": "JLPT",
+      "from_level": "N2",
+      "to_framework": "CEFR",
+      "to_level": "B1",
+      "minimum_score": 90,
+      "maximum_score": 111,
+      "source_id": "JLPT-CEFR-REFERENCE"
+    },
+    {
+      "from_framework": "JLPT",
+      "from_level": "N2",
+      "to_framework": "CEFR",
+      "to_level": "B2",
+      "minimum_score": 112,
+      "maximum_score": 180,
+      "source_id": "JLPT-CEFR-REFERENCE"
+    },
+    {
+      "from_framework": "JLPT",
+      "from_level": "N1",
+      "to_framework": "CEFR",
+      "to_level": "B2",
+      "minimum_score": 100,
+      "maximum_score": 141,
+      "source_id": "JLPT-CEFR-REFERENCE"
+    },
+    {
+      "from_framework": "JLPT",
+      "from_level": "N1",
+      "to_framework": "CEFR",
+      "to_level": "C1",
+      "minimum_score": 142,
+      "maximum_score": 180,
+      "source_id": "JLPT-CEFR-REFERENCE"
+    }
+  ],
+  "estimated_mappings": []
+}
