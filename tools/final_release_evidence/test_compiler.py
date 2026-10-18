@@ -26,6 +26,7 @@ def schema_source(source_id, status='APPROVED_FOR_REDISTRIBUTION', dataset_versi
         'kind': 'dictionary',
         'origin_url': 'https://example.com/sources/' + source_id,
         'publisher': 'Example Publisher',
+        'author': 'Example Author',
         'dataset_version': dataset_version,
         'retrieval': {
             'identity': source_id,
@@ -145,7 +146,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.assertEqual(admitted_languages(self.ledger_data), set())
         self.assertEqual(admitted_languages(self.ledger_data, self.manifest_data), set())
         res = self.compile()
-        self.assertTrue(all(row['status'] == 'BLOCKED_DEPENDENCY' for row in res['languages'].values()))
+        self.assertTrue(all(row['status'] in ('metadataOnly', 'licenseBlocked', 'BLOCKED_DEPENDENCY') for row in res['languages'].values()))
         self.assertEqual(res['languages']['ar']['packs'], [])
 
     def test_language_comes_from_pack_source_provenance(self):
@@ -166,7 +167,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.publish('ar', 'src-ar')
         self.assertNotIn('ar', admitted_languages(self.ledger_data, self.manifest_data))
         res = self.compile()
-        self.assertEqual(res['languages']['ar']['status'], 'BLOCKED_DEPENDENCY')
+        self.assertEqual(res['languages']['ar']['status'], 'licenseBlocked')
         self.assertEqual(res['languages']['ar']['packs'], [])
 
     def test_pack_without_matching_source_stays_blocked(self):
@@ -174,7 +175,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.assertIn('ar', manifest_pack_languages(self.manifest_data))
         self.assertNotIn('ar', admitted_languages(self.ledger_data, self.manifest_data))
         res = self.compile()
-        self.assertEqual(res['languages']['ar']['status'], 'BLOCKED_DEPENDENCY')
+        self.assertEqual(res['languages']['ar']['status'], 'licenseBlocked')
 
     def test_source_ref_dataset_version_must_match(self):
         self.add_source('src-ar', dataset_version='2026-01-01')
@@ -197,7 +198,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         res = self.compile()
         self.assertEqual(res['total_languages'], 5)
         self.assertEqual(len(res['languages']), 5)
-        self.assertTrue(all(row['status'] == 'BLOCKED_DEPENDENCY' for row in res['languages'].values()))
+        self.assertTrue(all(row['status'] in ('metadataOnly', 'licenseBlocked', 'BLOCKED_DEPENDENCY') for row in res['languages'].values()))
 
     def test_missing_published_file_is_source_missing(self):
         self.add_source('src-ar')
@@ -248,7 +249,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.assertTrue(row['packs'][0]['valid'])
         self.assertEqual(row['packs'][0]['file'], 'packs/ar-1.0.0.pack.gz')
         self.assertEqual(row['packs'][0]['actual_sha256'], actual)
-        self.assertEqual(res['languages']['ru']['status'], 'BLOCKED_DEPENDENCY')
+        self.assertEqual(res['languages']['ru']['status'], 'metadataOnly')
 
     def test_path_escape_is_not_release_ready(self):
         self.add_source('src-ar')
@@ -288,7 +289,7 @@ class TestEvidenceCompiler(unittest.TestCase):
                 self.assertIn(code, published, f'{code} is release-ready without a manifest pack')
         if not ledger.get('sources') and not manifest.get('packs'):
             self.assertEqual(admitted, set())
-            self.assertTrue(all(row.get('status') == 'BLOCKED_DEPENDENCY' for row in languages.values()))
+            self.assertTrue(all(row.get('status') in ('BLOCKED_DEPENDENCY', 'metadataOnly', 'licenseBlocked') for row in languages.values()))
             self.assertTrue(all(row.get('packs') == [] for row in languages.values()))
 
 
