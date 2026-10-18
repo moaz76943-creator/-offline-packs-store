@@ -262,6 +262,44 @@ def offline_tts_ready(required_voice_id: str, installed_voice_ids) -> bool:
     return bool(required_voice_id and isinstance(installed_voice_ids, (list, set, tuple)) and required_voice_id in installed_voice_ids)
 
 
+def _audio_faults(record, source, ev, audio_root: Path, evidence_root: Path, voice_rights, seen_asset) -> list:
+    """Asset faults for a record that is already blocked. Does not admit audio."""
+    faults = []
+    license_id = ev.get("license_id") if isinstance(ev, dict) else None
+    evidence_url = (source.get("license") or {}).get("evidence_url") if isinstance(source, dict) else None
+    for asset in record.get("audio") or []:
+        if not isinstance(asset, dict):
+            faults.append("audio_invalid")
+            continue
+        aid, kind = asset.get("asset_id"), asset.get("kind")
+        if not aid or aid in seen_asset:
+            faults.append("duplicate_asset_id")
+        if aid:
+            seen_asset.add(aid)
+        if kind == "device_tts":
+            faults.append("tts_not_packaged")
+        elif kind not in {"human_recording", "licensed_generated_recording"}:
+            faults.append("unknown_audio_kind")
+        if kind == "human_recording" and not asset.get("speaker_id"):
+            faults.append("speaker_missing")
+        if kind == "licensed_generated_recording":
+            generation = asset.get("generation") if isinstance(asset.get("generation"), dict) else {}
+            approved_terms = voice_rights.get((generation.get("engine_id"), generation.get("voice_id")))
+            if approved_terms is None or generation.get("terms_url") != approved_terms:
+                faults.append("generation_rights_missing")
+        if (asset.get("license_id") != license_id or asset.get("license_id") not in ALLOWED_LICENSES
+                or asset.get("rights_url") != evidence_url
+                or not _proven(asset.get("rights_evidence_path"), asset.get("rights_evidence_sha256"), evidence_root)):
+            faults.append("audio_license_unverified")
+        if license_id in {"CC-BY-SA-4.0", "GFDL-1.3-only"} and not asset.get("license_obligations_reviewed"):
+            faults.append("copyleft_review_missing")
+        try:
+            _decode_wav(_path(audio_root, asset.get("path")), asset.get("sha256"))
+        except (AuditError, OSError, TypeError):
+            faults.append("audio_invalid")
+    return faults
+
+
 def audit(catalog: dict, ledger: dict, document: dict, audio_root: Path, evidence_root: Path,
          lexical_index=None, generated_rights=None):
     if document.get("metadata_version") != VERSION or not isinstance(document.get("records"), list):
@@ -310,6 +348,8 @@ def audit(catalog: dict, ledger: dict, document: dict, audio_root: Path, evidenc
             or not ev.get("record_locator")):
             reasons.append("source_not_approved")
         if reasons:
+            # A ledger miss must not hide audio faults. Still do not accept the asset.
+            reasons.extend(_audio_faults(record, source if isinstance(source, dict) else {}, ev, Path(audio_root), Path(evidence_root), voice_rights, seen_asset))
             blocked.append({"pronunciation_id": rid, "reasons": sorted(set(reasons))})
             continue
         variant_key = (lang, record["lexeme_id"], record["variant_id"], record["reading"]["value"])
