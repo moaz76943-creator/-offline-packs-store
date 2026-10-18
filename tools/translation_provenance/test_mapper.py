@@ -1,10 +1,11 @@
 import json
 import tempfile
 import unittest
+from contextlib import redirect_stderr, redirect_stdout
 from io import StringIO
 from pathlib import Path
 from tools.contribution_gate.test_fixture import fixture, ref, put, save_ledger
-from tools.translation_provenance.mapper import map_provenance
+from tools.translation_provenance.mapper import main, map_provenance
 
 class MapperTests(unittest.TestCase):
     def setUp(self):
@@ -115,6 +116,47 @@ class MapperTests(unittest.TestCase):
         self.records[-1]["source"]["dataset_version"] = "9.9.9"
         with self.assertRaises(ValueError):
             self.run_gate()
+
+    def _invoke(self, lines):
+        path = self.root / "translations.jsonl"
+        path.write_text(lines, encoding="utf-8")
+        out, err = StringIO(), StringIO()
+        with redirect_stdout(out), redirect_stderr(err):
+            code = main([
+                "--sources", str(self.root / "legal/ledger/sources.json"),
+                "--translations", str(path),
+                "--repo-root", str(self.root),
+            ])
+        return code, out.getvalue(), err.getvalue()
+
+    def test_file_input_is_read_while_open(self):
+        lines = "\n".join(json.dumps(r) for r in self.records) + "\n"
+        code, out, err = self._invoke(lines)
+        self.assertEqual(code, 0, err)
+        self.assertIn("edge-1", out)
+        self.assertNotIn("closed file", err)
+
+    def test_valid_record_is_not_emitted_before_stream_eof(self):
+        lines = "\n".join(json.dumps(r) for r in self.records) + "\n{not-json\n"
+        out = StringIO()
+        with self.assertRaises(ValueError):
+            for record in map_provenance(StringIO(lines), self.ledger, repo_root=self.root):
+                print(json.dumps(record), file=out)
+        self.assertEqual(out.getvalue(), "")
+
+    def test_malformed_tail_writes_no_stdout(self):
+        lines = "\n".join(json.dumps(r) for r in self.records) + "\n{not-json\n"
+        code, out, err = self._invoke(lines)
+        self.assertEqual(code, 1)
+        self.assertEqual(out, "")
+        self.assertIn("BLOCKED:", err)
+
+    def test_duplicate_after_valid_record_writes_no_stdout(self):
+        lines = "\n".join(json.dumps(r) for r in self.records + [self.records[-1]]) + "\n"
+        code, out, err = self._invoke(lines)
+        self.assertEqual(code, 1)
+        self.assertEqual(out, "")
+        self.assertIn("BLOCKED:", err)
 
 if __name__ == "__main__":
     unittest.main()

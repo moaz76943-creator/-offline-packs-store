@@ -16,6 +16,7 @@ def map_provenance(stream, sources_manifest, *, repo_root=None):
     sources = verified_sources(sources_manifest, repo_root)
     senses = {}
     seen = set()
+    records = []
     has_sense = False
     has_translation = False
 
@@ -86,12 +87,13 @@ def map_provenance(stream, sources_manifest, *, repo_root=None):
             record["provenance_hash"] = hashlib.sha256(
                 json.dumps(record, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
             ).hexdigest()
-            yield record
+            records.append(record)
         else:
             raise ValueError("Unknown record type")
 
     if not has_sense or not has_translation:
         raise ValueError("Independent source-linked sense and translation records required")
+    return records
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
