@@ -9,6 +9,7 @@ local file is the complete dump and matches wikidata-YYYYMMDD-sha1sums.txt.
 import argparse
 import codecs
 import hashlib
+import importlib.util
 import io
 import json
 import re
@@ -510,6 +511,41 @@ def _digest_file(path):
     return sha1.hexdigest(), sha256.hexdigest()
 
 
+def load_lexical_sqlite_builder():
+    """Load standards.lexical.sqlite_v2.build without using the bare sqlite_v2 name.
+
+    A directory such as standards/directed_pairs can also expose sqlite_v2.py.
+    Inserting that directory on sys.path, or a previous `import sqlite_v2`,
+    must not redirect this extractor at the wrong builder.
+    """
+    module_name = 'standards.lexical.sqlite_v2'
+    cached = sys.modules.get(module_name)
+    if cached is not None and hasattr(cached, 'build'):
+        return cached.build
+    path = LEXICAL_DIR / 'sqlite_v2.py'
+    lexical = str(LEXICAL_DIR)
+    inserted = False
+    if lexical not in sys.path:
+        sys.path.insert(0, lexical)
+        inserted = True
+    try:
+        spec = importlib.util.spec_from_file_location(module_name, path)
+        if spec is None or spec.loader is None:
+            raise ExtractError('standards.lexical.sqlite_v2 could not be loaded')
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[module_name] = module
+        spec.loader.exec_module(module)
+    finally:
+        if inserted:
+            try:
+                sys.path.remove(lexical)
+            except ValueError:
+                pass
+    if not hasattr(module, 'build'):
+        raise ExtractError('standards.lexical.sqlite_v2 has no build function')
+    return module.build
+
+
 def extract(dump_path, checksum_path, blocklist_path, output, *, max_bytes, max_lexemes,
             dataset_version, origin_url, repo_root):
     if not isinstance(max_bytes, int) or max_bytes < 1 or max_bytes > HARD_MAX_BYTES:
@@ -560,9 +596,7 @@ def extract(dump_path, checksum_path, blocklist_path, output, *, max_bytes, max_
         raise ExtractError('complete dump does not match the publisher SHA-1')
     artifact_sha256 = file_sha256 if checksum_verified else None
     document = to_document(kept, dataset_version, origin_url, artifact_sha256)
-    if str(LEXICAL_DIR) not in sys.path:
-        sys.path.insert(0, str(LEXICAL_DIR))
-    from sqlite_v2 import build
+    build = load_lexical_sqlite_builder()
     output.parent.mkdir(parents=True, exist_ok=True)
     build(document, output, publication=False)
     _write_jsonl(output.with_suffix('.excluded.jsonl'), excluded)
