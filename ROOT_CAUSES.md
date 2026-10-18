@@ -8,7 +8,7 @@ Almost every tool builds its own `APPROVED_FOR_REDISTRIBUTION` dict. `legal/ledg
 
 **Fix:** `legal/ledger/synthetic.py` is the one fixture. It includes every schema-required field and `author` (`synthetic-fixture`, not a redistribution approval). `tests/ci_policy/test_synthetic_ledger.py` fails the merge gate if a new required field is missing or admission rejects the fixture. The pronunciation tests now call the builder. If the record is already blocked, audio faults are still recorded and the asset is still not accepted.
 
-**PR:** this change.
+**PR:** #359
 
 ## 2. Strict ruleset invalidates every other green PR after one squash
 
@@ -16,4 +16,4 @@ Ruleset `25041495` (`DEUTSCH verified main protection`) requires `public-pr-merg
 
 A scheduled janitor cannot push that merge commit with `GITHUB_TOKEN`: the push would not retrigger the required `pull_request` check. `.github/workflows/pr_janitor.yml` only labels blockers and squash-merges one PR that is already up to date and green, with a subject that cannot carry a CI-skip instruction.
 
-**PR:** this change documents the 403. The ruleset is unchanged.
+**PR:** #359 documents the 403. The ruleset is unchanged.
