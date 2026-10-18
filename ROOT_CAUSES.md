@@ -10,7 +10,9 @@ Almost every tool builds its own `APPROVED_FOR_REDISTRIBUTION` dict. `legal/ledg
 
 **PR:** #359
 
-The search QA suite still built its own approved source. After `author` became required, `admission.evaluate` rejected that copy, and `audit_manifest` reported the generic error `production packs advertised with no approved source` before the archive check. `SearchAuditTests.reviewed_source` now calls `synthetic_source`. `tests/ci_policy/test_synthetic_ledger.py` fails the merge gate if that helper stops clearing admission. That migration is the follow-up PR on `cursor/search-ledger-fixture-67d8`.
+The search QA suite still built its own approved source. After `author` became required, `admission.evaluate` rejected that copy, and `audit_manifest` reported the generic error `production packs advertised with no approved source` before the archive check. `SearchAuditTests.reviewed_source` now calls `synthetic_source`. `tests/ci_policy/test_synthetic_ledger.py` fails the merge gate if that helper stops clearing admission.
+
+**PR:** #360
 
 ## 2. Strict ruleset invalidates every other green PR after one squash
 
