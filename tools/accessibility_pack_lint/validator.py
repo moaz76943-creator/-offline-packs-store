@@ -86,6 +86,13 @@ class AccessibilityValidator:
         if complexity is None:
             errors.append("Vector complexity missing")
 
+        path_count = vector.get("path_count")
+        if path_count is not None:
+            if type(path_count) is not int or path_count < 0:
+                errors.append("Vector path count must be a nonnegative integer")
+            elif path_count > 50:
+                errors.append("Vector path count exceeds safe complexity limits (max 50)")
+
     def _validate_provenance(self, asset: VisualAssetMetadata, errors: List[str]):
         if not asset.get("version"):
             errors.append("Missing version identity")
