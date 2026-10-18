@@ -1,0 +1,62 @@
+name: Sentence scale evidence QA
+
+on:
+  workflow_dispatch:
+  issue_comment:
+    types: [created]
+  pull_request:
+    paths:
+      - 'tools/factory_extensions/sentence_scale/**'
+      - 'tests/factory_extensions/sentence_scale/**'
+      - '.github/workflows/sentence_scale_qa.yml'
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: sentence-scale-qa
+  cancel-in-progress: false
+
+jobs:
+  validate-evidence-factory:
+    if: >-
+      github.event_name != 'issue_comment' ||
+      (github.event.issue.pull_request &&
+       github.event.comment.user.login == github.repository_owner &&
+       github.event.comment.body == '/run-sentence-scale-qa')
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Resolve comment-requested immutable PR HEAD
+        if: github.event_name == 'issue_comment'
+        id: requested_head
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TARGET_PR: ${{ github.event.issue.number }}
+          REPO_NAME: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          sha="$(gh api "repos/$REPO_NAME/pulls/$TARGET_PR" --jq '.head.sha')"
+          [[ "$sha" =~ ^[0-9a-f]{40}$ ]] || exit 2
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ steps.requested_head.outputs.sha || github.sha }}
+      - name: Verify source and language evidence gates
+        run: python3 -m unittest discover -s tests/factory_extensions/sentence_scale -p 'test_*.py' -v
+      - name: Report source approval baseline without fabricated receipts
+        run: |
+          python3 - <<'PY'
+          import json
+          with open('legal/ledger/sources.json', encoding='utf-8') as stream:
+              records=json.load(stream)['sources']
+          approved=[row for row in records
+                    if row.get('kind')=='examples'
+                    and row.get('status')=='APPROVED_FOR_REDISTRIBUTION']
+          print(json.dumps({'approved_example_source_records':len(approved),
+                            'published_by_qa':0,
+                            'note':'QA only: no corpus ingestion or dispatch'}))
+          PY
