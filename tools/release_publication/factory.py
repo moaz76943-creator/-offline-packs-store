@@ -70,9 +70,11 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
     repo_root = Path(repo_root).resolve()
     target = Path(target_dir).resolve()
 
-    if not target.is_relative_to(repo_root):
+    try:
+        target.relative_to(repo_root)
+    except ValueError:
         if not dry_run:
-             raise ValueError("Target directory must be within repository")
+            raise ValueError("Target directory must be within repository") from None
 
     if check_auth:
         verify_publication_eligibility(repo_root)
