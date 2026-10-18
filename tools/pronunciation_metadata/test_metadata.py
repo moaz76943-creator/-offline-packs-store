@@ -25,6 +25,7 @@ def _write_pronunciation_ledger(root, source_id="pronunciation-case", dataset_ve
         "kind": kind,
         "origin_url": origin,
         "publisher": "Example Test Publisher",
+        "author": "Test Author",
         "dataset_version": dataset_version,
         "retrieval": {
             "identity": "test-capture",
