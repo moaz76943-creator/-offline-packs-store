@@ -3,6 +3,7 @@
 Does not retrieve sources, write GHA-02 queues, compile SQLite packs or publish.
 """
 import argparse
+import errno
 import fcntl
 import gzip
 import hashlib
@@ -11,6 +12,7 @@ import math
 import os
 import shutil
 import sqlite3
+import stat
 import tempfile
 from contextlib import contextmanager
 from pathlib import Path
@@ -57,6 +59,43 @@ def stream(path):
         yield handle
 
 
+def hash_fd(fd):
+    digest=hashlib.sha256();offset=0
+    while True:
+        chunk=os.pread(fd,1024*1024,offset)
+        if not chunk:break
+        digest.update(chunk);offset+=len(chunk)
+    return digest.hexdigest()
+
+
+@contextmanager
+def bound_bytes(path,expected_sha):
+    """Keep the validated inode open. A later path replacement is not this artifact."""
+    if path.is_symlink() or path.suffix not in ('.jsonl','.gz') or not isinstance(expected_sha,str):
+        raise Blocked('BLOCKED_SOURCE: unsafe artifact')
+    try:
+        raw=os.fdopen(os.open(os.fspath(path),os.O_RDONLY|os.O_NOFOLLOW),'rb')
+    except OSError as exc:
+        if exc.errno==errno.ELOOP or path.is_symlink():
+            raise Blocked('BLOCKED_SOURCE: unsafe artifact') from exc
+        raise
+    try:
+        info=os.fstat(raw.fileno())
+        if not stat.S_ISREG(info.st_mode) or hash_fd(raw.fileno())!=expected_sha:
+            raise Blocked('BLOCKED_SOURCE: artifact hash mismatch')
+        raw.seek(0)
+        handle=gzip.GzipFile(fileobj=raw) if path.suffix=='.gz' else raw
+        def guard():
+            if hash_fd(raw.fileno())!=expected_sha:
+                raise Blocked('BLOCKED_SOURCE: artifact bytes differ from validated snapshot')
+        try:
+            yield handle,guard
+        finally:
+            if handle is not raw:handle.close()
+    finally:
+        raw.close()
+
+
 def lines(handle,max_expanded=MAX_EXPANDED):
     """Oversized line is drained in bounded chunks and rejected as exactly ONE row."""
     expanded=0
@@ -101,9 +140,13 @@ def snapshot(repo_root,source_id,language,max_expanded=MAX_EXPANDED):
     source,path,_=approved(root,source_id,language)
     rows=0
     try:
-        # Full bounded decoder EOF/CRC pass BEFORE any checkpoint/output acceptance.
-        with stream(path) as handle:
+        # Hash and row count share one descriptor so a swapped path cannot be verified.
+        with bound_bytes(path,source['retrieval']['sha256']) as (handle,guard):
             for _,_ in lines(handle,max_expanded):rows+=1
+            if rows<1:raise Blocked('REJECTED_RECORD: empty source artifact')
+            guard()
+    except Blocked:
+        raise
     except (OSError,EOFError,ValueError) as exc:
         raise Blocked('INCOMPLETE_OR_INVALID_SOURCE: '+str(exc)) from exc
     desc={'status':'VERIFIED_IMMUTABLE','adapter_version':VERSION,'contract_version':'1.0.0',
@@ -219,7 +262,7 @@ def process(repo_root,descriptor,checkpoint,*,shard=0,shards=1,limit=100000,batc
             if state['complete']:return receipt(db)
             start=state['input_rows'];processed=0
             db.execute('BEGIN')
-            with stream(path) as handle:
+            with bound_bytes(path,descriptor['source_sha256']) as (handle,guard):
                 for number,(raw,line_sha) in enumerate(lines(handle,descriptor['max_expanded']),1):
                     if number<=start:continue
                     owner=0
@@ -251,11 +294,13 @@ def process(repo_root,descriptor,checkpoint,*,shard=0,shards=1,limit=100000,batc
                     state['input_rows']=number;processed+=1
                     if after_row:after_row(processed) # test interruption seam; never exposed via CLI
                     if processed%batch_size==0:
+                        guard()
                         db.execute("UPDATE meta SET v=? WHERE k='state'",(canonical(state),));db.commit();db.execute('BEGIN')
                     if processed>=limit:break
-            state['complete']=state['input_rows']==descriptor['source_rows']
-            db.execute("UPDATE meta SET v=? WHERE k='state'",(canonical(state),));db.commit()
-            return receipt(db)
+                state['complete']=state['input_rows']==descriptor['source_rows']
+                guard()
+                db.execute("UPDATE meta SET v=? WHERE k='state'",(canonical(state),));db.commit()
+                return receipt(db)
         except BaseException:
             db.rollback();raise
         finally:db.close()

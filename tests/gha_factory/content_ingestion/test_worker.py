@@ -180,6 +180,44 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual(sum(x['rejected_records'] for x in results),1)
         self.assertEqual(results[1]['rejected_records'],1)
 
+    def test_empty_artifact_is_rejected(self):
+        self.write(b'')
+        with self.assertRaisesRegex(Blocked, 'empty'):
+            self.snapshot()
+        self.assertFalse(self.db.exists())
+
+    def test_replacement_after_validation_is_not_verified(self):
+        import unittest.mock
+        import tools.gha_factory.admission.pipeline as pipeline
+        artifact = self.root / 'input/data.jsonl'
+        original = pipeline.checked_file
+
+        def swapped(root, relative, expected, label):
+            found = original(root, relative, expected, label)
+            if label == 'source':
+                artifact.write_bytes((canonical(dict(self.row(), word='Evilwort')) + '\n').encode())
+            return found
+
+        with unittest.mock.patch.object(pipeline, 'checked_file', swapped):
+            with self.assertRaises(Blocked):
+                self.snapshot()
+
+    def test_in_place_rewrite_is_not_committed(self):
+        desc = self.snapshot()
+        artifact = self.root / 'input/data.jsonl'
+
+        def rewrite(_processed):
+            data = bytearray(artifact.read_bytes())
+            data[0] ^= 1
+            with artifact.open('r+b') as handle:
+                handle.write(data)
+
+        with self.assertRaises(Blocked):
+            self.run_worker(desc, batch_size=1, after_row=rewrite)
+        if self.db.exists():
+            with sqlite3.connect(self.db) as db:
+                self.assertIsNone(db.execute('SELECT payload FROM lexemes').fetchone())
+
     def test_export_route06_and_route07_fixture_projection(self):
         import subprocess
         import sys
