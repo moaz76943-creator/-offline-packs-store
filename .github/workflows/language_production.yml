@@ -1,4 +1,4 @@
-# Daily language-generic Wikidata lexeme harvest. One bounded slice, a rotating
+# Manual Wikidata dump slice. Scheduled harvesting lives in agent_harvest_wikidata.yml. One bounded slice, a rotating
 # language batch, per-language overlays. No ledger edit, no pack publish, no
 # self-dispatch, no paid API.
 name: Language production
@@ -29,8 +29,6 @@ on:
         description: 'Rotation slot. Empty uses the UTC day of year.'
         required: false
         default: ''
-  schedule:
-    - cron: '17 4 * * *'
 
 permissions:
   contents: read
@@ -124,15 +122,21 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           REF_NAME: ${{ github.ref }}
           HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+          AGENTS_HALT: ${{ vars.AGENTS_HALT }}
         run: |
           set -euo pipefail
           run=false
           case "$HALT" in
             true) ;;
             *)
+              case "$AGENTS_HALT" in
+                true) ;;
+                *)
               if [ "$EVENT_NAME" != "pull_request" ] && [ "$REF_NAME" = "refs/heads/main" ]; then
                 run=true
               fi
+              ;;
+              esac
               ;;
           esac
           echo "run=$run" >> "$GITHUB_OUTPUT"
