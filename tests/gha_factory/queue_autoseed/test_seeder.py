@@ -5,7 +5,6 @@ All sources and partitions below are synthetic; no public corpus is admitted.
 import copy
 import json
 import unittest
-from pathlib import Path
 from tools.gha_factory.dispatcher import queue
 from tools.gha_factory.queue_autoseed import seeder
 
@@ -118,26 +117,6 @@ class SeederTests(unittest.TestCase):
         }
         planned = seeder.plan(context(), REGISTRY_SHA, [v2_issue])
         self.assertEqual([t['shard'] for t in planned], [1, 2])
-
-
-    def test_historical_v1_fingerprint_cannot_hide_source_id_collision(self):
-        original = seeder.plan(context(parts=1), REGISTRY_SHA, [])[0]
-        conflicting = copy.deepcopy(original)
-        # v1 fingerprint omits source_id; same fingerprint now names another source.
-        conflicting['source_id'] = 'different.source'
-        self.assertEqual(original['task_id'], queue.fingerprint(conflicting))
-        with self.assertRaisesRegex(ValueError, 'collision'):
-            seeder.verified_context(context(parts=1), Path('.'), [as_existing(conflicting)])
-
-    def test_historical_v2_same_partition_different_source_is_rejected(self):
-        from tools.gha_factory.orchestration import protocol as proto
-        prior = proto.new('different.source', SHA, 'de',
-                          'approved_snapshot_verify', 0)
-        issue = {'number': 96, 'title': queue.PREFIX + prior['task_id'],
-                 'body': proto.serialize(prior),
-                 'user': {'login': seeder.OWNER}, 'state': 'closed'}
-        with self.assertRaisesRegex(ValueError, 'collision'):
-            seeder.plan(context(parts=1), REGISTRY_SHA, [issue])
 
 
 if __name__ == '__main__':

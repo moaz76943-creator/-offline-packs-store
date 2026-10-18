@@ -111,9 +111,6 @@
     "orthographic_variant": {
       "type": "string"
     },
-    "transliteration": {
-      "type": "string"
-    },
     "source_id": {
       "type": "string",
       "minLength": 1

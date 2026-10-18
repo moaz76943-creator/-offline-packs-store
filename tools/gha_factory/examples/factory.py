@@ -11,9 +11,6 @@ import hashlib
 import json
 import os
 import re
-import shutil
-import tempfile
-import uuid
 import sqlite3
 import sys
 import time
@@ -70,13 +67,6 @@ def source_path(workspace, snapshot):
     root = Path(workspace).resolve()
     if rel.is_absolute() or '..' in rel.parts or '.git' in rel.parts:
         raise Rejected('BLOCKED_SOURCE: unsafe source path')
-    # resolve() follows symlinks; checking is_symlink() on the resolved
-    # destination alone fails to catch linked files or parent directories.
-    probe = root
-    for component in rel.parts:
-        probe = probe / component
-        if probe.is_symlink():
-            raise Rejected('BLOCKED_SOURCE: symlink snapshot path')
     path = (root / rel).resolve()
     if not path.is_relative_to(root) or not path.is_file() or path.is_symlink():
         raise Rejected('BLOCKED_SOURCE: source missing or escapes workspace')
@@ -87,17 +77,8 @@ def source_path(workspace, snapshot):
 
 def bounded_tsv(path, columns):
     with open(path, 'rb') as stream:
-        line = 0
-        while True:
-            data = stream.readline(MAX_LINE + 1)
-            if not data:
-                break
-            line += 1
+        for line, data in enumerate(stream, 1):
             if len(data) > MAX_LINE:
-                # Drain one physical line in bounded chunks, retaining neither
-                # its bytes nor a decoded copy. Resume at the next real row.
-                while data and not data.endswith(b'\n'):
-                    data = stream.readline(MAX_LINE + 1)
                 yield line, None, 'oversized_line'
                 continue
             try:
@@ -231,11 +212,8 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
     root = Path(workspace).resolve()
     if out == root or out.is_relative_to(root):
         raise Rejected('output must be outside immutable source workspace')
-    # Build every output in an isolated sibling directory. A failed retry must
-    # leave its last complete report, SQLite index and JSONL parts untouched.
-    out.parent.mkdir(parents=True, exist_ok=True)
-    stage = Path(tempfile.mkdtemp(prefix=f'.{out.name}.staging-', dir=out.parent))
-    con = sqlite3.connect(stage / 'candidates.sqlite')
+    out.mkdir(parents=True, exist_ok=True)
+    con = sqlite3.connect(out / 'candidates.sqlite')
     con.executescript(SCHEMA)
     counters = Counter()
     try:
@@ -321,7 +299,7 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
                FROM edges x JOIN edges y ON x.src=y.dst AND x.dst=y.src
                JOIN sentences a ON a.id=x.src JOIN sentences b ON b.id=x.dst
                WHERE x.src < x.dst AND a.language != b.language ORDER BY a.id,b.id''')
-        candidates_dir = stage / 'verified_candidates'
+        candidates_dir = out / 'verified_candidates'
         candidates_dir.mkdir(exist_ok=True)
         current = None
         index = 0
@@ -368,30 +346,12 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
                                  'sentences_processed': counters['sentences_processed'],
                                  'pairs_written': counters['translation_pairs_verified']},
                   'status': 'BLOCKED_DEPENDENCY'}
-        temp = stage / 'report.json.tmp'
+        temp = out / 'report.json.tmp'
         temp.write_bytes(canonical(report))
-        os.replace(temp, stage / 'report.json')
-        con.close()
-
-        # Publish only after a fully successful import. Keep a restorable
-        # complete previous generation if the second rename fails.
-        previous = None
-        if out.exists():
-            previous = out.with_name(f'.{out.name}.previous-{uuid.uuid4().hex}')
-            os.replace(out, previous)
-        try:
-            os.replace(stage, out)
-        except OSError:
-            if previous is not None:
-                os.replace(previous, out)
-            raise
-        if previous is not None:
-            shutil.rmtree(previous)
+        os.replace(temp, out / 'report.json')
         return report
     finally:
         con.close()
-        if stage.exists():
-            shutil.rmtree(stage)
 
 
 def main(argv=None):

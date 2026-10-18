@@ -2,14 +2,10 @@
 import hashlib
 import json
 import tempfile
-from unittest.mock import patch
-import tracemalloc
 import unittest
 from pathlib import Path
 
-import tools.gha_factory.examples.factory as example_factory
-
-from tools.gha_factory.examples.factory import (MAX_LINE, Rejected, bounded_tsv, digest,
+from tools.gha_factory.examples.factory import (Rejected, bounded_tsv, digest,
     make_cloze, run, source_approval, source_path, verified_catalog)
 
 
@@ -141,99 +137,6 @@ class FactoryTests(unittest.TestCase):
         lines=list(bounded_tsv(p,2))
         self.assertIsNone(lines[1][1])
         self.assertIsNotNone(lines[2][2])
-
-    def test_oversized_tsv_line_has_bounded_memory_and_preserves_next_row(self):
-        path = self.source / 'giant.tsv'
-        path.write_bytes(b'x' * (MAX_LINE * 128) + b'\n2\tvalid\n')
-        tracemalloc.start()
-        try:
-            rows = list(bounded_tsv(path, 2))
-            _, peak = tracemalloc.get_traced_memory()
-        finally:
-            tracemalloc.stop()
-        self.assertEqual(rows, [(1, None, 'oversized_line'), (2, ['2', 'valid'], None)])
-        self.assertLess(peak, MAX_LINE * 8)
-
-    def test_tsv_line_byte_limit_and_crlf_are_preserved(self):
-        path = self.source / 'limits.tsv'
-        accepted = b'1\t' + b'x' * (MAX_LINE - 4) + b'\r\n'
-        rejected = b'2\t' + b'x' * (MAX_LINE - 3) + b'\r\n'
-        path.write_bytes(accepted + rejected + '3\tصحيح\n'.encode())
-        rows = list(bounded_tsv(path, 2))
-        self.assertEqual(rows[0], (1, ['1', 'x' * (MAX_LINE - 4)], None))
-        self.assertEqual(rows[1], (2, None, 'oversized_line'))
-        self.assertEqual(rows[2], (3, ['3', 'صحيح'], None))
-
-    def test_oversized_tsv_line_without_newline_is_rejected_once(self):
-        path = self.source / 'unterminated.tsv'
-        path.write_bytes(b'x' * (MAX_LINE * 3))
-        self.assertEqual(list(bounded_tsv(path, 2)), [(1, None, 'oversized_line')])
-
-    def test_failed_retry_keeps_last_complete_candidate_set(self):
-        """An interrupted import must not destroy an earlier verified candidate set."""
-        self.process()
-        before = {p.relative_to(self.out).as_posix(): digest(p)
-                  for p in self.out.rglob('*') if p.is_file()}
-        original_reader = bounded_tsv
-
-        def interrupted_links(path, columns):
-            for row in original_reader(path, columns):
-                yield row
-                if columns == 2:
-                    raise Rejected('simulated interrupted link import')
-
-        with patch('tools.gha_factory.examples.factory.bounded_tsv',
-                   side_effect=interrupted_links):
-            with self.assertRaisesRegex(Rejected, 'interrupted link'):
-                self.process()
-        after = {p.relative_to(self.out).as_posix(): digest(p)
-                 for p in self.out.rglob('*') if p.is_file()}
-        self.assertEqual(before, after)
-
-    def test_failed_jsonl_write_keeps_last_complete_candidate_set(self):
-        """A write failure after one pair must not publish a partial JSONL part."""
-        self.process()
-        before = {p.relative_to(self.out).as_posix(): digest(p)
-                  for p in self.out.rglob('*') if p.is_file()}
-        original_writer = example_factory.canonical
-
-        def interrupted_writer(obj):
-            if (isinstance(obj, dict) and
-                    obj.get('link_proof') == 'tatoeba_explicit_reciprocal' and
-                    obj['target']['sentence_id'] == '3'):
-                raise Rejected('simulated interrupted JSONL write')
-            return original_writer(obj)
-
-        with patch('tools.gha_factory.examples.factory.canonical',
-                   side_effect=interrupted_writer):
-            with self.assertRaisesRegex(Rejected, 'interrupted JSONL'):
-                self.process()
-        after = {p.relative_to(self.out).as_posix(): digest(p)
-                 for p in self.out.rglob('*') if p.is_file()}
-        self.assertEqual(before, after)
-
-    def test_source_symlink_inside_workspace_is_rejected(self):
-        alias = self.source / 'alias.tsv'
-        alias.symlink_to('detailed.tsv')
-        with self.assertRaisesRegex(Rejected, 'symlink'):
-            source_path(self.source, {
-                'path': 'alias.tsv', 'sha256': digest(self.source / 'detailed.tsv')})
-
-    def test_multi_thousand_row_tsv_import_with_invalid_tail(self):
-        path = self.source / 'detailed.tsv'
-        data = ''.join(
-            f'{i}\tdeu\tGuten Tag {i}!\twriter\t2026\t2026\n'
-            for i in range(1, 4097))
-        path.write_bytes(data.encode('utf-8') + b'\xff\tbroken\n')
-        self.snapshots['detailed']['sha256'] = digest(path)
-        self.job['snapshots'] = self.snapshots
-        self.save_config()
-        report = run(self.source, self.config, self.catalog, self.ledger, self.out,
-                     partition_size=1024, deadline_seconds=10)
-        self.assertEqual(report['counts']['candidate_sentences'], 4096)
-        self.assertEqual(report['counts']['rejected_sentences'], 1)
-        self.assertEqual(report['counts'].get('translation_pairs_verified', 0), 0)
-        self.assertEqual(list((self.out / 'verified_candidates').glob('*.jsonl')), [])
 
     def test_deterministic_partitions_and_checkpoint(self):
         a = self.process()

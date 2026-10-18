@@ -7,17 +7,8 @@ from legal.ledger.admission import LICENSES, OBLIGATIONS
 from tools.contribution_gate.evidence import verified_sources
 
 def check_compatibility(sources, output_license, is_derivative=True, *, repo_root=None):
-    base = {
-        "status": "REVIEW_REQUIRED",
-        "reason": "",
-        "obligations": {
-            "share_alike": False,
-            "attribution": False,
-            "modification": False,
-            "redistribution": False
-        },
-        "publication_approved": False
-    }
+    base = {"status": "REVIEW_REQUIRED", "reason": "", "obligations": set(),
+            "publication_approved": False}
     if output_license not in LICENSES:
         return {**base, "reason": "unsupported output license"}
     if not isinstance(sources, list) or not sources:
@@ -26,21 +17,8 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
         verified_sources({"schema_version": "1.0.0", "sources": sources}, repo_root)
     except (ValueError, TypeError, OSError) as exc:
         return {**base, "reason": str(exc)}
-
     ids = [s["license"]["id"] for s in sources]
-
-    raw_obligations = set().union(*(set(OBLIGATIONS.get(lid, ())) for lid in ids))
-
-    obligations = {
-        "share_alike": "sharealike" in raw_obligations or "GFDL-1.3-only" in ids,
-        "attribution": "attribution" in raw_obligations or "copyright_notices" in raw_obligations,
-        "modification": "changes_disclosed" in raw_obligations or "history" in raw_obligations,
-        # A public-domain source adds no obligation and must not cancel one.
-        "redistribution": any(lid in LICENSES and lid != "PUBLIC-DOMAIN" for lid in ids)
-    }
-
-    base["obligations"] = obligations
-
+    obligations = set().union(*(set(OBLIGATIONS.get(lid, ())) for lid in ids))
     copyleft = set(ids).intersection(OBLIGATIONS)
     if output_license == "PUBLIC-DOMAIN" and any(lid != "PUBLIC-DOMAIN" for lid in ids):
         return {**base, "status": "INCOMPATIBLE",
@@ -53,5 +31,7 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
             return {**base, "status": "INCOMPATIBLE", "reason": "copyleft relicensing conflict"}
     elif copyleft:
         # The collection and its separate component licenses cannot be conflated.
-        return {**base, "reason": "aggregation requires independent collection license review"}
-    return {**base, "status": "COMPATIBLE", "reason": "evidence preflight only"}
+        return {**base, "reason": "aggregation requires independent collection license review",
+                "obligations": obligations}
+    return {**base, "status": "COMPATIBLE", "reason": "evidence preflight only",
+            "obligations": obligations}

@@ -24,8 +24,6 @@ def fixture_root():
     (root/'legal/ledger/sources.json').write_text('{"schema_version":"1.0.0","sources":[]}', encoding='utf-8')
     (root/'legal/ledger/admission.py').write_text(
         (BASE/'legal/ledger/admission.py').read_text(encoding='utf-8'), encoding='utf-8')
-    (root/'legal/ledger/license_notice.py').write_text(
-        (BASE/'legal/ledger/license_notice.py').read_text(encoding='utf-8'), encoding='utf-8')
     return root
 
 
@@ -44,7 +42,7 @@ def approved_fixture(root, record):
     raw=(json.dumps(record,ensure_ascii=False)+'\n').encode('utf-8')
     (root/path).write_bytes(raw)
     digest=hashlib.sha256(raw).hexdigest()
-    (root/'test_evidence').mkdir(exist_ok=True)
+    (root/'test_evidence').mkdir()
     snapshot=b'synthetic source file bytes only - not a licensed dictionary'
     (root/'test_evidence/source.bin').write_bytes(snapshot)
     original_sha=hashlib.sha256(snapshot).hexdigest()

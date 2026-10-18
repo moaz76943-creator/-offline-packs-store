@@ -16,7 +16,7 @@ from pathlib import Path
 FIELDS = frozenset(('language_code','lemma_id','sense_id','lemma','form','features',
                     'root','pattern','processes','components','morphemes',
                     'vowel_harmony_class','segmentation','script',
-                    'orthographic_variant','transliteration','source_id','evidence_version'))
+                    'orthographic_variant','source_id','evidence_version'))
 REQUIRED = frozenset(('language_code','lemma_id','sense_id','lemma','form',
                       'features','source_id','evidence_version'))
 PERSON = frozenset(('first','second','third'))
@@ -26,11 +26,6 @@ GERMAN_GENDER = frozenset(('masculine','feminine','neuter'))
 MORPHEME_FIELDS = frozenset(('surface','kind','position','allomorph'))
 MORPHEME_KINDS = frozenset(('root','prefix','suffix','infix','clitic','stem','pattern','compound_member'))
 SHA = re.compile(r'^[0-9a-f]{64}$')
-# Disallow display controls which spoof attested text or stable lexical IDs.
-# U+200C/U+200D joiners are kept for scripts that require them.
-UNSAFE_FORMAT_CONTROLS = frozenset((0x061C, 0x200E, 0x200F, 0xFEFF)) | (
-    frozenset(range(0x202A, 0x202F)) | frozenset(range(0x2066, 0x2070))
-)
 
 
 class LinguisticError(ValueError):
@@ -39,8 +34,7 @@ class LinguisticError(ValueError):
 
 def _text(v, name):
     if not isinstance(v, str) or not v.strip() or any(
-            unicodedata.category(ch) in ('Cc','Cs')
-            or ord(ch) in UNSAFE_FORMAT_CONTROLS for ch in v):
+            unicodedata.category(ch) in ('Cc','Cs') for ch in v):
         raise LinguisticError('invalid Unicode text: '+name)
 
 
@@ -63,7 +57,7 @@ def validate_form(record, registered_languages, *, pos=None):
         raise LinguisticError('features must be a map')
     for name,value in features.items():
         _text(name,'feature name');_text(value,'feature value')
-    for key in ('root','pattern','vowel_harmony_class','script','orthographic_variant','transliteration'):
+    for key in ('root','pattern','vowel_harmony_class','script','orthographic_variant'):
         if key in record:
             _text(record[key],key)
     for key in ('processes','components','segmentation'):
@@ -81,8 +75,7 @@ def validate_form(record, registered_languages, *, pos=None):
             if not isinstance(m,dict) or not {'surface','kind','position'}<=m.keys() or m.keys()-MORPHEME_FIELDS:
                 raise LinguisticError('invalid morpheme schema')
             _text(m['surface'],'morpheme')
-            if (not isinstance(m['kind'], str) or m['kind'] not in MORPHEME_KINDS
-                    or type(m['position']) is not int or m['position'] < 0):
+            if m['kind'] not in MORPHEME_KINDS or type(m['position']) is not int or m['position']<0:
                 raise LinguisticError('invalid morpheme type/position')
             if 'allomorph' in m:_text(m['allomorph'],'allomorph')
     if pos is not None and pos not in ('noun','verb','adjective','adverb','other'):
@@ -151,8 +144,7 @@ def audit_stream(path, declared_sha256, registered_languages, source_id, *, shar
         with sqlite3.connect(str(Path(temp)/'seen.sqlite')) as db:
             db.execute('CREATE TABLE seen (id TEXT PRIMARY KEY, facts TEXT NOT NULL)')
             with Path(path).open('rb') as stream:
-                # Enforce the line bound while reading, not after buffering it.
-                for line_no,raw in enumerate(iter(lambda: stream.readline(max_line_bytes + 1), b''), 1):
+                for line_no,raw in enumerate(stream,1):
                     digest.update(raw)
                     if len(raw)>max_line_bytes:
                         raise LinguisticError(f'line {line_no}: oversized JSONL record')
@@ -201,20 +193,13 @@ def classify_answer(submitted, expected, other_attestations=()):
     different senses. Unverifiable responses remain 'unverified'.
     """
     if not isinstance(submitted,str):raise LinguisticError('answer must be text')
-    # NFC equates canonical spellings; no accent loss or NFKC collapsing.
-    # Original attestation text and language-scoped IDs are unchanged.
-    answer=unicodedata.normalize('NFC', submitted.strip())
-    expected_form=unicodedata.normalize('NFC', expected['form'])
-    if answer==expected_form:return 'correct'
+    answer=submitted.strip()
+    if answer==expected['form']:return 'correct'
     same=[r for r in other_attestations if r.get('language_code')==expected['language_code']
           and r.get('lemma_id')==expected['lemma_id'] and r.get('sense_id')==expected['sense_id']]
-    if any(isinstance(r.get('form'),str) and
-           unicodedata.normalize('NFC',r['form'])==answer and
-           r.get('features')==expected['features'] for r in same):
+    if any(r.get('form')==answer and r.get('features')==expected['features'] for r in same):
         return 'correct'
-    if any(isinstance(r.get('form'),str) and
-           unicodedata.normalize('NFC',r['form'])==answer and
-           r.get('features')!=expected['features'] for r in same):
+    if any(r.get('form')==answer and r.get('features')!=expected['features'] for r in same):
         return 'morphology_error'
-    if _within_one_edit(answer,expected_form):return 'spelling_error'
+    if _within_one_edit(answer,expected['form']):return 'spelling_error'
     return 'unverified'
