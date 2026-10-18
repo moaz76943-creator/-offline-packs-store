@@ -1,0 +1,332 @@
+{
+  "next_index": 80,
+  "schema_version": "1.0.0",
+  "tune": {
+    "max_parallel": 12,
+    "reason": "default until a metrics snapshot exists",
+    "shard_limit": 80
+  },
+  "warning": "missing",
+  "window": [
+    {
+      "language": "af",
+      "section": "family"
+    },
+    {
+      "language": "am",
+      "section": "family"
+    },
+    {
+      "language": "ar",
+      "section": "family"
+    },
+    {
+      "language": "as",
+      "section": "family"
+    },
+    {
+      "language": "az",
+      "section": "family"
+    },
+    {
+      "language": "ba",
+      "section": "family"
+    },
+    {
+      "language": "be",
+      "section": "family"
+    },
+    {
+      "language": "bg",
+      "section": "family"
+    },
+    {
+      "language": "bn",
+      "section": "family"
+    },
+    {
+      "language": "br",
+      "section": "family"
+    },
+    {
+      "language": "bs",
+      "section": "family"
+    },
+    {
+      "language": "ca",
+      "section": "family"
+    },
+    {
+      "language": "cs",
+      "section": "family"
+    },
+    {
+      "language": "cy",
+      "section": "family"
+    },
+    {
+      "language": "da",
+      "section": "family"
+    },
+    {
+      "language": "de",
+      "section": "family"
+    },
+    {
+      "language": "dv",
+      "section": "family"
+    },
+    {
+      "language": "el",
+      "section": "family"
+    },
+    {
+      "language": "en",
+      "section": "family"
+    },
+    {
+      "language": "eo",
+      "section": "family"
+    },
+    {
+      "language": "es",
+      "section": "family"
+    },
+    {
+      "language": "et",
+      "section": "family"
+    },
+    {
+      "language": "eu",
+      "section": "family"
+    },
+    {
+      "language": "fa",
+      "section": "family"
+    },
+    {
+      "language": "fi",
+      "section": "family"
+    },
+    {
+      "language": "fo",
+      "section": "family"
+    },
+    {
+      "language": "fr",
+      "section": "family"
+    },
+    {
+      "language": "fy",
+      "section": "family"
+    },
+    {
+      "language": "ga",
+      "section": "family"
+    },
+    {
+      "language": "gd",
+      "section": "family"
+    },
+    {
+      "language": "gl",
+      "section": "family"
+    },
+    {
+      "language": "gu",
+      "section": "family"
+    },
+    {
+      "language": "ha",
+      "section": "family"
+    },
+    {
+      "language": "hi",
+      "section": "family"
+    },
+    {
+      "language": "hr",
+      "section": "family"
+    },
+    {
+      "language": "hu",
+      "section": "family"
+    },
+    {
+      "language": "hy",
+      "section": "family"
+    },
+    {
+      "language": "id",
+      "section": "family"
+    },
+    {
+      "language": "ig",
+      "section": "family"
+    },
+    {
+      "language": "is",
+      "section": "family"
+    },
+    {
+      "language": "it",
+      "section": "family"
+    },
+    {
+      "language": "ja",
+      "section": "family"
+    },
+    {
+      "language": "ka",
+      "section": "family"
+    },
+    {
+      "language": "kk",
+      "section": "family"
+    },
+    {
+      "language": "km",
+      "section": "family"
+    },
+    {
+      "language": "kn",
+      "section": "family"
+    },
+    {
+      "language": "ko",
+      "section": "family"
+    },
+    {
+      "language": "ku",
+      "section": "family"
+    },
+    {
+      "language": "ky",
+      "section": "family"
+    },
+    {
+      "language": "la",
+      "section": "family"
+    },
+    {
+      "language": "lb",
+      "section": "family"
+    },
+    {
+      "language": "lo",
+      "section": "family"
+    },
+    {
+      "language": "lt",
+      "section": "family"
+    },
+    {
+      "language": "lv",
+      "section": "family"
+    },
+    {
+      "language": "mg",
+      "section": "family"
+    },
+    {
+      "language": "mk",
+      "section": "family"
+    },
+    {
+      "language": "ml",
+      "section": "family"
+    },
+    {
+      "language": "mn",
+      "section": "family"
+    },
+    {
+      "language": "mr",
+      "section": "family"
+    },
+    {
+      "language": "ms",
+      "section": "family"
+    },
+    {
+      "language": "mt",
+      "section": "family"
+    },
+    {
+      "language": "my",
+      "section": "family"
+    },
+    {
+      "language": "ne",
+      "section": "family"
+    },
+    {
+      "language": "nl",
+      "section": "family"
+    },
+    {
+      "language": "no",
+      "section": "family"
+    },
+    {
+      "language": "or",
+      "section": "family"
+    },
+    {
+      "language": "pa",
+      "section": "family"
+    },
+    {
+      "language": "pl",
+      "section": "family"
+    },
+    {
+      "language": "ps",
+      "section": "family"
+    },
+    {
+      "language": "pt",
+      "section": "family"
+    },
+    {
+      "language": "ro",
+      "section": "family"
+    },
+    {
+      "language": "ru",
+      "section": "family"
+    },
+    {
+      "language": "rw",
+      "section": "family"
+    },
+    {
+      "language": "sd",
+      "section": "family"
+    },
+    {
+      "language": "si",
+      "section": "family"
+    },
+    {
+      "language": "sk",
+      "section": "family"
+    },
+    {
+      "language": "sl",
+      "section": "family"
+    },
+    {
+      "language": "sn",
+      "section": "family"
+    },
+    {
+      "language": "so",
+      "section": "family"
+    },
+    {
+      "language": "sq",
+      "section": "family"
+    }
+  ]
+}
