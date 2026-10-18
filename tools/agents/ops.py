@@ -31,8 +31,11 @@ def janitor_action(pr):
         return 'leave', 'not a bot branch'
     if pr.get('draft'):
         return 'leave', 'draft'
-    if pr.get('unresolved'):
-        return 'leave', 'unresolved review'
+    # An unverified review state must never be treated as resolved.
+    if pr.get('unresolved') is not False:
+        return 'leave', 'unverified or unresolved review'
+    if pr.get('merge_state') not in ('CLEAN', 'BEHIND'):
+        return 'leave', 'merge state not verified clean'
     checks = pr.get('checks') or []
     if not checks or any(item.get('status') != 'completed' for item in checks):
         return 'leave', 'checks incomplete'
@@ -47,6 +50,24 @@ def janitor_action(pr):
     if pr.get('behind'):
         return 'update', 'merge main into the branch without force push'
     return 'merge', 'required checks are green'
+
+
+def unresolved_review_threads(payload):
+    """True if GitHub's exact PR review thread state is unsafe or unknown."""
+    try:
+        if payload.get('errors'):
+            return True
+        threads = payload['data']['repository']['pullRequest']['reviewThreads']
+        nodes = threads['nodes']
+        page = threads['pageInfo']
+        if not isinstance(nodes, list) or not isinstance(page.get('hasNextPage'), bool):
+            return True
+        return page['hasNextPage'] or any(
+            not isinstance(node, dict) or node.get('isResolved') is not True
+            for node in nodes
+        )
+    except (AttributeError, KeyError, TypeError):
+        return True
 
 
 def duplicate_issues(issues):
