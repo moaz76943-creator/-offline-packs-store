@@ -39,14 +39,11 @@ if git diff --cached --quiet; then
   exit 0
 fi
 git commit -m "chore(agents): checkpoint ${name}"
-attempt=1
-while [ "$attempt" -le 4 ]; do
-  if git push origin "$branch"; then
-    exit 0
-  fi
-  git fetch origin "$branch" || exit 1
-  git merge --no-edit "origin/$branch" || exit 1
-  attempt=$((attempt + 1))
-done
-echo "push failed without force" >&2
-exit 1
+# One integration of disjoint per-agent files. A second rejection is a shared-path
+# conflict: the health agent records that signature instead of looping the push.
+if git push origin "$branch"; then
+  exit 0
+fi
+git fetch origin "$branch" || exit 1
+git merge --no-edit "origin/$branch" || exit 1
+git push origin "$branch"

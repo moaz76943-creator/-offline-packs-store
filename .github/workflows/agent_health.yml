@@ -29,8 +29,14 @@ jobs:
           LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          signature="$(gh run list --limit 20 --json conclusion,name,status --jq '[.[] | select(.conclusion=="failure")][0].name' || true)"
-          python3 -m tools.agents.cli repair --signature "${signature:-no-signature}"
+          line="$(gh run list --limit 30 --json databaseId,conclusion,name --jq '[.[] | select(.conclusion=="failure")][0] | [.databaseId, .name] | @tsv' || true)"
+          run_id="${line%%$'\t'*}"
+          signature="${line#*$'\t'}"
+          if [ -z "$signature" ] || [ "$signature" = "$run_id" ]; then
+            signature="no-signature"
+            run_id=""
+          fi
+          python3 -m tools.agents.cli repair --signature "$signature" --run-id "$run_id" --file-issue
 
       - name: Publish the checkpoint
         if: always()

@@ -132,11 +132,11 @@ Halt: `AGENTS_HALT=true` or `LANGUAGE_PRODUCTION_HALT=true`.
 
 ## health
 
-Classify failed runs, retry twice, and record one repair issue.
+Record each failed run signature with its root cause. The same run id is counted once. A second run of that signature opens one GitHub issue with the structural fix. A later run does not open another issue and does not rerun the failed job. If `ROOT_CAUSES.md` already names the signature, the health agent leaves that entry as the tracker.
 
-Inputs: GitHub workflow runs, state/agents/repair.json
+Inputs: GitHub workflow runs, `state/repair/<signature>.json`, `ROOT_CAUSES.md` when present
 
-Outputs: state/agents/repair.json
+Outputs: `state/repair/<signature>.json`
 
 Halt: `AGENTS_HALT=true` or `LANGUAGE_PRODUCTION_HALT=true`.
 

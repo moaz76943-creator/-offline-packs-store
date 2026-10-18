@@ -85,11 +85,11 @@ ROSTER = (
     {
         'name': 'health',
         'workflow': '.github/workflows/agent_health.yml',
-        'purpose': 'Classify failed runs, retry twice, and record one repair issue.',
+        'purpose': 'Record each failure signature and its root cause. A repeat opens one issue.',
         'schedule': 'every 4 hours from 00:08 UTC',
         'crons': ['8 0,4,8,12,16,20 * * *'],
-        'inputs': 'GitHub workflow runs, state/agents/repair.json',
-        'outputs': 'state/agents/repair.json',
+        'inputs': 'GitHub workflow runs, state/repair/, ROOT_CAUSES.md',
+        'outputs': 'state/repair/<signature>.json',
     },
     {
         'name': 'janitor',

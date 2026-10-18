@@ -18,9 +18,9 @@ from tools.agents.ops import (
     docs_check,
     duplicate_issues,
     janitor_action,
-    repair_update,
     urls_well_formed,
 )
+from tools.agents.root_cause import open_recorded_issue, repair_update
 from tools.agents.roster import ROSTER
 from tools.agents.work import (
     build_pack,
@@ -184,10 +184,22 @@ class ContractTests(unittest.TestCase):
         self.assertFalse(branch_deletable('cursor/example-cf19', True))
         self.assertFalse(branch_deletable('language-production/rolling', False))
         self.assertTrue(branch_deletable('language-production/rolling', True))
-        state, plan = repair_update({}, 'curl timeout')
-        state, plan = repair_update(state, 'curl timeout')
-        state, plan = repair_update(state, 'curl timeout')
-        self.assertEqual(plan['action'], 'record-and-continue')
+        first, plan = repair_update({}, 'curl timeout', run_id='100')
+        self.assertEqual(plan['action'], 'recorded')
+        self.assertEqual(plan['retries'], 0)
+        self.assertIn('shared remote slice', plan['root_cause'])
+        same, plan = repair_update(first, 'curl timeout', run_id='100')
+        self.assertEqual(same['seen_count'], 1)
+        second, plan = repair_update(same, 'curl timeout', run_id='101')
+        self.assertEqual(plan['action'], 'open-root-cause-issue')
+        self.assertNotIn('retry', plan['action'])
+        tracked, plan = repair_update(second, 'curl timeout', run_id='102', root_causes_text='## curl-timeout\n')
+        self.assertEqual(plan['action'], 'already-tracked')
+        self.assertEqual(tracked['tracked_in'], 'ROOT_CAUSES.md')
+        filed = dict(second, issue_number=12)
+        _again, plan = repair_update(filed, 'curl timeout', run_id='103')
+        self.assertEqual(plan['action'], 'already-tracked')
+        self.assertEqual(plan['issue_number'], 12)
         dupes = duplicate_issues([
             {'number': 1, 'title': 'Same', 'state': 'open'},
             {'number': 2, 'title': 'Same', 'state': 'open'},
@@ -195,6 +207,29 @@ class ContractTests(unittest.TestCase):
         self.assertEqual([item['number'] for item in dupes], [2])
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
+
+    def test_root_cause_issue_opens_once_and_workflows_do_not_retry(self):
+        calls = []
+
+        def runner(args):
+            calls.append(args)
+            if args[1] == 'list':
+                return '[]'
+            return 'https://github.com/moaz76943-creator/-offline-packs-store/issues/9'
+
+        plan, _plan = repair_update({}, 'No module named license_notice', run_id='1')
+        _again, plan = repair_update(plan, 'No module named license_notice', run_id='2')
+        opened = open_recorded_issue(plan, runner=runner)
+        self.assertEqual(opened['issue_number'], 9)
+        self.assertEqual(opened['action'], 'already-tracked')
+        open_recorded_issue(opened, runner=runner)
+        self.assertEqual(len(calls), 2)
+        root = Path(__file__).resolve().parents[2]
+        workflow = (root / '.github/workflows/agent_tests.yml').read_text(encoding='utf-8')
+        self.assertIn('python3 -m unittest tools.agents.test_agents -q', workflow)
+        self.assertNotIn('legal.ledger.test_license_notice', workflow)
+        publish = (root / 'tools/agents/publish.sh').read_text(encoding='utf-8')
+        self.assertNotIn('while', publish)
 
 
 if __name__ == '__main__':

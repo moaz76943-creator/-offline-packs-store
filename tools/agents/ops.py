@@ -9,7 +9,6 @@ from pathlib import Path
 
 from tools.agents.common import SCHEMA_VERSION, load_json_tolerant
 from tools.agents.roster import ROSTER
-from tools.language_production.repair import note_failure
 
 PROTECTED_BRANCHES = frozenset({'main', 'master', 'agents/data', 'gh-pages'})
 CLEANABLE_PREFIXES = ('language-production/', 'agents/tmp/')
@@ -21,13 +20,6 @@ ISSUE_RULES = (
     ('packs', ('pack', 'manifest', 'sqlite')),
     ('coverage', ('coverage', 'status')),
 )
-
-
-def repair_update(state, signature):
-    """At most two attempts, then record-and-continue. Uses the production repair rules."""
-    state, plan = note_failure(state if isinstance(state, dict) else {}, signature or 'unknown')
-    state['schema_version'] = SCHEMA_VERSION
-    return state, plan
 
 
 def janitor_action(pr):

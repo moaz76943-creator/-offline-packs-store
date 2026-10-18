@@ -3,11 +3,13 @@
 
 import argparse
 import json
+import subprocess
 import sys
 from pathlib import Path
 
 from tools.agents.common import halted, load_json_tolerant, write_heartbeat, write_json
-from tools.agents.ops import docs_check, performance_report, repair_update, schema_guard, untested_modules
+from tools.agents.ops import docs_check, performance_report, schema_guard, untested_modules
+from tools.agents.root_cause import open_recorded_issue, repair_update, signature_id
 from tools.agents.roster import ROSTER
 from tools.agents.work import (
     attribution_text,
@@ -243,20 +245,46 @@ def command_performance(_args):
 def command_repair(_args):
     if _halt('health'):
         return 0
-    state, warning = load_json_tolerant(
-        ROOT / 'state' / 'agents' / 'repair.json',
-        {'schema_version': '1.0.0', 'attempts': {}},
-    )
     signature = _args.signature or 'no-signature'
-    if signature != 'no-signature':
-        state, plan = repair_update(state, signature)
-    else:
-        plan = {'action': 'record-and-continue', 'attempts': 0, 'signature': signature}
-        state['schema_version'] = '1.0.0'
-    state['last_plan'] = plan
-    state['warning'] = warning
-    write_json(_out('state/agents/repair.json'), state)
-    write_heartbeat(_out('state/agents'), 'health', 'ok', warning)
+    if signature == 'no-signature':
+        plan = {
+            'schema_version': '1.0.0',
+            'action': 'recorded',
+            'retries': 0,
+            'signature': 'no-signature',
+            'seen_count': 0,
+        }
+        write_json(_out('state/agents/repair.json'), plan)
+        write_heartbeat(_out('state/agents'), 'health', 'ok', '')
+        print(json.dumps(plan, sort_keys=True))
+        return 0
+    sid = signature_id(signature)
+    record_path = ROOT / 'state' / 'repair' / f'{sid}.json'
+    record, warning = load_json_tolerant(record_path, {'schema_version': '1.0.0'})
+    if not record_path.is_file():
+        warning = ''
+    causes = ROOT / 'ROOT_CAUSES.md'
+    root_causes_text = causes.read_text(encoding='utf-8') if causes.is_file() else ''
+    _record, plan = repair_update(
+        record,
+        signature,
+        run_id=getattr(_args, 'run_id', '') or '',
+        root_causes_text=root_causes_text,
+    )
+    if plan['action'] == 'open-root-cause-issue' and getattr(_args, 'file_issue', False):
+        try:
+            plan = open_recorded_issue(plan)
+        except (OSError, subprocess.CalledProcessError, json.JSONDecodeError) as exc:
+            plan['warning'] = f'issue not opened: {exc}'
+    plan['warning'] = warning or plan.get('warning') or ''
+    write_json(_out(f'state/repair/{sid}.json'), plan)
+    write_json(_out('state/agents/repair.json'), {
+        'schema_version': '1.0.0',
+        'last_signature': sid,
+        'action': plan['action'],
+        'retries': 0,
+    })
+    write_heartbeat(_out('state/agents'), 'health', 'ok', plan['warning'])
     print(json.dumps(plan, sort_keys=True))
     return 0
 
@@ -530,6 +558,8 @@ def build_parser():
         item = commands.add_parser(name)
         if name == 'repair':
             item.add_argument('--signature', default='')
+            item.add_argument('--run-id', default='')
+            item.add_argument('--file-issue', action='store_true')
         item.set_defaults(func=func)
     commands.add_parser('watchdog').set_defaults(func=command_watchdog)
     commands.add_parser('links').set_defaults(func=command_links)
