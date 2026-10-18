@@ -65,6 +65,14 @@ class TestPublicationFactory(unittest.TestCase):
         finally:
             tools.release_publication.factory.MAX_FILE_SIZE = old_limit
 
+    def test_outside_target_rejected_without_is_relative_to(self):
+        outside = Path(tempfile.mkdtemp())
+        self.addCleanup(lambda: __import__('shutil').rmtree(outside, ignore_errors=True))
+        artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "de"}]
+        with self.assertRaisesRegex(ValueError, "within repository"):
+            publish_artifacts(self.root, outside, artifacts, check_auth=False)
+        self.assertFalse((outside / "deutsch_deep_master.pack.gz").exists())
+
     def test_path_traversal_blocked(self):
         artifacts = [{"path": "../outside.pack.gz", "sha256": "anything"}]
         with self.assertRaisesRegex(ValueError, "Path traversal detected"):
