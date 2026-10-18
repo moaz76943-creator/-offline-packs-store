@@ -1,0 +1,1073 @@
+{
+  "receipt_schema_version": "1.0.0",
+  "receipt_kind": "registry_and_legal_readiness_snapshot_not_executed_classification_job",
+  "head_sha": "254e8edd85a2d4a37c13e1834ef2d9f77ce7e605",
+  "canonical_blob_shas": {
+    "catalog/language_registry.v1.json": "e3cca71788d4510663f177b966a62e6a788d012c",
+    "standards/proficiency/frameworks.json": "f37f09ab26a67dcaef5329cd49b6fb4d9c283dec",
+    "legal/ledger/sources.json": "cb21feee7aa34ce8144c6b3e1f230c350dde2f1d",
+    "standards/proficiency/curricula.json": "d2ae2343b152abc210222d534819c65911b4347b"
+  },
+  "canonical_language_count": 100,
+  "approved_source_count": 0,
+  "admitted_source_attested_content_count": 0,
+  "pilot_planning_tracks": 5,
+  "pilot_planning_content_record_count": 0,
+  "unmatched_framework_ids": [
+    "HSK",
+    "TOPIK"
+  ],
+  "assessment_and_certificate_claims": "none",
+  "hosted_action_run_id": null,
+  "languages": {
+    "ar": {
+      "scripts": [
+        "Arab"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "de": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "en": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "es": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "fr": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "it": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "tr": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ru": {
+      "scripts": [
+        "Cyrl"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "zh": {
+      "scripts": [
+        "Hans",
+        "Hant"
+      ],
+      "declared_framework_ids": [
+        "HSK"
+      ],
+      "unmatched_framework_ids": [
+        "HSK"
+      ],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ja": {
+      "scripts": [
+        "Jpan"
+      ],
+      "declared_framework_ids": [
+        "JLPT"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ko": {
+      "scripts": [
+        "Kore"
+      ],
+      "declared_framework_ids": [
+        "TOPIK"
+      ],
+      "unmatched_framework_ids": [
+        "TOPIK"
+      ],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "pt": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "nl": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "pl": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "sv": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "no": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "da": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "fi": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "el": {
+      "scripts": [
+        "Grek"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "hi": {
+      "scripts": [
+        "Deva"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ur": {
+      "scripts": [
+        "Arab"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "fa": {
+      "scripts": [
+        "Arab"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "id": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ms": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "vi": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "th": {
+      "scripts": [
+        "Thai"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "bn": {
+      "scripts": [
+        "Beng"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "pa": {
+      "scripts": [
+        "Guru",
+        "Arab"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ta": {
+      "scripts": [
+        "Taml"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "te": {
+      "scripts": [
+        "Telu"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "mr": {
+      "scripts": [
+        "Deva"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "gu": {
+      "scripts": [
+        "Gujr"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "uk": {
+      "scripts": [
+        "Cyrl"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "cs": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ro": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "hu": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "bg": {
+      "scripts": [
+        "Cyrl"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "sk": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "hr": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "sr": {
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "bs": {
+      "scripts": [
+        "Latn",
+        "Cyrl"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "sq": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "hy": {
+      "scripts": [
+        "Armn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ka": {
+      "scripts": [
+        "Geor"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "az": {
+      "scripts": [
+        "Latn",
+        "Cyrl",
+        "Arab"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "kk": {
+      "scripts": [
+        "Cyrl",
+        "Latn",
+        "Arab"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "uz": {
+      "scripts": [
+        "Latn",
+        "Cyrl"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "sw": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "tl": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "af": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "et": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "lv": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "lt": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "sl": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "mk": {
+      "scripts": [
+        "Cyrl"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "is": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ga": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "cy": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "eu": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ca": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "gl": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "be": {
+      "scripts": [
+        "Cyrl"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "mn": {
+      "scripts": [
+        "Cyrl",
+        "Mong"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ne": {
+      "scripts": [
+        "Deva"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "si": {
+      "scripts": [
+        "Sinh"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "my": {
+      "scripts": [
+        "Mymr"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "km": {
+      "scripts": [
+        "Khmr"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "lo": {
+      "scripts": [
+        "Laoo"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "am": {
+      "scripts": [
+        "Ethi"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "so": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ha": {
+      "scripts": [
+        "Latn",
+        "Arab"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "yo": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ig": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "zu": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "xh": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "sn": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "rw": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "mg": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "eo": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "la": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "kn": {
+      "scripts": [
+        "Knda"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ml": {
+      "scripts": [
+        "Mlym"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "or": {
+      "scripts": [
+        "Orya"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "as": {
+      "scripts": [
+        "Beng"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "sd": {
+      "scripts": [
+        "Arab",
+        "Deva"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ps": {
+      "scripts": [
+        "Arab"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ku": {
+      "scripts": [
+        "Latn",
+        "Arab"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "tg": {
+      "scripts": [
+        "Cyrl",
+        "Arab"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "tk": {
+      "scripts": [
+        "Latn",
+        "Cyrl"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ky": {
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "tt": {
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ba": {
+      "scripts": [
+        "Cyrl",
+        "Latn"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "ug": {
+      "scripts": [
+        "Arab",
+        "Cyrl"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "dv": {
+      "scripts": [
+        "Thaa"
+      ],
+      "declared_framework_ids": [],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "mt": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "lb": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "fo": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "fy": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "gd": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    },
+    "br": {
+      "scripts": [
+        "Latn"
+      ],
+      "declared_framework_ids": [
+        "CEFR"
+      ],
+      "unmatched_framework_ids": [],
+      "admitted_source_attested_records": 0,
+      "coverage_state": "no_approved_source_evidence"
+    }
+  }
+}

@@ -13,7 +13,13 @@ STATES = frozenset(('NEW','READY','CLAIMED','RUNNING','SUCCEEDED','FAILED',
 FIELDS = frozenset(('schema_version','task_id','source_sha256','source_id','language',
                     'task_type','shard','contract_version','state','attempts',
                     'next_retry_at','lease_until','run_id','run_attempt','checkpoint','receipt'))
-TASK_TYPES = frozenset(('registry_validate','admission_partition_verify'))
+TASK_TYPES = frozenset((
+    'registry_validate',
+    'admission_partition_verify',
+    'lexical_partition',
+    'examples_partition',
+    'release_candidate_qa',
+))
 HEX = re.compile(r'^[0-9a-f]{64}$')
 SOURCE = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_.:-]{0,100}$')
 LANG = re.compile(r'^[a-z]{2,3}$')
@@ -59,7 +65,7 @@ def validate(t, language_ids=None):
         raise ValueError('unapproved task type or language')
     if t['task_type']=='registry_validate' and (t['source_id']!='public-registry' or t['shard']!=0):
         raise ValueError('wrong registry task identity')
-    if t['task_type']=='admission_partition_verify' and t['source_id']=='public-registry':
+    if t['task_type'] in ('admission_partition_verify', 'lexical_partition', 'examples_partition', 'release_candidate_qa') and t['source_id']=='public-registry':
         raise ValueError('wrong source type')
     if type(t['shard']) is not int or not (0<=t['shard']<100000):
         raise ValueError('invalid shard')
@@ -92,7 +98,15 @@ def serialize(t):
 def parse(body,language_ids=None):
     if not isinstance(body,str) or len(body.encode('utf-8'))>12000 or not body.startswith(MARKER) or not body.endswith('\n```'):
         raise ValueError('invalid queue issue envelope')
-    t=json.loads(body[len(MARKER):-4])
+    def reject_duplicate_keys(pairs):
+        values = {}
+        for key, value in pairs:
+            if key in values:
+                raise ValueError('duplicate JSON key in queue task envelope')
+            values[key] = value
+        return values
+
+    t=json.loads(body[len(MARKER):-4], object_pairs_hook=reject_duplicate_keys)
     return validate(t,language_ids)
 
 
@@ -114,7 +128,8 @@ def admission(t, context, registry_sha):
     matches=[s for s in context['sources'] if s.get('source_id')==t['source_id']]
     if len(matches)!=1:return 'BLOCKED_SOURCE'
     src=matches[0]
-    if src.get('kind')!='dictionary' or src.get('status')!='APPROVED_FOR_REDISTRIBUTION':
+    allowed_kinds = {'dictionary', 'lexical', 'examples', 'qa_evidence'}
+    if src.get('kind') not in allowed_kinds or src.get('status')!='APPROVED_FOR_REDISTRIBUTION':
         return 'BLOCKED_SOURCE'
     retrieval=src.get('retrieval') or {}
     if retrieval.get('sha256')!=t['source_sha256']:
