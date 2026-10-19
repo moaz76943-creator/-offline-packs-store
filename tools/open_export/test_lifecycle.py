@@ -80,6 +80,17 @@ class SecurityRegression(unittest.TestCase):
             "submission_id": sid, "source_id": "src-test", "license": "CC0-1.0",
             "source_version": "1.0"}]}))
 
+    def test_export_preserves_unicode_text_lexical_senses_and_pair_direction(self):
+        content = '{"lexemes": [{"lemma": "āéíóú", "direction": "ltr"}]}'.encode("utf-8")
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        output = self.export()
+        with zipfile.ZipFile(self.out / "releases" / output["release"]) as z:
+            with z.open("data/item1.bin") as f:
+                data = f.read()
+                self.assertEqual(data, content)
+
     def test_export_pronunciation_metadata(self):
         name, sha = self.stage()
         self.certify()
@@ -194,6 +205,31 @@ class SecurityRegression(unittest.TestCase):
         (self.src / name).write_bytes(b"different content")
         with self.assertRaisesRegex(ValueError, "SHA-256"):
             self.export()
+    def test_export_rejects_duplicate_entries_and_reversed_pairs(self):
+        name, sha = self.stage()
+        self.certify()
+        content = b'{"items": [{"id": "item1", "type": "lexical", "filename": "' + name.encode('utf-8') + b'", "sha256": "' + sha.encode('utf-8') + b'", "submission_id": "item1", "source_id": "src-test", "license": "CC0-1.0", "source_version": "1.0"}, {"id": "item1", "type": "lexical", "filename": "' + name.encode('utf-8') + b'", "sha256": "' + sha.encode('utf-8') + b'", "submission_id": "item1", "source_id": "src-test", "license": "CC0-1.0", "source_version": "1.0"}]}'
+        (self.src / "manifest.json").write_bytes(content)
+        with self.assertRaisesRegex(ValueError, "duplicate export identity"):
+            self.export()
+
+        # Test reversed pairs by using a document where the language directions are swapped
+        content_reversed = '{"translations": [{"equivalence": "exact", "from_sense_id": "sense.en.house", "to_sense_id": "sense.de.haus", "language": "de", "text": "haus", "translation_id": "tr1"}]}'.encode("utf-8")
+        name2, sha2 = self.stage(sid="item2", content=content_reversed)
+        self.certify(sid="item2")
+        self.manifest(name2, sha2, sid="item2")
+        output = self.export()
+        with zipfile.ZipFile(self.out / "releases" / output["release"]) as z:
+            with z.open("data/item2.bin") as f:
+                data = f.read()
+                self.assertEqual(data, content_reversed)
+
+
+
+
+
+
+
 
     def test_deterministic_export_and_failed_run_preserves_last_good(self):
         name, sha = self.stage()

@@ -159,11 +159,21 @@ class CommunityExporter:
                     with os.fdopen(fd, "wb") as stream:
                         with zipfile.ZipFile(stream, "w", allowZip64=False) as archive:
                             for aid, path, expected in entries:
-                                with path.open("rb") as source:
-                                    raw = source.read(MAX_FILE + 1)
-                                if len(raw) > MAX_FILE or hashlib.sha256(raw).hexdigest() != expected:
+                                info = zipfile.ZipInfo("data/" + aid + ".bin", date_time=ZIP_DATE)
+                                info.compress_type = zipfile.ZIP_STORED
+                                info.external_attr = 0o644 << 16
+                                h = hashlib.sha256()
+                                size = 0
+                                with archive.open(info, "w") as out_stream:
+                                    with path.open("rb") as in_stream:
+                                        for chunk in iter(lambda: in_stream.read(65536), b""):
+                                            size += len(chunk)
+                                            if size > MAX_FILE:
+                                                raise ExportError("file changed during packaging")
+                                            h.update(chunk)
+                                            out_stream.write(chunk)
+                                if h.hexdigest() != expected:
                                     raise ExportError("file changed during packaging")
-                                zip_entry(archive, "data/" + aid + ".bin", raw)
                             zip_entry(archive, "ATTRIBUTION.json", canonical(notices))
                         stream.flush()
                         os.fsync(stream.fileno())
@@ -186,9 +196,15 @@ class CommunityExporter:
                         if info.compress_type != zipfile.ZIP_STORED or info.file_size > MAX_FILE:
                             raise ExportError("untrusted cached archive member")
                     for aid, path, expected in entries:
+                        h = hashlib.sha256()
+                        size = 0
                         with archive.open("data/" + aid + ".bin") as stream:
-                            raw = stream.read(MAX_FILE + 1)
-                        if len(raw) > MAX_FILE or hashlib.sha256(raw).hexdigest() != expected:
+                            for chunk in iter(lambda: stream.read(65536), b""):
+                                size += len(chunk)
+                                if size > MAX_FILE:
+                                    raise ExportError("cached archive content mismatch")
+                                h.update(chunk)
+                        if h.hexdigest() != expected:
                             raise ExportError("cached archive content mismatch")
                     with archive.open("ATTRIBUTION.json") as stream:
                         attribution = stream.read(65537)
