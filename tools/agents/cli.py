@@ -443,7 +443,9 @@ def command_watchdog(_args):
                 heartbeats.append(payload)
     now = datetime.now(timezone.utc).timestamp()
     stale = stale_heartbeats(heartbeats, now, 8 * 3600)
-    batch = dispatch_batch(stale, cap=3)
+    # Rotate by UTC hour; no new ledger or scheduler is needed. A continuously
+    # failing early roster entry cannot monopolize all three recovery slots.
+    batch = dispatch_batch(stale, cap=3, rotation=int(now // 3600))
     write_json(_out('state/agents/watchdog.json'), {
         'schema_version': '1.0.0',
         'stale': stale,
