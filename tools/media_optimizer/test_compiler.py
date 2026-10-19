@@ -126,6 +126,16 @@ class TestMediaCompiler(unittest.TestCase):
             self.compiler.validate_token(self.valid_raw)
         self.assertIn('ARTWORK_LICENSE', str(caught.exception))
 
+    def test_missing_source_author_fails_closed(self):
+        source = copy.deepcopy(self.source)
+        source.pop('author', None)
+        self._put(
+            'legal/ledger/sources.json',
+            json.dumps({'schema_version': SCHEMA, 'sources': [source]}).encode(),
+        )
+        with self.assertRaises(TokenValidationError):
+            self.compiler.validate_token(self.valid_raw)
+
     def test_unapproved_source_fails_closed(self):
         self._rewrite_source(status='REVIEW_REQUIRED')
         with self.assertRaises(TokenValidationError) as caught:
