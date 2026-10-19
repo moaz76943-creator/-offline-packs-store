@@ -167,6 +167,16 @@ class TestAudioAdmissionGate(unittest.TestCase):
         self.assertEqual(accepted, [])
         self.assertIn("rights missing or unapproved", rejected[0]["rejection_reason"])
 
+    def test_missing_author_from_canonical_ledger_is_rejected(self):
+        ledger = json.loads(json.dumps(self.ledger))
+        ledger["sources"][0].pop("author")
+        path = self.root / "legal" / "ledger" / "sources.json"
+        path.write_text(json.dumps(ledger), encoding="utf-8")
+        accepted, rejected = process_candidates(
+            [self.candidate(self.wav)], ledger, self.root)
+        self.assertEqual(accepted, [])
+        self.assertIn("rights missing or unapproved", rejected[0]["rejection_reason"])
+
     def test_caller_ledger_must_equal_canonical_file(self):
         forged = json.loads(json.dumps(self.ledger))
         forged["sources"][0]["publisher"] = "Forged Publisher"
