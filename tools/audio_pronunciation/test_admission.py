@@ -40,6 +40,7 @@ def write_ledger(root, source_id="pronunciation-case", status="APPROVED_FOR_REDI
         "kind": kind,
         "origin_url": origin,
         "publisher": "Example Test Publisher",
+        "author": "Example Test Author",
         "dataset_version": "1.0",
         "retrieval": {
             "identity": "capture-1",
