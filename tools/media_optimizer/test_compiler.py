@@ -49,7 +49,7 @@ class TestMediaCompiler(unittest.TestCase):
         art = self._put('evidence/artwork.txt', b'Fixture vector artwork rights snapshot')
         source = {
             'source_id': 'fixture-vector', 'kind': 'vector_art',
-            'origin_url': 'https://example.org/art', 'publisher': 'Fixture Publisher',
+            'origin_url': 'https://example.org/art', 'publisher': 'Fixture Publisher', 'author': 'Fixture Author',
             'dataset_version': '2026.10',
             'retrieval': {
                 'identity': 'fixture-snapshot-v1', 'url': 'https://example.org/art',
