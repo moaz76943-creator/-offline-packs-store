@@ -95,8 +95,31 @@ def agent_for_issue(title):
     return 'coverage'
 
 
+def _longest_schedule_gap_seconds(crons):
+    """Maximum time between daily cron slots; unknown syntax is not guessed."""
+    slots = set()
+    for expression in crons or []:
+        fields = expression.split()
+        if len(fields) != 5 or fields[2:] != ['*', '*', '*']:
+            return 0
+        try:
+            minutes = [int(item) for item in fields[0].split(',')]
+            hours = [int(item) for item in fields[1].split(',')]
+        except ValueError:
+            return 0
+        if not minutes or not hours or any(not 0 <= m < 60 for m in minutes) or any(not 0 <= h < 24 for h in hours):
+            return 0
+        slots.update(h * 60 + m for h in hours for m in minutes)
+    if not slots:
+        return 0
+    ordered = sorted(slots)
+    gaps = [right - left for left, right in zip(ordered, ordered[1:])]
+    gaps.append(1440 + ordered[0] - ordered[-1])
+    return max(gaps) * 60
+
+
 def stale_heartbeats(heartbeats, now_epoch, max_age_seconds):
-    """Missing or old heartbeats. Malformed timestamps count as stale, not fatal."""
+    """Respect per-agent cron cadence, allowing two hours of schedule jitter."""
     stale = []
     known = {row.get('name'): row for row in heartbeats or [] if isinstance(row, dict)}
     for agent in ROSTER:
@@ -107,12 +130,13 @@ def stale_heartbeats(heartbeats, now_epoch, max_age_seconds):
         stamp = row.get('last_run') or ''
         try:
             from datetime import datetime
-            parsed = datetime.fromisoformat(stamp.replace('Z', '+00:00') )
+            parsed = datetime.fromisoformat(stamp.replace('Z', '+00:00'))
             age = now_epoch - parsed.timestamp()
         except (TypeError, ValueError):
             stale.append(agent['name'])
             continue
-        if age > max_age_seconds:
+        max_age = max(max_age_seconds, _longest_schedule_gap_seconds(agent.get('crons')) + 2 * 3600)
+        if age > max_age:
             stale.append(agent['name'])
     return stale
 

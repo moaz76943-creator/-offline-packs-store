@@ -3,6 +3,7 @@
 import json
 import tempfile
 import unittest
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from tools.agents.common import (
@@ -15,6 +16,7 @@ from tools.agents.common import (
 from tools.agents.ops import (
     branch_deletable,
     dispatch_batch,
+    stale_heartbeats,
     docs_check,
     duplicate_issues,
     janitor_action,
@@ -215,6 +217,32 @@ class ContractTests(unittest.TestCase):
         self.assertEqual([item['number'] for item in dupes], [2])
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
+
+    def test_watchdog_uses_agent_schedule_before_flagging_stale(self):
+        now = datetime(2026, 10, 19, 12, tzinfo=timezone.utc)
+
+        def recent(name, hours):
+            return {
+                'name': name,
+                'last_run': (now - timedelta(hours=hours)).isoformat(),
+            }
+
+        heartbeats = [
+            recent('codeql', 10),  # Daily; should not be restarted hourly.
+            recent('docs', 10),
+            recent('schema-guard', 10),  # Twice daily.
+            recent('watchdog', 10),  # Hourly; definitely stale.
+        ]
+        stale = stale_heartbeats(heartbeats, now.timestamp(), 8 * 3600)
+        self.assertNotIn('codeql', stale)
+        self.assertNotIn('docs', stale)
+        self.assertNotIn('schema-guard', stale)
+        self.assertIn('watchdog', stale)
+
+        too_old = stale_heartbeats(
+            [recent('codeql', 27)], now.timestamp(), 8 * 3600,
+        )
+        self.assertIn('codeql', too_old)
 
     def test_janitor_uses_exact_review_thread_evidence(self):
         clean = {'data': {'repository': {'pullRequest': {'reviewThreads': {
