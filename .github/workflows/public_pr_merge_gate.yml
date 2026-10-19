@@ -49,5 +49,21 @@ jobs:
       # Reuse the required gate; no extra worker for unrelated pull requests.
       # Selection is computed from the checked-out synthetic PR merge tree,
       # not attacker-controlled shell fragments from the PR title or body.
+      # The audio QA suite synthesizes OGG/MP3/WebM fixtures with ffmpeg.
+      # Provision it only when the exact synthetic merge diff selects audio;
+      # never silently skip the suite if the dependency is unavailable.
+      - name: Detect required audio fixture tooling
+        id: audio_fixtures
+        shell: bash
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          from tools.ci_policy.run_scoped_pr_tests import changed_in_synthetic_merge, select_suites
+          print("required=" + ("true" if "audio" in select_suites(changed_in_synthetic_merge()) else "false"))
+          PY
+      - name: Install ffmpeg for selected audio QA
+        if: steps.audio_fixtures.outputs.required == 'true'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
       - name: Run affected subsystem regression tests
         run: python3 tools/ci_policy/run_scoped_pr_tests.py
