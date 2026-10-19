@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Directed Pair Translation Data Standard 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version", "document_id", "senses", "directed_pairs"],
+  "properties": {
+    "contract_version": {"const": "1.0.0"},
+    "document_id": {"$ref": "#/$defs/id"},
+    "senses": {"type": "array", "items": {"$ref": "#/$defs/sense"}},
+    "directed_pairs": {"type": "array", "items": {"$ref": "#/$defs/directed_pair"}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9._:-]{2,127}$"},
+    "text": {"type": "string", "minLength": 1},
+    "optText": {"type": ["string", "null"], "minLength": 1},
+    "lang": {"type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_id", "publisher", "dataset_version"],
+      "properties": {
+        "source_id": {"$ref": "#/$defs/id"},
+        "publisher": {"$ref": "#/$defs/text"},
+        "dataset_version": {"$ref": "#/$defs/text"},
+        "retrieval_id": {"$ref": "#/$defs/optText"},
+        "license_id": {"$ref": "#/$defs/text"},
+        "publication_approved": {"type": "boolean"},
+        "fixture_only": {"type": "boolean"}
+      }
+    },
+    "sense": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sense_id", "language", "definition"],
+      "properties": {
+        "sense_id": {"$ref": "#/$defs/id"},
+        "language": {"$ref": "#/$defs/lang"},
+        "definition": {"$ref": "#/$defs/text"},
+        "usage_context": {"$ref": "#/$defs/optText"},
+        "domains": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true}
+      }
+    },
+    "directed_pair": {
+      "type": "object", "additionalProperties": false,
+      "required": ["pair_id", "source_sense_id", "target_sense_id", "target_language", "translation_text", "equivalence", "source"],
+      "properties": {
+        "pair_id": {"$ref": "#/$defs/id"},
+        "source_sense_id": {"$ref": "#/$defs/id"},
+        "target_sense_id": {"$ref": "#/$defs/id"},
+        "target_language": {"$ref": "#/$defs/lang"},
+        "translation_text": {"$ref": "#/$defs/text"},
+        "equivalence": {"enum": ["exact", "approximate", "contextual"]},
+        "context": {"$ref": "#/$defs/optText"},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "examples": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "source": {"$ref": "#/$defs/source"}
+      }
+    }
+  }
+}

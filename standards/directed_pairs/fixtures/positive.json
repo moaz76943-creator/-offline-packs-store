@@ -1,0 +1,137 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.translation.test",
+  "senses": [
+    {
+      "sense_id": "sense.en.house.building",
+      "language": "en",
+      "definition": "A building for human habitation"
+    },
+    {
+      "sense_id": "sense.es.casa",
+      "language": "es",
+      "definition": "Edificio para habitar"
+    },
+    {
+      "sense_id": "sense.en.bank.financial",
+      "language": "en",
+      "definition": "A financial institution"
+    },
+    {
+      "sense_id": "sense.es.banco.financial",
+      "language": "es",
+      "definition": "Institución financiera"
+    },
+    {
+      "sense_id": "sense.es.banco.seat",
+      "language": "es",
+      "definition": "Asiento para varias personas"
+    },
+    {
+      "sense_id": "sense.en.bank.river",
+      "language": "en",
+      "definition": "The land alongside or sloping down to a river or lake"
+    },
+    {
+      "sense_id": "sense.es.orilla",
+      "language": "es",
+      "definition": "Límite entre la tierra y el agua"
+    },
+    {
+      "sense_id": "sense.es-mx.alberca",
+      "language": "es-mx",
+      "definition": "Piscina",
+      "usage_context": "Mexico"
+    },
+    {
+      "sense_id": "sense.en.pool",
+      "language": "en",
+      "definition": "A swimming pool"
+    }
+  ],
+  "directed_pairs": [
+    {
+      "pair_id": "pair.en_es.house_casa",
+      "source_sense_id": "sense.en.house.building",
+      "target_sense_id": "sense.es.casa",
+      "target_language": "es",
+      "translation_text": "casa",
+      "equivalence": "exact",
+      "confidence": 0.99,
+      "examples": ["This is my house"],
+      "source": {
+        "source_id": "src.wiktionary",
+        "publisher": "Wikimedia Foundation",
+        "dataset_version": "2023.10",
+        "license_id": "CC-BY-SA-4.0",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.en_es.bank_banco",
+      "source_sense_id": "sense.en.bank.financial",
+      "target_sense_id": "sense.es.banco.financial",
+      "target_language": "es",
+      "translation_text": "banco",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.wiktionary",
+        "publisher": "Wikimedia Foundation",
+        "dataset_version": "2023.10",
+        "license_id": "CC-BY-SA-4.0",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.en_es.bank_orilla",
+      "source_sense_id": "sense.en.bank.river",
+      "target_sense_id": "sense.es.orilla",
+      "target_language": "es",
+      "translation_text": "orilla",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.wiktionary",
+        "publisher": "Wikimedia Foundation",
+        "dataset_version": "2023.10",
+        "license_id": "CC-BY-SA-4.0",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.en_es-mx.pool_alberca",
+      "source_sense_id": "sense.en.pool",
+      "target_sense_id": "sense.es-mx.alberca",
+      "target_language": "es-mx",
+      "translation_text": "alberca",
+      "equivalence": "contextual",
+      "context": "Swimming pool in Mexican Spanish",
+      "source": {
+        "source_id": "src.wiktionary",
+        "publisher": "Wikimedia Foundation",
+        "dataset_version": "2023.10",
+        "license_id": "CC-BY-SA-4.0",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.es_en.casa_house",
+      "source_sense_id": "sense.es.casa",
+      "target_sense_id": "sense.en.house.building",
+      "target_language": "en",
+      "translation_text": "house",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.wiktionary",
+        "publisher": "Wikimedia Foundation",
+        "dataset_version": "2023.10",
+        "license_id": "CC-BY-SA-4.0",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    }
+  ]
+}
