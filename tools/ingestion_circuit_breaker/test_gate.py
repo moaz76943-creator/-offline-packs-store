@@ -180,10 +180,14 @@ class TestGate(unittest.TestCase):
             '--repo-root', str(self.root),
             '--manifest', str(self.manifest_file),
             '--quarantine', str(self.q_dir)
-        ], capture_output=True, text=True)
+        ], capture_output=True, text=True, timeout=10)
 
-        self.assertNotEqual(result.returncode, 0)
+        self.assertEqual(result.returncode, 2)
         self.assertIn("BLOCK: UNKNOWN_SOURCE", result.stderr)
+        self.assertNotIn('"status": "ADMITTED"', result.stdout)
+        reasons = list(self.q_dir.glob("*.reason.txt"))
+        self.assertEqual(len(reasons), 1)
+        self.assertIn("UNKNOWN_SOURCE", reasons[0].read_text())
 
 if __name__ == '__main__':
     unittest.main()
