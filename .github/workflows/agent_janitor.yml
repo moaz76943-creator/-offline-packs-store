@@ -5,8 +5,8 @@ on:
     - cron: '18 1,5,9,13,17,21 * * *'
 permissions:
   contents: write
-  pull-requests: write
-  issues: write
+  pull-requests: read
+  issues: read
 concurrency:
   group: agent-janitor
   cancel-in-progress: false
@@ -21,7 +21,7 @@ jobs:
           persist-credentials: true
       - name: Load the last committed snapshot
         run: bash tools/agents/prepare.sh
-      - name: Run janitor
+      - name: Inspect PRs and record non-mutating janitor suggestions
         id: work
         continue-on-error: true
         env:
@@ -89,21 +89,26 @@ jobs:
           Path('/tmp/pr.json').write_text(json.dumps({'schema_version': '1.0.0', 'pulls': pulls}))
           PY
           python3 -m tools.agents.cli janitor --pr-json /tmp/pr.json > /tmp/janitor-actions.json
+          # This job is a scheduled adviser only. The existing protected-main
+          # public_merge_coordinator is the sole scheduled PR writer.
           python3 - <<'PY'
-          import json, os, subprocess
+          import json
+          import os
           from pathlib import Path
           actions = json.loads(Path('/tmp/janitor-actions.json').read_text() or '[]')
+          counts = {}
           for item in actions:
-              number = item.get('number')
-              action = item.get('action')
-              if not number:
-                  continue
-              if action == 'merge':
-                  subprocess.run(['gh', 'pr', 'merge', str(number), '--squash'], check=True)
-              elif action == 'update':
-                  repo = os.environ.get('GITHUB_REPOSITORY', '')
-                  if repo:
-                      subprocess.run(['gh', 'api', '-X', 'PUT', f'repos/{repo}/pulls/{number}/update-branch'], check=True)
+              action = item.get('action', 'unknown')
+              counts[action] = counts.get(action, 0) + 1
+          lines = ['### PR janitor (advisory only)',
+                   'No PRs were merged, updated, or approved by this job.',
+                   'The canonical public merge coordinator makes all integration decisions.',
+                   '',
+                   '| Suggested action | Count |', '| --- | ---: |']
+          lines.extend(f'| {action} | {count} |' for action, count in sorted(counts.items())
+                       if action in ('merge', 'update', 'leave'))
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as out:
+              out.write('\\n'.join(lines) + '\\n')
           PY
 
       - name: Publish the checkpoint
