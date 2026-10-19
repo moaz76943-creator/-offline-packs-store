@@ -108,7 +108,7 @@ jobs:
           lines.extend(f'| {action} | {count} |' for action, count in sorted(counts.items())
                        if action in ('merge', 'update', 'leave'))
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as out:
-              out.write('\\n'.join(lines) + '\\n')
+              out.write('\n'.join(lines) + '\n')
           PY
 
       - name: Publish the checkpoint
