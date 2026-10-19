@@ -3,10 +3,10 @@ from unittest.mock import patch
 from auto_run import run_auto
 from test_auto_policy import SHA, MAIN, PR, CHECKS, DOC
 class FakeGH:
-  def __init__(self,pr=PR,files=DOC,comments=None):
-    self.pr=pr; self.files=files; self.comments=comments or []; self.merges=[]; self.main=MAIN; self.q=0
+  def __init__(self,pr=PR,files=DOC,comments=None,base_sha=MAIN):
+    self.pr=pr; self.files=files; self.comments=comments or []; self.merges=[]; self.main=MAIN; self.q=0; self.base_sha=base_sha
   def page(self,path,limit=300):
-    if path.startswith('/pulls?'):return [{'number':1,'head':{'sha':SHA},'state':'open','draft':False}]
+    if path.startswith('/pulls?'):return [{'number':1,'head':{'sha':SHA},'base':{'ref':'main','sha':self.base_sha},'state':'open','draft':False}]
     return []
   def request(self,path,method='GET',data=None):
     if path != '/graphql': raise ValueError('unexpected API call')
@@ -43,3 +43,17 @@ class FlowTests(unittest.TestCase):
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
   def test_sensitive_paths_block(self):
     f=FakeGH(files=[{'filename':'legal/ledger/sources.json','status':'modified'}]);self.assertEqual(run_auto(f,MAIN),0);self.assertEqual(f.merges,[])
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_stale_base_short_circuits_before_expensive_api_calls(self):
+    f=FakeGH(base_sha='d'*40)
+    self.assertEqual(run_auto(f, MAIN), 0)
+    self.assertEqual(f.q, 0)
+    self.assertEqual(f.merges, [])
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_stale_base_after_main_advances_is_not_merged(self):
+    f=FakeGH()
+    f.main='e'*40
+    self.assertEqual(run_auto(f, MAIN), 0)
+    self.assertEqual(f.merges, [])
