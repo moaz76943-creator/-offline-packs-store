@@ -68,7 +68,9 @@ def source_gate(t,ctx,registry_sha,root):
         pipeline.route05_source(root,t['source_id'],src['dataset_version'],path,'wiktextract-jsonl')
         report=approved['report'];job=approved['job']
         if report.get('dataset_version')!=src['dataset_version'] or report.get('source_artifact_sha256')!=t['source_sha256']:return 'QUARANTINED'
-        partition=(approved['folder']/job['path']).resolve()
+        partition_link=approved['folder']/job['path']
+        if partition_link.is_symlink():return 'BLOCKED_SOURCE'
+        partition=partition_link.resolve()
         if not partition.is_relative_to(approved['folder'].resolve()) or not partition.is_file():return 'BLOCKED_SOURCE'
         if partition.stat().st_size>40_000_000:return 'BLOCKED_DEPENDENCY'
         if pipeline.digest_file(partition)!=job['sha256']:return 'QUARANTINED'
