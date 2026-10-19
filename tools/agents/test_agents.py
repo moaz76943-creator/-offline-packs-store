@@ -218,6 +218,21 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
 
+    def test_watchdog_round_robin_does_not_starve_later_stale_agents(self):
+        stale = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        batches = [dispatch_batch(stale, cap=3, rotation=hour) for hour in range(7)]
+        self.assertEqual(batches[0], ['a', 'b', 'c'])
+        self.assertEqual(batches[1], ['d', 'e', 'f'])
+        self.assertEqual(set().union(*map(set, batches)), set(stale))
+        self.assertTrue(all(len(batch) <= 3 and len(batch) == len(set(batch))
+                            for batch in batches))
+        self.assertEqual(dispatch_batch(stale, cap=0, rotation=1), [])
+        self.assertEqual(dispatch_batch([], cap=3, rotation=99), [])
+        with self.assertRaises(ValueError):
+            dispatch_batch(stale, cap=4)
+        with self.assertRaises(ValueError):
+            dispatch_batch(stale, cap=3, rotation=-1)
+
     def test_watchdog_uses_agent_schedule_before_flagging_stale(self):
         now = datetime(2026, 10, 19, 12, tzinfo=timezone.utc)
 
