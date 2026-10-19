@@ -30,6 +30,42 @@
       "wikidata": "Q3354532"
     },
     {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "fotbalista",
+        "fotbalisty",
+        "fotbalistovi",
+        "fotbalistu",
+        "fotbalisto",
+        "fotbalistovi",
+        "fotbalistou",
+        "fotbalisté"
+      ],
+      "language": "cs",
+      "lemma": "fotbalista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578818",
+      "pos": "",
+      "qids": [
+        "Q937857"
+      ],
+      "record_id": "L578818",
+      "retrieval_date": "2026-10-19",
+      "revision": "2221187938",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L578818-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
       "concept_id": "concept.q2941309",
       "forms": [
         "solbær",
@@ -93,6 +129,78 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "politiker",
+        "politikeren",
+        "politikere",
+        "politikerne",
+        "politikers",
+        "politikerens",
+        "politikeres",
+        "politikernes"
+      ],
+      "language": "da",
+      "lemma": "politiker",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L46037",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L46037",
+      "retrieval_date": "2026-10-19",
+      "revision": "2300798296",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L46037-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "skuespiller",
+        "skuespilleren",
+        "skuespillere",
+        "skuespillerne",
+        "skuespillers",
+        "skuespillerens",
+        "skuespilleres",
+        "skuespillernes"
+      ],
+      "language": "da",
+      "lemma": "skuespiller",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L46039",
+      "pos": "",
+      "qids": [
+        "Q33999"
+      ],
+      "record_id": "L46039",
+      "retrieval_date": "2026-10-19",
+      "revision": "2462350594",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L46039-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
     },
     {
       "concept_id": "concept.q3354532",
@@ -271,6 +379,313 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q192874"
+    },
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "Politiker",
+        "Politiker",
+        "Politikers",
+        "Politiker",
+        "Politiker",
+        "Politiker",
+        "Politikern",
+        "Politiker"
+      ],
+      "language": "de",
+      "lemma": "Politiker",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72809",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L72809",
+      "retrieval_date": "2026-10-19",
+      "revision": "2366231146",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72809-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "Politikerin",
+        "Politikerinnen",
+        "Politikerin",
+        "Politikerin",
+        "Politikerin",
+        "Politikerinnen",
+        "Politikerinnen",
+        "Politikerinnen"
+      ],
+      "language": "de",
+      "lemma": "Politikerin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L73001",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L73001",
+      "retrieval_date": "2026-10-19",
+      "revision": "2306709391",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L73001-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspielers",
+        "Fussballspielers",
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspielern",
+        "Fussballspielern",
+        "Fußballspieler",
+        "Fussballspieler"
+      ],
+      "language": "de",
+      "lemma": "Fußballspieler",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L226871",
+      "pos": "",
+      "qids": [
+        "Q937857"
+      ],
+      "record_id": "L226871",
+      "retrieval_date": "2026-10-19",
+      "revision": "2452780290",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L226871-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "Fußballer",
+        "Fussballer",
+        "Fußballers",
+        "Fussballers",
+        "Fußballer",
+        "Fussballer",
+        "Fußballer",
+        "Fussballer",
+        "Fußballer",
+        "Fussballer",
+        "Fußballer",
+        "Fussballer",
+        "Fußballern",
+        "Fussballern",
+        "Fußballer",
+        "Fussballer"
+      ],
+      "language": "de",
+      "lemma": "Fußballer",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L498621",
+      "pos": "",
+      "qids": [
+        "Q937857"
+      ],
+      "record_id": "L498621",
+      "retrieval_date": "2026-10-19",
+      "revision": "2326913211",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L498621-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "Kickerin",
+        "Kickerinnen",
+        "Kickerin",
+        "Kickerinnen",
+        "Kickerin",
+        "Kickerinnen",
+        "Kickerin",
+        "Kickerinnen"
+      ],
+      "language": "de",
+      "lemma": "Kickerin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L931688",
+      "pos": "",
+      "qids": [
+        "Q937857"
+      ],
+      "record_id": "L931688",
+      "retrieval_date": "2026-10-19",
+      "revision": "2087791309",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L931688-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "Autorin",
+        "Autorin",
+        "Autorin",
+        "Autorin",
+        "Autorinnen",
+        "Autorinnen",
+        "Autorinnen",
+        "Autorinnen"
+      ],
+      "language": "de",
+      "lemma": "Autorin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L34182",
+      "pos": "",
+      "qids": [
+        "Q482980",
+        "Q36180",
+        "Q482980"
+      ],
+      "record_id": "L34182",
+      "retrieval_date": "2026-10-19",
+      "revision": "2326824381",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L34182-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "Schauspieler",
+        "Schauspielers",
+        "Schauspieler",
+        "Schauspieler",
+        "Schauspieler",
+        "Schauspieler",
+        "Schauspielern",
+        "Schauspieler"
+      ],
+      "language": "de",
+      "lemma": "Schauspieler",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72660",
+      "pos": "",
+      "qids": [
+        "Q33999"
+      ],
+      "record_id": "L72660",
+      "retrieval_date": "2026-10-19",
+      "revision": "2332943374",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72660-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "Schauspielerin",
+        "Schauspielerinnen",
+        "Schauspielerin",
+        "Schauspielerin",
+        "Schauspielerin",
+        "Schauspielerinnen",
+        "Schauspielerinnen",
+        "Schauspielerinnen"
+      ],
+      "language": "de",
+      "lemma": "Schauspielerin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72861",
+      "pos": "",
+      "qids": [
+        "Q21169216",
+        "Q33999"
+      ],
+      "record_id": "L72861",
+      "retrieval_date": "2026-10-19",
+      "revision": "2332951304",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72861-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
     },
     {
       "concept_id": "concept.q483444",
@@ -514,6 +929,134 @@
       "wikidata": "Q193211"
     },
     {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "politician",
+        "politicians"
+      ],
+      "language": "en",
+      "lemma": "politician",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L9594",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L9594",
+      "retrieval_date": "2026-10-19",
+      "revision": "2549919210",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L9594-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "actor",
+        "actors"
+      ],
+      "language": "en",
+      "lemma": "actor",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L7011",
+      "pos": "",
+      "qids": [
+        "Q33999",
+        "Q23894381",
+        "Q112619615",
+        "Q33999"
+      ],
+      "record_id": "L7011",
+      "retrieval_date": "2026-10-19",
+      "revision": "2554529217",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L7011-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "actress",
+        "actresses"
+      ],
+      "language": "en",
+      "lemma": "actress",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L7012",
+      "pos": "",
+      "qids": [
+        "Q21169216",
+        "Q33999"
+      ],
+      "record_id": "L7012",
+      "retrieval_date": "2026-10-19",
+      "revision": "2554529735",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L7012-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "star",
+        "stars",
+        "starred",
+        "starring",
+        "starred"
+      ],
+      "language": "en",
+      "lemma": "star",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L11308",
+      "pos": "verb",
+      "qids": [
+        "Q33999",
+        "Q3297652"
+      ],
+      "record_id": "L11308",
+      "retrieval_date": "2026-10-19",
+      "revision": "2514236570",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L11308-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
       "concept_id": "concept.q12106",
       "forms": [
         "tritiko",
@@ -669,6 +1212,194 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "politicien",
+        "politiciens"
+      ],
+      "language": "fr",
+      "lemma": "politicien",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L673629",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L673629",
+      "retrieval_date": "2026-10-19",
+      "revision": "2306436828",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L673629-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "auteur",
+        "auteurs"
+      ],
+      "language": "fr",
+      "lemma": "auteur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L10114",
+      "pos": "",
+      "qids": [
+        "Q482980",
+        "Q36180"
+      ],
+      "record_id": "L10114",
+      "retrieval_date": "2026-10-19",
+      "revision": "2451440337",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L10114-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "écrivain",
+        "écrivains"
+      ],
+      "language": "fr",
+      "lemma": "écrivain",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L14259",
+      "pos": "",
+      "qids": [
+        "Q36180",
+        "Q36180"
+      ],
+      "record_id": "L14259",
+      "retrieval_date": "2026-10-19",
+      "revision": "2459047941",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L14259-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "écrivaine",
+        "écrivaines",
+        "écrivaine",
+        "écrivaines"
+      ],
+      "language": "fr",
+      "lemma": "écrivaine",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L619126",
+      "pos": "",
+      "qids": [
+        "Q36180"
+      ],
+      "record_id": "L619126",
+      "retrieval_date": "2026-10-19",
+      "revision": "2459047797",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L619126-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "acteur",
+        "acteurs"
+      ],
+      "language": "fr",
+      "lemma": "acteur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L13374",
+      "pos": "",
+      "qids": [
+        "Q112619615",
+        "Q33999",
+        "Q421946"
+      ],
+      "record_id": "L13374",
+      "retrieval_date": "2026-10-19",
+      "revision": "2525302031",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L13374-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "actrice",
+        "actrices"
+      ],
+      "language": "fr",
+      "lemma": "actrice",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12849",
+      "pos": "",
+      "qids": [
+        "Q21169216",
+        "Q33999",
+        "Q421946"
+      ],
+      "record_id": "L12849",
+      "retrieval_date": "2026-10-19",
+      "revision": "2525308172",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12849-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
     },
     {
       "concept_id": "concept.q10940",
@@ -1266,6 +1997,43 @@
       "wikidata": "Q6279182"
     },
     {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "футболист",
+        "футболиста",
+        "футболисту",
+        "футболиста",
+        "футболистом",
+        "футболисте",
+        "футболисты",
+        "футболистов"
+      ],
+      "language": "ru",
+      "lemma": "футболист",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L176435",
+      "pos": "",
+      "qids": [
+        "Q937857",
+        "Q117321337"
+      ],
+      "record_id": "L176435",
+      "retrieval_date": "2026-10-19",
+      "revision": "2012017221",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L176435-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "kimono",
@@ -1434,6 +2202,79 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q193211"
+    },
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "politiker",
+        "politikern",
+        "politiker",
+        "politikerna",
+        "politikers",
+        "politikerns",
+        "politikers",
+        "politikernas"
+      ],
+      "language": "sv",
+      "lemma": "politiker",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32108",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L32108",
+      "retrieval_date": "2026-10-19",
+      "revision": "2503884758",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L32108-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "författare",
+        "författaren",
+        "författare",
+        "författarna",
+        "författares",
+        "författarens",
+        "författares",
+        "författarnas"
+      ],
+      "language": "sv",
+      "lemma": "författare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32097",
+      "pos": "",
+      "qids": [
+        "Q482980",
+        "Q36180"
+      ],
+      "record_id": "L32097",
+      "retrieval_date": "2026-10-19",
+      "revision": "2545840811",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L32097-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
     },
     {
       "concept_id": "concept.q12106",
