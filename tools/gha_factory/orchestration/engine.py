@@ -240,7 +240,10 @@ def _finalize_job(api,job,folder,run_id,attempt,now):
     if path.is_symlink():raise ValueError('unsafe receipt')
     if path.is_file():
         if path.stat().st_size>4096:raise ValueError('oversized receipt')
-        r=json.loads(path.read_text());p.verify_output(directory,r)
+        r=json.loads(path.read_text())
+        if not isinstance(r, dict):
+            raise ValueError('receipt must be a JSON object')
+        p.verify_output(directory,r)
         updated=p.finish(t,r,now)
     else:
         if t['state'] not in p.ACTIVE:raise ValueError('missing receipt for completed task')
