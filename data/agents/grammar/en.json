@@ -23,6 +23,22 @@
       "value": "ltr"
     },
     {
+      "id": "verb.forms",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC0-1.0",
+      "record_id": "L11308",
+      "retrieval_date": "2026-10-19",
+      "source_id": "wikidata.lexemes",
+      "value": [
+        "star",
+        "stars",
+        "starred",
+        "starring",
+        "starred"
+      ]
+    },
+    {
       "id": "sentence.statement",
       "language": "en",
       "level": null,
@@ -141,6 +157,22 @@
       "retrieval_date": "2026-10-19",
       "source_id": "universal-dependencies",
       "value": "The US lost yet another helicopter to hostile fire near Habbaniyah in the Sunni heartland, but this time the crew was safe."
+    },
+    {
+      "id": "verb.forms",
+      "language": "en",
+      "level": null,
+      "license_id": "CC0-1.0",
+      "record_id": "L11308",
+      "retrieval_date": "2026-10-19",
+      "source_id": "wikidata.lexemes",
+      "value": [
+        "star",
+        "stars",
+        "starred",
+        "starring",
+        "starred"
+      ]
     }
   ]
 }
