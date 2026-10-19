@@ -1,160 +1,127 @@
-"""Multilingual Lexical Quality Validation Engine.
-
-Detects corrupt, inconsistent, and structurally invalid dictionary records
-before they enter production pack builds.
-"""
 import json
 import re
-import sys
+from collections import OrderedDict
 
-# Constraints
-MAX_JSON_BYTES = 100 * 1024  # 100 KB max per entry to strictly limit memory
-LANGUAGE_REGEX = re.compile(r'^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$')
-POS_ALLOWED = {"noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "interjection", "particle", "article", "affix", "phrase", "idiom", "proverb"}
+MAX_RECORD_SIZE = 1024 * 1024  # 1MB
+MAX_SEEN_IDS = 100000
 
-class LexicalValidator:
+class LexicalQualityValidator:
     def __init__(self):
-        self.seen_ids = set()
+        self.seen_ids = OrderedDict()
 
-    def _check_string_field(self, entry, field_name, required=True):
-        val = entry.get(field_name)
-        if val is None:
-            if required:
-                return f"Missing required field '{field_name}'"
-            return None
-        if not isinstance(val, str):
-            return f"Field '{field_name}' must be a string, got {type(val).__name__}"
-        if not val.strip():
-            return f"Field '{field_name}' must not be empty or whitespace only"
+    def validate_stream(self, stream):
+        for record in stream:
+            yield self.validate_record(record)
 
-        # Unicode validation: look for malformed or null characters
-        if '\u0000' in val:
-            return f"Field '{field_name}' contains null character"
-        # Check for lone surrogates (invalid Unicode)
-        try:
-            val.encode('utf-8')
-        except UnicodeEncodeError:
-            return f"Field '{field_name}' contains invalid Unicode characters"
-
-        return None
-
-    def validate_entry(self, entry: dict) -> dict:
-        """
-        Validates a single lexical entry.
-        Returns:
-            {"status": "accepted" | "rejected" | "reviewRequired", "entry": entry, "errors": list, "warnings": list}
-        """
+    def validate_record(self, record):
         errors = []
-        warnings = []
+        reasons = []
+        status = "accepted"
 
         try:
-            entry_bytes = json.dumps(entry).encode('utf-8')
-            if len(entry_bytes) > MAX_JSON_BYTES:
+            record_str = json.dumps(record)
+            if len(record_str.encode('utf-8')) > MAX_RECORD_SIZE:
                 return {
                     "status": "rejected",
-                    "entry": entry,
-                    "errors": [f"Entry exceeds size limit of {MAX_JSON_BYTES} bytes"],
-                    "warnings": []
+                    "record": record,
+                    "errors": ["Record exceeds maximum size limit of 1MB"],
+                    "reasons": []
                 }
         except (TypeError, ValueError):
             return {
                 "status": "rejected",
-                "entry": entry,
-                "errors": ["Entry is not a valid JSON serializable structure"],
-                "warnings": []
+                "record": record,
+                "errors": ["Record is not JSON serializable"],
+                "reasons": []
             }
 
-        # 1. Required fields: id, surface, language, pos
-        id_err = self._check_string_field(entry, "id")
-        if id_err:
-            errors.append(id_err)
-        elif entry["id"] in self.seen_ids:
-            errors.append(f"Duplicate lexical ID: {entry['id']}")
+        # Validate ID
+        record_id = record.get("id")
+        if record_id is None:
+            errors.append("Missing 'id' field")
+        elif not isinstance(record_id, str):
+            errors.append("'id' field must be a string")
         else:
-            self.seen_ids.add(entry["id"])
+            if record_id in self.seen_ids:
+                errors.append(f"Duplicate ID detected: {record_id}")
+            else:
+                self.seen_ids[record_id] = True
+                if len(self.seen_ids) > MAX_SEEN_IDS:
+                    self.seen_ids.popitem(last=False)
 
-        surf_err = self._check_string_field(entry, "surface")
-        if surf_err:
-            errors.append(surf_err)
+        # Validate surface
+        surface = record.get("surface")
+        if surface is None:
+            errors.append("Missing 'surface' field")
+        elif not isinstance(surface, str):
+            errors.append("'surface' field must be a string")
+        elif not surface.strip():
+            errors.append("'surface' field cannot be empty or whitespace")
+        else:
+            if '\u0000' in surface:
+                errors.append("Invalid Unicode: null byte in 'surface'")
+            if re.search(r'[\uD800-\uDFFF]', surface):
+                errors.append("Invalid Unicode: surrogate character in 'surface'")
 
-        lang_err = self._check_string_field(entry, "language")
-        if lang_err:
-            errors.append(lang_err)
-        elif not LANGUAGE_REGEX.match(entry["language"]):
-            errors.append(f"Invalid language format: {entry['language']}")
+        # Validate language
+        lang = record.get("language")
+        if lang is None:
+            errors.append("Missing 'language' field")
+        elif not isinstance(lang, str):
+            errors.append("'language' field must be a string")
+        elif not re.match(r"^[a-z]{2,3}(?:-[a-zA-Z0-9-]+)*$", lang):
+            errors.append("Invalid 'language' format")
 
-        pos_err = self._check_string_field(entry, "pos")
-        if pos_err:
-            errors.append(pos_err)
-        # We don't strictly reject if not in POS_ALLOWED, but we might warn or mark reviewRequired
-        # Let's keep it structurally open but if it's super weird, maybe reviewRequired?
-        # Actually the requirements mention "validate POS fields" but not strict enum. We'll stick to string validation for rejection.
+        # Validate pos
+        pos = record.get("pos")
+        if pos is None:
+            errors.append("Missing 'pos' field")
+        elif not isinstance(pos, str):
+            errors.append("'pos' field must be a string")
 
-        # 2. Impossible field combinations
-        pos = entry.get("pos")
-        plural = entry.get("plural")
-        conjugations = entry.get("conjugations")
-
-        if pos and pos != "verb" and conjugations is not None:
-            # While theoretically some languages decline nouns, usually 'conjugation' implies verbs.
-            # We'll just mark reviewRequired instead of rejecting entirely unless we want strict rejection.
-            warnings.append(f"Non-verb POS '{pos}' has 'conjugations' field")
-
-        if pos and pos not in {"noun", "pronoun", "adjective"} and plural is not None:
-            warnings.append(f"POS '{pos}' has 'plural' field, which is unusual")
-
-        # 3. Structure of translations
-        if "translations" in entry:
-            translations = entry["translations"]
+        # Validate translations
+        translations = record.get("translations")
+        if translations is not None:
             if not isinstance(translations, list):
-                errors.append("Field 'translations' must be a list")
+                errors.append("'translations' field must be a list")
             else:
                 for idx, t in enumerate(translations):
                     if not isinstance(t, dict):
                         errors.append(f"Translation at index {idx} must be a dictionary")
-                        continue
-                    if "language" not in t or "text" not in t:
-                        errors.append(f"Translation at index {idx} missing 'language' or 'text'")
                     else:
-                        lang_check = self._check_string_field(t, "language")
-                        text_check = self._check_string_field(t, "text")
-                        if lang_check: errors.append(f"Translation {idx}: {lang_check}")
-                        if text_check: errors.append(f"Translation {idx}: {text_check}")
+                        if "language" not in t or not isinstance(t["language"], str):
+                            errors.append(f"Translation at index {idx} missing or invalid 'language'")
+                        if "text" not in t or not isinstance(t["text"], str):
+                            errors.append(f"Translation at index {idx} missing or invalid 'text'")
 
-        # 4. Structure of examples
-        if "examples" in entry:
-            examples = entry["examples"]
+        # Validate examples
+        examples = record.get("examples")
+        if examples is not None:
             if not isinstance(examples, list):
-                errors.append("Field 'examples' must be a list")
+                errors.append("'examples' field must be a list")
             else:
-                for idx, ex in enumerate(examples):
-                    if not isinstance(ex, dict):
+                for idx, e in enumerate(examples):
+                    if not isinstance(e, dict):
                         errors.append(f"Example at index {idx} must be a dictionary")
-                        continue
-                    if "text" not in ex:
-                        errors.append(f"Example at index {idx} missing 'text'")
                     else:
-                        text_check = self._check_string_field(ex, "text")
-                        if text_check: errors.append(f"Example {idx}: {text_check}")
+                        if "text" not in e or not isinstance(e["text"], str):
+                            errors.append(f"Example at index {idx} missing or invalid 'text'")
+
+        # Detect impossible field combinations
+        if pos == "noun" and "conjugations" in record:
+            reasons.append("Impossible combination: noun with conjugations")
+
+        if pos == "verb" and "plural" in record:
+            reasons.append("Impossible combination: verb with plural")
 
         if errors:
             status = "rejected"
-        elif warnings:
+        elif reasons:
             status = "reviewRequired"
-        else:
-            status = "accepted"
 
         return {
             "status": status,
-            "entry": entry,
+            "record": record,
             "errors": errors,
-            "warnings": warnings
+            "reasons": reasons
         }
-
-    def validate_stream(self, iterator):
-        """
-        Generator that validates an iterator of entries.
-        Yields results dictionary for each.
-        """
-        for entry in iterator:
-            yield self.validate_entry(entry)
