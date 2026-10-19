@@ -45,3 +45,9 @@ jobs:
 
       - name: Verify public SQLite v2 fixture pipeline (no publication)
         run: python3 tools/test_store_pipeline.py -q
+
+      # Reuse the required gate; no extra worker for unrelated pull requests.
+      # Selection is computed from the checked-out synthetic PR merge tree,
+      # not attacker-controlled shell fragments from the PR title or body.
+      - name: Run affected subsystem regression tests
+        run: python3 tools/ci_policy/run_scoped_pr_tests.py
