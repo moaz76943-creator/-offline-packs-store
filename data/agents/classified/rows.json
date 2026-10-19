@@ -1,6 +1,35 @@
 {
   "rows": [
     {
+      "concept_id": "concept.q3354532",
+      "forms": [
+        "шал"
+      ],
+      "language": "bg",
+      "lemma": "шал",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L52886",
+      "pos": "",
+      "qids": [
+        "Q3354532"
+      ],
+      "record_id": "L52886",
+      "retrieval_date": "2026-10-19",
+      "revision": "2501929536",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L52886-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q3354532"
+    },
+    {
       "concept_id": "concept.q2941309",
       "forms": [
         "solbær",
@@ -64,6 +93,79 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q105688"
+    },
+    {
+      "concept_id": "concept.q3354532",
+      "forms": [
+        "Schal",
+        "Schals",
+        "Schal",
+        "Schal",
+        "Schale",
+        "Schale",
+        "Schalen",
+        "Schale"
+      ],
+      "language": "de",
+      "lemma": "Schal",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L33740",
+      "pos": "",
+      "qids": [
+        "Q191022",
+        "Q3354532"
+      ],
+      "record_id": "L33740",
+      "retrieval_date": "2026-10-19",
+      "revision": "2306723857",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L33740-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q3354532"
+    },
+    {
+      "concept_id": "concept.q483444",
+      "forms": [
+        "Kimono",
+        "Kimonos",
+        "Kimono",
+        "Kimono",
+        "Kimonos",
+        "Kimonos",
+        "Kimonos",
+        "Kimonos"
+      ],
+      "language": "de",
+      "lemma": "Kimono",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L688228",
+      "pos": "",
+      "qids": [
+        "Q483444"
+      ],
+      "record_id": "L688228",
+      "retrieval_date": "2026-10-19",
+      "revision": "2306678397",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L688228-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q483444"
     },
     {
       "concept_id": "concept.q2941309",
@@ -169,6 +271,66 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q192874"
+    },
+    {
+      "concept_id": "concept.q483444",
+      "forms": [
+        "kimono",
+        "kimonos"
+      ],
+      "language": "en",
+      "lemma": "kimono",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L322953",
+      "pos": "",
+      "qids": [
+        "Q483444"
+      ],
+      "record_id": "L322953",
+      "retrieval_date": "2026-10-19",
+      "revision": "2549861708",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L322953-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q483444"
+    },
+    {
+      "concept_id": "concept.q10940",
+      "forms": [
+        "jockstrap",
+        "jockstraps"
+      ],
+      "language": "en",
+      "lemma": "jockstrap",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L322837",
+      "pos": "",
+      "qids": [
+        "Q10940"
+      ],
+      "record_id": "L322837",
+      "retrieval_date": "2026-10-19",
+      "revision": "2549859096",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L322837-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q10940"
     },
     {
       "concept_id": "concept.q2941309",
@@ -385,6 +547,39 @@
       "wikidata": "Q12106"
     },
     {
+      "concept_id": "concept.q483444",
+      "forms": [
+        "kimono",
+        "quimono",
+        "kimonos",
+        "quimonos"
+      ],
+      "language": "es",
+      "lemma": "kimono",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L941118",
+      "pos": "",
+      "qids": [
+        "Q483444",
+        "Q979202"
+      ],
+      "record_id": "L941118",
+      "retrieval_date": "2026-10-19",
+      "revision": "2409423163",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L941118-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q483444"
+    },
+    {
       "concept_id": "concept.q12106",
       "forms": [
         "trigo",
@@ -474,6 +669,36 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q10940",
+      "forms": [
+        "sospensorio",
+        "sospensori"
+      ],
+      "language": "it",
+      "lemma": "sospensorio",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L692501",
+      "pos": "",
+      "qids": [
+        "Q10940"
+      ],
+      "record_id": "L692501",
+      "retrieval_date": "2026-10-19",
+      "revision": "2230607952",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L692501-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q10940"
     },
     {
       "concept_id": "concept.q12106",
@@ -567,6 +792,65 @@
       "wikidata": "Q193211"
     },
     {
+      "concept_id": "concept.q483444",
+      "forms": [
+        "着物",
+        "きもの"
+      ],
+      "language": "ja",
+      "lemma": "着物",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L688227",
+      "pos": "",
+      "qids": [
+        "Q483444"
+      ],
+      "record_id": "L688227",
+      "retrieval_date": "2026-10-19",
+      "revision": "2381756307",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L688227-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q483444"
+    },
+    {
+      "concept_id": "concept.q10940",
+      "forms": [
+        "ジョックストラップ"
+      ],
+      "language": "ja",
+      "lemma": "ジョックストラップ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1603721",
+      "pos": "",
+      "qids": [
+        "Q10940"
+      ],
+      "record_id": "L1603721",
+      "retrieval_date": "2026-10-19",
+      "revision": "2536947446",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L1603721-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q10940"
+    },
+    {
       "concept_id": "concept.q147651",
       "forms": [
         "ピーナッツ・バター"
@@ -626,6 +910,35 @@
       "wikidata": "Q192874"
     },
     {
+      "concept_id": "concept.q483444",
+      "forms": [
+        "കിമോണോ"
+      ],
+      "language": "ml",
+      "lemma": "കിമോണോ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L457593",
+      "pos": "",
+      "qids": [
+        "Q483444"
+      ],
+      "record_id": "L457593",
+      "retrieval_date": "2026-10-19",
+      "revision": "1395398845",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L457593-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q483444"
+    },
+    {
       "concept_id": "concept.q2941309",
       "forms": [
         "aalbes",
@@ -660,6 +973,42 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q2941309"
+    },
+    {
+      "concept_id": "concept.q3354532",
+      "forms": [
+        "ਸ਼ਾਲ",
+        "شال",
+        "ਸ਼ਾਲਾਂ",
+        "شالاں",
+        "ਸ਼ਾਲ",
+        "شال",
+        "ਸ਼ਾਲਾਂ",
+        "شالاں"
+      ],
+      "language": "pa",
+      "lemma": "ਸ਼ਾਲ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1097616",
+      "pos": "",
+      "qids": [
+        "Q3354532"
+      ],
+      "record_id": "L1097616",
+      "retrieval_date": "2026-10-19",
+      "revision": "2134861704",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L1097616-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q3354532"
     },
     {
       "concept_id": "concept.q12199",
@@ -697,6 +1046,74 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q3354532",
+      "forms": [
+        "manta",
+        "mantas"
+      ],
+      "language": "pt",
+      "lemma": "manta",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L447041",
+      "pos": "",
+      "qids": [
+        "Q52734062",
+        "Q3354532",
+        "Q1587577",
+        "Q108414082",
+        "Q19"
+      ],
+      "record_id": "L447041",
+      "retrieval_date": "2026-10-19",
+      "revision": "2539216915",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L447041-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q3354532"
+    },
+    {
+      "concept_id": "concept.q10940",
+      "forms": [
+        "джоки",
+        "джоков",
+        "джокам",
+        "джоки",
+        "джоками",
+        "джоках"
+      ],
+      "language": "ru",
+      "lemma": "джоки",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L105788",
+      "pos": "",
+      "qids": [
+        "Q10940"
+      ],
+      "record_id": "L105788",
+      "retrieval_date": "2026-10-19",
+      "revision": "1398609390",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L105788-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q10940"
     },
     {
       "concept_id": "concept.q12106",
@@ -847,6 +1264,42 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q6279182"
+    },
+    {
+      "concept_id": "concept.q483444",
+      "forms": [
+        "kimono",
+        "kimonon",
+        "kimonor",
+        "kimonorna",
+        "kimonos",
+        "kimonons",
+        "kimonors",
+        "kimonornas"
+      ],
+      "language": "sv",
+      "lemma": "kimono",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L243067",
+      "pos": "",
+      "qids": [
+        "Q483444"
+      ],
+      "record_id": "L243067",
+      "retrieval_date": "2026-10-19",
+      "revision": "2509092329",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L243067-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q483444"
     },
     {
       "concept_id": "concept.q147651",
@@ -1011,6 +1464,36 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q3354532",
+      "forms": [
+        "şal",
+        "شال"
+      ],
+      "language": "tr",
+      "lemma": "şal",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1573216",
+      "pos": "",
+      "qids": [
+        "Q3354532"
+      ],
+      "record_id": "L1573216",
+      "retrieval_date": "2026-10-19",
+      "revision": "2517090701",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L1573216-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q3354532"
     },
     {
       "concept_id": "concept.q192874",
