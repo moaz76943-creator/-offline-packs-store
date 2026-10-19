@@ -141,8 +141,19 @@ def stale_heartbeats(heartbeats, now_epoch, max_age_seconds):
     return stale
 
 
-def dispatch_batch(stale, cap=3):
-    return list(stale or [])[:cap]
+def dispatch_batch(stale, cap=3, rotation=0):
+    """Rotate bounded stale-agent recovery so permanently failed early agents
+    cannot starve later independent agents across hourly watchdog runs.
+    """
+    if type(cap) is not int or cap < 0 or cap > 3:
+        raise ValueError('watchdog dispatch cap must be between 0 and 3')
+    if type(rotation) is not int or rotation < 0:
+        raise ValueError('invalid watchdog rotation')
+    agents = list(stale or [])
+    if not agents or cap == 0:
+        return []
+    start = (rotation * cap) % len(agents)
+    return [agents[(start + i) % len(agents)] for i in range(min(cap, len(agents)))]
 
 
 def branch_deletable(name, merged):
