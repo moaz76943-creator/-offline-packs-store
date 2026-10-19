@@ -29,7 +29,7 @@ jobs:
           LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          line="$(gh run list --limit 30 --json databaseId,conclusion,name --jq '[.[] | select(.conclusion=="failure")][0] | [.databaseId, .name] | @tsv' || true)"
+          line="$(gh run list --limit 30 --json databaseId,conclusion,name --jq '[.[] | select(.conclusion=="failure")][0] | [.databaseId, .name] | @tsv')"
           run_id="${line%%$'\t'*}"
           signature="${line#*$'\t'}"
           if [ -z "$signature" ] || [ "$signature" = "$run_id" ]; then
