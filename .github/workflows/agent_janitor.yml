@@ -29,7 +29,7 @@ jobs:
           LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr list --state open --limit 20 --json number,headRefName,isDraft,mergeStateStatus > /tmp/pr-raw.json || echo '[]' > /tmp/pr-raw.json
+          gh pr list --state open --limit 20 --json number,headRefName,isDraft,mergeStateStatus > /tmp/pr-raw.json
           python3 - <<'PY'
           import json, os, subprocess
           from pathlib import Path
@@ -43,7 +43,7 @@ jobs:
 
           def has_unresolved(number):
               if len(parts) != 2 or not parts[0] or not parts[1]:
-                  return True
+                  raise RuntimeError('GITHUB_REPOSITORY missing; cannot verify reviews')
               cmd = [
                   'gh', 'api', 'graphql', '-f', f'query={query}',
                   '-f', f'owner={parts[0]}', '-f', f'name={parts[1]}',
@@ -51,11 +51,11 @@ jobs:
               ]
               proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
               if proc.returncode or not proc.stdout.strip():
-                  return True
+                  raise RuntimeError(f'cannot read PR #{number} review threads: {proc.stderr}')
               try:
                   return unresolved_review_threads(json.loads(proc.stdout))
-              except json.JSONDecodeError:
-                  return True
+              except json.JSONDecodeError as exc:
+                  raise RuntimeError(f'invalid review-thread response for PR #{number}') from exc
 
           pulls = []
           for item in raw:
@@ -68,13 +68,14 @@ jobs:
                       ['gh', 'pr', 'view', str(number), '--json', 'statusCheckRollup'],
                       capture_output=True, text=True, check=False,
                   )
-                  if proc.returncode == 0 and proc.stdout.strip():
-                      rollup = json.loads(proc.stdout).get('statusCheckRollup') or []
-                      checks = [{
-                          'name': row.get('name') or row.get('context'),
-                          'status': (row.get('status') or '').lower(),
-                          'conclusion': (row.get('conclusion') or '').lower(),
-                      } for row in rollup if isinstance(row, dict)]
+                  if proc.returncode or not proc.stdout.strip():
+                      raise RuntimeError(f'cannot verify checks for PR #{number}: {proc.stderr}')
+                  rollup = json.loads(proc.stdout).get('statusCheckRollup') or []
+                  checks = [{
+                      'name': row.get('name') or row.get('context'),
+                      'status': (row.get('status') or '').lower(),
+                      'conclusion': (row.get('conclusion') or '').lower(),
+                  } for row in rollup if isinstance(row, dict)]
               pulls.append({
                   'number': number,
                   'branch': item.get('headRefName') or '',
@@ -98,11 +99,11 @@ jobs:
               if not number:
                   continue
               if action == 'merge':
-                  subprocess.run(['gh', 'pr', 'merge', str(number), '--squash'], check=False)
+                  subprocess.run(['gh', 'pr', 'merge', str(number), '--squash'], check=True)
               elif action == 'update':
                   repo = os.environ.get('GITHUB_REPOSITORY', '')
                   if repo:
-                      subprocess.run(['gh', 'api', '-X', 'PUT', f'repos/{repo}/pulls/{number}/update-branch'], check=False)
+                      subprocess.run(['gh', 'api', '-X', 'PUT', f'repos/{repo}/pulls/{number}/update-branch'], check=True)
           PY
 
       - name: Publish the checkpoint
