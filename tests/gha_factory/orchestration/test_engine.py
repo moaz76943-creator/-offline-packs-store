@@ -117,6 +117,25 @@ class EngineTests(unittest.TestCase):
             folder=Path(d)/'dispatcher-1';folder.mkdir();(folder/'receipt.json').write_text('{}')
             with self.assertRaises(ValueError):e.finalize(api,jobs,Path(d),1,1,NOW)
         self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+    def test_invalid_receipt_does_not_strand_independent_valid_completion(self):
+        api=FakeAPI([(1,task()),(2,task(language='en'))])
+        jobs=self.run_controller(api)
+        with tempfile.TemporaryDirectory() as d:
+            folder=Path(d)
+            broken=folder/'dispatcher-1';broken.mkdir()
+            (broken/'receipt.json').write_text('{}')
+            valid=folder/'dispatcher-2';valid.mkdir()
+            t=p.parse(api.one(2)['body'])
+            (valid/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+            with self.assertRaises(ValueError):
+                e.finalize(api,jobs,folder,1,1,NOW)
+            self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+            self.assertEqual(p.parse(api.one(2)['body'])['state'],'SUCCEEDED')
+            # Finalization retry after interruption is idempotent for task 2.
+            with self.assertRaises(ValueError):
+                e.finalize(api,jobs,folder,1,1,NOW)
+            self.assertEqual(p.parse(api.one(2)['body'])['checkpoint'],1)
+
     def test_finalizer_rejects_symlinked_receipt_directory(self):
         api=FakeAPI([(1,task())]);jobs=self.run_controller(api)
         t=p.parse(api.one(1)['body'])
