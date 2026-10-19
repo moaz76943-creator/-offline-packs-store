@@ -143,6 +143,14 @@ class TestPronunciationMetadata(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "approved non-fixture"):
             self.registry.add_record(row)
 
+    def test_missing_source_author_in_ledger_is_rejected(self):
+        path = self.root / "legal" / "ledger" / "sources.json"
+        ledger = json.loads(path.read_text(encoding="utf-8"))
+        ledger["sources"][0].pop("author")
+        path.write_text(json.dumps(ledger), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "canonical legal ledger"):
+            self.registry.add_record(self.record())
+
     def test_flags_without_canonical_ledger_source_rejected(self):
         row = self.record()
         row["source"]["source_id"] = "src-1"
