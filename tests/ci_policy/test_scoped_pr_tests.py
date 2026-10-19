@@ -10,10 +10,11 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["tools/media_optimizer/test_compiler.py"]), ("media",))
         self.assertEqual(select_suites(["tools/pronunciation_metadata/test_metadata.py"]), ("pronunciation",))
         self.assertEqual(select_suites(["tools/audio_pronunciation/test_admission.py"]), ("audio",))
+        self.assertEqual(select_suites(["tools/ingestion_circuit_breaker/test_gate.py"]), ("ingestion",))
 
     def test_shared_provenance_logic_runs_all_affected_tests(self):
         self.assertEqual(select_suites(["legal/ledger/admission.py"]),
-                         ("media", "pronunciation", "audio"))
+                         ("media", "pronunciation", "audio", "ingestion"))
         self.assertEqual(select_suites(["tools/contribution_gate/evidence.py"]),
                          ("pronunciation", "audio"))
 
