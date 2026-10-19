@@ -1,0 +1,118 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-19",
+  "rows": [
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "politician",
+        "politicians"
+      ],
+      "language": "en",
+      "lemma": "politician",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L9594",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L9594",
+      "retrieval_date": "2026-10-19",
+      "revision": "2549919210",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L9594-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "actor",
+        "actors"
+      ],
+      "language": "en",
+      "lemma": "actor",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L7011",
+      "pos": "",
+      "qids": [
+        "Q33999",
+        "Q23894381",
+        "Q112619615",
+        "Q33999"
+      ],
+      "record_id": "L7011",
+      "retrieval_date": "2026-10-19",
+      "revision": "2554529217",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L7011-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "actress",
+        "actresses"
+      ],
+      "language": "en",
+      "lemma": "actress",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L7012",
+      "pos": "",
+      "qids": [
+        "Q21169216",
+        "Q33999"
+      ],
+      "record_id": "L7012",
+      "retrieval_date": "2026-10-19",
+      "revision": "2554529735",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L7012-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "star",
+        "stars",
+        "starred",
+        "starring",
+        "starred"
+      ],
+      "language": "en",
+      "lemma": "star",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L11308",
+      "pos": "verb",
+      "qids": [
+        "Q33999",
+        "Q3297652"
+      ],
+      "record_id": "L11308",
+      "retrieval_date": "2026-10-19",
+      "revision": "2514236570",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L11308-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

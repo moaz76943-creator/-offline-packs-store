@@ -1,0 +1,168 @@
+{
+  "language": "fr",
+  "retrieval_date": "2026-10-19",
+  "rows": [
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "politicien",
+        "politiciens"
+      ],
+      "language": "fr",
+      "lemma": "politicien",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L673629",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L673629",
+      "retrieval_date": "2026-10-19",
+      "revision": "2306436828",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L673629-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "auteur",
+        "auteurs"
+      ],
+      "language": "fr",
+      "lemma": "auteur",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L10114",
+      "pos": "",
+      "qids": [
+        "Q482980",
+        "Q36180"
+      ],
+      "record_id": "L10114",
+      "retrieval_date": "2026-10-19",
+      "revision": "2451440337",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L10114-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "écrivain",
+        "écrivains"
+      ],
+      "language": "fr",
+      "lemma": "écrivain",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L14259",
+      "pos": "",
+      "qids": [
+        "Q36180",
+        "Q36180"
+      ],
+      "record_id": "L14259",
+      "retrieval_date": "2026-10-19",
+      "revision": "2459047941",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L14259-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "écrivaine",
+        "écrivaines",
+        "écrivaine",
+        "écrivaines"
+      ],
+      "language": "fr",
+      "lemma": "écrivaine",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L619126",
+      "pos": "",
+      "qids": [
+        "Q36180"
+      ],
+      "record_id": "L619126",
+      "retrieval_date": "2026-10-19",
+      "revision": "2459047797",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L619126-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "acteur",
+        "acteurs"
+      ],
+      "language": "fr",
+      "lemma": "acteur",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L13374",
+      "pos": "",
+      "qids": [
+        "Q112619615",
+        "Q33999",
+        "Q421946"
+      ],
+      "record_id": "L13374",
+      "retrieval_date": "2026-10-19",
+      "revision": "2525302031",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L13374-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "actrice",
+        "actrices"
+      ],
+      "language": "fr",
+      "lemma": "actrice",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12849",
+      "pos": "",
+      "qids": [
+        "Q21169216",
+        "Q33999",
+        "Q421946"
+      ],
+      "record_id": "L12849",
+      "retrieval_date": "2026-10-19",
+      "revision": "2525308172",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12849-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

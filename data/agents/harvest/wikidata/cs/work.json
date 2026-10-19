@@ -1,0 +1,41 @@
+{
+  "language": "cs",
+  "retrieval_date": "2026-10-19",
+  "rows": [
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "fotbalista",
+        "fotbalisty",
+        "fotbalistovi",
+        "fotbalistu",
+        "fotbalisto",
+        "fotbalistovi",
+        "fotbalistou",
+        "fotbalisté"
+      ],
+      "language": "cs",
+      "lemma": "fotbalista",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578818",
+      "pos": "",
+      "qids": [
+        "Q937857"
+      ],
+      "record_id": "L578818",
+      "retrieval_date": "2026-10-19",
+      "revision": "2221187938",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L578818-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

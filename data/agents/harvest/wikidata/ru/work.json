@@ -1,0 +1,42 @@
+{
+  "language": "ru",
+  "retrieval_date": "2026-10-19",
+  "rows": [
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "футболист",
+        "футболиста",
+        "футболисту",
+        "футболиста",
+        "футболистом",
+        "футболисте",
+        "футболисты",
+        "футболистов"
+      ],
+      "language": "ru",
+      "lemma": "футболист",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L176435",
+      "pos": "",
+      "qids": [
+        "Q937857",
+        "Q117321337"
+      ],
+      "record_id": "L176435",
+      "retrieval_date": "2026-10-19",
+      "revision": "2012017221",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L176435-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}
