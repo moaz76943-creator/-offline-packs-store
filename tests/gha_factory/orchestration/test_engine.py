@@ -136,6 +136,28 @@ class EngineTests(unittest.TestCase):
                 e.finalize(api,jobs,folder,1,1,NOW)
             self.assertEqual(p.parse(api.one(2)['body'])['checkpoint'],1)
 
+    def test_non_object_receipts_cannot_block_independent_finalization(self):
+        # JSON syntax is valid here, but the receipt envelope must be an object.
+        # Each rejected shard remains claimed; a different valid shard completes.
+        for invalid in ('[]', 'null', '"text"', '42', 'true'):
+            with self.subTest(invalid=invalid):
+                api=FakeAPI([(1,task()),(2,task(language='en'))])
+                jobs=self.run_controller(api)
+                with tempfile.TemporaryDirectory() as d:
+                    folder=Path(d)
+                    bad=folder/'dispatcher-1';bad.mkdir()
+                    (bad/'receipt.json').write_text(invalid)
+                    good=folder/'dispatcher-2';good.mkdir()
+                    t=p.parse(api.one(2)['body'])
+                    (good/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+                    with self.assertRaises(e.FinalizationError) as raised:
+                        e.finalize(api,jobs,folder,1,1,NOW)
+                    self.assertEqual(raised.exception.errors[0]['issue'],1)
+                    self.assertEqual(raised.exception.errors[0]['category'],'ValueError')
+                    self.assertEqual(len(raised.exception.results),1)
+                    self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+                    self.assertEqual(p.parse(api.one(2)['body'])['state'],'SUCCEEDED')
+
     def test_finalizer_rejects_symlinked_receipt_directory(self):
         api=FakeAPI([(1,task())]);jobs=self.run_controller(api)
         t=p.parse(api.one(1)['body'])
