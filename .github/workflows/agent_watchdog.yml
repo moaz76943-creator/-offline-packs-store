@@ -38,7 +38,7 @@ jobs:
               if not row:
                   continue
               workflow = row['workflow'].rsplit('/', 1)[-1]
-              subprocess.run(['gh', 'workflow', 'run', workflow], check=False)
+              subprocess.run(['gh', 'workflow', 'run', workflow], check=True)
           PY
 
       - name: Publish the checkpoint
