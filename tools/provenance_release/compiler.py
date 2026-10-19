@@ -113,6 +113,10 @@ class ProvenanceCompiler:
                         continue
                     resolved_sources.append(src)
 
+                    if not text(src.get('author')):
+                        is_valid = False
+                        block_reason = "missing author"
+
                     if src.get('status') == 'REVIEW_REQUIRED':
                         review_required = True
                     elif src.get('status') != 'APPROVED_FOR_REDISTRIBUTION':
