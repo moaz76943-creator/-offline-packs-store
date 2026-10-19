@@ -167,5 +167,23 @@ class TestGate(unittest.TestCase):
         self.assertIn("BLOCKED_INTEGRATION", errors)
         self.assertIn("BLOCKED_INTEGRATION", stderr)
 
+    def test_fixture_ingestion_pipeline_halts_on_gate_failure(self):
+        import subprocess
+        manifest = {
+            "source_id": "unknown-source",
+        }
+        self.manifest_file.write_text(json.dumps(manifest))
+        gate_script = Path(__file__).parent / 'gate.py'
+
+        result = subprocess.run([
+            sys.executable, str(gate_script),
+            '--repo-root', str(self.root),
+            '--manifest', str(self.manifest_file),
+            '--quarantine', str(self.q_dir)
+        ], capture_output=True, text=True)
+
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("BLOCK: UNKNOWN_SOURCE", result.stderr)
+
 if __name__ == '__main__':
     unittest.main()
