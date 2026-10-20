@@ -247,6 +247,46 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual(db.execute('SELECT count(*) FROM evidence').fetchone()[0],2)
         db.close()
 
+    def test_conflicting_row_source_or_license_is_not_relabeled_as_approved(self):
+        rows = [
+            {'lang_code': 'ar', 'word': 'سليم', 'pos': 'noun',
+             'senses': ['fixture'], 'source_id': 'fabricated.other'},
+            {'lang_code': 'ar', 'word': 'جديد', 'pos': 'noun',
+             'senses': ['fixture'], 'license_id': 'wrong-license'},
+            {'lang_code': 'ar', 'word': 'صحيح', 'pos': 'noun',
+             'senses': ['fixture'], 'source_id': self.source['source_id'],
+             'license_id': self.source['license']['id']},
+        ]
+        path = self.write_lines(rows)
+        db = self.create_db()
+        state, eof = self.ingest(db, path)
+        self.assertTrue(eof)
+        self.assertEqual(state['owned_rows'], 3)
+        self.assertEqual(state['accepted_lexemes'], 1)
+        self.assertEqual(state['rejected'], 2)
+        accepted = [json.loads(row[0]) for row in db.execute('SELECT payload FROM lexemes')]
+        self.assertEqual([lex['lemma'] for lex in accepted], ['صحيح'])
+        db.close()
+
+    def test_merged_attestations_must_respect_byte_bound(self):
+        rows = [
+            {'lang_code': 'ar', 'word': 'سجل', 'pos': 'noun',
+             'forms': ['a' * 34000], 'senses': ['attested one']},
+            {'lang_code': 'ar', 'word': 'سجل', 'pos': 'noun',
+             'forms': ['b' * 34000], 'senses': ['attested two']},
+        ]
+        path = self.write_lines(rows)
+        db = self.create_db()
+        state, eof = self.ingest(db, path)
+        self.assertTrue(eof)
+        self.assertEqual(state['accepted_lexemes'], 1)
+        self.assertEqual(state['rejected'], 1)
+        persisted = db.execute('SELECT payload FROM lexemes').fetchone()[0]
+        self.assertLessEqual(len(persisted.encode('utf-8')), 65536)
+        lexeme = json.loads(persisted)
+        self.assertEqual(len(lexeme['morphology']['inflections']), 1)
+        db.close()
+
     def test_bounded_25000_line_stream_and_checkpoint(self):
         row={'lang_code':'ar','word':'حقيقة','pos':'noun','senses':['fact']}
         path=self.write_lines([row]*25000)
