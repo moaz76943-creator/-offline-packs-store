@@ -158,6 +158,22 @@ class EngineTests(unittest.TestCase):
                     self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
                     self.assertEqual(p.parse(api.one(2)['body'])['state'],'SUCCEEDED')
 
+    def test_non_object_task_metadata_isolates_independent_finalization(self):
+        api=FakeAPI([(1,task()),(2,task(language='en'))])
+        jobs=self.run_controller(api)
+        with tempfile.TemporaryDirectory() as d:
+            folder=Path(d)
+            api.data[1]['body']=p.MARKER+'[]\\n```'
+            good=folder/'dispatcher-2';good.mkdir()
+            t=p.parse(api.one(2)['body'])
+            (good/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+            with self.assertRaises(e.FinalizationError) as raised:
+                e.finalize(api,jobs,folder,1,1,NOW)
+            self.assertEqual(raised.exception.errors[0]['issue'],1)
+            self.assertEqual(raised.exception.errors[0]['category'],'ValueError')
+            self.assertEqual(p.parse(api.one(2)['body'])['state'],'SUCCEEDED')
+            self.assertEqual(api.one(1)['body'],p.MARKER+'[]\\n```')
+
     def test_finalizer_rejects_symlinked_receipt_directory(self):
         api=FakeAPI([(1,task())]);jobs=self.run_controller(api)
         t=p.parse(api.one(1)['body'])
