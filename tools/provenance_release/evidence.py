@@ -111,6 +111,7 @@ def compile_provenance(root):
             resolved.append({'source_id':sid,'dataset_version':source['dataset_version'],
                              'snapshot_sha256':source['retrieval']['sha256'],
                              'license_id':source['license']['id'],
+                             'author':source.get('author'),
                              'publisher':source['publisher'], 'origin_url':source['origin_url']})
         # This compiler does not certify SQLite conformance/signature; later gates own it.
         outputs.append({'asset_id':asset_id,'artifact_path':path,'archive_sha256':sha,
