@@ -1,0 +1,119 @@
+name: Agent PR janitor
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '18 1,5,9,13,17,21 * * *'
+permissions:
+  contents: write
+  pull-requests: read
+  issues: read
+concurrency:
+  group: agent-janitor
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Load the last committed snapshot
+        run: bash tools/agents/prepare.sh
+      - name: Inspect PRs and record non-mutating janitor suggestions
+        id: work
+        continue-on-error: true
+        env:
+          AGENTS_HALT: ${{ vars.AGENTS_HALT }}
+          LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr list --state open --limit 20 --json number,headRefName,isDraft,mergeStateStatus > /tmp/pr-raw.json
+          python3 - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          from tools.agents.ops import unresolved_review_threads
+          raw = json.loads(Path('/tmp/pr-raw.json').read_text() or '[]')
+          parts = os.environ.get('GITHUB_REPOSITORY', '').split('/', 1)
+          query = ('query($owner:String!, $name:String!, $number:Int!) {'
+                   ' repository(owner:$owner, name:$name) { pullRequest(number:$number) {'
+                   ' reviewThreads(first:100) { nodes { isResolved } pageInfo { hasNextPage } }'
+                   ' } } }')
+
+          def has_unresolved(number):
+              if len(parts) != 2 or not parts[0] or not parts[1]:
+                  raise RuntimeError('GITHUB_REPOSITORY missing; cannot verify reviews')
+              cmd = [
+                  'gh', 'api', 'graphql', '-f', f'query={query}',
+                  '-f', f'owner={parts[0]}', '-f', f'name={parts[1]}',
+                  '-F', f'number={number}',
+              ]
+              proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
+              if proc.returncode or not proc.stdout.strip():
+                  raise RuntimeError(f'cannot read PR #{number} review threads: {proc.stderr}')
+              try:
+                  return unresolved_review_threads(json.loads(proc.stdout))
+              except json.JSONDecodeError as exc:
+                  raise RuntimeError(f'invalid review-thread response for PR #{number}') from exc
+
+          pulls = []
+          for item in raw:
+              if not isinstance(item, dict):
+                  continue
+              number = item.get('number')
+              checks = []
+              if number:
+                  proc = subprocess.run(
+                      ['gh', 'pr', 'view', str(number), '--json', 'statusCheckRollup'],
+                      capture_output=True, text=True, check=False,
+                  )
+                  if proc.returncode or not proc.stdout.strip():
+                      raise RuntimeError(f'cannot verify checks for PR #{number}: {proc.stderr}')
+                  rollup = json.loads(proc.stdout).get('statusCheckRollup') or []
+                  checks = [{
+                      'name': row.get('name') or row.get('context'),
+                      'status': (row.get('status') or '').lower(),
+                      'conclusion': (row.get('conclusion') or '').lower(),
+                  } for row in rollup if isinstance(row, dict)]
+              pulls.append({
+                  'number': number,
+                  'branch': item.get('headRefName') or '',
+                  'draft': item.get('isDraft'),
+                  'behind': item.get('mergeStateStatus') == 'BEHIND',
+                  'merge_state': item.get('mergeStateStatus'),
+                  'unresolved': has_unresolved(number) if number and
+                      item.get('mergeStateStatus') in ('CLEAN', 'BEHIND') else True,
+                  'checks': checks,
+              })
+          Path('/tmp/pr.json').write_text(json.dumps({'schema_version': '1.0.0', 'pulls': pulls}))
+          PY
+          python3 -m tools.agents.cli janitor --pr-json /tmp/pr.json > /tmp/janitor-actions.json
+          # This job is a scheduled adviser only. The existing protected-main
+          # public_merge_coordinator is the sole scheduled PR writer.
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          actions = json.loads(Path('/tmp/janitor-actions.json').read_text() or '[]')
+          counts = {}
+          for item in actions:
+              action = item.get('action', 'unknown')
+              counts[action] = counts.get(action, 0) + 1
+          lines = ['### PR janitor (advisory only)',
+                   'No PRs were merged, updated, or approved by this job.',
+                   'The canonical public merge coordinator makes all integration decisions.',
+                   '',
+                   '| Suggested action | Count |', '| --- | ---: |']
+          lines.extend(f'| {action} | {count} |' for action, count in sorted(counts.items())
+                       if action in ('merge', 'update', 'leave'))
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as out:
+              out.write('\n'.join(lines) + '\n')
+          PY
+
+      - name: Publish the checkpoint
+        if: always()
+        run: bash tools/agents/publish.sh janitor
+      - name: Record the agent result
+        if: steps.work.outcome == 'failure'
+        run: exit 1

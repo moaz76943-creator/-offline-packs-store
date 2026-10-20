@@ -1,11 +1,26 @@
 name: Validate JSON Files
 on: [push, pull_request]
+permissions:
+  contents: read
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
       - name: Check JSON Syntax
+        shell: bash
         run: |
-          find . -name "*.json" -not -path "*/.git/*" -print0 | xargs -0 -I {} bash -c 'jq . "{}" >/dev/null || (echo "❌ خطأ في تنسيق الملف: {}" && exit 1)'
+          set -euo pipefail
+          find . -type f -name '*.json' -not -path './.git/*' -print0 |
+            xargs -0 -r -n 1 sh -c '
+              if ! jq empty "$1" >/dev/null 2>&1; then
+                printf "Invalid JSON: %s\n" "$1" >&2
+                exit 1
+              fi
+            ' _
+      - name: Adversarial filename regression tests
+        run: python3 -m unittest discover -s tests/ci_security -p 'test_*.py' -v
