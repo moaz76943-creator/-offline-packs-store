@@ -1,0 +1,7 @@
+{
+  "schema_version": "1.0.0",
+  "title": "Agent heartbeat",
+  "required": ["schema_version", "name", "last_run", "status", "version"],
+  "status": ["ok", "failed", "degraded", "skipped", "never"],
+  "note": "Agents read these files from state/agents. A missing file is not an error."
+}

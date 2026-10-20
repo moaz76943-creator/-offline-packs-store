@@ -3,25 +3,52 @@ run-name: Public queue ${{ github.run_id }} / ${{ github.run_attempt }}
 
 on:
   workflow_dispatch:
+    inputs:
+      tests_only:
+        description: Run bounded read-only validation without queue writes
+        type: boolean
+        default: false
+  pull_request:
+    paths:
+      - tools/gha_factory/orchestration/**
+      - tools/gha_factory/dispatcher/**
+      - tools/gha_factory/admission/**
+      - tests/gha_factory/orchestration/**
+      - tests/gha_factory/dispatcher/**
+      - tests/gha_factory/admission/**
+      - .github/workflows/gha_dispatcher.yml
   schedule:
     - cron: '11 * * * *'
-
-# Entire claim/worker/finalize cycle is serialized. No overlapping controllers.
-concurrency:
-  group: public-issue-queue-controller
-  cancel-in-progress: false
 
 permissions:
   contents: read
 
 jobs:
+  validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Bounded orchestration and v1 regression tests
+        run: |
+          python3 -m unittest discover -s tests/gha_factory/orchestration -p 'test_*.py' -v
+          python3 -m unittest discover -s tests/gha_factory/dispatcher -p 'test_*.py' -v
+
   controller:
-    if: github.repository == 'moaz76943-creator/-offline-packs-store' && github.ref == 'refs/heads/main'
+    needs: validation
+    concurrency:
+      group: public-issue-queue-mutations
+      cancel-in-progress: false
+      queue: max
+    if: github.repository == 'moaz76943-creator/-offline-packs-store' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && inputs.tests_only != true
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: read
       issues: write
+      actions: read
     outputs:
       jobs: ${{ steps.claim.outputs.jobs }}
       has_work: ${{ steps.claim.outputs.has_work }}
@@ -32,7 +59,7 @@ jobs:
       - id: claim
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 tools/gha_factory/dispatcher/cli.py controller
+        run: python3 -m tools.gha_factory.orchestration.cli controller
 
   worker:
     needs: controller
@@ -43,6 +70,10 @@ jobs:
       matrix: ${{ fromJSON(needs.controller.outputs.jobs) }}
     runs-on: ubuntu-latest
     timeout-minutes: 295
+    concurrency:
+      group: public-queue-worker-${{ matrix.task_id }}
+      cancel-in-progress: false
+      queue: max
     permissions:
       contents: read
       issues: read
@@ -58,17 +89,21 @@ jobs:
           RECEIPT_DIR: ${{ runner.temp }}/dispatcher-result
         shell: bash
         run: |
-          python3 tools/gha_factory/dispatcher/cli.py worker \
+          python3 -m tools.gha_factory.orchestration.cli worker \
             --issue "$ISSUE_NUMBER" --task-id "$TASK_ID" --out "$RECEIPT_DIR"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: dispatcher-${{ matrix.number }}
           path: ${{ runner.temp }}/dispatcher-result/
-          retention-days: 3
+          retention-days: 1
           if-no-files-found: ignore
 
   finalize:
+    concurrency:
+      group: public-issue-queue-mutations
+      cancel-in-progress: false
+      queue: max
     needs: [controller, worker]
     if: always() && needs.controller.outputs.has_work == 'true'
     runs-on: ubuntu-latest
@@ -76,6 +111,7 @@ jobs:
     permissions:
       contents: read
       issues: write
+      actions: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -90,4 +126,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           JOBS_JSON: ${{ needs.controller.outputs.jobs }}
           ARTIFACT_DIR: ${{ runner.temp }}/dispatcher-artifacts
-        run: python3 tools/gha_factory/dispatcher/cli.py finalize --artifacts "$ARTIFACT_DIR"
+        run: python3 -m tools.gha_factory.orchestration.cli finalize --artifacts "$ARTIFACT_DIR"

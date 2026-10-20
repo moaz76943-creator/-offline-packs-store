@@ -62,7 +62,7 @@ def work(t,out,root=controller.ROOT):
 
 def worker(api,number,task_id,run_id,run_attempt,directory,root=controller.ROOT):
     issue=api.one(number)
-    if (issue.get('user') or {}).get('login')!=controller.OWNER or not issue.get('title','').startswith(queue.PREFIX):
+    if not controller.owned_queue_issue(issue):
         raise ValueError('untrusted issue')
     t=queue.parse(issue.get('body'))
     if t['task_id']!=task_id or t['state']!='CLAIMED' or t['run_id']!=run_id or t['run_attempt']!=run_attempt:
