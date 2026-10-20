@@ -246,6 +246,34 @@ def command_repair(_args):
     if _halt('health'):
         return 0
     signature = _args.signature or 'no-signature'
+    # A green CI run is not proof that independent agent schedules are healthy.
+    from datetime import datetime, timezone
+    from tools.agents.ops import stale_heartbeats
+    snapshots = []
+    folder = ROOT / 'state' / 'agents'
+    known_names = {row['name'] for row in ROSTER}
+    if folder.is_dir():
+        for path in folder.glob('*.json'):
+            payload, warning = load_json_tolerant(path, {'schema_version': '1.0.0'})
+            if not warning and payload.get('name') in known_names:
+                snapshots.append(payload)
+    now = datetime.now(timezone.utc).timestamp()
+    stale = stale_heartbeats(snapshots, now, 8 * 3600)
+    degraded = sorted({
+        row['name'] for row in snapshots
+        if row.get('status') != 'ok' and row.get('name') not in stale
+    })
+    health = {
+        'schema_version': '1.0.0',
+        'roster_count': len(ROSTER),
+        'observed_count': len({row['name'] for row in snapshots}),
+        'stale': stale,
+        'degraded': degraded,
+        'failed_github_run': signature != 'no-signature',
+    }
+    write_json(_out('state/agents/health-report.json'), health)
+    health_status = 'degraded' if stale or degraded or health['failed_github_run'] else 'ok'
+    health_warning = f"stale={len(stale)} degraded={len(degraded)} failed_run={int(health['failed_github_run'])}"
     if signature == 'no-signature':
         plan = {
             'schema_version': '1.0.0',
@@ -255,7 +283,7 @@ def command_repair(_args):
             'seen_count': 0,
         }
         write_json(_out('state/agents/repair.json'), plan)
-        write_heartbeat(_out('state/agents'), 'health', 'ok', '')
+        write_heartbeat(_out('state/agents'), 'health', health_status, health_warning)
         print(json.dumps(plan, sort_keys=True))
         return 0
     sid = signature_id(signature)
@@ -284,7 +312,7 @@ def command_repair(_args):
         'action': plan['action'],
         'retries': 0,
     })
-    write_heartbeat(_out('state/agents'), 'health', 'ok', plan['warning'])
+    write_heartbeat(_out('state/agents'), 'health', health_status, health_warning + ('; ' + plan['warning'] if plan['warning'] else ''))
     print(json.dumps(plan, sort_keys=True))
     return 0
 
@@ -451,7 +479,10 @@ def command_watchdog(_args):
         'stale': stale,
         'dispatch': batch,
     })
-    write_heartbeat(_out('state/agents'), 'watchdog', 'ok', f'dispatch {len(batch)} of {len(stale)}')
+    # A requested workflow dispatch is not verified worker completion.
+    write_heartbeat(_out('state/agents'), 'watchdog',
+                    'degraded' if stale else 'ok',
+                    f'requested {len(batch)} of {len(stale)} stale agents')
     print('\n'.join(batch))
     return 0
 
