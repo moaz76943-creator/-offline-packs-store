@@ -136,6 +136,61 @@ class ContractTests(unittest.TestCase):
         ], [{'id': 'ar', 'script': 'Latn'}], sample=2)
         self.assertTrue(any('wrong script' in item or 'duplicate' in item for item in problems['problems']))
 
+    def test_qa_duplicate_key_keeps_source_sense_concept_identity(self):
+        """One attested sense may validly anchor multiple directed concepts."""
+        row = {
+            'language': 'de', 'lemma': 'Bank',
+            'source_id': 'wikidata.lexemes', 'record_id': 'L210',
+            'sense_id': 'L210-S1', 'concept_id': 'concept.q100',
+            'license_id': 'CC0-1.0', 'retrieval_date': '2026-10-20',
+        }
+        distinct = [
+            row,
+            dict(row, concept_id='concept.q101'),
+            dict(row, source_id='other.approved.source'),
+        ]
+        valid = qa_rows(distinct, [{'id': 'de', 'script': 'Latn'}], sample=len(distinct))
+        self.assertEqual(valid['problems'], [], valid)
+        duplicate = qa_rows([row, dict(row)], [{'id': 'de', 'script': 'Latn'}],
+                            sample=2)
+        self.assertTrue(any('duplicate' in problem for problem in duplicate['problems']))
+
+    def test_quality_agent_scans_all_source_rows_not_just_first_five(self):
+        """A sixth bad harvested record must fail source QA even after good rows."""
+        import argparse
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            source = root / 'data/agents/harvest/wikidata/ar'
+            source.mkdir(parents=True)
+            rows = [{
+                'language': 'ar', 'section': 'food',
+                'lemma': 'كتاب', 'record_id': f'L{i}',
+                'source_id': 'wikidata.lexemes', 'license_id': 'CC0-1.0',
+                'retrieval_date': '2026-10-20',
+            } for i in range(5)]
+            rows.append({
+                'language': 'ar', 'section': 'food',
+                'lemma': 'Hallo', 'record_id': 'L6',
+                'source_id': 'wikidata.lexemes', 'license_id': 'CC0-1.0',
+                'retrieval_date': '2026-10-20',
+            })
+            (source / 'food.json').write_text(json.dumps({'rows': rows}), encoding='utf-8')
+            # A classified snapshot may replay the same source records; QA
+            # inspects the source of truth rather than counting stage copies.
+            classified = root / 'data/agents/classified'
+            classified.mkdir(parents=True)
+            (classified / 'rows.json').write_text(json.dumps({'rows': rows}), encoding='utf-8')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.object(agent_cli, 'load_profiles', return_value={
+                      'languages': [{'id': 'ar', 'script': 'Arab'}]})):
+                self.assertEqual(agent_cli.command_qa(argparse.Namespace()), 1)
+            report = json.loads((root/'output/state/agents/qa-report.json').read_text())
+            self.assertEqual(report['sampled'], 6)
+            self.assertTrue(any('L6: wrong script' in x for x in report['problems']))
+
     def test_grammar_uses_profile_facts_and_packs_need_rows(self):
         payload = grammar_for_language({'id': 'ar', 'script': 'Arab', 'direction': 'rtl'}, [])
         self.assertEqual({slot['id'] for slot in payload['slots']}, {'grammar.script', 'grammar.direction'})
