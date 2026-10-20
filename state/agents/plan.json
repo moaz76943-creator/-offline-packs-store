@@ -1,5 +1,5 @@
 {
-  "next_index": 1200,
+  "next_index": 1280,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "af",
+      "section": "shopping"
+    },
+    {
+      "language": "am",
+      "section": "shopping"
+    },
+    {
+      "language": "ar",
+      "section": "shopping"
+    },
+    {
+      "language": "as",
+      "section": "shopping"
+    },
+    {
+      "language": "az",
+      "section": "shopping"
+    },
+    {
+      "language": "ba",
+      "section": "shopping"
+    },
+    {
+      "language": "be",
+      "section": "shopping"
+    },
+    {
+      "language": "bg",
+      "section": "shopping"
+    },
+    {
+      "language": "bn",
+      "section": "shopping"
+    },
+    {
+      "language": "br",
+      "section": "shopping"
+    },
+    {
+      "language": "bs",
+      "section": "shopping"
+    },
+    {
+      "language": "ca",
+      "section": "shopping"
+    },
+    {
+      "language": "cs",
+      "section": "shopping"
+    },
+    {
+      "language": "cy",
+      "section": "shopping"
+    },
+    {
+      "language": "da",
+      "section": "shopping"
+    },
+    {
+      "language": "de",
+      "section": "shopping"
+    },
+    {
+      "language": "dv",
+      "section": "shopping"
+    },
+    {
+      "language": "el",
+      "section": "shopping"
+    },
+    {
+      "language": "en",
+      "section": "shopping"
+    },
+    {
+      "language": "eo",
+      "section": "shopping"
+    },
+    {
       "language": "es",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "et",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "eu",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "fa",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "fi",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "fo",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "fr",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "fy",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ga",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "gd",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "gl",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "gu",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ha",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "hi",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "hr",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "hu",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "hy",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "id",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ig",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "is",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "it",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ja",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ka",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "kk",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "km",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "kn",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ko",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ku",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ky",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "la",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "lb",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "lo",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "lt",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "lv",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "mg",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "mk",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ml",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "mn",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "mr",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ms",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "mt",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "my",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ne",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "nl",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "no",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "or",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "pa",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "pl",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ps",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "pt",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ro",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "ru",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "rw",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "sd",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "si",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "sk",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "sl",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "sn",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "so",
-      "section": "city"
+      "section": "shopping"
     },
     {
       "language": "sq",
-      "section": "city"
-    },
-    {
-      "language": "sr",
-      "section": "city"
-    },
-    {
-      "language": "sv",
-      "section": "city"
-    },
-    {
-      "language": "sw",
-      "section": "city"
-    },
-    {
-      "language": "ta",
-      "section": "city"
-    },
-    {
-      "language": "te",
-      "section": "city"
-    },
-    {
-      "language": "tg",
-      "section": "city"
-    },
-    {
-      "language": "th",
-      "section": "city"
-    },
-    {
-      "language": "tk",
-      "section": "city"
-    },
-    {
-      "language": "tl",
-      "section": "city"
-    },
-    {
-      "language": "tr",
-      "section": "city"
-    },
-    {
-      "language": "tt",
-      "section": "city"
-    },
-    {
-      "language": "ug",
-      "section": "city"
-    },
-    {
-      "language": "uk",
-      "section": "city"
-    },
-    {
-      "language": "ur",
-      "section": "city"
-    },
-    {
-      "language": "uz",
-      "section": "city"
-    },
-    {
-      "language": "vi",
-      "section": "city"
-    },
-    {
-      "language": "xh",
-      "section": "city"
-    },
-    {
-      "language": "yo",
-      "section": "city"
-    },
-    {
-      "language": "zh",
-      "section": "city"
-    },
-    {
-      "language": "zu",
-      "section": "city"
+      "section": "shopping"
     }
   ]
 }
