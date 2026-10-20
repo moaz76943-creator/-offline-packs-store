@@ -187,6 +187,8 @@ def durable_checkpoint(handoff, saved, blob):
     if (saved['task_id'] != handoff['task_id'] or saved['source_sha256'] != handoff['source_sha256']
             or type(saved['checkpoint']) is not int or saved['checkpoint'] != handoff['checkpoint']
             or not _sha(saved['sha256']) or not isinstance(blob, bytes)
+            or (handoff['checkpoint_sha256'] is not None and
+                saved['sha256'] != handoff['checkpoint_sha256'])
             or len(blob) > 8_000_000 or hashlib.sha256(blob).hexdigest() != saved['sha256']):
         raise ValueError('checkpoint bytes/identity not verified')
     return saved['checkpoint']
