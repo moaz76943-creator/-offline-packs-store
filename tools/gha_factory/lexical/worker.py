@@ -154,6 +154,11 @@ def _row_identity(row, lang, importer):
 
 
 def _extract(row, lang, entry, scripts, importer, source, locator):
+    # An importer may stamp trusted ledger provenance over user-supplied row
+    # fields. Explicit disagreements must be rejected before extraction.
+    if ('source_id' in row and row['source_id'] != source['source_id'] or
+            'license_id' in row and row['license_id'] != source['license']['id']):
+        return None
     selected_script = row.get('script', entry['default_script'])
     if selected_script not in entry['scripts'] or selected_script not in scripts:
         return None
@@ -269,10 +274,12 @@ def _ingest(db, inp, lang, index, partitions, max_lines, importer, source, entry
                                 raise ValueError('stable lexeme identity collision')
                             modified = merge_attested(earlier, lexeme)
                             if modified:
-                                if not validators[0].is_valid(earlier):
-                                    raise ValueError('merged attestation failed lexical schema')
+                                merged_payload = canonical(earlier)
+                                if (not validators[0].is_valid(earlier) or
+                                        len(merged_payload.encode('utf-8')) > 65536):
+                                    raise ValueError('merged attestation violates lexical schema/size limit')
                                 db.execute('UPDATE lexemes SET payload=? WHERE id=?',
-                                           (canonical(earlier),lex_id))
+                                           (merged_payload,lex_id))
                         else:
                             db.execute('INSERT INTO lexemes VALUES (?,?)', (lex_id, canonical(lexeme)))
                             state['accepted_lexemes'] += 1
