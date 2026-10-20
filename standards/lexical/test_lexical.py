@@ -5,10 +5,11 @@ import json
 import sqlite3
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from validate import LexicalContractError, validate, verify_compatible
-from sqlite_v2 import build, check_mapping_version, sort_key
+from sqlite_v2 import build, check_mapping_version, sort_key, main
 
 HERE = Path(__file__).parent
 
@@ -120,6 +121,64 @@ class SqliteMappingTest(unittest.TestCase):
     def test_unicode_sort_preserves_diacritics(self):
         self.assertEqual(sort_key('HÄUSER'),'häuser')
         self.assertEqual(sort_key('بَيْت'),'بَيْت')
+
+    def test_build_output_parent_not_found(self):
+        with self.assertRaises(FileNotFoundError):
+            build(self.data, self.root / 'nonexistent' / 'db.sqlite')
+
+    @patch('sqlite3.connect')
+    def test_build_sqlite_integrity_check_failure(self, mock_connect):
+        mock_conn = mock_connect.return_value
+        # When checking integrity, return an error. Otherwise act somewhat normally.
+        def mock_execute(query, *args, **kwargs):
+            mock_cursor = unittest.mock.MagicMock()
+            if query == 'PRAGMA integrity_check':
+                mock_cursor.fetchone.return_value = ('error',)
+            elif query == 'PRAGMA foreign_key_check':
+                mock_cursor.fetchall.return_value = []
+            elif query == 'SELECT rowid FROM lexicon WHERE id=?':
+                mock_cursor.fetchone.return_value = (1,)
+            return mock_cursor
+        mock_conn.execute.side_effect = mock_execute
+
+        with self.assertRaisesRegex(LexicalContractError, 'SQLite integrity check failed'):
+            build(self.data, self.db)
+
+    @patch('sqlite3.connect')
+    def test_build_sqlite_foreign_key_check_failure(self, mock_connect):
+        mock_conn = mock_connect.return_value
+        def mock_execute(query, *args, **kwargs):
+            mock_cursor = unittest.mock.MagicMock()
+            if query == 'PRAGMA integrity_check':
+                mock_cursor.fetchone.return_value = ('ok',)
+            elif query == 'PRAGMA foreign_key_check':
+                mock_cursor.fetchall.return_value = [(1,)]
+            elif query == 'SELECT rowid FROM lexicon WHERE id=?':
+                mock_cursor.fetchone.return_value = (1,)
+            return mock_cursor
+        mock_conn.execute.side_effect = mock_execute
+
+        with self.assertRaisesRegex(LexicalContractError, 'SQLite foreign-key check failed'):
+            build(self.data, self.db)
+
+    def test_check_mapping_version_invalid_mapping(self):
+        build(self.data, self.db)
+        with sqlite3.connect(self.db) as con:
+            con.execute("DELETE FROM metadata WHERE key='mapping_version'")
+            with self.assertRaisesRegex(LexicalContractError, 'unrecognized mapping or contract version; explicit migration required'):
+                check_mapping_version(con)
+
+    def test_main_valid(self):
+        input_file = self.root / 'input.json'
+        input_file.write_text(json.dumps(self.data), encoding='utf-8')
+        result = main([str(input_file), str(self.db)])
+        self.assertEqual(result, 0)
+        self.assertTrue(self.db.exists())
+
+    def test_main_invalid(self):
+        missing_file = self.root / 'missing.json'
+        result = main([str(missing_file), str(self.db)])
+        self.assertEqual(result, 1)
 
 
 if __name__=='__main__':
