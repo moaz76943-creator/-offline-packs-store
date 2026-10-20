@@ -400,6 +400,89 @@ class ContractTests(unittest.TestCase):
             self.assertEqual({r['concept_id'] for r in actual},
                              {f'concept.{i}' for i in range(16)})
 
+    def test_watchdog_surfaces_degraded_agents_without_relaunch_storm(self):
+        import argparse
+        import os
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            states = root / 'state' / 'agents'
+            states.mkdir(parents=True)
+            for agent in ROSTER:
+                name = agent['name']
+                write_heartbeat(states, name,
+                                'degraded' if name in ('harvest-wikidata', 'legal') else 'ok',
+                                'no production evidence' if name == 'harvest-wikidata' else '')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.dict(os.environ, {'AGENTS_HALT': '',
+                                               'LANGUAGE_PRODUCTION_HALT': ''})):
+                self.assertEqual(agent_cli.command_watchdog(
+                    argparse.Namespace(codeql_runs='')), 0)
+            report = json.loads((root/'output/state/agents/watchdog-report.json').read_text())
+            self.assertEqual(report['stale'], [])
+            self.assertEqual(report['degraded'], ['harvest-wikidata', 'legal'])
+            self.assertEqual(report['dispatch'], [])
+            heartbeat = json.loads((root/'output/state/agents/watchdog.json').read_text())
+            self.assertEqual(heartbeat['status'], 'degraded')
+            self.assertIn('degraded=2', heartbeat['warning'])
+
+    def test_tatoeba_harvest_rotates_supported_real_language_codes(self):
+        import argparse
+        import os
+        import shutil
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        from tools.agents import harvest as source
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            notice = root / 'legal/source_evidence/tatoeba-terms.txt'
+            notice.parent.mkdir(parents=True)
+            notice.write_text('verified fixture', encoding='utf-8')
+            state = root / 'state/agents'
+            state.mkdir(parents=True)
+            calls = []
+            def samples(code):
+                calls.append(code)
+                return [{
+                    'record_id': 'tatoeba:' + code,
+                    'text': 'Example sentence ' + code,
+                    'author': 'Test Author',
+                    'sentence_slot': 'sentence.statement',
+                }]
+            languages = [
+                {'id': 'de', 'wikidata': 'Q188'},
+                {'id': 'en', 'wikidata': 'Q1860'},
+                {'id': 'sv', 'wikidata': 'Q9027'},
+            ]
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.object(agent_cli, 'load_graph', return_value={'sections': []}),
+                  mock.patch.object(agent_cli, 'load_languages', return_value={'languages': languages}),
+                  mock.patch.object(agent_cli, 'load_profiles', return_value={'languages': [
+                      {'id': lang['id'], 'script': 'Latn'} for lang in languages]}),
+                  mock.patch.object(source, 'accept_notice', return_value=True),
+                  mock.patch.object(source, 'tatoeba_sample', side_effect=samples),
+                  mock.patch.dict(os.environ, {'AGENTS_HALT': '',
+                                               'LANGUAGE_PRODUCTION_HALT': ''})):
+                for _ in range(3):
+                    self.assertEqual(agent_cli.command_harvest(
+                        argparse.Namespace(name='harvest-tatoeba')), 0)
+                    cursor = root / 'output/state/agents/harvest-tatoeba-cursor.json'
+                    self.assertTrue(cursor.is_file())
+                    shutil.copyfile(cursor, state / cursor.name)
+            self.assertEqual(set(calls), {'deu', 'eng', 'swe'})
+            self.assertEqual(len(calls), 3)
+            for language in ('de', 'en', 'sv'):
+                saved = root / f'output/data/agents/harvest/tatoeba/{language}/sentences.json'
+                self.assertTrue(saved.is_file(), str(saved))
+                payload = json.loads(saved.read_text())
+                self.assertEqual(payload['language'], language)
+                self.assertEqual(payload['rows'][0]['language'], language)
+
     def test_watchdog_round_robin_does_not_starve_later_stale_agents(self):
         stale = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
         batches = [dispatch_batch(stale, cap=3, rotation=hour) for hour in range(7)]
