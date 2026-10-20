@@ -18,8 +18,9 @@ SUITES = {
     "final_evidence": ("tools/final_release_evidence", "test_compiler.py"),
     "corpus_dedupe": ("tools/corpus_dedupe", "test_dedupe.py"),
     "provenance_release": ("tools/provenance_release", "test_compiler.py"),
+    "lexicon_sanitizer": ("tools/lexicon_sanitizer", "test_engine.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer")
 
 
 def select_suites(changed_paths):
@@ -41,6 +42,8 @@ def select_suites(changed_paths):
             selected.add("corpus_dedupe")
         if path.startswith("tools/provenance_release/"):
             selected.add("provenance_release")
+        if path.startswith("tools/lexicon_sanitizer/"):
+            selected.add("lexicon_sanitizer")
         if path.startswith("legal/ledger/"):
             selected.update(ORDER)
         if path.startswith("tools/contribution_gate/"):
