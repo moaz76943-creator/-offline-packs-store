@@ -283,6 +283,49 @@ class ContractTests(unittest.TestCase):
         failed = {'failed_github_run': True, 'stale': [], 'degraded': []}
         self.assertTrue(failed['failed_github_run'] or failed['stale'] or failed['degraded'])
 
+    def test_codeql_completed_action_receipt_prevents_false_watchdog_staleness(self):
+        from tools.agents.ops import codeql_run_heartbeat
+        now = datetime(2026, 10, 20, 1, tzinfo=timezone.utc)
+        stamp = '2026-10-20T00:08:33Z'
+        good = {'status': 'completed', 'conclusion': 'success', 'createdAt': stamp}
+        beat = codeql_run_heartbeat([good], now.timestamp())
+        self.assertEqual(beat['name'], 'codeql')
+        self.assertEqual(beat['status'], 'ok')
+        self.assertNotIn('codeql', stale_heartbeats([beat], now.timestamp(), 8*3600))
+        for conclusion in ('skipped', 'failure', 'cancelled', 'timed_out'):
+            bad = dict(good, conclusion=conclusion)
+            with self.subTest(conclusion=conclusion):
+                observed = codeql_run_heartbeat([bad], now.timestamp())
+                self.assertEqual(observed['status'], 'degraded')
+                self.assertIn(conclusion, observed['warning'])
+        self.assertIsNone(codeql_run_heartbeat([dict(good, createdAt='invalid')], now.timestamp()))
+        self.assertIsNone(codeql_run_heartbeat([dict(good, createdAt='2027-10-20T00:00:00Z')], now.timestamp()))
+        self.assertIsNone(codeql_run_heartbeat('wrong-type', now.timestamp()))
+        self.assertIsNone(codeql_run_heartbeat([{'status':'in_progress'}], now.timestamp()))
+
+    def test_watchdog_ingests_codeql_evidence_without_credential_mutations(self):
+        import argparse
+        import os
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            evidence = root / 'codeql-runs.json'
+            evidence.write_text(json.dumps([
+                {'status':'completed','conclusion':'success',
+                 'createdAt':datetime.now(timezone.utc).isoformat()}
+            ]), encoding='utf-8')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.dict(os.environ, {'AGENTS_HALT':'', 'LANGUAGE_PRODUCTION_HALT':''})):
+                self.assertEqual(agent_cli.command_watchdog(
+                    argparse.Namespace(codeql_runs=str(evidence))), 0)
+            saved = json.loads((root/'output/state/agents/codeql.json').read_text())
+            self.assertEqual(saved['status'],'ok')
+            snapshot = json.loads((root/'output/state/agents/watchdog.json').read_text())
+            self.assertNotIn('codeql', snapshot['stale'])
+            self.assertLessEqual(len(snapshot['dispatch']), 3)
+
     def test_watchdog_uses_agent_schedule_before_flagging_stale(self):
         now = datetime(2026, 10, 19, 12, tzinfo=timezone.utc)
 
