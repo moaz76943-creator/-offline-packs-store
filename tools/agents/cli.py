@@ -349,7 +349,21 @@ def command_harvest(args):
         ROOT / cursor_path,
         {'schema_version': '1.0.0', 'next_index': 0},
     )
-    concepts, next_index, window_warning = next_window(candidates, cursor, 8)
+    if name == 'harvest-tatoeba':
+        from tools.agents.harvest import TATOEBA_CODES
+        # Tatoeba is a sentence corpus, not a Wikidata concept lookup.
+        # Reuse this source's existing persisted cursor; select one actual
+        # catalog language per run to stay bounded and prevent sv-only loops.
+        candidates = [
+            {'language': code, 'section': 'sentences'}
+            for code in sorted({
+                item.get('id') for item in languages
+                if item.get('id') in TATOEBA_CODES
+            })
+        ]
+        concepts, next_index, window_warning = next_window(candidates, cursor, 1)
+    else:
+        concepts, next_index, window_warning = next_window(candidates, cursor, 8)
     retrieved = date.today().isoformat()
     grouped = {}
     skipped = []
@@ -404,10 +418,11 @@ def command_harvest(args):
         notice = (ROOT / 'legal' / 'source_evidence' / 'tatoeba-terms.txt').read_text(encoding='utf-8')
         try:
             accept_notice(notice, 'CC-BY-2.0-FR')
-            code = TATOEBA_CODES.get('sv', '')
-            for sample in tatoeba_sample(code):
-                grouped.setdefault(('sv', 'sentences'), []).append({
-                    'language': 'sv',
+            selected_language = concepts[0]['language'] if concepts else ''
+            code = TATOEBA_CODES.get(selected_language)
+            for sample in (tatoeba_sample(code) if code else []):
+                grouped.setdefault((selected_language, 'sentences'), []).append({
+                    'language': selected_language,
                     'section': 'sentences',
                     'text': sample['text'],
                     'author': sample['author'],
@@ -496,7 +511,7 @@ def command_harvest(args):
             'retrieval_date': retrieved,
             'rows': [],
             'skipped': skipped,
-            'concepts_attempted': [row.get('wikidata') for row in concepts],
+            'concepts_attempted': [row.get('wikidata') or row.get('language') for row in concepts],
         })
     # Advance only after bounded source processing finishes. The existing
     # checkpoint publisher writes the cursor to agents/data on each run.
@@ -553,18 +568,30 @@ def command_watchdog(_args):
                 heartbeats.append(result)
                 write_json(_out('state/agents/codeql.json'), result)
     stale = stale_heartbeats(heartbeats, now, 8 * 3600)
+    known_names = {row['name'] for row in ROSTER}
+    # Report real degraded agents even when their last heartbeat is fresh.
+    # Do not redispatch persistent legal/source failures every hour: only
+    # overdue jobs enter the bounded recovery queue.
+    degraded = sorted({
+        row['name'] for row in heartbeats
+        if row.get('name') in known_names
+        and row.get('name') not in ('watchdog', 'health')
+        and row.get('name') not in stale
+        and row.get('status') != 'ok'
+    })
     # Rotate by UTC hour; no new ledger or scheduler is needed. A continuously
     # failing early roster entry cannot monopolize all three recovery slots.
     batch = dispatch_batch(stale, cap=3, rotation=int(now // 3600))
     write_json(_out('state/agents/watchdog-report.json'), {
         'schema_version': '1.0.0',
         'stale': stale,
+        'degraded': degraded,
         'dispatch': batch,
     })
     # A requested workflow dispatch is not verified worker completion.
     write_heartbeat(_out('state/agents'), 'watchdog',
-                    'degraded' if stale else 'ok',
-                    f'requested {len(batch)} of {len(stale)} stale agents')
+                    'degraded' if stale or degraded else 'ok',
+                    f'requested {len(batch)} of {len(stale)} stale agents; degraded={len(degraded)}')
     print('\n'.join(batch))
     return 0
 
