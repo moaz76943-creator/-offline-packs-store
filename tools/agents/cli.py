@@ -262,6 +262,7 @@ def command_repair(_args):
     degraded = sorted({
         row['name'] for row in snapshots
         if row.get('status') != 'ok' and row.get('name') not in stale
+        and row.get('name') != 'health'  # do not perpetuate yesterday's own alert
     })
     health = {
         'schema_version': '1.0.0',
