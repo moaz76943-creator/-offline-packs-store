@@ -298,6 +298,72 @@ class ContractTests(unittest.TestCase):
             self.assertFalse(list((root / 'output/data/agents/packs').glob('*.sqlite'))
                              if (root / 'output/data/agents/packs').exists() else [])
 
+    def test_harvest_preserves_previous_verified_concepts_across_windows(self):
+        """Real checkpoint publication must not clobber earlier language rows."""
+        import argparse
+        import os
+        import shutil
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        from tools.agents import harvest as source
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / 'state' / 'agents'
+            state.mkdir(parents=True)
+            (state / 'plan.json').write_text(json.dumps({
+                'schema_version': '1.0.0',
+                'window': [{'language': 'de', 'section': 'food'}],
+            }))
+            graph = {'sections': [{
+                'id': 'food',
+                'subsections': [{'id': 'food.examples', 'concepts': [
+                    {'id': f'concept.{i}', 'wikidata': f'Q{100 + i}'}
+                    for i in range(16)
+                ]}],
+            }]}
+            def synthetic_row(_entity, concept, *_args):
+                qid = concept['wikidata']
+                return ([{
+                    'language': 'de',
+                    'section': 'food',
+                    'concept_id': concept['concept_id'],
+                    'wikidata': qid,
+                    'lemma': 'test-' + qid,
+                    'record_id': 'Lexeme:' + qid,
+                    'source_id': 'wikidata.lexemes',
+                    'license_id': 'CC0-1.0',
+                    'retrieval_date': '2026-10-20',
+                    'status': 'keep',
+                }], 'keep')
+            harvested = root / 'output/data/agents/harvest/wikidata/de/food.json'
+            stored = root / 'data/agents/harvest/wikidata/de/food.json'
+            cursor = root / 'output/state/agents/harvest-wikidata-cursor.json'
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.object(agent_cli, 'load_graph', return_value=graph),
+                  mock.patch.object(agent_cli, 'load_languages', return_value={
+                      'languages': [{'id': 'de', 'wikidata': 'Q188'}]}),
+                  mock.patch.object(agent_cli, 'load_profiles', return_value={
+                      'languages': [{'id': 'de', 'script': 'Latn'}]}),
+                  mock.patch.object(source, 'search_lexemes', side_effect=lambda q: [q]),
+                  mock.patch.object(source, 'load_lexemes',
+                                    side_effect=lambda ids: {x: {'id': x} for x in ids}),
+                  mock.patch.object(source, 'rows_from_lexeme', side_effect=synthetic_row),
+                  mock.patch.dict(os.environ, {'AGENTS_HALT': '',
+                                               'LANGUAGE_PRODUCTION_HALT': ''})):
+                for expected in (8, 16, 16):
+                    self.assertEqual(agent_cli.command_harvest(
+                        argparse.Namespace(name='harvest-wikidata')), 0)
+                    actual = json.loads(harvested.read_text())['rows']
+                    self.assertEqual(len(actual), expected)
+                    self.assertEqual(len({r['record_id'] for r in actual}), expected)
+                    stored.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(harvested, stored)
+                    shutil.copyfile(cursor, state / cursor.name)
+            self.assertEqual({r['concept_id'] for r in actual},
+                             {f'concept.{i}' for i in range(16)})
+
     def test_watchdog_round_robin_does_not_starve_later_stale_agents(self):
         stale = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
         batches = [dispatch_batch(stale, cap=3, rotation=hour) for hour in range(7)]
