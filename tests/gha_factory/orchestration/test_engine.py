@@ -163,7 +163,7 @@ class EngineTests(unittest.TestCase):
         jobs=self.run_controller(api)
         with tempfile.TemporaryDirectory() as d:
             folder=Path(d)
-            api.data[1]['body']=p.MARKER+'[]\\n```'
+            api.data[1]['body']=p.MARKER+'[]\n```'
             good=folder/'dispatcher-2';good.mkdir()
             t=p.parse(api.one(2)['body'])
             (good/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
@@ -172,7 +172,7 @@ class EngineTests(unittest.TestCase):
             self.assertEqual(raised.exception.errors[0]['issue'],1)
             self.assertEqual(raised.exception.errors[0]['category'],'ValueError')
             self.assertEqual(p.parse(api.one(2)['body'])['state'],'SUCCEEDED')
-            self.assertEqual(api.one(1)['body'],p.MARKER+'[]\\n```')
+            self.assertEqual(api.one(1)['body'],p.MARKER+'[]\n```')
 
     def test_finalizer_rejects_symlinked_receipt_directory(self):
         api=FakeAPI([(1,task())]);jobs=self.run_controller(api)
