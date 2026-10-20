@@ -6,12 +6,12 @@ import os
 
 # Ensure the module can be imported
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-from tools.lexical_quality.validator import LexicalValidator
+from tools.lexical_quality.validator import LexicalQualityValidator
 from tools.lexical_quality.fixtures import VALID_ENTRIES, INVALID_ENTRIES, REVIEW_REQUIRED_ENTRIES
 
 class TestLexicalValidator(unittest.TestCase):
     def setUp(self):
-        self.validator = LexicalValidator()
+        self.validator = LexicalQualityValidator()
 
     def test_valid_entries(self):
         """Real valid entries pass structural validation."""
@@ -98,6 +98,38 @@ class TestLexicalValidator(unittest.TestCase):
         self.assertEqual(result["entry"], original)
         # Check that it didn't mutate the input dictionary in unexpected ways
         self.assertEqual(entry_copy, original)
+
+    def test_missing_optional_fields(self):
+        """Test absent optional fields."""
+        entry = {"id": "missing-opt", "surface": "test", "language": "eng", "pos": "noun"}
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "accepted")
+
+    def test_malformed_examples(self):
+        """Test malformed examples."""
+        entry = {"id": "mal-ex", "surface": "test", "language": "eng", "pos": "noun", "examples": [{"not_text": "hello"}]}
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "rejected")
+
+    def test_language_mismatches(self):
+        """Test language mismatches. Missing translation languages or mismatched codes format."""
+        entry = {"id": "lang-mis", "surface": "test", "language": "invalid-lang-CODE", "pos": "noun"}
+        result = self.validator.validate_entry(entry)
+        self.assertEqual(result["status"], "rejected")
+
+    def test_multilingual_entries(self):
+        """Test entries with various scripts (Requirement #14)."""
+        entries = [
+            {"id": "deu-2", "surface": "Katze", "language": "deu", "pos": "noun"},
+            {"id": "ara-2", "surface": "كلب", "language": "ara", "pos": "noun"},
+            {"id": "heb-2", "surface": "ספר", "language": "heb", "pos": "noun"},
+            {"id": "zho-2", "surface": "狗", "language": "zho", "pos": "noun"},
+            {"id": "jpn-2", "surface": "猫", "language": "jpn", "pos": "noun"},
+            {"id": "tha-2", "surface": "แมว", "language": "tha", "pos": "noun"},
+        ]
+        for entry in entries:
+            result = self.validator.validate_entry(entry)
+            self.assertEqual(result["status"], "accepted", f"Failed for entry: {entry}")
 
 if __name__ == '__main__':
     unittest.main()
