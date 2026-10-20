@@ -5,7 +5,6 @@ import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
 
 from pipeline import (FILES, check_envelope, check_sqlite, compact, sha, DDL,
                       make_database, validate_document, grammar_records)
