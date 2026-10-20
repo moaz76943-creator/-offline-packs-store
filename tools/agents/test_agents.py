@@ -136,6 +136,25 @@ class ContractTests(unittest.TestCase):
         ], [{'id': 'ar', 'script': 'Latn'}], sample=2)
         self.assertTrue(any('wrong script' in item or 'duplicate' in item for item in problems['problems']))
 
+    def test_qa_duplicate_key_keeps_source_sense_concept_identity(self):
+        """One attested sense may validly anchor multiple directed concepts."""
+        row = {
+            'language': 'de', 'lemma': 'Bank',
+            'source_id': 'wikidata.lexemes', 'record_id': 'L210',
+            'sense_id': 'L210-S1', 'concept_id': 'concept.q100',
+            'license_id': 'CC0-1.0', 'retrieval_date': '2026-10-20',
+        }
+        distinct = [
+            row,
+            dict(row, concept_id='concept.q101'),
+            dict(row, source_id='other.approved.source'),
+        ]
+        valid = qa_rows(distinct, [{'id': 'de', 'script': 'Latn'}], sample=len(distinct))
+        self.assertEqual(valid['problems'], [], valid)
+        duplicate = qa_rows([row, dict(row)], [{'id': 'de', 'script': 'Latn'}],
+                            sample=2)
+        self.assertTrue(any('duplicate' in problem for problem in duplicate['problems']))
+
     def test_quality_agent_scans_all_source_rows_not_just_first_five(self):
         """A sixth bad harvested record must fail source QA even after good rows."""
         import argparse
