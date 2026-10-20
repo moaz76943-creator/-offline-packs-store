@@ -30,6 +30,148 @@
       "wikidata": "Q3354532"
     },
     {
+      "concept_id": "concept.q726",
+      "forms": [
+        "kůň",
+        "koně",
+        "koni",
+        "koňovi",
+        "koně",
+        "koni",
+        "koni",
+        "koňovi"
+      ],
+      "language": "cs",
+      "lemma": "kůň",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L10381",
+      "pos": "",
+      "qids": [
+        "Q27022",
+        "Q726"
+      ],
+      "record_id": "L10381",
+      "retrieval_date": "2026-10-20",
+      "revision": "2453490688",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L10381-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
+      "concept_id": "concept.q59099",
+      "forms": [
+        "býložravec",
+        "býložravce",
+        "býložravci",
+        "býložravce",
+        "býložravče",
+        "býložravci",
+        "býložravcem",
+        "býložravci"
+      ],
+      "language": "cs",
+      "lemma": "býložravec",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1371706",
+      "pos": "",
+      "qids": [
+        "Q59099"
+      ],
+      "record_id": "L1371706",
+      "retrieval_date": "2026-10-20",
+      "revision": "2261532521",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1371706-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q59099"
+    },
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava",
+        "Bratislavy",
+        "Bratislavě",
+        "Bratislavu",
+        "Bratislavo",
+        "Bratislavě",
+        "Bratislavou"
+      ],
+      "language": "cs",
+      "lemma": "Bratislava",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L55439",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L55439",
+      "retrieval_date": "2026-10-20",
+      "revision": "2221192756",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L55439-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q43453",
+      "forms": [
+        "Plzeň",
+        "Plzně",
+        "Plzni",
+        "Plzeň",
+        "Plzni",
+        "Plzní"
+      ],
+      "language": "cs",
+      "lemma": "Plzeň",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1031450",
+      "pos": "",
+      "qids": [
+        "Q43453"
+      ],
+      "record_id": "L1031450",
+      "retrieval_date": "2026-10-20",
+      "revision": "1853766822",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1031450-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q43453"
+    },
+    {
       "concept_id": "concept.q937857",
       "forms": [
         "fotbalista",
@@ -64,6 +206,138 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q726",
+      "forms": [
+        "hest",
+        "hesten",
+        "heste",
+        "hestene",
+        "hests",
+        "hestens",
+        "hestes",
+        "hestenes"
+      ],
+      "language": "da",
+      "lemma": "hest",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L42341",
+      "pos": "",
+      "qids": [
+        "Q726",
+        "Q27022",
+        "Q89585622"
+      ],
+      "record_id": "L42341",
+      "retrieval_date": "2026-10-20",
+      "revision": "2448224805",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L42341-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
+      "concept_id": "concept.q59099",
+      "forms": [
+        "planteæder",
+        "planteæderen",
+        "planteædere",
+        "planteæderne"
+      ],
+      "language": "da",
+      "lemma": "planteæder",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L347245",
+      "pos": "",
+      "qids": [
+        "Q59099"
+      ],
+      "record_id": "L347245",
+      "retrieval_date": "2026-10-20",
+      "revision": "2241346541",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L347245-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q59099"
+    },
+    {
+      "concept_id": "concept.q430",
+      "forms": [
+        "dino",
+        "dinoen",
+        "dinoer",
+        "dinoerne"
+      ],
+      "language": "da",
+      "lemma": "dino",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L49654",
+      "pos": "",
+      "qids": [
+        "Q430"
+      ],
+      "record_id": "L49654",
+      "retrieval_date": "2026-10-20",
+      "revision": "966338766",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L49654-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q430"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney",
+        "Sydneys"
+      ],
+      "language": "da",
+      "lemma": "Sydney",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1547941",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L1547941",
+      "retrieval_date": "2026-10-20",
+      "revision": "2454934242",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1547941-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
     },
     {
       "concept_id": "concept.q2941309",
@@ -201,6 +475,75 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Pressburg",
+        "Preßburg",
+        "Pressburgs",
+        "Preßburgs",
+        "Pressburg",
+        "Preßburg",
+        "Pressburg",
+        "Preßburg"
+      ],
+      "language": "de",
+      "lemma": "Pressburg",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L295116",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L295116",
+      "retrieval_date": "2026-10-20",
+      "revision": "1350006923",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L295116-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q43453",
+      "forms": [
+        "Pilsen",
+        "Pilsen",
+        "Pilsens",
+        "Pilsen",
+        "Pilsen"
+      ],
+      "language": "de",
+      "lemma": "Pilsen",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L585961",
+      "pos": "",
+      "qids": [
+        "Q43453"
+      ],
+      "record_id": "L585961",
+      "retrieval_date": "2026-10-20",
+      "revision": "1880649658",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L585961-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q43453"
     },
     {
       "concept_id": "concept.q3354532",
@@ -688,6 +1031,282 @@
       "wikidata": "Q33999"
     },
     {
+      "concept_id": "concept.q726",
+      "forms": [
+        "horse",
+        "horses"
+      ],
+      "language": "en",
+      "lemma": "horse",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1123",
+      "pos": "",
+      "qids": [
+        "Q726",
+        "Q27022",
+        "Q6660758"
+      ],
+      "record_id": "L1123",
+      "retrieval_date": "2026-10-20",
+      "revision": "2549907029",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1123-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
+      "concept_id": "concept.q7367",
+      "forms": [
+        "mosquito",
+        "mosquitos",
+        "mosquitoes"
+      ],
+      "language": "en",
+      "lemma": "mosquito",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L37654",
+      "pos": "",
+      "qids": [
+        "Q7367"
+      ],
+      "record_id": "L37654",
+      "retrieval_date": "2026-10-20",
+      "revision": "2549886073",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L37654-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q7367"
+    },
+    {
+      "concept_id": "concept.q59099",
+      "forms": [
+        "herbivore",
+        "herbivores"
+      ],
+      "language": "en",
+      "lemma": "herbivore",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L298694",
+      "pos": "",
+      "qids": [
+        "Q59099"
+      ],
+      "record_id": "L298694",
+      "retrieval_date": "2026-10-20",
+      "revision": "2549902745",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L298694-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q59099"
+    },
+    {
+      "concept_id": "concept.q1141466",
+      "forms": [
+        "pollinator",
+        "pollinators"
+      ],
+      "language": "en",
+      "lemma": "pollinator",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L229315",
+      "pos": "",
+      "qids": [
+        "Q1141466"
+      ],
+      "record_id": "L229315",
+      "retrieval_date": "2026-10-20",
+      "revision": "2551633212",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L229315-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q1141466"
+    },
+    {
+      "concept_id": "concept.q430",
+      "forms": [
+        "dinosaur",
+        "dinosaurs"
+      ],
+      "language": "en",
+      "lemma": "dinosaur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L31823",
+      "pos": "",
+      "qids": [
+        "Q430"
+      ],
+      "record_id": "L31823",
+      "retrieval_date": "2026-10-20",
+      "revision": "2549841656",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L31823-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q430"
+    },
+    {
+      "concept_id": "concept.q4093",
+      "forms": [
+        "Glasgow"
+      ],
+      "language": "en",
+      "lemma": "Glasgow",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L448759",
+      "pos": "",
+      "qids": [
+        "Q4093"
+      ],
+      "record_id": "L448759",
+      "retrieval_date": "2026-10-20",
+      "revision": "2432016305",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L448759-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q4093"
+    },
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava"
+      ],
+      "language": "en",
+      "lemma": "Bratislava",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452619",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L452619",
+      "retrieval_date": "2026-10-20",
+      "revision": "2316670302",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452619-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrade"
+      ],
+      "language": "en",
+      "lemma": "Belgrade",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452858",
+      "pos": "",
+      "qids": [
+        "Q3711",
+        "Q815570",
+        "Q581832",
+        "Q2301099"
+      ],
+      "record_id": "L452858",
+      "retrieval_date": "2026-10-20",
+      "revision": "2547921020",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452858-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney",
+        "Sydneys"
+      ],
+      "language": "en",
+      "lemma": "Sydney",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L414136",
+      "pos": "",
+      "qids": [
+        "Q3130",
+        "Q932261",
+        "Q18915128",
+        "Q21501740"
+      ],
+      "record_id": "L414136",
+      "retrieval_date": "2026-10-20",
+      "revision": "2361068694",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L414136-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "kimono",
@@ -1057,6 +1676,47 @@
       "wikidata": "Q33999"
     },
     {
+      "concept_id": "concept.q726",
+      "forms": [
+        "ĉevalo",
+        "cxevalo",
+        "chevalo",
+        "ĉevalon",
+        "cxevalon",
+        "chevalon",
+        "ĉevaloj",
+        "cxevaloj",
+        "chevaloj",
+        "ĉevalojn",
+        "cxevalojn",
+        "chevalojn"
+      ],
+      "language": "eo",
+      "lemma": "ĉevalo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L311195",
+      "pos": "",
+      "qids": [
+        "Q726",
+        "Q136"
+      ],
+      "record_id": "L311195",
+      "retrieval_date": "2026-10-20",
+      "revision": "2532344839",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L311195-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
       "concept_id": "concept.q12106",
       "forms": [
         "tritiko",
@@ -1088,6 +1748,128 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q7367",
+      "forms": [
+        "zancudo",
+        "zancudos"
+      ],
+      "language": "es",
+      "lemma": "zancudo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L562341",
+      "pos": "",
+      "qids": [
+        "Q4801985",
+        "Q7367"
+      ],
+      "record_id": "L562341",
+      "retrieval_date": "2026-10-20",
+      "revision": "2343165252",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L562341-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q7367"
+    },
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava",
+        "Bratislavas"
+      ],
+      "language": "es",
+      "lemma": "Bratislava",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1082006",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L1082006",
+      "retrieval_date": "2026-10-20",
+      "revision": "1859861545",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1082006-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrado",
+        "Belgrados",
+        "Belgrado",
+        "Belgrados"
+      ],
+      "language": "es",
+      "lemma": "Belgrado",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1131435",
+      "pos": "",
+      "qids": [
+        "Q3711"
+      ],
+      "record_id": "L1131435",
+      "retrieval_date": "2026-10-20",
+      "revision": "2436131794",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1131435-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sídney"
+      ],
+      "language": "es",
+      "lemma": "Sídney",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L645398",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L645398",
+      "retrieval_date": "2026-10-20",
+      "revision": "1588105290",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L645398-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
     },
     {
       "concept_id": "concept.q483444",
@@ -1152,6 +1934,191 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q430",
+      "forms": [
+        "dinosauro",
+        "dinosauroa",
+        "dinosauroak",
+        "dinosaurok",
+        "dinosauroak",
+        "dinosauroek",
+        "dinosaurori",
+        "dinosauroari"
+      ],
+      "language": "eu",
+      "lemma": "dinosauro",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L49349",
+      "pos": "",
+      "qids": [
+        "Q430"
+      ],
+      "record_id": "L49349",
+      "retrieval_date": "2026-10-20",
+      "revision": "1354531841",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L49349-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q430"
+    },
+    {
+      "concept_id": "concept.q726",
+      "forms": [
+        "cheval",
+        "chevaux"
+      ],
+      "language": "fr",
+      "lemma": "cheval",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L19113",
+      "pos": "",
+      "qids": [
+        "Q726",
+        "Q27022",
+        "Q136"
+      ],
+      "record_id": "L19113",
+      "retrieval_date": "2026-10-20",
+      "revision": "2455345262",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L19113-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
+      "concept_id": "concept.q1141466",
+      "forms": [
+        "pollinisateur",
+        "pollinisateurs"
+      ],
+      "language": "fr",
+      "lemma": "pollinisateur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1583893",
+      "pos": "",
+      "qids": [
+        "Q1141466"
+      ],
+      "record_id": "L1583893",
+      "retrieval_date": "2026-10-20",
+      "revision": "2527773175",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1583893-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q1141466"
+    },
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava"
+      ],
+      "language": "fr",
+      "lemma": "Bratislava",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578354",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L578354",
+      "retrieval_date": "2026-10-20",
+      "revision": "2449978408",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578354-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrade"
+      ],
+      "language": "fr",
+      "lemma": "Belgrade",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578429",
+      "pos": "",
+      "qids": [
+        "Q3711"
+      ],
+      "record_id": "L578429",
+      "retrieval_date": "2026-10-20",
+      "revision": "2449977998",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578429-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney"
+      ],
+      "language": "fr",
+      "lemma": "Sydney",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578417",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L578417",
+      "retrieval_date": "2026-10-20",
+      "revision": "1588105041",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578417-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
     },
     {
       "concept_id": "concept.q105688",
@@ -1400,6 +2367,97 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q59099",
+      "forms": [
+        "erbivoro",
+        "erbivori"
+      ],
+      "language": "it",
+      "lemma": "erbivoro",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1172690",
+      "pos": "",
+      "qids": [
+        "Q59099"
+      ],
+      "record_id": "L1172690",
+      "retrieval_date": "2026-10-20",
+      "revision": "2392094957",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1172690-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q59099"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrado"
+      ],
+      "language": "it",
+      "lemma": "Belgrado",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1245829",
+      "pos": "",
+      "qids": [
+        "Q3711",
+        "Q123452382"
+      ],
+      "record_id": "L1245829",
+      "retrieval_date": "2026-10-20",
+      "revision": "2310786279",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1245829-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney"
+      ],
+      "language": "it",
+      "lemma": "Sydney",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1321164",
+      "pos": "",
+      "qids": [
+        "Q3130",
+        "Q18915128",
+        "Q21501740"
+      ],
+      "record_id": "L1321164",
+      "retrieval_date": "2026-10-20",
+      "revision": "2198435714",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1321164-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
     },
     {
       "concept_id": "concept.q10940",
@@ -1671,6 +2729,202 @@
       "wikidata": "Q192874"
     },
     {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Posonium",
+        "Posonii",
+        "Posoni",
+        "Posonio",
+        "Posonium",
+        "Posonio",
+        "Posonium",
+        "Posonii"
+      ],
+      "language": "la",
+      "lemma": "Posonium",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1558825",
+      "pos": "",
+      "qids": [
+        "Q1780",
+        "Q183498"
+      ],
+      "record_id": "L1558825",
+      "retrieval_date": "2026-10-20",
+      "revision": "2471726121",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1558825-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q7367",
+      "forms": [
+        "കൊതുക്",
+        "കൊതുകിനെ",
+        "കൊതുകിന്",
+        "കൊതുകിൽ",
+        "കൊതുകിനോട്",
+        "കൊതുകിനാൽ",
+        "കൊതുകിന്റെ",
+        "കൊതുകുകൾ"
+      ],
+      "language": "ml",
+      "lemma": "കൊതുക്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L546263",
+      "pos": "",
+      "qids": [
+        "Q7367"
+      ],
+      "record_id": "L546263",
+      "retrieval_date": "2026-10-20",
+      "revision": "2064268683",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L546263-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q7367"
+    },
+    {
+      "concept_id": "concept.q4093",
+      "forms": [
+        "ഗ്ലാസ്ഗോ"
+      ],
+      "language": "ml",
+      "lemma": "ഗ്ലാസ്ഗോ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453339",
+      "pos": "",
+      "qids": [
+        "Q4093"
+      ],
+      "record_id": "L453339",
+      "retrieval_date": "2026-10-20",
+      "revision": "1398171511",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453339-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q4093"
+    },
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "ബ്രാട്ടിസ്ലാവ"
+      ],
+      "language": "ml",
+      "lemma": "ബ്രാട്ടിസ്ലാവ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453377",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L453377",
+      "retrieval_date": "2026-10-20",
+      "revision": "2522372047",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453377-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "ബെൽഗ്രേഡ്"
+      ],
+      "language": "ml",
+      "lemma": "ബെൽഗ്രേഡ്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453481",
+      "pos": "",
+      "qids": [
+        "Q3711"
+      ],
+      "record_id": "L453481",
+      "retrieval_date": "2026-10-20",
+      "revision": "2522370544",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453481-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "സിഡ്നി",
+        "സിഡ്നി",
+        "സിഡ്നിയെ",
+        "സിഡ്നിയ്ക്ക്",
+        "സിഡ്നിയിൽ",
+        "സിഡ്നിയോട്",
+        "സിഡ്നിയാൽ",
+        "സിഡ്നിയുടെ"
+      ],
+      "language": "ml",
+      "lemma": "സിഡ്നി",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453395",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L453395",
+      "retrieval_date": "2026-10-20",
+      "revision": "2522372113",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453395-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "കിമോണോ"
@@ -1698,6 +2952,36 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q483444"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney",
+        "سيدني"
+      ],
+      "language": "ms",
+      "lemma": "Sydney",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L739139",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L739139",
+      "retrieval_date": "2026-10-20",
+      "revision": "1775673076",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L739139-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
     },
     {
       "concept_id": "concept.q2941309",
@@ -1736,6 +3020,51 @@
       "wikidata": "Q2941309"
     },
     {
+      "concept_id": "concept.q7367",
+      "forms": [
+        "در",
+        "ਦਰ",
+        "در",
+        "ਦਰ",
+        "در",
+        "ਦਰ",
+        "دراں",
+        "ਦਰਾਂ",
+        "دروں",
+        "ਦਰੋਂ"
+      ],
+      "language": "pa",
+      "lemma": "در",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1011425",
+      "pos": "",
+      "qids": [
+        "Q36794",
+        "Q113437382",
+        "Q39816",
+        "Q21146257",
+        "Q926230",
+        "Q7367",
+        "Q161040",
+        "Q35760"
+      ],
+      "record_id": "L1011425",
+      "retrieval_date": "2026-10-20",
+      "revision": "2109321928",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1011425-S8",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q7367"
+    },
+    {
       "concept_id": "concept.q3354532",
       "forms": [
         "ਸ਼ਾਲ",
@@ -1770,6 +3099,41 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q3354532"
+    },
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratysława",
+        "Bratysławy",
+        "Bratysławie",
+        "Bratysławę",
+        "Bratysławą",
+        "Bratysławie",
+        "Bratysławo"
+      ],
+      "language": "pl",
+      "lemma": "Bratysława",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L730959",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L730959",
+      "retrieval_date": "2026-10-20",
+      "revision": "2298303102",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L730959-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
     },
     {
       "concept_id": "concept.q12199",
@@ -1807,6 +3171,40 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q430",
+      "forms": [
+        "dinossauro",
+        "dinossauros",
+        "dinossaurinho",
+        "dinossaurinhos",
+        "dinossaurão",
+        "dinossaurões"
+      ],
+      "language": "pt",
+      "lemma": "dinossauro",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L503880",
+      "pos": "",
+      "qids": [
+        "Q430"
+      ],
+      "record_id": "L503880",
+      "retrieval_date": "2026-10-20",
+      "revision": "2533469288",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L503880-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q430"
     },
     {
       "concept_id": "concept.q3354532",
@@ -2098,6 +3496,114 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q726",
+      "forms": [
+        "häst",
+        "hästen",
+        "hästar",
+        "hästarna",
+        "hästs",
+        "hästens",
+        "hästars",
+        "hästarnas"
+      ],
+      "language": "sv",
+      "lemma": "häst",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32414",
+      "pos": "",
+      "qids": [
+        "Q726"
+      ],
+      "record_id": "L32414",
+      "retrieval_date": "2026-10-20",
+      "revision": "2482027098",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L32414-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
+      "concept_id": "concept.q59099",
+      "forms": [
+        "växtätare",
+        "växtätaren",
+        "växtätare",
+        "växtätarna",
+        "växtätares",
+        "växtätarens",
+        "växtätares",
+        "växtätarnas"
+      ],
+      "language": "sv",
+      "lemma": "växtätare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L485284",
+      "pos": "",
+      "qids": [
+        "Q59099"
+      ],
+      "record_id": "L485284",
+      "retrieval_date": "2026-10-20",
+      "revision": "2528017687",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L485284-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q59099"
+    },
+    {
+      "concept_id": "concept.q1141466",
+      "forms": [
+        "pollinatör",
+        "pollinatören",
+        "pollinatörer",
+        "pollinatörerna",
+        "pollinatörs",
+        "pollinatörens",
+        "pollinatörers",
+        "pollinatörernas"
+      ],
+      "language": "sv",
+      "lemma": "pollinatör",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1555635",
+      "pos": "",
+      "qids": [
+        "Q1141466"
+      ],
+      "record_id": "L1555635",
+      "retrieval_date": "2026-10-20",
+      "revision": "2463384190",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1555635-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q1141466"
     },
     {
       "concept_id": "concept.q483444",
