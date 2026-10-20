@@ -127,6 +127,48 @@ class TestPRJanitor(unittest.TestCase):
     @patch("tools.pr_janitor.subprocess.check_output")
     @patch("tools.pr_janitor.subprocess.call")
     @patch("tools.pr_janitor.subprocess.check_call")
+    def test_sharded_scouts_cover_all_prs_once(self, mock_write, mock_remove, mock_read):
+        items = [{"number": n} for n in range(1, 9)]
+        for index, expected in [(0, (2, 4, 6, 8)), (1, (1, 3, 5, 7))]:
+            with self.subTest(shard=index):
+                mock_read.reset_mock()
+                mock_read.side_effect = [json.dumps(items)] + [
+                    json.dumps({"number": n, "isDraft": True}) for n in expected
+                ]
+                pr_janitor.main(["--dry-run", "--shard-count", "2",
+                                 "--shard-index", str(index)])
+                self.assertEqual(mock_read.call_count, 1 + len(expected))
+                self.assertIn("--limit", mock_read.call_args_list[0].args[0])
+                cmd = mock_read.call_args_list[0].args[0]
+                self.assertGreaterEqual(int(cmd[cmd.index("--limit") + 1]), 200)
+        mock_write.assert_not_called()
+        mock_remove.assert_not_called()
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.subprocess.call")
+    @patch("tools.pr_janitor.subprocess.check_call")
+    def test_existing_correct_blocker_label_is_idempotent(self, mock_write, mock_remove, mock_read):
+        mock_read.side_effect = [
+            json.dumps([{"number": 42}]),
+            json.dumps({"number": 42, "isDraft": True,
+                        "labels": [{"name": "blocked:draft"}]})
+        ]
+        pr_janitor.main([])
+        mock_write.assert_not_called()
+        mock_remove.assert_not_called()
+
+    def test_shard_settings_fail_closed(self):
+        for arguments in [
+            ["--shard-count", "0"],
+            ["--shard-count", "3", "--shard-index", "3"],
+            ["--shard-count", "1000"],
+        ]:
+            with self.subTest(arguments=arguments), self.assertRaises(SystemExit):
+                pr_janitor.main(arguments)
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.subprocess.call")
+    @patch("tools.pr_janitor.subprocess.check_call")
     def test_main_label_update(self, mock_check_call, mock_call, mock_check_output):
         # Behind PR scenario
         mock_check_output.side_effect = [
