@@ -73,6 +73,37 @@ class TestDigestEngine(unittest.TestCase):
             validate_artifact(filepath, invalid_meta)
         self.assertIn("Size mismatch", str(ctx.exception))
 
+    def test_content_identity_mismatch(self):
+        base_dir = os.path.join(self.test_dir, "base_tamper")
+        os.makedirs(base_dir)
+        file1 = "f1.txt"
+        with open(os.path.join(base_dir, file1), 'w') as f: f.write("content 1")
+
+        records = [
+            {'path': file1, 'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1', 'size_bytes': 9, 'sha256': 'wrong_hash'},
+        ]
+
+        out_path = os.path.join(self.test_dir, "index_tamper.json")
+        build_digest_index(base_dir, records, out_path)
+
+        with open(out_path, 'r') as f:
+            index = json.load(f)
+
+        self.assertTrue(index[file1]['invalid'])
+        self.assertIn("Content identity mismatch", index[file1]['error'])
+
+    def test_truncated_files(self):
+        filepath = os.path.join(self.test_dir, "truncated_test.txt")
+        with open(filepath, 'w') as f: f.write("short") # 5 bytes
+
+        invalid_meta = {
+            'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1',
+            'size_bytes': 100
+        }
+        with self.assertRaises(ValueError) as ctx:
+            validate_artifact(filepath, invalid_meta)
+        self.assertIn("Size mismatch", str(ctx.exception))
+
     def test_missing_files(self):
         filepath = os.path.join(self.test_dir, "missing.txt")
         meta = {'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1'}
