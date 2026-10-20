@@ -111,7 +111,6 @@ class SanitizerEngine:
 
         if doc_id in self.seen_doc_ids:
             return self.STATUS_QUARANTINE, None, "Duplicate document_id detected"
-        self.seen_doc_ids.add(doc_id)
 
         # Check languages and types
         lexemes = repaired_record.get("lexemes", [])
@@ -180,8 +179,8 @@ class SanitizerEngine:
             if not sense.get("sense_id"):
                  return self.STATUS_QUARANTINE, None, f"Empty sense_id at index {i}"
 
-            definition = sense.get("definition")
-            if definition is not None:
+            if "definition" in sense:
+                definition = sense["definition"]
                 if not isinstance(definition, str):
                      return self.STATUS_QUARANTINE, None, f"definition must be a string in sense {i}"
                 if not self.check_valid_unicode(definition):
@@ -204,7 +203,9 @@ class SanitizerEngine:
             # "Detect duplicate records using lexical and sense identity"
             return self.STATUS_QUARANTINE, None, "Duplicate record detected based on lexical and sense identity"
         else:
+            # Reserve identifiers only after every validation gate succeeded.
             self.seen_identities.add(identity_key)
+            self.seen_doc_ids.add(doc_id)
 
         if needs_repair:
             status = self.STATUS_REPAIRABLE
