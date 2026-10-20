@@ -81,9 +81,11 @@ def command_plan(_args):
 def command_qa(_args):
     if _halt('qa'):
         return 0
-    rows = list(iter_stored_rows(ROOT / 'data' / 'agents'))
+    # Validate every collected source record, not a five-row prefix. The
+    # classified snapshot repeats harvest records and is not a second source.
+    rows = list(iter_stored_rows(ROOT / 'data' / 'agents' / 'harvest'))
     profiles = (load_profiles().get('languages') or [])
-    result = qa_rows(rows, profiles, refetch=None, sample=5)
+    result = qa_rows(rows, profiles, refetch=None, sample=len(rows))
     write_json(_out('state/agents/qa-report.json'), {'schema_version': '1.0.0', **result})
     status = 'failed' if result['problems'] else 'ok'
     write_heartbeat(_out('state/agents'), 'qa', status, '; '.join(result['warnings']))
