@@ -2,6 +2,7 @@
 import hashlib
 import sys
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -92,6 +93,28 @@ class ExerciseQualityTests(unittest.TestCase):
         self.exercise = make_cloze(self.sentence, self.annotation, self.senses, self.forms)
         with self.assertRaisesRegex(ExerciseError, 'SPLIT_UNICODE_GRAPHEME'):
             self.valid()
+
+    def test_rejects_indic_conjunct_inside_grapheme(self):
+        from tools.gha_factory.exercise_quality.validator import _grapheme_cut
+        for word, cut in [('क्ष', 2), ('क्‍ष', 2), ('क्‍ष', 3)]:
+            with self.subTest(word=word, cut=cut):
+                self.assertTrue(_grapheme_cut(word, cut))
+        self.assertFalse(_grapheme_cut('क्‍ष', 4))
+
+    def test_rejects_boundaries_inside_emoji_flags_and_hangul(self):
+        from tools.gha_factory.exercise_quality.validator import _grapheme_cut
+        self.assertTrue(_grapheme_cut('🇩🇪', 1))
+        self.assertTrue(_grapheme_cut('👩‍💻', 1))
+        self.assertTrue(_grapheme_cut('한', 1))
+
+    def test_nfc_duplicate_options_rejected_after_canonical_replay(self):
+        exercise = dict(self.exercise)
+        exercise['options'] = ['Buch', 'é', 'e\u0301']
+        with patch('tools.gha_factory.exercise_quality.validator.make_cloze',
+                   return_value=exercise):
+            with self.assertRaisesRegex(ExerciseError, 'DUPLICATE_CHOICES'):
+                verify_cloze(exercise, self.sentence, self.annotation,
+                             self.senses, self.forms, {'de'})
 
     def test_nfc_equivalent_attested_alternate_is_ambiguous(self):
         self.assertEqual('AMBIGUOUS', evaluate_response('e\u0301', {'other'}, {'é'}))
