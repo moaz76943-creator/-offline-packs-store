@@ -219,11 +219,17 @@ def _attempt(name, fixture, rng):
         elif name == 'bad_header':
             _replace_sqlite(env, corrupted=b'not a SQLite database')
         elif name == 'duplicate_lexical_id':
-            try:
-                _replace_sqlite(env, sql="INSERT INTO lexicon SELECT * FROM lexicon;")
-            except sqlite3.IntegrityError:
-                return 'REJECTED'
-            return 'ACCEPTED'
+            # Construct an attack archive with duplicate IDs, then let the
+            # canonical archive inspector reject it. A fixture-side PRIMARY KEY
+            # exception would not exercise the archive validator at all.
+            _replace_sqlite(env, sql="""
+                CREATE TABLE lexicon_unconstrained AS SELECT * FROM lexicon;
+                DROP TABLE lexicon;
+                ALTER TABLE lexicon_unconstrained RENAME TO lexicon;
+                CREATE INDEX idx_lexicon_order ON lexicon(language_code,sort_key,id);
+                CREATE INDEX idx_lexicon_surface ON lexicon(language_code,surface);
+                INSERT INTO lexicon SELECT * FROM lexicon;
+            """)
         raw = rc.json_bytes(env)
         if name == 'duplicate_json_key':
             raw = raw.replace(b'"packId":"de"', b'"packId":"xx","packId":"de"', 1)
