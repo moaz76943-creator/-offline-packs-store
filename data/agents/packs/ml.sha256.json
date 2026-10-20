@@ -1,6 +1,6 @@
 {
   "path": "/tmp/agent-out/data/agents/packs/ml.sqlite",
-  "rows": 1,
+  "rows": 2,
   "schema_version": "1.0.0",
-  "sha256": "280a023ec9e77e72a40f62dcbbf3719a049f2a6cf7c1ebbff9899e44fe77ca6e"
+  "sha256": "e6b8629a32ceaa8274dfb73432528c0b5143f6a4ec7becfd7bb9c3880797b804"
 }
