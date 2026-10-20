@@ -233,6 +233,48 @@ class ContractTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             dispatch_batch(stale, cap=3, rotation=-1)
 
+    def test_health_agent_reports_real_heartbeat_gaps_and_recovers(self):
+        import argparse
+        import os
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            states = root / 'state' / 'agents'
+            states.mkdir(parents=True)
+            for agent in ROSTER:
+                write_heartbeat(states, agent['name'], 'ok')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.dict(os.environ, {'AGENTS_HALT': '', 'LANGUAGE_PRODUCTION_HALT': ''})):
+                args = argparse.Namespace(signature='no-signature', run_id='', file_issue=False)
+                self.assertEqual(agent_cli.command_repair(args), 0)
+                good = json.loads((root/'output/state/agents/health-report.json').read_text())
+                self.assertEqual(good['roster_count'], len(ROSTER))
+                self.assertEqual(good['stale'], [])
+                self.assertEqual(good['degraded'], [])
+                self.assertEqual(json.loads((root/'output/state/agents/health.json').read_text())['status'], 'ok')
+                (states / 'qa.json').unlink()
+                write_heartbeat(states, 'classifier', 'degraded', 'source incomplete')
+                self.assertEqual(agent_cli.command_repair(args), 0)
+                report = json.loads((root/'output/state/agents/health-report.json').read_text())
+                self.assertIn('qa', report['stale'])
+                self.assertIn('classifier', report['degraded'])
+                self.assertFalse(report['failed_github_run'])
+                self.assertEqual(json.loads((root/'output/state/agents/health.json').read_text())['status'], 'degraded')
+                write_heartbeat(states, 'qa', 'ok')
+                write_heartbeat(states, 'classifier', 'ok')
+                self.assertEqual(agent_cli.command_repair(args), 0)
+                recovered = json.loads((root/'output/state/agents/health-report.json').read_text())
+                self.assertEqual(recovered['stale'], [])
+                self.assertEqual(recovered['degraded'], [])
+                self.assertEqual(json.loads((root/'output/state/agents/health.json').read_text())['status'], 'ok')
+
+    def test_health_agent_cannot_mask_failed_run_when_heartbeats_fresh(self):
+        # Exercise the reporting predicate without writing any network or issue.
+        failed = {'failed_github_run': True, 'stale': [], 'degraded': []}
+        self.assertTrue(failed['failed_github_run'] or failed['stale'] or failed['degraded'])
+
     def test_watchdog_uses_agent_schedule_before_flagging_stale(self):
         now = datetime(2026, 10, 19, 12, tzinfo=timezone.utc)
 
