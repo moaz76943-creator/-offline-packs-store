@@ -170,6 +170,14 @@ class ContractTests(unittest.TestCase):
         )
         self.assertEqual(missing['problems'], [])
         self.assertTrue(missing['warnings'])
+        duplicated = legal_report(
+            [{'record_id': 'w1', 'source_id': 'wikidata.lexemes', 'license_id': 'CC0-1.0'},
+             {'record_id': 'w2', 'source_id': 'wikidata.lexemes', 'license_id': 'CC0-1.0'}],
+            {},
+        )
+        self.assertEqual(duplicated['problems'], [])
+        self.assertEqual(duplicated['warnings'],
+                         ['wikidata.lexemes: notice not loaded'])
 
     def test_janitor_cleanup_and_repair_do_not_force_or_touch_main(self):
         green = {
