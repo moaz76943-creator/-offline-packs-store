@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from admission import evaluate, sha256_file
+from legal.ledger.admission import evaluate, sha256_file
 
 
 class AdmissionTests(unittest.TestCase):

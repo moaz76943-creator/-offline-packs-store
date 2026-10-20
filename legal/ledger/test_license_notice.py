@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from license_notice import detected_licenses, license_notice_conflicts
+from legal.ledger.license_notice import detected_licenses, license_notice_conflicts
 
 
 def _notice(text):
