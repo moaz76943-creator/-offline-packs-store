@@ -249,7 +249,13 @@ def run_family(family, *, seed=SEED, max_cases=48):
                 actual = 'CRASH'  # Never emit sensitive traceback, paths, or corpus bytes.
             expected = 'ACCEPTED' if name == 'baseline' else 'REJECTED'
             if name in PROBES:
-                status = 'SECURITY_FINDING' if actual == 'ACCEPTED' else 'CLOSED'
+                if actual == 'ACCEPTED':
+                    status = 'SECURITY_FINDING'
+                elif actual == 'REJECTED':
+                    status = 'CLOSED'
+                else:
+                    # A crashed probe is not proof that the validator rejected it.
+                    status = 'FAIL'
             else:
                 status = 'PASS' if actual == expected else 'FAIL'
             evidence.append({'case': name, 'actual': actual, 'status': status})
