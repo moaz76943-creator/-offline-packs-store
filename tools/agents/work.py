@@ -337,7 +337,11 @@ def legal_report(rows, notices):
         source_id = row.get('source_id') or ''
         notice = notices.get(source_id, notices.get(license_id))
         if notice is None:
-            warnings.append(f'{source_id or license_id}: notice not loaded')
+            # One warning per missing evidence source; never interpret this as
+            # license approval or silently promote the candidate to production.
+            warning = f'{source_id or license_id}: notice not loaded'
+            if warning not in warnings:
+                warnings.append(warning)
             continue
         ok, reasons = positive_match(notice, license_id, row.get('co_offered') or ())
         if not ok:
