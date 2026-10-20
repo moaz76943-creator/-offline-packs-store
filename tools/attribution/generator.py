@@ -125,7 +125,7 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
             "license_id": source["license"]["id"],
             "license_evidence_url": source["license"]["evidence_url"],
             "license_evidence_sha256": source["license"]["evidence_sha256"],
-            "alterations": source["alterations"],
+            "alterations": source["alterations"] if source["license"]["id"] in ("CC-BY-SA-4.0", "GFDL-1.3-only") else [],
             "review": source["review"],
             "public_domain_proof": source["license"].get("public_domain_proof"),
             "notice_file": sid + "_notice.txt"
@@ -133,7 +133,7 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
     records.sort(key=lambda r: r["source_id"])
     notices = {}
     for r in records:
-        notices[r["notice_file"]] = "\n".join([
+        lines = [
             "Source: " + r["source_id"],
             "Author: " + r["author"],
             "Publisher: " + r["publisher"],
@@ -144,10 +144,16 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
             "License: " + r["license_id"],
             "Source-specific rights: " + r["license_evidence_url"],
             "Rights proof SHA-256: " + r["license_evidence_sha256"],
-            "Alterations: " + "; ".join(r["alterations"]),
-            "Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"],
-            "Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True)
-        ]) + "\n"
+        ]
+        if r["license_id"] in ("CC-BY-SA-4.0", "GFDL-1.3-only") and r["alterations"]:
+            lines.append("Alterations: " + "; ".join(r["alterations"]))
+
+        lines.append("Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"])
+
+        if r["public_domain_proof"] is not None:
+            lines.append("Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True))
+
+        notices[r["notice_file"]] = "\n".join(lines) + "\n"
     notices["attribution.json"] = json.dumps(
         records, sort_keys=True, ensure_ascii=False, indent=2) + "\n"
     _write_notices_safely(out_dir, notices)
