@@ -19,5 +19,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Install pinned Unicode grapheme segmentation
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir regex==2026.5.9
       - name: Recheck exercises against canonical GHA-05 helper
         run: python3 -m unittest discover -s tests/gha_factory/exercise_quality -p 'test_*.py' -v
