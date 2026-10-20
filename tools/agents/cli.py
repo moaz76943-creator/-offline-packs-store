@@ -119,7 +119,10 @@ def command_legal(_args):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding='utf-8')
     status = 'failed' if report['problems'] else ('degraded' if report['warnings'] else 'ok')
-    write_heartbeat(_out('state/agents'), 'legal', status, '; '.join(report['problems'][:3]))
+    # Degraded legal evidence must surface its reason in the heartbeat, not
+    # appear as a blank warning while packs remain unapproved.
+    reasons = report['problems'] if report['problems'] else report['warnings']
+    write_heartbeat(_out('state/agents'), 'legal', status, '; '.join(reasons[:3]))
     print(json.dumps({'problems': len(report['problems']), 'warnings': len(report['warnings'])}))
     return 1 if report['problems'] else 0
 
