@@ -141,6 +141,19 @@ class WorkerHandoffTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'checkpoint'):
             p.durable_checkpoint(t, manifest, b'')
 
+    def test_checkpoint_digest_cannot_be_swapped_with_new_manifest(self):
+        handoff = p.ticket(issue(), run(), CODE, NOW)
+        handoff['checkpoint_sha256'] = hashlib.sha256(b'first checkpoint').hexdigest()
+        swapped = b'other valid bytes'
+        forged_manifest = dict(
+            task_id=handoff['task_id'],
+            source_sha256=handoff['source_sha256'],
+            checkpoint=handoff['checkpoint'],
+            sha256=hashlib.sha256(swapped).hexdigest(),
+        )
+        with self.assertRaisesRegex(ValueError, 'checkpoint'):
+            p.durable_checkpoint(handoff, forged_manifest, swapped)
+
     def test_receipt_separate_run_provenance_and_replay_protected(self):
         handoff = p.ticket(issue(), run(), CODE, NOW)
         raw = b'{"ok":true}\n'
