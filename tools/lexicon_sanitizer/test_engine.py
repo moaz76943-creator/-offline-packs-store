@@ -171,6 +171,24 @@ class TestSanitizerEngine(unittest.TestCase):
         status2, _, _ = self.engine.validate_and_repair(record2)
         self.assertEqual(status2, SanitizerEngine.STATUS_QUARANTINE)
 
+    def test_rejected_document_does_not_reserve_document_id(self):
+        invalid = self.create_valid_record()
+        invalid['lexemes'][0]['language'] = 'not-registered'
+        status, _, _ = self.engine.validate_and_repair(invalid)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        valid = self.create_valid_record()
+        status, _, _ = self.engine.validate_and_repair(valid)
+        self.assertEqual(status, SanitizerEngine.STATUS_ACCEPT)
+        self.assertIn('doc.en.word', self.engine.seen_doc_ids)
+
+    def test_null_sense_definition_is_quarantined(self):
+        record = self.create_valid_record()
+        record['senses'][0]['definition'] = None
+        status, _, reason = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+        self.assertIn('definition must be a string', reason)
+
     def test_impossible_field_types(self):
         record = self.create_valid_record()
         record["lexemes"][0]["lemma"] = 123
