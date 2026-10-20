@@ -64,5 +64,16 @@ jobs:
             echo "Invalid audio fixture selection" >&2
             exit 1
           fi
+      - name: Provision final release evidence validation dependency when affected
+        shell: bash
+        run: |
+          set -euo pipefail
+          needed="$(python3 -c 'from tools.ci_policy.run_scoped_pr_tests import changed_in_synthetic_merge, select_suites; print("true" if "final_evidence" in select_suites(changed_in_synthetic_merge()) else "false")')"
+          if [[ "$needed" == "true" ]]; then
+            timeout 90s python3 -m pip install --disable-pip-version-check --no-cache-dir jsonschema==4.26.0
+          elif [[ "$needed" != "false" ]]; then
+            echo "Invalid release evidence fixture selection" >&2
+            exit 1
+          fi
       - name: Run affected subsystem regression tests
         run: python3 tools/ci_policy/run_scoped_pr_tests.py
