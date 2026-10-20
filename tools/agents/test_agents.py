@@ -170,6 +170,7 @@ class ContractTests(unittest.TestCase):
         )
         self.assertEqual(missing['problems'], [])
         self.assertTrue(missing['warnings'])
+
         duplicated = legal_report(
             [{'record_id': 'w1', 'source_id': 'wikidata.lexemes', 'license_id': 'CC0-1.0'},
              {'record_id': 'w2', 'source_id': 'wikidata.lexemes', 'license_id': 'CC0-1.0'}],
@@ -189,6 +190,19 @@ class ContractTests(unittest.TestCase):
             ],
         }
         self.assertEqual(janitor_action(green)[0], 'merge')
+        for bad in ('skipped', 'failure', None, 'cancelled'):
+            with self.subTest(conclusion=bad):
+                check = dict(green['checks'][0], conclusion=bad)
+                decision, reason = janitor_action(dict(green, checks=[check]))
+                self.assertEqual(decision, 'leave')
+                self.assertIn('checks failed or skipped', reason)
+        mixed = green['checks'] + [
+            {'name': 'another-check', 'status': 'completed', 'conclusion': 'skipped'}
+        ]
+        self.assertEqual(janitor_action(dict(green, checks=mixed))[0], 'leave')
+        for malformed in (None, 'invalid', [None], [42], [{'name': 'bad'}]):
+            with self.subTest(malformed=malformed):
+                self.assertEqual(janitor_action(dict(green, checks=malformed))[0], 'leave')
         behind = dict(green, behind=True, merge_state='BEHIND')
         self.assertEqual(janitor_action(behind)[0], 'update')
         self.assertEqual(janitor_action(dict(green, unresolved=True))[0], 'leave')
