@@ -3,6 +3,8 @@ import base64
 import gzip
 import json
 import random
+import sqlite3
+import tempfile
 import sys
 import unittest
 from unittest.mock import patch
@@ -33,6 +35,31 @@ class HarnessTests(unittest.TestCase):
         self.assertFalse(result['publication_approved'])
         self.assertEqual(result['failures'], 0, result)
         self.assertEqual(result['cases_executed'], 6)
+
+    def test_duplicate_id_probe_reaches_validator_with_duplicate_rows(self):
+        fixture = harness.CandidateTests()
+        fixture.setUp()
+        try:
+            def inspect(archive, _language, **_kwargs):
+                env = json.loads(gzip.decompress(archive))
+                sqlite_bytes = base64.b64decode(
+                    harness._member(env, 'content/content.sqlite')['contentBase64'])
+                with tempfile.TemporaryDirectory() as directory:
+                    path = Path(directory) / 'malicious.sqlite'
+                    path.write_bytes(sqlite_bytes)
+                    with sqlite3.connect(path) as db:
+                        duplicate_rows = db.execute(
+                            'SELECT id, COUNT(*) FROM lexicon GROUP BY id HAVING COUNT(*) > 1'
+                        ).fetchall()
+                    self.assertTrue(duplicate_rows, 'probe must contain duplicated IDs')
+                raise harness.rc.ReleaseError('synthetic validator rejection')
+
+            with patch.object(harness.rc, 'inspect_archive', side_effect=inspect) as called:
+                actual = harness._attempt('duplicate_lexical_id', fixture, random.Random(1))
+            self.assertEqual(actual, 'REJECTED')
+            called.assert_called_once()
+        finally:
+            fixture.doCleanups()
 
     def test_unexpected_probe_crash_counts_as_failed_evidence(self):
         def synthetic_attempt(name, _fixture, _rng):
