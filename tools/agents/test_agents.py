@@ -322,7 +322,7 @@ class ContractTests(unittest.TestCase):
                     argparse.Namespace(codeql_runs=str(evidence))), 0)
             saved = json.loads((root/'output/state/agents/codeql.json').read_text())
             self.assertEqual(saved['status'],'ok')
-            snapshot = json.loads((root/'output/state/agents/watchdog.json').read_text())
+            snapshot = json.loads((root/'output/state/agents/watchdog-report.json').read_text())
             self.assertNotIn('codeql', snapshot['stale'])
             self.assertLessEqual(len(snapshot['dispatch']), 3)
 
