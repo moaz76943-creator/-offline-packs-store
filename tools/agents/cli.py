@@ -444,16 +444,50 @@ def command_harvest(args):
             skipped.append({'reason': exc.__class__.__name__})
     wrote = 0
     for (language, section), rows in sorted(grouped.items()):
+        relative = f'data/agents/harvest/{name.replace("harvest-", "")}/{language}/{section}.json'
+        stored = ROOT / relative
+        previous_rows = []
+        if stored.exists():
+            # Fail closed on a corrupt or mismatched checkpoint: never erase a
+            # previously published window because it could not be decoded.
+            previous = json.loads(stored.read_text(encoding='utf-8'))
+            if (not isinstance(previous, dict)
+                    or previous.get('schema_version') != '1.0.0'
+                    or previous.get('source') != name
+                    or previous.get('language') != language
+                    or previous.get('section') != section
+                    or not isinstance(previous.get('rows'), list)):
+                raise ValueError(f'invalid harvest checkpoint: {relative}')
+            previous_rows = previous['rows']
+
+        # A scheduled source window is incremental; files are snapshots.
+        # Stable provenance keys prevent replay duplication without mixing
+        # independent senses or directed concepts.
+        accumulated = {}
+        for row in [*previous_rows, *rows]:
+            if (not isinstance(row, dict)
+                    or row.get('language') != language
+                    or row.get('section') != section
+                    or not isinstance(row.get('record_id'), str)
+                    or not row['record_id']
+                    or not isinstance(row.get('source_id'), str)
+                    or not row['source_id']):
+                raise ValueError(f'invalid harvest row: {relative}')
+            identity = (
+                row['source_id'], row['record_id'],
+                row.get('sense_id') or '', row.get('concept_id') or '',
+            )
+            accumulated[identity] = row
         payload = {
             'schema_version': '1.0.0',
             'source': name,
             'language': language,
             'section': section,
             'retrieval_date': retrieved,
-            'rows': rows,
+            'rows': list(accumulated.values()),
             'skipped': skipped,
         }
-        write_json(_out(f'data/agents/harvest/{name.replace("harvest-", "")}/{language}/{section}.json'), payload)
+        write_json(_out(relative), payload)
         wrote += 1
     if not grouped:
         write_json(_out(f'data/agents/harvest/{name.replace("harvest-", "")}/checkpoint.json'), {
