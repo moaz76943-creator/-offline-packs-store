@@ -119,7 +119,10 @@ def command_legal(_args):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding='utf-8')
     status = 'failed' if report['problems'] else ('degraded' if report['warnings'] else 'ok')
-    write_heartbeat(_out('state/agents'), 'legal', status, '; '.join(report['problems'][:3]))
+    # Degraded legal evidence must surface its reason in the heartbeat, not
+    # appear as a blank warning while packs remain unapproved.
+    reasons = report['problems'] if report['problems'] else report['warnings']
+    write_heartbeat(_out('state/agents'), 'legal', status, '; '.join(reasons[:3]))
     print(json.dumps({'problems': len(report['problems']), 'warnings': len(report['warnings'])}))
     return 1 if report['problems'] else 0
 
@@ -246,6 +249,35 @@ def command_repair(_args):
     if _halt('health'):
         return 0
     signature = _args.signature or 'no-signature'
+    # A green CI run is not proof that independent agent schedules are healthy.
+    from datetime import datetime, timezone
+    from tools.agents.ops import stale_heartbeats
+    snapshots = []
+    folder = ROOT / 'state' / 'agents'
+    known_names = {row['name'] for row in ROSTER}
+    if folder.is_dir():
+        for path in folder.glob('*.json'):
+            payload, warning = load_json_tolerant(path, {'schema_version': '1.0.0'})
+            if not warning and payload.get('name') in known_names:
+                snapshots.append(payload)
+    now = datetime.now(timezone.utc).timestamp()
+    stale = stale_heartbeats(snapshots, now, 8 * 3600)
+    degraded = sorted({
+        row['name'] for row in snapshots
+        if row.get('status') != 'ok' and row.get('name') not in stale
+        and row.get('name') != 'health'  # do not perpetuate yesterday's own alert
+    })
+    health = {
+        'schema_version': '1.0.0',
+        'roster_count': len(ROSTER),
+        'observed_count': len({row['name'] for row in snapshots}),
+        'stale': stale,
+        'degraded': degraded,
+        'failed_github_run': signature != 'no-signature',
+    }
+    write_json(_out('state/agents/health-report.json'), health)
+    health_status = 'degraded' if stale or degraded or health['failed_github_run'] else 'ok'
+    health_warning = f"stale={len(stale)} degraded={len(degraded)} failed_run={int(health['failed_github_run'])}"
     if signature == 'no-signature':
         plan = {
             'schema_version': '1.0.0',
@@ -255,7 +287,7 @@ def command_repair(_args):
             'seen_count': 0,
         }
         write_json(_out('state/agents/repair.json'), plan)
-        write_heartbeat(_out('state/agents'), 'health', 'ok', '')
+        write_heartbeat(_out('state/agents'), 'health', health_status, health_warning)
         print(json.dumps(plan, sort_keys=True))
         return 0
     sid = signature_id(signature)
@@ -284,7 +316,7 @@ def command_repair(_args):
         'action': plan['action'],
         'retries': 0,
     })
-    write_heartbeat(_out('state/agents'), 'health', 'ok', plan['warning'])
+    write_heartbeat(_out('state/agents'), 'health', health_status, health_warning + ('; ' + plan['warning'] if plan['warning'] else ''))
     print(json.dumps(plan, sort_keys=True))
     return 0
 
@@ -433,7 +465,7 @@ def command_watchdog(_args):
     if _halt('watchdog'):
         return 0
     from datetime import datetime, timezone
-    from tools.agents.ops import dispatch_batch, stale_heartbeats
+    from tools.agents.ops import codeql_run_heartbeat, dispatch_batch, stale_heartbeats
     heartbeats = []
     folder = ROOT / 'state' / 'agents'
     if folder.is_dir():
@@ -442,14 +474,43 @@ def command_watchdog(_args):
             if payload.get('name'):
                 heartbeats.append(payload)
     now = datetime.now(timezone.utc).timestamp()
+    # CodeQL has read-only permissions, so it cannot publish a file heartbeat.
+    # Read actual Actions evidence rather than redispatching it every hour.
+    run_file = getattr(_args, 'codeql_runs', '')
+    if run_file:
+        try:
+            path = Path(run_file)
+            if path.stat().st_size > 16384:
+                raise ValueError('oversized CodeQL run evidence')
+            result = codeql_run_heartbeat(json.loads(path.read_text(encoding='utf-8')), now)
+        except (OSError, ValueError, json.JSONDecodeError):
+            result = None
+        if result is not None:
+            from datetime import datetime as _dt
+            prior = next((x for x in heartbeats if x.get('name') == 'codeql'), None)
+            prior_stamp = (prior or {}).get('last_run') or ''
+            try:
+                prior_epoch = _dt.fromisoformat(prior_stamp.replace('Z', '+00:00')).timestamp()
+            except (ValueError, TypeError, OverflowError):
+                prior_epoch = -1
+            observed_epoch = _dt.fromisoformat(result['last_run']).timestamp()
+            if observed_epoch >= prior_epoch:
+                heartbeats = [x for x in heartbeats if x.get('name') != 'codeql']
+                heartbeats.append(result)
+                write_json(_out('state/agents/codeql.json'), result)
     stale = stale_heartbeats(heartbeats, now, 8 * 3600)
-    batch = dispatch_batch(stale, cap=3)
-    write_json(_out('state/agents/watchdog.json'), {
+    # Rotate by UTC hour; no new ledger or scheduler is needed. A continuously
+    # failing early roster entry cannot monopolize all three recovery slots.
+    batch = dispatch_batch(stale, cap=3, rotation=int(now // 3600))
+    write_json(_out('state/agents/watchdog-report.json'), {
         'schema_version': '1.0.0',
         'stale': stale,
         'dispatch': batch,
     })
-    write_heartbeat(_out('state/agents'), 'watchdog', 'ok', f'dispatch {len(batch)} of {len(stale)}')
+    # A requested workflow dispatch is not verified worker completion.
+    write_heartbeat(_out('state/agents'), 'watchdog',
+                    'degraded' if stale else 'ok',
+                    f'requested {len(batch)} of {len(stale)} stale agents')
     print('\n'.join(batch))
     return 0
 
@@ -561,7 +622,9 @@ def build_parser():
             item.add_argument('--run-id', default='')
             item.add_argument('--file-issue', action='store_true')
         item.set_defaults(func=func)
-    commands.add_parser('watchdog').set_defaults(func=command_watchdog)
+    watchdog = commands.add_parser('watchdog')
+    watchdog.add_argument('--codeql-runs', default='')
+    watchdog.set_defaults(func=command_watchdog)
     commands.add_parser('links').set_defaults(func=command_links)
     janitor = commands.add_parser('janitor')
     janitor.add_argument('--pr-json', required=True)

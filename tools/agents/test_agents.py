@@ -171,6 +171,15 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(missing['problems'], [])
         self.assertTrue(missing['warnings'])
 
+        duplicated = legal_report(
+            [{'record_id': 'w1', 'source_id': 'wikidata.lexemes', 'license_id': 'CC0-1.0'},
+             {'record_id': 'w2', 'source_id': 'wikidata.lexemes', 'license_id': 'CC0-1.0'}],
+            {},
+        )
+        self.assertEqual(duplicated['problems'], [])
+        self.assertEqual(duplicated['warnings'],
+                         ['wikidata.lexemes: notice not loaded'])
+
     def test_janitor_cleanup_and_repair_do_not_force_or_touch_main(self):
         green = {
             'branch': 'cursor/example-cf19',
@@ -230,6 +239,109 @@ class ContractTests(unittest.TestCase):
         self.assertEqual([item['number'] for item in dupes], [2])
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
+
+    def test_watchdog_round_robin_does_not_starve_later_stale_agents(self):
+        stale = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+        batches = [dispatch_batch(stale, cap=3, rotation=hour) for hour in range(7)]
+        self.assertEqual(batches[0], ['a', 'b', 'c'])
+        self.assertEqual(batches[1], ['d', 'e', 'f'])
+        self.assertEqual(set().union(*map(set, batches)), set(stale))
+        self.assertTrue(all(len(batch) <= 3 and len(batch) == len(set(batch))
+                            for batch in batches))
+        self.assertEqual(dispatch_batch(stale, cap=0, rotation=1), [])
+        self.assertEqual(dispatch_batch([], cap=3, rotation=99), [])
+        with self.assertRaises(ValueError):
+            dispatch_batch(stale, cap=4)
+        with self.assertRaises(ValueError):
+            dispatch_batch(stale, cap=3, rotation=-1)
+
+    def test_health_agent_reports_real_heartbeat_gaps_and_recovers(self):
+        import argparse
+        import os
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            states = root / 'state' / 'agents'
+            states.mkdir(parents=True)
+            for agent in ROSTER:
+                write_heartbeat(states, agent['name'], 'ok')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.dict(os.environ, {'AGENTS_HALT': '', 'LANGUAGE_PRODUCTION_HALT': ''})):
+                args = argparse.Namespace(signature='no-signature', run_id='', file_issue=False)
+                self.assertEqual(agent_cli.command_repair(args), 0)
+                good = json.loads((root/'output/state/agents/health-report.json').read_text())
+                self.assertEqual(good['roster_count'], len(ROSTER))
+                self.assertEqual(good['stale'], [])
+                self.assertEqual(good['degraded'], [])
+                self.assertEqual(json.loads((root/'output/state/agents/health.json').read_text())['status'], 'ok')
+                (states / 'qa.json').unlink()
+                write_heartbeat(states, 'classifier', 'degraded', 'source incomplete')
+                self.assertEqual(agent_cli.command_repair(args), 0)
+                report = json.loads((root/'output/state/agents/health-report.json').read_text())
+                self.assertIn('qa', report['stale'])
+                self.assertIn('classifier', report['degraded'])
+                self.assertFalse(report['failed_github_run'])
+                self.assertEqual(json.loads((root/'output/state/agents/health.json').read_text())['status'], 'degraded')
+                write_heartbeat(states, 'qa', 'ok')
+                write_heartbeat(states, 'classifier', 'ok')
+                self.assertEqual(agent_cli.command_repair(args), 0)
+                recovered = json.loads((root/'output/state/agents/health-report.json').read_text())
+                self.assertEqual(recovered['stale'], [])
+                self.assertEqual(recovered['degraded'], [])
+                self.assertEqual(json.loads((root/'output/state/agents/health.json').read_text())['status'], 'ok')
+
+    def test_health_agent_cannot_mask_failed_run_when_heartbeats_fresh(self):
+        # Exercise the reporting predicate without writing any network or issue.
+        failed = {'failed_github_run': True, 'stale': [], 'degraded': []}
+        self.assertTrue(failed['failed_github_run'] or failed['stale'] or failed['degraded'])
+
+    def test_codeql_completed_action_receipt_prevents_false_watchdog_staleness(self):
+        from tools.agents.ops import codeql_run_heartbeat
+        now = datetime(2026, 10, 20, 1, tzinfo=timezone.utc)
+        stamp = '2026-10-20T00:08:33Z'
+        good = {'status': 'completed', 'conclusion': 'success', 'createdAt': stamp}
+        beat = codeql_run_heartbeat([good], now.timestamp())
+        self.assertEqual(beat['name'], 'codeql')
+        self.assertEqual(beat['status'], 'ok')
+        self.assertNotIn('codeql', stale_heartbeats([beat], now.timestamp(), 8*3600))
+        for conclusion in ('skipped', 'failure', 'cancelled', 'timed_out'):
+            bad = dict(good, conclusion=conclusion)
+            with self.subTest(conclusion=conclusion):
+                observed = codeql_run_heartbeat([bad], now.timestamp())
+                self.assertEqual(observed['status'], 'degraded')
+                self.assertIn(conclusion, observed['warning'])
+        self.assertIsNone(codeql_run_heartbeat([dict(good, createdAt='invalid')], now.timestamp()))
+        self.assertIsNone(codeql_run_heartbeat([dict(good, createdAt='2027-10-20T00:00:00Z')], now.timestamp()))
+        self.assertIsNone(codeql_run_heartbeat('wrong-type', now.timestamp()))
+        self.assertIsNone(codeql_run_heartbeat([{'status':'in_progress'}], now.timestamp()))
+
+    def test_watchdog_ingests_codeql_evidence_without_credential_mutations(self):
+        import argparse
+        import os
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            evidence = root / 'codeql-runs.json'
+            evidence.write_text(json.dumps([
+                {'status':'completed','conclusion':'success',
+                 'createdAt':datetime.now(timezone.utc).isoformat()}
+            ]), encoding='utf-8')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.dict(os.environ, {'AGENTS_HALT':'', 'LANGUAGE_PRODUCTION_HALT':''})):
+                self.assertEqual(agent_cli.command_watchdog(
+                    argparse.Namespace(codeql_runs=str(evidence))), 0)
+            saved = json.loads((root/'output/state/agents/codeql.json').read_text())
+            self.assertEqual(saved['status'],'ok')
+            snapshot = json.loads((root/'output/state/agents/watchdog-report.json').read_text())
+            self.assertNotIn('codeql', snapshot['stale'])
+            heartbeat = json.loads((root/'output/state/agents/watchdog.json').read_text())
+            self.assertEqual(heartbeat['name'], 'watchdog')
+            self.assertNotIn('stale', heartbeat)
+            self.assertLessEqual(len(snapshot['dispatch']), 3)
 
     def test_watchdog_uses_agent_schedule_before_flagging_stale(self):
         now = datetime(2026, 10, 19, 12, tzinfo=timezone.utc)

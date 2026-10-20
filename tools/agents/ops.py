@@ -144,8 +144,54 @@ def stale_heartbeats(heartbeats, now_epoch, max_age_seconds):
     return stale
 
 
-def dispatch_batch(stale, cap=3):
-    return list(stale or [])[:cap]
+def dispatch_batch(stale, cap=3, rotation=0):
+    """Rotate bounded stale-agent recovery so permanently failed early agents
+    cannot starve later independent agents across hourly watchdog runs.
+    """
+    if type(cap) is not int or cap < 0 or cap > 3:
+        raise ValueError('watchdog dispatch cap must be between 0 and 3')
+    if type(rotation) is not int or rotation < 0:
+        raise ValueError('invalid watchdog rotation')
+    agents = list(stale or [])
+    if not agents or cap == 0:
+        return []
+    start = (rotation * cap) % len(agents)
+    return [agents[(start + i) % len(agents)] for i in range(min(cap, len(agents)))]
+
+
+def codeql_run_heartbeat(runs, now_epoch):
+    """Convert a verified completed CodeQL Action into an observed heartbeat.
+
+    CodeQL is read-only by design and cannot publish to agents/data. Do not
+    invent fresh success, and do not classify failed/skipped scans as healthy.
+    """
+    from datetime import datetime
+    if not isinstance(runs, list):
+        return None
+    for run in runs[:10]:
+        if not isinstance(run, dict) or run.get('status') != 'completed':
+            continue
+        conclusion = run.get('conclusion')
+        if conclusion not in ('success', 'failure', 'cancelled', 'timed_out', 'skipped'):
+            continue
+        stamp = run.get('createdAt')
+        if not isinstance(stamp, str):
+            continue
+        try:
+            date = datetime.fromisoformat(stamp.replace('Z', '+00:00'))
+            if date.tzinfo is None or not 0 <= now_epoch - date.timestamp():
+                continue
+        except (ValueError, OverflowError, TypeError):
+            continue
+        return {
+            'schema_version': SCHEMA_VERSION,
+            'name': 'codeql',
+            'last_run': date.isoformat(),
+            'status': 'ok' if conclusion == 'success' else 'degraded',
+            'warning': f'CodeQL Actions: {conclusion}',
+            'version': '1.0.0',
+        }
+    return None
 
 
 def branch_deletable(name, merged):

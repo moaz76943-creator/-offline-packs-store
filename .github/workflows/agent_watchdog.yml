@@ -28,7 +28,14 @@ jobs:
           LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python3 -m tools.agents.cli watchdog > /tmp/dispatch.txt
+          # Query CodeQL's real runs. Its read-only scanner cannot checkpoint
+          # to agents/data, so a missing file must not cause hourly restarts.
+          if ! timeout 20s gh run list --workflow agent_codeql.yml --limit 10 \
+            --json createdAt,status,conclusion > /tmp/codeql-runs.json; then
+            printf '[]\n' > /tmp/codeql-runs.json
+            echo "::warning::CodeQL run evidence unavailable; preserving old heartbeat"
+          fi
+          python3 -m tools.agents.cli watchdog --codeql-runs /tmp/codeql-runs.json > /tmp/dispatch.txt
           python3 - <<'PY'
           import subprocess
           from pathlib import Path
