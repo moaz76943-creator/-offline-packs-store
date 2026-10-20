@@ -1,5 +1,5 @@
 {
-  "next_index": 1120,
+  "next_index": 1200,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,323 +9,323 @@
   "warning": "",
   "window": [
     {
+      "language": "es",
+      "section": "city"
+    },
+    {
+      "language": "et",
+      "section": "city"
+    },
+    {
+      "language": "eu",
+      "section": "city"
+    },
+    {
+      "language": "fa",
+      "section": "city"
+    },
+    {
+      "language": "fi",
+      "section": "city"
+    },
+    {
+      "language": "fo",
+      "section": "city"
+    },
+    {
+      "language": "fr",
+      "section": "city"
+    },
+    {
+      "language": "fy",
+      "section": "city"
+    },
+    {
+      "language": "ga",
+      "section": "city"
+    },
+    {
+      "language": "gd",
+      "section": "city"
+    },
+    {
+      "language": "gl",
+      "section": "city"
+    },
+    {
+      "language": "gu",
+      "section": "city"
+    },
+    {
+      "language": "ha",
+      "section": "city"
+    },
+    {
+      "language": "hi",
+      "section": "city"
+    },
+    {
+      "language": "hr",
+      "section": "city"
+    },
+    {
+      "language": "hu",
+      "section": "city"
+    },
+    {
+      "language": "hy",
+      "section": "city"
+    },
+    {
+      "language": "id",
+      "section": "city"
+    },
+    {
+      "language": "ig",
+      "section": "city"
+    },
+    {
+      "language": "is",
+      "section": "city"
+    },
+    {
       "language": "it",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ja",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ka",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "kk",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "km",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "kn",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ko",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ku",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ky",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "la",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "lb",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "lo",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "lt",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "lv",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "mg",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "mk",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ml",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "mn",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "mr",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ms",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "mt",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "my",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ne",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "nl",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "no",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "or",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "pa",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "pl",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ps",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "pt",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ro",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ru",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "rw",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "sd",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "si",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "sk",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "sl",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "sn",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "so",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "sq",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "sr",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "sv",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "sw",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ta",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "te",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "tg",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "th",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "tk",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "tl",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "tr",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "tt",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ug",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "uk",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ur",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "uz",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "vi",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "xh",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "yo",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "zh",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "zu",
-      "section": "animals"
-    },
-    {
-      "language": "af",
-      "section": "city"
-    },
-    {
-      "language": "am",
-      "section": "city"
-    },
-    {
-      "language": "ar",
-      "section": "city"
-    },
-    {
-      "language": "as",
-      "section": "city"
-    },
-    {
-      "language": "az",
-      "section": "city"
-    },
-    {
-      "language": "ba",
-      "section": "city"
-    },
-    {
-      "language": "be",
-      "section": "city"
-    },
-    {
-      "language": "bg",
-      "section": "city"
-    },
-    {
-      "language": "bn",
-      "section": "city"
-    },
-    {
-      "language": "br",
-      "section": "city"
-    },
-    {
-      "language": "bs",
-      "section": "city"
-    },
-    {
-      "language": "ca",
-      "section": "city"
-    },
-    {
-      "language": "cs",
-      "section": "city"
-    },
-    {
-      "language": "cy",
-      "section": "city"
-    },
-    {
-      "language": "da",
-      "section": "city"
-    },
-    {
-      "language": "de",
-      "section": "city"
-    },
-    {
-      "language": "dv",
-      "section": "city"
-    },
-    {
-      "language": "el",
-      "section": "city"
-    },
-    {
-      "language": "en",
-      "section": "city"
-    },
-    {
-      "language": "eo",
       "section": "city"
     }
   ]
