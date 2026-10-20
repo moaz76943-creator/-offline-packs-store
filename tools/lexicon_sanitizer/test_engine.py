@@ -153,5 +153,40 @@ class TestSanitizerEngine(unittest.TestCase):
         status, repaired, reason = self.engine.validate_and_repair(record)
         self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
 
+
+    def test_duplicate_document_id_quarantine(self):
+        record1 = self.create_valid_record()
+        record2 = self.create_valid_record()
+        # Different content, but same document_id
+        record2["lexemes"][0]["lemma"] = "other"
+
+        status1, _, _ = self.engine.validate_and_repair(record1)
+        self.assertEqual(status1, SanitizerEngine.STATUS_ACCEPT)
+
+        status2, _, _ = self.engine.validate_and_repair(record2)
+        self.assertEqual(status2, SanitizerEngine.STATUS_QUARANTINE)
+
+    def test_invalid_types_quarantine(self):
+        record = self.create_valid_record()
+        # contract_version is not string
+        record["contract_version"] = 1.0
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        record = self.create_valid_record()
+        record["lexemes"][0]["lemma"] = None
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        record = self.create_valid_record()
+        record["lexemes"][0]["surface"] = ["array"]
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        record = self.create_valid_record()
+        record["lexemes"][0]["pos"] = 123
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
 if __name__ == '__main__':
     unittest.main()
