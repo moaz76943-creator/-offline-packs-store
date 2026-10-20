@@ -1,29 +1,58 @@
-# Labels blocked PRs on a schedule. Never merges: the incumbent
-# public_merge_coordinator is the single protected-main integration authority.
+# Two disjoint, low-cost PR scouts; the canonical merge coordinator remains
+# the only protected-main integration writer.
 name: PR blocker-label janitor
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/pr_janitor.py'
+      - 'tools/test_pr_janitor.py'
+      - '.github/workflows/pr_janitor.yml'
   schedule:
-    - cron: '17 1,7,13,19 * * *'
+    - cron: '17 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: read
-  pull-requests: write
 
 concurrency:
-  group: pr-janitor
+  group: pr-janitor-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'scheduled' }}
   cancel-in-progress: false
 
 jobs:
-  janitor:
+  verify:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 5
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - name: Label blockers without integrating pull requests
+      - name: Verify scout sharding and no-churn labels
+        run: python3 -m unittest discover -s tools -p 'test_pr_janitor.py' -v
+
+  scout:
+    if: github.event_name != 'pull_request'
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0, 1]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Classify disjoint half of open PRs without merging
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python3 tools/pr_janitor.py
+          SHARD: ${{ matrix.shard }}
+        run: python3 tools/pr_janitor.py --shard-count 2 --shard-index "$SHARD"
