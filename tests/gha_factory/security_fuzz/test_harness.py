@@ -1,4 +1,8 @@
 """Finite security QA contract tests; no release artifacts leave a temp directory."""
+import base64
+import gzip
+import json
+import random
 import sys
 import unittest
 from unittest.mock import patch
@@ -54,6 +58,27 @@ class HarnessTests(unittest.TestCase):
         result = harness.run_family('staging')
         self.assertEqual(result['cases_executed'], 5)
         self.assertEqual(result['failures'], 0, result)
+
+    def test_inner_metadata_adversarial_cases_reach_target_validator(self):
+        fixture = harness.CandidateTests()
+        fixture.setUp()
+        try:
+            def inspect(archive, _language, **_kwargs):
+                env = json.loads(gzip.decompress(archive))
+                content = base64.b64decode(
+                    harness._member(env, 'content/content.json')['contentBase64'])
+                meta = harness._json_member(env, 'metadata/pack.json')
+                self.assertEqual(meta['contentMetadataSha256'], harness.rc.digest(content))
+                raise harness.rc.ReleaseError('synthetic rejection after matching outer digest')
+
+            with patch.object(harness.rc, 'inspect_archive', side_effect=inspect):
+                for name in ('wrong_sha256', 'missing_sources'):
+                    with self.subTest(name=name):
+                        self.assertEqual(
+                            harness._attempt(name, fixture, random.Random(1)),
+                            'REJECTED')
+        finally:
+            fixture.doCleanups()
 
     def test_rejects_unbounded_campaigns(self):
         for family, bound in [('not-a-family', 1), ('envelope', 0), ('envelope', 999)]:
