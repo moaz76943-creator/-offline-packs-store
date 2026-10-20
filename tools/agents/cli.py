@@ -465,7 +465,7 @@ def command_watchdog(_args):
     if _halt('watchdog'):
         return 0
     from datetime import datetime, timezone
-    from tools.agents.ops import dispatch_batch, stale_heartbeats
+    from tools.agents.ops import codeql_run_heartbeat, dispatch_batch, stale_heartbeats
     heartbeats = []
     folder = ROOT / 'state' / 'agents'
     if folder.is_dir():
@@ -474,6 +474,30 @@ def command_watchdog(_args):
             if payload.get('name'):
                 heartbeats.append(payload)
     now = datetime.now(timezone.utc).timestamp()
+    # CodeQL has read-only permissions, so it cannot publish a file heartbeat.
+    # Read actual Actions evidence rather than redispatching it every hour.
+    run_file = getattr(_args, 'codeql_runs', '')
+    if run_file:
+        try:
+            path = Path(run_file)
+            if path.stat().st_size > 16384:
+                raise ValueError('oversized CodeQL run evidence')
+            result = codeql_run_heartbeat(json.loads(path.read_text(encoding='utf-8')), now)
+        except (OSError, ValueError, json.JSONDecodeError):
+            result = None
+        if result is not None:
+            from datetime import datetime as _dt
+            prior = next((x for x in heartbeats if x.get('name') == 'codeql'), None)
+            prior_stamp = (prior or {}).get('last_run') or ''
+            try:
+                prior_epoch = _dt.fromisoformat(prior_stamp.replace('Z', '+00:00')).timestamp()
+            except (ValueError, TypeError, OverflowError):
+                prior_epoch = -1
+            observed_epoch = _dt.fromisoformat(result['last_run']).timestamp()
+            if observed_epoch >= prior_epoch:
+                heartbeats = [x for x in heartbeats if x.get('name') != 'codeql']
+                heartbeats.append(result)
+                write_json(_out('state/agents/codeql.json'), result)
     stale = stale_heartbeats(heartbeats, now, 8 * 3600)
     # Rotate by UTC hour; no new ledger or scheduler is needed. A continuously
     # failing early roster entry cannot monopolize all three recovery slots.
@@ -598,7 +622,9 @@ def build_parser():
             item.add_argument('--run-id', default='')
             item.add_argument('--file-issue', action='store_true')
         item.set_defaults(func=func)
-    commands.add_parser('watchdog').set_defaults(func=command_watchdog)
+    watchdog = commands.add_parser('watchdog')
+    watchdog.add_argument('--codeql-runs', default='')
+    watchdog.set_defaults(func=command_watchdog)
     commands.add_parser('links').set_defaults(func=command_links)
     janitor = commands.add_parser('janitor')
     janitor.add_argument('--pr-json', required=True)
