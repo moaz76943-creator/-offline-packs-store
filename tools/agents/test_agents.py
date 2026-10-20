@@ -240,6 +240,64 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
 
+    def test_wikidata_harvest_rotates_attested_concepts_between_runs(self):
+        """Two scheduled harvests must not retry the same first concepts."""
+        import argparse
+        import os
+        import shutil
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        from tools.agents import harvest as source
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / 'state' / 'agents'
+            state.mkdir(parents=True)
+            (state / 'plan.json').write_text(json.dumps({
+                'schema_version': '1.0.0',
+                'window': [{'language': 'de', 'section': 'food'}],
+            }), encoding='utf-8')
+            graph = {'sections': [{
+                'id': 'food',
+                'subsections': [{'id': 'food.examples', 'concepts': [
+                    {'id': f'concept.{i}', 'wikidata': f'Q{100 + i}'}
+                    for i in range(16)
+                ]}],
+            }]}
+            attempted = []
+
+            def observed_query(qid):
+                attempted.append(qid)
+                return []
+
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'output'),
+                  mock.patch.object(agent_cli, 'load_graph', return_value=graph),
+                  mock.patch.object(agent_cli, 'load_languages', return_value={
+                      'languages': [{'id': 'de', 'wikidata': 'Q188'}]}),
+                  mock.patch.object(agent_cli, 'load_profiles', return_value={
+                      'languages': [{'id': 'de', 'script': 'Latn'}]}),
+                  mock.patch.object(source, 'search_lexemes', side_effect=observed_query),
+                  mock.patch.object(source, 'load_lexemes', return_value={}),
+                  mock.patch.dict(os.environ, {'AGENTS_HALT': '',
+                                               'LANGUAGE_PRODUCTION_HALT': ''})):
+                args = argparse.Namespace(name='harvest-wikidata')
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+                first = list(attempted)
+                attempted.clear()
+                cursor = root / 'output/state/agents/harvest-wikidata-cursor.json'
+                self.assertTrue(cursor.is_file(), 'harvest must persist its cursor')
+                shutil.copyfile(cursor, state / 'harvest-wikidata-cursor.json')
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+                second = list(attempted)
+
+            self.assertEqual(len(first), 8)
+            self.assertEqual(len(second), 8)
+            self.assertEqual(len(set(first + second)), 16)
+            self.assertEqual(json.loads(cursor.read_text())['next_index'], 0)
+            self.assertFalse(list((root / 'output/data/agents/packs').glob('*.sqlite'))
+                             if (root / 'output/data/agents/packs').exists() else [])
+
     def test_watchdog_round_robin_does_not_starve_later_stale_agents(self):
         stale = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
         batches = [dispatch_batch(stale, cap=3, rotation=hour) for hour in range(7)]
