@@ -502,7 +502,7 @@ def command_watchdog(_args):
     # Rotate by UTC hour; no new ledger or scheduler is needed. A continuously
     # failing early roster entry cannot monopolize all three recovery slots.
     batch = dispatch_batch(stale, cap=3, rotation=int(now // 3600))
-    write_json(_out('state/agents/watchdog.json'), {
+    write_json(_out('state/agents/watchdog-report.json'), {
         'schema_version': '1.0.0',
         'stale': stale,
         'dispatch': batch,
