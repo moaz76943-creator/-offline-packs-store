@@ -1,0 +1,11 @@
+{
+  "degraded": [
+    "harvest-wikidata",
+    "legal"
+  ],
+  "failed_github_run": false,
+  "observed_count": 21,
+  "roster_count": 21,
+  "schema_version": "1.0.0",
+  "stale": []
+}
