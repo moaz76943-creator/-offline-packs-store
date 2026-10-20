@@ -1,8 +1,8 @@
 {
   "degraded": [
     "harvest-kaikki",
-    "harvest-wikidata",
-    "legal"
+    "legal",
+    "watchdog"
   ],
   "failed_github_run": false,
   "observed_count": 21,
