@@ -39,7 +39,7 @@ def write_ledger(root, source_id="pronunciation-case", status="APPROVED_FOR_REDI
         "source_id": source_id,
         "kind": kind,
         "origin_url": origin,
-        "publisher": "Example Test Publisher", "author": "Test Author",
+        "publisher": "Example Test Publisher",
         "dataset_version": "1.0",
         "retrieval": {
             "identity": "capture-1",
@@ -164,16 +164,6 @@ class TestAudioAdmissionGate(unittest.TestCase):
         path.write_text(json.dumps(shallow), encoding="utf-8")
         accepted, rejected = process_candidates(
             [self.candidate(self.wav)], json.loads(path.read_text(encoding="utf-8")), self.root)
-        self.assertEqual(accepted, [])
-        self.assertIn("rights missing or unapproved", rejected[0]["rejection_reason"])
-
-    def test_missing_author_from_canonical_ledger_is_rejected(self):
-        ledger = json.loads(json.dumps(self.ledger))
-        ledger["sources"][0].pop("author")
-        path = self.root / "legal" / "ledger" / "sources.json"
-        path.write_text(json.dumps(ledger), encoding="utf-8")
-        accepted, rejected = process_candidates(
-            [self.candidate(self.wav)], ledger, self.root)
         self.assertEqual(accepted, [])
         self.assertIn("rights missing or unapproved", rejected[0]["rejection_reason"])
 

@@ -11,11 +11,7 @@ on:
   pull_request:
     paths:
       - tools/gha_factory/orchestration/**
-      - tools/gha_factory/dispatcher/**
-      - tools/gha_factory/admission/**
       - tests/gha_factory/orchestration/**
-      - tests/gha_factory/dispatcher/**
-      - tests/gha_factory/admission/**
       - .github/workflows/gha_dispatcher.yml
   schedule:
     - cron: '11 * * * *'

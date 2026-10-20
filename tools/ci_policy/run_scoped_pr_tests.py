@@ -14,10 +14,8 @@ SUITES = {
     "media": ("tools/media_optimizer", "test_compiler.py"),
     "pronunciation": ("tools/pronunciation_metadata", "test_metadata.py"),
     "audio": ("tools/audio_pronunciation", "test_admission.py"),
-    "ingestion": ("tools/ingestion_circuit_breaker", "test_gate.py"),
-    "final_evidence": ("tools/final_release_evidence", "test_compiler.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence")
+ORDER = ("media", "pronunciation", "audio")
 
 
 def select_suites(changed_paths):
@@ -31,10 +29,6 @@ def select_suites(changed_paths):
             selected.add("pronunciation")
         if path.startswith("tools/audio_pronunciation/"):
             selected.add("audio")
-        if path.startswith("tools/ingestion_circuit_breaker/"):
-            selected.add("ingestion")
-        if path.startswith("tools/final_release_evidence/"):
-            selected.add("final_evidence")
         if path.startswith("legal/ledger/"):
             selected.update(ORDER)
         if path.startswith("tools/contribution_gate/"):

@@ -301,6 +301,7 @@ class EvidenceCompiler:
             if os.path.exists(tmp_path):
                 os.remove(tmp_path)
             raise
+        return results
 
 if __name__ == '__main__':
     compiler = EvidenceCompiler()
