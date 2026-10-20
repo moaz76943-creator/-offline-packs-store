@@ -37,7 +37,8 @@ def janitor_action(pr):
     if pr.get('merge_state') not in ('CLEAN', 'BEHIND'):
         return 'leave', 'merge state not verified clean'
     checks = pr.get('checks') or []
-    if not checks or any(item.get('status') != 'completed' for item in checks):
+    if not isinstance(checks, list) or not checks or any(
+            not isinstance(item, dict) or item.get('status') != 'completed' for item in checks):
         return 'leave', 'checks incomplete'
     # SKIPPED is not proof of execution. Never recommend a merge unless each
     # observed check actually succeeded; the canonical coordinator still owns writes.
