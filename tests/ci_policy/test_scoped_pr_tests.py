@@ -14,10 +14,11 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["tools/final_release_evidence/test_compiler.py"]), ("final_evidence",))
         self.assertEqual(select_suites(["tools/corpus_dedupe/dedupe.py"]), ("corpus_dedupe",))
         self.assertEqual(select_suites(["tools/corpus_dedupe/test_dedupe.py"]), ("corpus_dedupe",))
+        self.assertEqual(select_suites(["tools/provenance_release/compiler.py"]), ("provenance_release",))
 
     def test_shared_provenance_logic_runs_all_affected_tests(self):
         self.assertEqual(select_suites(["legal/ledger/admission.py"]),
-                         ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe"))
+                         ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release"))
         self.assertEqual(select_suites(["tools/contribution_gate/evidence.py"]),
                          ("pronunciation", "audio"))
 
