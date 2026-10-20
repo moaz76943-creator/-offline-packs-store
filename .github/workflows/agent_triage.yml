@@ -1,0 +1,45 @@
+name: Agent issue triage
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '9 3,15 * * *'
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: agent-triage
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Load the last committed snapshot
+        run: bash tools/agents/prepare.sh
+      - name: Run triage
+        id: work
+        continue-on-error: true
+        env:
+          AGENTS_HALT: ${{ vars.AGENTS_HALT }}
+          LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue list --state open --limit 50 --json number,title,state > /tmp/issues-raw.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          raw = json.loads(Path('/tmp/issues-raw.json').read_text() or '[]')
+          Path('/tmp/issues.json').write_text(json.dumps({'schema_version': '1.0.0', 'issues': raw}))
+          PY
+          python3 -m tools.agents.cli triage --issues /tmp/issues.json
+
+      - name: Publish the checkpoint
+        if: always()
+        run: bash tools/agents/publish.sh triage
+      - name: Record the agent result
+        if: steps.work.outcome == 'failure'
+        run: exit 1

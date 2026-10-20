@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "DEUTSCH-IMPROVE-02",
+  "evidence_type": "isolated_github_remote_cas_probe",
+  "public_repository": "moaz76943-creator/-offline-packs-store",
+  "public_base_sha": "1f9a4b04be8b757a307f5f7e9d1e851a03174bca",
+  "private_base_sha": "8dee49f1ab2a82e023fe6f93067fa980d8471bb8",
+  "private_test_branch": "scratch/improve02-cas-20261014",
+  "write_scope": [
+    "tools/coordination/live_cas_probe.json"
+  ],
+  "fixture_commit_sha": "17baf3bfab98d27f0eb2997d03b46cd8556690fc",
+  "contenders": [
+    {
+      "id": "A",
+      "commit_sha": "dc37503e56fef7eece5c71302f306fb0143773bc",
+      "outcome": "ACCEPTED_NON_FORCE"
+    },
+    {
+      "id": "B",
+      "commit_sha": "759c1a6594c75aeb1bb73348f0eacb87cb1be996",
+      "outcome": "STALE_REJECTED_NON_FAST_FORWARD"
+    }
+  ],
+  "concurrent_secondary_response": "AMBIGUOUS_GRAPHQL_ERROR_NOT_COUNTED_AS_PROOF",
+  "repeat_secondary_response": {
+    "http_status": 422,
+    "github_error": "Update is not a fast forward",
+    "force": false
+  },
+  "observed_final_head": "dc37503e56fef7eece5c71302f306fb0143773bc",
+  "protected_branches_modified": false,
+  "private_development_branch_modified": false,
+  "jules_files_modified": false,
+  "checks_on_prior_public_pr_head": [
+    {
+      "workflow": "Public PR Merge Gate",
+      "run_id": 38527160149,
+      "conclusion": "success"
+    },
+    {
+      "workflow": "Validate JSON Files",
+      "run_id": 38527160094,
+      "conclusion": "success"
+    }
+  ],
+  "result": {
+    "real_remote_nonfastforward_rejection": "VERIFIED",
+    "simultaneous_independent_client_authentication": "NOT_RUN",
+    "mandatory_all_writers_enforcement": "NOT_RUN",
+    "repository_branch_protection": "NOT_VERIFIED",
+    "production_lease_activation": "BLOCKED"
+  },
+  "security_note": "Only commit references and synthetic scope metadata are archived in the public repository; no private source contents or credentials."
+}

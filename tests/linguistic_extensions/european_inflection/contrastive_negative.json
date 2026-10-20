@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Russian case is not Bulgarian nominative",
+    "base": {
+      "lang": "bg",
+      "script": "Cyrl",
+      "form": "тест"
+    },
+    "feature_set": {
+      "case": "nominative"
+    }
+  },
+  {
+    "name": "Russian case is not Macedonian genitive",
+    "base": {
+      "lang": "mk",
+      "script": "Cyrl",
+      "form": "тест"
+    },
+    "feature_set": {
+      "case": "genitive"
+    }
+  },
+  {
+    "name": "Ukrainian does not borrow Russian spelling/script identity",
+    "base": {
+      "lang": "uk",
+      "script": "Latn",
+      "form": "test"
+    }
+  },
+  {
+    "name": "Croatian not Serbian Cyrillic",
+    "base": {
+      "lang": "hr",
+      "script": "Cyrl",
+      "form": "тест"
+    }
+  },
+  {
+    "name": "Bosnian Latin spelling must not be tagged Cyrillic",
+    "base": {
+      "lang": "bs",
+      "script": "Cyrl",
+      "form": "test"
+    }
+  },
+  {
+    "name": "Welsh nasal mutation not Irish eclipsis",
+    "base": {
+      "lang": "ga",
+      "script": "Latn",
+      "form": "teach"
+    },
+    "feature_set": {
+      "mutation": "nasal",
+      "mutation_trigger": "synthetic"
+    }
+  },
+  {
+    "name": "Breton mixed mutation not Welsh",
+    "base": {
+      "lang": "cy",
+      "script": "Latn",
+      "form": "test"
+    },
+    "feature_set": {
+      "mutation": "mixed",
+      "mutation_trigger": "synthetic"
+    }
+  },
+  {
+    "name": "Lithuanian stress notation not Latvian grammar",
+    "base": {
+      "lang": "lv",
+      "script": "Latn",
+      "form": "tests"
+    },
+    "feature_set": {
+      "stress": "mobile"
+    }
+  },
+  {
+    "name": "Greek non-Greek letters",
+    "base": {
+      "lang": "el",
+      "script": "Grek",
+      "form": "logos"
+    },
+    "feature_set": {
+      "case": "nominative"
+    }
+  },
+  {
+    "name": "Polish masculine personal not Russian category",
+    "base": {
+      "lang": "ru",
+      "script": "Cyrl",
+      "form": "тест"
+    },
+    "feature_set": {
+      "animacy": "masculine_personal"
+    }
+  },
+  {
+    "name": "Slovak vocative not licensed from Czech",
+    "base": {
+      "lang": "sk",
+      "script": "Latn",
+      "form": "test"
+    },
+    "feature_set": {
+      "case": "vocative"
+    }
+  },
+  {
+    "name": "Cross-language stable lemma identity",
+    "base": {
+      "lang": "sr",
+      "script": "Cyrl",
+      "form": "тест"
+    },
+    "set": {
+      "lemma_id": "hr:lemma:synthetic-1"
+    }
+  },
+  {
+    "name": "complete paradigms cannot be claimed",
+    "set": {
+      "paradigm_complete": true
+    }
+  },
+  {
+    "name": "source agreement cannot be fabricated",
+    "set": {
+      "source_refs": [
+        {
+          "source_id": "test-source",
+          "dataset_version": "synthetic-1",
+          "artifact_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "locator": "synthetic:test:1"
+        }
+      ]
+    }
+  }
+]
