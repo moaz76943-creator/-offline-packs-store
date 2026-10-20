@@ -5,6 +5,7 @@ import hashlib
 import json
 import unicodedata
 
+import regex  # Full Unicode extended grapheme clusters (UAX #29, pinned in QA workflow).
 from tools.gha_factory.examples.factory import Rejected, make_cloze
 
 
@@ -18,12 +19,10 @@ def _canonical(obj):
 
 
 def _grapheme_cut(text, offset):
-    """Reject boundaries known to split a combining sequence or joiner."""
+    """Reject any cut inside an extended grapheme cluster (UAX #29)."""
     if type(offset) is not int or offset <= 0 or offset >= len(text):
         return False
-    nxt = text[offset]
-    return (unicodedata.category(nxt) in ('Mn', 'Mc', 'Me')
-            or nxt in ('\u200c', '\u200d') or text[offset - 1] == '\u200d')
+    return not any(match.end() == offset for match in regex.finditer(r'\X', text))
 
 
 def _nfc(text):
@@ -65,7 +64,7 @@ def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
         raise ExerciseError('CANDIDATE_TAMPERED_OR_STALE')
     if exercise.get('status') != 'VERIFIED_CANDIDATE_NOT_PUBLISHED':
         raise ExerciseError('INVALID_CANDIDATE_STATUS')
-    if len(exercise['options']) != len(set(x.casefold() for x in exercise['options'])):
+    if len(exercise['options']) != len(set(_nfc(x).casefold() for x in exercise['options'])):
         raise ExerciseError('DUPLICATE_CHOICES')
     return {'exercise_id': rebuilt['exercise_id'], 'language': sentence['language'],
             'source_sha256': sentence['source_sha256'],
