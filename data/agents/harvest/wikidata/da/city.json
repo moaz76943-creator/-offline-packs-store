@@ -1,0 +1,52 @@
+{
+  "language": "da",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney",
+        "Sydneys"
+      ],
+      "language": "da",
+      "lemma": "Sydney",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1547941",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L1547941",
+      "retrieval_date": "2026-10-20",
+      "revision": "2454934242",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1547941-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "quarantine",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q586"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q641"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

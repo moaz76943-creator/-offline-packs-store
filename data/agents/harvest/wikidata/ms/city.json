@@ -1,0 +1,52 @@
+{
+  "language": "ms",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney",
+        "سيدني"
+      ],
+      "language": "ms",
+      "lemma": "Sydney",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L739139",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L739139",
+      "retrieval_date": "2026-10-20",
+      "revision": "1775673076",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L739139-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "quarantine",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q586"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q641"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,99 @@
+{
+  "language": "fr",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava"
+      ],
+      "language": "fr",
+      "lemma": "Bratislava",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578354",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L578354",
+      "retrieval_date": "2026-10-20",
+      "revision": "2449978408",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578354-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrade"
+      ],
+      "language": "fr",
+      "lemma": "Belgrade",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578429",
+      "pos": "",
+      "qids": [
+        "Q3711"
+      ],
+      "record_id": "L578429",
+      "retrieval_date": "2026-10-20",
+      "revision": "2449977998",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578429-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney"
+      ],
+      "language": "fr",
+      "lemma": "Sydney",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578417",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L578417",
+      "retrieval_date": "2026-10-20",
+      "revision": "1588105041",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578417-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "quarantine",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q586"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q641"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

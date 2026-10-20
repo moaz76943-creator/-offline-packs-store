@@ -1,0 +1,130 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q4093",
+      "forms": [
+        "Glasgow"
+      ],
+      "language": "en",
+      "lemma": "Glasgow",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L448759",
+      "pos": "",
+      "qids": [
+        "Q4093"
+      ],
+      "record_id": "L448759",
+      "retrieval_date": "2026-10-20",
+      "revision": "2432016305",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L448759-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q4093"
+    },
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava"
+      ],
+      "language": "en",
+      "lemma": "Bratislava",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452619",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L452619",
+      "retrieval_date": "2026-10-20",
+      "revision": "2316670302",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452619-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrade"
+      ],
+      "language": "en",
+      "lemma": "Belgrade",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452858",
+      "pos": "",
+      "qids": [
+        "Q3711",
+        "Q815570",
+        "Q581832",
+        "Q2301099"
+      ],
+      "record_id": "L452858",
+      "retrieval_date": "2026-10-20",
+      "revision": "2547921020",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452858-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney",
+        "Sydneys"
+      ],
+      "language": "en",
+      "lemma": "Sydney",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L414136",
+      "pos": "",
+      "qids": [
+        "Q3130",
+        "Q932261",
+        "Q18915128",
+        "Q21501740"
+      ],
+      "record_id": "L414136",
+      "retrieval_date": "2026-10-20",
+      "revision": "2361068694",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L414136-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "quarantine",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q586"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q641"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

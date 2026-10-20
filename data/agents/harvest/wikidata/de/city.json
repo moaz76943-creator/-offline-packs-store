@@ -1,0 +1,86 @@
+{
+  "language": "de",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Pressburg",
+        "Preßburg",
+        "Pressburgs",
+        "Preßburgs",
+        "Pressburg",
+        "Preßburg",
+        "Pressburg",
+        "Preßburg"
+      ],
+      "language": "de",
+      "lemma": "Pressburg",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L295116",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L295116",
+      "retrieval_date": "2026-10-20",
+      "revision": "1350006923",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L295116-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q43453",
+      "forms": [
+        "Pilsen",
+        "Pilsen",
+        "Pilsens",
+        "Pilsen",
+        "Pilsen"
+      ],
+      "language": "de",
+      "lemma": "Pilsen",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L585961",
+      "pos": "",
+      "qids": [
+        "Q43453"
+      ],
+      "record_id": "L585961",
+      "retrieval_date": "2026-10-20",
+      "revision": "1880649658",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L585961-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q43453"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "quarantine",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q586"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q641"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

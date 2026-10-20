@@ -1,0 +1,78 @@
+{
+  "language": "it",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrado"
+      ],
+      "language": "it",
+      "lemma": "Belgrado",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1245829",
+      "pos": "",
+      "qids": [
+        "Q3711",
+        "Q123452382"
+      ],
+      "record_id": "L1245829",
+      "retrieval_date": "2026-10-20",
+      "revision": "2310786279",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1245829-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sydney"
+      ],
+      "language": "it",
+      "lemma": "Sydney",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1321164",
+      "pos": "",
+      "qids": [
+        "Q3130",
+        "Q18915128",
+        "Q21501740"
+      ],
+      "record_id": "L1321164",
+      "retrieval_date": "2026-10-20",
+      "revision": "2198435714",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1321164-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "quarantine",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q586"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q641"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,103 @@
+{
+  "language": "es",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava",
+        "Bratislavas"
+      ],
+      "language": "es",
+      "lemma": "Bratislava",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1082006",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L1082006",
+      "retrieval_date": "2026-10-20",
+      "revision": "1859861545",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1082006-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrado",
+        "Belgrados",
+        "Belgrado",
+        "Belgrados"
+      ],
+      "language": "es",
+      "lemma": "Belgrado",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1131435",
+      "pos": "",
+      "qids": [
+        "Q3711"
+      ],
+      "record_id": "L1131435",
+      "retrieval_date": "2026-10-20",
+      "revision": "2436131794",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1131435-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sídney"
+      ],
+      "language": "es",
+      "lemma": "Sídney",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L645398",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L645398",
+      "retrieval_date": "2026-10-20",
+      "revision": "1588105290",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L645398-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "quarantine",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q586"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q641"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
