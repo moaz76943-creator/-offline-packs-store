@@ -337,10 +337,19 @@ def command_harvest(args):
     window = plan.get('window') or []
     sections = {item.get('section') for item in window if isinstance(item, dict)}
     graph = load_graph()
-    concepts = [
+    candidates = [
         row for row in concept_rows(graph)
         if not sections or row.get('section') in sections
-    ][:4]
+    ]
+    # Keep each scheduled source moving across its actual concept inventory.
+    # The existing agents/data checkpoint branch persists these independent
+    # cursors; none changes readiness, licensing or the release manifest.
+    cursor_path = f'state/agents/{name}-cursor.json'
+    cursor, cursor_warning = load_json_tolerant(
+        ROOT / cursor_path,
+        {'schema_version': '1.0.0', 'next_index': 0},
+    )
+    concepts, next_index, window_warning = next_window(candidates, cursor, 8)
     retrieved = date.today().isoformat()
     grouped = {}
     skipped = []
@@ -455,9 +464,20 @@ def command_harvest(args):
             'skipped': skipped,
             'concepts_attempted': [row.get('wikidata') for row in concepts],
         })
+    # Advance only after bounded source processing finishes. The existing
+    # checkpoint publisher writes the cursor to agents/data on each run.
+    write_json(_out(cursor_path), {
+        'schema_version': '1.0.0',
+        'next_index': next_index,
+    })
     warning_text = f'skipped {len(skipped)}' if skipped else ''
-    write_heartbeat(_out('state/agents'), name, 'degraded' if skipped and not wrote else 'ok', warning_text)
-    print(json.dumps({'files': wrote, 'skipped': len(skipped), 'warning': warning}))
+    if not wrote:
+        warning_text = warning_text or 'no candidate rows; not production throughput'
+    write_heartbeat(_out('state/agents'), name,
+                    'ok' if wrote else 'degraded', warning_text)
+    warnings = [item for item in (warning, cursor_warning, window_warning) if item]
+    print(json.dumps({'files': wrote, 'skipped': len(skipped),
+                      'attempted_concepts': len(concepts), 'warning': '; '.join(warnings)}))
     return 0
 
 
