@@ -11,6 +11,7 @@ class SanitizerEngine:
     def __init__(self, registry_path: str = "catalog/language_registry.v1.json"):
         self.valid_languages: Set[str] = set()
         self.seen_identities: Set[str] = set()
+        self.seen_document_ids: Set[str] = set()
         self._load_registry(registry_path)
 
     def _load_registry(self, registry_path: str) -> None:
@@ -90,9 +91,17 @@ class SanitizerEngine:
         if missing_keys:
             return self.STATUS_QUARANTINE, None, f"Missing required keys: {missing_keys}"
 
+        contract_version = record.get("contract_version")
+        if not isinstance(contract_version, str):
+            return self.STATUS_QUARANTINE, None, "contract_version must be a string"
+
         doc_id = record.get("document_id")
         if not doc_id or not isinstance(doc_id, str) or not doc_id.strip():
             return self.STATUS_QUARANTINE, None, "Empty or invalid document_id"
+
+        if doc_id in self.seen_document_ids:
+            return self.STATUS_QUARANTINE, None, "Duplicate document_id detected"
+        self.seen_document_ids.add(doc_id)
 
         if not self.check_valid_unicode(doc_id):
             return self.STATUS_QUARANTINE, None, "Invalid Unicode in document_id"
@@ -130,9 +139,19 @@ class SanitizerEngine:
                  # Check if it's mixed language or something else
                  return self.STATUS_QUARANTINE, None, f"Unsupported language code: {lang}"
 
-            # Check lemma and surface for invalid unicode
+            # Type checks
             lemma = lexeme.get("lemma", "")
             surface = lexeme.get("surface", "")
+            pos = lexeme.get("pos", "")
+
+            if not isinstance(lemma, str):
+                return self.STATUS_QUARANTINE, None, f"lemma in lexeme {i} must be a string"
+            if not isinstance(surface, str):
+                return self.STATUS_QUARANTINE, None, f"surface in lexeme {i} must be a string"
+            if not isinstance(pos, str):
+                return self.STATUS_QUARANTINE, None, f"pos in lexeme {i} must be a string"
+
+            # Check lemma and surface for invalid unicode
             if not self.check_valid_unicode(lemma) or not self.check_valid_unicode(surface):
                  return self.STATUS_QUARANTINE, None, f"Invalid Unicode in lexeme {i}"
 

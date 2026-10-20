@@ -92,11 +92,47 @@ class TestSanitizerEngine(unittest.TestCase):
         record1 = self.create_valid_record()
         record2 = self.create_valid_record() # Exact same content
 
+        # Change the document_id so it fails on identity check, not duplicate document_id check
+        record2["document_id"] = "doc.en.word2"
+
         status1, _, _ = self.engine.validate_and_repair(record1)
         self.assertEqual(status1, SanitizerEngine.STATUS_ACCEPT)
 
         status2, _, _ = self.engine.validate_and_repair(record2)
         self.assertEqual(status2, SanitizerEngine.STATUS_QUARANTINE)
+
+    def test_duplicate_document_id_quarantine(self):
+        record1 = self.create_valid_record()
+        record2 = self.create_valid_record()
+        # Ensure the content is different so it doesn't fail on identity duplicate check
+        record2["lexemes"][0]["lemma"] = "another_word"
+
+        status1, _, _ = self.engine.validate_and_repair(record1)
+        self.assertEqual(status1, SanitizerEngine.STATUS_ACCEPT)
+
+        status2, _, _ = self.engine.validate_and_repair(record2)
+        self.assertEqual(status2, SanitizerEngine.STATUS_QUARANTINE)
+
+    def test_invalid_field_types_quarantine(self):
+        record_cv = self.create_valid_record()
+        record_cv["contract_version"] = 1.0 # Float instead of string
+        status, _, _ = self.engine.validate_and_repair(record_cv)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        record_lemma = self.create_valid_record()
+        record_lemma["lexemes"][0]["lemma"] = 123
+        status, _, _ = self.engine.validate_and_repair(record_lemma)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        record_surface = self.create_valid_record()
+        record_surface["lexemes"][0]["surface"] = None
+        status, _, _ = self.engine.validate_and_repair(record_surface)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+        record_pos = self.create_valid_record()
+        record_pos["lexemes"][0]["pos"] = ["noun"] # List instead of string
+        status, _, _ = self.engine.validate_and_repair(record_pos)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
 
     def test_german_umlauts_preserved(self):
         record1 = self.create_valid_record()
