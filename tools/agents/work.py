@@ -329,6 +329,7 @@ def legal_report(rows, notices):
     """Block only when a stored row's license conflicts with its notice. Missing notices warn."""
     problems = []
     warnings = []
+    seen_warnings = set()
     notices = notices or {}
     for row in rows or []:
         if not isinstance(row, dict):
@@ -340,7 +341,8 @@ def legal_report(rows, notices):
             # One warning per missing evidence source; never interpret this as
             # license approval or silently promote the candidate to production.
             warning = f'{source_id or license_id}: notice not loaded'
-            if warning not in warnings:
+            if warning not in seen_warnings:
+                seen_warnings.add(warning)
                 warnings.append(warning)
             continue
         ok, reasons = positive_match(notice, license_id, row.get('co_offered') or ())
