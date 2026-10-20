@@ -2,6 +2,7 @@
   "degraded": [
     "harvest-kaikki",
     "harvest-tatoeba",
+    "harvest-wikidata",
     "legal",
     "qa"
   ],
