@@ -60,6 +60,15 @@ def _set_member(envelope, name, data):
     _member(envelope, name)['contentBase64'] = base64.b64encode(data).decode('ascii')
 
 
+def _update_content_info(envelope, info):
+    """Mutate one inner JSON record and refresh its outer integrity digest."""
+    raw = rc.json_bytes(info)
+    _set_member(envelope, 'content/content.json', raw)
+    meta = _json_member(envelope, 'metadata/pack.json')
+    meta['contentMetadataSha256'] = rc.digest(raw)
+    _set_member(envelope, 'metadata/pack.json', rc.json_bytes(meta))
+
+
 def _replace_sqlite(envelope, *, sql=None, corrupted=None):
     contents = base64.b64decode(_member(envelope, 'content/content.sqlite')['contentBase64'])
     if corrupted is None:
@@ -171,11 +180,11 @@ def _attempt(name, fixture, rng):
         elif name == 'wrong_sha256':
             info = _json_member(env, 'content/content.json')
             info['sqliteSha256'] = '0' * 64
-            _set_member(env, 'content/content.json', rc.json_bytes(info))
+            _update_content_info(env, info)
         elif name == 'missing_sources':
             info = _json_member(env, 'content/content.json')
             info['sourceIds'] = []
-            _set_member(env, 'content/content.json', rc.json_bytes(info))
+            _update_content_info(env, info)
         elif name == 'mismatched_sources':
             info = _json_member(env, 'content/content.json')
             info['sourceIds'] = ['fabricated-unapproved']
