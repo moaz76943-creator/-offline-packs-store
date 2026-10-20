@@ -1523,6 +1523,36 @@
       "wikidata": "Q193211"
     },
     {
+      "concept_id": "concept.q131482",
+      "forms": [
+        "egira",
+        "egira"
+      ],
+      "language": "it",
+      "lemma": "egira",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1228444",
+      "pos": "",
+      "qids": [
+        "Q131482"
+      ],
+      "record_id": "L1228444",
+      "retrieval_date": "2026-10-20",
+      "revision": "2348367904",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1228444-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q61509",
+      "wikidata": "Q131482"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "着物",
@@ -1995,6 +2025,42 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q6279182"
+    },
+    {
+      "concept_id": "concept.q131482",
+      "forms": [
+        "хиджра",
+        "хиджры",
+        "хиджре",
+        "хиджру",
+        "хиджрой",
+        "хиджрою",
+        "хиджре",
+        "хиджры"
+      ],
+      "language": "ru",
+      "lemma": "хиджра",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L176978",
+      "pos": "",
+      "qids": [
+        "Q131482"
+      ],
+      "record_id": "L176978",
+      "retrieval_date": "2026-10-20",
+      "revision": "1912050650",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L176978-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q61509",
+      "wikidata": "Q131482"
     },
     {
       "concept_id": "concept.q937857",
