@@ -324,6 +324,9 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(saved['status'],'ok')
             snapshot = json.loads((root/'output/state/agents/watchdog-report.json').read_text())
             self.assertNotIn('codeql', snapshot['stale'])
+            heartbeat = json.loads((root/'output/state/agents/watchdog.json').read_text())
+            self.assertEqual(heartbeat['name'], 'watchdog')
+            self.assertNotIn('stale', heartbeat)
             self.assertLessEqual(len(snapshot['dispatch']), 3)
 
     def test_watchdog_uses_agent_schedule_before_flagging_stale(self):
