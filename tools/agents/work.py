@@ -299,7 +299,11 @@ def qa_rows(rows, profiles, refetch=None, sample=3):
         if not row_traceable(row):
             problems.append(f'{label}: untraceable or placeholder')
             continue
-        key = (row.get('language'), row.get('record_id'), row.get('sense_id') or '')
+        # Match the harvester's provenance identity: a single attested sense
+        # may legitimately anchor more than one concept, or a different
+        # approved source may reuse a record ID.
+        key = (row.get('language'), row.get('source_id'), row.get('record_id'),
+               row.get('sense_id') or '', row.get('concept_id') or '')
         if key in seen:
             problems.append(f'{label}: duplicate')
             continue
