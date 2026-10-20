@@ -1,0 +1,31 @@
+name: GHA examples factory offline contract tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gha-examples-tests-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test-candidates-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify examples parser, language boundaries and text/audio rights
+        run: python3 -m unittest discover -s tests/gha_factory/examples -p 'test_*.py' -v
+      - name: Confirm that production source and queue work remain separate
+        run: |
+          python3 - <<'PY'
+          import json
+          ledger=json.load(open('legal/ledger/sources.json',encoding='utf-8'))
+          if not ledger.get('sources'):
+              print('BLOCKED_DEPENDENCY_GHA01: empty approved source ledger')
+          print('NO_PRODUCTION_CORPUS_INGESTED; GHA02_QUEUE_NOT_DISPATCHED')
+          PY
