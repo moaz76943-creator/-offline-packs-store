@@ -5,16 +5,19 @@ before they enter production pack builds.
 """
 import json
 import re
-import sys
+from collections import OrderedDict
 
 # Constraints
 MAX_JSON_BYTES = 100 * 1024  # 100 KB max per entry to strictly limit memory
 LANGUAGE_REGEX = re.compile(r'^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$')
 POS_ALLOWED = {"noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "interjection", "particle", "article", "affix", "phrase", "idiom", "proverb"}
+MAX_TRACKED_IDS = 100000
 
-class LexicalValidator:
+class LexicalQualityValidator:
     def __init__(self):
-        self.seen_ids = set()
+        # By using an OrderedDict, we create an LRU-like set that maintains bounded memory
+        # by evicting the oldest tracked item when exceeding bounds.
+        self.seen_ids = OrderedDict()
 
     def _check_string_field(self, entry, field_name, required=True):
         val = entry.get(field_name)
@@ -71,7 +74,9 @@ class LexicalValidator:
         elif entry["id"] in self.seen_ids:
             errors.append(f"Duplicate lexical ID: {entry['id']}")
         else:
-            self.seen_ids.add(entry["id"])
+            self.seen_ids[entry["id"]] = None
+            if len(self.seen_ids) > MAX_TRACKED_IDS:
+                self.seen_ids.popitem(last=False)
 
         surf_err = self._check_string_field(entry, "surface")
         if surf_err:
@@ -86,9 +91,6 @@ class LexicalValidator:
         pos_err = self._check_string_field(entry, "pos")
         if pos_err:
             errors.append(pos_err)
-        # We don't strictly reject if not in POS_ALLOWED, but we might warn or mark reviewRequired
-        # Let's keep it structurally open but if it's super weird, maybe reviewRequired?
-        # Actually the requirements mention "validate POS fields" but not strict enum. We'll stick to string validation for rejection.
 
         # 2. Impossible field combinations
         pos = entry.get("pos")
@@ -96,8 +98,6 @@ class LexicalValidator:
         conjugations = entry.get("conjugations")
 
         if pos and pos != "verb" and conjugations is not None:
-            # While theoretically some languages decline nouns, usually 'conjugation' implies verbs.
-            # We'll just mark reviewRequired instead of rejecting entirely unless we want strict rejection.
             warnings.append(f"Non-verb POS '{pos}' has 'conjugations' field")
 
         if pos and pos not in {"noun", "pronoun", "adjective"} and plural is not None:
@@ -158,3 +158,5 @@ class LexicalValidator:
         """
         for entry in iterator:
             yield self.validate_entry(entry)
+
+LexicalValidator = LexicalQualityValidator
