@@ -24,10 +24,14 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["tools/lexical_quality/validator.py"]), ("lexical_quality",))
         self.assertEqual(select_suites(["tools/open_export/exporter.py"]), ("open_export",))
         self.assertEqual(select_suites(["tools/community_automation/gate.py"]), ("community_automation",))
+        self.assertEqual(select_suites(["catalog/test_registry.py"]), ("registry_unit",))
+        self.assertEqual(select_suites(["catalog/validate_registry.py"]), ("registry_unit",))
+        self.assertEqual(select_suites(["utils.py"]), ("utils",))
+        self.assertEqual(select_suites(["tests/test_utils.py"]), ("utils",))
 
     def test_shared_provenance_logic_runs_all_affected_tests(self):
         self.assertEqual(select_suites(["legal/ledger/admission.py"]),
-                         ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation"))
+                         ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "registry_unit"))
         self.assertEqual(select_suites(["tools/contribution_gate/evidence.py"]),
                          ("pronunciation", "audio"))
 
