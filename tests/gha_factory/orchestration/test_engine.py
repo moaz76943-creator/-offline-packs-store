@@ -117,6 +117,86 @@ class EngineTests(unittest.TestCase):
             folder=Path(d)/'dispatcher-1';folder.mkdir();(folder/'receipt.json').write_text('{}')
             with self.assertRaises(ValueError):e.finalize(api,jobs,Path(d),1,1,NOW)
         self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+    def test_invalid_receipt_does_not_strand_independent_valid_completion(self):
+        api=FakeAPI([(1,task()),(2,task(language='en'))])
+        jobs=self.run_controller(api)
+        with tempfile.TemporaryDirectory() as d:
+            folder=Path(d)
+            broken=folder/'dispatcher-1';broken.mkdir()
+            (broken/'receipt.json').write_text('{}')
+            valid=folder/'dispatcher-2';valid.mkdir()
+            t=p.parse(api.one(2)['body'])
+            (valid/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+            with self.assertRaises(ValueError):
+                e.finalize(api,jobs,folder,1,1,NOW)
+            self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+            self.assertEqual(p.parse(api.one(2)['body'])['state'],'SUCCEEDED')
+            # Finalization retry after interruption is idempotent for task 2.
+            with self.assertRaises(ValueError):
+                e.finalize(api,jobs,folder,1,1,NOW)
+            self.assertEqual(p.parse(api.one(2)['body'])['checkpoint'],1)
+
+    def test_non_object_receipts_cannot_block_independent_finalization(self):
+        # JSON syntax is valid here, but the receipt envelope must be an object.
+        # Each rejected shard remains claimed; a different valid shard completes.
+        for invalid in ('[]', 'null', '"text"', '42', 'true'):
+            with self.subTest(invalid=invalid):
+                api=FakeAPI([(1,task()),(2,task(language='en'))])
+                jobs=self.run_controller(api)
+                with tempfile.TemporaryDirectory() as d:
+                    folder=Path(d)
+                    bad=folder/'dispatcher-1';bad.mkdir()
+                    (bad/'receipt.json').write_text(invalid)
+                    good=folder/'dispatcher-2';good.mkdir()
+                    t=p.parse(api.one(2)['body'])
+                    (good/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+                    with self.assertRaises(e.FinalizationError) as raised:
+                        e.finalize(api,jobs,folder,1,1,NOW)
+                    self.assertEqual(raised.exception.errors[0]['issue'],1)
+                    self.assertEqual(raised.exception.errors[0]['category'],'ValueError')
+                    self.assertEqual(len(raised.exception.results),1)
+                    self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+                    self.assertEqual(p.parse(api.one(2)['body'])['state'],'SUCCEEDED')
+
+    def test_non_object_task_metadata_isolates_independent_finalization(self):
+        api=FakeAPI([(1,task()),(2,task(language='en'))])
+        jobs=self.run_controller(api)
+        with tempfile.TemporaryDirectory() as d:
+            folder=Path(d)
+            api.data[1]['body']=p.MARKER+'[]\n```'
+            good=folder/'dispatcher-2';good.mkdir()
+            t=p.parse(api.one(2)['body'])
+            (good/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+            with self.assertRaises(e.FinalizationError) as raised:
+                e.finalize(api,jobs,folder,1,1,NOW)
+            self.assertEqual(raised.exception.errors[0]['issue'],1)
+            self.assertEqual(raised.exception.errors[0]['category'],'ValueError')
+            self.assertEqual(p.parse(api.one(2)['body'])['state'],'SUCCEEDED')
+            self.assertEqual(api.one(1)['body'],p.MARKER+'[]\n```')
+
+    def test_finalizer_rejects_symlinked_receipt_directory(self):
+        api=FakeAPI([(1,task())]);jobs=self.run_controller(api)
+        t=p.parse(api.one(1)['body'])
+        with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as external:
+            folder=Path(d);outside=Path(external)
+            (outside/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+            (folder/'dispatcher-1').symlink_to(outside,target_is_directory=True)
+            writes=len(api.writes)
+            with self.assertRaises(ValueError):e.finalize(api,jobs,folder,1,1,NOW)
+            self.assertEqual(len(api.writes),writes)
+        self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
+    def test_finalizer_rejects_symlinked_artifact_root(self):
+        api=FakeAPI([(1,task())]);jobs=self.run_controller(api)
+        t=p.parse(api.one(1)['body'])
+        with tempfile.TemporaryDirectory() as d:
+            root=Path(d);real=root/'real';real.mkdir()
+            directory=real/'dispatcher-1';directory.mkdir()
+            (directory/'receipt.json').write_text(json.dumps(p.receipt(t,'SUCCEEDED',1,0,None,None)))
+            alias=root/'alias';alias.symlink_to(real,target_is_directory=True)
+            writes=len(api.writes)
+            with self.assertRaises(ValueError):e.finalize(api,jobs,alias,1,1,NOW)
+            self.assertEqual(len(api.writes),writes)
+        self.assertEqual(p.parse(api.one(1)['body'])['state'],'CLAIMED')
     def test_actual_started_job_marks_running(self):
         t=p.claim(task(state='READY'),NOW,10,1)
         api=FakeAPI([(1,t)])

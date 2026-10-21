@@ -68,7 +68,7 @@ transient receipt transport, never durable corpus/checkpoint storage. Lost recei
 cause bounded backoff, not success. Failed attempts never advance a non-durable
 partial checkpoint. Full corpus processing, content-addressed permanent checkpoint
 handoff and recovery after artifact expiry remain blockers before those worker
-contracts can execute. Missing/tampered receipts preserve ownership or retry safely.
+contracts can execute. Missing/tampered receipts preserve ownership or retry safely. Invalid receipts are isolated per task: the finalizer continues committing independent valid results, then exits nonzero with sanitized per-task errors. Repeating the finalizer preserves exact already-recorded success receipts.
 
 ## Validation and PR #68 review
 

@@ -60,6 +60,16 @@ class SourceTests(unittest.TestCase):
         self.source['review']['expires_at']='2000-01-01';self.ledger();self.assertEqual(self.gate(),'BLOCKED_SOURCE')
     def test_tampered_partition(self):
         (self.out/'partition-00000000.jsonl').write_bytes(b'tamper');self.assertEqual(self.gate(),'QUARANTINED')
+    def test_symlinked_admission_partition_is_rejected(self):
+        # A matching SHA is insufficient if the admitted partition path is a
+        # symlink: no indirect files can stand in for immutable queue evidence.
+        partition = self.out/'partition-00000000.jsonl'
+        replacement = self.out/'partition-copy.jsonl'
+        replacement.write_bytes(partition.read_bytes())
+        partition.unlink()
+        partition.symlink_to(replacement)
+        self.assertEqual(self.gate(), 'BLOCKED_SOURCE')
+
     def test_wrong_canonical_language(self):
         self.t=p.new('test-fixture',sha(self.raw),'zz','approved_snapshot_verify',0);self.assertEqual(self.gate(),'QUARANTINED')
     def test_large_snapshot_needs_durable_handoff(self):
