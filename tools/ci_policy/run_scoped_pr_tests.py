@@ -23,8 +23,9 @@ SUITES = {
     "open_index": ("tools/open_index", "test_builder.py"),
     "repro_build": ("tools/repro_build", "test_compiler.py"),
     "pack_manifest": ("tools/pack_manifest", "test_builder.py"),
+    "lexical_quality": ("tools/lexical_quality", "test_validator.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -105,6 +106,8 @@ def select_suites(changed_paths):
             selected.add("repro_build")
         if path.startswith("tools/pack_manifest/"):
             selected.add("pack_manifest")
+        if path.startswith("tools/lexical_quality/"):
+            selected.add("lexical_quality")
         if path.startswith("legal/ledger/"):
             selected.update(ORDER)
         if path.startswith("tools/contribution_gate/"):
