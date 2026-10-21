@@ -82,18 +82,22 @@ class LexicalValidator:
             errors.append(lang_err)
         elif not LANGUAGE_REGEX.match(entry["language"]):
             errors.append(f"Invalid language format: {entry['language']}")
+        elif "id" in entry and not entry["id"].startswith(f'{entry["language"]}-'):
+            # Memory constraint: language mismatch where IDs match the language prefix
+            errors.append(f"ID prefix does not match language: {entry['id']} vs {entry['language']}")
 
         pos_err = self._check_string_field(entry, "pos")
         if pos_err:
             errors.append(pos_err)
-        # We don't strictly reject if not in POS_ALLOWED, but we might warn or mark reviewRequired
-        # Let's keep it structurally open but if it's super weird, maybe reviewRequired?
-        # Actually the requirements mention "validate POS fields" but not strict enum. We'll stick to string validation for rejection.
+        elif entry["pos"] not in POS_ALLOWED:
+            errors.append(f"Invalid POS: {entry['pos']}")
+        # We enforce strict checking of POS fields, rejecting if not in POS_ALLOWED
 
         # 2. Impossible field combinations
         pos = entry.get("pos")
         plural = entry.get("plural")
         conjugations = entry.get("conjugations")
+        lang = entry.get("language")
 
         if pos and pos != "verb" and conjugations is not None:
             # While theoretically some languages decline nouns, usually 'conjugation' implies verbs.
@@ -102,6 +106,13 @@ class LexicalValidator:
 
         if pos and pos not in {"noun", "pronoun", "adjective"} and plural is not None:
             warnings.append(f"POS '{pos}' has 'plural' field, which is unusual")
+
+        # Memory rule: grammar rules for isolating languages (zho, tha, vie)
+        if lang in {"zho", "tha", "vie"}:
+            if plural is not None:
+                errors.append(f"Isolating language '{lang}' should not have 'plural' field")
+            if conjugations is not None:
+                errors.append(f"Isolating language '{lang}' should not have 'conjugations' field")
 
         # 3. Structure of translations
         if "translations" in entry:
