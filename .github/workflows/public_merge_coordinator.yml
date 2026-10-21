@@ -13,14 +13,8 @@ on:
         description: 'Allow approved promote/merge; otherwise report'
         required: false
         default: false
-  # React to existing required PR checks instead of waiting for the hourly sweep.
-  # This privileged job only executes trusted main, never PR code or artifacts.
-  workflow_run:
-    workflows: ["Public PR Merge Gate", "Validate JSON Files"]
-    types: [completed]
-  # Bounded recovery sweep for missed webhook events; stagger away from :00.
   schedule:
-    - cron: '13,28,43,58 * * * *'
+    - cron: '43 * * * *'
 
 permissions:
   contents: read
@@ -44,17 +38,7 @@ jobs:
       - name: Exact code policy regressions
         run: python3 -m unittest discover -s tools/merge_coordinator -p 'test_*.py' -v
   coordinate:
-    if: >-
-      github.repository == 'moaz76943-creator/-offline-packs-store' &&
-      github.ref == 'refs/heads/main' &&
-      (
-        github.event_name == 'schedule' ||
-        github.event_name == 'workflow_dispatch' ||
-        (github.event_name == 'workflow_run' &&
-         github.event.workflow_run.event == 'pull_request' &&
-         github.event.workflow_run.conclusion == 'success' &&
-         github.event.workflow_run.head_repository.full_name == github.repository)
-      )
+    if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && github.repository == 'moaz76943-creator/-offline-packs-store' && github.ref == 'refs/heads/main'
     permissions:
       contents: write
       pull-requests: write
@@ -63,14 +47,13 @@ jobs:
     timeout-minutes: 5
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      INTEGRATOR_APPLY: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_run' || inputs.apply }}
+      INTEGRATOR_APPLY: ${{ github.event_name == 'schedule' || inputs.apply }}
       PYTHONDONTWRITEBYTECODE: '1'
     steps:
       - name: Check out trusted main only
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-          ref: main
       - name: Verify coordinator contracts
         run: python3 -m unittest discover -s tools/merge_coordinator -p 'test_*.py' -v
       - name: Enforce visible strict main protection before any write

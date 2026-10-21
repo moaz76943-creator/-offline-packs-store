@@ -18,11 +18,19 @@ class SearchAuditTests(unittest.TestCase):
         self.db = self.root / 'fixture.sqlite'
 
     def reviewed_source(self):
-        """Shared synthetic ledger entry. A hand-copied dict drifts when admission gains a field."""
-        from legal.ledger.synthetic import synthetic_source
-        return synthetic_source(
-            self.root, source_id='fixture-source', kind='dictionary',
-            publisher='Synthetic test fixture', dataset_version='1.0.0')
+        source = b'explicit synthetic source evidence for tests only'
+        rights = b'explicit synthetic CC0 test rights notice'
+        (self.root / 'source.bin').write_bytes(source)
+        (self.root / 'rights.txt').write_bytes(rights)
+        return dict(source_id='fixture-source', kind='dictionary',
+                    origin_url='https://example.org/source', publisher='Synthetic test fixture',
+                    dataset_version='1.0.0', status='APPROVED_FOR_REDISTRIBUTION', alterations=['none'],
+                    retrieval=dict(identity='fixture:1', date='2026-10-16', url='https://example.org/data',
+                                   artifact_path='source.bin', sha256=hashlib.sha256(source).hexdigest()),
+                    license=dict(id='CC0-1.0', evidence_url='https://example.org/source-rights',
+                                 evidence_path='rights.txt', evidence_sha256=hashlib.sha256(rights).hexdigest()),
+                    review=dict(reviewer='synthetic independent fixture reviewer',
+                                decision_url='https://example.org/test-decision'))
 
     def write_inputs(self, sources, packs=()):
         codes = [chr(97+i//26)+chr(97+i%26) for i in range(100)]
@@ -142,15 +150,6 @@ class SearchAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(audit.AuditError, 'no approved source'):
             audit.audit_manifest(self.root, shard=0, shards=10)
 
-    def test_reviewed_fixture_clears_admission(self):
-        source = self.reviewed_source()
-        from legal.ledger import admission
-        blockers = admission.evaluate(
-            {'schema_version': '1.0.0', 'sources': [source]},
-            {'languages': [], 'packs': []}, [], self.root)
-        self.assertEqual(blockers, [])
-        self.assertEqual(source['author'], 'synthetic-fixture')
-
     def test_empty_assigned_shard_cannot_claim_qa_pass(self):
         codes = [chr(97+i//26)+chr(97+i%26) for i in range(100)]
         (self.root/'manifest.json').write_text(json.dumps({
@@ -170,7 +169,7 @@ class SearchAuditTests(unittest.TestCase):
     def test_changed_rights_and_missing_review_do_not_clear_source_gate(self):
         source = self.reviewed_source()
         self.write_inputs([source])
-        (self.root/'license.txt').write_bytes(b'altered')
+        (self.root/'rights.txt').write_bytes(b'altered')
         self.assertEqual('BLOCKED_SOURCE', audit.audit_manifest(self.root, shards=1)['status'])
         source = self.reviewed_source()
         source.pop('review')

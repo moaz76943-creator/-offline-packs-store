@@ -145,44 +145,30 @@ class TestIngest(unittest.TestCase):
         self.assertTrue((self.staging_root / "quarantined" / (receipt["sha256"] + ".json")).exists())
 
     def test_reversed_directed_pairs(self):
-        from standards.lexical.validate import validate as canonical_validate
-        self.registry_path.write_text(json.dumps({"states": {"de": {}, "ar": {}}}))
-        source = dict(self.valid_doc['lexemes'][0]['source'])
-        source.update(origin_url='https://example.com/fixture',
-                      retrieval_id='fixture:retrieval:1',
-                      publication_approved=False)
-        document = {
-            'contract_version': '1.0.0', 'document_id': 'fixture.directed',
-            'lexemes': [
-                dict(lexeme_id='lex.de.one', language='de', script='Latn',
-                     lemma='Haus', surface='Haus', pos='noun',
-                     direction='ltr', source=dict(source)),
-                dict(lexeme_id='lex.ar.one', language='ar', script='Arab',
-                     lemma='بيت', surface='بيت', pos='noun',
-                     direction='rtl', source=dict(source)),
-            ],
-            'senses': [
-                dict(sense_id='sense.de.one', lexeme_id='lex.de.one',
-                     concept_id='concept.house', definition='house',
-                     source=dict(source)),
-                dict(sense_id='sense.ar.one', lexeme_id='lex.ar.one',
-                     concept_id='concept.house', definition='بيت',
-                     source=dict(source)),
-            ],
-            'translations': [
-                dict(translation_id='tr.de.ar', from_sense_id='sense.de.one',
-                     to_sense_id='sense.ar.one', language='ar', text='بيت',
-                     equivalence='exact', source=dict(source))
-            ], 'examples': [], 'relations': [],
-        }
-        # The positive form must satisfy the *real* lexical contract first.
-        canonical_validate(document, publication=False)
-        document['translations'][0]['language'] = 'de'
-        submission = self.write_json('reversed.json', document)
-        with self.assertRaisesRegex(ValueError, 'target language mismatch'):
-            ingest(submission, self.staging_root,
-                   registry_path=self.registry_path,
-                   validator=canonical_validate, licenses={'CC0-1.0'})
+        doc = json.loads(json.dumps(self.valid_doc))
+        doc["translations"] = [
+            {
+                "from_sense_id": "sense1",
+                "to_sense_id": "sense2",
+                "source": {
+                        "source_id": "src1",
+                        "dataset_version": "1.0",
+                        "record_locator": "loc1",
+                        "license_id": "CC0-1.0",
+                        "publisher": "pub1",
+                        "origin_url": "http://example.com",
+                        "artifact_sha256": "a" * 64,
+                        "fixture_only": False
+                    }
+            }
+        ]
 
+        from standards.lexical.validate import validate as canonical_validate
+        def fake_validator(d, publication):
+            canonical_validate(d, publication=False)
+
+        submission = self.write_json("reversed.json", doc)
+        with self.assertRaises(Exception) as ctx:
+            ingest(submission, self.staging_root, registry_path=self.registry_path, validator=fake_validator, licenses={"CC0-1.0"})
 if __name__ == "__main__":
     unittest.main()

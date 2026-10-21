@@ -45,17 +45,8 @@ def run_auto(gh, main_sha):
         raise ValueError('invalid live pull-request listing')
     pool = [p for p in queue if isinstance(p, dict) and p.get('state') == 'open'
             and not p.get('draft') and isinstance(p.get('number'), int)]
-    # The list endpoint already exposes the PR's pinned base SHA. Avoid
-    # expensive per-PR check/review/commit calls for provably stale bases.
-    # Never rewrite branches with GITHUB_TOKEN: that could suppress PR CI.
-    current = [p for p in pool if (p.get('base') or {}).get('ref') == 'main'
-               and (p.get('base') or {}).get('sha') == main_sha]
     print('AUTO_DISCOVERY_READY=' + str(len(pool)))
-    print('AUTO_STALE_OR_UNVERIFIED_BASE=' + str(len(pool) - len(current)))
-    print('AUTO_CURRENT_BASE_CANDIDATES=' + str(len(current)))
-    # Prefer recently opened independent fixes; exact-head policy still owns
-    # the final decision and GitHub main is re-read immediately before writes.
-    for brief in sorted(current, key=lambda p: p['number'], reverse=True):
+    for brief in sorted(pool, key=lambda p: p['number']):
         num = brief['number']
         head = (brief.get('head') or {}).get('sha')
         if not isinstance(head, str) or len(head) != 40:

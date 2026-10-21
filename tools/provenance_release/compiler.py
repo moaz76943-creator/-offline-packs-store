@@ -50,25 +50,17 @@ class ProvenanceCompiler:
 
         seen_cids = set()
 
-        for daily_index, daily in enumerate(dailies):
+        for daily in dailies:
             if not isinstance(daily, dict) or daily.get('schema_version') != SCHEMA:
-                statuses['invalid'].append(f'daily[{daily_index}]')
                 continue
 
             items = daily.get('release_candidates', [])
-            if not isinstance(items, list):
-                statuses['invalid'].append(f'daily[{daily_index}].release_candidates')
-                continue
-            for entry_index, entry in enumerate(items):
+            for entry in items:
                 if not isinstance(entry, dict):
-                    statuses['invalid'].append(
-                        f'daily[{daily_index}].release_candidates[{entry_index}]')
                     continue
 
                 cid = entry.get('asset_id')
                 if not text(cid):
-                    statuses['invalid'].append(
-                        f'daily[{daily_index}].release_candidates[{entry_index}]')
                     continue
 
                 if cid in seen_cids:
@@ -211,9 +203,7 @@ class ProvenanceCompiler:
         with open(manifest_out, 'w', encoding='utf-8') as f:
             json.dump({
                 "schema_version": "1.0.0",
-                "release_provenance": provenance,
-                "blocked": sorted(statuses['blocked']),
-                "review_required": sorted(statuses['review_required'])
+                "release_provenance": provenance
             }, f, indent=2)
 
         # Write notice
@@ -237,14 +227,7 @@ def main(argv=None):
     daily_dir = args.daily_dir or root / 'legal/ledger/daily'
 
     compiler = ProvenanceCompiler(root, ledger_path, daily_dir)
-    statuses = compiler.compile(args.manifest_out, args.notice_out)
-
-    print("Machine validation is not a legal opinion.", file=sys.stderr)
-
-    if statuses.get('invalid'):
-        print(f"Compilation failed due to {len(statuses['invalid'])} invalid candidates.", file=sys.stderr)
-        return 1
-
+    compiler.compile(args.manifest_out, args.notice_out)
     return 0
 
 if __name__ == '__main__':

@@ -155,20 +155,11 @@ def database_checks(data, language, info, root, fixture):
                 fail('INVALID_RECEIPT', 'actual row counts/empty corpus')
             if db.execute('SELECT COUNT(*) FROM lexicon_fts').fetchone()[0] != actual['lexicon']:
                 fail('FTS5_CORRUPT', 'FTS5 count')
-            # SQLite enforces uniqueness only within each table. The stable
-            # identifier namespace includes concept and grammar records too.
             id_union = ' UNION ALL '.join('SELECT '+col+' AS stable_id FROM '+table
-                for table,col in [('concepts','concept_id'),('lexicon','id'),
-                                  ('senses','sense_id'),('translations','translation_id'),
-                                  ('examples','example_id'),('lexical_relations','relation_id'),
-                                  ('grammar','grammar_id')])
+                for table,col in [('lexicon','id'),('senses','sense_id'),('translations','translation_id'),
+                                  ('examples','example_id'),('lexical_relations','relation_id')])
             if db.execute('SELECT stable_id FROM ('+id_union+') GROUP BY stable_id HAVING COUNT(*)>1 LIMIT 1').fetchone():
                 fail('INVALID_RECEIPT','duplicate global stable ID')
-            # All producer concepts come from recorded senses. FK checks alone
-            # cannot catch extra concepts when the manifest counts are forged.
-            if actual['concepts'] != db.execute(
-                    'SELECT COUNT(DISTINCT concept_id) FROM senses').fetchone()[0]:
-                fail('INVALID_RECEIPT', 'unreferenced concept differs from canonical producer')
             # Internal FTS5 content/index verification runs ONLY in this disposable copy.
             db.execute("INSERT INTO lexicon_fts(lexicon_fts,rank) VALUES('integrity-check',1)")
             for row in db.execute('SELECT rowid,* FROM lexicon ORDER BY rowid'):

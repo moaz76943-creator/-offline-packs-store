@@ -356,14 +356,7 @@
             ]
           },
           "content_status": {
-            "enum": [
-              "unverified",
-              "metadataOnly",
-              "sourceAvailable",
-              "verifiedPack",
-              "installedCapable",
-              "releaseReady"
-            ]
+            "const": "unverified"
           }
         }
       }

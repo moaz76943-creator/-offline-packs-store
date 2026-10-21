@@ -150,8 +150,7 @@ def process(args):
         "source_id": source_id,
         "artifact_sha256": actual_hash,
         "source_license": src_license,
-        "destination": manifest_dict.get("destination", "unknown"),
-        "expires_at": int(time.time()) + 300
+        "destination": manifest_dict.get("destination", "unknown")
     }
 
     print(json.dumps(admission))

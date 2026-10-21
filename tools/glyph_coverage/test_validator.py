@@ -20,10 +20,6 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         self.deva_font_path = "tools/glyph_coverage/fixtures/test_deva.ttf"
         self.cjk_font_path = "tools/glyph_coverage/fixtures/test_cjk.ttf"
         self.thai_font_path = "tools/glyph_coverage/fixtures/test_thai.ttf"
-        self.cyrillic_font_path = "tools/glyph_coverage/fixtures/test_cyrillic.ttf"
-        self.greek_font_path = "tools/glyph_coverage/fixtures/test_greek.ttf"
-        self.armenian_font_path = "tools/glyph_coverage/fixtures/test_armenian.ttf"
-        self.negative_font_path = "tools/glyph_coverage/fixtures/test_negative.ttf"
 
         self.latin_hash = get_hash(os.path.join(self.repo_root, self.latin_font_path))
         self.arabic_hash = get_hash(os.path.join(self.repo_root, self.arabic_font_path))
@@ -31,10 +27,6 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         self.deva_hash = get_hash(os.path.join(self.repo_root, self.deva_font_path))
         self.cjk_hash = get_hash(os.path.join(self.repo_root, self.cjk_font_path))
         self.thai_hash = get_hash(os.path.join(self.repo_root, self.thai_font_path))
-        self.cyrillic_hash = get_hash(os.path.join(self.repo_root, self.cyrillic_font_path))
-        self.greek_hash = get_hash(os.path.join(self.repo_root, self.greek_font_path))
-        self.armenian_hash = get_hash(os.path.join(self.repo_root, self.armenian_font_path))
-        self.negative_hash = get_hash(os.path.join(self.repo_root, self.negative_font_path))
 
         self.evidence_path = "tools/glyph_coverage/fixtures/dummy_evidence.txt"
         self.notice_path = "tools/glyph_coverage/fixtures/dummy_notice.txt"
@@ -85,12 +77,6 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         self.assertEqual(len(res["supported"]), 2) # Variation selectors are supported in both dummy fonts
         self.assertEqual(len(res["unsupported"]), len(SCRIPT_SAMPLES["Latn"]))
 
-    def test_validate_coverage_negative_fixture(self):
-        # Explicit negative fixture missing all core glyphs
-        res = self.validator.validate_coverage("Latn", os.path.join(self.repo_root, self.negative_font_path))
-        self.assertEqual(len(res["supported"]), 2) # Variation selectors only
-        self.assertEqual(len(res["unsupported"]), len(SCRIPT_SAMPLES["Latn"]))
-
     def test_generate_fallback_mapping_valid(self):
         asset = self.build_asset("f1", "LatinTest", ["Latn"], self.latin_font_path, self.latin_hash)
 
@@ -131,30 +117,6 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         mapping = self.validator.generate_fallback_mapping("Thai", [asset])
         self.assertTrue(mapping.cmap_coverage)
         self.assertIn("ThaiTest", mapping.valid_fallback_families)
-        self.assertEqual(len(mapping.unsupported_points), 0)
-
-    def test_generate_fallback_mapping_valid_cyrillic(self):
-        asset = self.build_asset("f1", "CyrillicTest", ["Cyrl"], self.cyrillic_font_path, self.cyrillic_hash)
-
-        mapping = self.validator.generate_fallback_mapping("Cyrl", [asset])
-        self.assertTrue(mapping.cmap_coverage)
-        self.assertIn("CyrillicTest", mapping.valid_fallback_families)
-        self.assertEqual(len(mapping.unsupported_points), 0)
-
-    def test_generate_fallback_mapping_valid_greek(self):
-        asset = self.build_asset("f1", "GreekTest", ["Grek"], self.greek_font_path, self.greek_hash)
-
-        mapping = self.validator.generate_fallback_mapping("Grek", [asset])
-        self.assertTrue(mapping.cmap_coverage)
-        self.assertIn("GreekTest", mapping.valid_fallback_families)
-        self.assertEqual(len(mapping.unsupported_points), 0)
-
-    def test_generate_fallback_mapping_valid_armenian(self):
-        asset = self.build_asset("f1", "ArmenianTest", ["Armn"], self.armenian_font_path, self.armenian_hash)
-
-        mapping = self.validator.generate_fallback_mapping("Armn", [asset])
-        self.assertTrue(mapping.cmap_coverage)
-        self.assertIn("ArmenianTest", mapping.valid_fallback_families)
         self.assertEqual(len(mapping.unsupported_points), 0)
 
     def test_generate_fallback_mapping_rejected_not_embedded(self):

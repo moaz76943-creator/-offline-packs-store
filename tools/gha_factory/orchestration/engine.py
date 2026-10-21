@@ -68,9 +68,7 @@ def source_gate(t,ctx,registry_sha,root):
         pipeline.route05_source(root,t['source_id'],src['dataset_version'],path,'wiktextract-jsonl')
         report=approved['report'];job=approved['job']
         if report.get('dataset_version')!=src['dataset_version'] or report.get('source_artifact_sha256')!=t['source_sha256']:return 'QUARANTINED'
-        partition_link=approved['folder']/job['path']
-        if partition_link.is_symlink():return 'BLOCKED_SOURCE'
-        partition=partition_link.resolve()
+        partition=(approved['folder']/job['path']).resolve()
         if not partition.is_relative_to(approved['folder'].resolve()) or not partition.is_file():return 'BLOCKED_SOURCE'
         if partition.stat().st_size>40_000_000:return 'BLOCKED_DEPENDENCY'
         if pipeline.digest_file(partition)!=job['sha256']:return 'QUARANTINED'
@@ -219,56 +217,26 @@ def execute(api,n,task_id,run_id,attempt,directory,root,now):
     temp.replace(directory/'receipt.json')
     return r
 
-class FinalizationError(ValueError):
-    """One or more tasks failed validation; independent results are durable."""
-    def __init__(self, results, errors):
-        super().__init__('one or more worker receipts could not be finalized')
-        self.results = results
-        self.errors = errors
-
-
-def _finalize_job(api,job,folder,run_id,attempt,now):
-    n=job['number'];issue=api.one(n)
-    if not trusted(issue):raise ValueError('untrusted finalization issue')
-    t=p.parse(issue['body'])
-    if t['task_id']!=job['task_id'] or t['run_id']!=run_id or t['run_attempt']!=attempt:raise ValueError('changed ownership')
-    directory=folder/f'dispatcher-{n}'
-    # Never read a receipt or candidate through an extracted directory link.
-    if directory.is_symlink() or directory.resolve().parent!=folder.resolve():
-        raise ValueError('unsafe receipt directory')
-    path=directory/'receipt.json'
-    if path.is_symlink():raise ValueError('unsafe receipt')
-    if path.is_file():
-        if path.stat().st_size>4096:raise ValueError('oversized receipt')
-        r=json.loads(path.read_text())
-        if not isinstance(r, dict):
-            raise ValueError('receipt must be a JSON object')
-        p.verify_output(directory,r)
-        updated=p.finish(t,r,now)
-    else:
-        if t['state'] not in p.ACTIVE:raise ValueError('missing receipt for completed task')
-        updated=p.fail(t,now)
-    if updated!=t:api.update(n,updated)
-    return {'issue':n,'state':updated['state'],'task_id':t['task_id'],'run_id':run_id,'run_attempt':attempt}
-
-
 def finalize(api,jobs,folder,run_id,attempt,now):
     if not isinstance(jobs,list) or len(jobs)>3:raise ValueError('invalid matrix')
-    if folder.is_symlink():raise ValueError('unsafe artifact root')
     run=api.run(run_id)
     if run.get('id')!=run_id or run.get('run_attempt')!=attempt or run.get('head_branch')!='main' or run.get('path')!=WORKFLOW:raise ValueError('unverified run identity')
-    # Reject an invalid matrix before performing any mutation. Receipt failures
-    # below are per-task, while run identity remains a global security gate.
+    done=[]
     for job in jobs:
         if not isinstance(job,dict) or set(job)!={'number','task_id'} or type(job['number']) is not int or job['number']<=0 or not v1.HEX.fullmatch(str(job['task_id'])):raise ValueError('invalid matrix item')
-    done=[];errors=[]
-    for job in jobs:
-        try:
-            done.append(_finalize_job(api,job,folder,run_id,attempt,now))
-        except (OSError,ValueError,TypeError,KeyError) as exc:
-            # Do not accept invalid/replayed receipts, release their leases, or
-            # expose artifact contents. Continue finalizing independent tasks.
-            errors.append({'issue':job['number'],'task_id':job['task_id'],
-                           'error':'FINALIZATION_REJECTED','category':type(exc).__name__})
-    if errors:raise FinalizationError(done,errors)
+        n=job['number'];issue=api.one(n)
+        if not trusted(issue):raise ValueError('untrusted finalization issue')
+        t=p.parse(issue['body'])
+        if t['task_id']!=job['task_id'] or t['run_id']!=run_id or t['run_attempt']!=attempt:raise ValueError('changed ownership')
+        directory=folder/f'dispatcher-{n}';path=directory/'receipt.json'
+        if path.is_symlink():raise ValueError('unsafe receipt')
+        if path.is_file():
+            if path.stat().st_size>4096:raise ValueError('oversized receipt')
+            r=json.loads(path.read_text());p.verify_output(directory,r)
+            updated=p.finish(t,r,now)
+        else:
+            if t['state'] not in p.ACTIVE:raise ValueError('missing receipt for completed task')
+            updated=p.fail(t,now)
+        if updated!=t:api.update(n,updated)
+        done.append({'issue':n,'state':updated['state'],'task_id':t['task_id'],'run_id':run_id,'run_attempt':attempt})
     return done

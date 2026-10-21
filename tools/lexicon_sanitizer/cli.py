@@ -10,7 +10,6 @@ def get_record_hash(record_str: str) -> str:
     """Returns the SHA-256 hash of the record string."""
     return hashlib.sha256(record_str.encode('utf-8')).hexdigest()
 
-# streaming validation CLI
 def process_stream(
     input_stream: TextIO,
     accept_stream: TextIO,

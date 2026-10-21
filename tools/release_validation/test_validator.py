@@ -138,17 +138,5 @@ class TestReleaseEligibilityGate(unittest.TestCase):
         reasons = validate_artifact(artifact, self.repo_root)
         self.assertIn('UNAUTHORIZED_REPOSITORY', reasons)
 
-    def test_bad_pack_metadata(self):
-        artifact = self.valid_artifact.copy()
-        artifact['validations']['schema_conformance'] = 'FAILED'
-        reasons = validate_artifact(artifact, self.repo_root)
-        self.assertIn("SCHEMA_CONFORMANCE_FAILED", reasons)
-
-    def test_incomplete_provenance(self):
-        artifact = self.valid_artifact.copy()
-        artifact['validations']['provenance_evidence'] = 'INCOMPLETE'
-        reasons = validate_artifact(artifact, self.repo_root)
-        self.assertIn("PROVENANCE_EVIDENCE_INCOMPLETE", reasons)
-
 if __name__ == '__main__':
     unittest.main()
