@@ -1,5 +1,19 @@
 {
   "language": "en",
+  "quarantined_rows": [
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0004",
+      "retrieval_date": "2026-10-21",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "***"
+    }
+  ],
   "retrieval_date": "2026-10-21",
   "rows": [
     {
@@ -37,18 +51,6 @@
       "source_id": "universal-dependencies",
       "status": "keep",
       "text": "Bush nominated Jennifer M. Anderson for a 15-year term as associate judge of the Superior Court of the District of Columbia, replacing Steffen W. Graae."
-    },
-    {
-      "language": "en",
-      "license_id": "CC-BY-SA-4.0",
-      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
-      "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0004",
-      "retrieval_date": "2026-10-21",
-      "section": "grammar",
-      "sentence_slot": "sentence.statement",
-      "source_id": "universal-dependencies",
-      "status": "keep",
-      "text": "***"
     },
     {
       "language": "en",
@@ -145,6 +147,18 @@
       "source_id": "universal-dependencies",
       "status": "keep",
       "text": "The US lost yet another helicopter to hostile fire near Habbaniyah in the Sunni heartland, but this time the crew was safe."
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0003",
+      "retrieval_date": "2026-10-21",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In Fallujah, hundreds of demonstrators came out against US troops when they briefly arrested a yound newlywed bride."
     }
   ],
   "schema_version": "1.0.0",
