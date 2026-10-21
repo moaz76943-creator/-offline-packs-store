@@ -22,32 +22,45 @@ def compute_sha256(filepath, chunk_size=65536):
             hasher.update(chunk)
     return hasher.hexdigest()
 
+MAX_JSON_BYTES = 100 * 1024 * 1024
+MAX_VCT_BYTES = 2048
+MAX_VCT_JSON_BYTES = 65536
+
+
 def bounded_json_parse(filepath):
-    # Bound memory by only loading the file string if it's not massive,
-    # or by checking size first. The requirement: "Bound parsing memory and manifest size."
-    # We will use ijson if available or manually bound string length.
-    # Since we can't assume ijson, we can read chunks and look for specific patterns, or just read the first N KB.
-    # We actually need to count entries if required. Let's just limit the data we load or validate size.
-    # Actually, json parsing can just be protected by max size limit.
-    max_size = 100 * 1024 * 1024 # 100MB bound
+    # Bound *decompressed* input before the JSON parser allocates objects.
     size = os.path.getsize(filepath)
-    if size > max_size:
-        raise ValueError("File too large for memory-bounded parsing")
+    if size > MAX_JSON_BYTES:
+        raise ValueError('Compressed artifact exceeds input limit')
 
     if str(filepath).endswith('.pack.gz'):
-        with gzip.open(filepath, 'rt', encoding='utf-8') as f:
-            data = json.load(f)
+        with gzip.open(filepath, 'rb') as stream:
+            payload = stream.read(MAX_JSON_BYTES + 1)
+        if len(payload) > MAX_JSON_BYTES:
+            raise ValueError('Decompressed pack exceeds input limit')
     elif str(filepath).endswith('.vct'):
-        with open(filepath, 'rb') as f:
-            raw = f.read(2048) # vct is under 2048 bytes
-            try:
-                decoded = zlib.decompress(raw)
-                data = json.loads(decoded)
-            except Exception:
-                data = {}
+        if size > MAX_VCT_BYTES:
+            raise ValueError('VCT exceeds compressed input limit')
+        with open(filepath, 'rb') as stream:
+            raw = stream.read(MAX_VCT_BYTES + 1)
+        try:
+            decompressor = zlib.decompressobj()
+            payload = decompressor.decompress(raw, MAX_VCT_JSON_BYTES + 1)
+            if (len(payload) > MAX_VCT_JSON_BYTES or
+                    not decompressor.eof or decompressor.unused_data or
+                    decompressor.unconsumed_tail):
+                raise ValueError('Invalid or decompressed-overlimit VCT')
+        except zlib.error as exc:
+            raise ValueError('Invalid VCT compression') from exc
     else:
-        raise ValueError(f"Unsupported file type: {filepath}")
+        raise ValueError(f'Unsupported file type: {filepath}')
 
+    try:
+        data = json.loads(payload)
+    except (ValueError, UnicodeDecodeError) as exc:
+        raise ValueError('Invalid JSON artifact') from exc
+    if not isinstance(data, dict):
+        raise ValueError('Pack metadata must be a JSON object')
     return data
 
 def extract_metadata(filepath):
@@ -122,6 +135,8 @@ def build_manifest(base_dir, file_paths, output_manifest_path):
         sha256 = compute_sha256(target)
 
         pack_id = meta['pack_id']
+        if pack_id in manifest['packs']:
+            raise ValueError(f"Duplicate pack identity: {pack_id}")
         manifest['packs'][pack_id] = {
             'path': str(rel_path),
             'version': meta['version'],
