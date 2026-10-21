@@ -1,5 +1,6 @@
 """Deterministic Open FTS5 Index Builder."""
 import argparse
+import json
 import os
 import shutil
 import sqlite3
@@ -14,10 +15,10 @@ class IndexBuilderError(ValueError):
 
 def get_tokenizer_for_language(language):
     # CJK and Thai -> trigram
-    if language in ('zho', 'jpn', 'tha', 'kor'):
+    if language in ('zh', 'ja', 'th', 'ko', 'zho', 'jpn', 'tha', 'kor'):
         return 'trigram'
     # Arabic/Hebrew -> unicode61 remove_diacritics 2
-    if language in ('ara', 'heb', 'fas', 'urd'):
+    if language in ('ar', 'he', 'fa', 'ur', 'ara', 'heb', 'fas', 'urd'):
         return 'unicode61 remove_diacritics 2'
     # Default -> unicode61 remove_diacritics 0
     return 'unicode61 remove_diacritics 0'
@@ -78,8 +79,15 @@ def build_index(db_path):
             for lexeme_id, text in db.execute('SELECT s.lexeme_id, t.text FROM senses s JOIN translations t ON t.from_sense_id=s.sense_id'):
                 outbound.setdefault(lexeme_id, []).append(text)
 
-            lexicon = db.execute('SELECT rowid, id, surface, lemma, language_code FROM lexicon')
-            for r_rowid, r_id, r_surface, r_lemma, r_lang in lexicon:
+            lexicon = db.execute('SELECT rowid, id, surface, fields_json, language_code FROM lexicon')
+            for r_rowid, r_id, r_surface, r_fields, r_lang in lexicon:
+                try:
+                    fields = json.loads(r_fields)
+                except (TypeError, ValueError) as exc:
+                    raise IndexBuilderError('Invalid lexicon fields_json') from exc
+                r_lemma = fields.get('lemma') if isinstance(fields, dict) else None
+                if not isinstance(r_lemma, str) or not r_lemma.strip():
+                    raise IndexBuilderError('Missing or invalid lemma in fields_json')
                 gloss_parts = definitions.get(r_id, []) + outbound.get(r_id, [])
                 gloss = ' '.join(sorted(set(gloss_parts)))
                 db.execute('INSERT INTO lexicon_fts(rowid, surface, lemma, gloss, language_code) VALUES(?, ?, ?, ?, ?)',
@@ -95,11 +103,27 @@ def build_index(db_path):
                 raise IndexBuilderError('FTS5 row count mismatch')
 
             # Test MATCH
-            sample_word = db.execute('SELECT surface FROM lexicon ORDER BY id LIMIT 1').fetchone()
+            # The trigram tokenizer indexes no one- or two-character terms.
+            # Do not reject an otherwise valid CJK pack for a short first entry.
+            sample_word = db.execute(
+                'SELECT rowid, surface FROM lexicon ORDER BY id').fetchall()
             if sample_word:
-                query = '"' + sample_word[0].replace('"', '""') + '"'
-                if not db.execute('SELECT 1 FROM lexicon_fts WHERE lexicon_fts MATCH ? LIMIT 1', (query,)).fetchone():
-                    raise IndexBuilderError('FTS5 representative MATCH smoke test failed')
+                candidate = next(
+                    ((rowid, word) for rowid, word in sample_word
+                     if tokenizer != 'trigram' or len(word) >= 3), None)
+                if candidate is not None:
+                    query = '"' + candidate[1].replace('"', '""') + '"'
+                    if not db.execute(
+                        'SELECT 1 FROM lexicon_fts WHERE lexicon_fts MATCH ? LIMIT 1',
+                        (query,)).fetchone():
+                        raise IndexBuilderError('FTS5 representative MATCH smoke test failed')
+                elif tokenizer == 'trigram':
+                    # No indexable trigram exists; verify all short rows were
+                    # staged and integrity-check already passed above.
+                    if not db.execute(
+                        'SELECT 1 FROM lexicon_fts WHERE rowid=?', (sample_word[0][0],)
+                    ).fetchone():
+                        raise IndexBuilderError('FTS5 short-token row missing')
 
             db.commit()
 
