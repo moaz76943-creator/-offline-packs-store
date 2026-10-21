@@ -140,10 +140,14 @@ def tatoeba_sample(code, limit=12):
         f'{code}/{code}_sentences_detailed.tsv.bz2'
     )
     raw = fetch_bytes(url, timeout=40, max_bytes=1_500_000)
-    try:
-        text = bz2.decompress(raw).decode('utf-8', 'replace')
-    except OSError:
-        text = bz2.BZ2Decompressor().decompress(raw).decode('utf-8', 'replace')
+    # The download is intentionally capped: its BZip2 end marker may be
+    # outside the prefix. Incremental decompression accepts those prefixes
+    # without treating a normal bounded sample as corrupt.
+    decoder = bz2.BZ2Decompressor()
+    text = decoder.decompress(raw, max_length=2_000_000).decode('utf-8', 'replace')
+    # A non-final prefix can end mid-row; never publish that truncated row.
+    if not decoder.eof and not text.endswith('\n'):
+        text = text.rsplit('\n', 1)[0] if '\n' in text else ''
     rows = []
     for line in text.splitlines():
         parts = line.split('\t')
