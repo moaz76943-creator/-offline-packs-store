@@ -4,6 +4,7 @@ import json
 import sqlite3
 import hashlib
 from pathlib import Path
+from unittest.mock import patch
 import os
 import sys
 
@@ -58,6 +59,47 @@ class TestReproBuilder(unittest.TestCase):
 
         self.output_dir = self.root / "output"
         self.output_dir.mkdir()
+
+    def test_registry_resolves_from_repo_root_when_cwd_differs(self):
+        elsewhere = self.root / 'elsewhere'
+        elsewhere.mkdir()
+        old_cwd = Path.cwd()
+        try:
+            os.chdir(elsewhere)
+            result = self.builder.build(self.manifest_path, self.output_dir,
+                                        fixture_only=True)
+            self.assertTrue(result.exists())
+        finally:
+            os.chdir(old_cwd)
+
+    def test_source_mutated_after_hash_cannot_change_compiled_document(self):
+        # The old implementation hashes once and opens the mutable path again.
+        # Mutate between those operations; only pinned bytes may be compiled.
+        original_hash = self.builder.sha256_file
+        def mutate_after_hash(path):
+            value = original_hash(path)
+            if Path(path) == self.source_path:
+                self.source_path.write_text('{}', encoding='utf-8')
+            return value
+        self.manifest['source_sha256'] = original_hash(self.source_path)
+        self.manifest_path.write_text(json.dumps(self.manifest))
+        with patch.object(self.builder, 'sha256_file', side_effect=mutate_after_hash):
+            result = self.builder.build(self.manifest_path, self.output_dir,
+                                        fixture_only=True)
+        self.assertTrue(result.exists())
+
+    def test_staging_directory_is_on_output_filesystem(self):
+        real_temp = tempfile.TemporaryDirectory
+        observed = []
+        def track(*args, **kwargs):
+            observed.append(kwargs.get('dir'))
+            return real_temp(*args, **kwargs)
+        with patch('tools.repro_build.compiler.tempfile.TemporaryDirectory',
+                   side_effect=track):
+            output = self.builder.build(self.manifest_path, self.output_dir,
+                                        fixture_only=True)
+        self.assertTrue(output.exists())
+        self.assertEqual(observed, [self.output_dir])
 
     def test_build_success(self):
         out_path = self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
