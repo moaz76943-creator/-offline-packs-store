@@ -206,17 +206,15 @@ class SemiticContractTests(unittest.TestCase):
                     self.assertEqual(2, result['total_analyses'])
 
     def test_missing_and_explicit_empty_optional_lists_share_analysis(self):
-        other = deepcopy(self.ar)
+        canonical = deepcopy(self.am)
+        other = deepcopy(self.am)
         for name in ('processes', 'components', 'segmentation', 'morphemes'):
             other['record'][name] = []
-        # Keep all required locators intact. The two forms are semantically
-        # the same even though the optional field representation differs.
-        canonical = deepcopy(self.ar)
-        canonical['record'].pop('processes', None)
+        # Same linguistic form, different optional default representation.
         output = self.root / 'optional-empty.jsonl'
         output.write_text(''.join(json.dumps(x, ensure_ascii=False) + '\n'
                                   for x in (canonical, other)), encoding='utf-8')
-        result = lookup(output, self.root, 'ar', self.ar['record']['form'])
+        result = lookup(output, self.root, 'am', self.am['record']['form'])
         self.assertEqual('attested', result['status'])
         self.assertEqual(1, result['total_analyses'])
 
