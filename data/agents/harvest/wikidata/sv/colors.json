@@ -1,0 +1,47 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-10-21",
+  "rows": [
+    {
+      "concept_id": "concept.q71404162",
+      "forms": [
+        "ljusbrun",
+        "ljusbrunt",
+        "ljusbrune",
+        "ljusbruna",
+        "ljusbruna"
+      ],
+      "language": "sv",
+      "lemma": "ljusbrun",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L56203",
+      "pos": "",
+      "qids": [
+        "Q71404162"
+      ],
+      "record_id": "L56203",
+      "retrieval_date": "2026-10-21",
+      "revision": "2483603317",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L56203-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q71404162"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "colors",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1324818"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q797446"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
