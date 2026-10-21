@@ -133,6 +133,40 @@ class TestPackManifestBuilder(unittest.TestCase):
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
         self.assertEqual(plan['unchanged'], ['af'])
 
+    def test_small_compressed_bomb_exceeding_limit_is_rejected(self):
+        from unittest.mock import patch
+        from tools.pack_manifest.builder import bounded_json_parse
+        path = self.base_dir / "bomb.pack.gz"
+        with gzip.open(path, 'wb') as output:
+            output.write(b'A' * 8192)
+        # Low bound makes the memory attack deterministic and cheap in CI.
+        with patch("tools.pack_manifest.builder.MAX_JSON_BYTES", 1024):
+            with self.assertRaises(ValueError):
+                bounded_json_parse(path)
+
+    def test_invalid_or_oversized_vct_is_rejected(self):
+        from tools.pack_manifest.builder import bounded_json_parse
+        bad = self.base_dir / "invalid.vct"
+        for payload in (b'invalid compressed data', zlib.compress(b'x' * 65537),
+                        b'\x00' * 2050):
+            with self.subTest(payload_bytes=len(payload)):
+                bad.write_bytes(payload)
+                with self.assertRaises(ValueError):
+                    bounded_json_parse(bad)
+
+    def test_colliding_pack_ids_abort_without_overwriting_manifest(self):
+        other = self.base_dir / "duplicate.pack.gz"
+        with gzip.open(other, 'wt', encoding='utf-8') as output:
+            json.dump({"lang_code": "af", "terms_count": 1,
+                       "vocabulary": ["word"], "license": "CC0-1.0"}, output)
+        target = self.base_dir / "manifest.json"
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(target))
+        original = target.read_bytes()
+        with self.assertRaisesRegex(ValueError, 'Duplicate pack identity'):
+            build_manifest(self.base_dir, ["pack1.pack.gz", "duplicate.pack.gz"],
+                           str(target))
+        self.assertEqual(target.read_bytes(), original)
+
     def test_preserve_manifest_on_failure(self):
         manifest_path = self.base_dir / "manifest.json"
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(manifest_path))
