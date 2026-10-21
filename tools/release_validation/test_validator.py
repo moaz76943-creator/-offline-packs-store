@@ -27,7 +27,9 @@ class TestReleaseEligibilityGate(unittest.TestCase):
                 "schema_conformance": "PASSED",
                 "format_conformance": "PASSED",
                 "provenance_evidence": "PASSED",
-                "attribution_evidence": "PASSED"
+                "attribution_evidence": "PASSED",
+                "sqlite_v2": "PASSED",
+                "asset_integrity": "PASSED"
             }
         }
 
@@ -79,6 +81,18 @@ class TestReleaseEligibilityGate(unittest.TestCase):
         del artifact['validations']['schema_conformance']
         reasons = validate_artifact(artifact, self.repo_root)
         self.assertIn("SCHEMA_CONFORMANCE_NOT_RUN", reasons)
+
+    def test_missing_sqlite_v2(self):
+        artifact = self.valid_artifact.copy()
+        del artifact['validations']['sqlite_v2']
+        reasons = validate_artifact(artifact, self.repo_root)
+        self.assertIn("SQLITE_V2_NOT_RUN", reasons)
+
+    def test_missing_asset_integrity(self):
+        artifact = self.valid_artifact.copy()
+        del artifact['validations']['asset_integrity']
+        reasons = validate_artifact(artifact, self.repo_root)
+        self.assertIn("ASSET_INTEGRITY_NOT_RUN", reasons)
 
     def test_failed_validation(self):
         artifact = self.valid_artifact.copy()
