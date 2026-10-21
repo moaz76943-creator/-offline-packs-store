@@ -1714,6 +1714,96 @@
       "wikidata": "Q16868715"
     },
     {
+      "concept_id": "concept.q104602745",
+      "forms": [
+        "disdain",
+        "disdains"
+      ],
+      "language": "en",
+      "lemma": "disdain",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L269505",
+      "pos": "",
+      "qids": [
+        "Q104602745"
+      ],
+      "record_id": "L269505",
+      "retrieval_date": "2026-10-21",
+      "revision": "2551518921",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L269505-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q104602745"
+    },
+    {
+      "concept_id": "concept.q988842",
+      "forms": [
+        "coldness",
+        "coldnesses"
+      ],
+      "language": "en",
+      "lemma": "coldness",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L318302",
+      "pos": "",
+      "qids": [
+        "Q988842"
+      ],
+      "record_id": "L318302",
+      "retrieval_date": "2026-10-21",
+      "revision": "2551543771",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L318302-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q988842"
+    },
+    {
+      "concept_id": "concept.q104776527",
+      "forms": [
+        "glumness",
+        "glumnesses"
+      ],
+      "language": "en",
+      "lemma": "glumness",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L321296",
+      "pos": "",
+      "qids": [
+        "Q104776527"
+      ],
+      "record_id": "L321296",
+      "retrieval_date": "2026-10-21",
+      "revision": "2498882926",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L321296-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q104776527"
+    },
+    {
       "concept_id": "concept.q2941309",
       "forms": [
         "blackcurrant",
@@ -2422,6 +2512,42 @@
       "wikidata": "Q430"
     },
     {
+      "concept_id": "concept.q2826051",
+      "forms": [
+        "afektibitate",
+        "afektibitatea",
+        "afektibitateak",
+        "afektibitatek",
+        "afektibitateak",
+        "afektibitateek",
+        "afektibitateri",
+        "afektibitateari"
+      ],
+      "language": "eu",
+      "lemma": "afektibitate",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L50723",
+      "pos": "",
+      "qids": [
+        "Q2826051"
+      ],
+      "record_id": "L50723",
+      "retrieval_date": "2026-10-21",
+      "revision": "1354677224",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L50723-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q2826051"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "cheval",
@@ -3032,6 +3158,36 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q5148721"
+    },
+    {
+      "concept_id": "concept.q2826051",
+      "forms": [
+        "affettività",
+        "affettività"
+      ],
+      "language": "it",
+      "lemma": "affettività",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1257128",
+      "pos": "",
+      "qids": [
+        "Q2826051"
+      ],
+      "record_id": "L1257128",
+      "retrieval_date": "2026-10-21",
+      "revision": "2325866428",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1257128-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q2826051"
     },
     {
       "concept_id": "concept.q12106",
