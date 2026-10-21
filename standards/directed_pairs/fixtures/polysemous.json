@@ -1,0 +1,52 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc-polysemous-001",
+  "translations": [
+    {
+      "translation_id": "trans-poly-1",
+      "source_language": "en",
+      "target_language": "es",
+      "source_sense_id": "sense-bank-financial",
+      "target_sense_id": "sense-banco",
+      "target_text": "banco",
+      "equivalence": "exact",
+      "domain": "finance",
+      "context": "financial institution",
+      "source": {
+        "source_id": "src-wiktionary",
+        "origin_url": "https://en.wiktionary.org",
+        "publisher": "Wikimedia",
+        "dataset_version": "2023.10",
+        "retrieval_id": "ret-2023",
+        "license_id": "CC-BY-SA-4.0",
+        "record_locator": "loc-1",
+        "publication_approved": true,
+        "fixture_only": true,
+        "confidence": 0.95
+      }
+    },
+    {
+      "translation_id": "trans-poly-2",
+      "source_language": "en",
+      "target_language": "es",
+      "source_sense_id": "sense-bank-river",
+      "target_sense_id": "sense-orilla",
+      "target_text": "orilla",
+      "equivalence": "exact",
+      "domain": "geography",
+      "context": "side of a river",
+      "source": {
+        "source_id": "src-wiktionary",
+        "origin_url": "https://en.wiktionary.org",
+        "publisher": "Wikimedia",
+        "dataset_version": "2023.10",
+        "retrieval_id": "ret-2023",
+        "license_id": "CC-BY-SA-4.0",
+        "record_locator": "loc-2",
+        "publication_approved": true,
+        "fixture_only": true,
+        "confidence": 0.95
+      }
+    }
+  ]
+}

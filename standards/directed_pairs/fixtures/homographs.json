@@ -1,0 +1,50 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc-homographs-001",
+  "translations": [
+    {
+      "translation_id": "trans-homo-1",
+      "source_language": "en",
+      "target_language": "fr",
+      "source_sense_id": "sense-lead-metal",
+      "target_sense_id": "sense-plomb",
+      "target_text": "plomb",
+      "equivalence": "exact",
+      "domain": "chemistry",
+      "source": {
+        "source_id": "src-wiktionary",
+        "origin_url": "https://en.wiktionary.org",
+        "publisher": "Wikimedia",
+        "dataset_version": "2023.10",
+        "retrieval_id": "ret-2023",
+        "license_id": "CC-BY-SA-4.0",
+        "record_locator": "loc-3",
+        "publication_approved": true,
+        "fixture_only": true,
+        "confidence": 0.98
+      }
+    },
+    {
+      "translation_id": "trans-homo-2",
+      "source_language": "en",
+      "target_language": "fr",
+      "source_sense_id": "sense-lead-guide",
+      "target_sense_id": "sense-mener",
+      "target_text": "mener",
+      "equivalence": "exact",
+      "domain": "general",
+      "source": {
+        "source_id": "src-wiktionary",
+        "origin_url": "https://en.wiktionary.org",
+        "publisher": "Wikimedia",
+        "dataset_version": "2023.10",
+        "retrieval_id": "ret-2023",
+        "license_id": "CC-BY-SA-4.0",
+        "record_locator": "loc-4",
+        "publication_approved": true,
+        "fixture_only": true,
+        "confidence": 0.92
+      }
+    }
+  ]
+}
