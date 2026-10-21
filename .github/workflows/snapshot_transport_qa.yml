@@ -6,6 +6,10 @@ on:
       - '.github/workflows/snapshot_transport_qa.yml'
       - 'tools/factory_extensions/snapshot_transport/**'
       - 'tests/factory_extensions/snapshot_transport/**'
+      - 'tools/gha_factory/admission/**'
+      - 'legal/ledger/sources.json'
+      - 'catalog/language_registry.v1.json'
+      - 'legal/ledger/license_notice.py'
 permissions:
   contents: read
 concurrency:
