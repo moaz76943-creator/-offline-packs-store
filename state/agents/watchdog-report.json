@@ -1,6 +1,7 @@
 {
   "degraded": [
     "harvest-kaikki",
+    "harvest-tatoeba",
     "legal",
     "qa"
   ],
