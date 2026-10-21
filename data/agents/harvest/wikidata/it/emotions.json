@@ -1,0 +1,44 @@
+{
+  "language": "it",
+  "retrieval_date": "2026-10-21",
+  "rows": [
+    {
+      "concept_id": "concept.q2826051",
+      "forms": [
+        "affettività",
+        "affettività"
+      ],
+      "language": "it",
+      "lemma": "affettività",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1257128",
+      "pos": "",
+      "qids": [
+        "Q2826051"
+      ],
+      "record_id": "L1257128",
+      "retrieval_date": "2026-10-21",
+      "revision": "2325866428",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1257128-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q2826051"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "emotions",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16572092"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1681455"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

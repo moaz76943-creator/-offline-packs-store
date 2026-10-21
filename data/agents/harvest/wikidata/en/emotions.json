@@ -99,6 +99,81 @@
       "status": "keep",
       "subsection": "emotions.q9415",
       "wikidata": "Q16868715"
+    },
+    {
+      "concept_id": "concept.q104602745",
+      "forms": [
+        "disdain",
+        "disdains"
+      ],
+      "language": "en",
+      "lemma": "disdain",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L269505",
+      "pos": "",
+      "qids": [
+        "Q104602745"
+      ],
+      "record_id": "L269505",
+      "retrieval_date": "2026-10-21",
+      "revision": "2551518921",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L269505-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q104602745"
+    },
+    {
+      "concept_id": "concept.q988842",
+      "forms": [
+        "coldness",
+        "coldnesses"
+      ],
+      "language": "en",
+      "lemma": "coldness",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L318302",
+      "pos": "",
+      "qids": [
+        "Q988842"
+      ],
+      "record_id": "L318302",
+      "retrieval_date": "2026-10-21",
+      "revision": "2551543771",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L318302-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q988842"
+    },
+    {
+      "concept_id": "concept.q104776527",
+      "forms": [
+        "glumness",
+        "glumnesses"
+      ],
+      "language": "en",
+      "lemma": "glumness",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L321296",
+      "pos": "",
+      "qids": [
+        "Q104776527"
+      ],
+      "record_id": "L321296",
+      "retrieval_date": "2026-10-21",
+      "revision": "2498882926",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L321296-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q104776527"
     }
   ],
   "schema_version": "1.0.0",
@@ -106,11 +181,11 @@
   "skipped": [
     {
       "reason": "HTTPError",
-      "wikidata": "Q10923556"
+      "wikidata": "Q16572092"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q2563496"
+      "wikidata": "Q1681455"
     }
   ],
   "source": "harvest-wikidata"
