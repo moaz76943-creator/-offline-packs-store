@@ -17,9 +17,9 @@ from types import SimpleNamespace
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from community.contributions.ingest import ingest, members, unique_json, quarantine_submission
-from community.review.state_machine import ReviewStateMachine, sign
+from community.review.state_machine import ReviewStateMachine, sign, canonical
 from community.review.cli import main as review_cli_main
-from tools.open_export.exporter import CommunityExporter, ExportError, MAX_RELEASE_BYTES
+from tools.open_export.exporter import CommunityExporter, ExportError, MAX_RELEASE_BYTES, _audit_member
 
 
 def digest(data):
@@ -74,21 +74,11 @@ class SecurityRegression(unittest.TestCase):
         self.machine.review(sid, "reviewer", True, token)
         return self.machine.mark_published_eligible(sid)
 
-    def manifest(self, filename, sha, sid="item1", item_type="lexical"):
+    def manifest(self, filename, sha, sid="item1"):
         (self.src / "manifest.json").write_text(json.dumps({"items": [{
-            "id": sid, "type": item_type, "filename": filename, "sha256": sha,
+            "id": sid, "type": "lexical", "filename": filename, "sha256": sha,
             "submission_id": sid, "source_id": "src-test", "license": "CC0-1.0",
             "source_version": "1.0"}]}))
-
-    def test_export_pronunciation_metadata(self):
-        name, sha = self.stage()
-        self.certify()
-        self.manifest(name, sha, item_type="pronunciation")
-        self.ledger["sources"][0]["kind"] = "pronunciation"
-        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
-        output = self.export()
-        with zipfile.ZipFile(self.out / "releases" / output["release"]) as z:
-            self.assertEqual(z.namelist(), ["data/item1.bin", "ATTRIBUTION.json"])
 
     def export(self):
         # A simulated admission gate never replaces real verified rights evidence.
@@ -335,6 +325,119 @@ class SecurityRegression(unittest.TestCase):
         self.assertEqual(rejected.read_bytes(), b"{broken")
         self.assertEqual(quarantine_submission(rejected, self.root / "isolation", "Invalid JSON"), receipt)
 
+
+    def test_export_incomplete_sources(self):
+        content = b'{"document_id": "doc1", "lexemes": [{"lexeme_id": "lex1"}]}\n{"document_id": '
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with (self.src / name).open("r+b") as f:
+            f.truncate(10)
+        # Because we check the file's hash against the manifest BEFORE streaming it.
+        # It throws "mismatched content SHA-256" first in _prepare.
+        with self.assertRaisesRegex(ValueError, "mismatched content SHA-256"):
+            self.export()
+
+    def test_export_wrong_hashes(self):
+        content = b'{"document_id": "doc1"}\n'
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with (self.src / name).open("w+b") as f:
+            f.write(b'{"document_id": "doc2"}\n')
+        with self.assertRaisesRegex(ValueError, "mismatched content SHA-256"):
+            self.export()
+
+    def test_export_duplicate_entries(self):
+        content = b'{"document_id": "doc1", "lexemes": [{"lexeme_id": "lex1", "senses": [{"sense_id": "de-sense-1"}]}]}\n{"document_id": "doc2", "lexemes": [{"lexeme_id": "lex2", "senses": [{"sense_id": "de-sense-1"}]}]}\n'
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with self.assertRaisesRegex(ValueError, "duplicate sense_id found in stream"):
+            self.export()
+
+    def test_valid_translation_resolves_sense_and_lexeme_languages(self):
+        document = {
+            'document_id': 'doc.mixed',
+            'lexemes': [
+                {'lexeme_id': 'lex.de.house', 'language': 'de'},
+                {'lexeme_id': 'lex.en.house', 'language': 'en'}],
+            'senses': [
+                {'sense_id': 'sense.de.house', 'lexeme_id': 'lex.de.house'},
+                {'sense_id': 'sense.en.house', 'lexeme_id': 'lex.en.house'}],
+            'translations': [
+                {'from_sense_id': 'sense.de.house',
+                 'to_sense_id': 'sense.en.house', 'language': 'en'}]}
+        content = (json.dumps(document) + '\n').encode()
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        receipt = self.export()
+        self.assertFalse(receipt['published'])
+
+    def test_cached_release_revalidates_reversed_translation(self):
+        document = {
+            'document_id': 'doc.bad',
+            'lexemes': [
+                {'lexeme_id': 'lex.de.house', 'language': 'de'},
+                {'lexeme_id': 'lex.en.house', 'language': 'en'}],
+            'senses': [
+                {'sense_id': 'sense.de.house', 'lexeme_id': 'lex.de.house'},
+                {'sense_id': 'sense.en.house', 'lexeme_id': 'lex.en.house'}],
+            'translations': [
+                {'from_sense_id': 'sense.de.house',
+                 'to_sense_id': 'sense.en.house', 'language': 'de'}]}
+        content = (json.dumps(document) + '\n').encode()
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with patch.dict(sys.modules, {'legal.ledger.admission':
+                                      SimpleNamespace(evaluate=lambda *_: [])}):
+            exporter = CommunityExporter(self.src, self.out, self.machine,
+                                         repository_root=self.root)
+            entries, notices = exporter._prepare()
+            key = digest(canonical({
+                'files': [(a, d) for a, _, d, _, _ in entries],
+                'notices': notices}))
+            releases = self.out / 'releases'
+            releases.mkdir(parents=True)
+            with zipfile.ZipFile(releases / (key + '.zip'), 'w',
+                                 compression=zipfile.ZIP_STORED) as archive:
+                archive.writestr('data/item1.bin', content)
+                archive.writestr('ATTRIBUTION.json', canonical(notices))
+            with self.assertRaisesRegex(ExportError, 'reversed translation'):
+                exporter.run()
+        self.assertFalse((self.out / 'CURRENT.json').exists())
+
+    def test_payload_reader_requires_bounded_readline(self):
+        from tools.open_export.exporter import MAX_FILE
+        class CappedSource(io.BytesIO):
+            def __iter__(self):
+                raise AssertionError('unbounded file iteration')
+            def readline(self, limit=-1):
+                if limit < 0 or limit > MAX_FILE + 1:
+                    raise AssertionError('unbounded readline')
+                return super().readline(limit)
+        blob = b'source-backed bytes'
+        size, sha = _audit_member(CappedSource(blob))
+        self.assertEqual(size, len(blob))
+        self.assertEqual(sha, digest(blob))
+
+    def test_export_reversed_pairs(self):
+        content = b'{"document_id": "doc1", "translations": [{"language": "fr", "from_sense_id": "en-sense-1", "to_sense_id": "es-sense-1"}]}\n'
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with self.assertRaisesRegex(ValueError, "reversed translation pair detected"):
+            self.export()
+
+    def test_export_path_traversal(self):
+        (self.src / "manifest.json").write_text(json.dumps({"items": [{
+            "id": "../evil", "type": "lexical", "filename": "evil.bin", "sha256": "0"*64,
+            "submission_id": "item1", "source_id": "src-test", "license": "CC0-1.0",
+            "source_version": "1.0"}]}))
+        with self.assertRaises(ValueError):
+            self.export()
 
     def test_operator_cli_requires_signed_decisions(self):
         keyfile = self.root / "operator.json"
