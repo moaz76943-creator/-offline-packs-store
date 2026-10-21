@@ -148,6 +148,9 @@ class TestIngest(unittest.TestCase):
         from standards.lexical.validate import validate as canonical_validate
         self.registry_path.write_text(json.dumps({"states": {"de": {}, "ar": {}}}))
         source = dict(self.valid_doc['lexemes'][0]['source'])
+        source.update(origin_url='https://example.com/fixture',
+                      retrieval_id='fixture:retrieval:1',
+                      publication_approved=False)
         document = {
             'contract_version': '1.0.0', 'document_id': 'fixture.directed',
             'lexemes': [
@@ -169,7 +172,7 @@ class TestIngest(unittest.TestCase):
             'translations': [
                 dict(translation_id='tr.de.ar', from_sense_id='sense.de.one',
                      to_sense_id='sense.ar.one', language='ar', text='بيت',
-                     source=dict(source))
+                     equivalence='exact', source=dict(source))
             ], 'examples': [], 'relations': [],
         }
         # The positive form must satisfy the *real* lexical contract first.
