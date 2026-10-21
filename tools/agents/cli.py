@@ -81,9 +81,11 @@ def command_plan(_args):
 def command_qa(_args):
     if _halt('qa'):
         return 0
-    rows = list(iter_stored_rows(ROOT / 'data' / 'agents'))
+    # Validate every collected source record, not a five-row prefix. The
+    # classified snapshot repeats harvest records and is not a second source.
+    rows = list(iter_stored_rows(ROOT / 'data' / 'agents' / 'harvest'))
     profiles = (load_profiles().get('languages') or [])
-    result = qa_rows(rows, profiles, refetch=None, sample=5)
+    result = qa_rows(rows, profiles, refetch=None, sample=len(rows))
     write_json(_out('state/agents/qa-report.json'), {'schema_version': '1.0.0', **result})
     status = 'failed' if result['problems'] else 'ok'
     write_heartbeat(_out('state/agents'), 'qa', status, '; '.join(result['warnings']))
@@ -119,7 +121,10 @@ def command_legal(_args):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding='utf-8')
     status = 'failed' if report['problems'] else ('degraded' if report['warnings'] else 'ok')
-    write_heartbeat(_out('state/agents'), 'legal', status, '; '.join(report['problems'][:3]))
+    # Degraded legal evidence must surface its reason in the heartbeat, not
+    # appear as a blank warning while packs remain unapproved.
+    reasons = report['problems'] if report['problems'] else report['warnings']
+    write_heartbeat(_out('state/agents'), 'legal', status, '; '.join(reasons[:3]))
     print(json.dumps({'problems': len(report['problems']), 'warnings': len(report['warnings'])}))
     return 1 if report['problems'] else 0
 
@@ -246,6 +251,35 @@ def command_repair(_args):
     if _halt('health'):
         return 0
     signature = _args.signature or 'no-signature'
+    # A green CI run is not proof that independent agent schedules are healthy.
+    from datetime import datetime, timezone
+    from tools.agents.ops import stale_heartbeats
+    snapshots = []
+    folder = ROOT / 'state' / 'agents'
+    known_names = {row['name'] for row in ROSTER}
+    if folder.is_dir():
+        for path in folder.glob('*.json'):
+            payload, warning = load_json_tolerant(path, {'schema_version': '1.0.0'})
+            if not warning and payload.get('name') in known_names:
+                snapshots.append(payload)
+    now = datetime.now(timezone.utc).timestamp()
+    stale = stale_heartbeats(snapshots, now, 8 * 3600)
+    degraded = sorted({
+        row['name'] for row in snapshots
+        if row.get('status') != 'ok' and row.get('name') not in stale
+        and row.get('name') != 'health'  # do not perpetuate yesterday's own alert
+    })
+    health = {
+        'schema_version': '1.0.0',
+        'roster_count': len(ROSTER),
+        'observed_count': len({row['name'] for row in snapshots}),
+        'stale': stale,
+        'degraded': degraded,
+        'failed_github_run': signature != 'no-signature',
+    }
+    write_json(_out('state/agents/health-report.json'), health)
+    health_status = 'degraded' if stale or degraded or health['failed_github_run'] else 'ok'
+    health_warning = f"stale={len(stale)} degraded={len(degraded)} failed_run={int(health['failed_github_run'])}"
     if signature == 'no-signature':
         plan = {
             'schema_version': '1.0.0',
@@ -255,7 +289,7 @@ def command_repair(_args):
             'seen_count': 0,
         }
         write_json(_out('state/agents/repair.json'), plan)
-        write_heartbeat(_out('state/agents'), 'health', 'ok', '')
+        write_heartbeat(_out('state/agents'), 'health', health_status, health_warning)
         print(json.dumps(plan, sort_keys=True))
         return 0
     sid = signature_id(signature)
@@ -284,7 +318,7 @@ def command_repair(_args):
         'action': plan['action'],
         'retries': 0,
     })
-    write_heartbeat(_out('state/agents'), 'health', 'ok', plan['warning'])
+    write_heartbeat(_out('state/agents'), 'health', health_status, health_warning + ('; ' + plan['warning'] if plan['warning'] else ''))
     print(json.dumps(plan, sort_keys=True))
     return 0
 
@@ -305,10 +339,33 @@ def command_harvest(args):
     window = plan.get('window') or []
     sections = {item.get('section') for item in window if isinstance(item, dict)}
     graph = load_graph()
-    concepts = [
+    candidates = [
         row for row in concept_rows(graph)
         if not sections or row.get('section') in sections
-    ][:4]
+    ]
+    # Keep each scheduled source moving across its actual concept inventory.
+    # The existing agents/data checkpoint branch persists these independent
+    # cursors; none changes readiness, licensing or the release manifest.
+    cursor_path = f'state/agents/{name}-cursor.json'
+    cursor, cursor_warning = load_json_tolerant(
+        ROOT / cursor_path,
+        {'schema_version': '1.0.0', 'next_index': 0},
+    )
+    if name == 'harvest-tatoeba':
+        from tools.agents.harvest import TATOEBA_CODES
+        # Tatoeba is a sentence corpus, not a Wikidata concept lookup.
+        # Reuse this source's existing persisted cursor; select one actual
+        # catalog language per run to stay bounded and prevent sv-only loops.
+        candidates = [
+            {'language': code, 'section': 'sentences'}
+            for code in sorted({
+                item.get('id') for item in languages
+                if item.get('id') in TATOEBA_CODES
+            })
+        ]
+        concepts, next_index, window_warning = next_window(candidates, cursor, 1)
+    else:
+        concepts, next_index, window_warning = next_window(candidates, cursor, 8)
     retrieved = date.today().isoformat()
     grouped = {}
     skipped = []
@@ -363,10 +420,11 @@ def command_harvest(args):
         notice = (ROOT / 'legal' / 'source_evidence' / 'tatoeba-terms.txt').read_text(encoding='utf-8')
         try:
             accept_notice(notice, 'CC-BY-2.0-FR')
-            code = TATOEBA_CODES.get('sv', '')
-            for sample in tatoeba_sample(code):
-                grouped.setdefault(('sv', 'sentences'), []).append({
-                    'language': 'sv',
+            selected_language = concepts[0]['language'] if concepts else ''
+            code = TATOEBA_CODES.get(selected_language)
+            for sample in (tatoeba_sample(code) if code else []):
+                grouped.setdefault((selected_language, 'sentences'), []).append({
+                    'language': selected_language,
                     'section': 'sentences',
                     'text': sample['text'],
                     'author': sample['author'],
@@ -403,16 +461,50 @@ def command_harvest(args):
             skipped.append({'reason': exc.__class__.__name__})
     wrote = 0
     for (language, section), rows in sorted(grouped.items()):
+        relative = f'data/agents/harvest/{name.replace("harvest-", "")}/{language}/{section}.json'
+        stored = ROOT / relative
+        previous_rows = []
+        if stored.exists():
+            # Fail closed on a corrupt or mismatched checkpoint: never erase a
+            # previously published window because it could not be decoded.
+            previous = json.loads(stored.read_text(encoding='utf-8'))
+            if (not isinstance(previous, dict)
+                    or previous.get('schema_version') != '1.0.0'
+                    or previous.get('source') != name
+                    or previous.get('language') != language
+                    or previous.get('section') != section
+                    or not isinstance(previous.get('rows'), list)):
+                raise ValueError(f'invalid harvest checkpoint: {relative}')
+            previous_rows = previous['rows']
+
+        # A scheduled source window is incremental; files are snapshots.
+        # Stable provenance keys prevent replay duplication without mixing
+        # independent senses or directed concepts.
+        accumulated = {}
+        for row in [*previous_rows, *rows]:
+            if (not isinstance(row, dict)
+                    or row.get('language') != language
+                    or row.get('section') != section
+                    or not isinstance(row.get('record_id'), str)
+                    or not row['record_id']
+                    or not isinstance(row.get('source_id'), str)
+                    or not row['source_id']):
+                raise ValueError(f'invalid harvest row: {relative}')
+            identity = (
+                row['source_id'], row['record_id'],
+                row.get('sense_id') or '', row.get('concept_id') or '',
+            )
+            accumulated[identity] = row
         payload = {
             'schema_version': '1.0.0',
             'source': name,
             'language': language,
             'section': section,
             'retrieval_date': retrieved,
-            'rows': rows,
+            'rows': list(accumulated.values()),
             'skipped': skipped,
         }
-        write_json(_out(f'data/agents/harvest/{name.replace("harvest-", "")}/{language}/{section}.json'), payload)
+        write_json(_out(relative), payload)
         wrote += 1
     if not grouped:
         write_json(_out(f'data/agents/harvest/{name.replace("harvest-", "")}/checkpoint.json'), {
@@ -421,11 +513,22 @@ def command_harvest(args):
             'retrieval_date': retrieved,
             'rows': [],
             'skipped': skipped,
-            'concepts_attempted': [row.get('wikidata') for row in concepts],
+            'concepts_attempted': [row.get('wikidata') or row.get('language') for row in concepts],
         })
+    # Advance only after bounded source processing finishes. The existing
+    # checkpoint publisher writes the cursor to agents/data on each run.
+    write_json(_out(cursor_path), {
+        'schema_version': '1.0.0',
+        'next_index': next_index,
+    })
     warning_text = f'skipped {len(skipped)}' if skipped else ''
-    write_heartbeat(_out('state/agents'), name, 'degraded' if skipped and not wrote else 'ok', warning_text)
-    print(json.dumps({'files': wrote, 'skipped': len(skipped), 'warning': warning}))
+    if not wrote:
+        warning_text = warning_text or 'no candidate rows; not production throughput'
+    write_heartbeat(_out('state/agents'), name,
+                    'ok' if wrote else 'degraded', warning_text)
+    warnings = [item for item in (warning, cursor_warning, window_warning) if item]
+    print(json.dumps({'files': wrote, 'skipped': len(skipped),
+                      'attempted_concepts': len(concepts), 'warning': '; '.join(warnings)}))
     return 0
 
 
@@ -433,7 +536,7 @@ def command_watchdog(_args):
     if _halt('watchdog'):
         return 0
     from datetime import datetime, timezone
-    from tools.agents.ops import dispatch_batch, stale_heartbeats
+    from tools.agents.ops import codeql_run_heartbeat, dispatch_batch, stale_heartbeats
     heartbeats = []
     folder = ROOT / 'state' / 'agents'
     if folder.is_dir():
@@ -442,14 +545,55 @@ def command_watchdog(_args):
             if payload.get('name'):
                 heartbeats.append(payload)
     now = datetime.now(timezone.utc).timestamp()
+    # CodeQL has read-only permissions, so it cannot publish a file heartbeat.
+    # Read actual Actions evidence rather than redispatching it every hour.
+    run_file = getattr(_args, 'codeql_runs', '')
+    if run_file:
+        try:
+            path = Path(run_file)
+            if path.stat().st_size > 16384:
+                raise ValueError('oversized CodeQL run evidence')
+            result = codeql_run_heartbeat(json.loads(path.read_text(encoding='utf-8')), now)
+        except (OSError, ValueError, json.JSONDecodeError):
+            result = None
+        if result is not None:
+            from datetime import datetime as _dt
+            prior = next((x for x in heartbeats if x.get('name') == 'codeql'), None)
+            prior_stamp = (prior or {}).get('last_run') or ''
+            try:
+                prior_epoch = _dt.fromisoformat(prior_stamp.replace('Z', '+00:00')).timestamp()
+            except (ValueError, TypeError, OverflowError):
+                prior_epoch = -1
+            observed_epoch = _dt.fromisoformat(result['last_run']).timestamp()
+            if observed_epoch >= prior_epoch:
+                heartbeats = [x for x in heartbeats if x.get('name') != 'codeql']
+                heartbeats.append(result)
+                write_json(_out('state/agents/codeql.json'), result)
     stale = stale_heartbeats(heartbeats, now, 8 * 3600)
-    batch = dispatch_batch(stale, cap=3)
-    write_json(_out('state/agents/watchdog.json'), {
+    known_names = {row['name'] for row in ROSTER}
+    # Report real degraded agents even when their last heartbeat is fresh.
+    # Do not redispatch persistent legal/source failures every hour: only
+    # overdue jobs enter the bounded recovery queue.
+    degraded = sorted({
+        row['name'] for row in heartbeats
+        if row.get('name') in known_names
+        and row.get('name') not in ('watchdog', 'health')
+        and row.get('name') not in stale
+        and row.get('status') != 'ok'
+    })
+    # Rotate by UTC hour; no new ledger or scheduler is needed. A continuously
+    # failing early roster entry cannot monopolize all three recovery slots.
+    batch = dispatch_batch(stale, cap=3, rotation=int(now // 3600))
+    write_json(_out('state/agents/watchdog-report.json'), {
         'schema_version': '1.0.0',
         'stale': stale,
+        'degraded': degraded,
         'dispatch': batch,
     })
-    write_heartbeat(_out('state/agents'), 'watchdog', 'ok', f'dispatch {len(batch)} of {len(stale)}')
+    # A requested workflow dispatch is not verified worker completion.
+    write_heartbeat(_out('state/agents'), 'watchdog',
+                    'degraded' if stale or degraded else 'ok',
+                    f'requested {len(batch)} of {len(stale)} stale agents; degraded={len(degraded)}')
     print('\n'.join(batch))
     return 0
 
@@ -561,7 +705,9 @@ def build_parser():
             item.add_argument('--run-id', default='')
             item.add_argument('--file-issue', action='store_true')
         item.set_defaults(func=func)
-    commands.add_parser('watchdog').set_defaults(func=command_watchdog)
+    watchdog = commands.add_parser('watchdog')
+    watchdog.add_argument('--codeql-runs', default='')
+    watchdog.set_defaults(func=command_watchdog)
     commands.add_parser('links').set_defaults(func=command_links)
     janitor = commands.add_parser('janitor')
     janitor.add_argument('--pr-json', required=True)

@@ -32,7 +32,7 @@ jobs:
           python3 -m tools.agents.cli cleanup --list /tmp/branches.txt > /tmp/delete.txt
           while IFS= read -r branch; do
             [ -z "$branch" ] && continue
-            git push origin --delete "$branch" || true
+            git push origin --delete "$branch"
           done < /tmp/delete.txt
 
       - name: Publish the checkpoint

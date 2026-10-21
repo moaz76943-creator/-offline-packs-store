@@ -46,6 +46,13 @@ class ProtocolTests(unittest.TestCase):
     def test_reject_duplicate_json_keys(self):
         raw=p.serialize(task()).replace('"state":"NEW"','"state":"NEW","state":"READY"')
         with self.assertRaises(ValueError):p.parse(raw)
+    def test_non_object_v2_task_envelopes_fail_closed(self):
+        for invalid in ('[]', 'null', '"text"', '42', 'true'):
+            with self.subTest(invalid=invalid):
+                raw = p.MARKER + invalid + '\n' + '```'
+                with self.assertRaisesRegex(ValueError, 'queue task must be a JSON object'):
+                    p.parse(raw)
+
     def test_claim_maximum_retry(self):
         with self.assertRaises(ValueError):p.claim(task(state='READY',attempts=3),NOW,1,1)
     def test_receipt_replay_and_tamper(self):

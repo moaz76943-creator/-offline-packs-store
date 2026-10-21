@@ -28,7 +28,7 @@ jobs:
           LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh issue list --state open --limit 50 --json number,title,state > /tmp/issues-raw.json || echo '[]' > /tmp/issues-raw.json
+          gh issue list --state open --limit 50 --json number,title,state > /tmp/issues-raw.json
           python3 - <<'PY'
           import json
           from pathlib import Path
