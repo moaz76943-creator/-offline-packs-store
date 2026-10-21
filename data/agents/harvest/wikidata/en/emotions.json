@@ -174,19 +174,60 @@
       "status": "keep",
       "subsection": "emotions.q9415",
       "wikidata": "Q104776527"
+    },
+    {
+      "concept_id": "concept.q104776285",
+      "forms": [
+        "grumpiness",
+        "grumpinesses"
+      ],
+      "language": "en",
+      "lemma": "grumpiness",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L321528",
+      "pos": "",
+      "qids": [
+        "Q104776285"
+      ],
+      "record_id": "L321528",
+      "retrieval_date": "2026-10-21",
+      "revision": "2551804676",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L321528-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q104776285"
+    },
+    {
+      "concept_id": "concept.q104776264",
+      "forms": [
+        "rapture",
+        "raptures"
+      ],
+      "language": "en",
+      "lemma": "rapture",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L326361",
+      "pos": "",
+      "qids": [
+        "Q104776264"
+      ],
+      "record_id": "L326361",
+      "retrieval_date": "2026-10-21",
+      "revision": "2549947188",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L326361-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q104776264"
     }
   ],
   "schema_version": "1.0.0",
   "section": "emotions",
-  "skipped": [
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q16572092"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1681455"
-    }
-  ],
+  "skipped": [],
   "source": "harvest-wikidata"
 }
