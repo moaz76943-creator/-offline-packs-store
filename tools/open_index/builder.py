@@ -106,24 +106,26 @@ def build_index(db_path):
             # The trigram tokenizer indexes no one- or two-character terms.
             # Do not reject an otherwise valid CJK pack for a short first entry.
             sample_word = db.execute(
-                'SELECT rowid, surface FROM lexicon ORDER BY id').fetchall()
-            if sample_word:
-                candidate = next(
-                    ((rowid, word) for rowid, word in sample_word
-                     if tokenizer != 'trigram' or len(word) >= 3), None)
-                if candidate is not None:
-                    query = '"' + candidate[1].replace('"', '""') + '"'
-                    if not db.execute(
-                        'SELECT 1 FROM lexicon_fts WHERE lexicon_fts MATCH ? LIMIT 1',
-                        (query,)).fetchone():
-                        raise IndexBuilderError('FTS5 representative MATCH smoke test failed')
-                elif tokenizer == 'trigram':
-                    # No indexable trigram exists; verify all short rows were
-                    # staged and integrity-check already passed above.
-                    if not db.execute(
-                        'SELECT 1 FROM lexicon_fts WHERE rowid=?', (sample_word[0][0],)
-                    ).fetchone():
-                        raise IndexBuilderError('FTS5 short-token row missing')
+                'SELECT rowid, surface FROM lexicon '
+                + ('WHERE length(surface) >= 3 ' if tokenizer == 'trigram' else '')
+                + 'ORDER BY id LIMIT 1'
+            ).fetchone()
+            if sample_word is not None:
+                query = '"' + sample_word[1].replace('"', '""') + '"'
+                if not db.execute(
+                    'SELECT 1 FROM lexicon_fts WHERE lexicon_fts MATCH ? LIMIT 1',
+                    (query,)).fetchone():
+                    raise IndexBuilderError('FTS5 representative MATCH smoke test failed')
+            elif tokenizer == 'trigram' and expected_count > 0:
+                # No searchable trigrams exist. Verify that short entries
+                # remain readable without allocating a list of all lexemes.
+                first_rowid = db.execute(
+                    'SELECT rowid FROM lexicon ORDER BY id LIMIT 1'
+                ).fetchone()[0]
+                if not db.execute(
+                    'SELECT 1 FROM lexicon_fts WHERE rowid=?', (first_rowid,)
+                ).fetchone():
+                    raise IndexBuilderError('FTS5 short-token row missing')
 
             db.commit()
 
