@@ -699,6 +699,74 @@ class ContractTests(unittest.TestCase):
         self.assertNotIn('while', publish)
 
 
+    def test_ud_scriptless_sentence_dropped_and_old_row_quarantined(self):
+        """Reject non-language separators without deleting their provenance."""
+        import argparse
+        from unittest import mock
+        from tools.agents import cli as agent_cli, harvest
+
+        sample = (
+            '# sent_id = valid-one\n'
+            '# text = An English sentence.\n'
+            '# sent_id = invalid-two\n'
+            '# text = ***\n'
+        ).encode('utf-8')
+        with mock.patch.object(harvest, 'fetch_bytes', return_value=sample):
+            records = harvest.ud_sample(limit=12)
+        self.assertEqual([row['record_id'] for row in records], ['ud:en_ewt:valid-one'])
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            prior = root / 'data/agents/harvest/ud/en/grammar.json'
+            prior.parent.mkdir(parents=True)
+            bad = {
+                'language': 'en', 'section': 'grammar',
+                'text': '***', 'source_id': 'universal-dependencies',
+                'record_id': 'ud:en_ewt:invalid-two',
+                'license_id': 'CC-BY-SA-4.0', 'retrieval_date': '2026-10-20',
+            }
+            previous = {
+                'schema_version': '1.0.0', 'source': 'harvest-ud',
+                'language': 'en', 'section': 'grammar', 'rows': [bad],
+            }
+            prior.write_text(json.dumps(previous), encoding='utf-8')
+            evidence = root / 'legal/source_evidence/ud-english-ewt-license.txt'
+            evidence.parent.mkdir(parents=True)
+            evidence.write_text('fixture notice', encoding='utf-8')
+            args = argparse.Namespace(name='harvest-ud')
+            patches = (
+                mock.patch.object(agent_cli, 'ROOT', root),
+                mock.patch.object(agent_cli, 'OUT', root / 'out'),
+                mock.patch.object(agent_cli, 'load_languages', return_value={'languages': []}),
+                mock.patch.object(agent_cli, 'load_profiles', return_value={
+                    'languages': [{'id': 'en', 'script': 'Latn'}]}),
+                mock.patch.object(agent_cli, 'load_graph', return_value={'sections': []}),
+                mock.patch.object(agent_cli, 'concept_rows', return_value=[]),
+                mock.patch.object(agent_cli, 'next_window', return_value=([], 0, '')),
+                mock.patch.object(harvest, 'accept_notice', return_value=True),
+                mock.patch.object(harvest, 'ud_sample', return_value=[{
+                    'text': 'An English sentence.', 'record_id': 'ud:en_ewt:valid-one',
+                    'sentence_slot': 'sentence.statement'}]),
+            )
+            with patches[0], patches[1], patches[2], patches[3], patches[4], \
+                    patches[5], patches[6], patches[7], patches[8]:
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            saved = json.loads((root / 'out/data/agents/harvest/ud/en/grammar.json').read_text())
+            self.assertEqual([row['record_id'] for row in saved['rows']],
+                             ['ud:en_ewt:valid-one'])
+            self.assertEqual(saved['quarantined_rows'], [bad])
+            # A second scheduled run must keep audit evidence and must not
+            # restore the bad row or duplicate accepted source identities.
+            prior.write_text(json.dumps(saved), encoding='utf-8')
+            with patches[0], patches[1], patches[2], patches[3], patches[4], \
+                    patches[5], patches[6], patches[7], patches[8]:
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            repeated = json.loads(
+                (root / 'out/data/agents/harvest/ud/en/grammar.json').read_text())
+            self.assertEqual(repeated['rows'], saved['rows'])
+            self.assertEqual(repeated['quarantined_rows'], [bad])
+
+
 # The existing agent CI command also runs real-git checkpoint regressions.
 from tools.agents.test_publish import PublishTests
 

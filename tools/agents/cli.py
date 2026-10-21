@@ -7,7 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from tools.agents.common import halted, load_json_tolerant, write_heartbeat, write_json
+from tools.agents.common import halted, load_json_tolerant, script_matches, write_heartbeat, write_json
 from tools.agents.ops import docs_check, performance_report, schema_guard, untested_modules
 from tools.agents.root_cause import open_recorded_issue, repair_update, signature_id
 from tools.agents.roster import ROSTER
@@ -464,6 +464,7 @@ def command_harvest(args):
         relative = f'data/agents/harvest/{name.replace("harvest-", "")}/{language}/{section}.json'
         stored = ROOT / relative
         previous_rows = []
+        prior_quarantine = []
         if stored.exists():
             # Fail closed on a corrupt or mismatched checkpoint: never erase a
             # previously published window because it could not be decoded.
@@ -476,11 +477,25 @@ def command_harvest(args):
                     or not isinstance(previous.get('rows'), list)):
                 raise ValueError(f'invalid harvest checkpoint: {relative}')
             previous_rows = previous['rows']
+            if name == 'harvest-ud':
+                prior_quarantine = previous.get('quarantined_rows', [])
+                if (not isinstance(prior_quarantine, list)
+                        or len(prior_quarantine) > 1000
+                        or any(not isinstance(row, dict)
+                               or not isinstance(row.get('source_id'), str)
+                               or not row.get('source_id')
+                               or not isinstance(row.get('record_id'), str)
+                               or not row.get('record_id')
+                               for row in prior_quarantine)):
+                    raise ValueError(f'invalid UD quarantine checkpoint: {relative}')
 
         # A scheduled source window is incremental; files are snapshots.
         # Stable provenance keys prevent replay duplication without mixing
         # independent senses or directed concepts.
         accumulated = {}
+        quarantined = {
+            (row['source_id'], row['record_id']): row for row in prior_quarantine
+        }
         for row in [*previous_rows, *rows]:
             if (not isinstance(row, dict)
                     or row.get('language') != language
@@ -494,6 +509,15 @@ def command_harvest(args):
                 row['source_id'], row['record_id'],
                 row.get('sense_id') or '', row.get('concept_id') or '',
             )
+            if (name == 'harvest-ud'
+                    and not script_matches(
+                        row.get('text'), (profiles.get(language) or {}).get('script'))):
+                # Preserve the complete attested source record for audit while
+                # keeping non-linguistic separators out of QA and pack inputs.
+                quarantined[(row['source_id'], row['record_id'])] = row
+                if len(quarantined) > 1000:
+                    raise ValueError(f'UD quarantine limit exceeded: {relative}')
+                continue
             accumulated[identity] = row
         payload = {
             'schema_version': '1.0.0',
@@ -504,6 +528,10 @@ def command_harvest(args):
             'rows': list(accumulated.values()),
             'skipped': skipped,
         }
+        if name == 'harvest-ud':
+            payload['quarantined_rows'] = [
+                quarantined[key] for key in sorted(quarantined)
+            ]
         write_json(_out(relative), payload)
         wrote += 1
     if not grouped:
