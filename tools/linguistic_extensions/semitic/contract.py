@@ -129,8 +129,10 @@ def validate_candidate(candidate, root, language, source_id, dataset_version, so
     if ('root' in record) != ('pattern' in record):
         raise ContractError('root and pattern must be evidenced together')
     for key in ('components', 'segmentation'):
-        if key in record and (not isinstance(record[key], list) or not all(isinstance(x, str) and x for x in record[key])):
-            raise ContractError('invalid v1 list member')
+        if key in record and (not isinstance(record[key], list) or
+                              not all(isinstance(x, str) and _script_ok(x, language)
+                                      for x in record[key])):
+            raise ContractError('invalid or foreign-script v1 decomposition')
     if 'morphemes' in record:
         if not isinstance(record['morphemes'], list):
             raise ContractError('invalid morpheme list')
