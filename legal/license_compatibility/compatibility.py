@@ -41,7 +41,7 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
 
     base["obligations"] = obligations
 
-    copyleft = set(ids).intersection(OBLIGATIONS)
+    copyleft = set(ids).intersection({"CC-BY-SA-4.0", "GFDL-1.3-only"})
     if output_license == "PUBLIC-DOMAIN" and any(lid != "PUBLIC-DOMAIN" for lid in ids):
         return {**base, "status": "INCOMPATIBLE",
                 "reason": "public domain is not a blanket relicensing claim"}
