@@ -12,10 +12,15 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["tools/audio_pronunciation/test_admission.py"]), ("audio",))
         self.assertEqual(select_suites(["tools/ingestion_circuit_breaker/test_gate.py"]), ("ingestion",))
         self.assertEqual(select_suites(["tools/final_release_evidence/test_compiler.py"]), ("final_evidence",))
+        self.assertEqual(select_suites(["tools/corpus_dedupe/dedupe.py"]), ("corpus_dedupe",))
+        self.assertEqual(select_suites(["tools/corpus_dedupe/test_dedupe.py"]), ("corpus_dedupe",))
+        self.assertEqual(select_suites(["tools/provenance_release/compiler.py"]), ("provenance_release",))
+        self.assertEqual(select_suites(["tools/lexicon_sanitizer/engine.py"]), ("lexicon_sanitizer",))
+        self.assertEqual(select_suites(["tools/artifact_digest/engine.py"]), ("artifact_digest",))
 
     def test_shared_provenance_logic_runs_all_affected_tests(self):
         self.assertEqual(select_suites(["legal/ledger/admission.py"]),
-                         ("media", "pronunciation", "audio", "ingestion", "final_evidence"))
+                         ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest"))
         self.assertEqual(select_suites(["tools/contribution_gate/evidence.py"]),
                          ("pronunciation", "audio"))
 
