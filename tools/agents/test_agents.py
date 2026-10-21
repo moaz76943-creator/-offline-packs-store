@@ -729,6 +729,16 @@ class ContractTests(unittest.TestCase):
             self.assertEqual([row['record_id'] for row in saved['rows']],
                              ['ud:en_ewt:valid-one'])
             self.assertEqual(saved['quarantined_rows'], [bad])
+            # A second scheduled run must keep audit evidence and must not
+            # restore the bad row or duplicate accepted source identities.
+            prior.write_text(json.dumps(saved), encoding='utf-8')
+            with patches[0], patches[1], patches[2], patches[3], patches[4], \
+                    patches[5], patches[6], patches[7], patches[8]:
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            repeated = json.loads(
+                (root / 'out/data/agents/harvest/ud/en/grammar.json').read_text())
+            self.assertEqual(repeated['rows'], saved['rows'])
+            self.assertEqual(repeated['quarantined_rows'], [bad])
 
 
 # The existing agent CI command also runs real-git checkpoint regressions.
