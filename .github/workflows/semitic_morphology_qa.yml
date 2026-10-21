@@ -1,0 +1,104 @@
+name: Semitic attested morphology QA (public, isolated)
+run-name: Semitic evidence QA ${{ github.run_id }} attempt ${{ github.run_attempt }}
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/linguistic_extensions/semitic/**'
+      - 'tests/linguistic_extensions/semitic/**'
+      - '.github/workflows/semitic_morphology_qa.yml'
+      - 'catalog/language_registry.v1.json'
+      - 'legal/ledger/**'
+      - 'standards/morphology/form.schema.json'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: QA only or admission-gated source shard
+        type: choice
+        required: true
+        options: [qa, shard]
+        default: qa
+      language:
+        description: Explicit registered language profile
+        type: choice
+        required: true
+        options: [ar, am]
+        default: ar
+      source_id:
+        description: Exact approved Route 05 morphology source ID (shard mode)
+        type: string
+        required: false
+      max_records:
+        description: At most 10000 attested input rows per run
+        type: number
+        required: true
+        default: 5000
+      resume_run_id:
+        description: Prior successful shard workflow run ID (optional; artifact held 3 days)
+        type: string
+        required: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: semitic-qa-${{ github.ref }}-${{ inputs.mode }}-${{ inputs.source_id }}-${{ inputs.language }}
+  cancel-in-progress: false
+
+jobs:
+  contract-qa:
+    if: github.repository == 'moaz76943-creator/-offline-packs-store'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify script/language/evidence leakage constraints (stdlib only)
+        run: python3 -m unittest discover -s tests/linguistic_extensions/semitic -p 'test_*.py' -v
+      - name: Report exact repository baseline, never claim imported corpora
+        run: python3 -m tools.linguistic_extensions.semitic.worker coverage --repo-root .
+
+  approved-shard:
+    if: github.event_name == 'workflow_dispatch' && github.repository == 'moaz76943-creator/-offline-packs-store' && github.ref == 'refs/heads/main' && inputs.mode == 'shard'
+    needs: contract-qa
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download source-bound, immutable previous segment when resuming
+        if: inputs.resume_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: semitic-verified-segment
+          run-id: ${{ inputs.resume_run_id }}
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/semitic-previous
+      - name: Validate exact approved source and process bounded shard
+        shell: bash
+        env:
+          LANGUAGE: ${{ inputs.language }}
+          SOURCE_ID: ${{ inputs.source_id }}
+          MAX_RECORDS: ${{ inputs.max_records }}
+          RESUME_RUN_ID: ${{ inputs.resume_run_id }}
+          OUTPUT_DIR: ${{ runner.temp }}/semitic-segment
+          RESUME_DIR: ${{ runner.temp }}/semitic-previous
+        run: |
+          set -euo pipefail
+          args=(shard --repo-root . --language "$LANGUAGE" --source-id "$SOURCE_ID" --out-dir "$OUTPUT_DIR" --max-records "$MAX_RECORDS" --run-id "$GITHUB_RUN_ID")
+          if [[ -n "$RESUME_RUN_ID" ]]; then
+            [[ "$RESUME_RUN_ID" =~ ^[0-9]+$ ]] || { echo 'Invalid resume run ID'; exit 2; }
+            args+=(--resume-dir "$RESUME_DIR" --resume-run-id "$RESUME_RUN_ID")
+          fi
+          python3 -m tools.linguistic_extensions.semitic.worker "${args[@]}"
+      - name: Upload candidate-only evidence and resumable checkpoint
+        uses: actions/upload-artifact@v4
+        with:
+          name: semitic-verified-segment
+          path: ${{ runner.temp }}/semitic-segment/
+          if-no-files-found: error
+          retention-days: 3

@@ -9,8 +9,10 @@ import sys
 
 try:
     from tools.ingestion_circuit_breaker.gate import process, parse_args, sha256_file
+    from tools.ingestion_circuit_breaker.pipeline import run_fixture_pipeline
 except ImportError:
     from gate import process, parse_args, sha256_file
+    from pipeline import run_fixture_pipeline
 
 class TestGate(unittest.TestCase):
     def setUp(self):
@@ -82,6 +84,8 @@ class TestGate(unittest.TestCase):
         self.assertEqual(errors, [])
         admission = json.loads(stdout)
         self.assertEqual(admission["status"], "ADMITTED")
+        self.assertGreaterEqual(admission["expires_at"], int(time.time()))
+        self.assertLessEqual(admission["expires_at"], int(time.time()) + 300)
 
     def test_missing_license(self):
         manifest = {
@@ -208,6 +212,23 @@ class TestGate(unittest.TestCase):
         accepted = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
         self.assertEqual(accepted.returncode, 0, accepted.stderr)
         self.assertTrue(marker.exists())
+
+
+    def test_direct_fixture_pipeline_uses_same_admission_gate(self):
+        manifest = {
+            "source_id": "test-source-1",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+        }
+        target = self.root / "out" / "admitted.json"
+        self.manifest_file.write_text(json.dumps(manifest))
+        args = parse_args(["--repo-root", str(self.root),
+                           "--manifest", str(self.manifest_file),
+                           "--quarantine", str(self.q_dir)])
+        code, errors, published = run_fixture_pipeline(args, target, b'{"ok":true}')
+        self.assertEqual((code, errors, published), (0, [], True))
+        self.assertEqual(target.read_bytes(), b'{"ok":true}')
 
 
 if __name__ == '__main__':
