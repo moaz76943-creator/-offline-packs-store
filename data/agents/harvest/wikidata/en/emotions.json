@@ -1,0 +1,117 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-21",
+  "rows": [
+    {
+      "concept_id": "concept.q26132411",
+      "forms": [
+        "lucidity",
+        "lucidities"
+      ],
+      "language": "en",
+      "lemma": "lucidity",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L323447",
+      "pos": "",
+      "qids": [
+        "Q26132411"
+      ],
+      "record_id": "L323447",
+      "retrieval_date": "2026-10-21",
+      "revision": "2548625063",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L323447-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q26132411"
+    },
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "amazing"
+      ],
+      "language": "en",
+      "lemma": "amazing",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L334399",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L334399",
+      "retrieval_date": "2026-10-21",
+      "revision": "2549759327",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L334399-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    },
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "amazement",
+        "amazements"
+      ],
+      "language": "en",
+      "lemma": "amazement",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L7294",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L7294",
+      "retrieval_date": "2026-10-21",
+      "revision": "2549759307",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L7294-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    },
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "amazed"
+      ],
+      "language": "en",
+      "lemma": "amazed",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L334398",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L334398",
+      "retrieval_date": "2026-10-21",
+      "revision": "2439178641",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L334398-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "emotions",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q10923556"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q2563496"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,51 @@
+{
+  "language": "et",
+  "retrieval_date": "2026-10-21",
+  "rows": [
+    {
+      "concept_id": "concept.q19357317",
+      "forms": [
+        "enesearmastus",
+        "enesearmastuse",
+        "enesearmastust",
+        "enesearmastusesse",
+        "enesearmastuses",
+        "enesearmastusest",
+        "enesearmastusele",
+        "enesearmastusel"
+      ],
+      "language": "et",
+      "lemma": "enesearmastus",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L353949",
+      "pos": "",
+      "qids": [
+        "Q19357317",
+        "Q16546994"
+      ],
+      "record_id": "L353949",
+      "retrieval_date": "2026-10-21",
+      "revision": "2289202847",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L353949-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q19357317"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "emotions",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q10923556"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q2563496"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

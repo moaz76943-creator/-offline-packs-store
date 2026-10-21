@@ -1,0 +1,44 @@
+{
+  "language": "es",
+  "retrieval_date": "2026-10-21",
+  "rows": [
+    {
+      "concept_id": "concept.q3437709",
+      "forms": [
+        "victimismo",
+        "victimismos"
+      ],
+      "language": "es",
+      "lemma": "victimismo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L658829",
+      "pos": "",
+      "qids": [
+        "Q3437709"
+      ],
+      "record_id": "L658829",
+      "retrieval_date": "2026-10-21",
+      "revision": "2415622817",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L658829-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q3437709"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "emotions",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q10923556"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q2563496"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
