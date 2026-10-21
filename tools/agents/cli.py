@@ -100,7 +100,7 @@ def command_legal(_args):
     notices = {}
     evidence = ROOT / 'legal' / 'source_evidence'
     mapping = {
-        'wikidata.lexemes': None,
+        'wikidata.lexemes': evidence / 'wikidata-structured-cc0.txt',
         'kaikki.wiktextract': evidence / 'wiktionary-copyrights.txt',
         'tatoeba.sentences': evidence / 'tatoeba-terms.txt',
         'universal-dependencies': evidence / 'ud-english-ewt-license.txt',
