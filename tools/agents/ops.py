@@ -31,13 +31,19 @@ def janitor_action(pr):
         return 'leave', 'not a bot branch'
     if pr.get('draft'):
         return 'leave', 'draft'
-    if pr.get('unresolved'):
-        return 'leave', 'unresolved review'
+    # An unverified review state must never be treated as resolved.
+    if pr.get('unresolved') is not False:
+        return 'leave', 'unverified or unresolved review'
+    if pr.get('merge_state') not in ('CLEAN', 'BEHIND'):
+        return 'leave', 'merge state not verified clean'
     checks = pr.get('checks') or []
-    if not checks or any(item.get('status') != 'completed' for item in checks):
+    if not isinstance(checks, list) or not checks or any(
+            not isinstance(item, dict) or item.get('status') != 'completed' for item in checks):
         return 'leave', 'checks incomplete'
-    if any(item.get('conclusion') not in ('success', 'skipped') for item in checks):
-        return 'leave', 'checks failed'
+    # SKIPPED is not proof of execution. Never recommend a merge unless each
+    # observed check actually succeeded; the canonical coordinator still owns writes.
+    if any(not isinstance(item, dict) or item.get('conclusion') != 'success' for item in checks):
+        return 'leave', 'checks failed or skipped'
     gate = any(
         item.get('name') == 'public-pr-merge-gate' and item.get('conclusion') == 'success'
         for item in checks
@@ -47,6 +53,24 @@ def janitor_action(pr):
     if pr.get('behind'):
         return 'update', 'merge main into the branch without force push'
     return 'merge', 'required checks are green'
+
+
+def unresolved_review_threads(payload):
+    """True if GitHub's exact PR review thread state is unsafe or unknown."""
+    try:
+        if payload.get('errors'):
+            return True
+        threads = payload['data']['repository']['pullRequest']['reviewThreads']
+        nodes = threads['nodes']
+        page = threads['pageInfo']
+        if not isinstance(nodes, list) or not isinstance(page.get('hasNextPage'), bool):
+            return True
+        return page['hasNextPage'] or any(
+            not isinstance(node, dict) or node.get('isResolved') is not True
+            for node in nodes
+        )
+    except (AttributeError, KeyError, TypeError):
+        return True
 
 
 def duplicate_issues(issues):
@@ -74,8 +98,31 @@ def agent_for_issue(title):
     return 'coverage'
 
 
+def _longest_schedule_gap_seconds(crons):
+    """Maximum time between daily cron slots; unknown syntax is not guessed."""
+    slots = set()
+    for expression in crons or []:
+        fields = expression.split()
+        if len(fields) != 5 or fields[2:] != ['*', '*', '*']:
+            return 0
+        try:
+            minutes = [int(item) for item in fields[0].split(',')]
+            hours = [int(item) for item in fields[1].split(',')]
+        except ValueError:
+            return 0
+        if not minutes or not hours or any(not 0 <= m < 60 for m in minutes) or any(not 0 <= h < 24 for h in hours):
+            return 0
+        slots.update(h * 60 + m for h in hours for m in minutes)
+    if not slots:
+        return 0
+    ordered = sorted(slots)
+    gaps = [right - left for left, right in zip(ordered, ordered[1:])]
+    gaps.append(1440 + ordered[0] - ordered[-1])
+    return max(gaps) * 60
+
+
 def stale_heartbeats(heartbeats, now_epoch, max_age_seconds):
-    """Missing or old heartbeats. Malformed timestamps count as stale, not fatal."""
+    """Respect per-agent cron cadence, allowing two hours of schedule jitter."""
     stale = []
     known = {row.get('name'): row for row in heartbeats or [] if isinstance(row, dict)}
     for agent in ROSTER:
@@ -86,18 +133,65 @@ def stale_heartbeats(heartbeats, now_epoch, max_age_seconds):
         stamp = row.get('last_run') or ''
         try:
             from datetime import datetime
-            parsed = datetime.fromisoformat(stamp.replace('Z', '+00:00') )
+            parsed = datetime.fromisoformat(stamp.replace('Z', '+00:00'))
             age = now_epoch - parsed.timestamp()
         except (TypeError, ValueError):
             stale.append(agent['name'])
             continue
-        if age > max_age_seconds:
+        max_age = max(max_age_seconds, _longest_schedule_gap_seconds(agent.get('crons')) + 2 * 3600)
+        if age > max_age:
             stale.append(agent['name'])
     return stale
 
 
-def dispatch_batch(stale, cap=3):
-    return list(stale or [])[:cap]
+def dispatch_batch(stale, cap=3, rotation=0):
+    """Rotate bounded stale-agent recovery so permanently failed early agents
+    cannot starve later independent agents across hourly watchdog runs.
+    """
+    if type(cap) is not int or cap < 0 or cap > 3:
+        raise ValueError('watchdog dispatch cap must be between 0 and 3')
+    if type(rotation) is not int or rotation < 0:
+        raise ValueError('invalid watchdog rotation')
+    agents = list(stale or [])
+    if not agents or cap == 0:
+        return []
+    start = (rotation * cap) % len(agents)
+    return [agents[(start + i) % len(agents)] for i in range(min(cap, len(agents)))]
+
+
+def codeql_run_heartbeat(runs, now_epoch):
+    """Convert a verified completed CodeQL Action into an observed heartbeat.
+
+    CodeQL is read-only by design and cannot publish to agents/data. Do not
+    invent fresh success, and do not classify failed/skipped scans as healthy.
+    """
+    from datetime import datetime
+    if not isinstance(runs, list):
+        return None
+    for run in runs[:10]:
+        if not isinstance(run, dict) or run.get('status') != 'completed':
+            continue
+        conclusion = run.get('conclusion')
+        if conclusion not in ('success', 'failure', 'cancelled', 'timed_out', 'skipped'):
+            continue
+        stamp = run.get('createdAt')
+        if not isinstance(stamp, str):
+            continue
+        try:
+            date = datetime.fromisoformat(stamp.replace('Z', '+00:00'))
+            if date.tzinfo is None or not 0 <= now_epoch - date.timestamp():
+                continue
+        except (ValueError, OverflowError, TypeError):
+            continue
+        return {
+            'schema_version': SCHEMA_VERSION,
+            'name': 'codeql',
+            'last_run': date.isoformat(),
+            'status': 'ok' if conclusion == 'success' else 'degraded',
+            'warning': f'CodeQL Actions: {conclusion}',
+            'version': '1.0.0',
+        }
+    return None
 
 
 def branch_deletable(name, merged):

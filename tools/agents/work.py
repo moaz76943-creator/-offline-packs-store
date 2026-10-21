@@ -299,7 +299,11 @@ def qa_rows(rows, profiles, refetch=None, sample=3):
         if not row_traceable(row):
             problems.append(f'{label}: untraceable or placeholder')
             continue
-        key = (row.get('language'), row.get('record_id'), row.get('sense_id') or '')
+        # Match the harvester's provenance identity: a single attested sense
+        # may legitimately anchor more than one concept, or a different
+        # approved source may reuse a record ID.
+        key = (row.get('language'), row.get('source_id'), row.get('record_id'),
+               row.get('sense_id') or '', row.get('concept_id') or '')
         if key in seen:
             problems.append(f'{label}: duplicate')
             continue
@@ -329,6 +333,7 @@ def legal_report(rows, notices):
     """Block only when a stored row's license conflicts with its notice. Missing notices warn."""
     problems = []
     warnings = []
+    seen_warnings = set()
     notices = notices or {}
     for row in rows or []:
         if not isinstance(row, dict):
@@ -337,7 +342,12 @@ def legal_report(rows, notices):
         source_id = row.get('source_id') or ''
         notice = notices.get(source_id, notices.get(license_id))
         if notice is None:
-            warnings.append(f'{source_id or license_id}: notice not loaded')
+            # One warning per missing evidence source; never interpret this as
+            # license approval or silently promote the candidate to production.
+            warning = f'{source_id or license_id}: notice not loaded'
+            if warning not in seen_warnings:
+                seen_warnings.add(warning)
+                warnings.append(warning)
             continue
         ok, reasons = positive_match(notice, license_id, row.get('co_offered') or ())
         if not ok:
