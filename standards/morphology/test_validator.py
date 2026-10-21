@@ -124,6 +124,23 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
             self.validator.validate(testlang_record)
         self.assertIn("Property 'root' requires feature 'root_pattern' which is not applicable", str(context.exception))
 
+    def test_invalid_property_transliteration(self):
+        self.validator.compatibility["testlang"] = {"transliteration": "not_applicable"}
+        testlang_record = {
+            "language_code": "testlang",
+            "lemma_id": "testlang:word:1",
+            "sense_id": "testlang:word:item",
+            "lemma": "word",
+            "form": "words",
+            "features": {},
+            "transliteration": "vordz",
+            "source_id": "test",
+            "evidence_version": "2026-10-12"
+        }
+        with self.assertRaises(ValueError) as context:
+            self.validator.validate(testlang_record)
+        self.assertIn("Property 'transliteration' requires feature 'transliteration' which is not applicable", str(context.exception))
+
 if __name__ == '__main__':
     unittest.main()
 
@@ -192,6 +209,22 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
         }
         self.assertTrue(self.validator.validate(en_record_past))
         self.assertTrue(self.validator.validate(en_record_participle))
+
+    def test_analytic_construction(self):
+        # English analytic construction test
+        en_analytic_record = {
+            "language_code": "en",
+            "lemma_id": "en:take_off:1",
+            "sense_id": "en:take_off:remove",
+            "lemma": "take off",
+            "form": "took off",
+            "features": {"tense": "past"},
+            "processes": ["phrasal_verb", "analytic"],
+            "components": ["took", "off"],
+            "source_id": "wiktionary-en-take-off",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(en_analytic_record))
 
 if __name__ == '__main__':
     unittest.main()
