@@ -1,8 +1,8 @@
 {
-  "last_run": "2026-10-21T02:58:49Z",
+  "last_run": "2026-10-21T09:04:21Z",
   "name": "harvest-tatoeba",
   "schema_version": "1.0.0",
-  "status": "degraded",
+  "status": "ok",
   "version": "1.0.0",
-  "warning": "skipped 1"
+  "warning": ""
 }
