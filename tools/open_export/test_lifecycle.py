@@ -17,9 +17,9 @@ from types import SimpleNamespace
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
 from community.contributions.ingest import ingest, members, unique_json, quarantine_submission
-from community.review.state_machine import ReviewStateMachine, sign
+from community.review.state_machine import ReviewStateMachine, sign, canonical
 from community.review.cli import main as review_cli_main
-from tools.open_export.exporter import CommunityExporter, ExportError, MAX_RELEASE_BYTES
+from tools.open_export.exporter import CommunityExporter, ExportError, MAX_RELEASE_BYTES, _audit_member
 
 
 def digest(data):
@@ -355,6 +355,73 @@ class SecurityRegression(unittest.TestCase):
         self.manifest(name, sha)
         with self.assertRaisesRegex(ValueError, "duplicate sense_id found in stream"):
             self.export()
+
+    def test_valid_translation_resolves_sense_and_lexeme_languages(self):
+        document = {
+            'document_id': 'doc.mixed',
+            'lexemes': [
+                {'lexeme_id': 'lex.de.house', 'language': 'de'},
+                {'lexeme_id': 'lex.en.house', 'language': 'en'}],
+            'senses': [
+                {'sense_id': 'sense.de.house', 'lexeme_id': 'lex.de.house'},
+                {'sense_id': 'sense.en.house', 'lexeme_id': 'lex.en.house'}],
+            'translations': [
+                {'from_sense_id': 'sense.de.house',
+                 'to_sense_id': 'sense.en.house', 'language': 'en'}]}
+        content = (json.dumps(document) + '\n').encode()
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        receipt = self.export()
+        self.assertFalse(receipt['published'])
+
+    def test_cached_release_revalidates_reversed_translation(self):
+        document = {
+            'document_id': 'doc.bad',
+            'lexemes': [
+                {'lexeme_id': 'lex.de.house', 'language': 'de'},
+                {'lexeme_id': 'lex.en.house', 'language': 'en'}],
+            'senses': [
+                {'sense_id': 'sense.de.house', 'lexeme_id': 'lex.de.house'},
+                {'sense_id': 'sense.en.house', 'lexeme_id': 'lex.en.house'}],
+            'translations': [
+                {'from_sense_id': 'sense.de.house',
+                 'to_sense_id': 'sense.en.house', 'language': 'de'}]}
+        content = (json.dumps(document) + '\n').encode()
+        name, sha = self.stage(content=content)
+        self.certify()
+        self.manifest(name, sha)
+        with patch.dict(sys.modules, {'legal.ledger.admission':
+                                      SimpleNamespace(evaluate=lambda *_: [])}):
+            exporter = CommunityExporter(self.src, self.out, self.machine,
+                                         repository_root=self.root)
+            entries, notices = exporter._prepare()
+            key = digest(canonical({
+                'files': [(a, d) for a, _, d, _, _ in entries],
+                'notices': notices}))
+            releases = self.out / 'releases'
+            releases.mkdir(parents=True)
+            with zipfile.ZipFile(releases / (key + '.zip'), 'w',
+                                 compression=zipfile.ZIP_STORED) as archive:
+                archive.writestr('data/item1.bin', content)
+                archive.writestr('ATTRIBUTION.json', canonical(notices))
+            with self.assertRaisesRegex(ExportError, 'reversed translation'):
+                exporter.run()
+        self.assertFalse((self.out / 'CURRENT.json').exists())
+
+    def test_payload_reader_requires_bounded_readline(self):
+        from tools.open_export.exporter import MAX_FILE
+        class CappedSource(io.BytesIO):
+            def __iter__(self):
+                raise AssertionError('unbounded file iteration')
+            def readline(self, limit=-1):
+                if limit < 0 or limit > MAX_FILE + 1:
+                    raise AssertionError('unbounded readline')
+                return super().readline(limit)
+        blob = b'source-backed bytes'
+        size, sha = _audit_member(CappedSource(blob))
+        self.assertEqual(size, len(blob))
+        self.assertEqual(sha, digest(blob))
 
     def test_export_reversed_pairs(self):
         content = b'{"document_id": "doc1", "translations": [{"language": "fr", "from_sense_id": "en-sense-1", "to_sense_id": "es-sense-1"}]}\n'
