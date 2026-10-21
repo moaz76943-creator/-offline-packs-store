@@ -1,0 +1,26 @@
+name: Community review state machine
+on:
+  pull_request:
+    paths:
+      - 'community/review/**'
+      - 'community/__init__.py'
+      - '.github/workflows/community_review.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: community-review-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  review-state:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Review state machine tests
+        run: python3 -m unittest discover -s community/review -p 'test_*.py' -v

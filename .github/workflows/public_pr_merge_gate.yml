@@ -37,11 +37,39 @@ jobs:
           set -euo pipefail
           python3 tools/ci_policy/verify_pr_tip.py --expected-head "$EXPECTED_PR_HEAD"
 
-      - name: Verify policy regressions
-        run: python3 -m unittest discover -s tests/ci_policy -p 'test_*.py' -v
+      # Keep one mandatory GitHub status; run global checks for shared/unknown
+      # changes and only focused regressions for known independent components.
+      - name: Verify risk-selected baseline policy, registry and SQLite
+        run: python3 tools/ci_policy/run_scoped_pr_tests.py --baseline
 
-      - name: Verify canonical 100-language registry
-        run: python3 catalog/validate_registry.py
-
-      - name: Verify public SQLite v2 fixture pipeline (no publication)
-        run: python3 tools/test_store_pipeline.py -q
+      # Reuse the required gate; no extra worker for unrelated pull requests.
+      # Selection is computed from the checked-out synthetic PR merge tree,
+      # not attacker-controlled shell fragments from the PR title or body.
+      # The audio QA suite synthesizes OGG/MP3/WebM fixtures with ffmpeg.
+      # Provision it only when the exact synthetic merge diff selects audio;
+      # never silently skip the suite if the dependency is unavailable.
+      - name: Provision selected audio QA dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          required="$(python3 -c 'from tools.ci_policy.run_scoped_pr_tests import changed_in_synthetic_merge, select_suites; print("true" if "audio" in select_suites(changed_in_synthetic_merge()) else "false")')"
+          if [[ "$required" == "true" ]]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y ffmpeg
+          elif [[ "$required" != "false" ]]; then
+            echo "Invalid audio fixture selection" >&2
+            exit 1
+          fi
+      - name: Provision final release evidence validation dependency when affected
+        shell: bash
+        run: |
+          set -euo pipefail
+          needed="$(python3 -c 'from tools.ci_policy.run_scoped_pr_tests import changed_in_synthetic_merge, select_suites; print("true" if "final_evidence" in select_suites(changed_in_synthetic_merge()) else "false")')"
+          if [[ "$needed" == "true" ]]; then
+            timeout 90s python3 -m pip install --disable-pip-version-check --no-cache-dir jsonschema==4.26.0
+          elif [[ "$needed" != "false" ]]; then
+            echo "Invalid release evidence fixture selection" >&2
+            exit 1
+          fi
+      - name: Run affected subsystem regression tests
+        run: python3 tools/ci_policy/run_scoped_pr_tests.py
