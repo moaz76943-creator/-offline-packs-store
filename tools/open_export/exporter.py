@@ -58,6 +58,80 @@ def zip_entry(archive, name, content):
     archive.writestr(info, content)
 
 
+
+def _audit_member(source, destination=None):
+    """Bounded read and shared semantic audit for new AND cached releases."""
+    h = hashlib.sha256()
+    total = 0
+    lexemes = {}
+    senses = {}
+    translations = []
+    seen_lexemes = set()
+    seen_senses = set()
+    while True:
+        # A changed source can grow after _prepare; never iterate unbounded lines.
+        line = source.readline(MAX_FILE + 1)
+        if not line:
+            break
+        total += len(line)
+        if total > MAX_FILE:
+            raise ExportError("file changed during packaging or too large")
+        h.update(line)
+        if destination is not None:
+            destination.write(line)
+        if not line.strip().startswith(b"{"):
+            continue
+        try:
+            obj = json.loads(line.decode("utf-8"))
+        except UnicodeDecodeError as exc:
+            raise ExportError("invalid unicode in stream") from exc
+        except json.JSONDecodeError:
+            continue
+        if not isinstance(obj, dict):
+            continue
+        for lexeme in obj.get("lexemes", []):
+            if not isinstance(lexeme, dict):
+                raise ExportError("invalid lexeme record")
+            lex_id = lexeme.get("lexeme_id")
+            if isinstance(lex_id, str) and lex_id:
+                if lex_id in seen_lexemes:
+                    raise ExportError("duplicate lexeme_id found in stream")
+                seen_lexemes.add(lex_id)
+                lexemes[lex_id] = lexeme.get("language")
+            for sense in lexeme.get("senses", []):
+                if not isinstance(sense, dict):
+                    raise ExportError("invalid nested sense record")
+                sid = sense.get("sense_id")
+                if isinstance(sid, str) and sid:
+                    if sid in seen_senses:
+                        raise ExportError("duplicate sense_id found in stream")
+                    seen_senses.add(sid)
+                    senses[sid] = lex_id
+        for sense in obj.get("senses", []):
+            if not isinstance(sense, dict):
+                raise ExportError("invalid sense record")
+            sid = sense.get("sense_id")
+            if isinstance(sid, str) and sid:
+                if sid in seen_senses:
+                    raise ExportError("duplicate sense_id found in stream")
+                seen_senses.add(sid)
+                senses[sid] = sense.get("lexeme_id")
+        for tr in obj.get("translations", []):
+            if not isinstance(tr, dict):
+                raise ExportError("invalid translation record")
+            if all(k in tr for k in ("from_sense_id", "to_sense_id", "language")):
+                translations.append((tr["from_sense_id"], tr["to_sense_id"], tr["language"]))
+    for from_id, to_id, target_lang in translations:
+        # Stable IDs are opaque. Direction is given by sense -> lexeme -> language.
+        from_lang = lexemes.get(senses.get(from_id))
+        to_lang = lexemes.get(senses.get(to_id))
+        if (not isinstance(from_lang, str) or not isinstance(to_lang, str)
+                or from_lang == to_lang or target_lang != to_lang):
+            raise ExportError("reversed translation pair detected")
+    return total, h.hexdigest()
+
+
+
 class CommunityExporter:
     def __init__(self, source_dir, output_dir, review_machine, *, language=None, categories=None, repository_root=None):
         if Path(source_dir).is_symlink():
@@ -171,57 +245,12 @@ class CommunityExporter:
                     with os.fdopen(fd, "wb") as stream:
                         with zipfile.ZipFile(stream, "w", allowZip64=False) as archive:
                             for aid, path, expected, item_type, lang in entries:
-                                h = hashlib.sha256()
-                                size_written = 0
-                                sense_ids = set()
-                                lexeme_ids = set()
-
                                 info = zipfile.ZipInfo("data/" + aid + ".bin", date_time=ZIP_DATE)
                                 info.compress_type = zipfile.ZIP_STORED
                                 info.external_attr = 0o644 << 16
-
                                 with path.open("rb") as source, archive.open(info, "w", force_zip64=False) as dest:
-                                    for line in source:
-                                        if len(line) > 16 * 1024 * 1024:
-                                            raise ExportError("line too long in streaming")
-                                        h.update(line)
-                                        dest.write(line)
-                                        size_written += len(line)
-                                        if size_written > MAX_FILE:
-                                            raise ExportError("file changed during packaging or too large")
-
-                                        if line.strip().startswith(b"{"):
-                                            try:
-                                                obj = json.loads(line.decode("utf-8"))
-                                                if "document_id" in obj and "lexemes" in obj:
-                                                    for lexeme in obj.get("lexemes", []):
-                                                        lid = lexeme.get("lexeme_id")
-                                                        if lid:
-                                                            if lid in lexeme_ids:
-                                                                raise ExportError("duplicate lexeme_id found in stream")
-                                                            lexeme_ids.add(lid)
-                                                        for sense in lexeme.get("senses", []):
-                                                            sid = sense.get("sense_id")
-                                                            if sid:
-                                                                if sid in sense_ids:
-                                                                    raise ExportError("duplicate sense_id found in stream")
-                                                                sense_ids.add(sid)
-
-                                                if "translations" in obj:
-                                                    for tr in obj.get("translations", []):
-                                                        if "from_sense_id" in tr and "to_sense_id" in tr and "language" in tr:
-                                                            target_lang = tr["language"]
-                                                            to_prefix = tr["to_sense_id"].split("-")[0]
-                                                            from_prefix = tr["from_sense_id"].split("-")[0]
-                                                            if target_lang != to_prefix or (lang and from_prefix != lang):
-                                                                raise ExportError("reversed translation pair detected")
-
-                                            except UnicodeDecodeError:
-                                                raise ExportError("invalid unicode in stream")
-                                            except json.JSONDecodeError:
-                                                pass
-
-                                if size_written > MAX_FILE or h.hexdigest() != expected:
+                                    size_written, actual_hash = _audit_member(source, dest)
+                                if actual_hash != expected:
                                     raise ExportError("file changed during packaging")
                             zip_entry(archive, "ATTRIBUTION.json", canonical(notices))
                         stream.flush()
@@ -246,14 +275,8 @@ class CommunityExporter:
                             raise ExportError("untrusted cached archive member")
                     for aid, path, expected, item_type, lang in entries:
                         with archive.open("data/" + aid + ".bin") as stream:
-                            h = hashlib.sha256()
-                            size = 0
-                            for part in iter(lambda: stream.read(65536), b""):
-                                size += len(part)
-                                h.update(part)
-                                if size > MAX_FILE:
-                                    raise ExportError("cached archive member too large")
-                        if size > MAX_FILE or h.hexdigest() != expected:
+                            size, actual_hash = _audit_member(stream)
+                        if size > MAX_FILE or actual_hash != expected:
                             raise ExportError("cached archive content mismatch")
                     with archive.open("ATTRIBUTION.json") as stream:
                         attribution = stream.read(65537)
