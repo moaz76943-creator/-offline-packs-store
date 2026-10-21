@@ -172,6 +172,42 @@
       "wikidata": "Q43453"
     },
     {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "úžas",
+        "úžasu",
+        "úžasu",
+        "úžas",
+        "úžase",
+        "úžase",
+        "úžasu",
+        "úžasem"
+      ],
+      "language": "cs",
+      "lemma": "úžas",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1335982",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L1335982",
+      "retrieval_date": "2026-10-21",
+      "revision": "2214732818",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1335982-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    },
+    {
       "concept_id": "concept.q937857",
       "forms": [
         "fotbalista",
@@ -338,6 +374,38 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3130"
+    },
+    {
+      "concept_id": "concept.q71404162",
+      "forms": [
+        "lysebrun",
+        "lysebrunt",
+        "lysebrune",
+        "lysebrune"
+      ],
+      "language": "da",
+      "lemma": "lysebrun",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L204296",
+      "pos": "",
+      "qids": [
+        "Q71404162"
+      ],
+      "record_id": "L204296",
+      "retrieval_date": "2026-10-21",
+      "revision": "2241321306",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L204296-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q71404162"
     },
     {
       "concept_id": "concept.q2941309",
@@ -617,6 +685,43 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q483444"
+    },
+    {
+      "concept_id": "concept.q906936",
+      "forms": [
+        "Limette",
+        "Limette",
+        "Limette",
+        "Limette",
+        "Limetten",
+        "Limetten",
+        "Limetten",
+        "Limetten"
+      ],
+      "language": "de",
+      "lemma": "Limette",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L2938",
+      "pos": "",
+      "qids": [
+        "Q13195",
+        "Q906936"
+      ],
+      "record_id": "L2938",
+      "retrieval_date": "2026-10-21",
+      "revision": "2529590323",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L2938-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q906936"
     },
     {
       "concept_id": "concept.q2941309",
@@ -1367,6 +1472,248 @@
       "wikidata": "Q10940"
     },
     {
+      "concept_id": "concept.q2778382",
+      "forms": [
+        "bronze",
+        "bronzes"
+      ],
+      "language": "en",
+      "lemma": "bronze",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L251658",
+      "pos": "",
+      "qids": [
+        "Q2778382",
+        "Q34095"
+      ],
+      "record_id": "L251658",
+      "retrieval_date": "2026-10-21",
+      "revision": "2374283537",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L251658-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2778382"
+    },
+    {
+      "concept_id": "concept.q906936",
+      "forms": [
+        "lime",
+        "limes"
+      ],
+      "language": "en",
+      "lemma": "lime",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L17811",
+      "pos": "",
+      "qids": [
+        "Q250423",
+        "Q906936"
+      ],
+      "record_id": "L17811",
+      "retrieval_date": "2026-10-21",
+      "revision": "2528892373",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L17811-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q906936"
+    },
+    {
+      "concept_id": "concept.q906936",
+      "forms": [
+        "lime",
+        "limes"
+      ],
+      "language": "en",
+      "lemma": "lime",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1587311",
+      "pos": "",
+      "qids": [
+        "Q13195",
+        "Q906936"
+      ],
+      "record_id": "L1587311",
+      "retrieval_date": "2026-10-21",
+      "revision": "2528891279",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1587311-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q906936"
+    },
+    {
+      "concept_id": "concept.q5148721",
+      "forms": [
+        "peach",
+        "peaches"
+      ],
+      "language": "en",
+      "lemma": "peach",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L24869",
+      "pos": "",
+      "qids": [
+        "Q13202263",
+        "Q5148721"
+      ],
+      "record_id": "L24869",
+      "retrieval_date": "2026-10-21",
+      "revision": "2480642420",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L24869-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q5148721"
+    },
+    {
+      "concept_id": "concept.q26132411",
+      "forms": [
+        "lucidity",
+        "lucidities"
+      ],
+      "language": "en",
+      "lemma": "lucidity",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L323447",
+      "pos": "",
+      "qids": [
+        "Q26132411"
+      ],
+      "record_id": "L323447",
+      "retrieval_date": "2026-10-21",
+      "revision": "2548625063",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L323447-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q26132411"
+    },
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "amazing"
+      ],
+      "language": "en",
+      "lemma": "amazing",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L334399",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L334399",
+      "retrieval_date": "2026-10-21",
+      "revision": "2549759327",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L334399-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    },
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "amazement",
+        "amazements"
+      ],
+      "language": "en",
+      "lemma": "amazement",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L7294",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L7294",
+      "retrieval_date": "2026-10-21",
+      "revision": "2549759307",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L7294-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    },
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "amazed"
+      ],
+      "language": "en",
+      "lemma": "amazed",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L334398",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L334398",
+      "retrieval_date": "2026-10-21",
+      "revision": "2439178641",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L334398-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    },
+    {
       "concept_id": "concept.q2941309",
       "forms": [
         "blackcurrant",
@@ -1905,6 +2252,36 @@
       "wikidata": "Q483444"
     },
     {
+      "concept_id": "concept.q3437709",
+      "forms": [
+        "victimismo",
+        "victimismos"
+      ],
+      "language": "es",
+      "lemma": "victimismo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L658829",
+      "pos": "",
+      "qids": [
+        "Q3437709"
+      ],
+      "record_id": "L658829",
+      "retrieval_date": "2026-10-21",
+      "revision": "2415622817",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L658829-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q3437709"
+    },
+    {
       "concept_id": "concept.q12106",
       "forms": [
         "trigo",
@@ -1934,6 +2311,79 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q2778382",
+      "forms": [
+        "pronks",
+        "pronksi",
+        "pronksi",
+        "pronksisse",
+        "pronksis",
+        "pronksist",
+        "pronksile",
+        "pronksil"
+      ],
+      "language": "et",
+      "lemma": "pronks",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L380631",
+      "pos": "",
+      "qids": [
+        "Q2778382"
+      ],
+      "record_id": "L380631",
+      "retrieval_date": "2026-10-21",
+      "revision": "2311475124",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L380631-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2778382"
+    },
+    {
+      "concept_id": "concept.q19357317",
+      "forms": [
+        "enesearmastus",
+        "enesearmastuse",
+        "enesearmastust",
+        "enesearmastusesse",
+        "enesearmastuses",
+        "enesearmastusest",
+        "enesearmastusele",
+        "enesearmastusel"
+      ],
+      "language": "et",
+      "lemma": "enesearmastus",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L353949",
+      "pos": "",
+      "qids": [
+        "Q19357317",
+        "Q16546994"
+      ],
+      "record_id": "L353949",
+      "retrieval_date": "2026-10-21",
+      "revision": "2289202847",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L353949-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q19357317"
     },
     {
       "concept_id": "concept.q430",
@@ -2490,6 +2940,100 @@
       "wikidata": "Q10940"
     },
     {
+      "concept_id": "concept.q2778382",
+      "forms": [
+        "bronzo",
+        "bronzi"
+      ],
+      "language": "it",
+      "lemma": "bronzo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L688675",
+      "pos": "",
+      "qids": [
+        "Q34095",
+        "Q2778382"
+      ],
+      "record_id": "L688675",
+      "retrieval_date": "2026-10-21",
+      "revision": "2339533067",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L688675-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2778382"
+    },
+    {
+      "concept_id": "concept.q906936",
+      "forms": [
+        "lime",
+        "lime"
+      ],
+      "language": "it",
+      "lemma": "lime",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1229371",
+      "pos": "",
+      "qids": [
+        "Q906936",
+        "Q13195"
+      ],
+      "record_id": "L1229371",
+      "retrieval_date": "2026-10-21",
+      "revision": "2528891027",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1229371-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q906936"
+    },
+    {
+      "concept_id": "concept.q5148721",
+      "forms": [
+        "pesca",
+        "pesche"
+      ],
+      "language": "it",
+      "lemma": "pesca",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482737",
+      "pos": "",
+      "qids": [
+        "Q13202263",
+        "Q5148721",
+        "Q14373"
+      ],
+      "record_id": "L482737",
+      "retrieval_date": "2026-10-21",
+      "revision": "2536032064",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L482737-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q5148721"
+    },
+    {
       "concept_id": "concept.q12106",
       "forms": [
         "frumento",
@@ -2668,6 +3212,36 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q10940"
+    },
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "仰天",
+        "ぎょうてん"
+      ],
+      "language": "ja",
+      "lemma": "仰天",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1369703",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L1369703",
+      "retrieval_date": "2026-10-21",
+      "revision": "2500612726",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1369703-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
     },
     {
       "concept_id": "concept.q147651",
@@ -3101,6 +3675,107 @@
       "wikidata": "Q3354532"
     },
     {
+      "concept_id": "concept.q19357317",
+      "forms": [
+        "ਰਸ਼ਕ",
+        "رشک"
+      ],
+      "language": "pa",
+      "lemma": "ਰਸ਼ਕ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1010860",
+      "pos": "",
+      "qids": [
+        "Q19357317"
+      ],
+      "record_id": "L1010860",
+      "retrieval_date": "2026-10-21",
+      "revision": "2559147078",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1010860-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q19357317"
+    },
+    {
+      "concept_id": "concept.q19357317",
+      "forms": [
+        "ਆਨ",
+        "آن",
+        "ਆਨਾਂ",
+        "آناں",
+        "ਆਨ",
+        "آن",
+        "ਆਨਾਂ",
+        "آناں"
+      ],
+      "language": "pa",
+      "lemma": "ਆਨ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1018433",
+      "pos": "",
+      "qids": [
+        "Q19357317",
+        "Q1144504"
+      ],
+      "record_id": "L1018433",
+      "retrieval_date": "2026-10-21",
+      "revision": "2109322126",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1018433-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q19357317"
+    },
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "آشفتگی",
+        "ਆਸ਼ਫ਼ਤਗੀ",
+        "آشفتگی",
+        "ਆਸ਼ਫ਼ਤਗੀ"
+      ],
+      "language": "pa",
+      "lemma": "آشفتگی",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L941492",
+      "pos": "",
+      "qids": [
+        "Q16868715",
+        "Q505619",
+        "Q6498477"
+      ],
+      "record_id": "L941492",
+      "retrieval_date": "2026-10-21",
+      "revision": "2214730399",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L941492-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    },
+    {
       "concept_id": "concept.q1780",
       "forms": [
         "Bratysława",
@@ -3239,6 +3914,37 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q3354532"
+    },
+    {
+      "concept_id": "concept.q2778382",
+      "forms": [
+        "bronze",
+        "bronzes"
+      ],
+      "language": "pt",
+      "lemma": "bronze",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L46819",
+      "pos": "",
+      "qids": [
+        "Q34095",
+        "Q2778382"
+      ],
+      "record_id": "L46819",
+      "retrieval_date": "2026-10-21",
+      "revision": "2539094717",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L46819-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2778382"
     },
     {
       "concept_id": "concept.q10940",
@@ -3642,6 +4348,39 @@
       "wikidata": "Q483444"
     },
     {
+      "concept_id": "concept.q71404162",
+      "forms": [
+        "ljusbrun",
+        "ljusbrunt",
+        "ljusbrune",
+        "ljusbruna",
+        "ljusbruna"
+      ],
+      "language": "sv",
+      "lemma": "ljusbrun",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L56203",
+      "pos": "",
+      "qids": [
+        "Q71404162"
+      ],
+      "record_id": "L56203",
+      "retrieval_date": "2026-10-21",
+      "revision": "2483603317",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L56203-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q71404162"
+    },
+    {
       "concept_id": "concept.q147651",
       "forms": [
         "jordnötssmör",
@@ -3907,6 +4646,78 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q3354532"
+    },
+    {
+      "concept_id": "concept.q2778382",
+      "forms": [
+        "бронзовий",
+        "бронзового",
+        "бронзовому",
+        "бронзового",
+        "бронзовий",
+        "бронзовим",
+        "бронзовім",
+        "бронзовому"
+      ],
+      "language": "uk",
+      "lemma": "бронзовий",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L596914",
+      "pos": "",
+      "qids": [
+        "Q2778382"
+      ],
+      "record_id": "L596914",
+      "retrieval_date": "2026-10-21",
+      "revision": "2160965106",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L596914-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2778382"
+    },
+    {
+      "concept_id": "concept.q5148721",
+      "forms": [
+        "персиковий",
+        "персикового",
+        "персиковому",
+        "персикового",
+        "персиковий",
+        "персиковим",
+        "персиковім",
+        "персиковому"
+      ],
+      "language": "uk",
+      "lemma": "персиковий",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L605459",
+      "pos": "",
+      "qids": [
+        "Q5148721"
+      ],
+      "record_id": "L605459",
+      "retrieval_date": "2026-10-21",
+      "revision": "2161103234",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L605459-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q5148721"
     },
     {
       "concept_id": "concept.q192874",
