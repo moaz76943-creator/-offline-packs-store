@@ -84,6 +84,8 @@ class TestGate(unittest.TestCase):
         self.assertEqual(errors, [])
         admission = json.loads(stdout)
         self.assertEqual(admission["status"], "ADMITTED")
+        self.assertGreaterEqual(admission["expires_at"], int(time.time()))
+        self.assertLessEqual(admission["expires_at"], int(time.time()) + 300)
 
     def test_missing_license(self):
         manifest = {
