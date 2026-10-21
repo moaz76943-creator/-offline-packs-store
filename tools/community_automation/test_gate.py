@@ -2,11 +2,16 @@ import unittest
 import os
 import tempfile
 import json
+import io
+import sys
+import subprocess
+import tarfile
+from unittest.mock import patch
 import zipfile
 import shutil
 from pathlib import Path
 
-from tools.community_automation.gate import process_bundle, validate_svg
+from tools.community_automation.gate import process_bundle, validate_svg, main
 
 class TestGate(unittest.TestCase):
     def setUp(self):
@@ -16,6 +21,41 @@ class TestGate(unittest.TestCase):
 
     def tearDown(self):
         shutil.rmtree(self.test_dir)
+
+    def test_zip_bomb_rejected_before_svg_is_decompressed(self):
+        path = Path(self.test_dir) / 'bomb.zip'
+        with zipfile.ZipFile(path, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
+            archive.writestr('bomb.svg', b'A' * (16 * 1024 * 1024 + 1))
+        with self.assertRaisesRegex(ValueError, 'archive expansion limit'):
+            process_bundle(path, self.staging_root)
+
+    def test_tar_bomb_rejected_before_svg_is_decompressed(self):
+        path = Path(self.test_dir) / 'bomb.tar.gz'
+        payload = b'A' * (16 * 1024 * 1024 + 1)
+        with tarfile.open(path, 'w:gz') as archive:
+            info = tarfile.TarInfo('bomb.svg')
+            info.size = len(payload)
+            archive.addfile(info, io.BytesIO(payload))
+        with self.assertRaisesRegex(ValueError, 'archive expansion limit'):
+            process_bundle(path, self.staging_root)
+
+    def test_missing_submission_preserves_original_rejection_if_quarantine_fails(self):
+        missing = Path(self.test_dir) / 'absent.zip'
+        with patch('tools.community_automation.gate.quarantine_submission',
+                   side_effect=FileNotFoundError('quarantine file unavailable')):
+            with patch('sys.stdout', new_callable=io.StringIO) as output:
+                code = main([str(missing), '--staging-root', str(self.staging_root)])
+        self.assertEqual(code, 1)
+        self.assertIn('REJECTED:', output.getvalue())
+        self.assertIn('symlink or missing submission', output.getvalue())
+
+    def test_cli_script_imports_directly_from_any_directory(self):
+        script = Path(__file__).with_name('gate.py')
+        result = subprocess.run([sys.executable, str(script), '--help'],
+                                cwd=self.test_dir, capture_output=True, text=True,
+                                timeout=10)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('--staging-root', result.stdout)
 
     def test_malicious_archive(self):
         zip_path = Path(self.test_dir) / "bad.zip"
