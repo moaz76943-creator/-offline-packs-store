@@ -73,16 +73,6 @@
       "language": "en",
       "level": null,
       "license_id": "CC-BY-SA-4.0",
-      "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0004",
-      "retrieval_date": "2026-10-21",
-      "source_id": "universal-dependencies",
-      "value": "***"
-    },
-    {
-      "id": "sentence.statement",
-      "language": "en",
-      "level": null,
-      "license_id": "CC-BY-SA-4.0",
       "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0005",
       "retrieval_date": "2026-10-21",
       "source_id": "universal-dependencies",
@@ -157,6 +147,16 @@
       "retrieval_date": "2026-10-21",
       "source_id": "universal-dependencies",
       "value": "The US lost yet another helicopter to hostile fire near Habbaniyah in the Sunni heartland, but this time the crew was safe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0003",
+      "retrieval_date": "2026-10-21",
+      "source_id": "universal-dependencies",
+      "value": "In Fallujah, hundreds of demonstrators came out against US troops when they briefly arrested a yound newlywed bride."
     },
     {
       "id": "verb.forms",
