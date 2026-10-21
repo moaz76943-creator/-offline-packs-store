@@ -6,9 +6,14 @@ import zipfile
 import gzip
 import os
 import stat
+import sys
 from pathlib import Path
 
-from community.contributions.ingest import ingest, quarantine_submission
+if __package__ in (None, ""):
+    # Direct invocation from any working directory, without replacing package imports.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from community.contributions.ingest import ingest, quarantine_submission, MAX_EXPANDED
 
 MAX_INPUT = 8 * 1024 * 1024
 MAX_MEMBERS = 128
@@ -52,7 +57,14 @@ def process_bundle(source, staging_root):
         validate_svg(data)
     elif name.endswith(".zip"):
         with zipfile.ZipFile(io.BytesIO(data)) as archive:
-            for info in archive.infolist():
+            infos = archive.infolist()
+            if not infos or len(infos) > MAX_MEMBERS:
+                raise ValueError("invalid archive member count")
+            expanded = 0
+            for info in infos:
+                expanded += info.file_size
+                if info.file_size > MAX_EXPANDED or expanded > MAX_EXPANDED:
+                    raise ValueError("archive expansion limit")
                 mode = info.external_attr >> 16
                 if info.is_dir() or stat.S_ISLNK(mode):
                     raise ValueError("archive links/directories forbidden")
@@ -61,18 +73,33 @@ def process_bundle(source, staging_root):
                     raise ValueError("archive path traversal forbidden")
 
                 if part.endswith(".svg"):
-                    with archive.open(info) as f:
-                        validate_svg(f.read())
+                    with archive.open(info) as stream:
+                        svg = stream.read(info.file_size + 1)
+                    if len(svg) != info.file_size:
+                        raise ValueError("archive size mismatch")
+                    validate_svg(svg)
     elif name.endswith((".tar.gz", ".tgz")):
         with tarfile.open(fileobj=io.BytesIO(data), mode="r:gz") as archive:
+            expanded = 0
+            count = 0
             for info in archive:
+                count += 1
+                expanded += info.size
+                if count > MAX_MEMBERS:
+                    raise ValueError("invalid archive member count")
+                if info.size > MAX_EXPANDED or expanded > MAX_EXPANDED:
+                    raise ValueError("archive expansion limit")
                 if not info.isfile() or "\\" in info.name or info.name.startswith(".") or ".." in info.name or info.name != Path(info.name).name:
                     raise ValueError("archive path traversal forbidden")
 
                 if info.isfile() and info.name.endswith(".svg"):
                     f = archive.extractfile(info)
                     if f:
-                        validate_svg(f.read())
+                        with f:
+                            svg = f.read(info.size + 1)
+                        if len(svg) != info.size:
+                            raise ValueError("archive size mismatch")
+                        validate_svg(svg)
 
     return ingest(source, staging_root)
 
@@ -87,7 +114,12 @@ def main(argv=None):
         print(json.dumps(receipt, sort_keys=True))
         return 0
     except Exception as exc:
-        quarantine_submission(args.submission, args.staging_root, str(exc))
+        try:
+            quarantine_submission(args.submission, args.staging_root, str(exc))
+        except Exception:
+            # Missing, symlinked, or oversized submissions may be unreadable.
+            # Preserve the original controlled rejection; no successful receipt.
+            pass
         print("REJECTED:", exc)
         return 1
 
