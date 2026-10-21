@@ -1,0 +1,512 @@
+{
+  "report_type": "admitted_pronunciation_audio_snapshot_not_general_language_readiness",
+  "metadata_version": "1.0.0",
+  "reference_main_sha": "254e8edd85a2d4a37c13e1834ef2d9f77ce7e605",
+  "catalog_blob_sha": "e3cca71788d4510663f177b966a62e6a788d012c",
+  "source_ledger_blob_sha": "cb21feee7aa34ce8144c6b3e1f230c350dde2f1d",
+  "approved_sources": 0,
+  "candidate_records": 0,
+  "registered_languages": 100,
+  "coverage": {
+    "af": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "am": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ar": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "as": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "az": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ba": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "be": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "bg": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "bn": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "br": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "bs": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ca": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "cs": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "cy": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "da": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "de": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "dv": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "el": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "en": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "eo": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "es": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "et": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "eu": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "fa": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "fi": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "fo": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "fr": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "fy": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ga": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "gd": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "gl": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "gu": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ha": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "hi": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "hr": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "hu": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "hy": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "id": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ig": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "is": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "it": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ja": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ka": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "kk": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "km": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "kn": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ko": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ku": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ky": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "la": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "lb": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "lo": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "lt": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "lv": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "mg": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "mk": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ml": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "mn": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "mr": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ms": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "mt": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "my": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ne": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "nl": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "no": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "or": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "pa": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "pl": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ps": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "pt": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ro": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ru": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "rw": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "sd": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "si": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "sk": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "sl": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "sn": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "so": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "sq": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "sr": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "sv": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "sw": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ta": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "te": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "tg": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "th": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "tk": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "tl": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "tr": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "tt": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ug": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "uk": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "ur": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "uz": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "vi": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "xh": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "yo": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "zh": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    },
+    "zu": {
+      "evidenced_pronunciation_variants": 0,
+      "admitted_audio_assets": 0,
+      "admitted_unique_audio_files": 0
+    }
+  }
+}

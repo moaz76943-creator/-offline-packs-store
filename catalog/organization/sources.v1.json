@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0.0",
+  "independent_of": ["packs", "legal/ledger/sources.json", "manifest"],
+  "note": "Open-licensed adapters. A source is ledger-compatible only when its notice positively matches CC-BY-SA-4.0, GFDL-1.3-only, CC0-1.0, or PUBLIC-DOMAIN. NC, ND, GPL, CC-BY-SA-3.0, and unverified pages stay blocked. Nothing here is publication-approved, and this file is not a ledger admission. No unlicensed page is copied in as content.",
+  "retrieved": "2026-10-18",
+  "sources": [
+    {
+      "id": "kaikki.wiktextract",
+      "kind": "dictionary",
+      "origin_url": "https://kaikki.org/dictionary/rawdata.html",
+      "license_page_url": "https://en.wiktionary.org/wiki/Wiktionary:Copyrights",
+      "evidence_path": "legal/source_evidence/wiktionary-copyrights.txt",
+      "evidence_sha256": "244957dabf990639d8bc22368ddafe752827304e82c5734d92539b4cbe8735be",
+      "declared_license": "CC-BY-SA-4.0",
+      "co_offered_licenses": ["GFDL-1.3-only"],
+      "stated_license": "CC-BY-SA-4.0",
+      "compatible": true,
+      "attribution": {
+        "title": "Wiktionary",
+        "creators": ["Wiktionary contributors"],
+        "via": "Kaikki.org Wiktextract extract",
+        "source_url": "https://kaikki.org/dictionary/rawdata.html"
+      }
+    },
+    {
+      "id": "tatoeba.sentences",
+      "kind": "examples",
+      "origin_url": "https://tatoeba.org/en/downloads",
+      "license_page_url": "https://tatoeba.org/en/terms_of_use",
+      "evidence_path": "legal/source_evidence/tatoeba-terms.txt",
+      "evidence_sha256": "b94f73736ac406e6a474d38bdab4b17597381f9febef63e00abef0313bf7a1f5",
+      "declared_license": null,
+      "co_offered_licenses": [],
+      "stated_license": "CC-BY-2.0-FR",
+      "compatible": false,
+      "candidate_when_attributed": true,
+      "blocked_reason": "CC-BY-2.0-FR is not a ledger license. Sentences may be kept only as unpublished candidates, and only when the author name is present.",
+      "attribution": {
+        "title": "Tatoeba",
+        "creators": ["the sentence author named on the record"],
+        "via": "Tatoeba",
+        "source_url": "https://tatoeba.org/en/terms_of_use"
+      }
+    },
+    {
+      "id": "universal-dependencies",
+      "kind": "morphology",
+      "origin_url": "https://universaldependencies.org/",
+      "license_page_url": "https://raw.githubusercontent.com/UniversalDependencies/UD_English-EWT/master/LICENSE.txt",
+      "evidence_path": "legal/source_evidence/ud-english-ewt-license.txt",
+      "evidence_sha256": "c1126b8355111813db310594eb90be5a0cc91d3d385bc6117f31052fdc9508f2",
+      "declared_license": "CC-BY-SA-4.0",
+      "co_offered_licenses": [],
+      "stated_license": "per-treebank",
+      "compatible": true,
+      "blocked_reason": "Only a treebank whose own license notice positively matches an allowed license is read. This evidence is the English-EWT treebank, not a blanket license for every treebank.",
+      "attribution": {
+        "title": "Universal Dependencies",
+        "creators": ["Universal Dependencies contributors"],
+        "via": "the treebank named on the record",
+        "source_url": "https://universaldependencies.org/"
+      }
+    },
+    {
+      "id": "unimorph",
+      "kind": "morphology",
+      "origin_url": "https://unimorph.github.io/",
+      "license_page_url": "https://creativecommons.org/licenses/by-sa/3.0/legalcode.txt",
+      "evidence_path": "legal/source_evidence/unimorph-by-sa-3.0.txt",
+      "evidence_sha256": "8a5450d4efe5d81e7f41deefd8b1bf9556671c9186133ea50c1d780ee2bdc050",
+      "declared_license": null,
+      "co_offered_licenses": [],
+      "stated_license": "CC-BY-SA-3.0",
+      "compatible": false,
+      "blocked_reason": "The UniMorph pages checked on 2026-10-18 point at CC-BY-SA 3.0 or LGPL. CC-BY-SA 3.0 conflicts with a CC-BY-SA-4.0 declaration. No compatible notice was verified.",
+      "attribution": {
+        "title": "UniMorph",
+        "creators": ["UniMorph contributors"],
+        "via": "UniMorph",
+        "source_url": "https://unimorph.github.io/"
+      }
+    },
+    {
+      "id": "apertium",
+      "kind": "morphology",
+      "origin_url": "https://raw.githubusercontent.com/apertium/apertium-eng/master/COPYING",
+      "license_page_url": "https://raw.githubusercontent.com/apertium/apertium-eng/master/COPYING",
+      "evidence_path": "legal/source_evidence/apertium-eng-copying.txt",
+      "evidence_sha256": "38a128bc9af4e6246de2bbbb47c19f2c4cfc867369e60e833499a7802cc589a8",
+      "declared_license": null,
+      "co_offered_licenses": [],
+      "stated_license": "GPL-3.0-only",
+      "compatible": false,
+      "blocked_reason": "The Apertium English monolingual package COPYING file is the GNU GPL version 3. GPL is not a ledger license. A different package can be read only when its own notice positively matches an allowed license.",
+      "attribution": {
+        "title": "Apertium",
+        "creators": ["Apertium contributors"],
+        "via": "Apertium",
+        "source_url": "https://wiki.apertium.org/wiki/Apertium"
+      }
+    },
+    {
+      "id": "omegawiki",
+      "kind": "dictionary",
+      "origin_url": "https://www.omegawiki.org/",
+      "license_page_url": "https://www.omegawiki.org/OmegaWiki:Copyrights",
+      "evidence_path": null,
+      "evidence_sha256": null,
+      "declared_license": null,
+      "co_offered_licenses": [],
+      "stated_license": null,
+      "compatible": false,
+      "blocked_reason": "The OmegaWiki copyright page could not be retrieved on 2026-10-18 because the certificate hostname does not match. No OmegaWiki text is stored.",
+      "attribution": {
+        "title": "OmegaWiki",
+        "creators": ["OmegaWiki contributors"],
+        "via": "OmegaWiki",
+        "source_url": "https://www.omegawiki.org/"
+      }
+    }
+  ]
+}
