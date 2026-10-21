@@ -207,6 +207,9 @@ def lookup(path, root, language, surface, limit=100):
             # process/segmentation claims. Spelling and provenance are separate.
             analysis_record = {field: value for field, value in record.items()
                                if field not in ('form', 'source_id', 'evidence_version')}
+            for optional_collection in ('processes', 'components',
+                                        'segmentation', 'morphemes'):
+                analysis_record.setdefault(optional_collection, [])
             identity = (json.dumps(analysis_record, sort_keys=True),
                         evidence['variety'], evidence.get('dialect_tag'),
                         evidence['part_of_speech'], evidence.get('verb_stem'))
