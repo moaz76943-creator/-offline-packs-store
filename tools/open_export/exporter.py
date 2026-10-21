@@ -123,6 +123,8 @@ def _audit_member(source, destination=None):
                 translations.append((tr["from_sense_id"], tr["to_sense_id"], tr["language"]))
     for from_id, to_id, target_lang in translations:
         # Stable IDs are opaque. Direction is given by sense -> lexeme -> language.
+        if not isinstance(from_id, str) or not isinstance(to_id, str):
+            raise ExportError("reversed translation pair detected")
         from_lang = lexemes.get(senses.get(from_id))
         to_lang = lexemes.get(senses.get(to_id))
         if (not isinstance(from_lang, str) or not isinstance(to_lang, str)
