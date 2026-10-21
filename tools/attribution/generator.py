@@ -125,6 +125,7 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
             "license_id": source["license"]["id"],
             "license_evidence_url": source["license"]["evidence_url"],
             "license_evidence_sha256": source["license"]["evidence_sha256"],
+            "co_offered_licenses": source["license"].get("co_offered_licenses", []),
             "alterations": source["alterations"],
             "review": source["review"],
             "public_domain_proof": source["license"].get("public_domain_proof"),
@@ -133,7 +134,7 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
     records.sort(key=lambda r: r["source_id"])
     notices = {}
     for r in records:
-        notices[r["notice_file"]] = "\n".join([
+        lines = [
             "Source: " + r["source_id"],
             "Author: " + r["author"],
             "Publisher: " + r["publisher"],
@@ -142,12 +143,17 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
             "Retrieved snapshot: " + r["retrieval_identity"],
             "Snapshot SHA-256: " + r["artifact_sha256"],
             "License: " + r["license_id"],
+        ]
+        if r.get("co_offered_licenses"):
+            lines.append("Co-offered licenses: " + ", ".join(r["co_offered_licenses"]))
+        lines.extend([
             "Source-specific rights: " + r["license_evidence_url"],
             "Rights proof SHA-256: " + r["license_evidence_sha256"],
             "Alterations: " + "; ".join(r["alterations"]),
             "Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"],
             "Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True)
-        ]) + "\n"
+        ])
+        notices[r["notice_file"]] = "\n".join(lines) + "\n"
     notices["attribution.json"] = json.dumps(
         records, sort_keys=True, ensure_ascii=False, indent=2) + "\n"
     _write_notices_safely(out_dir, notices)
