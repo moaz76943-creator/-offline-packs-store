@@ -34,7 +34,7 @@ BASELINE_COMMANDS = {
     "registry": (sys.executable, "catalog/validate_registry.py"),
     "sqlite": (sys.executable, "tools/test_store_pipeline.py", "-q"),
 }
-ISOLATED_PREFIXES = tuple("tools/" + folder + "/" for folder, _ in SUITES.values())
+ISOLATED_PREFIXES = tuple(folder + "/" for folder, _ in SUITES.values())
 POLICY_PATHS = ("tools/ci_policy/", "tests/ci_policy/")
 POLICY_WORKFLOW = ".github/workflows/public_pr_merge_gate.yml"
 SENSITIVE_DOCS = ("docs/governance/", "docs/merge_coordinator/",
@@ -46,7 +46,7 @@ def select_baseline_checks(changed_paths):
     if not changed_paths:
         return BASELINE_ORDER
     for path in changed_paths:
-        if (not isinstance(path, str) or not path or "\\\\" in path
+        if (not isinstance(path, str) or not path or "\\" in path
                 or path.startswith("/") or ".." in path.split("/")):
             return BASELINE_ORDER
 
