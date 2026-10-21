@@ -153,3 +153,59 @@ REVIEW_REQUIRED_ENTRIES = [
         "plural": "runs"
     }
 ]
+
+INVALID_ENTRIES.extend([
+    {
+        # Strict POS enforcement
+        "id": "eng-invalid-pos",
+        "surface": "test",
+        "language": "eng",
+        "pos": "not-a-valid-pos"
+    },
+    {
+        # Language mismatch
+        "id": "deu-mismatch",
+        "surface": "test",
+        "language": "eng",
+        "pos": "noun"
+    },
+    {
+        # Isolating language with plural
+        "id": "zho-plural",
+        "surface": "苹果",
+        "language": "zho",
+        "pos": "noun",
+        "plural": "苹果s"
+    },
+    {
+        # Isolating language with conjugation
+        "id": "tha-conj",
+        "surface": "สวัสดี",
+        "language": "tha",
+        "pos": "verb",
+        "conjugations": {"past": "test"}
+    }
+])
+
+INVALID_ENTRIES.extend([
+    {
+        # Arabic invalid structure
+        "id": "ara-invalid",
+        "surface": "كتاب",
+        "language": "ara",
+        "pos": "not-a-valid-pos"
+    },
+    {
+        # Hebrew missing surface
+        "id": "heb-missing-surface",
+        "language": "heb",
+        "pos": "noun"
+    },
+    {
+        # Japanese invalid language mismatch
+        "id": "jpn-mismatch",
+        "surface": "食べる",
+        "language": "eng",
+        "pos": "verb"
+    }
+])
