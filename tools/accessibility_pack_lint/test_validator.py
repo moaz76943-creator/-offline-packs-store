@@ -56,5 +56,102 @@ class TestAccessibilityValidator(unittest.TestCase):
         self.assertEqual(result["status"], "accepted")
         self.assertIn("Missing device shaping evidence", result["warnings"])
 
+    def test_empty_labels(self):
+        asset = self.load_fixture("valid_asset.json")
+        asset["labels"] = []
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Missing or empty alt text", result["errors"])
+
+    def test_missing_concept_id(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["concept_id"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Missing semantic concept ID", result["errors"])
+
+    def test_missing_fallback_label(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["fallback_label"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Missing fallback label", result["errors"])
+
+    def test_missing_language(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["labels"][0]["language"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Missing language metadata", result["errors"])
+
+    def test_control_character_in_alt_text(self):
+        asset = self.load_fixture("valid_asset.json")
+        asset["labels"][0]["text"] = "Text with \x00 control char"
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Alt text contains control characters", result["errors"])
+
+    def test_missing_contrast_metadata(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["contrast"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Missing or structurally invalid contrast metadata", result["errors"])
+
+    def test_missing_vector_bounds(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["vector"]["bounds"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Vector bounds missing or invalid", result["errors"])
+
+    def test_missing_vector_complexity(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["vector"]["complexity"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Vector complexity missing", result["errors"])
+
+    def test_nonnumeric_path_count_is_rejected(self):
+        asset = self.load_fixture("valid_asset.json")
+        asset["vector"]["path_count"] = "51"
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Vector path count must be a nonnegative integer", result["errors"])
+
+    def test_vector_path_count_exceeded(self):
+        asset = self.load_fixture("bad_vector_path_count.json")
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Vector path count exceeds safe complexity limits (max 50)", result["errors"])
+
+    def test_missing_version(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["version"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Missing version identity", result["errors"])
+
+    def test_missing_hash(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["hash"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Missing hash identity", result["errors"])
+
+    def test_missing_provenance(self):
+        asset = self.load_fixture("valid_asset.json")
+        del asset["provenance"]
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Missing provenance identity", result["errors"])
+
+    def test_malformed_direction(self):
+        asset = self.load_fixture("valid_asset.json")
+        asset["labels"][0]["direction"] = "invalid"
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Malformed RTL/LTR direction metadata", result["errors"])
+
 if __name__ == "__main__":
     unittest.main()

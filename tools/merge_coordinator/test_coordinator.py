@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 import unittest
 from coordinator import evaluate, policy_error, order_entries
 
@@ -39,12 +40,13 @@ def checks(**changes):
 
 
 class ContractTests(unittest.TestCase):
-    def decide(self, e=None, p=None, c=None, rv=None, fs=None, title='feat: ready', deps=None):
+    def decide(self, e=None, p=None, c=None, rv=None, fs=None, title='feat: ready', deps=None, now=None):
         return evaluate(e or entry(), p or pr(), c or checks(),
                         rv if rv is not None else [{'user': {'login': 'trusted-reviewer'},
                             'state': 'APPROVED', 'commit_id': SHA_A}],
                         fs if fs is not None else [{'filename': 'tools/merge_coordinator/a.py'}],
-                        SHA_B, title, deps if deps is not None else {})
+                        SHA_B, title, deps if deps is not None else {},
+                        now=now)
 
     def test_accepted_exact_sha_with_real_check_and_review(self):
         self.assertEqual(self.decide(), ('VERIFIED_READY', 'exact-head validated'))
@@ -114,7 +116,7 @@ class ContractTests(unittest.TestCase):
             reviewers=[],
         )
         # In solo maintainer mode without independent reviewer, review list can be empty
-        status, reason = self.decide(e=solo, rv=[])
+        status, reason = self.decide(e=solo, rv=[], now=datetime(2026, 10, 15, 12, 0, 0, tzinfo=timezone.utc))
         self.assertEqual(status, 'VERIFIED_READY')
 
     def test_solo_maintainer_missing_or_invalid_expiry_fails(self):
@@ -140,6 +142,22 @@ class ContractTests(unittest.TestCase):
         )
         self.assertEqual(status, 'EXPIRED_AUTHORIZATION')
 
+    def test_expired_draft_authorization_never_promotes(self):
+        now = datetime(2026, 10, 16, tzinfo=timezone.utc)
+        for field in ('expiry', 'expires_at'):
+            with self.subTest(field=field):
+                record = entry(authorization_mode='solo_maintainer', reviewers=[],
+                               **{field: '2026-10-15T00:00:00Z'})
+                self.assertEqual(self.decide(e=record, p=pr(draft=True), rv=[], now=now)[0],
+                                 'EXPIRED_AUTHORIZATION')
+
+    def test_unexpired_draft_authorization_remains_promotable(self):
+        record = entry(authorization_mode='solo_maintainer', reviewers=[],
+                       expiry='2026-10-17T00:00:00Z')
+        now = datetime(2026, 10, 16, tzinfo=timezone.utc)
+        self.assertEqual(self.decide(e=record, p=pr(draft=True), rv=[], now=now)[0],
+                         'PROMOTE_ONLY')
+
     def test_solo_maintainer_prohibited_paths_remain_strictly_blocked(self):
         sensitive_entry = entry(
             authorization_mode='solo_maintainer',
@@ -149,6 +167,43 @@ class ContractTests(unittest.TestCase):
         )
         self.assertEqual(policy_error(sensitive_entry), 'prohibited owned path')
 
+    def test_vetted_dispatcher_exemption_allows_exact_subpath(self):
+        dispatcher_entry = entry(
+            paths=['tools/gha_factory/dispatcher/'],
+        )
+        self.assertIsNone(policy_error(dispatcher_entry))
+        status, reason = self.decide(
+            e=dispatcher_entry,
+            fs=[{'filename': 'tools/gha_factory/dispatcher/queue.py'}],
+        )
+        self.assertEqual(status, 'VERIFIED_READY')
+
+    def test_unvetted_gha_factory_subpaths_remain_strictly_blocked(self):
+        broad_entry = entry(paths=['tools/gha_factory/'])
+        self.assertEqual(policy_error(broad_entry), 'prohibited owned path')
+
+        release_entry = entry(paths=['tools/gha_factory/release/'])
+        self.assertEqual(policy_error(release_entry), 'prohibited owned path')
+
+    def test_unapproved_extra_file_in_dispatcher_pr_blocks(self):
+        dispatcher_entry = entry(paths=['tools/gha_factory/dispatcher/'])
+        status, reason = self.decide(
+            e=dispatcher_entry,
+            fs=[
+                {'filename': 'tools/gha_factory/dispatcher/queue.py'},
+                {'filename': 'tools/gha_factory/release/candidate.py'},
+            ],
+        )
+        self.assertEqual(status, 'SCOPE_VIOLATION')
+
+    def test_head_sha_tampering_after_authorization_blocks(self):
+        dispatcher_entry = entry(
+            paths=['tools/gha_factory/dispatcher/'],
+            head_sha=SHA_A,
+        )
+        tampered_pr = pr(head={'sha': SHA_B})
+        status, reason = self.decide(e=dispatcher_entry, p=tampered_pr)
+        self.assertEqual(status, 'STALE_HEAD')
 
 
 if __name__ == '__main__':

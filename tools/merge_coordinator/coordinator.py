@@ -8,6 +8,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -23,8 +24,31 @@ DENY_PREFIXES = (
     'tools/open_export/', 'tools/pack_conformance/', 'tools/open_index/',
     'tools/gha_factory/', '.github/', 'catalog/', 'standards/',
 )
+VETTED_EXEMPT_PREFIXES = (
+    'tools/gha_factory/dispatcher/',
+)
 DENY_EXACT = {'manifest.json', 'version.json', 'deutsch_deep_master.pack.gz',
               'perfect_public_store.py', 'pubspec.yaml', 'setup_repo.py'}
+
+
+def is_prohibited_prefix(path):
+    for denied in DENY_PREFIXES:
+        if path.startswith(denied):
+            if any(path.startswith(exempt) for exempt in VETTED_EXEMPT_PREFIXES):
+                continue
+            return True
+    return False
+
+
+def is_denied_file(name):
+    if name in DENY_EXACT:
+        return True
+    for denied in DENY_PREFIXES:
+        if name.startswith(denied):
+            if any(name.startswith(exempt) for exempt in VETTED_EXEMPT_PREFIXES):
+                continue
+            return True
+    return False
 
 
 def policy_error(e):
@@ -44,7 +68,7 @@ def policy_error(e):
     for path in allowed:
         if not isinstance(path, str) or not path.endswith('/') or path.startswith('/') or '../' in path or '\\' in path:
             return 'unsafe allowed path'
-        if not path.startswith(('tools/', 'tests/', 'docs/')) or path.startswith(DENY_PREFIXES):
+        if not path.startswith(('tools/', 'tests/', 'docs/')) or is_prohibited_prefix(path):
             return 'prohibited owned path'
     names = e.get('checks')
     if (not isinstance(names, list) or len(names) < 2 or
@@ -160,6 +184,20 @@ def authorized_file_conflicts(gh, item, files, authorized):
             conflicts.append(other['number'])
     return sorted(conflicts)
 
+def authorization_expiry_error(e, now=None):
+    """Check the clock again at each privileged write boundary."""
+    expiry_str = e.get('expiry') or e.get('expires_at')
+    if expiry_str:
+        try:
+            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
+            current_time = now if now is not None else datetime.now(timezone.utc)
+            if current_time >= exp_dt:
+                return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
+        except (ValueError, TypeError, AttributeError):
+            return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
+    return None
+
+
 def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False, now=None):
     """Pure readiness classifier; positive result is bound to exact PR/main SHAs."""
     err = policy_error(e)
@@ -188,8 +226,7 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
         if file.get('status') in ('renamed', 'copied') or file.get('previous_filename') is not None:
             names.append(file.get('previous_filename'))
         for name in names:
-            if (not isinstance(name, str) or name in DENY_EXACT or
-                    name.startswith(DENY_PREFIXES) or
+            if (not isinstance(name, str) or is_denied_file(name) or
                     not any(name.startswith(prefix) for prefix in e['paths'])):
                 return 'SCOPE_VIOLATION', f'unapproved or sensitive path {name}'
     for num in e['dependencies']:
@@ -205,17 +242,12 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
         latest = max(eligible, key=lambda x: x.get('id', 0), default=None)
         if latest is None or latest.get('status') != 'completed' or latest.get('conclusion') != 'success':
             return 'NOT_RUN', f'check {wanted} lacks exact-head PASS'
+    expiry_error = authorization_expiry_error(e, now)
+    if expiry_error:
+        return expiry_error
+
     if pr.get('draft'):
         return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
-    expiry_str = e.get('expiry') or e.get('expires_at')
-    if expiry_str:
-        try:
-            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
-            current_time = now if now is not None else datetime.now(timezone.utc)
-            if current_time > exp_dt:
-                return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
-        except Exception:
-            return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
 
     is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
     reviewers = e.get('reviewers') or []
@@ -295,8 +327,13 @@ class GitHub:
                          changed[0].get('status') in ('modified', 'added'))
         return (parents[0]['sha'] if parents else None, approved_only)
 
-    def query_pr(self, number, head_sha):
+    def query_pr(self, number, head_sha, max_retries=2):
         pr = self.get(f'/pulls/{number}')
+        retries = 0
+        while retries < max_retries and (pr.get('mergeable') is None or pr.get('mergeable_state') == 'unknown'):
+            time.sleep(1.5)
+            retries += 1
+            pr = self.get(f'/pulls/{number}')
         checks = self.get(f'/commits/{head_sha}/check-runs?per_page=100')
         if checks.get('total_count', 0) > 100:
             raise ValueError('check runs pagination incomplete')
@@ -309,16 +346,20 @@ class GitHub:
         p = self.get(f'/pulls/{n}')
         return {'state': p['state'], 'merged': p['merged']}
 
-    def promote(self, number):
+    def promote(self, number, authorization):
         pr = self.get(f'/pulls/{number}')
+        if pr.get('head', {}).get('sha') != authorization['head_sha']:
+            raise ValueError('PR head changed inside promotion')
         body = {'query': 'mutation($id:ID!){markPullRequestReadyForReview(input:{pullRequestId:$id}){pullRequest{isDraft}}}',
                 'variables': {'id': pr['node_id']}}
+        if authorization_expiry_error(authorization):
+            raise ValueError('authorization expired inside promotion')
         result = self.request('/graphql', method='POST', data=body)
         if result.get('errors') or result.get('data', {}).get('markPullRequestReadyForReview', {}).get('pullRequest', {}).get('isDraft') is not False:
             raise ValueError('promotion not confirmed')
 
     def squash(self, number, head, has_independent_review=False):
-        confirmation = "Independent review and scoped QA confirmed." if has_independent_review else "Solo maintainer authorization and scoped QA confirmed."
+        confirmation = "Independent review and scoped QA confirmed." if has_independent_review else "Scoped QA and protected-main rules confirmed."
         return self.request(f'/repos/{REPO}/pulls/{number}/merge', method='PUT', data={
             'sha': head, 'merge_method': 'squash',
             'commit_title': f'integrate: verified public PR #{number}',
@@ -339,6 +380,11 @@ def run():
     gh = GitHub()
     original_main = gh.main_sha()
     auth_parent, auth_only = gh.authorization_origin(original_main)
+    if not ordered:
+        # Built-in, bounded low-risk discovery; no additional merge authority.
+        from auto_run import run_auto
+        print(f'MAIN={original_main} APPROVED_CANDIDATES=0; SAFE_DISCOVERY=ENABLED')
+        return run_auto(gh, original_main)
     print(f'MAIN={original_main} APPROVED_CANDIDATES={len(ordered)}')
     for item in ordered:
         number = item['number']
@@ -361,7 +407,10 @@ def run():
                     if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
                         print('HALT: SHA changed before promotion')
                         return 0
-                    gh.promote(number)
+                    if authorization_expiry_error(item):
+                        print('HALT: authorization expired before promotion')
+                        return 0
+                    gh.promote(number, item)
                     print(f'PROMOTED #{number}; stop until new review and checks complete')
                     return 0
             elif result == 'VERIFIED_READY':
@@ -404,6 +453,9 @@ def run():
                     latest_rev[login][1].get('commit_id') == item['head_sha']
                     for login in (item.get('reviewers') or [])
                 )
+                if authorization_expiry_error(item):
+                    print('HALT: authorization expired before squash')
+                    return 0
                 try:
                     result = gh.squash(number, item['head_sha'], has_independent_review=has_independent)
                 except TypeError:
