@@ -156,7 +156,7 @@ def diff(old,new):
     before,after=keyed(old),keyed(new)
     unchanged=[];changed=[]
     for lang in sorted(set(before)&set(after)):
-        if before[lang]==after[lang]:unchanged.append(lang)
+        if before[lang].get("sqlite_sha256")==after[lang].get("sqlite_sha256"):unchanged.append(lang)
         else:changed.append(lang)
     return {'unchanged':unchanged,'added_pending_review':sorted(set(after)-set(before)),
             'removed_pending_review':sorted(set(before)-set(after)),
