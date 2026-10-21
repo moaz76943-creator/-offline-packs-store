@@ -15,6 +15,7 @@ import ssl
 import tempfile
 import time
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
 from tools.gha_factory.admission import pipeline as admission
@@ -112,7 +113,9 @@ class PinnedHTTPS(http.client.HTTPSConnection):
                 return
             except OSError as exc:
                 last = exc
-        raise Blocked("BLOCKED_SOURCE: reviewed host unreachable") from last
+        # Connection failures can be transient; the bounded download retry
+        # handles OSError without weakening the DNS/private-IP checks above.
+        raise OSError("reviewed host unreachable") from last
 
 
 @dataclass(frozen=True)
@@ -164,6 +167,8 @@ def approved_source(root, source_id, version, language, url, sha256, size, hosts
                            (s.get("origin_url"), url, rights.get("evidence_url"),
                             review.get("decision_url")))):
             raise ValueError("unreviewed rights/version")
+        # Route 05's canonical admission contract rejects invalid ISO dates.
+        date.fromisoformat(r["date"])
         if rights["id"] == "PUBLIC-DOMAIN" and not all(
                 (rights.get("public_domain_proof") or {}).get(k)
                 for k in ("jurisdiction", "legal_basis", "work_date")):
