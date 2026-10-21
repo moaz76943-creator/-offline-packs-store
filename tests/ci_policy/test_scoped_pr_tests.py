@@ -24,6 +24,8 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["tools/lexical_quality/validator.py"]), ("lexical_quality",))
         self.assertEqual(select_suites(["tools/open_export/exporter.py"]), ("open_export",))
         self.assertEqual(select_suites(["tools/community_automation/gate.py"]), ("community_automation",))
+        self.assertEqual(select_suites(["utils.py"]), ("utils",))
+        self.assertEqual(select_suites(["tests/test_utils.py"]), ("utils",))
 
     def test_shared_provenance_logic_runs_all_affected_tests(self):
         self.assertEqual(select_suites(["legal/ledger/admission.py"]),

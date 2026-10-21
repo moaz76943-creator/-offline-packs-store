@@ -26,8 +26,9 @@ SUITES = {
     "lexical_quality": ("tools/lexical_quality", "test_validator.py"),
     "open_export": ("tools/open_export", "test_lifecycle.py"),
     "community_automation": ("tools/community_automation", "test_gate.py"),
+    "utils": ("tests", "test_utils.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "utils")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -39,7 +40,7 @@ BASELINE_COMMANDS = {
     "registry": (sys.executable, "catalog/validate_registry.py"),
     "sqlite": (sys.executable, "tools/test_store_pipeline.py", "-q"),
 }
-ISOLATED_PREFIXES = tuple(folder + "/" for folder, _ in SUITES.values())
+ISOLATED_PREFIXES = tuple(folder + "/" for folder, _ in SUITES.values() if folder != "tests")
 POLICY_PATHS = ("tools/ci_policy/", "tests/ci_policy/")
 POLICY_WORKFLOW = ".github/workflows/public_pr_merge_gate.yml"
 SENSITIVE_DOCS = ("docs/governance/", "docs/merge_coordinator/",
@@ -114,8 +115,10 @@ def select_suites(changed_paths):
             selected.add("open_export")
         if path.startswith("tools/community_automation/"):
             selected.add("community_automation")
+        if path == "utils.py" or path == "tests/test_utils.py":
+            selected.add("utils")
         if path.startswith("legal/ledger/"):
-            selected.update(ORDER)
+            selected.update(name for name in ORDER if name != "utils")
         if path.startswith("tools/contribution_gate/"):
             selected.update(("pronunciation", "audio"))
     return tuple(name for name in ORDER if name in selected)
