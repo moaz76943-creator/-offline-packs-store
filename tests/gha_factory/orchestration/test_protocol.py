@@ -46,6 +46,13 @@ class ProtocolTests(unittest.TestCase):
     def test_reject_duplicate_json_keys(self):
         raw=p.serialize(task()).replace('"state":"NEW"','"state":"NEW","state":"READY"')
         with self.assertRaises(ValueError):p.parse(raw)
+    def test_non_object_v2_task_envelopes_fail_closed(self):
+        for invalid in ('[]', 'null', '"text"', '42', 'true'):
+            with self.subTest(invalid=invalid):
+                raw = p.MARKER + invalid + '\n' + '```'
+                with self.assertRaisesRegex(ValueError, 'queue task must be a JSON object'):
+                    p.parse(raw)
+
     def test_claim_maximum_retry(self):
         with self.assertRaises(ValueError):p.claim(task(state='READY',attempts=3),NOW,1,1)
     def test_receipt_replay_and_tamper(self):
@@ -79,6 +86,24 @@ class ProtocolTests(unittest.TestCase):
             p.verify_output(folder,r)
             (folder/'candidates.jsonl').write_bytes(b'tampered')
             with self.assertRaises(ValueError):p.verify_output(folder,r)
+    def test_blocked_source_receipt_must_not_claim_progress(self):
+        t = p.claim(task(state='READY', checkpoint=4), NOW, 21, 1)
+        cases = [
+            p.receipt(t, 'BLOCKED_SOURCE', 5, 0, None, 'SOURCE_NOT_APPROVED'),
+            p.receipt(t, 'BLOCKED_SOURCE', 4, 1, None, 'SOURCE_NOT_APPROVED'),
+            p.receipt(t, 'BLOCKED_SOURCE', 4, 0, 'b' * 64, 'SOURCE_NOT_APPROVED'),
+        ]
+        for r in cases:
+            with self.subTest(receipt=r), self.assertRaises(ValueError):
+                p.finish(t, r, NOW)
+
+    def test_blocked_source_receipt_preserves_checkpoint(self):
+        t = p.claim(task(state='READY', checkpoint=4), NOW, 21, 1)
+        r = p.receipt(t, 'BLOCKED_SOURCE', 4, 0, None, 'SOURCE_NOT_APPROVED')
+        result = p.finish(t, r, NOW)
+        self.assertEqual(result['state'], 'BLOCKED_SOURCE')
+        self.assertEqual(result['checkpoint'], 4)
+
     def test_null_digest_with_candidates_is_rejected_for_v2(self):
         t=p.claim(task(state='READY'),NOW,1,1)
         # Snapshot verification reports checked records, not generated candidates.

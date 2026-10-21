@@ -1,0 +1,317 @@
+# Manual Wikidata dump slice. Scheduled harvesting lives in agent_harvest_wikidata.yml. One bounded slice, a rotating
+# language batch, per-language overlays. No ledger edit, no pack publish, no
+# self-dispatch, no paid API.
+name: Language production
+
+on:
+  pull_request:
+    paths:
+      - 'tools/language_production/**'
+      - 'catalog/production_languages.v1.json'
+      - 'catalog/sections.v1.json'
+      - '.github/workflows/language_production.yml'
+      - 'STATUS.md'
+  workflow_dispatch:
+    inputs:
+      dump_date:
+        description: 'Dump date YYYYMMDD. Empty uses the newest published entities dump.'
+        required: false
+        default: ''
+      max_bytes:
+        description: 'Compressed bytes per slice (1048576..8388608)'
+        required: true
+        default: '2097152'
+      max_lexemes:
+        description: 'Lexemes considered per language (1..200)'
+        required: true
+        default: '50'
+      slot:
+        description: 'Rotation slot. Empty uses the UTC day of year.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: language-production
+  cancel-in-progress: false
+
+jobs:
+  test:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install lexical schema validator
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir jsonschema==4.26.0
+      - name: Run language-production tests
+        run: python3 -m unittest tools.language_production.test_production tools.open_sources.test_open_sources -q
+
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+      run: ${{ steps.gate.outputs.run }}
+      dump_date: ${{ steps.plan.outputs.dump_date }}
+      max_bytes: ${{ steps.plan.outputs.max_bytes }}
+      max_lexemes: ${{ steps.plan.outputs.max_lexemes }}
+      slot: ${{ steps.plan.outputs.slot }}
+      range_start: ${{ steps.plan.outputs.range_start }}
+      range_end: ${{ steps.plan.outputs.range_end }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Restore harvest cursor
+        uses: actions/cache/restore@v4
+        with:
+          path: dist/state/language-production
+          key: language-production-cursor-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: language-production-cursor-
+      - name: Resolve dump date and rotation
+        id: plan
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_DUMP_DATE: ${{ inputs.dump_date }}
+          INPUT_MAX_BYTES: ${{ inputs.max_bytes }}
+          INPUT_MAX_LEXEMES: ${{ inputs.max_lexemes }}
+          INPUT_SLOT: ${{ inputs.slot }}
+        run: |
+          set -euo pipefail
+          preferred=""
+          max_bytes="2097152"
+          max_lexemes="50"
+          slot=""
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            preferred="$INPUT_DUMP_DATE"
+            max_bytes="$INPUT_MAX_BYTES"
+            max_lexemes="$INPUT_MAX_LEXEMES"
+            slot="$INPUT_SLOT"
+          fi
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            dump_date="20261014"
+          elif [ -n "$preferred" ]; then
+            dump_date="$(python3 -m tools.language_production.cli latest-dump-date --html /dev/null --preferred "$preferred" || true)"
+            if [ -z "$dump_date" ]; then
+              echo "dump_date must be YYYYMMDD" >&2
+              exit 1
+            fi
+          else
+            index="$(mktemp)"
+            curl -fsSL --retry 2 --max-time 60 -A 'offline-packs-store/1.0 (language-production)' \
+              -o "$index" 'https://dumps.wikimedia.org/wikidatawiki/entities/'
+            dump_date="$(python3 -m tools.language_production.cli latest-dump-date --html "$index" --preferred "")"
+          fi
+          python3 -m tools.language_production.cli plan \
+            --slot "$slot" \
+            --dump-date "$dump_date" \
+            --max-bytes "$max_bytes" \
+            --max-lexemes "$max_lexemes" \
+            --cursor dist/state/language-production/cursor.json \
+            --repair-state dist/state/language-production/repair.json \
+            --coverage dist/state/language-production/coverage.json \
+            >> "$GITHUB_OUTPUT"
+      - name: Gate scheduled harvest
+        id: gate
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref }}
+          HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+          AGENTS_HALT: ${{ vars.AGENTS_HALT }}
+        run: |
+          set -euo pipefail
+          run=false
+          case "$HALT" in
+            true) ;;
+            *)
+              case "$AGENTS_HALT" in
+                true) ;;
+                *)
+              if [ "$EVENT_NAME" != "pull_request" ] && [ "$REF_NAME" = "refs/heads/main" ]; then
+                run=true
+              fi
+              ;;
+              esac
+              ;;
+          esac
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+
+  fetch:
+    needs: plan
+    if: needs.plan.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Restore harvest cursor
+        uses: actions/cache/restore@v4
+        with:
+          path: dist/state/language-production
+          key: language-production-cursor-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: language-production-cursor-
+      - name: Download one bounded dump slice
+        env:
+          DUMP_DATE: ${{ needs.plan.outputs.dump_date }}
+          MAX_BYTES: ${{ needs.plan.outputs.max_bytes }}
+          RANGE_START: ${{ needs.plan.outputs.range_start }}
+          RANGE_END: ${{ needs.plan.outputs.range_end }}
+        run: |
+          set -euo pipefail
+          if ! [[ "$DUMP_DATE" =~ ^[0-9]{8}$ ]]; then
+            echo "dump_date must be YYYYMMDD" >&2
+            exit 1
+          fi
+          if ! [[ "$MAX_BYTES" =~ ^[0-9]+$ ]] || [ "$MAX_BYTES" -lt 1048576 ] || [ "$MAX_BYTES" -gt 8388608 ]; then
+            echo "max_bytes must be 1048576..8388608" >&2
+            exit 1
+          fi
+          if ! [[ "$RANGE_START" =~ ^[0-9]+$ ]] || ! [[ "$RANGE_END" =~ ^[0-9]+$ ]]; then
+            echo "range must be numeric" >&2
+            exit 1
+          fi
+          work="dist/candidates/language-production/slice"
+          mkdir -p "$work"
+          file="$work/wikidata-${DUMP_DATE}-lexemes.json.gz"
+          url="https://dumps.wikimedia.org/wikidatawiki/entities/${DUMP_DATE}/wikidata-${DUMP_DATE}-lexemes.json.gz"
+          wrapped=false
+          http_code="$(curl -fL --retry 2 --max-time 180 --max-filesize "$MAX_BYTES" -A 'offline-packs-store/1.0 (language-production)' -o "$file" -w '%{http_code}' -r "${RANGE_START}-${RANGE_END}" "$url" || true)"
+          if [ "$http_code" = "416" ]; then
+            wrapped=true
+            rm -f "$file"
+            last=$((MAX_BYTES - 1))
+            http_code="$(curl -fL --retry 2 --max-time 180 --max-filesize "$MAX_BYTES" -A 'offline-packs-store/1.0 (language-production)' -o "$file" -w '%{http_code}' -r "0-${last}" "$url" || true)"
+          fi
+          if [ "$http_code" != "206" ]; then
+            echo "dump download must return HTTP 206, got ${http_code}" >&2
+            exit 1
+          fi
+          downloaded="$(wc -c < "$file" | tr -d '[:space:]')"
+          if ! [[ "$downloaded" =~ ^[0-9]+$ ]] || [ "$downloaded" -lt 1 ] || [ "$downloaded" -gt "$MAX_BYTES" ]; then
+            echo "downloaded dump is ${downloaded:-missing} bytes; limit is ${MAX_BYTES}" >&2
+            exit 1
+          fi
+          printf '%s\n' "$downloaded" > "$work/downloaded_bytes"
+          printf '%s\n' "$wrapped" > "$work/wrapped"
+          printf '%s\n' "$url" > "$work/origin_url"
+      - name: Upload dump slice
+        uses: actions/upload-artifact@v4
+        with:
+          name: language-production-slice
+          path: dist/candidates/language-production/slice/
+          if-no-files-found: error
+          retention-days: 7
+
+  build:
+    needs: [plan, fetch]
+    if: needs.plan.outputs.run == 'true' && needs.fetch.result == 'success'
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install lexical schema validator
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir jsonschema==4.26.0
+      - name: Download dump slice
+        uses: actions/download-artifact@v4
+        with:
+          name: language-production-slice
+          path: dist/candidates/language-production/slice
+      - name: Build one language overlay
+        env:
+          LANGUAGE: ${{ matrix.language }}
+          DUMP_DATE: ${{ needs.plan.outputs.dump_date }}
+          MAX_BYTES: ${{ needs.plan.outputs.max_bytes }}
+          MAX_LEXEMES: ${{ needs.plan.outputs.max_lexemes }}
+        run: |
+          set -euo pipefail
+          if ! [[ "$LANGUAGE" =~ ^[a-z]{2,3}$ ]]; then
+            echo "language id is not a catalog code" >&2
+            exit 1
+          fi
+          slice="dist/candidates/language-production/slice"
+          origin="$(cat "$slice/origin_url")"
+          out="dist/candidates/language-production/${LANGUAGE}.sqlite"
+          python3 -m tools.language_production.cli harvest \
+            --dump "$slice/wikidata-${DUMP_DATE}-lexemes.json.gz" \
+            --language "$LANGUAGE" \
+            --output "$out" \
+            --summary "dist/candidates/language-production/${LANGUAGE}.summary.json" \
+            --dataset-version "$DUMP_DATE" \
+            --origin-url "$origin" \
+            --max-bytes "$MAX_BYTES" \
+            --max-lexemes "$MAX_LEXEMES"
+          rm -f "$slice/wikidata-${DUMP_DATE}-lexemes.json.gz"
+      - name: Upload language overlay
+        uses: actions/upload-artifact@v4
+        with:
+          name: language-overlay-${{ matrix.language }}
+          path: |
+            dist/candidates/language-production/${{ matrix.language }}.sqlite
+            dist/candidates/language-production/${{ matrix.language }}.sqlite.concepts.json
+            dist/candidates/language-production/${{ matrix.language }}.summary.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  report:
+    needs: [plan, fetch, build]
+    if: always() && needs.plan.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Restore harvest cursor
+        uses: actions/cache/restore@v4
+        with:
+          path: dist/state/language-production
+          key: language-production-cursor-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: language-production-cursor-
+      - name: Download dump slice metadata
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: language-production-slice
+          path: dist/candidates/language-production/slice
+      - name: Download overlays
+        if: needs.build.result == 'success' || needs.build.result == 'failure'
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: language-overlay-*
+          path: dist/candidates/language-production/overlays
+      - name: Update status, repair state, and the rolling pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DUMP_DATE: ${{ needs.plan.outputs.dump_date }}
+          SLOT: ${{ needs.plan.outputs.slot }}
+          MAX_BYTES: ${{ needs.plan.outputs.max_bytes }}
+          FETCH_RESULT: ${{ needs.fetch.result }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
+        run: bash tools/language_production/report.sh
+      - name: Save harvest cursor
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: dist/state/language-production
+          key: language-production-cursor-${{ github.run_id }}-${{ github.run_attempt }}
