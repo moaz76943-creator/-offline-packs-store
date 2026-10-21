@@ -205,6 +205,17 @@ class SemiticContractTests(unittest.TestCase):
                     self.assertEqual('ambiguous', result['status'])
                     self.assertEqual(2, result['total_analyses'])
 
+    def test_cross_script_optional_decompositions_are_rejected(self):
+        for base, language, foreign in ((self.ar, 'ar', 'ቤት'),
+                                        (self.am, 'am', 'كتب')):
+            for field in ('components', 'segmentation'):
+                with self.subTest(language=language, field=field):
+                    entry = deepcopy(base)
+                    entry['record'][field] = [foreign]
+                    self.optional_claims(entry)
+                    with self.assertRaises(ContractError):
+                        self.validate(entry, lang=language)
+
     def test_missing_and_explicit_empty_optional_lists_share_analysis(self):
         canonical = deepcopy(self.am)
         other = deepcopy(self.am)
