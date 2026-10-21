@@ -3,6 +3,9 @@
 import unittest
 import sys
 import os
+import io
+import json
+from unittest.mock import patch
 
 # Ensure the module can be imported
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
@@ -85,6 +88,55 @@ class TestLexicalValidator(unittest.TestCase):
         result = self.validator.validate_entry(entry)
         self.assertEqual(result["status"], "rejected")
         self.assertTrue(any("invalid Unicode" in err for err in result["errors"]))
+
+    def test_non_string_id_and_language_are_rejected_without_crash(self):
+        for key, value in [('id', 123), ('id', ['wrong']),
+                           ('language', 123), ('language', ['eng']),
+                           ('pos', ['noun'])]:
+            with self.subTest(key=key, value=value):
+                entry = {'id': 'eng-safe', 'surface': 'word',
+                         'language': 'eng', 'pos': 'noun'}
+                entry[key] = value
+                result = LexicalValidator().validate_entry(entry)
+                self.assertEqual(result['status'], 'rejected')
+                self.assertTrue(result['errors'])
+
+    def test_pos_matches_canonical_schema_enum(self):
+        from tools.lexical_quality.validator import POS_ALLOWED
+        schema_path = os.path.join(os.path.dirname(__file__), '..', '..',
+                                   'standards', 'lexical', 'lexical.schema.json')
+        with open(schema_path, encoding='utf-8') as source:
+            canonical = set(json.load(source)['$defs']['lexeme']['properties']['pos']['enum'])
+        self.assertEqual(POS_ALLOWED, canonical)
+        for pos in ('determiner', 'numeral', 'classifier', 'multiword', 'other'):
+            entry = {'id': 'eng-pos-'+pos, 'surface': 'word',
+                     'language': 'eng', 'pos': pos}
+            self.assertEqual(LexicalValidator().validate_entry(entry)['status'], 'accepted')
+        for pos in ('article', 'affix', 'phrase', 'idiom', 'proverb'):
+            entry = {'id': 'eng-pos-'+pos, 'surface': 'word',
+                     'language': 'eng', 'pos': pos}
+            self.assertEqual(LexicalValidator().validate_entry(entry)['status'], 'rejected')
+
+    def test_invalid_record_does_not_consume_valid_identifier(self):
+        validator = LexicalValidator()
+        invalid = {'id': 'eng-retain', 'surface': '', 'language': 'eng', 'pos': 'noun'}
+        valid = {'id': 'eng-retain', 'surface': 'word', 'language': 'eng', 'pos': 'noun'}
+        self.assertEqual(validator.validate_entry(invalid)['status'], 'rejected')
+        self.assertEqual(validator.validate_entry(valid)['status'], 'accepted')
+
+    def test_cli_rejects_non_object_and_oversized_records_then_recovers(self):
+        from tools.lexical_quality.__main__ import main
+        huge = b'{' + b' ' * (102400 + 32) + b'}\\n'
+        payload = (b'null\\n[]\\n' + huge +
+                   b'{"id":"eng-ok","surface":"word","language":"eng","pos":"noun"}\\n')
+        incoming = io.TextIOWrapper(io.BytesIO(payload), encoding='utf-8')
+        captured = io.StringIO()
+        with patch('sys.stdin', incoming), patch('sys.stdout', captured):
+            main()
+        results = [json.loads(line) for line in captured.getvalue().splitlines()]
+        self.assertEqual([x['status'] for x in results],
+                         ['rejected', 'rejected', 'rejected', 'accepted'])
+        self.assertIn('size limit', ' '.join(results[2]['errors']).lower())
 
     def test_preserves_original_records(self):
         """Preserve original records for reversible remediation."""
