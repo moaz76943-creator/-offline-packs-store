@@ -4,8 +4,8 @@ Counts below are computed from stored rows and the concept graph.
 A missing harvest file stays a gap. No word is invented.
 
 Concepts in the graph: 5182
-Filled language-concept cells: 111
-Open language-concept cells: 518089
+Filled language-concept cells: 124
+Open language-concept cells: 518076
 
 | Language | Filled | Open gaps | Fill ratio |
 | --- | ---: | ---: | ---: |
@@ -23,20 +23,20 @@ Open language-concept cells: 518089
 | cy | 0 | 5182 | 0.0 |
 | dv | 0 | 5182 | 0.0 |
 | el | 0 | 5182 | 0.0 |
-| et | 0 | 5182 | 0.0 |
 | fa | 0 | 5182 | 0.0 |
 | fi | 0 | 5182 | 0.0 |
 | fo | 0 | 5182 | 0.0 |
 | fy | 0 | 5182 | 0.0 |
 | ga | 0 | 5182 | 0.0 |
+| gd | 0 | 5182 | 0.0 |
 | bg | 1 | 5181 | 0.000193 |
+| et | 1 | 5181 | 0.000193 |
 | eu | 1 | 5181 | 0.000193 |
 | la | 1 | 5181 | 0.000193 |
 | ms | 1 | 5181 | 0.000193 |
 | nl | 1 | 5181 | 0.000193 |
 | ta | 1 | 5181 | 0.000193 |
 | tr | 1 | 5181 | 0.000193 |
-| uk | 1 | 5181 | 0.000193 |
 | vi | 1 | 5181 | 0.000193 |
 | eo | 2 | 5180 | 0.000386 |
 | … |  |  | 100 languages, largest gaps first |
