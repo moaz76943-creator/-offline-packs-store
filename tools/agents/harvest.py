@@ -180,7 +180,7 @@ def ud_sample(limit=12):
             tokens = []
         elif line.startswith('# text = '):
             sentence = line.split('=', 1)[1].strip()
-            if sent_id and sentence and not is_placeholder(sentence):
+            if sent_id and sentence and not is_placeholder(sentence) and script_matches(sentence, 'Latn'):
                 rows.append({
                     'text': sentence,
                     'record_id': 'ud:en_ewt:' + sent_id,
