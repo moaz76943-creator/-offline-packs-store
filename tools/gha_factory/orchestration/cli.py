@@ -35,7 +35,11 @@ def main(argv=None):
     else:
         raw=os.environ.get('JOBS_JSON','')
         if len(raw)>4096:raise ValueError('oversized matrix')
-        result=engine.finalize(gh,json.loads(raw)['include'],args.artifacts,run_id,attempt,now)
+        try:
+            result=engine.finalize(gh,json.loads(raw)['include'],args.artifacts,run_id,attempt,now)
+        except engine.FinalizationError as exc:
+            print(json.dumps({'results':exc.results,'errors':exc.errors}))
+            return 1
         print(json.dumps(result))
     return 0
 

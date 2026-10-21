@@ -87,5 +87,66 @@ class FontEvidenceTests(unittest.TestCase):
         self.asset.license_evidence_url = 123
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_unknown_source_rejected(self):
+        self.asset.source = "unknown vendor"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_mixed_families_rejected(self):
+        self.asset.family = "Mixed Families"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_unmixed_family_name_can_pass(self):
+        self.asset.family = "Unmixed Sans"
+        result = self.check()
+        self.assertEqual(result["status"], "EVIDENCE_PASS", result)
+
+    def test_source_name_containing_unknown_substring_can_pass(self):
+        self.asset.source = "The Unknowns Collective"
+        result = self.check()
+        self.assertEqual(result["status"], "EVIDENCE_PASS", result)
+
+    def test_generate_script_mapping(self):
+        asset2 = FontAsset(
+            id="fixture-font-2", family="Fixture Font 2", source="fixture-publisher",
+            version="1.0", author="Fixture Author", license_id="OFL-1.1",
+            scripts=["Latn", "Cyrl"], embedded=True, sha256=self.font_hash,
+            asset_path="fonts/fixture.otf", origin_url="https://example.org/font",
+            license_evidence_url="https://example.org/font/license",
+            license_evidence_path="evidence/rights.txt",
+            license_evidence_sha256=self.lic_hash, license_text_included=True,
+            distribution_notice_path="notices/OFL.txt",
+            distribution_notice_sha256=self.notice_hash,
+            review={"reviewer": "fixture-reviewer", "decision_url": "https://example.org/review/1"},
+            review_evidence_path="evidence/review.txt",
+            review_evidence_sha256=self.review_hash)
+
+        asset_rejected = FontAsset(
+            id="fixture-font-bad", family="Fixture Font", source="unknown",
+            version="1.0", author="Fixture Author", license_id="OFL-1.1",
+            scripts=["Latn"], embedded=True, sha256=self.font_hash,
+            asset_path="fonts/fixture.otf", origin_url="https://example.org/font",
+            license_evidence_url="https://example.org/font/license",
+            license_evidence_path="evidence/rights.txt",
+            license_evidence_sha256=self.lic_hash, license_text_included=True,
+            distribution_notice_path="notices/OFL.txt",
+            distribution_notice_sha256=self.notice_hash,
+            review={"reviewer": "fixture-reviewer", "decision_url": "https://example.org/review/1"},
+            review_evidence_path="evidence/review.txt",
+            review_evidence_sha256=self.review_hash)
+
+        mapping = self.gate.generate_script_mapping([self.asset, asset2, asset_rejected], repo_root=self.root)
+        self.assertEqual(mapping.get("Latn"), ["fixture-font", "fixture-font-2"])
+        self.assertEqual(mapping.get("Cyrl"), ["fixture-font-2"])
+
+    def test_repeated_script_is_mapped_once(self):
+        self.asset.scripts = ["Latn", "Latn"]
+        mapping = self.gate.generate_script_mapping([self.asset], repo_root=self.root)
+        self.assertEqual(mapping.get("Latn"), ["fixture-font"])
+
+    def test_duplicate_asset_ids_are_rejected(self):
+        twin = FontAsset(**self.asset.__dict__)
+        with self.assertRaises(ValueError):
+            self.gate.generate_script_mapping([self.asset, twin], repo_root=self.root)
+
 if __name__ == "__main__":
     unittest.main()

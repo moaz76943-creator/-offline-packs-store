@@ -184,6 +184,20 @@ def authorized_file_conflicts(gh, item, files, authorized):
             conflicts.append(other['number'])
     return sorted(conflicts)
 
+def authorization_expiry_error(e, now=None):
+    """Check the clock again at each privileged write boundary."""
+    expiry_str = e.get('expiry') or e.get('expires_at')
+    if expiry_str:
+        try:
+            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
+            current_time = now if now is not None else datetime.now(timezone.utc)
+            if current_time >= exp_dt:
+                return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
+        except (ValueError, TypeError, AttributeError):
+            return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
+    return None
+
+
 def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False, now=None):
     """Pure readiness classifier; positive result is bound to exact PR/main SHAs."""
     err = policy_error(e)
@@ -228,17 +242,12 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
         latest = max(eligible, key=lambda x: x.get('id', 0), default=None)
         if latest is None or latest.get('status') != 'completed' or latest.get('conclusion') != 'success':
             return 'NOT_RUN', f'check {wanted} lacks exact-head PASS'
+    expiry_error = authorization_expiry_error(e, now)
+    if expiry_error:
+        return expiry_error
+
     if pr.get('draft'):
         return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
-    expiry_str = e.get('expiry') or e.get('expires_at')
-    if expiry_str:
-        try:
-            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
-            current_time = now if now is not None else datetime.now(timezone.utc)
-            if current_time > exp_dt:
-                return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
-        except Exception:
-            return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
 
     is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
     reviewers = e.get('reviewers') or []
@@ -337,16 +346,20 @@ class GitHub:
         p = self.get(f'/pulls/{n}')
         return {'state': p['state'], 'merged': p['merged']}
 
-    def promote(self, number):
+    def promote(self, number, authorization):
         pr = self.get(f'/pulls/{number}')
+        if pr.get('head', {}).get('sha') != authorization['head_sha']:
+            raise ValueError('PR head changed inside promotion')
         body = {'query': 'mutation($id:ID!){markPullRequestReadyForReview(input:{pullRequestId:$id}){pullRequest{isDraft}}}',
                 'variables': {'id': pr['node_id']}}
+        if authorization_expiry_error(authorization):
+            raise ValueError('authorization expired inside promotion')
         result = self.request('/graphql', method='POST', data=body)
         if result.get('errors') or result.get('data', {}).get('markPullRequestReadyForReview', {}).get('pullRequest', {}).get('isDraft') is not False:
             raise ValueError('promotion not confirmed')
 
     def squash(self, number, head, has_independent_review=False):
-        confirmation = "Independent review and scoped QA confirmed." if has_independent_review else "Solo maintainer authorization and scoped QA confirmed."
+        confirmation = "Independent review and scoped QA confirmed." if has_independent_review else "Scoped QA and protected-main rules confirmed."
         return self.request(f'/repos/{REPO}/pulls/{number}/merge', method='PUT', data={
             'sha': head, 'merge_method': 'squash',
             'commit_title': f'integrate: verified public PR #{number}',
@@ -367,6 +380,11 @@ def run():
     gh = GitHub()
     original_main = gh.main_sha()
     auth_parent, auth_only = gh.authorization_origin(original_main)
+    if not ordered:
+        # Built-in, bounded low-risk discovery; no additional merge authority.
+        from auto_run import run_auto
+        print(f'MAIN={original_main} APPROVED_CANDIDATES=0; SAFE_DISCOVERY=ENABLED')
+        return run_auto(gh, original_main)
     print(f'MAIN={original_main} APPROVED_CANDIDATES={len(ordered)}')
     for item in ordered:
         number = item['number']
@@ -389,7 +407,10 @@ def run():
                     if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
                         print('HALT: SHA changed before promotion')
                         return 0
-                    gh.promote(number)
+                    if authorization_expiry_error(item):
+                        print('HALT: authorization expired before promotion')
+                        return 0
+                    gh.promote(number, item)
                     print(f'PROMOTED #{number}; stop until new review and checks complete')
                     return 0
             elif result == 'VERIFIED_READY':
@@ -432,6 +453,9 @@ def run():
                     latest_rev[login][1].get('commit_id') == item['head_sha']
                     for login in (item.get('reviewers') or [])
                 )
+                if authorization_expiry_error(item):
+                    print('HALT: authorization expired before squash')
+                    return 0
                 try:
                     result = gh.squash(number, item['head_sha'], has_independent_review=has_independent)
                 except TypeError:
