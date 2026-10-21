@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - 'community/review/**'
+      - 'community/contributions/**'
       - 'community/__init__.py'
       - '.github/workflows/community_review.yml'
   workflow_dispatch:
@@ -17,10 +18,14 @@ concurrency:
 jobs:
   review-state:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Install canonical JSON schema validator
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir jsonschema==4.26.0
       - name: Review state machine tests
         run: python3 -m unittest discover -s community/review -p 'test_*.py' -v
+      - name: Community intake regression tests
+        run: python3 -m unittest discover -s community/contributions -p 'test_*.py' -v
