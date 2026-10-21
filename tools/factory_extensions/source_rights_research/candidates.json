@@ -1,0 +1,397 @@
+{
+  "schema_version": "research.v1",
+  "as_of": "2026-10-13",
+  "policy": "RESEARCH_ONLY_NEVER_ADMIT",
+  "approved_sources": [],
+  "candidates": [
+    {
+      "candidate_id": "wiktionary-kaikki",
+      "kind": "dictionary",
+      "publisher": "Wikimedia contributors / Kaikki.org (Tatu Ylonen)",
+      "source_url": "https://kaikki.org/dictionary/rawdata.html",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "CC-BY-SA-4.0 OR GFDL-1.3-only",
+      "extraction_tool_license_claim": "MIT",
+      "individual_record_rights": "PER_ENTRY_REVIEW_REQUIRED",
+      "audio_rights": "NOT_APPLICABLE",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "CC-BY-SA/GFDL alternative and revision/contributor evidence must be pinned; quotations and media have distinct rights"
+      ],
+      "obligations": [
+        "ShareAlike/license-choice attribution and changes"
+      ],
+      "evidence": [
+        {
+          "url": "https://en.wiktionary.org/wiki/Wiktionary:Copyrights",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [],
+      "coverage_note": "No audited per-language snapshot/quantity mapping",
+      "copyright_notices": [],
+      "authors": [
+        "Wikimedia contributors / Kaikki.org (Tatu Ylonen)"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    },
+    {
+      "candidate_id": "wikidata-lexemes",
+      "kind": "dictionary",
+      "publisher": "Wikimedia Foundation / Wikidata contributors",
+      "source_url": "https://www.wikidata.org/wiki/Wikidata:Lexicographical_data",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "CC0-1.0",
+      "extraction_tool_license_claim": "NOT_APPLICABLE",
+      "individual_record_rights": "CC0_PUBLISHED_UNVERIFIED_PER_RECORD",
+      "audio_rights": "NOT_APPLICABLE",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "CC0 structured Lexeme namespace does not extend to Commons media or other namespace text; linked external databases require separate review"
+      ],
+      "obligations": [
+        "Preserve version, source provenance; media independently licensed"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.wikidata.org/wiki/Wikidata:Copyright",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [],
+      "coverage_note": "No audited per-language snapshot/quantity mapping",
+      "copyright_notices": [],
+      "authors": [
+        "Wikimedia Foundation / Wikidata contributors"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    },
+    {
+      "candidate_id": "unimorph-german",
+      "kind": "morphology",
+      "publisher": "UniMorph contributors",
+      "source_url": "https://github.com/unimorph/deu",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "CC-BY-SA-3.0",
+      "extraction_tool_license_claim": "NOT_VERIFIED",
+      "individual_record_rights": "UPSTREAM_WIKTIONARY_DERIVED",
+      "audio_rights": "NOT_APPLICABLE",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "German dataset cites English Wiktionary; review license version/compatibility and exact commit"
+      ],
+      "obligations": [
+        "ShareAlike 3.0, upstream attribution, exact repo SHA"
+      ],
+      "evidence": [
+        {
+          "url": "https://github.com/unimorph/deu/blob/master/README.md",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [
+        "de"
+      ],
+      "coverage_note": "Source page explicitly identifies this language; rights still unapproved",
+      "copyright_notices": [],
+      "authors": [
+        "UniMorph contributors"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    },
+    {
+      "candidate_id": "unimorph-grammar",
+      "kind": "grammar",
+      "publisher": "UniMorph project",
+      "source_url": "https://unimorph.github.io/schema/",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "UNCONFIRMED",
+      "extraction_tool_license_claim": "NOT_VERIFIED",
+      "individual_record_rights": "NOT_VERIFIED",
+      "audio_rights": "NOT_APPLICABLE",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "Schema documentation does not establish transferable rights to grammar explanations; investigate each material"
+      ],
+      "obligations": [
+        "Not a pre-cleared grammar textbook"
+      ],
+      "evidence": [
+        {
+          "url": "https://unimorph.github.io/software/",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [],
+      "coverage_note": "No audited per-language snapshot/quantity mapping",
+      "copyright_notices": [],
+      "authors": [
+        "UniMorph project"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    },
+    {
+      "candidate_id": "tatoeba-sentences",
+      "kind": "sentences",
+      "publisher": "Tatoeba contributors",
+      "source_url": "https://tatoeba.org/en/downloads",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "CC-BY-2.0-FR OR CC0-1.0 subset",
+      "extraction_tool_license_claim": "NOT_APPLICABLE",
+      "individual_record_rights": "MIXED_PER_SENTENCE",
+      "audio_rights": "PER_CONTRIBUTOR",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "Default text exports CC BY 2.0 FR, some CC0 and some public-domain subsets; pin exact per-sentence rights"
+      ],
+      "obligations": [
+        "Per-sentence authors, license, modifications, Tanaka provenance"
+      ],
+      "evidence": [
+        {
+          "url": "https://tatoeba.org/ar/downloads",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [],
+      "coverage_note": "No audited per-language snapshot/quantity mapping",
+      "copyright_notices": [],
+      "authors": [
+        "Tatoeba contributors"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    },
+    {
+      "candidate_id": "tatoeba-audio",
+      "kind": "pronunciation",
+      "publisher": "Tatoeba voice contributors",
+      "source_url": "https://tatoeba.org/en/downloads",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "PER_RECORD",
+      "extraction_tool_license_claim": "NOT_APPLICABLE",
+      "individual_record_rights": "MIXED_PER_SENTENCE",
+      "audio_rights": "PER_CONTRIBUTOR",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "Each contributor chooses audio license; sentence license does not govern sound recording"
+      ],
+      "obligations": [
+        "Per-record voice contributor/license identity and linked text"
+      ],
+      "evidence": [
+        {
+          "url": "https://tatoeba.org/ar/downloads",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [],
+      "coverage_note": "No audited per-language snapshot/quantity mapping",
+      "copyright_notices": [],
+      "authors": [
+        "Tatoeba voice contributors"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    },
+    {
+      "candidate_id": "panlex",
+      "kind": "dictionary",
+      "publisher": "PanLex / The Long Now Foundation",
+      "source_url": "https://panlex.org/license",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "CC0-1.0 PUBLISHED DATABASE CLAIM",
+      "extraction_tool_license_claim": "NOT_APPLICABLE",
+      "individual_record_rights": "ORIGINAL_SOURCES_MIXED",
+      "audio_rights": "NOT_APPLICABLE",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "PanLex published CC0 snapshot claim vs underlying source categories including permission for PanLex only/no license; requires independent rights resolution"
+      ],
+      "obligations": [
+        "Conflicting original source rights; no automatic use based on CC0 label"
+      ],
+      "evidence": [
+        {
+          "url": "https://dev.panlex.org/source-registration/",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [],
+      "coverage_note": "No audited per-language snapshot/quantity mapping",
+      "copyright_notices": [],
+      "authors": [
+        "PanLex / The Long Now Foundation"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    },
+    {
+      "candidate_id": "common-voice",
+      "kind": "pronunciation",
+      "publisher": "Mozilla Common Voice / Mozilla Data Collective",
+      "source_url": "https://commonvoice.mozilla.org/en/datasets",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "CC0-1.0 RELEASE_DEPENDENT",
+      "extraction_tool_license_claim": "MPL-2.0 SOFTWARE_ONLY",
+      "individual_record_rights": "CONTRIBUTOR_RECORDING_RELEASE_DEPENDENT",
+      "audio_rights": "CC0-1.0 RELEASE_DEPENDENT",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "Terms request no dataset mirroring outside MDC despite CC0 descriptions; review release carveouts and voice privacy/personal rights"
+      ],
+      "obligations": [
+        "Avoid mirroring pending license/terms review; separate code rights"
+      ],
+      "evidence": [
+        {
+          "url": "https://commonvoice.mozilla.org/dav/terms",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [],
+      "coverage_note": "No audited per-language snapshot/quantity mapping",
+      "copyright_notices": [],
+      "authors": [
+        "Mozilla Common Voice / Mozilla Data Collective"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    },
+    {
+      "candidate_id": "unicode-cldr",
+      "kind": "metadata",
+      "publisher": "Unicode Consortium",
+      "source_url": "https://cldr.unicode.org/index/downloads",
+      "dataset_version": null,
+      "acquisition_date": null,
+      "dataset_sha256": null,
+      "source_license_claim": "Unicode-3.0 DATA FILES (EXCEPTIONS)",
+      "extraction_tool_license_claim": "Unicode-3.0 SOFTWARE (EXCEPTIONS)",
+      "individual_record_rights": "PER_FILE_CHECK",
+      "audio_rights": "NOT_APPLICABLE",
+      "commercial_redistribution": "NOT_AUTHORIZED",
+      "rights_risks": [
+        "Unicode data generally v3 permissive; charts/standards/fonts and release-specific exceptions differ"
+      ],
+      "obligations": [
+        "Retain notices and check file exceptions"
+      ],
+      "evidence": [
+        {
+          "url": "https://www.unicode.org/copyright.html",
+          "kind": "PUBLISHER_OR_PROJECT_STATEMENT",
+          "snapshot_sha256": null,
+          "snapshot_path": null,
+          "reviewed_at": null
+        }
+      ],
+      "confirmed_language_ids": [],
+      "coverage_note": "No audited per-language snapshot/quantity mapping",
+      "copyright_notices": [],
+      "authors": [
+        "Unicode Consortium"
+      ],
+      "modification_history": [],
+      "human_review": {
+        "status": "REVIEW_REQUIRED",
+        "reviewer": null,
+        "decision_url": null,
+        "decision_date": null
+      },
+      "dataset_artifact_path": null
+    }
+  ]
+}

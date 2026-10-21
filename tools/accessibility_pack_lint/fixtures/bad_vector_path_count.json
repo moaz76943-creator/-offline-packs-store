@@ -1,0 +1,21 @@
+{
+  "id": "asset_bad_path_count",
+  "concept_id": "concept1",
+  "version": "1.0",
+  "hash": "abcdef",
+  "provenance": "source1",
+  "fallback_label": "concept1",
+  "contrast": {"supported": true},
+  "vector": {"bounds": {"max_x": 100, "max_y": 100}, "complexity": 10, "path_count": 51},
+  "device_shaping_evidence": true,
+  "labels": [
+    {
+      "language": "en",
+      "script": "Latn",
+      "text": "Valid text",
+      "direction": "ltr",
+      "related_concept_id": "concept1",
+      "verified": true
+    }
+  ]
+}

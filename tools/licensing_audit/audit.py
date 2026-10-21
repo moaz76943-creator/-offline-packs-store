@@ -13,7 +13,7 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import parse_qs, urlsplit
 
-SUPPORTED = {'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN'}
+SUPPORTED = {'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN', 'CC-BY-2.0-FR'}
 MEDIA = {'font', 'pronunciation', 'vector_art', 'visual_asset'}
 KINDS = MEDIA | {'dictionary', 'morphology', 'examples'}
 HEX = re.compile(r'^[0-9a-f]{64}$')
@@ -23,6 +23,8 @@ NOTICE_LABELS = {
     'CC-BY-SA-4.0': re.compile(r'\bcc\s*[- ]?by\s*[- ]?sa\s*[- ]?4\.0\b|attribution\s*[- ]?share\s*[- ]?alike\s*4\.0', re.I),
     'GFDL-1.3-only': re.compile(r'\bgfdl\b|gnu free documentation license', re.I),
     'CC0-1.0': re.compile(r'\bcc0\b|creative commons zero', re.I),
+    'CC-BY-2.0-FR': re.compile(
+        r'cc\s*[- ]?by\s*[- ]?2\.0\s*fr|attribution\s*2\.0\s*france', re.I),
 }
 MAX_NOTICE_BYTES = 512 * 1024
 MAX_ARTIFACT_BYTES = 2 * 1024 * 1024 * 1024
@@ -152,7 +154,12 @@ def audit_source(source, root):
         elif lid == 'PUBLIC-DOMAIN':
             finding(out, 'PUBLIC_DOMAIN_PROOF_REVIEW', 'REVIEW_REQUIRED', 'license notice text cannot by itself prove public domain')
         elif len(recognized) > 1:
-            finding(out, 'MULTI_LICENSE_REVIEW', 'REVIEW_REQUIRED', 'dual/multiple licensing requires independent route selection')
+            offered = {lid}
+            co = lic.get('co_offered_licenses') or []
+            if isinstance(co, list):
+                offered.update(item for item in co if isinstance(item, str))
+            if not recognized <= offered:
+                finding(out, 'MULTI_LICENSE_REVIEW', 'REVIEW_REQUIRED', 'dual/multiple licensing requires independent route selection')
     if lid == 'PUBLIC-DOMAIN':
         pd = lic.get('public_domain_proof')
         if not isinstance(pd, dict) or not all(isinstance(pd.get(k), str) and pd[k].strip() for k in ('jurisdiction', 'legal_basis', 'work_date')):
