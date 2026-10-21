@@ -7,7 +7,7 @@
     "qa",
     "watchdog"
   ],
-  "failed_github_run": true,
+  "failed_github_run": false,
   "observed_count": 21,
   "roster_count": 21,
   "schema_version": "1.0.0",
