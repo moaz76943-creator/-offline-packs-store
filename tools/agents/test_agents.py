@@ -235,6 +235,32 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(duplicated['warnings'],
                          ['wikidata.lexemes: notice not loaded'])
 
+    def test_official_wikidata_cc0_notice_is_source_scoped_and_fail_closed(self):
+        """Official Wikidata structured-data notice never approves other texts."""
+        from tools.open_sources.assess import positive_match
+        notice_path = ROOT / 'legal/source_evidence/wikidata-structured-cc0.txt'
+        notice = notice_path.read_text(encoding='utf-8')
+        self.assertIn('https://www.wikidata.org/wiki/Wikidata:Copyright', notice)
+        self.assertIn('Lexeme', notice)
+        self.assertIn('CC0-1.0', notice)
+        self.assertTrue(positive_match(notice, 'CC0-1.0')[0])
+        self.assertFalse(positive_match(notice, 'CC-BY-SA-4.0')[0])
+        accepted = legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC0-1.0'},
+        ], {'wikidata.lexemes': notice})
+        self.assertEqual(accepted['problems'], [])
+        self.assertEqual(accepted['warnings'], [])
+        # Missing evidence remains degraded and unknown licenses stay blocked.
+        self.assertEqual(legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC0-1.0'}], {})['warnings'],
+                         ['wikidata.lexemes: notice not loaded'])
+        self.assertTrue(legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC-BY-SA-4.0'}],
+            {'wikidata.lexemes': notice})['problems'])
+
     def test_janitor_cleanup_and_repair_do_not_force_or_touch_main(self):
         green = {
             'branch': 'cursor/example-cf19',
