@@ -7,6 +7,7 @@ import lzma
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 from tools.factory_extensions.snapshot_transport import transport as t
 
 
@@ -87,6 +88,27 @@ class Tests(unittest.TestCase):
         self.save()
         return t.approved_source(self.repo, "synthetic", "v1", "de", self.url,
                                  sha(raw), len(raw), {"datasets.example.org"})
+
+    def test_transient_socket_failure_remains_retryable(self):
+        with patch.object(t, 'public_ips', return_value=['8.8.8.8']), \
+             patch.object(t.socket, 'create_connection',
+                          side_effect=OSError('transient network failure')):
+            connection = t.PinnedHTTPS('datasets.example.org', timeout=1)
+            with self.assertRaises(OSError):
+                connection.connect()
+
+    def test_invalid_retrieval_date_is_rejected_before_staging(self):
+        self.entry['retrieval']['date'] = 'unknown'
+        self.save()
+        with self.assertRaises(t.Blocked):
+            self.approved()
+
+    def test_reviewed_admission_changes_trigger_snapshot_qa(self):
+        workflow = (Path(__file__).resolve().parents[3] /
+                    '.github/workflows/snapshot_transport_qa.yml').read_text()
+        self.assertIn("'tools/gha_factory/admission/**'", workflow)
+        self.assertIn("'legal/ledger/sources.json'", workflow)
+        self.assertIn("'catalog/language_registry.v1.json'", workflow)
 
     def test_no_source_is_never_eligible(self):
         (self.repo / "legal/ledger/sources.json").write_text(
