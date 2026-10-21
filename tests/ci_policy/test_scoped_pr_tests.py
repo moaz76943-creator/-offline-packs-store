@@ -19,10 +19,11 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["tools/lexicon_sanitizer/engine.py"]), ("lexicon_sanitizer",))
         self.assertEqual(select_suites(["tools/artifact_digest/engine.py"]), ("artifact_digest",))
         self.assertEqual(select_suites(["tools/open_index/builder.py"]), ("open_index",))
+        self.assertEqual(select_suites(["tools/repro_build/compiler.py"]), ("repro_build",))
 
     def test_shared_provenance_logic_runs_all_affected_tests(self):
         self.assertEqual(select_suites(["legal/ledger/admission.py"]),
-                         ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index"))
+                         ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build"))
         self.assertEqual(select_suites(["tools/contribution_gate/evidence.py"]),
                          ("pronunciation", "audio"))
 
