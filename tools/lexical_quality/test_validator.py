@@ -126,9 +126,9 @@ class TestLexicalValidator(unittest.TestCase):
 
     def test_cli_rejects_non_object_and_oversized_records_then_recovers(self):
         from tools.lexical_quality.__main__ import main
-        huge = b'{' + b' ' * (102400 + 32) + b'}\\n'
-        payload = (b'null\\n[]\\n' + huge +
-                   b'{"id":"eng-ok","surface":"word","language":"eng","pos":"noun"}\\n')
+        huge = b'{' + b' ' * (102400 + 32) + b'}\n'
+        payload = (b'null\n[]\n' + huge +
+                   b'{"id":"eng-ok","surface":"word","language":"eng","pos":"noun"}\n')
         incoming = io.TextIOWrapper(io.BytesIO(payload), encoding='utf-8')
         captured = io.StringIO()
         with patch('sys.stdin', incoming), patch('sys.stdout', captured):
