@@ -10,7 +10,29 @@ SCRIPT_SAMPLES = {
     "Arab": [0x0627, 0x0628, 0x064E],  # Alef, Ba, Fatha (combining mark)
     "Hebr": [0x05D0, 0x05D1, 0x05B8],  # Alef, Bet, Qamats (combining mark)
     "Deva": [0x0905, 0x0915, 0x093E],  # A, Ka, Aa (combining mark)
-    "Hani": [0x4E00, 0x4E8C, 0x4E09],  # One, Two, Three
+    "Hans": [0x4E00, 0x4E8C, 0x4E09],
+    "Hant": [0x4E00, 0x4E8C, 0x4E09],
+    "Jpan": [0x3042, 0x30A2, 0x4E00],
+    "Kore": [0xAC00, 0xAC01, 0xAC02],
+    "Geor": [0x10D0, 0x10D1, 0x10D2],
+    "Beng": [0x0985, 0x0986, 0x0987],
+    "Guru": [0x0A05, 0x0A06, 0x0A07],
+    "Gujr": [0x0A85, 0x0A86, 0x0A87],
+    "Taml": [0x0B85, 0x0B86, 0x0B87],
+    "Telu": [0x0C05, 0x0C06, 0x0C07],
+    "Knda": [0x0C85, 0x0C86, 0x0C87],
+    "Mlym": [0x0D05, 0x0D06, 0x0D07],
+    "Orya": [0x0B05, 0x0B06, 0x0B07],
+    "Sinh": [0x0D85, 0x0D86, 0x0D87],
+    "Laoo": [0x0E81, 0x0E82, 0x0E84],
+    "Khmr": [0x1780, 0x1781, 0x1782],
+    "Mymr": [0x1000, 0x1001, 0x1002],
+    "Ethi": [0x1200, 0x1201, 0x1202],
+    "Mong": [0x1820, 0x1821, 0x1822],
+    "Thaa": [0x0780, 0x0781, 0x0782],
+    "Nkoo": [0x07CA, 0x07CB, 0x07CC],
+    "Adlm": [0x1E900, 0x1E901, 0x1E902],
+    "Syrc": [0x0710, 0x0712, 0x0713],
     "Thai": [0x0E01, 0x0E32, 0x0E48],  # Ko Kai, Sara Aa, Mai Ek
     "Cyrl": [0x0410, 0x0430, 0x0411],  # A, a, Be
     "Grek": [0x0391, 0x03B1, 0x0392],  # Alpha, alpha, Beta
@@ -34,6 +56,11 @@ class GlyphCoverageValidator:
     def __init__(self, repo_root: str):
         self.repo_root = repo_root
         self.registry = FontRightsRegistry()
+
+        import json
+        registry_path = os.path.join(self.repo_root, "catalog", "language_registry.v1.json")
+        with open(registry_path, "r", encoding="utf-8") as f:
+            self.canonical_registry = json.load(f)
 
     def get_font_cmap(self, font_path: str) -> Set[int]:
         try:
@@ -59,6 +86,9 @@ class GlyphCoverageValidator:
         return {"supported": supported, "unsupported": unsupported}
 
     def generate_fallback_mapping(self, script: str, assets: List[FontAsset]) -> FallbackMapping:
+        if script not in self.canonical_registry.get("scripts", {}):
+            raise ValueError(f"Unknown canonical script: {script}")
+
         samples = SCRIPT_SAMPLES.get(script, [])
         samples = samples.copy()
         samples.extend(VARIATION_SELECTORS)
