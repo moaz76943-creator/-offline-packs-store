@@ -90,6 +90,7 @@ def parse(body,languages=None):
     marker=next((m for m in (MARKER,v1.MARKER) if body.startswith(m)),None)
     if marker is None:raise ValueError('unknown envelope')
     t=json.loads(body[len(marker):-4],object_pairs_hook=_unique)
+    if not isinstance(t,dict):raise ValueError('queue task must be a JSON object')
     if t.get('schema_version')!=(VERSION if marker==MARKER else v1.VERSION):raise ValueError('envelope/version mismatch')
     return validate(t,languages)
 
@@ -129,6 +130,13 @@ def finish(t,r,now):
     if r['candidate_sha256'] is not None and (not isinstance(r['candidate_sha256'],str) or not v1.HEX.fullmatch(r['candidate_sha256'])):raise ValueError('invalid output hash')
     if t['schema_version']==VERSION and r['candidate_count']>0 and r['candidate_sha256'] is None:raise ValueError('missing candidate digest')
     if r['error_code'] not in (None,'EXECUTION','SOURCE_NOT_APPROVED','SOURCE_CHANGED','INVALID_INPUT','TIMEOUT','INJECTED_FAILURE'):raise ValueError('invalid error code')
+    # A blocked source has produced no durable work. Advancing its checkpoint or
+    # reporting candidates here could silently skip records on a later retry.
+    # Historical v1 receipts retain their original transition semantics.
+    if (t['schema_version']==VERSION and r['status']=='BLOCKED_SOURCE'
+            and (r['checkpoint']!=t['checkpoint'] or r['candidate_count']!=0
+                 or r['candidate_sha256'] is not None)):
+        raise ValueError('blocked source cannot advance checkpoint or output')
     compact={k:r[k] for k in ('status','checkpoint','candidate_count','candidate_sha256','error_code')}
     if t['state']=='SUCCEEDED':
         if t['receipt']==compact:return t
