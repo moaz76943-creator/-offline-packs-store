@@ -1,7 +1,5 @@
 {
   "problems": [],
   "schema_version": "1.0.0",
-  "warnings": [
-    "wikidata.lexemes: notice not loaded"
-  ]
+  "warnings": []
 }
