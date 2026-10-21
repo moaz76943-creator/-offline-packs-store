@@ -135,8 +135,12 @@ def process(args):
             # Simple compatibility check:
             if src_license == 'CC0-1.0' and output_license == 'PUBLIC-DOMAIN':
                 errors.append("LICENSE_CONFLICT")
-            elif src_license in OBLIGATIONS and output_license != src_license:
-                errors.append("LICENSE_CONFLICT")
+            elif src_license in OBLIGATIONS:
+                is_copyleft = 'sharealike' in OBLIGATIONS[src_license] or 'license_copy' in OBLIGATIONS[src_license]
+                if is_copyleft and output_license != src_license:
+                    errors.append("LICENSE_CONFLICT")
+                elif not is_copyleft and output_license == 'PUBLIC-DOMAIN':
+                    errors.append("LICENSE_CONFLICT")
 
     if errors:
         quarantine_files(args, manifest_dict, errors)
