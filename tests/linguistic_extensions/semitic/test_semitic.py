@@ -205,6 +205,21 @@ class SemiticContractTests(unittest.TestCase):
                     self.assertEqual('ambiguous', result['status'])
                     self.assertEqual(2, result['total_analyses'])
 
+    def test_missing_and_explicit_empty_optional_lists_share_analysis(self):
+        other = deepcopy(self.ar)
+        for name in ('processes', 'components', 'segmentation', 'morphemes'):
+            other['record'][name] = []
+        # Keep all required locators intact. The two forms are semantically
+        # the same even though the optional field representation differs.
+        canonical = deepcopy(self.ar)
+        canonical['record'].pop('processes', None)
+        output = self.root / 'optional-empty.jsonl'
+        output.write_text(''.join(json.dumps(x, ensure_ascii=False) + '\n'
+                                  for x in (canonical, other)), encoding='utf-8')
+        result = lookup(output, self.root, 'ar', self.ar['record']['form'])
+        self.assertEqual('attested', result['status'])
+        self.assertEqual(1, result['total_analyses'])
+
     def test_decomposed_query_selects_its_exact_nfc_analysis(self):
         first = self.record('ar', 'أ', 'أ', 'other', {})
         second = self.record('ar', 'إ', 'إ', 'other', {})
