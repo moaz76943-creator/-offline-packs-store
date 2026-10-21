@@ -6,11 +6,15 @@ before they enter production pack builds.
 import json
 import re
 import sys
+from pathlib import Path
 
 # Constraints
 MAX_JSON_BYTES = 100 * 1024  # 100 KB max per entry to strictly limit memory
 LANGUAGE_REGEX = re.compile(r'^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$')
-POS_ALLOWED = {"noun", "verb", "adjective", "adverb", "pronoun", "preposition", "conjunction", "interjection", "particle", "article", "affix", "phrase", "idiom", "proverb"}
+# Keep strict POS admission synchronized with the canonical public schema.
+_CANONICAL_SCHEMA = Path(__file__).resolve().parents[2] / 'standards/lexical/lexical.schema.json'
+POS_ALLOWED = frozenset(json.loads(_CANONICAL_SCHEMA.read_text(encoding='utf-8'))
+                        ['$defs']['lexeme']['properties']['pos']['enum'])
 
 class LexicalValidator:
     def __init__(self):
@@ -46,6 +50,9 @@ class LexicalValidator:
         """
         errors = []
         warnings = []
+        if not isinstance(entry, dict):
+            return {"status": "rejected", "entry": entry,
+                    "errors": ["Lexical entry must be an object"], "warnings": []}
 
         try:
             entry_bytes = json.dumps(entry).encode('utf-8')
@@ -70,8 +77,6 @@ class LexicalValidator:
             errors.append(id_err)
         elif entry["id"] in self.seen_ids:
             errors.append(f"Duplicate lexical ID: {entry['id']}")
-        else:
-            self.seen_ids.add(entry["id"])
 
         surf_err = self._check_string_field(entry, "surface")
         if surf_err:
@@ -89,7 +94,7 @@ class LexicalValidator:
         elif entry["pos"] not in POS_ALLOWED:
             errors.append(f"Invalid POS: {entry['pos']}")
 
-        if entry.get("id") and entry.get("language"):
+        if not id_err and not lang_err and isinstance(entry["id"], str) and isinstance(entry["language"], str):
             if not entry["id"].startswith(f"{entry['language']}-"):
                 errors.append(f"ID '{entry['id']}' does not match language prefix '{entry['language']}-'")
 
@@ -99,14 +104,14 @@ class LexicalValidator:
         conjugations = entry.get("conjugations")
         lang = entry.get("language")
 
-        if lang in {"zho", "tha", "vie"} and (plural is not None or conjugations is not None):
+        if isinstance(lang, str) and lang in {"zho", "tha", "vie"} and (plural is not None or conjugations is not None):
             errors.append(f"Isolating language '{lang}' should not have plural or conjugations")
 
-        if pos and pos != "verb" and conjugations is not None:
+        if isinstance(pos, str) and pos != "verb" and conjugations is not None:
             # While theoretically some languages decline nouns, usually 'conjugation' implies verbs.
             warnings.append(f"Non-verb POS '{pos}' has 'conjugations' field")
 
-        if pos and pos not in {"noun", "pronoun", "adjective"} and plural is not None:
+        if isinstance(pos, str) and pos not in {"noun", "pronoun", "adjective"} and plural is not None:
             warnings.append(f"POS '{pos}' has 'plural' field, which is unusual")
 
         # 3. Structure of translations
@@ -149,6 +154,9 @@ class LexicalValidator:
             status = "reviewRequired"
         else:
             status = "accepted"
+
+        if status != "rejected" and not id_err:
+            self.seen_ids.add(entry["id"])
 
         return {
             "status": status,
