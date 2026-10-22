@@ -1,5 +1,5 @@
 {
-  "next_index": 240,
+  "next_index": 320,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "it",
+      "section": "food"
+    },
+    {
+      "language": "ja",
+      "section": "food"
+    },
+    {
+      "language": "ka",
+      "section": "food"
+    },
+    {
+      "language": "kk",
+      "section": "food"
+    },
+    {
+      "language": "km",
+      "section": "food"
+    },
+    {
+      "language": "kn",
+      "section": "food"
+    },
+    {
+      "language": "ko",
+      "section": "food"
+    },
+    {
+      "language": "ku",
+      "section": "food"
+    },
+    {
+      "language": "ky",
+      "section": "food"
+    },
+    {
+      "language": "la",
+      "section": "food"
+    },
+    {
+      "language": "lb",
+      "section": "food"
+    },
+    {
+      "language": "lo",
+      "section": "food"
+    },
+    {
+      "language": "lt",
+      "section": "food"
+    },
+    {
+      "language": "lv",
+      "section": "food"
+    },
+    {
+      "language": "mg",
+      "section": "food"
+    },
+    {
+      "language": "mk",
+      "section": "food"
+    },
+    {
+      "language": "ml",
+      "section": "food"
+    },
+    {
+      "language": "mn",
+      "section": "food"
+    },
+    {
+      "language": "mr",
+      "section": "food"
+    },
+    {
+      "language": "ms",
+      "section": "food"
+    },
+    {
       "language": "mt",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "my",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ne",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "nl",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "no",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "or",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "pa",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "pl",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ps",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "pt",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ro",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ru",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "rw",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "sd",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "si",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "sk",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "sl",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "sn",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "so",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "sq",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "sr",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "sv",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "sw",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ta",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "te",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "tg",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "th",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "tk",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "tl",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "tr",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "tt",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ug",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "uk",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ur",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "uz",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "vi",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "xh",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "yo",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "zh",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "zu",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "af",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "am",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ar",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "as",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "az",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ba",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "be",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "bg",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "bn",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "br",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "bs",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "ca",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "cs",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "cy",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "da",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "de",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "dv",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "el",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "en",
-      "section": "food"
+      "section": "home"
     },
     {
       "language": "eo",
-      "section": "food"
-    },
-    {
-      "language": "es",
-      "section": "food"
-    },
-    {
-      "language": "et",
-      "section": "food"
-    },
-    {
-      "language": "eu",
-      "section": "food"
-    },
-    {
-      "language": "fa",
-      "section": "food"
-    },
-    {
-      "language": "fi",
-      "section": "food"
-    },
-    {
-      "language": "fo",
-      "section": "food"
-    },
-    {
-      "language": "fr",
-      "section": "food"
-    },
-    {
-      "language": "fy",
-      "section": "food"
-    },
-    {
-      "language": "ga",
-      "section": "food"
-    },
-    {
-      "language": "gd",
-      "section": "food"
-    },
-    {
-      "language": "gl",
-      "section": "food"
-    },
-    {
-      "language": "gu",
-      "section": "food"
-    },
-    {
-      "language": "ha",
-      "section": "food"
-    },
-    {
-      "language": "hi",
-      "section": "food"
-    },
-    {
-      "language": "hr",
-      "section": "food"
-    },
-    {
-      "language": "hu",
-      "section": "food"
-    },
-    {
-      "language": "hy",
-      "section": "food"
-    },
-    {
-      "language": "id",
-      "section": "food"
-    },
-    {
-      "language": "ig",
-      "section": "food"
-    },
-    {
-      "language": "is",
-      "section": "food"
+      "section": "home"
     }
   ]
 }
