@@ -145,5 +145,18 @@ class CompatibilityTests(unittest.TestCase):
         self.assertTrue(r["obligations"]["redistribution"])
         self.assertTrue(r["obligations"]["share_alike"])
 
+    def test_permissive_with_obligations_to_copyleft(self):
+        self.source["license"]["id"] = "CC-BY-2.0-FR"
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(output="CC-BY-SA-4.0")
+        self.assertEqual(r["status"], "COMPATIBLE", r)
+
+    def test_permissive_with_obligations_to_cc0_blocks(self):
+        self.source["license"]["id"] = "CC-BY-2.0-FR"
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(output="CC0-1.0")
+        self.assertEqual(r["status"], "INCOMPATIBLE", r)
+        self.assertEqual(r["reason"], "cannot drop obligations for CC0-1.0")
+
 if __name__ == "__main__":
     unittest.main()

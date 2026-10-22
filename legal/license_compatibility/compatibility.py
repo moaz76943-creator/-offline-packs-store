@@ -41,7 +41,13 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
 
     base["obligations"] = obligations
 
-    copyleft = set(ids).intersection(OBLIGATIONS)
+    with_obligations = set(ids).intersection(OBLIGATIONS)
+    copyleft = {lid for lid in with_obligations if "sharealike" in OBLIGATIONS.get(lid, ()) or "history" in OBLIGATIONS.get(lid, ())}
+
+    if output_license in ("PUBLIC-DOMAIN", "CC0-1.0") and with_obligations:
+        return {**base, "status": "INCOMPATIBLE",
+                "reason": f"cannot drop obligations for {output_license}"}
+
     if output_license == "PUBLIC-DOMAIN" and any(lid != "PUBLIC-DOMAIN" for lid in ids):
         return {**base, "status": "INCOMPATIBLE",
                 "reason": "public domain is not a blanket relicensing claim"}
