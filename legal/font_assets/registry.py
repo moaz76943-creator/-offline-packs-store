@@ -1,5 +1,6 @@
 """Offline font evidence preflight. EVIDENCE_PASS is not legal clearance or pack admission."""
 import hashlib
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -45,6 +46,16 @@ class FontAsset:
     public_domain_proof: Optional[dict] = None
 
 class FontRightsRegistry:
+    def __init__(self):
+        self._canonical_scripts = None
+
+    def _get_canonical_scripts(self, repo_root):
+        if self._canonical_scripts is None:
+            registry_path = Path(repo_root) / "catalog" / "language_registry.v1.json"
+            registry_data = json.loads(registry_path.read_text(encoding="utf-8"))
+            self._canonical_scripts = {s for lang in registry_data.get("languages", []) for s in lang.get("scripts", [])}
+        return self._canonical_scripts
+
     # No vendor or font family receives a blanket license inference.
     def validate_asset(self, asset: FontAsset, expected_hash=None, *, repo_root=None):
         issues = []
@@ -73,6 +84,12 @@ class FontRightsRegistry:
                      issues, "font license source evidence")
             artifact(repo_root, asset.review_evidence_path, asset.review_evidence_sha256,
                      issues, "independent rights review snapshot")
+            try:
+                canonical_scripts = self._get_canonical_scripts(repo_root)
+                if isinstance(asset.scripts, list) and any(s not in canonical_scripts for s in asset.scripts):
+                    issues.append("Unknown or unsupported script")
+            except (OSError, ValueError):
+                issues.append("Cannot read canonical script registry")
         manual_review(asset.review, issues, "font review")
         if asset.license_id == "PUBLIC-DOMAIN":
             pd = asset.public_domain_proof
