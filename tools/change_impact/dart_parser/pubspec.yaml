@@ -1,0 +1,7 @@
+name: dart_parser
+description: Dart AST parser for change impact analysis
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  analyzer: any
+  args: any
