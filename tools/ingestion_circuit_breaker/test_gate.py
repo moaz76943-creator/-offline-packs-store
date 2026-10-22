@@ -231,5 +231,53 @@ class TestGate(unittest.TestCase):
         self.assertEqual(target.read_bytes(), b'{"ok":true}')
 
 
+    def test_sublicense_permissive_to_copyleft(self):
+        # Permissive license with obligations (e.g. CC-BY-2.0-FR) sublicensed to copyleft should be allowed
+        self.ledger_data["sources"].append({
+            "source_id": "test-source-permissive",
+            "retrieval": {
+                "sha256": self.valid_hash
+            },
+            "license": {
+                "id": "CC-BY-2.0-FR"
+            }
+        })
+        self.ledger_file.write_text(json.dumps(self.ledger_data))
+
+        manifest = {
+            "source_id": "test-source-permissive",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+            "destination": "packs/out"
+        }
+        code, errors, _, _ = self.run_process(manifest)
+        self.assertEqual(code, 0)
+        self.assertEqual(errors, [])
+
+    def test_sublicense_obligations_to_public_domain(self):
+        # License with obligations (e.g. CC-BY-2.0-FR) cannot be sublicensed to PUBLIC-DOMAIN or CC0-1.0
+        self.ledger_data["sources"].append({
+            "source_id": "test-source-permissive",
+            "retrieval": {
+                "sha256": self.valid_hash
+            },
+            "license": {
+                "id": "CC-BY-2.0-FR"
+            }
+        })
+        self.ledger_file.write_text(json.dumps(self.ledger_data))
+
+        manifest = {
+            "source_id": "test-source-permissive",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "PUBLIC-DOMAIN",
+            "destination": "packs/out"
+        }
+        code, errors, _, _ = self.run_process(manifest)
+        self.assertEqual(code, 2)
+        self.assertIn("LICENSE_CONFLICT", errors)
+
 if __name__ == '__main__':
     unittest.main()

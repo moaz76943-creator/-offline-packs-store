@@ -132,11 +132,19 @@ def process(args):
             errors.append("MISSING_SOURCE_LICENSE")
 
         if src_license and output_license:
-            # Simple compatibility check:
+            # Compatibility check:
             if src_license == 'CC0-1.0' and output_license == 'PUBLIC-DOMAIN':
                 errors.append("LICENSE_CONFLICT")
-            elif src_license in OBLIGATIONS and output_license != src_license:
-                errors.append("LICENSE_CONFLICT")
+            elif src_license in OBLIGATIONS:
+                # If source has obligations, output license cannot be PUBLIC-DOMAIN or CC0-1.0
+                if output_license in ('PUBLIC-DOMAIN', 'CC0-1.0'):
+                    errors.append("LICENSE_CONFLICT")
+                # Strict copyleft requires exact match
+                elif 'sharealike' in OBLIGATIONS[src_license] or 'history' in OBLIGATIONS[src_license]:
+                    if output_license != src_license:
+                        errors.append("LICENSE_CONFLICT")
+                # Non-copyleft with obligations (like CC-BY-2.0-FR) can be sublicensed to copyleft
+                # (but exact obligations preservation is checked in deeper legal logic, here we just don't block it)
 
     if errors:
         quarantine_files(args, manifest_dict, errors)
