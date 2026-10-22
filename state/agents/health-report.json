@@ -1,7 +1,6 @@
 {
   "degraded": [
     "harvest-kaikki",
-    "harvest-tatoeba",
     "watchdog"
   ],
   "failed_github_run": false,
