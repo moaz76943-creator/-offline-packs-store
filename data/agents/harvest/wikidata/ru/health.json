@@ -1,6 +1,6 @@
 {
   "language": "ru",
-  "retrieval_date": "2026-10-18",
+  "retrieval_date": "2026-10-22",
   "rows": [
     {
       "concept_id": "concept.q105688",
@@ -98,6 +98,37 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q6279182"
+    },
+    {
+      "concept_id": "concept.q268594",
+      "forms": [
+        "ступор",
+        "ступора",
+        "ступору",
+        "ступор",
+        "ступором",
+        "ступоре",
+        "ступоры",
+        "ступоров"
+      ],
+      "language": "ru",
+      "lemma": "ступор",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L167298",
+      "pos": "",
+      "qids": [
+        "Q268594"
+      ],
+      "record_id": "L167298",
+      "retrieval_date": "2026-10-22",
+      "revision": "2237279295",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L167298-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q268594"
     }
   ],
   "schema_version": "1.0.0",
