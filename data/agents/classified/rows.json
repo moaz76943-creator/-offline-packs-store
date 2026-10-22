@@ -2045,6 +2045,36 @@
       "wikidata": "Q193211"
     },
     {
+      "concept_id": "concept.q268594",
+      "forms": [
+        "stupor",
+        "stupors"
+      ],
+      "language": "en",
+      "lemma": "stupor",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12950",
+      "pos": "",
+      "qids": [
+        "Q268594"
+      ],
+      "record_id": "L12950",
+      "retrieval_date": "2026-10-22",
+      "revision": "2550036696",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L12950-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q268594"
+    },
+    {
       "concept_id": "concept.q82955",
       "forms": [
         "politician",
@@ -3579,6 +3609,36 @@
       "wikidata": "Q192874"
     },
     {
+      "concept_id": "concept.q319763",
+      "forms": [
+        "콤플렉스"
+      ],
+      "language": "ko",
+      "lemma": "콤플렉스",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L992174",
+      "pos": "",
+      "qids": [
+        "Q319763",
+        "Q679989"
+      ],
+      "record_id": "L992174",
+      "retrieval_date": "2026-10-22",
+      "revision": "1816583000",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L992174-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q319763"
+    },
+    {
       "concept_id": "concept.q1780",
       "forms": [
         "Posonium",
@@ -4405,6 +4465,42 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q6279182"
+    },
+    {
+      "concept_id": "concept.q268594",
+      "forms": [
+        "ступор",
+        "ступора",
+        "ступору",
+        "ступор",
+        "ступором",
+        "ступоре",
+        "ступоры",
+        "ступоров"
+      ],
+      "language": "ru",
+      "lemma": "ступор",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L167298",
+      "pos": "",
+      "qids": [
+        "Q268594"
+      ],
+      "record_id": "L167298",
+      "retrieval_date": "2026-10-22",
+      "revision": "2237279295",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L167298-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q268594"
     },
     {
       "concept_id": "concept.q131482",
