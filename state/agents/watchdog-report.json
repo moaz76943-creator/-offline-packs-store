@@ -1,7 +1,6 @@
 {
   "degraded": [
-    "harvest-kaikki",
-    "harvest-tatoeba"
+    "harvest-kaikki"
   ],
   "dispatch": [],
   "schema_version": "1.0.0",
