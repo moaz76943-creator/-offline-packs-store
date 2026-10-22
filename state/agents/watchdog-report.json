@@ -1,6 +1,7 @@
 {
   "degraded": [
-    "harvest-kaikki"
+    "harvest-kaikki",
+    "harvest-wikidata"
   ],
   "dispatch": [],
   "schema_version": "1.0.0",
