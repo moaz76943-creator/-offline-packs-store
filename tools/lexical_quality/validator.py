@@ -4,6 +4,7 @@ Detects corrupt, inconsistent, and structurally invalid dictionary records
 before they enter production pack builds.
 """
 import json
+from collections import OrderedDict
 import re
 import sys
 from pathlib import Path
@@ -17,8 +18,9 @@ POS_ALLOWED = frozenset(json.loads(_CANONICAL_SCHEMA.read_text(encoding='utf-8')
                         ['$defs']['lexeme']['properties']['pos']['enum'])
 
 class LexicalValidator:
-    def __init__(self):
-        self.seen_ids = set()
+    def __init__(self, max_history=100000):
+        self.seen_ids = OrderedDict()
+        self.max_history = max_history
 
     def _check_string_field(self, entry, field_name, required=True):
         val = entry.get(field_name)
@@ -156,7 +158,9 @@ class LexicalValidator:
             status = "accepted"
 
         if status != "rejected" and not id_err:
-            self.seen_ids.add(entry["id"])
+            self.seen_ids[entry["id"]] = None
+            if len(self.seen_ids) > self.max_history:
+                self.seen_ids.popitem(last=False)
 
         return {
             "status": status,
