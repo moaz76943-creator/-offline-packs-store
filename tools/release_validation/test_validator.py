@@ -27,7 +27,9 @@ class TestReleaseEligibilityGate(unittest.TestCase):
                 "schema_conformance": "PASSED",
                 "format_conformance": "PASSED",
                 "provenance_evidence": "PASSED",
-                "attribution_evidence": "PASSED"
+                "attribution_evidence": "PASSED",
+                "sqlite_v2": "PASSED",
+                "asset_integrity": "PASSED"
             }
         }
 
