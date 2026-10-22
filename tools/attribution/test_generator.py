@@ -209,5 +209,12 @@ class AttributionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+    def test_co_offered_licenses_included(self):
+        self.source["license"]["co_offered_licenses"] = ["GFDL-1.3-only"]
+        result = self.run_gate()
+        self.assertEqual(result[0]["co_offered_licenses"], ["GFDL-1.3-only"])
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("Co-offered licenses: GFDL-1.3-only", notice)
+
 if __name__ == "__main__":
     unittest.main()
