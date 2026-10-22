@@ -1,0 +1,1 @@
+{"packs": {"valid": {"path": "valid.db", "entry_count": 1, "sha256": "eceee82259631c65759cfca018ed1371d379b42ea69e8b905c9231322e13356c"}, "mismatch_count": {"path": "unverified.db", "entry_count": 999, "sha256": "167cd63fa4dfe57ba7ad786e082a86abc66e814c4b89d3cade17ef9e2f461336"}, "mismatch_hash": {"path": "corrupt_schema.db", "entry_count": 1, "sha256": "badhash"}}}
