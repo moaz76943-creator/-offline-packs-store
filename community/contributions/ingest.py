@@ -176,6 +176,7 @@ def ingest(source, staging_root, *, registry_path=None, validator=None, licenses
     if licenses is None:
         from legal.ledger.admission import LICENSES as licenses
     seen_ids = set()
+    seen_entry_ids = set()
     record_sources = []
     count = 0
     for name, raw in members(data, source.name):
@@ -183,6 +184,15 @@ def ingest(source, staging_root, *, registry_path=None, validator=None, licenses
         if doc["document_id"] in seen_ids:
             raise ValueError("duplicate document ID")
         seen_ids.add(doc["document_id"])
+        for collection, key in (('lexemes', 'lexeme_id'), ('senses', 'sense_id'),
+                                ('translations', 'translation_id'), ('examples', 'example_id'),
+                                ('relations', 'relation_id')):
+            for record in doc.get(collection, []):
+                if key in record:
+                    rid = record[key]
+                    if rid in seen_entry_ids:
+                        raise ValueError(f"duplicate entry ID: {rid}")
+                    seen_entry_ids.add(rid)
         record_sources.extend(validate_document(doc, valid_languages, validator, licenses))
         count += 1
     if not count:
@@ -207,12 +217,14 @@ def ingest(source, staging_root, *, registry_path=None, validator=None, licenses
         if path.is_symlink() or index.is_symlink():
             raise ValueError("symlink staged file")
         if path.exists():
-            if hashlib.sha256(path.read_bytes()).hexdigest() != digest or not index.is_file():
-                raise ValueError("staging collision or interrupted transaction")
-            if unique_json(index.read_bytes()) != receipt:
-                raise ValueError("staging index mismatch")
-            return receipt
-        save_atomic(path, data)
+            if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+                raise ValueError("staging collision")
+            if index.is_file():
+                if unique_json(index.read_bytes()) != receipt:
+                    raise ValueError("staging index mismatch")
+                return receipt
+        if not path.exists():
+            save_atomic(path, data)
         save_atomic(index, json.dumps(receipt, sort_keys=True, ensure_ascii=False).encode())
     return receipt
 

@@ -134,6 +134,38 @@ class TestIngest(unittest.TestCase):
             ingest(path, self.staging_root, registry_path=self.registry_path, validator=lambda d, publication: None, licenses={"CC0-1.0"})
         self.assertIn("duplicate document ID", str(ctx.exception))
 
+    def test_duplicate_entry_id_in_archive(self):
+        doc1 = json.loads(json.dumps(self.valid_doc))
+        doc2 = json.loads(json.dumps(self.valid_doc))
+        doc2["document_id"] = "doc2"
+        # Since self.valid_doc has lexemes with no ID right now, let's set an ID explicitly
+        doc1["lexemes"][0]["lexeme_id"] = "lex1"
+        doc2["lexemes"][0]["lexeme_id"] = "lex1"
+
+        path = Path(self.tmpdir) / "dup_entry.zip"
+        with zipfile.ZipFile(path, "w") as zf:
+            zf.writestr("doc1.json", json.dumps(doc1))
+            zf.writestr("doc2.json", json.dumps(doc2))
+        with self.assertRaises(ValueError) as ctx:
+            ingest(path, self.staging_root, registry_path=self.registry_path, validator=lambda d, publication: None, licenses={"CC0-1.0"})
+        self.assertIn("duplicate entry ID: lex1", str(ctx.exception))
+
+    def test_resume_interrupted_transaction(self):
+        submission = self.write_json("sub.json", self.valid_doc)
+
+        # Simulate partial write (only binary, no index)
+        import hashlib
+        data = Path(submission).read_bytes()
+        digest = hashlib.sha256(data).hexdigest()
+        staged = self.staging_root / "staged"
+        staged.mkdir(exist_ok=True, parents=True)
+        (staged / f"{digest}.bin").write_bytes(data)
+
+        # Should recover and write the index
+        receipt = ingest(submission, self.staging_root, registry_path=self.registry_path, validator=lambda d, publication: None, licenses={"CC0-1.0"})
+        self.assertEqual(receipt["state"], "STAGED_REVIEW_REQUIRED")
+        self.assertTrue((self.staging_root / "records" / f"{digest}.json").exists())
+
     def test_quarantine(self):
         path = Path(self.tmpdir) / "bad.json"
         with open(path, "w") as f:
