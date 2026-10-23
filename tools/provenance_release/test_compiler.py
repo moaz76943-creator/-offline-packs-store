@@ -137,6 +137,57 @@ class TestProvenanceCompiler(unittest.TestCase):
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['invalid'], ['asset_1'])
 
+    def test_permissive_sublicense(self):
+        src2 = self.base_source.copy()
+        src2['source_id'] = 'src2'
+        src2['publisher'] = 'publisher2'
+        src2['origin_url'] = 'https://origin2'
+        src2['license'] = src2['license'].copy()
+        src2['license']['id'] = 'CC-BY-2.0-FR'
+
+        cand = self.base_candidate.copy()
+        cand['source_refs'] = cand['source_refs'] + [{
+            "source_id": "src2",
+            "dataset_version": "v1",
+            "artifact_sha256": self.artifact_sha
+        }]
+
+        notice_path2 = self.root / 'notice2.txt'
+        notice_path2.write_text("src2 publisher2 CC-BY-2.0-FR https://origin2")
+        cand['notices']['src2'] = 'notice2.txt'
+
+        self.write_ledger([self.base_source, src2])
+        self.write_daily([cand])
+
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['approved'], ['asset_1'])
+
+    def test_permissive_sublicense_to_public_domain_rejected(self):
+        src2 = self.base_source.copy()
+        src2['source_id'] = 'src2'
+        src2['publisher'] = 'publisher2'
+        src2['origin_url'] = 'https://origin2'
+        src2['license'] = src2['license'].copy()
+        src2['license']['id'] = 'CC-BY-2.0-FR'
+
+        cand = self.base_candidate.copy()
+        cand['source_refs'] = [{
+            "source_id": "src2",
+            "dataset_version": "v1",
+            "artifact_sha256": self.artifact_sha
+        }]
+        cand['output_license_id'] = 'PUBLIC-DOMAIN'
+
+        notice_path2 = self.root / 'notice2.txt'
+        notice_path2.write_text("src2 publisher2 CC-BY-2.0-FR https://origin2")
+        cand['notices'] = {'src2': 'notice2.txt'}
+
+        self.write_ledger([src2])
+        self.write_daily([cand])
+
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], ['asset_1'])
+
     def test_mixed_licensing_conflict(self):
         src2 = self.base_source.copy()
         src2['source_id'] = 'src2'
