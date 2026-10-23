@@ -146,6 +146,56 @@ class ConformanceRegressions(unittest.TestCase):
         build(doc, nested_fixture)
         self.assertFalse(PackConformanceValidator(nested_fixture, repo_root=self.root).validate())
 
+    def test_reference_multilingual_document_is_structurally_valid(self):
+        # The canonical producer supports de/ar/en/es/fr in one directed graph.
+        from tools.pack_conformance.validator import ROOT
+        doc = json.loads((ROOT / 'standards/lexical/fixtures/positive.json').read_text())
+        multi = self.root / 'multilingual.sqlite'
+        build(doc, multi)
+        checker = PackConformanceValidator(multi)
+        self.assertFalse(checker.validate())  # No approved source ledger.
+        self.assertFalse(checker.publication_approved)
+
+    def test_forged_retrieval_identity_cannot_claim_verified_sources(self):
+        _, approved = fixture(self.root)
+        source = {
+            'source_id': approved['source_id'],
+            'retrieval_id': approved['retrieval']['identity'] + '-forged',
+            'origin_url': approved['origin_url'],
+            'publisher': approved['publisher'],
+            'dataset_version': approved['dataset_version'],
+            'license_id': approved['license']['id'],
+            'record_locator': 'fixture-1',
+            'artifact_sha256': approved['retrieval']['sha256'],
+            'publication_approved': True,
+            'fixture_only': False,
+        }
+        doc = get_base_document()
+        for collection in ('lexemes', 'senses'):
+            doc[collection][0]['source'] = copy.deepcopy(source)
+        forged = self.root / 'retrieval-forged.sqlite'
+        build(doc, forged)
+        self.assertFalse(
+            PackConformanceValidator(forged, repo_root=self.root).validate()
+        )
+
+    def test_sqlite_lexicon_projections_match_reference_producer(self):
+        # Dialect, CEFR and rank can be corrupted independently of JSON.
+        for label, column, tampered in (
+            ('dialect', 'dialect', 'invented-dialect'),
+            ('cefr', 'cefr_level', 'C2'),
+            ('rank', 'frequency_rank', 14),
+        ):
+            with self.subTest(column=column):
+                candidate = self.root / ('projection-' + label + '.sqlite')
+                build(get_base_document(), candidate)
+                with sqlite3.connect(candidate) as db:
+                    db.execute('UPDATE lexicon SET ' + column + '=?', (tampered,))
+                with self.assertRaisesRegex(
+                    PackConformanceError, 'projection mismatch'
+                ):
+                    PackConformanceValidator(candidate).validate()
+
     def test_corrupt_database_is_rejected_without_mutation(self):
         path = self.root / 'corrupt.sqlite'
         path.write_bytes(b'not sqlite')
