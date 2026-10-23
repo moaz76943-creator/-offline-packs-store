@@ -66,9 +66,19 @@ class TestPackConformanceValidator(unittest.TestCase):
         with self.assertRaisesRegex(PackConformanceError, "Corrupt JSON"):
             validator.validate()
 
-    def test_mismatched_lang_pack(self):
-        validator = PackConformanceValidator(self.fixtures / "mismatched_lang.db")
-        with self.assertRaisesRegex(PackConformanceError, "Cross-language mislabeled package"):
+    def test_multilingual_pack_is_valid_when_each_row_matches_its_payload(self):
+        # The reference builder supports directed relations across languages.
+        candidate = self.fixtures / "mismatched_lang.db"
+        validator = PackConformanceValidator(candidate)
+        self.assertFalse(validator.validate())  # Synthetic source is unverified.
+        self.assertEqual(validator.language_codes, {'en', 'es'})
+        self.assertIsNone(validator.language_code)
+
+        # A tampered per-row language is still rejected, even though
+        # multiple *valid* languages are allowed in one database.
+        with sqlite3.connect(candidate) as db:
+            db.execute("UPDATE lexicon SET language_code='fr' WHERE id='lex2'")
+        with self.assertRaisesRegex(PackConformanceError, 'projection mismatch'):
             validator.validate()
 
     def test_missing_fts_pack(self):
