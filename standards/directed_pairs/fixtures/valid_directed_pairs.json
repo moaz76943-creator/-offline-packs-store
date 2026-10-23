@@ -1,0 +1,74 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "test-doc.1",
+  "source_language": "eng-US",
+  "target_language": "spa-ES",
+  "pairs": [
+    {
+      "pair_id": "pair.1",
+      "source_sense_id": "sense.eng.apple.1",
+      "target_sense_id": "sense.spa.manzana.1",
+      "source_lexeme_id": "lex.eng.apple",
+      "target_lexeme_id": "lex.spa.manzana",
+      "target_text": "manzana",
+      "context": "fruit",
+      "equivalence": "exact",
+      "confidence": 0.95,
+      "source": {
+        "source_id": "src.1",
+        "origin_url": "https://example.com/test",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "20230101T000000Z",
+        "license_id": "CC-BY-4.0",
+        "record_locator": "loc.1",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.polysemous",
+      "source_sense_id": "sense.eng.bank.financial",
+      "target_sense_id": "sense.spa.banco.financial",
+      "source_lexeme_id": "lex.eng.bank",
+      "target_lexeme_id": "lex.spa.banco",
+      "target_text": "banco",
+      "context": "financial institution",
+      "equivalence": "exact",
+      "confidence": 0.99,
+      "source": {
+        "source_id": "src.1",
+        "origin_url": "https://example.com/test",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "20230101T000000Z",
+        "license_id": "CC-BY-4.0",
+        "record_locator": "loc.1",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.homograph",
+      "source_sense_id": "sense.eng.lead.metal",
+      "target_sense_id": "sense.spa.plomo.metal",
+      "source_lexeme_id": "lex.eng.lead",
+      "target_lexeme_id": "lex.spa.plomo",
+      "target_text": "plomo",
+      "context": "heavy metal",
+      "equivalence": "exact",
+      "confidence": 0.90,
+      "source": {
+        "source_id": "src.1",
+        "origin_url": "https://example.com/test",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "20230101T000000Z",
+        "license_id": "CC-BY-4.0",
+        "record_locator": "loc.1",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    }
+  ]
+}
