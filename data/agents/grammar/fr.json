@@ -21,6 +21,126 @@
       "retrieval_date": "registry",
       "source_id": "catalog.language_profiles",
       "value": "ltr"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1115",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Lorsqu'il a demandé qui avait cassé la fenêtre, tous les garçons ont pris un air innocent."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1279",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne supporte pas ce type."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1441",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Pour une fois dans ma vie je fais un bon geste... Et ça ne sert à rien."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1593",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Ne tenez aucun compte de ce qu'il dit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3091",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Essayons quelque chose !"
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3093",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Qu'est-ce que tu fais ?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3094",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Qu'est-ce que c'est ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3095",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Aujourd'hui nous sommes le 18 juin et c'est l'anniversaire de Muiriel !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3096",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Joyeux anniversaire Muiriel !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3097",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Muiriel a 20 ans maintenant."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3098",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Le mot de passe est « Muiriel »."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3099",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Je serai bientôt de retour."
     }
   ]
 }
