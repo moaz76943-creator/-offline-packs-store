@@ -321,6 +321,22 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
 
+    def test_wikidata_api_errors_and_malformed_payloads_are_not_empty_sources(self):
+        from tools.agents.harvest import search_lexemes, load_lexemes
+        for payload in ({'error': {'code': 'maxlag', 'info': 'Waiting for replica'}},
+                        {}, {'query': {'search': None}},
+                        {'query': {'search': [{'title': 'not-a-lexeme'}]}}, []):
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                search_lexemes('Q144', fetch=lambda _url: payload)
+        for payload in ({'error': {'code': 'badvalue'}}, {}, {'entities': []}):
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                load_lexemes(['L1'], fetch=lambda _url: payload)
+        self.assertEqual(search_lexemes('Q144', fetch=lambda _url: {
+            'query': {'search': []}}), [])
+        self.assertEqual(search_lexemes('Q144', fetch=lambda _url: {
+            'query': {'search': [{'title': 'Lexeme:L34727'}]}}), ['L34727'])
+        self.assertEqual(load_lexemes([], fetch=lambda _url: self.fail('empty request')), {})
+
     def test_wikidata_harvest_rotates_attested_concepts_between_runs(self):
         """Two scheduled harvests must not retry the same first concepts."""
         import argparse
@@ -378,6 +394,33 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(json.loads(cursor.read_text())['next_index'], 0)
             self.assertFalse(list((root / 'output/data/agents/packs').glob('*.sqlite'))
                              if (root / 'output/data/agents/packs').exists() else [])
+
+    def test_wikidata_source_failure_is_not_successful_empty_harvest(self):
+        import argparse
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.cat', 'concepts': [{'id': 'concept.cat', 'wikidata': 'Q146'}],
+        }]}]}
+        for error in (OSError('network unavailable'),
+                      harvest.SourceAPIError('Wikidata API error: maxlag')):
+            with self.subTest(error=type(error).__name__), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                with (mock.patch.object(cli, 'ROOT', root),
+                      mock.patch.object(cli, 'OUT', root / 'out'),
+                      mock.patch.object(cli, 'load_graph', return_value=graph),
+                      mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                      mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                      mock.patch.object(cli, '_halt', return_value=False),
+                      mock.patch.object(harvest, 'search_lexemes', side_effect=error)):
+                    self.assertEqual(cli.command_harvest(
+                        argparse.Namespace(name='harvest-wikidata')), 1)
+                report = json.loads((root / 'out/state/agents/harvest-wikidata-report.json').read_text())
+                self.assertEqual(report['source_errors'], 1)
+                self.assertEqual(report['accepted_rows'], 0)
+                self.assertEqual(report['outcomes'][0]['status'], 'SOURCE_ERROR')
+                heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
+                self.assertEqual(heartbeat['status'], 'failed')
 
     def test_harvest_preserves_previous_verified_concepts_across_windows(self):
         """Real checkpoint publication must not clobber earlier language rows."""

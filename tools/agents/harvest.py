@@ -18,6 +18,20 @@ class SourceSkip(Exception):
     pass
 
 
+class SourceAPIError(ValueError):
+    """A failed or malformed upstream response, never evidence of an empty source."""
+
+
+def _wikidata_payload(payload):
+    if not isinstance(payload, dict):
+        raise SourceAPIError('malformed Wikidata response')
+    if 'error' in payload:
+        error = payload['error']
+        code = error.get('code', 'unknown') if isinstance(error, dict) else 'unknown'
+        raise SourceAPIError(f'Wikidata API error: {code}')
+    return payload
+
+
 def fetch_bytes(url, timeout=30, max_bytes=200000):
     request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
     with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -109,13 +123,18 @@ def search_lexemes(qid, fetch=fetch_json, limit=8):
         'srlimit': str(limit),
         'format': 'json',
     })
-    payload = fetch('https://www.wikidata.org/w/api.php?' + query)
-    hits = ((payload.get('query') or {}).get('search') or [])
+    payload = _wikidata_payload(fetch('https://www.wikidata.org/w/api.php?' + query))
+    result = payload.get('query')
+    if not isinstance(result, dict) or not isinstance(result.get('search'), list):
+        raise SourceAPIError('missing Wikidata search results')
+    hits = result['search']
     ids = []
     for hit in hits:
-        title = hit.get('title') or ''
-        if title.startswith('Lexeme:'):
-            ids.append(title.split(':', 1)[1])
+        title = hit.get('title') if isinstance(hit, dict) else None
+        if (not isinstance(title, str) or not title.startswith('Lexeme:L')
+                or not title[8:].isascii() or not title[8:].isdigit()):
+            raise SourceAPIError('malformed Wikidata lexeme search hit')
+        ids.append(title.split(':', 1)[1])
     return ids
 
 
@@ -128,8 +147,13 @@ def load_lexemes(ids, fetch=fetch_json):
         'format': 'json',
         'formatversion': '2',
     })
-    payload = fetch('https://www.wikidata.org/w/api.php?' + query)
-    return payload.get('entities') or {}
+    payload = _wikidata_payload(fetch('https://www.wikidata.org/w/api.php?' + query))
+    entities = payload.get('entities')
+    if not isinstance(entities, dict) or not entities:
+        raise SourceAPIError('missing Wikidata entities')
+    if any(not isinstance(entity, dict) for entity in entities.values()):
+        raise SourceAPIError('malformed Wikidata entity')
+    return entities
 
 
 def tatoeba_sample(code, limit=12):
