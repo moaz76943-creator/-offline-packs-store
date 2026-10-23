@@ -369,20 +369,30 @@ def command_harvest(args):
     retrieved = date.today().isoformat()
     grouped = {}
     skipped = []
+    source_errors = 0
+    outcomes = []
     if name == 'harvest-wikidata':
         for concept in concepts:
+            outcome = {'wikidata': concept.get('wikidata'), 'fetched_entities': 0,
+                       'accepted_rows': 0, 'rejected_entities': 0}
+            outcomes.append(outcome)
             try:
                 ids = search_lexemes(concept['wikidata'])
                 entities = load_lexemes(ids)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
+                source_errors += 1
+                outcome['status'] = 'SOURCE_ERROR'
                 skipped.append({'wikidata': concept.get('wikidata'), 'reason': exc.__class__.__name__})
                 continue
+            outcome['fetched_entities'] = len(entities)
+            outcome['status'] = 'FETCHED' if entities else 'EMPTY_SEARCH'
             for entity in entities.values():
                 rows, reason = rows_from_lexeme(entity, concept, by_qid, profiles, retrieved)
                 if reason != 'keep':
-                    if reason in ('exclude', 'quarantine', 'placeholder'):
-                        skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
+                    outcome['rejected_entities'] += 1
+                    skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                     continue
+                outcome['accepted_rows'] += len(rows)
                 for row in rows:
                     grouped.setdefault((row['language'], row['section']), []).append(row)
     elif name == 'harvest-kaikki':
@@ -542,6 +552,14 @@ def command_harvest(args):
             'rows': [],
             'skipped': skipped,
             'concepts_attempted': [row.get('wikidata') or row.get('language') for row in concepts],
+            'outcomes': outcomes,
+        })
+    if name == 'harvest-wikidata':
+        write_json(_out(f'state/agents/{name}-report.json'), {
+            'schema_version': '1.0.0', 'source': name, 'retrieval_date': retrieved,
+            'outcomes': outcomes, 'source_errors': source_errors,
+            'accepted_rows': sum(item['accepted_rows'] for item in outcomes),
+            'production_publication': False,
         })
     # Advance only after bounded source processing finishes. The existing
     # checkpoint publisher writes the cursor to agents/data on each run.
@@ -553,11 +571,11 @@ def command_harvest(args):
     if not wrote:
         warning_text = warning_text or 'no candidate rows; not production throughput'
     write_heartbeat(_out('state/agents'), name,
-                    'ok' if wrote else 'degraded', warning_text)
+                    'failed' if source_errors else ('ok' if wrote else 'degraded'), warning_text)
     warnings = [item for item in (warning, cursor_warning, window_warning) if item]
     print(json.dumps({'files': wrote, 'skipped': len(skipped),
                       'attempted_concepts': len(concepts), 'warning': '; '.join(warnings)}))
-    return 0
+    return 1 if source_errors else 0
 
 
 def command_watchdog(_args):
