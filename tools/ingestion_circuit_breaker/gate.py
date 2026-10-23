@@ -9,17 +9,15 @@ import uuid
 import time
 from pathlib import Path
 
-# Try importing OBLIGATIONS; fallback if not available
 try:
     from legal.ledger.admission import OBLIGATIONS
 except ImportError:
-    OBLIGATIONS = {
-        'CC-BY-SA-4.0': ('attribution', 'license_link', 'changes_disclosed',
-                         'sharealike', 'no_additional_restrictions'),
-        'GFDL-1.3-only': ('license_copy', 'copyright_notices', 'history',
-                          'invariant_sections_checked', 'cover_texts_checked',
-                          'transparent_copy_checked'),
-    }
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+    from legal.ledger.admission import OBLIGATIONS
+
+COPYLEFT_LICENSES = {k for k, v in OBLIGATIONS.items() if 'sharealike' in v or 'history' in v}
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
@@ -135,7 +133,7 @@ def process(args):
             # Simple compatibility check:
             if src_license == 'CC0-1.0' and output_license == 'PUBLIC-DOMAIN':
                 errors.append("LICENSE_CONFLICT")
-            elif src_license in OBLIGATIONS and output_license != src_license:
+            elif src_license in COPYLEFT_LICENSES and output_license != src_license:
                 errors.append("LICENSE_CONFLICT")
 
     if errors:
