@@ -132,19 +132,39 @@ def command_legal(_args):
 def command_packs(_args):
     if _halt('packs'):
         return 0
-    rows = [row for row in iter_stored_rows(ROOT / 'data' / 'agents' / 'harvest')]
+    rows = list(iter_stored_rows(ROOT / 'data' / 'agents' / 'harvest'))
+    registered = registry_by_id()
     by_language = {}
+    rejected = 0
     for row in rows:
-        by_language.setdefault(row.get('language') or 'und', []).append(row)
-    wrote = 0
+        language = row.get('language')
+        if not isinstance(language, str) or language not in registered:
+            rejected += 1
+            continue
+        by_language.setdefault(language, []).append(row)
+    wrote = unchanged = candidate_rows = 0
     for language, group in sorted(by_language.items()):
-        result = build_pack(group, _out(f'data/agents/packs/{language}.sqlite'))
+        relative = f'data/agents/packs/{language}.sqlite'
+        result = build_pack(group, _out(relative), previous=ROOT / relative)
         wrote += int(bool(result.get('wrote')))
-    warning = '' if wrote or not rows else 'rows were not traceable'
-    if not rows:
-        warning = 'no harvested rows; root manifest was not modified'
-    write_heartbeat(_out('state/agents'), 'packs', 'ok', warning)
-    print(json.dumps({'packs': wrote, 'warning': warning}))
+        unchanged += int(result.get('reason') == 'unchanged verified candidate')
+        candidate_rows += result.get('rows', 0)
+        rejected += len(group) - result.get('rows', 0)
+    status = ('NO_INPUT_ROWS' if not rows else
+              'LEGACY_CANDIDATE_ONLY' if candidate_rows else 'NO_TRACEABLE_REGISTERED_ROWS')
+    report = {
+        'schema_version': '1.0.0', 'system_status': 'SYSTEM_HEALTHY',
+        'production_status': status, 'production_completed': False,
+        'production_publication': False, 'production_packs': 0,
+        'candidate_format': 'LEGACY_ENTRIES_ONLY', 'candidate_user_version': 0,
+        'candidate_packs_built': wrote, 'candidate_packs_unchanged': unchanged,
+        'candidate_rows': candidate_rows, 'input_rows': len(rows), 'rejected_rows': rejected,
+        'new_words': 'NOT_VERIFIED', 'new_verbs': 'NOT_VERIFIED', 'new_examples': 'NOT_VERIFIED',
+        'blocking_reason': 'Legacy entries projection is not canonical SQLite v2; source/release approval is not established.',
+    }
+    write_json(_out('state/agents/packs-report.json'), report)
+    write_heartbeat(_out('state/agents'), 'packs', 'degraded', status + '; not production throughput')
+    print(json.dumps(report, sort_keys=True))
     return 0
 
 

@@ -205,6 +205,102 @@ class ContractTests(unittest.TestCase):
             self.assertTrue(written['wrote'])
             self.assertEqual(len(written['sha256']), 64)
 
+    def test_pack_failure_preserves_previous_database_and_receipt(self):
+        import sqlite3
+        row = {'language':'de','concept_id':'concept.q1','lemma':'gehen',
+               'source_id':'wikidata.lexemes','record_id':'L1','license_id':'CC0-1.0',
+               'retrieval_date':'2026-10-23'}
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp)/'de.sqlite'
+            build_pack([row], output)
+            before = output.read_bytes()
+            receipt = output.with_suffix('.sha256.json').read_bytes()
+            with self.assertRaises(sqlite3.Error):
+                build_pack([dict(row, concept_id={'invalid':'binding'})], output)
+            self.assertEqual(output.read_bytes(), before)
+            self.assertEqual(output.with_suffix('.sha256.json').read_bytes(), receipt)
+
+    def test_pack_identical_input_does_not_rebuild(self):
+        from unittest import mock
+        from tools.agents import work
+        row = {'language':'de','concept_id':'concept.q1','lemma':'gehen',
+               'source_id':'wikidata.lexemes','record_id':'L1','license_id':'CC0-1.0',
+               'retrieval_date':'2026-10-23'}
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp)/'de.sqlite'
+            first = build_pack([row], output)
+            with mock.patch.object(work.sqlite3, 'connect', side_effect=AssertionError('unnecessary rebuild')):
+                second = build_pack([row], output)
+            self.assertFalse(second['wrote'])
+            self.assertEqual(second['reason'], 'unchanged verified candidate')
+            self.assertEqual(second['sha256'], first['sha256'])
+
+    def test_pack_receipt_commit_failure_rolls_back_database(self):
+        from unittest import mock
+        from tools.agents import work
+        row = {'language':'de','concept_id':'concept.q1','lemma':'gehen',
+               'source_id':'wikidata.lexemes','record_id':'L1','license_id':'CC0-1.0',
+               'retrieval_date':'2026-10-23'}
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp)/'de.sqlite'
+            build_pack([row], output)
+            sidecar = output.with_suffix('.sha256.json')
+            before = (output.read_bytes(), sidecar.read_bytes())
+            replace = work.os.replace
+            def fail_receipt(source, destination):
+                if Path(destination) == sidecar:
+                    raise OSError('interrupted receipt commit')
+                return replace(source, destination)
+            with mock.patch.object(work.os, 'replace', side_effect=fail_receipt):
+                with self.assertRaises(OSError):
+                    build_pack([dict(row, lemma='laufen')], output)
+            self.assertEqual((output.read_bytes(), sidecar.read_bytes()), before)
+            self.assertFalse(list(Path(tmp).glob('.pack-build-*')))
+
+    def test_pack_cache_verifies_bytes_and_reuses_previous_checkpoint(self):
+        row = {'language':'de','concept_id':'concept.q1','lemma':'gehen',
+               'source_id':'wikidata.lexemes','record_id':'L1','license_id':'CC0-1.0',
+               'retrieval_date':'2026-10-23'}
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            previous = root/'previous.sqlite'
+            build_pack([row], previous)
+            output = root/'new-out/de.sqlite'
+            result = build_pack([row], output, previous=previous)
+            self.assertFalse(result['wrote'])
+            self.assertFalse(output.exists())
+            previous.write_bytes(b'corrupt')
+            result = build_pack([row], output, previous=previous)
+            self.assertTrue(result['wrote'])
+            self.assertTrue(output.read_bytes().startswith(b'SQLite format 3'))
+
+    def test_pack_agent_distinguishes_legacy_candidates_empty_input_and_invalid_language(self):
+        import argparse
+        from unittest import mock
+        from tools.agents import cli
+        row = {'language':'de','concept_id':'concept.q1','lemma':'gehen',
+               'source_id':'wikidata.lexemes','record_id':'L1','license_id':'CC0-1.0',
+               'retrieval_date':'2026-10-23'}
+        for rows, expected, count in (([row], 'LEGACY_CANDIDATE_ONLY', 1),
+                                      ([], 'NO_INPUT_ROWS', 0),
+                                      ([dict(row,language='../../../../outside')], 'NO_TRACEABLE_REGISTERED_ROWS', 0)):
+            with self.subTest(expected=expected), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                with (mock.patch.object(cli, 'ROOT', root),
+                      mock.patch.object(cli, 'OUT', root/'out'),
+                      mock.patch.object(cli, '_halt', return_value=False),
+                      mock.patch.object(cli, 'iter_stored_rows', return_value=iter(rows))):
+                    self.assertEqual(cli.command_packs(argparse.Namespace()), 0)
+                report = json.loads((root/'out/state/agents/packs-report.json').read_text())
+                self.assertEqual(report['production_status'], expected)
+                self.assertEqual(report['production_packs'], 0)
+                self.assertFalse(report['production_completed'])
+                self.assertEqual(report['candidate_packs_built'], count)
+                self.assertEqual(report['system_status'], 'SYSTEM_HEALTHY')
+                heartbeat = json.loads((root/'out/state/agents/packs.json').read_text())
+                self.assertEqual(heartbeat['status'], 'degraded')
+                self.assertFalse((root/'outside.sqlite').exists())
+
     def test_legal_blocks_a_real_conflict_only(self):
         clean = legal_report(
             [{

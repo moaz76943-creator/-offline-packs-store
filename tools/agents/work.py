@@ -4,6 +4,9 @@ Every function tolerates missing input. None of them invent words.
 """
 
 import hashlib
+import json
+import os
+import tempfile
 import sqlite3
 from collections import defaultdict
 from pathlib import Path
@@ -375,37 +378,75 @@ def attribution_text(source_id, license_id, origin, count):
     )
 
 
-def build_pack(rows, output):
-    """Write a candidate sqlite of traceable rows. Refuses an empty pack."""
+def build_pack(rows, output, *, previous=None):
+    """Preserve the legacy inspection candidate; it is never a SQLite v2 pack.
+
+    Commit a complete database before its hash receipt. Exceptions while
+    committing the receipt restore the previous database; a replay validates
+    the input/digest binding before reusing a cached candidate.
+    """
     kept = [row for row in rows or [] if row_traceable(row)]
     output = Path(output)
+    base = {'format': 'LEGACY_ENTRIES_ONLY', 'user_version': 0,
+            'production_ready': False, 'rows': len(kept)}
     if not kept:
-        return {'wrote': False, 'reason': 'no traceable rows', 'sha256': None}
+        return {**base, 'wrote': False, 'reason': 'no traceable rows', 'sha256': None}
+    input_sha = hashlib.sha256(json.dumps(kept, ensure_ascii=False, sort_keys=True,
+                                        separators=(',', ':'), allow_nan=False).encode()).hexdigest()
+    for prior in dict.fromkeys([output, Path(previous) if previous is not None else output]):
+        sidecar = prior.with_suffix('.sha256.json')
+        if (prior.is_symlink() or sidecar.is_symlink() or not prior.is_file()
+                or not sidecar.is_file() or sidecar.stat().st_size > 1_000_000):
+            continue
+        try:
+            saved = json.loads(sidecar.read_text(encoding='utf-8'))
+        except (OSError, UnicodeError, ValueError):
+            continue
+        if (isinstance(saved, dict) and saved.get('source_input_sha256') == input_sha
+                and saved.get('format') == base['format'] and saved.get('rows') == len(kept)
+                and saved.get('sha256') == hashlib.sha256(prior.read_bytes()).hexdigest()):
+            return {**base, 'wrote': False, 'reason': 'unchanged verified candidate',
+                    'sha256': saved['sha256']}
     output.parent.mkdir(parents=True, exist_ok=True)
-    if output.exists():
-        output.unlink()
-    connection = sqlite3.connect(output)
-    try:
-        connection.execute(
-            'CREATE TABLE entries (language TEXT, concept_id TEXT, lemma TEXT, '
-            'source_id TEXT, record_id TEXT, license_id TEXT, retrieval_date TEXT)'
-        )
-        connection.executemany(
-            'INSERT INTO entries VALUES (?,?,?,?,?,?,?)',
-            [(
+    receipt = output.with_suffix('.sha256.json')
+    if output.is_symlink() or receipt.is_symlink():
+        raise ValueError('refusing symlink candidate or receipt')
+    with tempfile.TemporaryDirectory(prefix='.pack-build-', dir=output.parent) as tmp:
+        directory = Path(tmp)
+        candidate = directory/'candidate.sqlite'
+        connection = sqlite3.connect(candidate)
+        try:
+            connection.execute(
+                'CREATE TABLE entries (language TEXT, concept_id TEXT, lemma TEXT, '
+                'source_id TEXT, record_id TEXT, license_id TEXT, retrieval_date TEXT)')
+            connection.executemany('INSERT INTO entries VALUES (?,?,?,?,?,?,?)', [(
                 row.get('language'), row.get('concept_id'), row.get('lemma') or row.get('text'),
                 row.get('source_id'), row.get('record_id'), row.get('license_id'),
-                row.get('retrieval_date'),
-            ) for row in kept],
-        )
-        connection.commit()
-    finally:
-        connection.close()
-    digest = hashlib.sha256(output.read_bytes()).hexdigest()
-    write_json(output.with_suffix('.sha256.json'), {
-        'schema_version': SCHEMA_VERSION,
-        'path': str(output),
-        'sha256': digest,
-        'rows': len(kept),
-    })
-    return {'wrote': True, 'reason': '', 'sha256': digest, 'rows': len(kept)}
+                row.get('retrieval_date')) for row in kept])
+            connection.commit()
+            if connection.execute('PRAGMA integrity_check').fetchone()[0] != 'ok':
+                raise ValueError('candidate integrity check failed')
+            if connection.execute('PRAGMA foreign_key_check').fetchone():
+                raise ValueError('candidate foreign-key check failed')
+        finally:
+            connection.close()
+        digest = hashlib.sha256(candidate.read_bytes()).hexdigest()
+        staged_receipt = directory/'receipt.json'
+        write_json(staged_receipt, {
+            'schema_version': SCHEMA_VERSION, 'path': str(output), 'sha256': digest,
+            'source_input_sha256': input_sha, **base,
+            'validation_result': 'LEGACY_SQLITE_INTEGRITY_PASS_NOT_V2',
+        })
+        backup = directory/'previous.sqlite'
+        if output.exists():
+            os.link(output, backup)
+        os.replace(candidate, output)
+        try:
+            os.replace(staged_receipt, receipt)
+        except BaseException:
+            if backup.exists():
+                os.replace(backup, output)
+            else:
+                output.unlink(missing_ok=True)
+            raise
+    return {**base, 'wrote': True, 'reason': '', 'sha256': digest}
