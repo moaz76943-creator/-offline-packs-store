@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q89812763",
-    "Q89813172",
-    "Q89804576",
-    "Q89806695",
-    "Q89804294",
-    "Q89811715",
-    "Q89807000",
-    "Q89806487"
+    "Q58860918",
+    "Q2090288",
+    "Q7774336",
+    "Q7989734",
+    "Q5031258",
+    "Q6682369",
+    "Q7310077",
+    "Q4862212"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89812763"
+      "wikidata": "Q58860918"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89813172"
+      "wikidata": "Q2090288"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89804576"
+      "wikidata": "Q7774336"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89806695"
+      "wikidata": "Q7989734"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89804294"
+      "wikidata": "Q5031258"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89811715"
+      "wikidata": "Q6682369"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89807000"
+      "wikidata": "Q7310077"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89806487"
+      "wikidata": "Q4862212"
     }
   ],
   "retrieval_date": "2026-10-23",
