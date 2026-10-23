@@ -169,17 +169,20 @@ class TestDigestEngine(unittest.TestCase):
 
     def test_incremental_updates(self):
         old_index = {
-            "unchanged.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l1", "asset_id": "a1", "version": "v1"},
-            "updated_hash.txt": {"sha256": "hash2", "source_id": "s2", "license_id": "l2", "asset_id": "a2", "version": "v2"},
-            "updated_meta.txt": {"sha256": "hash3", "source_id": "s3", "license_id": "l3", "asset_id": "a3", "version": "v1"},
-            "deleted.txt": {"sha256": "hash4", "source_id": "s4", "license_id": "l4", "asset_id": "a4", "version": "v1"},
+            "unchanged.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l1", "asset_id": "a1", "version": "v1", "size_bytes": 10},
+            "updated_hash.txt": {"sha256": "hash2", "source_id": "s2", "license_id": "l2", "asset_id": "a2", "version": "v2", "size_bytes": 20},
+            "updated_meta.txt": {"sha256": "hash3", "source_id": "s3", "license_id": "l3", "asset_id": "a3", "version": "v1", "size_bytes": 30},
+            "updated_size.txt": {"sha256": "hash6", "source_id": "s6", "license_id": "l6", "asset_id": "a6", "version": "v1", "size_bytes": 40},
+            "deleted.txt": {"sha256": "hash4", "source_id": "s4", "license_id": "l4", "asset_id": "a4", "version": "v1", "size_bytes": 50},
         }
 
         new_index = {
-            "unchanged.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l1", "asset_id": "a1", "version": "v1"},
-            "updated_hash.txt": {"sha256": "hash2_new", "source_id": "s2", "license_id": "l2", "asset_id": "a2", "version": "v2"},
-            "updated_meta.txt": {"sha256": "hash3", "source_id": "s3", "license_id": "l3", "asset_id": "a3", "version": "v2"},
-            "added.txt": {"sha256": "hash5", "source_id": "s5", "license_id": "l5", "asset_id": "a5", "version": "v1"},
+            "unchanged.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l1", "asset_id": "a1", "version": "v1", "size_bytes": 10},
+            "updated_hash.txt": {"sha256": "hash2_new", "source_id": "s2", "license_id": "l2", "asset_id": "a2", "version": "v2", "size_bytes": 20},
+            "updated_meta.txt": {"sha256": "hash3", "source_id": "s3", "license_id": "l3", "asset_id": "a3", "version": "v2", "size_bytes": 30},
+            "updated_size.txt": {"sha256": "hash6", "source_id": "s6", "license_id": "l6", "asset_id": "a6", "version": "v1", "size_bytes": 41},
+            "added.txt": {"sha256": "hash5", "source_id": "s5", "license_id": "l5", "asset_id": "a5", "version": "v1", "size_bytes": 60},
+            "invalid_new.txt": {"invalid": True, "error": "broken"}
         }
 
         events = compare_indexes(old_index, new_index)
@@ -187,8 +190,10 @@ class TestDigestEngine(unittest.TestCase):
         self.assertIn("unchanged.txt", events['unchanged'])
         self.assertIn("updated_hash.txt", events['updated'])
         self.assertIn("updated_meta.txt", events['updated'])
+        self.assertIn("updated_size.txt", events['updated'])
         self.assertIn("added.txt", events['updated'])
         self.assertIn("deleted.txt", events['deleted'])
+        self.assertIn("invalid_new.txt", events['invalid'])
 
     def test_bounded_memory(self):
         # We can't easily test that it truly uses bounded memory without memory profiler,
