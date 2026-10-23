@@ -432,7 +432,8 @@ def build_pack(rows, output):
         })
         # Idempotent reruns must not churn the shared agents/data checkpoint.
         # Compare on-disk bytes and metadata, not old, potentially stale flags.
-        if output.is_file() and receipt_path.is_file():
+        if (output.is_file() and receipt_path.is_file()
+                and output.stat().st_size == candidate.stat().st_size):
             with output.open('rb') as old, candidate.open('rb') as new:
                 if all(a == b for a, b in zip(iter(lambda: old.read(65536), b''),
                                                iter(lambda: new.read(65536), b''))):
