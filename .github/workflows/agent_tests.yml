@@ -21,4 +21,4 @@ jobs:
         with:
           persist-credentials: false
       - name: Run agent tests
-        run: python3 -m unittest tools.agents.test_agents -q
+        run: python3 -m unittest discover -s tools/agents -p 'test_*.py' -q

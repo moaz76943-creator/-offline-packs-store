@@ -817,7 +817,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(len(calls), 2)
         root = Path(__file__).resolve().parents[2]
         workflow = (root / '.github/workflows/agent_tests.yml').read_text(encoding='utf-8')
-        self.assertIn('python3 -m unittest tools.agents.test_agents -q', workflow)
+        self.assertIn("python3 -m unittest discover -s tools/agents -p 'test_*.py' -q", workflow)
         self.assertNotIn('legal.ledger.test_license_notice', workflow)
         publish = (root / 'tools/agents/publish.sh').read_text(encoding='utf-8')
         self.assertNotIn('while', publish)

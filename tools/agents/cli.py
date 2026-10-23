@@ -140,11 +140,15 @@ def command_packs(_args):
     for language, group in sorted(by_language.items()):
         result = build_pack(group, _out(f'data/agents/packs/{language}.sqlite'))
         wrote += int(bool(result.get('wrote')))
-    warning = '' if wrote or not rows else 'rows were not traceable'
+    warning = ('LEGACY_CANDIDATE_ONLY: entries-only SQLite is not v2 or production'
+               if wrote else 'no new legacy candidate; no production packs')
     if not rows:
         warning = 'no harvested rows; root manifest was not modified'
-    write_heartbeat(_out('state/agents'), 'packs', 'ok', warning)
-    print(json.dumps({'packs': wrote, 'warning': warning}))
+    # An operationally completed agent is not a successful pack release.
+    write_heartbeat(_out('state/agents'), 'packs', 'degraded', warning)
+    print(json.dumps({'packs': wrote, 'candidate_packs': wrote,
+                      'production_packs': 0, 'production_status': 'LEGACY_CANDIDATE_ONLY',
+                      'warning': warning}))
     return 0
 
 
