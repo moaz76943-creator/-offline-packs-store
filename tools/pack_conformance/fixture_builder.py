@@ -1,53 +1,28 @@
 import json
 import sqlite3
-import os
-import shutil
 from pathlib import Path
 from standards.lexical.sqlite_v2 import build
 
 FIXTURES_DIR = Path("tools/pack_conformance/fixtures")
 
 def get_base_document():
-    return {
-        "contract_version": "1.0.0",
-        "document_id": "fixture_doc",
-        "lexemes": [
-            {
-                "lexeme_id": "lex1",
-                "surface": "hello",
-                "lemma": "hello",
-                "pos": "noun",
-                "direction": "ltr",
-                "language": "eng",
-                "script": "Latn",
-                "source": {
-                    "source_id": "test", "retrieval_id": "test",
-                    "publication_approved": True, "origin_url": "https://test",
-                    "publisher": "test", "dataset_version": "1.0",
-                    "license_id": "CC0", "record_locator": "123",
-                    "fixture_only": False
-                }
-            }
-        ],
-        "senses": [
-            {
-                "sense_id": "sense1",
-                "lexeme_id": "lex1",
-                "concept_id": "concept1",
-                "definition": "a greeting",
-                "source": {
-                    "source_id": "test", "retrieval_id": "test",
-                    "publication_approved": True, "origin_url": "https://test",
-                    "publisher": "test", "dataset_version": "1.0",
-                    "license_id": "CC0", "record_locator": "123",
-                    "fixture_only": False
-                }
-            }
-        ],
-        "translations": [],
-        "examples": [],
-        "relations": []
+    source = {
+        'source_id': 'fixture.synthetic.v1', 'retrieval_id': 'repository:fixture',
+        'publication_approved': False, 'origin_url': 'https://example.org/fixture',
+        'publisher': 'Self-authored conformance tests', 'dataset_version': '1.0',
+        'license_id': 'LicenseRef-SyntheticTestFixture', 'record_locator': 'fixture-1',
+        'fixture_only': True, 'artifact_sha256': None,
     }
+    return {
+        'contract_version': '1.0.0', 'document_id': 'fixture_doc',
+        'lexemes': [{'lexeme_id': 'lex1', 'surface': 'hello', 'lemma': 'hello',
+                     'pos': 'noun', 'direction': 'ltr', 'language': 'en',
+                     'script': 'Latn', 'source': source}],
+        'senses': [{'sense_id': 'sense1', 'lexeme_id': 'lex1', 'concept_id': 'concept1',
+                    'definition': 'a greeting', 'source': source}],
+        'translations': [], 'examples': [], 'relations': [],
+    }
+
 
 def create_valid_pack():
     doc = get_base_document()
@@ -93,7 +68,7 @@ def create_mismatched_lang_pack():
         "lemma": "hola",
         "pos": "noun",
         "direction": "ltr",
-        "language": "spa",
+        "language": "es",
         "script": "Latn",
         "source": doc["lexemes"][0]["source"]
     })
@@ -126,10 +101,10 @@ def create_missing_metadata_pack():
     conn.commit()
     conn.close()
 
-def build_all():
-    if FIXTURES_DIR.exists():
-        shutil.rmtree(FIXTURES_DIR)
-    FIXTURES_DIR.mkdir(parents=True)
+def build_all(directory):
+    global FIXTURES_DIR
+    FIXTURES_DIR = Path(directory)
+    FIXTURES_DIR.mkdir(parents=True, exist_ok=True)
 
     create_valid_pack()
     create_unverified_pack()
@@ -141,4 +116,4 @@ def build_all():
     create_missing_metadata_pack()
 
 if __name__ == "__main__":
-    build_all()
+    raise SystemExit("Use build_all with an isolated empty temporary directory")
