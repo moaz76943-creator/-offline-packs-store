@@ -1,8 +1,8 @@
 {
-  "last_run": "2026-10-23T18:32:46Z",
+  "last_run": "2026-10-23T22:06:57Z",
   "name": "harvest-wikidata",
   "schema_version": "1.0.0",
-  "status": "degraded",
+  "status": "failed",
   "version": "1.0.0",
-  "warning": "no candidate rows; not production throughput"
+  "warning": "skipped 7"
 }

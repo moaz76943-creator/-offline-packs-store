@@ -1,6 +1,6 @@
 {
   "language": "da",
-  "retrieval_date": "2026-10-19",
+  "retrieval_date": "2026-10-23",
   "rows": [
     {
       "concept_id": "concept.q82955",
@@ -63,10 +63,70 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q970153",
+      "forms": [
+        "børneskuespiller",
+        "børneskuespilleren",
+        "børneskuespillere",
+        "børneskuespillerne",
+        "børneskuespillers",
+        "børneskuespillerens",
+        "børneskuespilleres",
+        "børneskuespillernes"
+      ],
+      "language": "da",
+      "lemma": "børneskuespiller",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1327860",
+      "pos": "",
+      "qids": [
+        "Q970153"
+      ],
+      "record_id": "L1327860",
+      "retrieval_date": "2026-10-23",
+      "revision": "2343129799",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1327860-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q970153"
     }
   ],
   "schema_version": "1.0.0",
   "section": "work",
-  "skipped": [],
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q9149093"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q8178443"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q3303330"
+    }
+  ],
   "source": "harvest-wikidata"
 }

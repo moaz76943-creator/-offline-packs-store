@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "retrieval_date": "2026-10-19",
+  "retrieval_date": "2026-10-23",
   "rows": [
     {
       "concept_id": "concept.q82955",
@@ -159,10 +159,190 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "généticien",
+        "généticiens"
+      ],
+      "language": "fr",
+      "lemma": "généticien",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621862",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L621862",
+      "retrieval_date": "2026-10-23",
+      "revision": "1767890810",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621862-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q970153",
+      "forms": [
+        "enfant acteur",
+        "enfants acteurs"
+      ],
+      "language": "fr",
+      "lemma": "enfant acteur",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577747",
+      "pos": "",
+      "qids": [
+        "Q970153"
+      ],
+      "record_id": "L1577747",
+      "retrieval_date": "2026-10-23",
+      "revision": "2532048091",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577747-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q970153"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "alpiniste",
+        "alpinistes"
+      ],
+      "language": "fr",
+      "lemma": "alpiniste",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621509",
+      "pos": "",
+      "qids": [
+        "Q9149093",
+        "Q99756919"
+      ],
+      "record_id": "L621509",
+      "retrieval_date": "2026-10-23",
+      "revision": "2524854877",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621509-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q18535215",
+      "forms": [
+        "directeur de l'enregistrement",
+        "directeurs de l'enregistrement"
+      ],
+      "language": "fr",
+      "lemma": "directeur de l'enregistrement",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577753",
+      "pos": "",
+      "qids": [
+        "Q18535215"
+      ],
+      "record_id": "L1577753",
+      "retrieval_date": "2026-10-23",
+      "revision": "2532048104",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577753-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q18535215"
+    },
+    {
+      "concept_id": "concept.q18535215",
+      "forms": [
+        "directrice de l'enregistrement",
+        "directrices de l'enregistrement"
+      ],
+      "language": "fr",
+      "lemma": "directrice de l'enregistrement",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1578832",
+      "pos": "",
+      "qids": [
+        "Q18535215"
+      ],
+      "record_id": "L1578832",
+      "retrieval_date": "2026-10-23",
+      "revision": "2532048311",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1578832-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q18535215"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ichtyologiste",
+        "ichtyologistes"
+      ],
+      "language": "fr",
+      "lemma": "ichtyologiste",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621583",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L621583",
+      "retrieval_date": "2026-10-23",
+      "revision": "2454586364",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621583-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
     }
   ],
   "schema_version": "1.0.0",
   "section": "work",
-  "skipped": [],
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q9149093"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q8178443"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q3303330"
+    }
+  ],
   "source": "harvest-wikidata"
 }
