@@ -1,6 +1,8 @@
 {
   "degraded": [
     "harvest-kaikki",
+    "harvest-wikidata",
+    "packs",
     "watchdog"
   ],
   "failed_github_run": true,
