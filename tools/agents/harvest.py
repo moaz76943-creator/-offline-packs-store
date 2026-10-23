@@ -114,13 +114,17 @@ def rows_from_lexeme(entity, concept, language_by_qid, profiles, retrieved):
     }], 'keep'
 
 
-def search_lexemes(qid, fetch=fetch_json, limit=8):
+def search_lexeme_page(qid, fetch=fetch_json, limit=8, offset=0):
+    """Fetch one bounded page and return the upstream continuation, or zero at EOF."""
+    if type(offset) is not int or not 0 <= offset <= 10000:
+        raise SourceAPIError('invalid Wikidata search offset')
     query = urllib.parse.urlencode({
         'action': 'query',
         'list': 'search',
         'srsearch': f'haswbstatement:P5137={qid}',
         'srnamespace': '146',
         'srlimit': str(limit),
+        'sroffset': str(offset),
         'format': 'json',
     })
     payload = _wikidata_payload(fetch('https://www.wikidata.org/w/api.php?' + query))
@@ -135,7 +139,19 @@ def search_lexemes(qid, fetch=fetch_json, limit=8):
                 or not title[8:].isascii() or not title[8:].isdigit()):
             raise SourceAPIError('malformed Wikidata lexeme search hit')
         ids.append(title.split(':', 1)[1])
-    return ids
+    continuation = payload.get('continue', {})
+    if not isinstance(continuation, dict):
+        raise SourceAPIError('malformed Wikidata search continuation')
+    next_offset = continuation.get('sroffset', 0)
+    if (type(next_offset) is not int or not 0 <= next_offset <= 10000
+            or (next_offset and next_offset <= offset)):
+        raise SourceAPIError('nonadvancing Wikidata search continuation')
+    return ids, next_offset
+
+
+def search_lexemes(qid, fetch=fetch_json, limit=8):
+    """Compatibility adapter for callers requesting only the first bounded page."""
+    return search_lexeme_page(qid, fetch=fetch, limit=limit)[0]
 
 
 def load_lexemes(ids, fetch=fetch_json):

@@ -363,9 +363,9 @@ class ContractTests(unittest.TestCase):
             }]}
             attempted = []
 
-            def observed_query(qid):
+            def observed_query(qid, **_kwargs):
                 attempted.append(qid)
-                return []
+                return [], 0
 
             with (mock.patch.object(agent_cli, 'ROOT', root),
                   mock.patch.object(agent_cli, 'OUT', root / 'output'),
@@ -374,7 +374,7 @@ class ContractTests(unittest.TestCase):
                       'languages': [{'id': 'de', 'wikidata': 'Q188'}]}),
                   mock.patch.object(agent_cli, 'load_profiles', return_value={
                       'languages': [{'id': 'de', 'script': 'Latn'}]}),
-                  mock.patch.object(source, 'search_lexemes', side_effect=observed_query),
+                  mock.patch.object(source, 'search_lexeme_page', side_effect=observed_query),
                   mock.patch.object(source, 'load_lexemes', return_value={}),
                   mock.patch.dict(os.environ, {'AGENTS_HALT': '',
                                                'LANGUAGE_PRODUCTION_HALT': ''})):
@@ -395,6 +395,53 @@ class ContractTests(unittest.TestCase):
             self.assertFalse(list((root / 'output/data/agents/packs').glob('*.sqlite'))
                              if (root / 'output/data/agents/packs').exists() else [])
 
+    def test_wikidata_pagination_checkpoint_resumes_and_preserves_failed_page(self):
+        import argparse
+        import shutil
+        import urllib.parse
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.cat', 'concepts': [{'id': 'concept.cat', 'wikidata': 'Q146'}],
+        }]}]}
+        requested = []
+        fail_page = [True]
+        def api(url):
+            offset = int(urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)['sroffset'][0])
+            requested.append(offset)
+            if offset == 16 and fail_page[0]:
+                fail_page[0] = False
+                raise OSError('interrupted')
+            if offset == 16:
+                return {'query': {'search': []}}
+            return {'query': {'search': [{'title': 'Lexeme:L' + str(offset + 1)}]},
+                    'continue': {'sroffset': offset + 8}}
+        search = harvest.search_lexeme_page
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / 'state/agents'
+            state.mkdir(parents=True)
+            with (mock.patch.object(cli, 'ROOT', root),
+                  mock.patch.object(cli, 'OUT', root / 'out'),
+                  mock.patch.object(cli, 'load_graph', return_value=graph),
+                  mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                  mock.patch.object(cli, '_halt', return_value=False),
+                  mock.patch.object(harvest, 'search_lexeme_page', side_effect=lambda q, **kw: search(q, fetch=api, **kw)),
+                  mock.patch.object(harvest, 'load_lexemes', side_effect=lambda ids: {x: {} for x in ids}),
+                  mock.patch.object(harvest, 'rows_from_lexeme', return_value=([], 'other_language'))):
+                for code, next_offset in [(0, 8), (0, 16), (1, 16), (0, 0), (0, 8)]:
+                    self.assertEqual(cli.command_harvest(argparse.Namespace(name='harvest-wikidata')), code)
+                    cursor = root / 'out/state/agents/harvest-wikidata-cursor.json'
+                    saved = json.loads(cursor.read_text())
+                    self.assertEqual(saved['search_offsets'].get('Q146', 0), next_offset)
+                    shutil.copyfile(cursor, state / cursor.name)
+        self.assertEqual(requested, [0, 8, 16, 16, 0])
+        for continuation in ({'sroffset': 8}, {'sroffset': -1}, {'sroffset': True}, []):
+            with self.subTest(continuation=continuation), self.assertRaises(ValueError):
+                search('Q146', offset=8, fetch=lambda _url: {
+                    'query': {'search': []}, 'continue': continuation})
+
     def test_wikidata_source_failure_is_not_successful_empty_harvest(self):
         import argparse
         from unittest import mock
@@ -412,7 +459,7 @@ class ContractTests(unittest.TestCase):
                       mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
                       mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
                       mock.patch.object(cli, '_halt', return_value=False),
-                      mock.patch.object(harvest, 'search_lexemes', side_effect=error)):
+                      mock.patch.object(harvest, 'search_lexeme_page', side_effect=error)):
                     self.assertEqual(cli.command_harvest(
                         argparse.Namespace(name='harvest-wikidata')), 1)
                 report = json.loads((root / 'out/state/agents/harvest-wikidata-report.json').read_text())
@@ -470,7 +517,7 @@ class ContractTests(unittest.TestCase):
                       'languages': [{'id': 'de', 'wikidata': 'Q188'}]}),
                   mock.patch.object(agent_cli, 'load_profiles', return_value={
                       'languages': [{'id': 'de', 'script': 'Latn'}]}),
-                  mock.patch.object(source, 'search_lexemes', side_effect=lambda q: [q]),
+                  mock.patch.object(source, 'search_lexeme_page', side_effect=lambda q, **_kwargs: ([q], 0)),
                   mock.patch.object(source, 'load_lexemes',
                                     side_effect=lambda ids: {x: {'id': x} for x in ids}),
                   mock.patch.object(source, 'rows_from_lexeme', side_effect=synthetic_row),
