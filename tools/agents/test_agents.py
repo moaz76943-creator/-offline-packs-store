@@ -474,6 +474,32 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(heartbeat['status'], 'degraded')
             self.assertIn('degraded=2', heartbeat['warning'])
 
+    def test_tatoeba_truncated_bzip2_prefix_keeps_only_complete_attributed_rows(self):
+        """Bounded downloads are valid BZip2 prefixes, not finished streams."""
+        import bz2
+        from unittest import mock
+        from tools.agents import harvest as source
+
+        tsv = (
+            '100\ttur\tMerhaba.\tAuthor 1\n'
+            '101\ttur\tNeredesin?\tAuthor 2\n'
+            '102\ttur\tNo author\t\n'
+        ).encode('utf-8')
+        compressed = bz2.compress(tsv)
+        # The on-wire 1.5 MB sample can end before the stream's end marker.
+        prefix = compressed[:-5]
+        with mock.patch.object(source, 'fetch_bytes', return_value=prefix):
+            rows = source.tatoeba_sample('tur', limit=10)
+        self.assertEqual([row['record_id'] for row in rows],
+                         ['tatoeba:100', 'tatoeba:101'])
+        self.assertEqual([row['author'] for row in rows],
+                         ['Author 1', 'Author 2'])
+        self.assertEqual(rows[1]['sentence_slot'], 'sentence.question')
+
+        with mock.patch.object(source, 'fetch_bytes', return_value=compressed):
+            complete = source.tatoeba_sample('tur', limit=10)
+        self.assertEqual(complete, rows)
+
     def test_tatoeba_harvest_rotates_supported_real_language_codes(self):
         import argparse
         import os
