@@ -135,6 +135,9 @@ def process(args):
             errors.append("UNSUPPORTED_OUTPUT_LICENSE")
         if src_license and src_license not in LICENSES:
             errors.append("UNSUPPORTED_SOURCE_LICENSE")
+        if (src_license == 'CC-BY-2.0-FR'
+                and output_license not in ('CC-BY-2.0-FR', 'CC-BY-SA-4.0')):
+            errors.append("LICENSE_CONVERSION_REVIEW_REQUIRED")
 
         if src_license and output_license:
             # Compatibility check:

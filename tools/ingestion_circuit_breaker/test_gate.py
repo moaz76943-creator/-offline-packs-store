@@ -235,6 +235,7 @@ class TestGate(unittest.TestCase):
         for source_license, output_license, expected in (
             ('CC0-1.0', 'GPL-3.0', 'UNSUPPORTED_OUTPUT_LICENSE'),
             ('CC-BY-2.0-FR', 'unverified-license', 'UNSUPPORTED_OUTPUT_LICENSE'),
+            ('CC-BY-2.0-FR', 'GFDL-1.3-only', 'LICENSE_CONVERSION_REVIEW_REQUIRED'),
             ('GPL-3.0', 'CC0-1.0', 'UNSUPPORTED_SOURCE_LICENSE'),
         ):
             with self.subTest(source_license=source_license, output_license=output_license):
