@@ -4,8 +4,8 @@ Counts below are computed from stored rows and the concept graph.
 A missing harvest file stays a gap. No word is invented.
 
 Concepts in the graph: 5182
-Filled language-concept cells: 146
-Open language-concept cells: 518054
+Filled language-concept cells: 168
+Open language-concept cells: 518032
 
 | Language | Filled | Open gaps | Fill ratio |
 | --- | ---: | ---: | ---: |
@@ -38,7 +38,7 @@ Open language-concept cells: 518054
 | tr | 1 | 5181 | 0.000193 |
 | vi | 1 | 5181 | 0.000193 |
 | eo | 2 | 5180 | 0.000386 |
-| et | 2 | 5180 | 0.000386 |
+| pl | 2 | 5180 | 0.000386 |
 | … |  |  | 100 languages, largest gaps first |
 
 Next shard limit: 80
