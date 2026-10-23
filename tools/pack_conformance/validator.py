@@ -142,7 +142,9 @@ class PackConformanceValidator:
                 for form in payload.get('morphology', {}).get(group, []):
                     self._provenance(form.get('source', payload['source']), sources)
             for pronunciation in payload.get('pronunciations', []):
-                self._provenance(pronunciation.get('source'), sources)
+                # Pronunciation-level provenance is optional in the canonical
+                # schema; when absent, use the attested lexeme source.
+                self._provenance(pronunciation.get('source', payload['source']), sources)
         elif kind == 'example':
             for translation in payload.get('translations', []):
                 self._provenance(translation.get('source'), sources)
