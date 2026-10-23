@@ -231,6 +231,24 @@ class TestGate(unittest.TestCase):
         self.assertEqual(target.read_bytes(), b'{"ok":true}')
 
 
+    def test_unsupported_source_and_output_licenses_stay_blocked(self):
+        for source_license, output_license, expected in (
+            ('CC0-1.0', 'GPL-3.0', 'UNSUPPORTED_OUTPUT_LICENSE'),
+            ('CC-BY-2.0-FR', 'unverified-license', 'UNSUPPORTED_OUTPUT_LICENSE'),
+            ('GPL-3.0', 'CC0-1.0', 'UNSUPPORTED_SOURCE_LICENSE'),
+        ):
+            with self.subTest(source_license=source_license, output_license=output_license):
+                self.ledger_data['sources'][1]['license']['id'] = source_license
+                self.ledger_file.write_text(json.dumps(self.ledger_data))
+                code, errors, stdout, _ = self.run_process({
+                    'source_id': 'test-source-cc0', 'artifact_path': 'artifact.json',
+                    'artifact_sha256': self.valid_hash,
+                    'intended_output_license': output_license, 'destination': 'packs/out',
+                })
+                self.assertEqual(code, 2)
+                self.assertIn(expected, errors)
+                self.assertNotIn('ADMITTED', stdout)
+
     def test_sublicense_permissive_to_copyleft(self):
         # Permissive license with obligations (e.g. CC-BY-2.0-FR) sublicensed to copyleft should be allowed
         self.ledger_data["sources"].append({

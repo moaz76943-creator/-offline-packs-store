@@ -9,17 +9,18 @@ import uuid
 import time
 from pathlib import Path
 
-# Try importing OBLIGATIONS; fallback if not available
+# Keep module and direct-script entry points bound to the same canonical policy.
 try:
-    from legal.ledger.admission import OBLIGATIONS
+    from legal.ledger.admission import LICENSES, OBLIGATIONS
 except ImportError:
-    OBLIGATIONS = {
-        'CC-BY-SA-4.0': ('attribution', 'license_link', 'changes_disclosed',
-                         'sharealike', 'no_additional_restrictions'),
-        'GFDL-1.3-only': ('license_copy', 'copyright_notices', 'history',
-                          'invariant_sections_checked', 'cover_texts_checked',
-                          'transparent_copy_checked'),
-    }
+    import importlib.util
+    policy_path = Path(__file__).resolve().parents[2] / 'legal/ledger/admission.py'
+    spec = importlib.util.spec_from_file_location('_ingestion_ledger_policy', policy_path)
+    if spec is None or spec.loader is None:
+        raise ImportError('canonical ledger policy unavailable')
+    policy = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(policy)
+    LICENSES, OBLIGATIONS = policy.LICENSES, policy.OBLIGATIONS
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
@@ -130,6 +131,10 @@ def process(args):
             errors.append("MISSING_OUTPUT_LICENSE")
         if not src_license:
             errors.append("MISSING_SOURCE_LICENSE")
+        if output_license and output_license not in LICENSES:
+            errors.append("UNSUPPORTED_OUTPUT_LICENSE")
+        if src_license and src_license not in LICENSES:
+            errors.append("UNSUPPORTED_SOURCE_LICENSE")
 
         if src_license and output_license:
             # Compatibility check:
