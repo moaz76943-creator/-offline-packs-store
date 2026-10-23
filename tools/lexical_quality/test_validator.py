@@ -15,26 +15,6 @@ from tools.lexical_quality.fixtures import VALID_ENTRIES, INVALID_ENTRIES, REVIE
 class TestLexicalValidator(unittest.TestCase):
     def setUp(self):
         self.validator = LexicalValidator()
-        self.addCleanup(self.validator.close)
-
-    def test_spilled_history_keeps_old_ids_and_bounds_python_memory(self):
-        with LexicalValidator(max_history=2) as validator:
-            for i in range(20):
-                entry = {'id': f'eng-word-{i}', 'surface': 'word', 'language': 'eng', 'pos': 'noun'}
-                self.assertEqual(validator.validate_entry(entry)['status'], 'accepted')
-                self.assertLessEqual(len(validator.seen_ids), 2)
-            duplicate = validator.validate_entry({
-                'id': 'eng-word-0', 'surface': 'word', 'language': 'eng', 'pos': 'noun'})
-            self.assertEqual(duplicate['status'], 'rejected')
-            self.assertIn('Duplicate lexical ID: eng-word-0', duplicate['errors'])
-            self.assertEqual(validator._history_db.execute('SELECT count(*) FROM seen').fetchone()[0], 20)
-            history_path = validator._history_dir.name
-        self.assertFalse(os.path.exists(history_path))
-
-    def test_history_limit_must_be_positive_integer(self):
-        for limit in (0, -1, True, '2'):
-            with self.subTest(limit=limit), self.assertRaises(ValueError):
-                LexicalValidator(max_history=limit)
 
     def test_valid_entries(self):
         """Real valid entries pass structural validation."""

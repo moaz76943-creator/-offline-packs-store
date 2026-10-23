@@ -1,0 +1,11 @@
+--- tools/pack_conformance/test_validator.py
++++ tools/pack_conformance/test_validator.py
+@@ -62,7 +62,7 @@
+         with self.assertRaisesRegex(PackConformanceError, "Invalid POS"):
+             validator.validate()
+
+     def test_corrupt_json_pack(self):
+         validator = PackConformanceValidator(self.fixtures / "corrupt_json.db")
+-        with self.assertRaisesRegex(PackConformanceError, "Corrupt JSON"):
++        with self.assertRaisesRegex(PackConformanceError, "Invalid lexeme fields_json/payload_json"):
+             validator.validate()

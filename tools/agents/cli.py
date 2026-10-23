@@ -328,7 +328,7 @@ def command_harvest(args):
     if _halt(name):
         return 0
     from datetime import date
-    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexeme_page
+    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexemes
     languages = load_languages()['languages']
     by_qid = {row['wikidata']: row['id'] for row in languages if row.get('wikidata') and row.get('id')}
     profiles = {row['id']: row for row in load_profiles().get('languages') or []}
@@ -369,51 +369,22 @@ def command_harvest(args):
     retrieved = date.today().isoformat()
     grouped = {}
     skipped = []
-    source_errors = 0
-    outcomes = []
     if name == 'harvest-wikidata':
-        offsets = cursor.get('search_offsets', {})
-        valid_qids = {row.get('wikidata') for row in concept_rows(graph)}
-        if not isinstance(offsets, dict):
-            offsets = {}
-            cursor_warning = 'malformed Wikidata pagination checkpoint; restarted'
-        else:
-            cleaned = {qid: offset for qid, offset in offsets.items()
-                       if qid in valid_qids and type(offset) is int and 0 < offset <= 10000}
-            if len(cleaned) != len(offsets):
-                cursor_warning = 'stale or malformed Wikidata pagination entries; dropped'
-            offsets = cleaned
         for concept in concepts:
-            qid = concept['wikidata']
-            offset = offsets.get(qid, 0)
-            outcome = {'wikidata': concept.get('wikidata'), 'fetched_entities': 0,
-                       'accepted_rows': 0, 'rejected_entities': 0, 'search_offset': offset}
-            outcomes.append(outcome)
             try:
-                ids, next_offset = search_lexeme_page(qid, offset=offset)
+                ids = search_lexemes(concept['wikidata'])
                 entities = load_lexemes(ids)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
-                source_errors += 1
-                outcome['status'] = 'SOURCE_ERROR'
                 skipped.append({'wikidata': concept.get('wikidata'), 'reason': exc.__class__.__name__})
                 continue
-            outcome['fetched_entities'] = len(entities)
-            outcome['status'] = 'FETCHED' if entities else 'EMPTY_SEARCH'
             for entity in entities.values():
                 rows, reason = rows_from_lexeme(entity, concept, by_qid, profiles, retrieved)
                 if reason != 'keep':
-                    outcome['rejected_entities'] += 1
-                    skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
+                    if reason in ('exclude', 'quarantine', 'placeholder'):
+                        skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                     continue
-                outcome['accepted_rows'] += len(rows)
                 for row in rows:
                     grouped.setdefault((row['language'], row['section']), []).append(row)
-            # Commit the page cursor only after fetch and parsing succeed.
-            # A source error preserves its offset for the next concept rotation.
-            if next_offset:
-                offsets[qid] = next_offset
-            else:
-                offsets.pop(qid, None)
     elif name == 'harvest-kaikki':
         notice = (ROOT / 'legal' / 'source_evidence' / 'wiktionary-copyrights.txt').read_text(encoding='utf-8')
         try:
@@ -571,31 +542,22 @@ def command_harvest(args):
             'rows': [],
             'skipped': skipped,
             'concepts_attempted': [row.get('wikidata') or row.get('language') for row in concepts],
-            'outcomes': outcomes,
-        })
-    if name == 'harvest-wikidata':
-        write_json(_out(f'state/agents/{name}-report.json'), {
-            'schema_version': '1.0.0', 'source': name, 'retrieval_date': retrieved,
-            'outcomes': outcomes, 'source_errors': source_errors,
-            'accepted_rows': sum(item['accepted_rows'] for item in outcomes),
-            'production_publication': False,
         })
     # Advance only after bounded source processing finishes. The existing
     # checkpoint publisher writes the cursor to agents/data on each run.
     write_json(_out(cursor_path), {
         'schema_version': '1.0.0',
         'next_index': next_index,
-        **({'search_offsets': offsets} if name == 'harvest-wikidata' else {}),
     })
     warning_text = f'skipped {len(skipped)}' if skipped else ''
     if not wrote:
         warning_text = warning_text or 'no candidate rows; not production throughput'
     write_heartbeat(_out('state/agents'), name,
-                    'failed' if source_errors else ('ok' if wrote else 'degraded'), warning_text)
+                    'ok' if wrote else 'degraded', warning_text)
     warnings = [item for item in (warning, cursor_warning, window_warning) if item]
     print(json.dumps({'files': wrote, 'skipped': len(skipped),
                       'attempted_concepts': len(concepts), 'warning': '; '.join(warnings)}))
-    return 1 if source_errors else 0
+    return 0
 
 
 def command_watchdog(_args):

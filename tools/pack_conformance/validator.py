@@ -118,6 +118,9 @@ class PackConformanceValidator:
         return meta
 
     def _provenance(self, source, sources):
+        if source is None:
+            source = {}
+
         if not isinstance(source, dict):
             raise PackConformanceError('Source JSON object required')
         sid = source.get('source_id')

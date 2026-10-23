@@ -11,10 +11,7 @@ import sys
 import unicodedata
 from pathlib import Path
 
-if __package__:
-    from .validate import LexicalContractError, validate
-else:
-    from validate import LexicalContractError, validate
+from validate import LexicalContractError, validate
 
 SQLITE_USER_VERSION = 2
 MAPPING_VERSION = '2.0.0'

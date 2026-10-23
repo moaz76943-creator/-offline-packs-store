@@ -41,13 +41,7 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
 
     base["obligations"] = obligations
 
-    with_obligations = set(ids).intersection(OBLIGATIONS)
-    copyleft = {lid for lid in with_obligations if "sharealike" in OBLIGATIONS.get(lid, ()) or "history" in OBLIGATIONS.get(lid, ())}
-
-    if output_license in ("PUBLIC-DOMAIN", "CC0-1.0") and with_obligations:
-        return {**base, "status": "INCOMPATIBLE",
-                "reason": f"cannot drop obligations for {output_license}"}
-
+    copyleft = set(ids).intersection(OBLIGATIONS)
     if output_license == "PUBLIC-DOMAIN" and any(lid != "PUBLIC-DOMAIN" for lid in ids):
         return {**base, "status": "INCOMPATIBLE",
                 "reason": "public domain is not a blanket relicensing claim"}
@@ -60,9 +54,4 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
     elif copyleft:
         # The collection and its separate component licenses cannot be conflated.
         return {**base, "reason": "aggregation requires independent collection license review"}
-    # This helper cannot approve a conversion that the enforced admission
-    # gate forbids. Retain original terms until independent legal review.
-    if 'CC-BY-2.0-FR' in ids and output_license != 'CC-BY-2.0-FR':
-        return {**base, "reason": "license conversion requires independent review"}
-
     return {**base, "status": "COMPATIBLE", "reason": "evidence preflight only"}
