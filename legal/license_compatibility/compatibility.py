@@ -48,11 +48,6 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
         return {**base, "status": "INCOMPATIBLE",
                 "reason": f"cannot drop obligations for {output_license}"}
 
-    # This helper cannot approve a conversion that the enforced admission
-    # gate forbids. Retain original terms until independent legal review.
-    if 'CC-BY-2.0-FR' in ids and output_license != 'CC-BY-2.0-FR':
-        return {**base, "reason": "license conversion requires independent review"}
-
     if output_license == "PUBLIC-DOMAIN" and any(lid != "PUBLIC-DOMAIN" for lid in ids):
         return {**base, "status": "INCOMPATIBLE",
                 "reason": "public domain is not a blanket relicensing claim"}
@@ -65,4 +60,9 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
     elif copyleft:
         # The collection and its separate component licenses cannot be conflated.
         return {**base, "reason": "aggregation requires independent collection license review"}
+    # This helper cannot approve a conversion that the enforced admission
+    # gate forbids. Retain original terms until independent legal review.
+    if 'CC-BY-2.0-FR' in ids and output_license != 'CC-BY-2.0-FR':
+        return {**base, "reason": "license conversion requires independent review"}
+
     return {**base, "status": "COMPATIBLE", "reason": "evidence preflight only"}

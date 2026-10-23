@@ -100,6 +100,19 @@ class CompatibilityTests(unittest.TestCase):
         self.assertEqual(r["status"], "INCOMPATIBLE")
         self.assertEqual(r["reason"], "GFDL and CC BY-SA derivative conflict")
 
+    def test_attribution_only_source_cannot_downgrade_copyleft_conflict(self):
+        sources = []
+        for index, license_id in enumerate(('CC-BY-2.0-FR', 'CC-BY-SA-4.0', 'GFDL-1.3-only')):
+            source = copy.deepcopy(self.source)
+            source['source_id'] = 'src-' + str(index)
+            source['license']['id'] = license_id
+            sources.append(source)
+        self.ledger['sources'] = sources
+        save_ledger(self.tmp.name, self.ledger)
+        result = self.run_gate(sources=sources, output='CC-BY-SA-4.0')
+        self.assertEqual(result['status'], 'INCOMPATIBLE')
+        self.assertEqual(result['reason'], 'GFDL and CC BY-SA derivative conflict')
+
     def test_gfdl_copyleft_reports_share_alike(self):
         self.source["license"]["id"] = "GFDL-1.3-only"
         save_ledger(self.tmp.name, self.ledger)
