@@ -59,7 +59,7 @@ def zip_entry(archive, name, content):
 
 
 
-def _audit_member(source, destination=None):
+def _audit_member(source, destination=None, item_type=None):
     """Bounded read and shared semantic audit for new AND cached releases."""
     h = hashlib.sha256()
     total = 0
@@ -68,6 +68,25 @@ def _audit_member(source, destination=None):
     translations = []
     seen_lexemes = set()
     seen_senses = set()
+
+    if item_type == "semantic":
+        data = source.read(MAX_FILE + 1)
+        total = len(data)
+        if total > MAX_FILE:
+            raise ExportError("file changed during packaging or too large")
+        h.update(data)
+        if destination is not None:
+            destination.write(data)
+
+        try:
+            from tools.visual_lexicon.core import decode_token
+            token = decode_token(data)
+            if not token.get("semantic_label") or not token.get("alt_text"):
+                raise ExportError("semantic token missing semantic_label or alt_text")
+        except Exception as e:
+            raise ExportError(f"invalid semantic token: {e}")
+        return total, h.hexdigest()
+
     while True:
         # A changed source can grow after _prepare; never iterate unbounded lines.
         line = source.readline(MAX_FILE + 1)
@@ -131,7 +150,6 @@ def _audit_member(source, destination=None):
                 or from_lang == to_lang or target_lang != to_lang):
             raise ExportError("reversed translation pair detected")
     return total, h.hexdigest()
-
 
 
 class CommunityExporter:
@@ -251,7 +269,7 @@ class CommunityExporter:
                                 info.compress_type = zipfile.ZIP_STORED
                                 info.external_attr = 0o644 << 16
                                 with path.open("rb") as source, archive.open(info, "w", force_zip64=False) as dest:
-                                    size_written, actual_hash = _audit_member(source, dest)
+                                    size_written, actual_hash = _audit_member(source, dest, item_type)
                                 if actual_hash != expected:
                                     raise ExportError("file changed during packaging")
                             zip_entry(archive, "ATTRIBUTION.json", canonical(notices))
@@ -277,7 +295,7 @@ class CommunityExporter:
                             raise ExportError("untrusted cached archive member")
                     for aid, path, expected, item_type, lang in entries:
                         with archive.open("data/" + aid + ".bin") as stream:
-                            size, actual_hash = _audit_member(stream)
+                            size, actual_hash = _audit_member(stream, None, item_type)
                         if size > MAX_FILE or actual_hash != expected:
                             raise ExportError("cached archive content mismatch")
                     with archive.open("ATTRIBUTION.json") as stream:
