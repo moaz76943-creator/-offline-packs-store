@@ -1,0 +1,92 @@
+{
+  "accepted_rows": 6,
+  "code_commit_sha": "68780c47dc86fbab237d84e8f9145a4f5179f275",
+  "duplicates_against_agent_snapshot": 5,
+  "ledger_admission": "NOT_APPROVED",
+  "legal": {
+    "problems": [],
+    "schema_version": "1.0.0",
+    "warnings": []
+  },
+  "license_id": "CC0-1.0",
+  "new_candidate_rows": 1,
+  "new_candidate_rows_against_agent_snapshot": 1,
+  "output_file": "accepted_rows.json",
+  "output_sha256": "075ce701cd2c8a36b86a680032c5d10f7637442153eb3b8d2affef76e872e5af",
+  "outputs": [
+    {
+      "new_rows": 1,
+      "path": "data/agents/harvest/wikidata/ru/food.json",
+      "sha256": "8840944e9a1c3ce21f37e547c37b9d540cea8625787b6d31690875b9a6ddca2e",
+      "total_rows": 2
+    }
+  ],
+  "pages": [
+    {
+      "fetched_entities": 8,
+      "ids": [
+        "L307438",
+        "L701468",
+        "L657443",
+        "L311463",
+        "L154347",
+        "L689572",
+        "L1525361",
+        "L40897"
+      ],
+      "next_offset": 8,
+      "offset": 0
+    },
+    {
+      "fetched_entities": 4,
+      "ids": [
+        "L713530",
+        "L1566661",
+        "L1525364",
+        "L1525363"
+      ],
+      "next_offset": 0,
+      "offset": 8
+    }
+  ],
+  "pr_number": 546,
+  "production_publication": false,
+  "qa": {
+    "problems": [],
+    "sampled": 6,
+    "warnings": []
+  },
+  "schema_version": "1.0.0",
+  "source_checkpoint_sha": "a6357e56472a6973a7417040b0f940123697ee75",
+  "source_id": "wikidata.lexemes",
+  "source_snapshots": [
+    {
+      "bytes": 2294,
+      "path": "data/agents/source_snapshots/wikidata/7540a1f4d0ed49679e69972daef8829b9ef364e0823ddda20f0695c14792fe69.json",
+      "sha256": "7540a1f4d0ed49679e69972daef8829b9ef364e0823ddda20f0695c14792fe69",
+      "url": "https://www.wikidata.org/w/api.php?action=query&list=search&srsearch=haswbstatement%3AP5137%3DQ12106&srnamespace=146&srlimit=8&sroffset=0&format=json"
+    },
+    {
+      "bytes": 61176,
+      "path": "data/agents/source_snapshots/wikidata/11145a9a9c438007a2662f398924545c33d3dc0604339e50d445f54a892ea465.json",
+      "sha256": "11145a9a9c438007a2662f398924545c33d3dc0604339e50d445f54a892ea465",
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=L307438%7CL701468%7CL657443%7CL311463%7CL154347%7CL689572%7CL1525361%7CL40897&format=json&formatversion=2"
+    },
+    {
+      "bytes": 1173,
+      "path": "data/agents/source_snapshots/wikidata/e5534ae4122e83721467f8ca5c6c5c4ddb77f048347afa6fa8e657b3268b748f.json",
+      "sha256": "e5534ae4122e83721467f8ca5c6c5c4ddb77f048347afa6fa8e657b3268b748f",
+      "url": "https://www.wikidata.org/w/api.php?action=query&list=search&srsearch=haswbstatement%3AP5137%3DQ12106&srnamespace=146&srlimit=8&sroffset=8&format=json"
+    },
+    {
+      "bytes": 17433,
+      "path": "data/agents/source_snapshots/wikidata/46888a7adbef2e9cc7cdf2a3fd9e67bed3252d0d887c8fe9ec517cbdf7a52de4.json",
+      "sha256": "46888a7adbef2e9cc7cdf2a3fd9e67bed3252d0d887c8fe9ec517cbdf7a52de4",
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=L713530%7CL1566661%7CL1525364%7CL1525363&format=json&formatversion=2"
+    }
+  ],
+  "status": "CANDIDATE_SAVED_NOT_PUBLISHED",
+  "task_id": "POLYGLOT-PUBLIC-FACTORY-PRODUCTION-RECOVERY-20261023",
+  "timestamp": "2026-10-23T01:04:49.603840+00:00",
+  "worker_run_id": "NOT_VERIFIED"
+}
