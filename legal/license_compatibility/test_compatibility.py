@@ -145,5 +145,10 @@ class CompatibilityTests(unittest.TestCase):
         self.assertTrue(r["obligations"]["redistribution"])
         self.assertTrue(r["obligations"]["share_alike"])
 
+    def test_unknown_source_license_blocks(self):
+        self.source["license"]["id"] = "UNKNOWN-LICENSE"
+        save_ledger(self.tmp.name, self.ledger)
+        self.assertEqual(self.run_gate()["status"], "REVIEW_REQUIRED")
+
 if __name__ == "__main__":
     unittest.main()
