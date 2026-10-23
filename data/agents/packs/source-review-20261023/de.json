@@ -1,0 +1,754 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "candidate.wikidata.de.l1026-r2457144138",
+  "examples": [],
+  "lexemes": [
+    {
+      "direction": "ltr",
+      "language": "de",
+      "lemma": "gehen",
+      "lexeme_id": "lex.de.l1026",
+      "morphology": {
+        "conjugations": [
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q12717679"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F1",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gegangen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q10345583"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F2",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehend"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q192613,Q21714344,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F3",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehe"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q192613,Q51929049,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F4",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehst"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q192613,Q51929074,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F5",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "geht"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q179230"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F6",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q192613,Q21714344,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F7",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q192613,Q51929049,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F8",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "geht"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q192613,Q51929074,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F9",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q21714344,Q442485,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F10",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "ging"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q442485,Q51929049,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F11",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gingst"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q442485,Q51929074,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F12",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "ging"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q21714344,Q442485,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F13",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gingen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q442485,Q51929049,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F14",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gingt"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q442485,Q51929074,Q682111"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F15",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gingen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q192613,Q22716,Q51929049,Q55228835"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F16",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "geh"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q192613,Q22716,Q51929049"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F17",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehe"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q192613,Q22716,Q51929049"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F18",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "geht"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q192613,Q22716,Q51929049"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F19",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehet"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q21714344,Q442485,Q54671845"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F20",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "ginge"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q192613,Q51929049,Q55685962"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F21",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehest"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q192613,Q21714344,Q55685962"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F22",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehe"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q192613,Q51929074,Q55685962"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F23",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehe"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q192613,Q21714344,Q55685962"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F24",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q192613,Q51929049,Q55685962"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F25",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehet"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q192613,Q51929074,Q55685962"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F26",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gehen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q442485,Q51929049,Q54671845"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F28",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gingest"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q1317831,Q442485,Q51929074,Q54671845"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F29",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "ginge"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q21714344,Q442485,Q54671845"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F30",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gingen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q442485,Q51929049,Q54671845"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F31",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "ginget"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1317831,Q146786,Q442485,Q51929074,Q54671845"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F32",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "gingen"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q100952920"
+            },
+            "source": {
+              "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+              "dataset_version": "l1026-r2457144138",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L1026-F41",
+              "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+              "source_id": "wikidata-lexeme-l1026-r2457144138"
+            },
+            "surface": "zu gehen"
+          }
+        ]
+      },
+      "pos": "verb",
+      "script": "Latn",
+      "source": {
+        "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+        "dataset_version": "l1026-r2457144138",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L1026",
+        "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+        "source_id": "wikidata-lexeme-l1026-r2457144138"
+      },
+      "surface": "gehen"
+    }
+  ],
+  "relations": [],
+  "senses": [
+    {
+      "concept_id": "concept.q25443024",
+      "definition": "sich zu Fuß fortbewegen",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.de.l1026",
+      "sense_id": "sense.de.l1026.s1",
+      "source": {
+        "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+        "dataset_version": "l1026-r2457144138",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L1026-S1",
+        "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+        "source_id": "wikidata-lexeme-l1026-r2457144138"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.de.l1026.unlinked",
+      "definition": "etwas verlassen",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.de.l1026",
+      "sense_id": "sense.de.l1026.s2",
+      "source": {
+        "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+        "dataset_version": "l1026-r2457144138",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L1026-S2",
+        "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+        "source_id": "wikidata-lexeme-l1026-r2457144138"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.de.l1026.unlinked",
+      "definition": "funktionieren",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.de.l1026",
+      "sense_id": "sense.de.l1026.s3",
+      "source": {
+        "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+        "dataset_version": "l1026-r2457144138",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L1026-S3",
+        "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+        "source_id": "wikidata-lexeme-l1026-r2457144138"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.de.l1026.unlinked",
+      "definition": "to move to a different place, independed of the means",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.de.l1026",
+      "sense_id": "sense.de.l1026.s5",
+      "source": {
+        "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+        "dataset_version": "l1026-r2457144138",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L1026-S5",
+        "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+        "source_id": "wikidata-lexeme-l1026-r2457144138"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.de.l1026.unlinked",
+      "definition": "to go",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.de.l1026",
+      "sense_id": "sense.de.l1026.s6",
+      "source": {
+        "artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+        "dataset_version": "l1026-r2457144138",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L1026-S6",
+        "retrieval_id": "wikidata:Lexeme:L1026:revision:2457144138",
+        "source_id": "wikidata-lexeme-l1026-r2457144138"
+      },
+      "subdomains": []
+    }
+  ],
+  "translations": []
+}

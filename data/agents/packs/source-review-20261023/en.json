@@ -1,0 +1,549 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "candidate.wikidata.en.l3006-r2549891188",
+  "examples": [],
+  "lexemes": [
+    {
+      "direction": "ltr",
+      "language": "en",
+      "lemma": "go",
+      "lexeme_id": "lex.en.l3006",
+      "morphology": {
+        "conjugations": [
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q3910936"
+            },
+            "source": {
+              "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+              "dataset_version": "l3006-r2549891188",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L3006-F1",
+              "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+              "source_id": "wikidata-lexeme-l3006-r2549891188"
+            },
+            "surface": "go"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q3910936,Q51929074"
+            },
+            "source": {
+              "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+              "dataset_version": "l3006-r2549891188",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L3006-F2",
+              "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+              "source_id": "wikidata-lexeme-l3006-r2549891188"
+            },
+            "surface": "goes"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1392475"
+            },
+            "source": {
+              "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+              "dataset_version": "l3006-r2549891188",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L3006-F3",
+              "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+              "source_id": "wikidata-lexeme-l3006-r2549891188"
+            },
+            "surface": "went"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q1230649"
+            },
+            "source": {
+              "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+              "dataset_version": "l3006-r2549891188",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L3006-F4",
+              "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+              "source_id": "wikidata-lexeme-l3006-r2549891188"
+            },
+            "surface": "gone"
+          },
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q10345583"
+            },
+            "source": {
+              "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+              "dataset_version": "l3006-r2549891188",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L3006-F5",
+              "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+              "source_id": "wikidata-lexeme-l3006-r2549891188"
+            },
+            "surface": "going"
+          }
+        ]
+      },
+      "pos": "verb",
+      "script": "Latn",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "surface": "go"
+    }
+  ],
+  "relations": [],
+  "senses": [
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "move; change location",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s1",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S1",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "move away, leave",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s2",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S2",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "operate, function",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s4",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S4",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "pursue (often with after)",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s5",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S5",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "serial verb construction",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s6",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S6",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "become",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s7",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S7",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "benefactive",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s8",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S8",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "experience, undergo",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s9",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S9",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "have on your side",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s10",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S10",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "say",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s11",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S11",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "go with, match, accompany",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s12",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S12",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "existential usage (here/there you go)",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s13",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S13",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "serves, stands, is attributed to",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s14",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S14",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "sell",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s15",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S15",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "modal / future",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s16",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S16",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "be left",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s17",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S17",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "potty",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s18",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S18",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "an attempt, effort",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s19",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S19",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    },
+    {
+      "concept_id": "concept.en.l3006.unlinked",
+      "definition": "spatial positioning; belong in a spot",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.en.l3006",
+      "sense_id": "sense.en.l3006.s20",
+      "source": {
+        "artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "dataset_version": "l3006-r2549891188",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L3006-S20",
+        "retrieval_id": "wikidata:Lexeme:L3006:revision:2549891188",
+        "source_id": "wikidata-lexeme-l3006-r2549891188"
+      },
+      "subdomains": []
+    }
+  ],
+  "translations": []
+}

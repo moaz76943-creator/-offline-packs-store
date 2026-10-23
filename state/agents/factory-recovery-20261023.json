@@ -5,7 +5,7 @@
   ],
   "admitted_partitions": 0,
   "approved_ledger_sources": 0,
-  "blocking_reason": "Canonical legal/ledger/sources.json is empty; no approved immutable source partition is available. Legacy agent SQLite candidates are not schema v2.",
+  "blocking_reason": "Three revision-pinned Wikidata sources pass byte/schema evidence checks but lack independent artifact-bound approval. Existing partition intake only supports wiktextract-jsonl and active orchestration lacks the lexical_partition adapter.",
   "candidate_rows_accepted": 6,
   "candidate_rows_fetched": 12,
   "candidate_rows_rejected_other_language": 6,
@@ -15,12 +15,23 @@
     536,
     546,
     544,
-    531
+    531,
+    537,
+    538
   ],
   "duplicate_candidate_rows": 5,
   "harvest_receipt": "data/agents/harvest/wikidata/receipts/pagination-20261023.json",
+  "latest_completed_repair": {
+    "commit_sha": "2d51198116fd98fc830bdd10b04b413b00f279be",
+    "hosted_ci": "PASS",
+    "intake_tests": 20,
+    "merge_sha": "1312ee21f879d19a748534caece41451f44b6b34",
+    "pr": 538,
+    "review": "PASS",
+    "review_state_tests": 7
+  },
   "local_tests_passed": 238,
-  "main_sha": "520e9f552c4eec89e139f0ff38ddecf150e1b618",
+  "main_sha": "1312ee21f879d19a748534caece41451f44b6b34",
   "manual_heavy_actions_dispatched": 0,
   "merge_evidence": "state/agents/recovery-merges-20261023.json",
   "new_paid_services_used": false,
@@ -33,18 +44,29 @@
   "ready_task_proposals": 0,
   "registry_validation": "PASS",
   "remaining_work": [
-    "Independent source rights admission through existing ledger before any READY production task",
-    "Source-backed READY/claim/receipt/finalizer execution remains NOT_RUN",
-    "Consolidate existing SQLite conformance PRs #537/#543 after checking their schema and source-policy gaps",
-    "Finish remaining agent/backlog audits; no blanket completion claim"
+    "Independent artifact-bound Route05 source decisions for proposed records in PR547",
+    "Existing Wikidata JSON→partition handoff and active lexical worker integration",
+    "Repair legacy entries-only agent pack production and no-op scheduling"
   ],
   "repository": "moaz76943-creator/-offline-packs-store",
+  "revision_pinned_review_candidates": {
+    "attested_forms": 40,
+    "directed_translations": 0,
+    "examples": 0,
+    "receipt": "data/agents/recovery/20261023/source-review-receipt.json",
+    "senses": 25,
+    "source_evidence_verified": false,
+    "sqlite_v2_candidates": 3,
+    "verbs": 3
+  },
   "schema_version": "1.0.0",
+  "source_review_commit": "6481fbe4d5d9f618bfef474953d60ef6d5a2abeb",
+  "source_review_pr": 547,
   "sqlite_evidence": "data/agents/recovery/20261023/sqlite-audit.json",
   "sqlite_v2_production_ready": false,
   "status": "BLOCKED_SOURCE",
-  "task_id": "POLYGLOT-PUBLIC-FACTORY-PRODUCTION-RECOVERY-20261023",
-  "timestamp": "2026-10-23T01:21:24.531707+00:00",
+  "task_id": "PUBLIC-FACTORY-REAL-PRODUCTION-RECOVERY-20261023",
+  "timestamp": "2026-10-23T01:59:57.725422+00:00",
   "validation_evidence": "data/agents/recovery/20261023/final-tests.json",
   "worker_production_run_id": "NOT_VERIFIED"
 }

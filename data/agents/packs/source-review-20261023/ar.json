@@ -1,0 +1,111 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "candidate.wikidata.ar.l7882-r2548839684",
+  "examples": [],
+  "lexemes": [
+    {
+      "direction": "rtl",
+      "language": "ar",
+      "lemma": "ذَهَبَ",
+      "lexeme_id": "lex.ar.l7882",
+      "morphology": {
+        "conjugations": [
+          {
+            "attested": true,
+            "features": {
+              "grammatical_features": "Q110786,Q124351233,Q1317831,Q499327,Q51929074"
+            },
+            "source": {
+              "artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+              "dataset_version": "l7882-r2548839684",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L7882-F1",
+              "retrieval_id": "wikidata:Lexeme:L7882:revision:2548839684",
+              "source_id": "wikidata-lexeme-l7882-r2548839684"
+            },
+            "surface": "ذَهَبَ"
+          },
+          {
+            "attested": true,
+            "features": {},
+            "source": {
+              "artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+              "dataset_version": "l7882-r2548839684",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L7882-F2",
+              "retrieval_id": "wikidata:Lexeme:L7882:revision:2548839684",
+              "source_id": "wikidata-lexeme-l7882-r2548839684"
+            },
+            "surface": "ذَهَبْتُ"
+          },
+          {
+            "attested": true,
+            "features": {},
+            "source": {
+              "artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+              "dataset_version": "l7882-r2548839684",
+              "fixture_only": false,
+              "license_id": "CC0-1.0",
+              "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684",
+              "publication_approved": false,
+              "publisher": "Wikimedia Foundation",
+              "record_locator": "L7882-F3",
+              "retrieval_id": "wikidata:Lexeme:L7882:revision:2548839684",
+              "source_id": "wikidata-lexeme-l7882-r2548839684"
+            },
+            "surface": "أذْهَبُ"
+          }
+        ]
+      },
+      "pos": "verb",
+      "script": "Arab",
+      "source": {
+        "artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+        "dataset_version": "l7882-r2548839684",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L7882",
+        "retrieval_id": "wikidata:Lexeme:L7882:revision:2548839684",
+        "source_id": "wikidata-lexeme-l7882-r2548839684"
+      },
+      "surface": "ذَهَبَ"
+    }
+  ],
+  "relations": [],
+  "senses": [
+    {
+      "concept_id": "concept.ar.l7882.unlinked",
+      "definition": "to go",
+      "domains": [
+        "section.unclassified"
+      ],
+      "lexeme_id": "lex.ar.l7882",
+      "sense_id": "sense.ar.l7882.s1",
+      "source": {
+        "artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+        "dataset_version": "l7882-r2548839684",
+        "fixture_only": false,
+        "license_id": "CC0-1.0",
+        "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684",
+        "publication_approved": false,
+        "publisher": "Wikimedia Foundation",
+        "record_locator": "L7882-S1",
+        "retrieval_id": "wikidata:Lexeme:L7882:revision:2548839684",
+        "source_id": "wikidata-lexeme-l7882-r2548839684"
+      },
+      "subdomains": []
+    }
+  ],
+  "translations": []
+}

@@ -1,0 +1,230 @@
+{
+  "blocking_reasons": [
+    "No independent artifact-bound reviewer decision for the proposed sources.",
+    "Existing approved partition adapter accepts wiktextract-jsonl, not Special:EntityData JSON.",
+    "Active dispatcher does not execute lexical_partition tasks."
+  ],
+  "bounded_class_index_count": 40,
+  "canonical_source_gate_errors": [
+    "REVIEW_REQUIRED: wikidata-lexeme-l1026-r2457144138: source not manually approved",
+    "REVIEW_REQUIRED: wikidata-lexeme-l3006-r2549891188: source not manually approved",
+    "REVIEW_REQUIRED: wikidata-lexeme-l7882-r2548839684: source not manually approved"
+  ],
+  "claim_id": "NOT_RUN",
+  "class_captures": [
+    {
+      "artifact_path": "legal/ledger/evidence/wikidata-20261023/classes-f1ac25f848b773b7f02f2dbaa731aaa26127248c435a2122ee49816a0beca84a.json",
+      "sha256": "f1ac25f848b773b7f02f2dbaa731aaa26127248c435a2122ee49816a0beca84a",
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q24905%7CQ25443024&props=claims&format=json"
+    },
+    {
+      "artifact_path": "legal/ledger/evidence/wikidata-20261023/classes-2b9266b1fb9c111b2b8e5dd835c72a1156b25f62b65ec06f8236ff9708cdfdcd.json",
+      "sha256": "2b9266b1fb9c111b2b8e5dd835c72a1156b25f62b65ec06f8236ff9708cdfdcd",
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q82042%7CQ8171%7CQ789016%7CQ4026292%7CQ19279529&props=claims&format=json"
+    },
+    {
+      "artifact_path": "legal/ledger/evidence/wikidata-20261023/classes-9d12525f132ef4b76698b4e0d01b0c98c297f33dfbe4fcebe23f2fd918917c8a.json",
+      "sha256": "9d12525f132ef4b76698b4e0d01b0c98c297f33dfbe4fcebe23f2fd918917c8a",
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q980357%7CQ19478619%7CQ16889133%7CQ2374489%7CQ48937186%7CQ2944660%7CQ33104279%7CQ1190554%7CQ141506583%7CQ141344358%7CQ2633862&props=claims&format=json"
+    },
+    {
+      "artifact_path": "legal/ledger/evidence/wikidata-20261023/classes-df6c10ce921079ba9c859556e77151aec3c502294f83a35236a2c1875865fddc.json",
+      "sha256": "df6c10ce921079ba9c859556e77151aec3c502294f83a35236a2c1875865fddc",
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q1047113%7CQ2267705%7CQ23958852%7CQ12050496%7CQ937228%7CQ151885%7CQ19868531%7CQ115490628%7CQ5127848%7CQ11953984%7CQ141594779%7CQ115786086%7CQ137429456%7CQ108586636%7CQ67518978%7CQ140451665%7CQ141453101%7CQ116505632%7CQ141336142%7CQ104637332&props=claims&format=json"
+    },
+    {
+      "artifact_path": "legal/ledger/evidence/wikidata-20261023/classes-703064a953d5ebcfebc1cd3128509b444ae29ecaf9b06e7353b70748e822a6e2.json",
+      "sha256": "703064a953d5ebcfebc1cd3128509b444ae29ecaf9b06e7353b70748e822a6e2",
+      "url": "https://www.wikidata.org/w/api.php?action=wbgetentities&ids=Q141751569%7CQ2996394&props=claims&format=json"
+    }
+  ],
+  "class_index": {
+    "path": "legal/ledger/evidence/wikidata-20261023/class-index.json",
+    "sha256": "26a3bc476211fd9c2285440487625b68dd60975ee69db59637444391f08594f4"
+  },
+  "duplicate_candidate_verbs_against_harvest_snapshot": 0,
+  "harvest_comparison_sha": "c6cade7",
+  "initial_class_ids": [
+    "Q24905",
+    "Q25443024"
+  ],
+  "main_sha": "8a69ef3f73ca4ff3d9902a4a2afcf712a8c89e63",
+  "new_candidate_verbs_against_harvest_snapshot": 3,
+  "output_artifacts": [
+    {
+      "path": "data/agents/packs/source-review-20261023/de.json",
+      "sha256": "85c2ce992a6f7533e1bb5783d7ded4baebb5e1f0207187cc1a6ba2380e78db0b"
+    },
+    {
+      "path": "data/agents/packs/source-review-20261023/de.sqlite",
+      "sha256": "7b8c41c3fe8f93a5119f096ed42c7bfb72519d680b078684a1881df557723a9c"
+    },
+    {
+      "path": "data/agents/packs/source-review-20261023/en.json",
+      "sha256": "036894f12832eab040d5299ad04221b07aad59f39375cd28ad83a40861da622f"
+    },
+    {
+      "path": "data/agents/packs/source-review-20261023/en.sqlite",
+      "sha256": "46b9e71755783e74239cf89b77b1c9cb79f9d78d9800af544dfb115b0a95e5ac"
+    },
+    {
+      "path": "data/agents/packs/source-review-20261023/ar.json",
+      "sha256": "d26afcb771e107c0fdbf19d13961e0db40d0b161cf9f4f62c3db30a88514c988"
+    },
+    {
+      "path": "data/agents/packs/source-review-20261023/ar.sqlite",
+      "sha256": "f0108ea49e4907fe33a53ef5d866e5241935f61656eb54138e01039ef8b6713c"
+    }
+  ],
+  "production_new_examples": 0,
+  "production_new_verbs": 0,
+  "production_new_words": 0,
+  "production_packs": 0,
+  "production_publication": false,
+  "proposed_sources_sha256": "9f2b730c434116d160f3c2ef690967bf74da6211e88da5658e863db11bfaa5a5",
+  "replay_runtime": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "results": [
+    {
+      "accepted_lexemes": 1,
+      "accepted_senses": 5,
+      "accepted_verbs": 1,
+      "attested_forms": 32,
+      "cefr_assignment": "OMITTED_NO_ATTESTED_EVIDENCE",
+      "decision": "keep",
+      "directed_translations": 0,
+      "document_sha256": "85c2ce992a6f7533e1bb5783d7ded4baebb5e1f0207187cc1a6ba2380e78db0b",
+      "entity_id": "L1026",
+      "examples": 0,
+      "foreign_key_errors": 0,
+      "integrity_check": "ok",
+      "language": "de",
+      "publication_approved": false,
+      "raw_forms": 32,
+      "raw_senses": 5,
+      "source_evidence_verified": false,
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "sqlite_sha256": "7b8c41c3fe8f93a5119f096ed42c7bfb72519d680b078684a1881df557723a9c",
+      "structural_conformance": "PASS",
+      "user_version": 2
+    },
+    {
+      "accepted_lexemes": 1,
+      "accepted_senses": 19,
+      "accepted_verbs": 1,
+      "attested_forms": 5,
+      "cefr_assignment": "OMITTED_NO_ATTESTED_EVIDENCE",
+      "decision": "keep",
+      "directed_translations": 0,
+      "document_sha256": "036894f12832eab040d5299ad04221b07aad59f39375cd28ad83a40861da622f",
+      "entity_id": "L3006",
+      "examples": 0,
+      "foreign_key_errors": 0,
+      "integrity_check": "ok",
+      "language": "en",
+      "publication_approved": false,
+      "raw_forms": 5,
+      "raw_senses": 19,
+      "source_evidence_verified": false,
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "sqlite_sha256": "46b9e71755783e74239cf89b77b1c9cb79f9d78d9800af544dfb115b0a95e5ac",
+      "structural_conformance": "PASS",
+      "user_version": 2
+    },
+    {
+      "accepted_lexemes": 1,
+      "accepted_senses": 1,
+      "accepted_verbs": 1,
+      "attested_forms": 3,
+      "cefr_assignment": "OMITTED_NO_ATTESTED_EVIDENCE",
+      "decision": "keep",
+      "directed_translations": 0,
+      "document_sha256": "d26afcb771e107c0fdbf19d13961e0db40d0b161cf9f4f62c3db30a88514c988",
+      "entity_id": "L7882",
+      "examples": 0,
+      "foreign_key_errors": 0,
+      "integrity_check": "ok",
+      "language": "ar",
+      "publication_approved": false,
+      "raw_forms": 3,
+      "raw_senses": 1,
+      "source_evidence_verified": false,
+      "source_id": "wikidata-lexeme-l7882-r2548839684",
+      "sqlite_sha256": "f0108ea49e4907fe33a53ef5d866e5241935f61656eb54138e01039ef8b6713c",
+      "structural_conformance": "PASS",
+      "user_version": 2
+    }
+  ],
+  "retrievals": {
+    "entities": [
+      {
+        "artifact_path": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json",
+        "bytes": 52112,
+        "entity_id": "L1026",
+        "forms": 32,
+        "language_qid": "Q188",
+        "lemmas": {
+          "de": {
+            "language": "de",
+            "value": "gehen"
+          }
+        },
+        "lexical_category": "Q24905",
+        "revision": 2457144138,
+        "senses": 5,
+        "sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138"
+      },
+      {
+        "artifact_path": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+        "bytes": 46368,
+        "entity_id": "L3006",
+        "forms": 5,
+        "language_qid": "Q1860",
+        "lemmas": {
+          "en": {
+            "language": "en",
+            "value": "go"
+          }
+        },
+        "lexical_category": "Q24905",
+        "revision": 2549891188,
+        "senses": 19,
+        "sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188"
+      },
+      {
+        "artifact_path": "legal/ledger/evidence/wikidata-20261023/L7882-2548839684.json",
+        "bytes": 8521,
+        "entity_id": "L7882",
+        "forms": 3,
+        "language_qid": "Q13955",
+        "lemmas": {
+          "ar": {
+            "language": "ar",
+            "value": "ذَهَبَ"
+          }
+        },
+        "lexical_category": "Q24905",
+        "revision": 2548839684,
+        "senses": 1,
+        "sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684"
+      }
+    ],
+    "license": {
+      "artifact_path": "legal/ledger/evidence/wikidata-20261023/copyright-1523614187.txt",
+      "bytes": 586,
+      "sha256": "a74df271d6e2cceb81f71967fb180c66d08c33a670d14d8b64448ee9ef286396",
+      "url": "https://www.wikidata.org/w/index.php?title=Wikidata:Copyright&oldid=1523614187&action=raw"
+    }
+  },
+  "source_review_commit": "6481fbe4d5d9f618bfef474953d60ef6d5a2abeb",
+  "source_review_pr": 547,
+  "status": "CANDIDATE_SAVED_REVIEW_REQUIRED",
+  "task_id": "PUBLIC-FACTORY-REAL-PRODUCTION-RECOVERY-20261023",
+  "timestamp": "2026-10-23T01:54:21.591540+00:00",
+  "worker_run_id": "NOT_RUN"
+}
