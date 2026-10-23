@@ -1,5 +1,5 @@
 {
-  "accepted_rows": 2,
+  "accepted_rows": 0,
   "outcomes": [
     {
       "accepted_rows": 0,
@@ -7,23 +7,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q15015192"
-    },
-    {
-      "accepted_rows": 1,
-      "fetched_entities": 1,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "FETCHED",
-      "wikidata": "Q107246703"
-    },
-    {
-      "accepted_rows": 1,
-      "fetched_entities": 1,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "FETCHED",
-      "wikidata": "Q2346768"
+      "wikidata": "Q1860782"
     },
     {
       "accepted_rows": 0,
@@ -31,7 +15,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q498685"
+      "wikidata": "Q2405737"
     },
     {
       "accepted_rows": 0,
@@ -39,7 +23,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2131484"
+      "wikidata": "Q1495630"
     },
     {
       "accepted_rows": 0,
@@ -47,7 +31,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3714504"
+      "wikidata": "Q7560425"
     },
     {
       "accepted_rows": 0,
@@ -55,7 +39,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2387204"
+      "wikidata": "Q5957038"
     },
     {
       "accepted_rows": 0,
@@ -63,7 +47,23 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2414309"
+      "wikidata": "Q111729594"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q2321025"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q7168539"
     }
   ],
   "production_publication": false,
