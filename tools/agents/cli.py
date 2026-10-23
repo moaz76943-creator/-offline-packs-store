@@ -374,11 +374,15 @@ def command_harvest(args):
     if name == 'harvest-wikidata':
         offsets = cursor.get('search_offsets', {})
         valid_qids = {row.get('wikidata') for row in concept_rows(graph)}
-        if (not isinstance(offsets, dict) or len(offsets) > len(valid_qids)
-                or any(qid not in valid_qids or type(offset) is not int
-                       or not 0 < offset <= 10000 for qid, offset in offsets.items())):
-            raise ValueError('invalid Wikidata pagination checkpoint')
-        offsets = dict(offsets)
+        if not isinstance(offsets, dict):
+            offsets = {}
+            cursor_warning = 'malformed Wikidata pagination checkpoint; restarted'
+        else:
+            cleaned = {qid: offset for qid, offset in offsets.items()
+                       if qid in valid_qids and type(offset) is int and 0 < offset <= 10000}
+            if len(cleaned) != len(offsets):
+                cursor_warning = 'stale or malformed Wikidata pagination entries; dropped'
+            offsets = cleaned
         for concept in concepts:
             qid = concept['wikidata']
             offset = offsets.get(qid, 0)

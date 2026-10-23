@@ -140,11 +140,12 @@ def search_lexeme_page(qid, fetch=fetch_json, limit=8, offset=0):
             raise SourceAPIError('malformed Wikidata lexeme search hit')
         ids.append(title.split(':', 1)[1])
     continuation = payload.get('continue', {})
-    if not isinstance(continuation, dict):
+    if (not isinstance(continuation, dict)
+            or ('continue' in payload and 'sroffset' not in continuation)):
         raise SourceAPIError('malformed Wikidata search continuation')
     next_offset = continuation.get('sroffset', 0)
     if (type(next_offset) is not int or not 0 <= next_offset <= 10000
-            or (next_offset and next_offset <= offset)):
+            or ('continue' in payload and next_offset <= offset)):
         raise SourceAPIError('nonadvancing Wikidata search continuation')
     return ids, next_offset
 

@@ -421,6 +421,10 @@ class ContractTests(unittest.TestCase):
             root = Path(tmp)
             state = root / 'state/agents'
             state.mkdir(parents=True)
+            (state / 'harvest-wikidata-cursor.json').write_text(json.dumps({
+                'schema_version': '1.0.0', 'next_index': 0,
+                'search_offsets': {'Q146': 'invalid', 'Q999': 8},
+            }))
             with (mock.patch.object(cli, 'ROOT', root),
                   mock.patch.object(cli, 'OUT', root / 'out'),
                   mock.patch.object(cli, 'load_graph', return_value=graph),
@@ -435,9 +439,11 @@ class ContractTests(unittest.TestCase):
                     cursor = root / 'out/state/agents/harvest-wikidata-cursor.json'
                     saved = json.loads(cursor.read_text())
                     self.assertEqual(saved['search_offsets'].get('Q146', 0), next_offset)
+                    self.assertNotIn('Q999', saved['search_offsets'])
                     shutil.copyfile(cursor, state / cursor.name)
         self.assertEqual(requested, [0, 8, 16, 16, 0])
-        for continuation in ({'sroffset': 8}, {'sroffset': -1}, {'sroffset': True}, []):
+        for continuation in ({'sroffset': 8}, {'sroffset': -1}, {'sroffset': True},
+                             {'sroffset': 0}, {}, {'continue': '-||'}, []):
             with self.subTest(continuation=continuation), self.assertRaises(ValueError):
                 search('Q146', offset=8, fetch=lambda _url: {
                     'query': {'search': []}, 'continue': continuation})
