@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q1860782",
-    "Q2405737",
-    "Q1495630",
-    "Q7560425",
-    "Q5957038",
-    "Q111729594",
-    "Q2321025",
-    "Q7168539"
+    "Q2779460",
+    "Q511082",
+    "Q6823072",
+    "Q13442166",
+    "Q1536955",
+    "Q112285016",
+    "Q25400867",
+    "Q5161678"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1860782"
+      "wikidata": "Q2779460"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2405737"
+      "wikidata": "Q511082"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1495630"
+      "wikidata": "Q6823072"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7560425"
+      "wikidata": "Q13442166"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q5957038"
+      "wikidata": "Q1536955"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q111729594"
+      "wikidata": "Q112285016"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2321025"
+      "wikidata": "Q25400867"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7168539"
+      "wikidata": "Q5161678"
     }
   ],
   "retrieval_date": "2026-10-23",
