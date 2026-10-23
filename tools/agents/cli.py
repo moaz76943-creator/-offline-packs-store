@@ -328,7 +328,7 @@ def command_harvest(args):
     if _halt(name):
         return 0
     from datetime import date
-    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexemes
+    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexeme_page
     languages = load_languages()['languages']
     by_qid = {row['wikidata']: row['id'] for row in languages if row.get('wikidata') and row.get('id')}
     profiles = {row['id']: row for row in load_profiles().get('languages') or []}
@@ -372,12 +372,25 @@ def command_harvest(args):
     source_errors = 0
     outcomes = []
     if name == 'harvest-wikidata':
+        offsets = cursor.get('search_offsets', {})
+        valid_qids = {row.get('wikidata') for row in concept_rows(graph)}
+        if not isinstance(offsets, dict):
+            offsets = {}
+            cursor_warning = 'malformed Wikidata pagination checkpoint; restarted'
+        else:
+            cleaned = {qid: offset for qid, offset in offsets.items()
+                       if qid in valid_qids and type(offset) is int and 0 < offset <= 10000}
+            if len(cleaned) != len(offsets):
+                cursor_warning = 'stale or malformed Wikidata pagination entries; dropped'
+            offsets = cleaned
         for concept in concepts:
+            qid = concept['wikidata']
+            offset = offsets.get(qid, 0)
             outcome = {'wikidata': concept.get('wikidata'), 'fetched_entities': 0,
-                       'accepted_rows': 0, 'rejected_entities': 0}
+                       'accepted_rows': 0, 'rejected_entities': 0, 'search_offset': offset}
             outcomes.append(outcome)
             try:
-                ids = search_lexemes(concept['wikidata'])
+                ids, next_offset = search_lexeme_page(qid, offset=offset)
                 entities = load_lexemes(ids)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 source_errors += 1
@@ -395,6 +408,12 @@ def command_harvest(args):
                 outcome['accepted_rows'] += len(rows)
                 for row in rows:
                     grouped.setdefault((row['language'], row['section']), []).append(row)
+            # Commit the page cursor only after fetch and parsing succeed.
+            # A source error preserves its offset for the next concept rotation.
+            if next_offset:
+                offsets[qid] = next_offset
+            else:
+                offsets.pop(qid, None)
     elif name == 'harvest-kaikki':
         notice = (ROOT / 'legal' / 'source_evidence' / 'wiktionary-copyrights.txt').read_text(encoding='utf-8')
         try:
@@ -566,6 +585,7 @@ def command_harvest(args):
     write_json(_out(cursor_path), {
         'schema_version': '1.0.0',
         'next_index': next_index,
+        **({'search_offsets': offsets} if name == 'harvest-wikidata' else {}),
     })
     warning_text = f'skipped {len(skipped)}' if skipped else ''
     if not wrote:
