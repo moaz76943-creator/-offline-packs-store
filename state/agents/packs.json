@@ -1,8 +1,8 @@
 {
-  "last_run": "2026-10-22T23:14:19Z",
+  "last_run": "2026-10-23T05:16:38Z",
   "name": "packs",
   "schema_version": "1.0.0",
-  "status": "ok",
+  "status": "degraded",
   "version": "1.0.0",
-  "warning": ""
+  "warning": "LEGACY_CANDIDATE_ONLY: entries-only SQLite is not v2 or production"
 }

@@ -1,5 +1,7 @@
 {
+  "format": "legacy-entry-candidate",
   "path": "/tmp/agent-out/data/agents/packs/uk.sqlite",
+  "production_ready": false,
   "rows": 3,
   "schema_version": "1.0.0",
   "sha256": "34500a8e37d052b4fc3a28bf7b4ba211aefea7083923fb3fdc83f3ca2c316e10"
