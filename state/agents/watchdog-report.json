@@ -1,6 +1,7 @@
 {
   "degraded": [
-    "harvest-kaikki"
+    "harvest-kaikki",
+    "packs"
   ],
   "dispatch": [],
   "schema_version": "1.0.0",
