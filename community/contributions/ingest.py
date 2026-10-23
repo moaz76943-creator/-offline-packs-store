@@ -181,6 +181,8 @@ def ingest(source, staging_root, *, registry_path=None, validator=None, licenses
     count = 0
     for name, raw in members(data, source.name):
         doc = unique_json(raw)
+        # Establish record types and canonical IDs before indexing any of them.
+        document_sources = validate_document(doc, valid_languages, validator, licenses)
         if doc["document_id"] in seen_ids:
             raise ValueError("duplicate document ID")
         seen_ids.add(doc["document_id"])
@@ -193,7 +195,7 @@ def ingest(source, staging_root, *, registry_path=None, validator=None, licenses
                     if rid in seen_entry_ids:
                         raise ValueError(f"duplicate entry ID: {rid}")
                     seen_entry_ids.add(rid)
-        record_sources.extend(validate_document(doc, valid_languages, validator, licenses))
+        record_sources.extend(document_sources)
         count += 1
     if not count:
         raise ValueError("empty submission")
@@ -216,16 +218,23 @@ def ingest(source, staging_root, *, registry_path=None, validator=None, licenses
         index = records / (digest + ".json")
         if path.is_symlink() or index.is_symlink():
             raise ValueError("symlink staged file")
+        # A surviving receipt is evidence too: validate it even if the data
+        # write is missing. Never overwrite a contradictory transaction index.
+        if index.exists():
+            if (not index.is_file() or index.stat().st_size > MAX_EXPANDED
+                    or unique_json(index.read_bytes()) != receipt):
+                raise ValueError("staging index mismatch")
         if path.exists():
+            if not path.is_file() or path.stat().st_size > MAX_INPUT:
+                raise ValueError("staging collision")
             if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
                 raise ValueError("staging collision")
             if index.is_file():
-                if unique_json(index.read_bytes()) != receipt:
-                    raise ValueError("staging index mismatch")
                 return receipt
         if not path.exists():
             save_atomic(path, data)
-        save_atomic(index, json.dumps(receipt, sort_keys=True, ensure_ascii=False).encode())
+        if not index.exists():
+            save_atomic(index, json.dumps(receipt, sort_keys=True, ensure_ascii=False).encode())
     return receipt
 
 
