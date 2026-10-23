@@ -151,6 +151,15 @@ class CompatibilityTests(unittest.TestCase):
         r = self.run_gate(output="CC-BY-SA-4.0")
         self.assertEqual(r["status"], "COMPATIBLE", r)
 
+    def test_permissive_to_gfdl_requires_independent_conversion_review(self):
+        self.source['license']['id'] = 'CC-BY-2.0-FR'
+        save_ledger(self.tmp.name, self.ledger)
+        for derivative in (True, False):
+            result = self.run_gate(output='GFDL-1.3-only', derivative=derivative)
+            self.assertEqual(result['status'], 'REVIEW_REQUIRED')
+            self.assertFalse(result['publication_approved'])
+            self.assertTrue(result['obligations']['attribution'])
+
     def test_permissive_with_obligations_to_cc0_blocks(self):
         self.source["license"]["id"] = "CC-BY-2.0-FR"
         save_ledger(self.tmp.name, self.ledger)
