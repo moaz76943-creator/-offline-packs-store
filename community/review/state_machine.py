@@ -126,7 +126,8 @@ class ReviewStateMachine:
     @staticmethod
     def _claimed_metadata(meta):
         required = ("source_id", "language", "sense_id", "license_id",
-                    "dataset_version", "publisher", "origin_url", "record_locator", "source_artifact_sha256")
+                    "dataset_version", "publisher", "origin_url", "record_locator", "source_artifact_sha256",
+                    "translation_direction")
         if not isinstance(meta, dict) or any(not isinstance(meta.get(k), str) or not meta[k].strip() for k in required):
             raise ValueError("incomplete source/sense metadata")
         if (not HASH.fullmatch(meta["source_artifact_sha256"]) or meta.get("fixture_only") is not False or
