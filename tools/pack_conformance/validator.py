@@ -45,10 +45,12 @@ class PackConformanceValidator:
         self.publication_approved = False
         self.is_verified = False
         self.language_code = None
+        self.language_codes = set()
 
     def validate(self):
         self.is_verified = False
         self.language_code = None
+        self.language_codes = set()
         if not self.db_path.is_file():
             raise FileNotFoundError(f'Pack not found: {self.db_path}')
         if self.db_path.stat().st_size > MAX_DATABASE:
@@ -124,6 +126,7 @@ class PackConformanceValidator:
                 or source.get('fixture_only') is not False
                 or source.get('license_id') != approved['license']['id']
                 or source.get('dataset_version') != approved['dataset_version']
+                or source.get('retrieval_id') != approved['retrieval']['identity']
                 or source.get('artifact_sha256') != approved['retrieval']['sha256']
                 or source.get('origin_url') != approved['origin_url']
                 or source.get('publisher') != approved['publisher']):
@@ -175,19 +178,34 @@ class PackConformanceValidator:
         if db.execute('SELECT count(*) FROM lexicon_fts').fetchone()[0] != count:
             raise PackConformanceError('FTS5 count mismatch')
         db.execute("INSERT INTO lexicon_fts(lexicon_fts,rank) VALUES('integrity-check',1)")
+        # The reference producer derives CEFR from attested sense levels.
+        # Index these once rather than issuing a query for each lexeme.
+        cefr_by_lexeme = {}
+        for sense in db.execute('SELECT lexeme_id, payload_json FROM senses'):
+            payload = self._record(sense['payload_json'], 'sense', sources)
+            for level in payload.get('levels', []):
+                if level['framework_id'] == 'cefr':
+                    cefr_by_lexeme.setdefault(sense['lexeme_id'], []).append(level['level_id'])
         for row in db.execute('SELECT rowid,* FROM lexicon ORDER BY rowid'):
             payload = self._record(row['fields_json'], 'lexeme', sources)
             source = object_json(row['source_json'])
             if source != payload['source']:
                 raise PackConformanceError('Source projection mismatch')
-            if self.language_code is None:
-                self.language_code = row['language_code']
-            if row['language_code'] != self.language_code:
-                raise PackConformanceError('Cross-language mislabeled package')
+            # The reference producer supports multilingual directed packs.
+            # Each lexeme's language must match its own JSON projection.
+            self.language_codes.add(row['language_code'])
+            self.language_code = (next(iter(self.language_codes))
+                                  if len(self.language_codes) == 1 else None)
             fields = {'id':'lexeme_id', 'surface':'surface', 'part_of_speech':'pos', 'pos':'pos',
                       'language_code':'language', 'script':'script', 'direction':'direction'}
             if any(row[col] != payload[key] for col, key in fields.items()):
                 raise PackConformanceError('Invalid POS or lexeme payload projection mismatch')
+            levels = cefr_by_lexeme.get(row['id'], [])
+            expected_cefr = levels[0] if levels and len(set(levels)) == 1 else None
+            if (row['dialect'] != payload.get('dialect')
+                    or row['cefr_level'] != expected_cefr
+                    or row['frequency_rank'] is not None):
+                raise PackConformanceError('Lexicon dialect/CEFR/rank projection mismatch')
             if row['sort_key'] != sort_key(row['surface']):
                 raise PackConformanceError('Invalid sort_key')
             glosses = {r[0] for r in db.execute('SELECT definition FROM senses WHERE lexeme_id=?', (row['id'],))}
