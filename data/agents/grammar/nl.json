@@ -21,6 +21,126 @@
       "retrieval_date": "registry",
       "source_id": "catalog.language_profiles",
       "value": "ltr"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5946",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Wilt u een kopje koffie?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5947",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoe oud bent u?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5949",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "We houden niet van regen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5953",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoe is het weer?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5955",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "In Parijs heb ik voor een maand een kamer gehuurd."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5957",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik koop briefpapier, postzegels en papieren zakdoekjes."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5959",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Goedenavond, hoe maakt u het?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5961",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Goedemorgen, hoe maakt u het?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5962",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Muiriel is nu 20 jaar oud."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5963",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik weet het niet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5964",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "Gerechtigheid is duur."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5965",
+      "retrieval_date": "2026-10-23",
+      "source_id": "tatoeba.sentences",
+      "value": "De meeste mensen denken dat ik gek ben."
     }
   ]
 }
