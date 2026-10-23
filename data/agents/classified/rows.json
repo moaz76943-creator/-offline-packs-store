@@ -4355,6 +4355,35 @@
       "wikidata": "Q12106"
     },
     {
+      "concept_id": "concept.q12106",
+      "forms": [],
+      "language": "ru",
+      "lemma": "пшеничный",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L713530",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q161098",
+        "Q15645384"
+      ],
+      "record_id": "L713530",
+      "retrieval_date": "2026-10-23",
+      "revision": "1821620875",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L713530-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
       "concept_id": "concept.q105688",
       "forms": [
         "гипоксия",
