@@ -237,6 +237,8 @@ class TestGate(unittest.TestCase):
             ('CC-BY-2.0-FR', 'unverified-license', 'UNSUPPORTED_OUTPUT_LICENSE'),
             ('CC-BY-2.0-FR', 'GFDL-1.3-only', 'LICENSE_CONVERSION_REVIEW_REQUIRED'),
             ('GPL-3.0', 'CC0-1.0', 'UNSUPPORTED_SOURCE_LICENSE'),
+            (['CC0-1.0'], 'CC0-1.0', 'UNSUPPORTED_SOURCE_LICENSE'),
+            ('CC0-1.0', {'id': 'CC0-1.0'}, 'UNSUPPORTED_OUTPUT_LICENSE'),
         ):
             with self.subTest(source_license=source_license, output_license=output_license):
                 self.ledger_data['sources'][1]['license']['id'] = source_license
@@ -250,7 +252,7 @@ class TestGate(unittest.TestCase):
                 self.assertIn(expected, errors)
                 self.assertNotIn('ADMITTED', stdout)
 
-    def test_sublicense_permissive_to_copyleft(self):
+    def test_permissive_conversion_retains_canonical_review_hold(self):
         # Permissive license with obligations (e.g. CC-BY-2.0-FR) sublicensed to copyleft should be allowed
         self.ledger_data["sources"].append({
             "source_id": "test-source-permissive",
@@ -271,8 +273,8 @@ class TestGate(unittest.TestCase):
             "destination": "packs/out"
         }
         code, errors, _, _ = self.run_process(manifest)
-        self.assertEqual(code, 0)
-        self.assertEqual(errors, [])
+        self.assertEqual(code, 2)
+        self.assertIn('LICENSE_CONVERSION_REVIEW_REQUIRED', errors)
 
     def test_sublicense_obligations_to_public_domain(self):
         # License with obligations (e.g. CC-BY-2.0-FR) cannot be sublicensed to PUBLIC-DOMAIN or CC0-1.0
