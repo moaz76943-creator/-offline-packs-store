@@ -1,0 +1,326 @@
+[
+  {
+    "language": "ar",
+    "sha256": "e2905a68a09251e161ad8191fc8c34b78f9d4c42a8b3d7d0ab4202468949165c",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 12
+  },
+  {
+    "language": "bg",
+    "sha256": "dcb183e2179ae38508ebba9d6a0eacfc35cebba2a78a2496fea50de3595a8f78",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 1
+  },
+  {
+    "language": "cs",
+    "sha256": "a755e039ef32f90f35ff40b7b4152f29eb36cc95f626e2488fb09c23b806de17",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 6
+  },
+  {
+    "language": "da",
+    "sha256": "0f835e425a238b7ed8954de1989b3315d06f03b120ae219320b78e6a0fbfdbf9",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 9
+  },
+  {
+    "language": "de",
+    "sha256": "3d96844e3584089a63a63466b829ee8e3435c144437f3584d8ab3b8146ab3ecf",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 16
+  },
+  {
+    "language": "en",
+    "sha256": "17fb6c5631e0c060af2b6348557b759c3a6f81ed329f8eec92fc7063ae4c1359",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 47
+  },
+  {
+    "language": "eo",
+    "sha256": "8214c2b01f69a557c26e07b21576256afe50f4702def8356af997c809e1cbd1c",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 2
+  },
+  {
+    "language": "es",
+    "sha256": "5c651dbb5272e563a2c790d540c9a0ba7b1964868549089bc57767b996d17a6a",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 7
+  },
+  {
+    "language": "et",
+    "sha256": "417cf335f39ef47789aa5390e9fbca98781ef93139d74efb825a8c9459073a5c",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 2
+  },
+  {
+    "language": "eu",
+    "sha256": "c6b4f0c2fdfb474b833bcef5356d4a4e877c18319d1ab42590ffa3bc63a752b2",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 2
+  },
+  {
+    "language": "fr",
+    "sha256": "c66e497600c1b7c5997caae89b1e392a01049e4c46a98569fbc8aebd8e7e88aa",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 13
+  },
+  {
+    "language": "it",
+    "sha256": "99b64a171ddc365532baf57e7e5c34b2bbc1c6b32335edc1cef4761a14f1d4e7",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 14
+  },
+  {
+    "language": "ja",
+    "sha256": "43e36f274e3609b2cf4f2087bc7100f10ac99795c10f5a767250283dffa1ff93",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 5
+  },
+  {
+    "language": "ko",
+    "sha256": "c5a89e518ea3a62bcf75e61bd680119529ae71aec6e336e3f4b94728f226dbfe",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 1
+  },
+  {
+    "language": "la",
+    "sha256": "1d2b71d81c60224e463072c3e0a67d0137e4e8687972486343d4b16e80cff53e",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 1
+  },
+  {
+    "language": "ml",
+    "sha256": "2f8c63b6f8746afe198b5467710b2eb0133cd96e03a86bdbab1fdb8c8acb32f7",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 6
+  },
+  {
+    "language": "ms",
+    "sha256": "3fcd404aaded4a958e4bd3ab73a4cdb4fb1f28d71fd6cadc52289564d8b9a0be",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 1
+  },
+  {
+    "language": "nl",
+    "sha256": "7b219723bd8f69fe0fbe30a7d4b9bba9912b3f8adeaa9ddc0a4e55328b805628",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 1
+  },
+  {
+    "language": "pa",
+    "sha256": "dc98d7e36979c70c3fb30b156414094890a4d10958251e5430f259d3c5751f63",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 5
+  },
+  {
+    "language": "pl",
+    "sha256": "a9a7de7dd8ccec8a9ae909731fc9916bb01c2acc8cee16e685b4742eb0835802",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 2
+  },
+  {
+    "language": "pt",
+    "sha256": "fb81e4e17a854f7f2ae860c7f10f869dab0fb654dc011213b90b5f525bf633b2",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 3
+  },
+  {
+    "language": "ru",
+    "sha256": "445143c2462f2a4816d2afdc7ae5cc16c2defcdefa986c8fd30db5c0097ff016",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 8
+  },
+  {
+    "language": "sv",
+    "sha256": "3c0a8f5141c06c16199fdd8e395de1f613c3af09e147817e91c2b45b6cbf45fa",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 23
+  },
+  {
+    "language": "ta",
+    "sha256": "8f1a8d9c7ccc75f2dc5792a8b366cbb0f78ae95c9aab978211d19087b762220b",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 1
+  },
+  {
+    "language": "tr",
+    "sha256": "0478be2435611011d9d392f7b1410412a194b5c25c3a37bb322deab1940aaf91",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 1
+  },
+  {
+    "language": "uk",
+    "sha256": "34500a8e37d052b4fc3a28bf7b4ba211aefea7083923fb3fdc83f3ca2c316e10",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 3
+  },
+  {
+    "language": "vi",
+    "sha256": "35e5c0a0eff51ceb6f193bf9333d6b11f54fe2f8f0a8f1ffbf1d11859d6e2678",
+    "user_version": 0,
+    "integrity": [
+      [
+        "ok"
+      ]
+    ],
+    "foreign_key_errors": [],
+    "row_count": 1
+  }
+]

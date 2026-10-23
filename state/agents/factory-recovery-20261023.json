@@ -1,0 +1,50 @@
+{
+  "actual_candidate_sqlite_files_checked": 27,
+  "actual_candidate_sqlite_user_versions": [
+    0
+  ],
+  "admitted_partitions": 0,
+  "approved_ledger_sources": 0,
+  "blocking_reason": "Canonical legal/ledger/sources.json is empty; no approved immutable source partition is available. Legacy agent SQLite candidates are not schema v2.",
+  "candidate_rows_accepted": 6,
+  "candidate_rows_fetched": 12,
+  "candidate_rows_rejected_other_language": 6,
+  "completed_code_prs": [
+    506,
+    545,
+    536,
+    546,
+    544,
+    531
+  ],
+  "duplicate_candidate_rows": 5,
+  "harvest_receipt": "data/agents/harvest/wikidata/receipts/pagination-20261023.json",
+  "local_tests_passed": 238,
+  "main_sha": "520e9f552c4eec89e139f0ff38ddecf150e1b618",
+  "manual_heavy_actions_dispatched": 0,
+  "merge_evidence": "state/agents/recovery-merges-20261023.json",
+  "new_paid_services_used": false,
+  "new_published_examples": 0,
+  "new_published_words": 0,
+  "new_unique_candidate_rows": 1,
+  "private_repository_accessed": false,
+  "production_publication": false,
+  "queue_dry_runs": 2,
+  "ready_task_proposals": 0,
+  "registry_validation": "PASS",
+  "remaining_work": [
+    "Independent source rights admission through existing ledger before any READY production task",
+    "Source-backed READY/claim/receipt/finalizer execution remains NOT_RUN",
+    "Consolidate existing SQLite conformance PRs #537/#543 after checking their schema and source-policy gaps",
+    "Finish remaining agent/backlog audits; no blanket completion claim"
+  ],
+  "repository": "moaz76943-creator/-offline-packs-store",
+  "schema_version": "1.0.0",
+  "sqlite_evidence": "data/agents/recovery/20261023/sqlite-audit.json",
+  "sqlite_v2_production_ready": false,
+  "status": "BLOCKED_SOURCE",
+  "task_id": "POLYGLOT-PUBLIC-FACTORY-PRODUCTION-RECOVERY-20261023",
+  "timestamp": "2026-10-23T01:21:24.531707+00:00",
+  "validation_evidence": "data/agents/recovery/20261023/final-tests.json",
+  "worker_production_run_id": "NOT_VERIFIED"
+}

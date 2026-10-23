@@ -1,0 +1,142 @@
+{
+  "head": "520e9f552c4eec89e139f0ff38ddecf150e1b618",
+  "checks": {
+    "agents": {
+      "status": "PASS",
+      "tests": 31,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/agents",
+        "-p",
+        "test_*.py",
+        "-q"
+      ]
+    },
+    "lexical_quality": {
+      "status": "PASS",
+      "tests": 14,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/lexical_quality",
+        "-p",
+        "test_*.py",
+        "-q"
+      ]
+    },
+    "license_compatibility": {
+      "status": "PASS",
+      "tests": 21,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "legal/license_compatibility",
+        "-p",
+        "test_*.py",
+        "-q"
+      ]
+    },
+    "ingestion": {
+      "status": "PASS",
+      "tests": 13,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tools/ingestion_circuit_breaker",
+        "-p",
+        "test_*.py",
+        "-q"
+      ]
+    },
+    "queue_autoseed": {
+      "status": "PASS",
+      "tests": 36,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/gha_factory/queue_autoseed",
+        "-p",
+        "test_*.py",
+        "-q"
+      ]
+    },
+    "orchestration": {
+      "status": "PASS",
+      "tests": 55,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/gha_factory/orchestration",
+        "-p",
+        "test_*.py",
+        "-q"
+      ]
+    },
+    "pack_conformance": {
+      "status": "PASS",
+      "tests": 22,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/gha_factory/pack_conformance",
+        "-p",
+        "test_*.py",
+        "-q"
+      ]
+    },
+    "ci_policy": {
+      "status": "PASS",
+      "tests": 29,
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/ci_policy",
+        "-p",
+        "test_*.py",
+        "-q"
+      ]
+    },
+    "store_pipeline": {
+      "status": "PASS",
+      "tests": 17,
+      "command": [
+        "python3",
+        "tools/test_store_pipeline.py",
+        "-q"
+      ]
+    },
+    "registry": {
+      "status": "PASS",
+      "tests": null,
+      "command": [
+        "python3",
+        "catalog/validate_registry.py"
+      ]
+    }
+  }
+}

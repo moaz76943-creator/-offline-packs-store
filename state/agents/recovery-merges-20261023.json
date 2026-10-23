@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0.0",
+  "task_id": "POLYGLOT-PUBLIC-FACTORY-PRODUCTION-RECOVERY-20261023",
+  "repository": "moaz76943-creator/-offline-packs-store",
+  "target_branch": "main",
+  "merges": [
+    {
+      "pr": 506,
+      "state": "closed",
+      "merged": true,
+      "head": "a3129d5caa03f2fb95b79cdcfa0339ae35c2e68e",
+      "merge": "deafe92ec3011a6f7f8f9770275dac4315c7821f"
+    },
+    {
+      "pr": 545,
+      "state": "closed",
+      "merged": true,
+      "head": "5756ea10a2cbd7cb66361af598e3e8f7fbe5f21a",
+      "merge": "f7de109759338b09670ea952b0d6e9b8043e2849"
+    },
+    {
+      "pr": 536,
+      "state": "closed",
+      "merged": true,
+      "head": "0542b48b44a7fe515316b8e38324fb5d7807d529",
+      "merge": "40fc3c66853068e2963428a475e5fcf86f66a401"
+    },
+    {
+      "pr": 546,
+      "state": "closed",
+      "merged": true,
+      "head": "68ac875bd26aac1acb476c62a62813a77830fe82",
+      "merge": "3c9c736e353bd453d48415789755deb3d3f1cacb"
+    },
+    {
+      "pr": 544,
+      "state": "closed",
+      "merged": true,
+      "head": "c61a7055efc259956488e6c3c2a49dfd1ae103ba",
+      "merge": "f344167dafdc70d2a0e5d0830726e4504d9ec693"
+    },
+    {
+      "pr": 531,
+      "state": "closed",
+      "merged": true,
+      "head": "c8257e12dc0d759f60cb1163978546c24264b7b3",
+      "merge": "520e9f552c4eec89e139f0ff38ddecf150e1b618"
+    }
+  ]
+}

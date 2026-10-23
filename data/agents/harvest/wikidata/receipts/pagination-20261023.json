@@ -8,10 +8,23 @@
     "schema_version": "1.0.0",
     "warnings": []
   },
+  "license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
   "license_id": "CC0-1.0",
+  "merged_code_sha": "3c9c736e353bd453d48415789755deb3d3f1cacb",
   "new_candidate_rows": 1,
   "new_candidate_rows_against_agent_snapshot": 1,
-  "output_file": "accepted_rows.json",
+  "offline_replay": {
+    "accepted_rows": 6,
+    "entity_outcomes": {
+      "keep": 6,
+      "other_language": 6
+    },
+    "fetched_entities": 12,
+    "output_sha256": "075ce701cd2c8a36b86a680032c5d10f7637442153eb3b8d2affef76e872e5af",
+    "status": "PASS"
+  },
+  "output_file": "data/agents/source_snapshots/wikidata/accepted-075ce701cd2c8a36b86a680032c5d10f7637442153eb3b8d2affef76e872e5af.json",
   "output_sha256": "075ce701cd2c8a36b86a680032c5d10f7637442153eb3b8d2affef76e872e5af",
   "outputs": [
     {

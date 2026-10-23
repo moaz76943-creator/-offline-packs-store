@@ -1,0 +1,167 @@
+{
+  "rows": [
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "trigo",
+        "trigos"
+      ],
+      "language": "es",
+      "lemma": "trigo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L307438",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q15645384"
+      ],
+      "record_id": "L307438",
+      "retrieval_date": "2026-10-23",
+      "revision": "2402672380",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L307438-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "tritiko",
+        "tritikon",
+        "tritikoj",
+        "tritikojn"
+      ],
+      "language": "eo",
+      "lemma": "tritiko",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L311463",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q15645384"
+      ],
+      "record_id": "L311463",
+      "retrieval_date": "2026-10-23",
+      "revision": "2532345038",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L311463-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "пшеница",
+        "пшеницы",
+        "пшенице",
+        "пшеницу",
+        "пшеницей",
+        "пшеницею",
+        "пшенице",
+        "пшеницы"
+      ],
+      "language": "ru",
+      "lemma": "пшеница",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L154347",
+      "pos": "",
+      "qids": [
+        "Q15645384",
+        "Q12106",
+        "Q161098"
+      ],
+      "record_id": "L154347",
+      "retrieval_date": "2026-10-23",
+      "revision": "2236812992",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L154347-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "frumento",
+        "frumenti"
+      ],
+      "language": "it",
+      "lemma": "frumento",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L689572",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q15645384"
+      ],
+      "record_id": "L689572",
+      "retrieval_date": "2026-10-23",
+      "revision": "2230360687",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L689572-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "கோதுமை"
+      ],
+      "language": "ta",
+      "lemma": "கோதுமை",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L40897",
+      "pos": "",
+      "qids": [
+        "Q15645384",
+        "Q12106"
+      ],
+      "record_id": "L40897",
+      "retrieval_date": "2026-10-23",
+      "revision": "2165592434",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L40897-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [],
+      "language": "ru",
+      "lemma": "пшеничный",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L713530",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q161098",
+        "Q15645384"
+      ],
+      "record_id": "L713530",
+      "retrieval_date": "2026-10-23",
+      "revision": "1821620875",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L713530-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    }
+  ],
+  "schema_version": "1.0.0"
+}
