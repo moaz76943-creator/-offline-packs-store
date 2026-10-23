@@ -100,6 +100,19 @@ class CompatibilityTests(unittest.TestCase):
         self.assertEqual(r["status"], "INCOMPATIBLE")
         self.assertEqual(r["reason"], "GFDL and CC BY-SA derivative conflict")
 
+    def test_attribution_only_source_cannot_downgrade_copyleft_conflict(self):
+        sources = []
+        for index, license_id in enumerate(('CC-BY-2.0-FR', 'CC-BY-SA-4.0', 'GFDL-1.3-only')):
+            source = copy.deepcopy(self.source)
+            source['source_id'] = 'src-' + str(index)
+            source['license']['id'] = license_id
+            sources.append(source)
+        self.ledger['sources'] = sources
+        save_ledger(self.tmp.name, self.ledger)
+        result = self.run_gate(sources=sources, output='CC-BY-SA-4.0')
+        self.assertEqual(result['status'], 'INCOMPATIBLE')
+        self.assertEqual(result['reason'], 'GFDL and CC BY-SA derivative conflict')
+
     def test_gfdl_copyleft_reports_share_alike(self):
         self.source["license"]["id"] = "GFDL-1.3-only"
         save_ledger(self.tmp.name, self.ledger)
@@ -144,6 +157,29 @@ class CompatibilityTests(unittest.TestCase):
         self.assertEqual(r["status"], "COMPATIBLE", r)
         self.assertTrue(r["obligations"]["redistribution"])
         self.assertTrue(r["obligations"]["share_alike"])
+
+    def test_permissive_with_obligations_conversion_requires_review(self):
+        self.source["license"]["id"] = "CC-BY-2.0-FR"
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(output="CC-BY-SA-4.0")
+        self.assertEqual(r["status"], "REVIEW_REQUIRED", r)
+        self.assertFalse(r["publication_approved"])
+
+    def test_permissive_to_gfdl_requires_independent_conversion_review(self):
+        self.source['license']['id'] = 'CC-BY-2.0-FR'
+        save_ledger(self.tmp.name, self.ledger)
+        for derivative in (True, False):
+            result = self.run_gate(output='GFDL-1.3-only', derivative=derivative)
+            self.assertEqual(result['status'], 'REVIEW_REQUIRED')
+            self.assertFalse(result['publication_approved'])
+            self.assertTrue(result['obligations']['attribution'])
+
+    def test_permissive_with_obligations_to_cc0_blocks(self):
+        self.source["license"]["id"] = "CC-BY-2.0-FR"
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(output="CC0-1.0")
+        self.assertEqual(r["status"], "INCOMPATIBLE", r)
+        self.assertEqual(r["reason"], "cannot drop obligations for CC0-1.0")
 
 if __name__ == "__main__":
     unittest.main()
