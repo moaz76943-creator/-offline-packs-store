@@ -407,7 +407,9 @@ class ContractTests(unittest.TestCase):
         requested = []
         fail_page = [True]
         def api(url):
-            offset = int(urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)['sroffset'][0])
+            query = urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)
+            self.assertEqual(query['srsort'], ['create_timestamp_asc'])
+            offset = int(query['sroffset'][0])
             requested.append(offset)
             if offset == 16 and fail_page[0]:
                 fail_page[0] = False

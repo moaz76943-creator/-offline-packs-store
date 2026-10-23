@@ -125,6 +125,9 @@ def search_lexeme_page(qid, fetch=fetch_json, limit=8, offset=0):
         'srnamespace': '146',
         'srlimit': str(limit),
         'sroffset': str(offset),
+        # Relevance changes when an existing lexeme is edited. Creation order
+        # keeps new lexemes at the tail across bounded scheduled pages.
+        'srsort': 'create_timestamp_asc',
         'format': 'json',
     })
     payload = _wikidata_payload(fetch('https://www.wikidata.org/w/api.php?' + query))
