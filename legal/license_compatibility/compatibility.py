@@ -48,7 +48,9 @@ def check_compatibility(sources, output_license, is_derivative=True, *, repo_roo
         return {**base, "status": "INCOMPATIBLE",
                 "reason": f"cannot drop obligations for {output_license}"}
 
-    if 'CC-BY-2.0-FR' in ids and output_license not in ('CC-BY-2.0-FR', 'CC-BY-SA-4.0'):
+    # This helper cannot approve a conversion that the enforced admission
+    # gate forbids. Retain original terms until independent legal review.
+    if 'CC-BY-2.0-FR' in ids and output_license != 'CC-BY-2.0-FR':
         return {**base, "reason": "license conversion requires independent review"}
 
     if output_license == "PUBLIC-DOMAIN" and any(lid != "PUBLIC-DOMAIN" for lid in ids):

@@ -145,11 +145,12 @@ class CompatibilityTests(unittest.TestCase):
         self.assertTrue(r["obligations"]["redistribution"])
         self.assertTrue(r["obligations"]["share_alike"])
 
-    def test_permissive_with_obligations_to_copyleft(self):
+    def test_permissive_with_obligations_conversion_requires_review(self):
         self.source["license"]["id"] = "CC-BY-2.0-FR"
         save_ledger(self.tmp.name, self.ledger)
         r = self.run_gate(output="CC-BY-SA-4.0")
-        self.assertEqual(r["status"], "COMPATIBLE", r)
+        self.assertEqual(r["status"], "REVIEW_REQUIRED", r)
+        self.assertFalse(r["publication_approved"])
 
     def test_permissive_to_gfdl_requires_independent_conversion_review(self):
         self.source['license']['id'] = 'CC-BY-2.0-FR'
