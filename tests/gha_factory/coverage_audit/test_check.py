@@ -212,7 +212,7 @@ class CoverageAuditTests(unittest.TestCase):
         # Never import a verifier through a symlinked tools/ directory.
         module = self.root / 'real_tools/pack_v2/pipeline.py'
         module.parent.mkdir(parents=True)
-        module.write_text('def check_envelope(blob, language): return {}\\n', encoding='utf-8')
+        module.write_text('def check_envelope(blob, language): return {}\n', encoding='utf-8')
         (self.root / 'tools').symlink_to(self.root / 'real_tools', target_is_directory=True)
         with self.assertRaisesRegex(checker.AuditError, 'symlink'):
             checker._load_pack_checker(self.root)
