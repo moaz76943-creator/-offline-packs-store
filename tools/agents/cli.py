@@ -399,7 +399,10 @@ def command_harvest(args):
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 source_errors += 1
                 outcome['status'] = 'SOURCE_ERROR'
-                skipped.append({'wikidata': concept.get('wikidata'), 'reason': exc.__class__.__name__})
+                code = getattr(exc, 'code', None)
+                reason = (f'HTTP_{code}' if type(code) is int and 400 <= code <= 599
+                          else exc.__class__.__name__)
+                skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                 continue
             outcome['fetched_entities'] = len(entities)
             outcome['status'] = 'FETCHED' if entities else 'EMPTY_SEARCH'

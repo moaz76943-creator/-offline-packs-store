@@ -1,6 +1,8 @@
 """Bounded source adapters. A failed source is skipped; it does not invent a row."""
 
 import json
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -33,21 +35,71 @@ def _wikidata_payload(payload):
 
 
 def fetch_bytes(url, timeout=30, max_bytes=200000):
+    """Pace Wikidata and retry transient throttling without masking failures.
+
+    Preserve bounded-prefix sampling for Tatoeba and UD. Persistent errors
+    still fail the agent and keep the search cursor for a later attempt.
+    """
     request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return response.read(max_bytes + 1)[:max_bytes]
+    wikidata = urllib.parse.urlsplit(url).hostname == 'www.wikidata.org'
+    for attempt in range(3):
+        if wikidata and attempt == 0:
+            time.sleep(0.4)
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.read(max_bytes + 1)[:max_bytes]
+        except urllib.error.HTTPError as exc:
+            if not wikidata or exc.code not in (429, 502, 503, 504) or attempt == 2:
+                raise
+            retry_after = exc.headers.get('Retry-After') if exc.headers else None
+            if retry_after is not None:
+                if not retry_after.isascii() or not retry_after.isdecimal():
+                    raise
+                delay = int(retry_after)
+                if delay > 8:
+                    raise
+            else:
+                delay = 1 << attempt
+            time.sleep(max(1, delay))
 
 
 def fetch_json(url, timeout=30):
-    return json.loads(fetch_bytes(url, timeout=timeout, max_bytes=2_000_000).decode('utf-8'))
+    # A truncated API document is not evidence of an empty lexicon.
+    raw = fetch_bytes(url, timeout=timeout, max_bytes=2_000_001)
+    if len(raw) > 2_000_000:
+        raise SourceAPIError('oversized Wikidata API response')
+    return json.loads(raw.decode('utf-8'))
 
 
 def _sense_qids(sense):
+    """Use only the best non-deprecated P5137 item statements.
+
+    Wikibase preferred rank supersedes normal rank. A preferred no-value
+    statement must not cause fallback to an older normal item. Malformed
+    statements are not evidence for mapping a lexeme to a concept.
+    """
+    if not isinstance(sense, dict):
+        return []
+    claims = sense.get('claims')
+    statements = claims.get('P5137') if isinstance(claims, dict) else None
+    if not isinstance(statements, list):
+        return []
+    preferred = any(isinstance(c, dict) and c.get('rank') == 'preferred'
+                    for c in statements)
+    selected_rank = 'preferred' if preferred else 'normal'
     found = []
-    for claim in (sense.get('claims') or {}).get('P5137') or []:
-        value = ((claim.get('mainsnak') or {}).get('datavalue') or {}).get('value') or {}
-        qid = value.get('id')
-        if isinstance(qid, str):
+    for claim in statements:
+        if not isinstance(claim, dict) or claim.get('rank', 'normal') != selected_rank:
+            continue
+        snak = claim.get('mainsnak')
+        if not isinstance(snak, dict) or snak.get('snaktype', 'value') != 'value':
+            continue
+        data = snak.get('datavalue')
+        value = data.get('value') if isinstance(data, dict) else None
+        qid = value.get('id') if isinstance(value, dict) else None
+        if (isinstance(qid, str) and qid.startswith('Q')
+                and qid[1:].isascii() and qid[1:].isdigit()
+                and not qid[1:].startswith('0') and qid not in found):
             found.append(qid)
     return found
 
