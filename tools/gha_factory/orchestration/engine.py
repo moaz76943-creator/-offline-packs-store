@@ -16,10 +16,14 @@ CREATORS=frozenset((OWNER,'github-actions[bot]'))
 MAX_CONTROLLER_BYTES=64*1024*1024
 
 def trusted(issue):
-    return (isinstance(issue,dict) and 'pull_request' not in issue
-        and (issue.get('user') or {}).get('login') in CREATORS
-        and isinstance(issue.get('number'),int) and issue['number']>0
-        and issue.get('title','').startswith(p.PREFIX))
+    if not isinstance(issue,dict) or 'pull_request' in issue:
+        return False
+    user=issue.get('user')
+    title=issue.get('title')
+    number=issue.get('number')
+    return (isinstance(user,dict) and user.get('login') in CREATORS
+        and type(number) is int and number>0
+        and isinstance(title,str) and title.startswith(p.PREFIX))
 
 def inventory(api,ctx,invalid_active=None):
     entries=[]
