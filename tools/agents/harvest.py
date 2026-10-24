@@ -72,11 +72,34 @@ def fetch_json(url, timeout=30):
 
 
 def _sense_qids(sense):
+    """Use only the best non-deprecated P5137 item statements.
+
+    Wikibase preferred rank supersedes normal rank. A preferred no-value
+    statement must not cause fallback to an older normal item. Malformed
+    statements are not evidence for mapping a lexeme to a concept.
+    """
+    if not isinstance(sense, dict):
+        return []
+    claims = sense.get('claims')
+    statements = claims.get('P5137') if isinstance(claims, dict) else None
+    if not isinstance(statements, list):
+        return []
+    preferred = any(isinstance(c, dict) and c.get('rank') == 'preferred'
+                    for c in statements)
+    selected_rank = 'preferred' if preferred else 'normal'
     found = []
-    for claim in (sense.get('claims') or {}).get('P5137') or []:
-        value = ((claim.get('mainsnak') or {}).get('datavalue') or {}).get('value') or {}
-        qid = value.get('id')
-        if isinstance(qid, str):
+    for claim in statements:
+        if not isinstance(claim, dict) or claim.get('rank', 'normal') != selected_rank:
+            continue
+        snak = claim.get('mainsnak')
+        if not isinstance(snak, dict) or snak.get('snaktype', 'value') != 'value':
+            continue
+        data = snak.get('datavalue')
+        value = data.get('value') if isinstance(data, dict) else None
+        qid = value.get('id') if isinstance(value, dict) else None
+        if (isinstance(qid, str) and qid.startswith('Q')
+                and qid[1:].isascii() and qid[1:].isdigit()
+                and not qid[1:].startswith('0') and qid not in found):
             found.append(qid)
     return found
 
