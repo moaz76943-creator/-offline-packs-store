@@ -86,11 +86,26 @@ class SeederTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'collision'):
             seeder.plan(context(), REGISTRY_SHA, [as_existing(collision)])
 
-    def test_invalid_existing_owner_task_blocks_batch(self):
-        bad = as_existing(seeder.plan(context(), REGISTRY_SHA, [])[0])
+    def test_malformed_owner_issue_is_reserved_without_stalling_other_ready_shards(self):
+        tasks = seeder.plan(context(), REGISTRY_SHA, [])
+        bad = as_existing(tasks[0])
         bad['body'] = 'untrusted malformed content'
-        with self.assertRaises(ValueError):
-            seeder.plan(context(), REGISTRY_SHA, [bad])
+        self.assertEqual([x['shard'] for x in seeder.plan(context(), REGISTRY_SHA, [bad])], [1, 2])
+        self.assertEqual(seeder.verified_context(
+            {'languages': frozenset(('de',)), 'sources': [], 'admissions': {}},
+            Path('.'), [bad])['admissions'], {})
+
+    def test_title_body_mismatch_reserves_both_fingerprints(self):
+        tasks = seeder.plan(context(), REGISTRY_SHA, [])
+        bad = as_existing(tasks[1])
+        bad['title'] = queue.PREFIX + tasks[0]['task_id']
+        self.assertEqual([x['shard'] for x in seeder.plan(context(), REGISTRY_SHA, [bad])], [2])
+
+    def test_invalid_owner_issue_does_not_suppress_existing_collision_guard(self):
+        tasks = seeder.plan(context(), REGISTRY_SHA, [])
+        duplicate = as_existing(tasks[0])
+        with self.assertRaisesRegex(ValueError, 'duplicate pre-existing queue issue'):
+            seeder.plan(context(), REGISTRY_SHA, [duplicate, dict(duplicate, number=56)])
 
     def test_issue_filter_ignores_pull_requests_and_other_owner(self):
         example = as_existing(seeder.plan(context(), REGISTRY_SHA, [])[0])
