@@ -38,6 +38,9 @@ def _decode(data):
     try:
         return json.loads(data.decode("utf-8"), object_pairs_hook=_pairs,
                           parse_constant=lambda _: (_ for _ in ()).throw(ReviewError("nonfinite JSON")))
+    except ReviewError:
+        # Preserve the specific security violation for callers and regression tests.
+        raise
     except (UnicodeError, ValueError, TypeError) as exc:
         raise ReviewError("invalid source JSON") from exc
 
