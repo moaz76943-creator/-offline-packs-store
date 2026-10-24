@@ -29,6 +29,25 @@ class EngineTests(unittest.TestCase):
         self.sha='a'*64
         self.gate=patch.object(e,'source_gate',return_value='READY');self.gate.start();self.addCleanup(self.gate.stop)
     def run_controller(self,api,rid=1):return e.control(api,rid,1,NOW,Path('.'),self.ctx,self.sha)
+    def test_malformed_owned_issue_does_not_stop_other_jobs(self):
+        # A single corrupted owner-created issue must not halt the hourly queue.
+        # The invalid issue is left untouched for manual correction; a separate
+        # valid task must still be claimable.
+        api=FakeAPI([(1,task()),(2,task(language='en'))])
+        bad_body=p.MARKER+'[]\\n\x60\x60\x60'
+        api.data[1]['body']=bad_body
+        jobs=self.run_controller(api)
+        self.assertEqual([job['number'] for job in jobs],[2])
+        self.assertEqual(api.one(1)['body'],bad_body)
+        self.assertEqual(p.parse(api.one(2)['body'])['state'],'CLAIMED')
+
+    def test_mismatched_owned_issue_title_does_not_stop_other_jobs(self):
+        api=FakeAPI([(1,task()),(2,task(language='en'))])
+        api.data[1]['title']=p.PREFIX+'0'*64
+        jobs=self.run_controller(api)
+        self.assertEqual([job['number'] for job in jobs],[2])
+        self.assertEqual(p.parse(api.one(2)['body'])['state'],'CLAIMED')
+
     def test_three_global_capacity(self):
         api=FakeAPI([(i,task(language=l)) for i,l in enumerate(('de','en','fr','ar'),1)])
         jobs=self.run_controller(api)
