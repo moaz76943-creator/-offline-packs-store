@@ -3,7 +3,7 @@ from auto_policy import auto_eligible, auto_safe_files
 SHA = 'a'*40
 MAIN = 'b'*40
 PR = {'state':'open','draft':False,'head':{'sha':SHA,'repo':{'full_name':'moaz76943-creator/-offline-packs-store'}},'base':{'ref':'main','sha':MAIN},'user':{'login':'moaz76943-creator'},'mergeable':True,'mergeable_state':'clean'}
-CHECKS={'check_runs':[{'id':3,'name':n,'head_sha':SHA,'status':'completed','conclusion':'success','app':{'slug':'github-actions'}} for n in ('public-pr-merge-gate','validate')]}
+CHECKS={'check_runs':[{'id':3,'name':n,'head_sha':SHA,'status':'completed','conclusion':'success','app':{'slug':'github-actions'}} for n in ('public-pr-merge-gate',)]}
 DOC=[{'filename':'docs/notes.md','status':'added'}]
 class PolicyTests(unittest.TestCase):
     def check(self,pr=None,checks=None,reviews=None,files=None,message='feat: docs',main=MAIN):
@@ -25,14 +25,20 @@ class PolicyTests(unittest.TestCase):
         for run in ([],[{'id':4,'name':'public-pr-merge-gate','head_sha':SHA,'conclusion':'failure','status':'completed','app':{'slug':'github-actions'}}]):
             with self.subTest(run=run): self.assertFalse(self.check(checks={'check_runs':run})[0])
     def test_latest_check_wins(self):
-        x={'check_runs':CHECKS['check_runs']+[{'id':10,'name':'validate','head_sha':SHA,'conclusion':'failure','status':'completed','app':{'slug':'github-actions'}}]}
+        x={'check_runs':CHECKS['check_runs']+[{'id':10,'name':'public-pr-merge-gate','head_sha':SHA,'conclusion':'failure','status':'completed','app':{'slug':'github-actions'}}]}
         self.assertFalse(self.check(checks=x)[0])
+    def test_extra_unrequired_failed_validate_does_not_block_simple_docs(self):
+        optional = {'id':10,'name':'validate','head_sha':SHA,
+                    'conclusion':'failure','status':'completed',
+                    'app':{'slug':'github-actions'}}
+        self.assertTrue(self.check(checks={'check_runs':CHECKS['check_runs']+[optional]})[0])
+
     def test_no_skip_or_sensitive_automerge(self): self.assertFalse(self.check(files=[{'filename':'docs/guide.md','status':'modified'},{'filename':'tools/release_gate/gate.py','status':'modified'}])[0])
 
     def test_scoped_search_qa_requires_targeted_hosted_checks(self):
         files = [{'filename':'tools/gha_factory/search_qa/audit.py','status':'modified'},
                  {'filename':'tests/gha_factory/search_qa/test_alignment.py','status':'added'}]
-        names = ('public-pr-merge-gate', 'validate', 'audit (0, 1)',
+        names = ('public-pr-merge-gate', 'audit (0, 1)',
                  'Validate no fictitious licensed packs', 'admission public regression')
         checks = {'check_runs': [{'id':i+1, 'name':name, 'head_sha':SHA,
                     'status':'completed', 'conclusion':'success',
