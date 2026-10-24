@@ -1587,6 +1587,95 @@
       "wikidata": "Q3130"
     },
     {
+      "concept_id": "concept.q23154",
+      "forms": [
+        "Bristol",
+        "Bristols"
+      ],
+      "language": "en",
+      "lemma": "Bristol",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L450028",
+      "pos": "",
+      "qids": [
+        "Q23154"
+      ],
+      "record_id": "L450028",
+      "retrieval_date": "2026-10-24",
+      "revision": "2338350457",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L450028-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23154"
+    },
+    {
+      "concept_id": "concept.q2683",
+      "forms": [
+        "Parma"
+      ],
+      "language": "en",
+      "lemma": "Parma",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452873",
+      "pos": "",
+      "qids": [
+        "Q2683"
+      ],
+      "record_id": "L452873",
+      "retrieval_date": "2026-10-24",
+      "revision": "1393812020",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452873-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2683"
+    },
+    {
+      "concept_id": "concept.q8673",
+      "forms": [
+        "Lagos"
+      ],
+      "language": "en",
+      "lemma": "Lagos",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452552",
+      "pos": "",
+      "qids": [
+        "Q8673",
+        "Q815913"
+      ],
+      "record_id": "L452552",
+      "retrieval_date": "2026-10-24",
+      "revision": "2551472389",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452552-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8673"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "kimono",
@@ -2664,6 +2753,35 @@
       "wikidata": "Q3130"
     },
     {
+      "concept_id": "concept.q2683",
+      "forms": [
+        "Parma"
+      ],
+      "language": "es",
+      "lemma": "Parma",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1398470",
+      "pos": "",
+      "qids": [
+        "Q2683"
+      ],
+      "record_id": "L1398470",
+      "retrieval_date": "2026-10-24",
+      "revision": "2285754237",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1398470-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2683"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "kimono",
@@ -3256,6 +3374,35 @@
       "wikidata": "Q3130"
     },
     {
+      "concept_id": "concept.q2683",
+      "forms": [
+        "Parme"
+      ],
+      "language": "fr",
+      "lemma": "Parme",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L25594",
+      "pos": "",
+      "qids": [
+        "Q2683"
+      ],
+      "record_id": "L25594",
+      "retrieval_date": "2026-10-24",
+      "revision": "2291629354",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L25594-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2683"
+    },
+    {
       "concept_id": "concept.q105688",
       "forms": [
         "hypoxie",
@@ -3774,6 +3921,43 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3130"
+    },
+    {
+      "concept_id": "concept.q2683",
+      "forms": [
+        "Parma"
+      ],
+      "language": "it",
+      "lemma": "Parma",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1233868",
+      "pos": "",
+      "qids": [
+        "Q2545183",
+        "Q1092000",
+        "Q2683",
+        "Q862711",
+        "Q967838",
+        "Q2415492",
+        "Q2693",
+        "Q1522393",
+        "Q12798318"
+      ],
+      "record_id": "L1233868",
+      "retrieval_date": "2026-10-24",
+      "revision": "2306345908",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1233868-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2683"
     },
     {
       "concept_id": "concept.q10940",
@@ -4545,6 +4729,64 @@
       "wikidata": "Q3130"
     },
     {
+      "concept_id": "concept.q23154",
+      "forms": [
+        "ബ്രിസ്റ്റൽ"
+      ],
+      "language": "ml",
+      "lemma": "ബ്രിസ്റ്റൽ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453894",
+      "pos": "",
+      "qids": [
+        "Q23154"
+      ],
+      "record_id": "L453894",
+      "retrieval_date": "2026-10-24",
+      "revision": "1398177066",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453894-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23154"
+    },
+    {
+      "concept_id": "concept.q8673",
+      "forms": [
+        "ലാഗോസ്"
+      ],
+      "language": "ml",
+      "lemma": "ലാഗോസ്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453329",
+      "pos": "",
+      "qids": [
+        "Q8673"
+      ],
+      "record_id": "L453329",
+      "retrieval_date": "2026-10-24",
+      "revision": "2522372280",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453329-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8673"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "കിമോണോ"
@@ -4855,6 +5097,43 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q41252",
+      "forms": [
+        "Bydgoszcz",
+        "Bydgoszczy",
+        "Bydgoszczy",
+        "Bydgoszcz",
+        "Bydgoszczą",
+        "Bydgoszczy",
+        "Bydgoszczy",
+        "Bydgoszcze"
+      ],
+      "language": "pl",
+      "lemma": "Bydgoszcz",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1215757",
+      "pos": "",
+      "qids": [
+        "Q41252",
+        "Q5003992"
+      ],
+      "record_id": "L1215757",
+      "retrieval_date": "2026-10-24",
+      "revision": "2036630589",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1215757-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q41252"
     },
     {
       "concept_id": "concept.q12199",
