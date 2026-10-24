@@ -116,6 +116,14 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
         if not author or not str(author).strip():
             raise ValueError("Missing author for source " + sid)
 
+        origin_url = source.get("origin_url")
+        if not origin_url or not str(origin_url).strip():
+            raise ValueError("Missing origin_url for source " + sid)
+
+        publisher = source.get("publisher")
+        if not publisher or not str(publisher).strip():
+            raise ValueError("Missing publisher for source " + sid)
+
         records.append({
             "source_id": sid, "author": author, "publisher": source["publisher"],
             "origin_url": source["origin_url"], "dataset_version": source["dataset_version"],
