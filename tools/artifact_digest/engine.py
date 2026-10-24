@@ -147,7 +147,7 @@ def compare_indexes(old_index, new_index):
             # Check if updated or unchanged
             if old_meta.get('sha256') == new_meta.get('sha256'):
                 is_changed = False
-                for key in ['sha256', 'source_id', 'license_id', 'asset_id', 'version']:
+                for key in ['sha256', 'source_id', 'license_id', 'asset_id', 'version', 'size_bytes', 'invalid']:
                     if old_meta.get(key) != new_meta.get(key):
                         is_changed = True
                         break
@@ -161,5 +161,8 @@ def compare_indexes(old_index, new_index):
     for path, old_meta in old_index.items():
         if path not in new_index:
             events['deleted'].append(path)
+
+    for key in events:
+        events[key].sort()
 
     return events
