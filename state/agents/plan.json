@@ -1,5 +1,5 @@
 {
-  "next_index": 1040,
+  "next_index": 1120,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "it",
+      "section": "animals"
+    },
+    {
+      "language": "ja",
+      "section": "animals"
+    },
+    {
+      "language": "ka",
+      "section": "animals"
+    },
+    {
+      "language": "kk",
+      "section": "animals"
+    },
+    {
+      "language": "km",
+      "section": "animals"
+    },
+    {
+      "language": "kn",
+      "section": "animals"
+    },
+    {
+      "language": "ko",
+      "section": "animals"
+    },
+    {
+      "language": "ku",
+      "section": "animals"
+    },
+    {
+      "language": "ky",
+      "section": "animals"
+    },
+    {
+      "language": "la",
+      "section": "animals"
+    },
+    {
+      "language": "lb",
+      "section": "animals"
+    },
+    {
+      "language": "lo",
+      "section": "animals"
+    },
+    {
+      "language": "lt",
+      "section": "animals"
+    },
+    {
+      "language": "lv",
+      "section": "animals"
+    },
+    {
+      "language": "mg",
+      "section": "animals"
+    },
+    {
+      "language": "mk",
+      "section": "animals"
+    },
+    {
+      "language": "ml",
+      "section": "animals"
+    },
+    {
+      "language": "mn",
+      "section": "animals"
+    },
+    {
+      "language": "mr",
+      "section": "animals"
+    },
+    {
+      "language": "ms",
+      "section": "animals"
+    },
+    {
       "language": "mt",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "my",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ne",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "nl",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "no",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "or",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "pa",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "pl",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ps",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "pt",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ro",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ru",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "rw",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "sd",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "si",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "sk",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "sl",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "sn",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "so",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "sq",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "sr",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "sv",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "sw",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ta",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "te",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "tg",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "th",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "tk",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "tl",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "tr",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "tt",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ug",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "uk",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ur",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "uz",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "vi",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "xh",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "yo",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "zh",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "zu",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "af",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "am",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ar",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "as",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "az",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ba",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "be",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "bg",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "bn",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "br",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "bs",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "ca",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "cs",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "cy",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "da",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "de",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "dv",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "el",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "en",
-      "section": "animals"
+      "section": "city"
     },
     {
       "language": "eo",
-      "section": "animals"
-    },
-    {
-      "language": "es",
-      "section": "animals"
-    },
-    {
-      "language": "et",
-      "section": "animals"
-    },
-    {
-      "language": "eu",
-      "section": "animals"
-    },
-    {
-      "language": "fa",
-      "section": "animals"
-    },
-    {
-      "language": "fi",
-      "section": "animals"
-    },
-    {
-      "language": "fo",
-      "section": "animals"
-    },
-    {
-      "language": "fr",
-      "section": "animals"
-    },
-    {
-      "language": "fy",
-      "section": "animals"
-    },
-    {
-      "language": "ga",
-      "section": "animals"
-    },
-    {
-      "language": "gd",
-      "section": "animals"
-    },
-    {
-      "language": "gl",
-      "section": "animals"
-    },
-    {
-      "language": "gu",
-      "section": "animals"
-    },
-    {
-      "language": "ha",
-      "section": "animals"
-    },
-    {
-      "language": "hi",
-      "section": "animals"
-    },
-    {
-      "language": "hr",
-      "section": "animals"
-    },
-    {
-      "language": "hu",
-      "section": "animals"
-    },
-    {
-      "language": "hy",
-      "section": "animals"
-    },
-    {
-      "language": "id",
-      "section": "animals"
-    },
-    {
-      "language": "ig",
-      "section": "animals"
-    },
-    {
-      "language": "is",
-      "section": "animals"
+      "section": "city"
     }
   ]
 }
