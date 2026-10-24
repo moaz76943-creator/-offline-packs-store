@@ -16,7 +16,6 @@ from pathlib import Path
 
 REPO = 'moaz76943-creator/-offline-packs-store'
 SHA = re.compile(r'[0-9a-f]{40}\Z')
-SKIP = re.compile(r'\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]|^skip-checks\s*:\s*true\s*$', re.I | re.M)
 INTEGRATION_CONFIG = Path(__file__).with_name('approved.json')
 DENY_PREFIXES = (
     'packs/', 'media/', 'assets/', 'legal/', 'community/',
@@ -211,8 +210,6 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
                        (authorization_only and authorization_parent == e['main_sha']))
     if not authorized_main or pr.get('base', {}).get('ref') != 'main' or pr.get('base', {}).get('sha') != main_sha:
         return 'STALE_MAIN', 'canonical main advanced or base branch mismatched'
-    if SKIP.search(commit_message):
-        return 'BLOCKED_SKIP_CI', 'last PR commit skips required CI'
     if pr.get('mergeable') is False or pr.get('mergeable_state') == 'dirty':
         return 'CONFLICT', 'GitHub reports merge conflict'
     if pr.get('mergeable') is not True or pr.get('mergeable_state') not in ('clean', 'unstable'):

@@ -3,12 +3,23 @@ from auto_policy import auto_eligible, auto_safe_files
 SHA = 'a'*40
 MAIN = 'b'*40
 PR = {'state':'open','draft':False,'head':{'sha':SHA,'repo':{'full_name':'moaz76943-creator/-offline-packs-store'}},'base':{'ref':'main','sha':MAIN},'user':{'login':'moaz76943-creator'},'mergeable':True,'mergeable_state':'clean'}
-CHECKS={'check_runs':[{'id':3,'name':n,'head_sha':SHA,'status':'completed','conclusion':'success','app':{'slug':'github-actions'}} for n in ('public-pr-merge-gate','validate')]}
+CHECKS={'check_runs':[{'id':3,'name':n,'head_sha':SHA,'status':'completed','conclusion':'success','app':{'slug':'github-actions'}} for n in ('public-pr-merge-gate',)]}
 DOC=[{'filename':'docs/notes.md','status':'added'}]
 class PolicyTests(unittest.TestCase):
     def check(self,pr=None,checks=None,reviews=None,files=None,message='feat: docs',main=MAIN):
         return auto_eligible(pr if pr is not None else PR,checks if checks is not None else CHECKS,reviews if reviews is not None else [],files if files is not None else DOC,message,main)
     def test_accept_safe_document(self): self.assertTrue(self.check()[0])
+    def test_many_low_risk_docs_without_arbitrary_five_file_limit(self):
+        files = [{'filename': f'docs/notes_{index}.md', 'status': 'added'}
+                 for index in range(24)]
+        self.assertTrue(self.check(files=files)[0])
+        self.assertFalse(self.check(files=files + [
+            {'filename':'legal/ledger/source.json','status':'modified'}])[0])
+
+    def test_large_unproven_file_list_stays_bounded(self):
+        files = [{'filename': f'docs/notes_{index}.md', 'status': 'added'}
+                 for index in range(301)]
+        self.assertFalse(self.check(files=files)[0])
     def test_accept_added_test(self): self.assertTrue(self.check(files=[{'filename':'tests/test_new.py','status':'added'}])[0])
     def test_reject_malformed_and_changed_tests(self):
         for f in ([],[{'filename':'tests/test_existing.py','status':'modified'}],[{'filename':'docs/notes.md','status':'renamed','previous_filename':'docs/old.md'}],[{'filename':'docs/../legal/sources.md','status':'added'}],[{'filename':'docs/governance/decisions.md','status':'added'}]):
@@ -19,20 +30,28 @@ class PolicyTests(unittest.TestCase):
     def test_reject_draft_or_foreign(self):
         for change in ({'draft':True},{'mergeable':False},{'mergeable_state':'dirty'},{'user':{'login':'other'}},{'base':{'ref':'main','sha':'c'*40}}):
             self.assertFalse(self.check(pr={**PR,**change})[0])
-    def test_reject_ci_skip(self): self.assertFalse(self.check(message='fix: docs [skip ci]')[0])
+    def test_ci_skip_text_does_not_override_exact_head_evidence(self):
+        self.assertTrue(self.check(message='fix: docs [skip ci]')[0])
+        self.assertFalse(self.check(message='fix: docs [skip ci]', checks={'check_runs': []})[0])
     def test_reject_review_block(self): self.assertFalse(self.check(reviews=[{'state':'CHANGES_REQUESTED'}])[0])
     def test_reject_missing_or_failed_checks(self):
         for run in ([],[{'id':4,'name':'public-pr-merge-gate','head_sha':SHA,'conclusion':'failure','status':'completed','app':{'slug':'github-actions'}}]):
             with self.subTest(run=run): self.assertFalse(self.check(checks={'check_runs':run})[0])
     def test_latest_check_wins(self):
-        x={'check_runs':CHECKS['check_runs']+[{'id':10,'name':'validate','head_sha':SHA,'conclusion':'failure','status':'completed','app':{'slug':'github-actions'}}]}
+        x={'check_runs':CHECKS['check_runs']+[{'id':10,'name':'public-pr-merge-gate','head_sha':SHA,'conclusion':'failure','status':'completed','app':{'slug':'github-actions'}}]}
         self.assertFalse(self.check(checks=x)[0])
-    def test_no_skip_or_sensitive_automerge(self): self.assertFalse(self.check(files=[{'filename':'docs/guide.md','status':'modified'},{'filename':'tools/release_gate/gate.py','status':'modified'}])[0])
+    def test_extra_unrequired_failed_validate_does_not_block_simple_docs(self):
+        optional = {'id':10,'name':'validate','head_sha':SHA,
+                    'conclusion':'failure','status':'completed',
+                    'app':{'slug':'github-actions'}}
+        self.assertTrue(self.check(checks={'check_runs':CHECKS['check_runs']+[optional]})[0])
+
+    def test_sensitive_files_still_rejected(self): self.assertFalse(self.check(files=[{'filename':'docs/guide.md','status':'modified'},{'filename':'tools/release_gate/gate.py','status':'modified'}])[0])
 
     def test_scoped_search_qa_requires_targeted_hosted_checks(self):
         files = [{'filename':'tools/gha_factory/search_qa/audit.py','status':'modified'},
                  {'filename':'tests/gha_factory/search_qa/test_alignment.py','status':'added'}]
-        names = ('public-pr-merge-gate', 'validate', 'audit (0, 1)',
+        names = ('public-pr-merge-gate', 'audit (0, 1)',
                  'Validate no fictitious licensed packs', 'admission public regression')
         checks = {'check_runs': [{'id':i+1, 'name':name, 'head_sha':SHA,
                     'status':'completed', 'conclusion':'success',

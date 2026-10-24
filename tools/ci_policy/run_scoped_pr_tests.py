@@ -28,8 +28,9 @@ SUITES = {
     "community_automation": ("tools/community_automation", "test_gate.py"),
     "registry_unit": ("catalog", "test_registry.py"),
     "utils": ("tests", "test_utils.py"),
+    "inventory": ("tests/merge_accelerator", "test_inventory.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "utils", "registry_unit")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "utils", "registry_unit", "inventory")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -38,14 +39,27 @@ BASELINE_ORDER = ("policy", "registry", "sqlite")
 BASELINE_COMMANDS = {
     "policy": (sys.executable, "-m", "unittest", "discover",
                "-s", "tests/ci_policy", "-p", "test_*.py", "-v"),
+    "coordinator": (sys.executable, "-m", "unittest", "discover",
+                    "-s", "tools/merge_coordinator", "-p", "test_*.py", "-v"),
+    "json_security": (sys.executable, "-m", "unittest", "discover",
+                      "-s", "tests/ci_security", "-p", "test_*.py", "-v"),
+    "janitor": (sys.executable, "-m", "unittest", "discover",
+                "-s", "tools", "-p", "test_pr_janitor.py", "-v"),
     "registry": (sys.executable, "catalog/validate_registry.py"),
     "sqlite": (sys.executable, "tools/test_store_pipeline.py", "-q"),
 }
 ISOLATED_PREFIXES = tuple(folder + "/" for folder, _ in SUITES.values() if folder not in ("tests", "catalog"))
 POLICY_PATHS = ("tools/ci_policy/", "tests/ci_policy/")
 POLICY_WORKFLOW = ".github/workflows/public_pr_merge_gate.yml"
+COORD_PATHS = ("tools/merge_coordinator/",)
+COORD_WORKFLOW = ".github/workflows/public_merge_coordinator.yml"
+JSON_SECURITY_PATHS = ("tests/ci_security/",)
+JSON_WORKFLOW = ".github/workflows/validate_json.yml"
+JANITOR_PATHS = ("tools/pr_janitor.py", "tools/test_pr_janitor.py",
+                 ".github/workflows/pr_janitor.yml")
 SENSITIVE_DOCS = ("docs/governance/", "docs/merge_coordinator/",
                   "docs/security/", "docs/release/", "docs/CI_")
+ROOT_PROSE_DOCS = frozenset(("README.md", "CHANGELOG.md", "CONTRIBUTING.md"))
 
 
 def select_baseline_checks(changed_paths):
@@ -57,7 +71,38 @@ def select_baseline_checks(changed_paths):
                 or path.startswith("/") or ".." in path.split("/")):
             return BASELINE_ORDER
 
+    # Merge orchestration, advisory scout and JSON syntax have focused contract suites.
+    # Route those changes to their own contract suites, never to unrelated SQLite
+    # and language-registry fixtures. Mixed unknown or sensitive changes still
+    # execute the complete fail-closed baseline.
+    def policy_path(path):
+        return path.startswith(POLICY_PATHS) or path == POLICY_WORKFLOW
+
+    def coordinator_path(path):
+        return path.startswith(COORD_PATHS) or path == COORD_WORKFLOW
+
+    def json_security_path(path):
+        return path.startswith(JSON_SECURITY_PATHS) or path == JSON_WORKFLOW
+
+    def janitor_path(path):
+        return path in JANITOR_PATHS
+
+    if all(policy_path(p) or coordinator_path(p) or json_security_path(p)
+           or janitor_path(p) for p in changed_paths):
+        selected = []
+        if any(policy_path(p) for p in changed_paths):
+            selected.append("policy")
+        if any(coordinator_path(p) or p == JSON_WORKFLOW for p in changed_paths):
+            selected.append("coordinator")
+        if any(json_security_path(p) for p in changed_paths):
+            selected.append("json_security")
+        if any(janitor_path(p) for p in changed_paths):
+            selected.append("janitor")
+        return tuple(selected)
+
     def low_risk(path):
+        if path in ROOT_PROSE_DOCS:
+            return True
         if any(path.startswith(prefix) for prefix in ISOLATED_PREFIXES):
             return True
         if path.startswith("docs/") and path.endswith(".md"):
@@ -118,10 +163,12 @@ def select_suites(changed_paths):
             selected.add("community_automation")
         if path == "utils.py" or path == "tests/test_utils.py":
             selected.add("utils")
+        if path.startswith(("tools/merge_accelerator/", "tests/merge_accelerator/")):
+            selected.add("inventory")
         if path.startswith("catalog/"):
             selected.add("registry_unit")
         if path.startswith("legal/ledger/"):
-            selected.update(name for name in ORDER if name != "utils")
+            selected.update(name for name in ORDER if name not in ("utils", "inventory"))
         if path.startswith("tools/contribution_gate/"):
             selected.update(("pronunciation", "audio"))
     return tuple(name for name in ORDER if name in selected)
