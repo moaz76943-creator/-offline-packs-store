@@ -1,6 +1,6 @@
 {
-  "action": "already-tracked",
-  "last_signature": "pr-blocker-label-janitor",
+  "action": "recorded",
+  "last_signature": "agent-harvest-wikidata",
   "retries": 0,
   "schema_version": "1.0.0"
 }
