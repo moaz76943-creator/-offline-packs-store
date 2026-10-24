@@ -31,7 +31,14 @@ def validate_svg(data):
         raise ValueError("unsafe svg: invalid utf-8 encoding")
 
 def process_bundle(source, staging_root):
-    if not os.access(os.getcwd(), os.W_OK):
+    # Inspect the destination or its nearest existing ancestor, never CWD.
+    # The ingest layer still performs authoritative symlink and write checks.
+    workspace = Path(staging_root)
+    if workspace.is_symlink():
+        raise ValueError("symlink staging root")
+    while not workspace.exists() and workspace != workspace.parent:
+        workspace = workspace.parent
+    if not workspace.is_dir() or not os.access(workspace, os.W_OK | os.X_OK):
         raise RuntimeError('workspace access not authorized')
     # This logic sits alongside community/contributions/ingest.py,
     # but we will likely want to process .vct and .svg files too.
