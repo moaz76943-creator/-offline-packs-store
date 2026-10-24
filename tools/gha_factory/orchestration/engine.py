@@ -1,6 +1,7 @@
 """Short serialized mutations, independently running worker jobs, fail-closed recovery."""
 import hashlib
 import json
+import sys
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -24,8 +25,16 @@ def inventory(api,ctx):
     entries=[]
     for issue in api.issues():
         if not trusted(issue):continue
-        t=p.parse(issue.get('body'),ctx['languages'])
-        if issue['title']!=p.PREFIX+t['task_id']:raise ValueError('task title identity mismatch')
+        try:
+            t=p.parse(issue.get('body'),ctx['languages'])
+            if issue['title']!=p.PREFIX+t['task_id']:
+                raise ValueError('task title identity mismatch')
+        except (ValueError, TypeError, KeyError, UnicodeError) as exc:
+            # Malformed owner-created Issues cannot execute or block independent
+            # ready shards. Preserve the body for explicit manual correction.
+            print('QUARANTINED_INVALID_ISSUE', issue['number'],
+                  type(exc).__name__, file=sys.stderr)
+            continue
         entries.append((issue['number'],t))
     if len(entries)>2000:raise ValueError('queue inventory exceeds 2000 tasks')
     return sorted(entries)
