@@ -89,10 +89,30 @@ class ManifestTests(unittest.TestCase):
                 self.generate()
 
     def test_safe_diff_requires_manual_id_review(self):
-        old=self.generate();new=json.loads(json.dumps(old));new['packs'][0]['archive_sha256']='d'*64
+        old=self.generate();new=json.loads(json.dumps(old));new['packs'][0]['sqlite_sha256']='d'*64
         diff=m.diff(old,new)
         self.assertEqual(diff['changed_pending_stable_id_review'],['ar'])
         self.assertFalse(diff['safe_to_apply'])
+
+    def test_diff_unchanged_metadata_only(self):
+        old=self.generate()
+        new=json.loads(json.dumps(old))
+        new['packs'][0]['pack_id']='ar-updated-metadata'
+        diff=m.diff(old,new)
+        self.assertEqual(diff['unchanged'],['ar'])
+
+    def test_added_assets_and_dependencies(self):
+        claims = [dict(self.claims[0], semantic_vectors=['vec1'], dependencies=['dep1'], update_identity='id1')]
+        result = self.generate(claims)
+        pack = result['packs'][0]
+        self.assertEqual(pack['semantic_vectors'], ['vec1'])
+        self.assertEqual(pack['dependencies'], ['dep1'])
+        self.assertEqual(pack['update_identity'], 'id1')
+
+    def test_mismatched_entry_counts(self):
+        claims = [dict(self.claims[0], actual_entry_count=999)]
+        with self.assertRaisesRegex(m.ManifestBlocked, 'mismatched entry counts'):
+            self.generate(claims)
 
     def test_repeat_immutable_and_collision(self):
         val=self.generate();p=m.persist(self.root,val)
