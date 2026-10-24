@@ -1,4 +1,4 @@
-"""Janitor classification and squash titles stay free of CI-skip instructions."""
+"""Janitor checks real gate state and preserves user-supplied squash titles."""
 import unittest
 
 from tools.pr_janitor import classify, sanitize_subject
@@ -41,11 +41,11 @@ class JanitorContractTest(unittest.TestCase):
         ]
         self.assertEqual(classify(_pr(statusCheckRollup=checks, mergeStateStatus="UNSTABLE")), "unstable")
 
-    def test_squash_subject_strips_skip_directives(self):
+    def test_squash_subject_keeps_explicit_skip_directives(self):
         subject = sanitize_subject("feat: builder [skip ci]", 342)
-        self.assertNotIn("skip ci", subject.lower())
+        self.assertIn("[skip ci]", subject)
         self.assertIn("#342", subject)
-        self.assertNotIn("skip-checks", sanitize_subject("skip-checks: true", 9).lower())
+        self.assertIn("skip-checks: true", sanitize_subject("skip-checks: true", 9).lower())
 
 
 if __name__ == "__main__":
