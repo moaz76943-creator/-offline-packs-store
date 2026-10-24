@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "document_id": "fixture.homograph_variant",
+  "senses": [
+    {
+      "sense_id": "sense.en.bank.finance",
+      "language": "en"
+    },
+    {
+      "sense_id": "sense.en.bank.river",
+      "language": "en"
+    },
+    {
+      "sense_id": "sense.es.banco.finance",
+      "language": "es"
+    },
+    {
+      "sense_id": "sense.es.orilla.river",
+      "language": "es"
+    },
+    {
+      "sense_id": "sense.es-MX.banco.finance",
+      "language": "es-MX"
+    }
+  ],
+  "directed_translations": [
+    {
+      "translation_id": "tr.en.es.bank.finance",
+      "source_sense_id": "sense.en.bank.finance",
+      "target_sense_id": "sense.es.banco.finance",
+      "source_language": "en",
+      "target_language": "es",
+      "text": "banco",
+      "equivalence": "exact",
+      "source": {
+        "provenance_id": "fixture.provenance.1",
+        "source_version": "1.0"
+      }
+    },
+    {
+      "translation_id": "tr.en.es.bank.river",
+      "source_sense_id": "sense.en.bank.river",
+      "target_sense_id": "sense.es.orilla.river",
+      "source_language": "en",
+      "target_language": "es",
+      "text": "orilla",
+      "equivalence": "exact",
+      "source": {
+        "provenance_id": "fixture.provenance.1",
+        "source_version": "1.0"
+      }
+    },
+    {
+      "translation_id": "tr.en.es-MX.bank.finance",
+      "source_sense_id": "sense.en.bank.finance",
+      "target_sense_id": "sense.es-MX.banco.finance",
+      "source_language": "en",
+      "target_language": "es-MX",
+      "text": "banco",
+      "equivalence": "exact",
+      "source": {
+        "provenance_id": "fixture.provenance.2",
+        "source_version": "1.0"
+      }
+    }
+  ]
+}

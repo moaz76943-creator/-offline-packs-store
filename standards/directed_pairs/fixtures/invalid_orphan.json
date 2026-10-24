@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "document_id": "fixture.invalid_orphan",
+  "senses": [
+    {
+      "sense_id": "sense.en.cat",
+      "language": "en"
+    }
+  ],
+  "directed_translations": [
+    {
+      "translation_id": "tr.en.es.cat",
+      "source_sense_id": "sense.en.cat",
+      "target_sense_id": "sense.es.gato",
+      "source_language": "en",
+      "target_language": "es",
+      "text": "gato",
+      "equivalence": "exact",
+      "source": {
+        "provenance_id": "fixture.provenance.1",
+        "source_version": "1.0"
+      }
+    }
+  ]
+}
