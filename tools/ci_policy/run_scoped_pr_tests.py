@@ -168,7 +168,7 @@ def select_suites(changed_paths):
         if path.startswith("catalog/"):
             selected.add("registry_unit")
         if path.startswith("legal/ledger/"):
-            selected.update(name for name in ORDER if name != "utils")
+            selected.update(name for name in ORDER if name not in ("utils", "inventory"))
         if path.startswith("tools/contribution_gate/"):
             selected.update(("pronunciation", "audio"))
     return tuple(name for name in ORDER if name in selected)
