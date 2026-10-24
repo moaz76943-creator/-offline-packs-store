@@ -265,6 +265,7 @@ class CoverageAuditTests(unittest.TestCase):
                     else:
                         db.execute("INSERT INTO senses VALUES('s4','missing')")
                         db.execute("INSERT INTO translations VALUES('s1','s4','ab')")
+                    db.commit()  # closing() does not commit pending DML.
                 with self.assertRaisesRegex(checker.AuditError, 'orphan translation'):
                     checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
 
