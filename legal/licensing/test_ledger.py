@@ -6,7 +6,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             # missing author
             "version": "1.0",
             "license": {"declared": "CC-BY-SA-4.0", "evidence_verified": True},
@@ -18,7 +18,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "modification_status": "unchanged"
@@ -28,7 +28,7 @@ class TestLicensingLedger(unittest.TestCase):
     def test_missing_source_identity(self):
         ledger = LicensingLedger()
         source = {
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {"declared": "CC-BY-SA-4.0", "evidence_verified": True},
@@ -40,7 +40,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {
@@ -56,7 +56,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {
@@ -71,7 +71,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {
@@ -87,7 +87,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source1 = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {
@@ -99,7 +99,7 @@ class TestLicensingLedger(unittest.TestCase):
         }
         source2 = {
             "source_id": "test2",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {
@@ -115,7 +115,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {
@@ -132,7 +132,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {
@@ -149,7 +149,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "2.0",
             "license": {
@@ -165,7 +165,7 @@ class TestLicensingLedger(unittest.TestCase):
         ledger = LicensingLedger()
         source = {
             "source_id": "test1",
-            "url": "http://example.com",
+            "url": "https://example.com",
             "author": "Author",
             "version": "1.0",
             "license": {
@@ -227,6 +227,48 @@ class TestLicensingLedger(unittest.TestCase):
         source["license"]["obligations"].append("forged")
         self.assertEqual(ledger.sources["s1"]["license"]["declared"], "CC0-1.0")
         self.assertEqual(ledger.sources["s1"]["license"]["obligations"], [])
+
+
+    def test_source_url_requires_https_without_embedded_secrets(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "s1", "url": "https://example.org/source",
+            "author": "Author", "version": "1",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_source(source), "verified")
+        for unsafe in ("http://example.org/source",
+                       "https://user:password@example.org/source",
+                       "https://example.org/source?token=secret",
+                       "https://example.org/source?access_token=secret"):
+            with self.subTest(unsafe=unsafe):
+                self.assertEqual(
+                    ledger.evaluate_source(dict(source, url=unsafe)), "blocked"
+                )
+
+    def test_duplicate_source_identity_in_combination_is_blocked(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "s1", "url": "https://example.org/source",
+            "author": "Author", "version": "1",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_combination([source]), "verified")
+        self.assertEqual(ledger.evaluate_combination([source, source]), "blocked")
+        changed = dict(source, author="Different publisher")
+        self.assertEqual(ledger.evaluate_combination([source, changed]), "blocked")
+
+    def test_unknown_license_is_blocked(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "s1", "url": "https://example.org/source",
+            "author": "Author", "version": "1",
+            "license": {"declared": "UNKNOWN", "evidence_verified": True},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_source(source), "blocked")
 
 if __name__ == '__main__':
     unittest.main()

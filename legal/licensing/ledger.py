@@ -2,9 +2,9 @@ from copy import deepcopy
 import re
 
 try:
-    from legal.ledger.admission import LICENSES, OBLIGATIONS
+    from legal.ledger.admission import LICENSES, OBLIGATIONS, url_ok
 except ImportError:
-    from ..ledger.admission import LICENSES, OBLIGATIONS
+    from ..ledger.admission import LICENSES, OBLIGATIONS, url_ok
 
 LEDGER_SCHEMA = {
     "type": "object",
@@ -55,7 +55,7 @@ class LicensingLedger:
 
         if not self._is_string(source["source_id"]):
             return False
-        if not self._is_string(source["url"]):
+        if not url_ok(source["url"]):
             return False
         if not self._is_string(source["author"]):
             return False
@@ -120,12 +120,18 @@ class LicensingLedger:
 
         statuses = set()
         copyleft_licenses = set()
+        seen_ids = set()
 
         for source in sources:
             status = self.evaluate_source(source)
             statuses.add(status)
             if status == "blocked":
                 return "blocked"
+            # One source identity must not represent multiple records in a release.
+            source_id = source["source_id"]
+            if source_id in seen_ids:
+                return "blocked"
+            seen_ids.add(source_id)
 
             declared_license = source["license"]["declared"]
             # Identify copyleft licenses (GFDL-1.3-only and CC-BY-SA-4.0 require sharealike / history which are copyleft)
