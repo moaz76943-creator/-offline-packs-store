@@ -34,6 +34,13 @@ def is_tokenizer_supported(tokenizer_name):
 
 
 def build_index(db_path):
+    try:
+        registry_path = Path(__file__).resolve().parent.parent.parent / 'catalog' / 'language_registry.v1.json'
+        with open(registry_path, 'r', encoding='utf-8') as f:
+            pass
+    except FileNotFoundError:
+        raise IndexBuilderError('Public workspace is inaccessible: missing language registry')
+
     path = Path(db_path).resolve()
     if not path.is_file():
         raise IndexBuilderError(f'Input database not found: {path}')
