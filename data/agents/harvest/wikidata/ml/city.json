@@ -1,6 +1,6 @@
 {
   "language": "ml",
-  "retrieval_date": "2026-10-20",
+  "retrieval_date": "2026-10-24",
   "rows": [
     {
       "concept_id": "concept.q4093",
@@ -104,26 +104,70 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3130"
+    },
+    {
+      "concept_id": "concept.q23154",
+      "forms": [
+        "ബ്രിസ്റ്റൽ"
+      ],
+      "language": "ml",
+      "lemma": "ബ്രിസ്റ്റൽ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453894",
+      "pos": "",
+      "qids": [
+        "Q23154"
+      ],
+      "record_id": "L453894",
+      "retrieval_date": "2026-10-24",
+      "revision": "1398177066",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453894-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23154"
+    },
+    {
+      "concept_id": "concept.q8673",
+      "forms": [
+        "ലാഗോസ്"
+      ],
+      "language": "ml",
+      "lemma": "ലാഗോസ്",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453329",
+      "pos": "",
+      "qids": [
+        "Q8673"
+      ],
+      "record_id": "L453329",
+      "retrieval_date": "2026-10-24",
+      "revision": "2522372280",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453329-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8673"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "quarantine",
-      "wikidata": "Q3711"
+      "reason": "HTTPError",
+      "wikidata": "Q1865"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q586"
+      "wikidata": "Q41621"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1156"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q641"
+      "wikidata": "Q4115712"
     }
   ],
   "source": "harvest-wikidata"

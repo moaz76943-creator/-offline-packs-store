@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "retrieval_date": "2026-10-20",
+  "retrieval_date": "2026-10-24",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -73,26 +73,46 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3130"
+    },
+    {
+      "concept_id": "concept.q2683",
+      "forms": [
+        "Parme"
+      ],
+      "language": "fr",
+      "lemma": "Parme",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L25594",
+      "pos": "",
+      "qids": [
+        "Q2683"
+      ],
+      "record_id": "L25594",
+      "retrieval_date": "2026-10-24",
+      "revision": "2291629354",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L25594-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2683"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "quarantine",
-      "wikidata": "Q3711"
+      "reason": "HTTPError",
+      "wikidata": "Q1865"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q586"
+      "wikidata": "Q41621"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1156"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q641"
+      "wikidata": "Q4115712"
     }
   ],
   "source": "harvest-wikidata"
