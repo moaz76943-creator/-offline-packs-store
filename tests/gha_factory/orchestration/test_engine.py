@@ -29,6 +29,22 @@ class EngineTests(unittest.TestCase):
         self.sha='a'*64
         self.gate=patch.object(e,'source_gate',return_value='READY');self.gate.start();self.addCleanup(self.gate.stop)
     def run_controller(self,api,rid=1):return e.control(api,rid,1,NOW,Path('.'),self.ctx,self.sha)
+    def test_malformed_listing_fields_do_not_stop_ready_shards(self):
+        # Malformed GitHub listing metadata must not crash the complete queue,
+        # and a forged boolean issue number must never be treated as issue #1.
+        for field,invalid in (('title',None),('title',42),
+                              ('user','not-an-object'),('user',['owner'])):
+            with self.subTest(field=field,invalid=invalid):
+                api=FakeAPI([(1,task()),(2,task(language='en'))])
+                api.data[1][field]=invalid
+                jobs=self.run_controller(api)
+                self.assertEqual([j['number'] for j in jobs],[2])
+                self.assertEqual(p.parse(api.one(1)['body'])['state'],'READY')
+        api=FakeAPI([(1,task()),(2,task(language='en'))])
+        api.data[1]['number']=True
+        self.assertEqual([j['number'] for j in self.run_controller(api)],[2])
+        self.assertEqual(p.parse(api.one(1)['body'])['state'],'READY')
+
     def test_malformed_owned_issue_does_not_stop_other_jobs(self):
         # A single corrupted owner-created issue must not halt the hourly queue.
         # The invalid issue is left untouched for manual correction; a separate
