@@ -9,6 +9,14 @@ class PolicyTests(unittest.TestCase):
     def check(self,pr=None,checks=None,reviews=None,files=None,message='feat: docs',main=MAIN):
         return auto_eligible(pr if pr is not None else PR,checks if checks is not None else CHECKS,reviews if reviews is not None else [],files if files is not None else DOC,message,main)
     def test_accept_safe_document(self): self.assertTrue(self.check()[0])
+    def test_root_prose_docs_need_no_special_authorization(self):
+        for name in ('README.md', 'CHANGELOG.md', 'CONTRIBUTING.md'):
+            with self.subTest(name=name):
+                self.assertTrue(self.check(files=[{'filename': name, 'status': 'modified'}])[0])
+        for name in ('LICENSE', 'CODEOWNERS', 'manifest.json', '.github/workflows/ci.yml'):
+            with self.subTest(name=name):
+                self.assertFalse(self.check(files=[{'filename': name, 'status': 'modified'}])[0])
+
     def test_many_low_risk_docs_without_arbitrary_five_file_limit(self):
         files = [{'filename': f'docs/notes_{index}.md', 'status': 'added'}
                  for index in range(24)]
