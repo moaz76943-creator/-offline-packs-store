@@ -195,6 +195,9 @@ def make_cloze(sentence, annotation, senses, forms):
     if not isinstance(distractors, list) or not 2 <= len(distractors) <= 5:
         raise Rejected('REJECTED_EXERCISE: insufficient attested distractors')
     options = [answer]
+    # Distinct choices must also be distinct under canonical Unicode spelling.
+    # NFC preserves Arabic diacritics and Turkish dotted/dotless I distinctions.
+    normalized_options = {unicodedata.normalize('NFC', answer).casefold()}
     for item in distractors:
         if not isinstance(item, dict) or not isinstance(item.get('surface'), str):
             raise Rejected('REJECTED_EXERCISE: bad distractor')
@@ -204,9 +207,10 @@ def make_cloze(sentence, annotation, senses, forms):
         other_key = (sentence['language'], other_sense, surface, tuple(sorted(feats.items())))
         if (not surface.strip() or other_key not in forms or not evidence or
                 evidence.get('language') != sentence['language'] or evidence.get('approved') is not True or
-                surface.casefold() in {v.casefold() for v in options}):
+                unicodedata.normalize('NFC', surface).casefold() in normalized_options):
             raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         options.append(surface)
+        normalized_options.add(unicodedata.normalize('NFC', surface).casefold())
     return {'exercise_id': 'clz1_' + hashlib.sha256(canonical([sentence['id'], sid, start, end])).hexdigest()[:24],
             'sentence_id': sentence['id'], 'language': sentence['language'],
             'sense_id': sid, 'cloze': text[:start] + '____' + text[end:],
