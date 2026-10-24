@@ -1,0 +1,65 @@
+{
+  "actual_rows": 33,
+  "candidate_sha256": "c8387d879634e94924bef394fb3142faf5fe08bee2587663f2ba85956f06cec3",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "2ac92fbf1521a617db59dede784163b939c811e6",
+  "source_files": [
+    {
+      "language": "da",
+      "origin_git_blob_sha1": "0fa3997ae98887146a30c3a5d793d011641a22a3",
+      "origin_path": "data/agents/harvest/wikidata/da/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch5/sources/da/work.json",
+      "rows": 3,
+      "sha256": "4281157b6e2ceb5c2e55060e1a08761d8b692750ae626bec44f8d6db36fd573f",
+      "topic": "work"
+    },
+    {
+      "language": "ml",
+      "origin_git_blob_sha1": "fd441dfc9ac7c76214144d6db14252e7044727c9",
+      "origin_path": "data/agents/harvest/wikidata/ml/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch5/sources/ml/city.json",
+      "rows": 16,
+      "sha256": "af1eeb4f46a4ce2d4f6666a609e3a36b3db94ecd1782603e9386e2aed0a0ddf7",
+      "topic": "city"
+    },
+    {
+      "language": "pl",
+      "origin_git_blob_sha1": "4477a03f565b3e280eccfe255947019573e3a80f",
+      "origin_path": "data/agents/harvest/wikidata/pl/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch5/sources/pl/city.json",
+      "rows": 7,
+      "sha256": "92d3734cf795fc16009a57b134326d9d320029842b8bd91b58ddfb194d3a08a3",
+      "topic": "city"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "20aa4601b7d77de84c051d0c9f3995e64dcc0099",
+      "origin_path": "data/agents/harvest/wikidata/ru/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch5/sources/ru/work.json",
+      "rows": 3,
+      "sha256": "32663142f8e81206ef73fe67777fcf3199065535e2b679f63d08b14142837c2a",
+      "topic": "work"
+    },
+    {
+      "language": "sv",
+      "origin_git_blob_sha1": "667517c4f02686723fc56120ad41105f7c01e8d2",
+      "origin_path": "data/agents/harvest/wikidata/sv/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch5/sources/sv/city.json",
+      "rows": 4,
+      "sha256": "5d64556955af53e0fcb5c929fc6de4f69a9ba0cdd634095552b6b8b4e4014dfe",
+      "topic": "city"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}
