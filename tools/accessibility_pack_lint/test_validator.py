@@ -28,7 +28,7 @@ class TestAccessibilityValidator(unittest.TestCase):
         asset = self.load_fixture("unsupported_scripts.json")
         result = self.validator.validate_asset(asset)
         self.assertEqual(result["status"], "rejected")
-        self.assertIn("Missing script metadata", result["errors"])
+        self.assertIn("Unsupported script: InvalidScript", result["errors"])
 
     def test_mismatched_concept(self):
         asset = self.load_fixture("mismatched_concept.json")
@@ -152,6 +152,23 @@ class TestAccessibilityValidator(unittest.TestCase):
         result = self.validator.validate_asset(asset)
         self.assertEqual(result["status"], "rejected")
         self.assertIn("Malformed RTL/LTR direction metadata", result["errors"])
+
+
+    def test_duplicate_languages(self):
+        asset = self.load_fixture("valid_asset.json")
+        # create a duplicate label
+        dup_label = dict(asset["labels"][0])
+        asset["labels"].append(dup_label)
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Duplicate language alt-text: en", result["errors"])
+
+    def test_unsupported_language(self):
+        asset = self.load_fixture("valid_asset.json")
+        asset["labels"][0]["language"] = "InvalidLang"
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Unsupported language: InvalidLang", result["errors"])
 
 if __name__ == "__main__":
     unittest.main()
