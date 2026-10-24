@@ -88,6 +88,14 @@ def flatten(inventory):
             add("sense", sid, {"glosses": glosses, "concept_qids": concepts})
             counts["senses"] += 1
             counts["attested_concept_links"] += len(concepts)
+            # P5137 is an explicit source-attested sense-to-item assertion,
+            # not a directed translation or proof of a broader concept graph.
+            # Give each assertion its own stable row without cloning the sense.
+            for concept_qid in concepts:
+                add("concept_link", f"{sid}:P5137:{concept_qid}", {
+                    "sense_id": sid, "property_id": "P5137",
+                    "concept_qid": concept_qid,
+                })
         for form in forms:
             fid = form.get("form_id") if isinstance(form, dict) else None
             _require(isinstance(fid, str) and re.fullmatch(re.escape(lid) + r"-F[1-9][0-9]*", fid),

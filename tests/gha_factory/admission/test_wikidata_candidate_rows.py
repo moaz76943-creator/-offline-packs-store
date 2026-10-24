@@ -27,12 +27,12 @@ class ReviewRowsTests(unittest.TestCase):
     def test_actual_rows_and_language_counts(self):
         self.assertEqual(self.generated["summary"], {
             "lexemes": 3, "senses": 25, "forms": 40,
-            "attested_concept_links": 1, "actual_rows": 68,
+            "attested_concept_links": 1, "actual_rows": 69,
             "languages": ["ar", "de", "en"],
         })
-        self.assertEqual(len({r["row_id"] for r in self.generated["rows"]}), 68)
+        self.assertEqual(len({r["row_id"] for r in self.generated["rows"]}), 69)
         self.assertEqual({lang: sum(r["language"] == lang for r in self.generated["rows"])
-                          for lang in ("ar", "de", "en")}, {"ar": 5, "de": 38, "en": 25})
+                          for lang in ("ar", "de", "en")}, {"ar": 5, "de": 39, "en": 25})
 
     def test_no_fictitious_levels_topics_translations_or_publication(self):
         self.assertEqual(self.generated["status"], "REVIEW_REQUIRED")
@@ -57,6 +57,26 @@ class ReviewRowsTests(unittest.TestCase):
         self.assertEqual(len(forms), 40)
         self.assertTrue(all(isinstance(r["attested"]["grammatical_feature_qids"], list)
                             for r in forms))
+
+    def test_attested_concept_link_is_independent_not_translation(self):
+        links = [r for r in self.generated["rows"] if r["row_type"] == "concept_link"]
+        self.assertEqual(len(links), 1)
+        link = links[0]
+        self.assertEqual(link["row_id"], "L1026-S1:P5137:Q25443024")
+        self.assertEqual(link["attested"], {
+            "sense_id": "L1026-S1", "property_id": "P5137",
+            "concept_qid": "Q25443024",
+        })
+        self.assertIn(link["attested"]["sense_id"],
+                      {r["row_id"] for r in self.generated["rows"] if r["row_type"] == "sense"})
+        self.assertEqual(link["language"], "de")
+        self.assertEqual(link["source_artifact_sha256"],
+                         next(r["source_artifact_sha256"] for r in self.generated["rows"]
+                              if r["row_id"] == "L1026-S1"))
+        self.assertEqual(link["level"], "UNKNOWN")
+        self.assertIsNone(link["topic_id"])
+        self.assertIs(link["publication_approved"], False)
+        self.assertNotIn("translation", link)
 
     def test_modified_source_status_and_guessed_cefr_fail(self):
         bad = copy.deepcopy(self.inventory)

@@ -8,7 +8,7 @@
     "senses": 25,
     "forms": 40,
     "attested_concept_links": 1,
-    "actual_rows": 68,
+    "actual_rows": 69,
     "languages": [
       "ar",
       "de",
@@ -70,6 +70,31 @@
         "concept_qids": [
           "Q25443024"
         ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "concept_link",
+      "row_id": "L1026-S1:P5137:Q25443024",
+      "attested": {
+        "sense_id": "L1026-S1",
+        "property_id": "P5137",
+        "concept_qid": "Q25443024"
       }
     },
     {
