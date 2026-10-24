@@ -367,7 +367,7 @@ class GitHub:
         })
 
 
-def run():
+def _load_approved_items():
     approved = json.loads(INTEGRATION_CONFIG.read_text(encoding='utf-8'))
     if not isinstance(approved, dict) or approved.get('schema') != 1 or not isinstance(approved.get('prs'), list):
         raise ValueError('malformed integration approval registry')
@@ -376,6 +376,84 @@ def run():
         why = policy_error(item)
         if why:
             raise ValueError(f"authorization #{item.get('number')} invalid: {why}")
+    return items
+
+def _process_promote_only(gh, number, item, original_main):
+    if os.getenv('INTEGRATOR_APPLY') == 'true':
+        if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
+            print('HALT: SHA changed before promotion')
+            return 0
+        if authorization_expiry_error(item):
+            print('HALT: authorization expired before promotion')
+            return 0
+        gh.promote(number, item)
+        print(f'PROMOTED #{number}; stop until new review and checks complete')
+        return 0
+    return None
+
+def _has_independent_review(item, pr, rev):
+    latest_rev = {}
+    for idx, r in enumerate(rev):
+        if isinstance(r, dict):
+            login = (r.get('user') or {}).get('login')
+            sub = r.get('submitted_at')
+            k = (1, sub, idx) if isinstance(sub, str) and sub else (0, '', idx)
+            if login and (login not in latest_rev or k > latest_rev[login][0]):
+                latest_rev[login] = (k, r)
+    author = (pr.get('user') or {}).get('login')
+    return any(
+        login != author and login in latest_rev and
+        latest_rev[login][1].get('state') == 'APPROVED' and
+        latest_rev[login][1].get('commit_id') == item['head_sha']
+        for login in (item.get('reviewers') or [])
+    )
+
+def _process_verified_ready(gh, number, item, ordered, original_main, auth_parent, auth_only):
+
+    if os.getenv('INTEGRATOR_APPLY') != 'true':
+        print('DRY RUN ONLY; no merge')
+        return None
+    if gh.main_sha() != original_main:
+        print('HALT: main moved; do not merge')
+        return 0
+    p, c, rev, f, msg = gh.query_pr(number, item['head_sha'])
+    # Dependencies/exclusions must be re-read: preliminary results
+    # are not authorization for a later privileged transition.
+    fresh_related = {n: gh.related_pr(n) for n in
+                     set(item['dependencies'] + item['excludes'])}
+    fresh_main = gh.main_sha()
+    fresh, why = evaluate(item, p, c, rev, f, fresh_main, msg, fresh_related,
+                          authorization_parent=auth_parent, authorization_only=auth_only)
+    if fresh != 'VERIFIED_READY':
+        print(f'HALT: changed evidence {fresh} {why}')
+        return 0
+    overlap = authorized_file_conflicts(gh, item, f, ordered)
+    if overlap:
+        print(f'HALT: authorized file overlap changed before squash: {overlap}')
+        return 0
+    if gh.main_sha() != original_main:
+        print('HALT: main changed immediately before squash')
+        return 0
+
+    has_independent = _has_independent_review(item, p, rev)
+
+    if authorization_expiry_error(item):
+        print('HALT: authorization expired before squash')
+        return 0
+    try:
+        result = gh.squash(number, item['head_sha'], has_independent_review=has_independent)
+    except TypeError:
+        result = gh.squash(number, item['head_sha'])
+    if result.get('merged') is not True:
+        raise ValueError(f'GitHub did not confirm merge for #{number}')
+    new_head = gh.main_sha()
+    if new_head != result.get('sha'):
+        print(f'WARNING: external main movement after merge: {new_head}')
+    print(f'MERGED #{number} HEAD={new_head} GH_MERGE_SHA={result.get("sha")}')
+    return 0
+
+def run():
+    items = _load_approved_items()
     ordered = order_entries(items)
     gh = GitHub()
     original_main = gh.main_sha()
@@ -403,76 +481,18 @@ def run():
                     print(f'BLOCKED_PATH_CONFLICT #{number}: authorized open PRs {overlap} touch identical files')
                     continue
             if result == 'PROMOTE_ONLY':
-                if os.getenv('INTEGRATOR_APPLY') == 'true':
-                    if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
-                        print('HALT: SHA changed before promotion')
-                        return 0
-                    if authorization_expiry_error(item):
-                        print('HALT: authorization expired before promotion')
-                        return 0
-                    gh.promote(number, item)
-                    print(f'PROMOTED #{number}; stop until new review and checks complete')
-                    return 0
+                ret = _process_promote_only(gh, number, item, original_main)
+                if ret is not None:
+                    return ret
             elif result == 'VERIFIED_READY':
-                if os.getenv('INTEGRATOR_APPLY') != 'true':
-                    print('DRY RUN ONLY; no merge')
-                    continue
-                if gh.main_sha() != original_main:
-                    print('HALT: main moved; do not merge')
-                    return 0
-                p, c, rev, f, msg = gh.query_pr(number, item['head_sha'])
-                # Dependencies/exclusions must be re-read: preliminary results
-                # are not authorization for a later privileged transition.
-                fresh_related = {n: gh.related_pr(n) for n in
-                                 set(item['dependencies'] + item['excludes'])}
-                fresh_main = gh.main_sha()
-                fresh, why = evaluate(item, p, c, rev, f, fresh_main, msg, fresh_related,
-                                      authorization_parent=auth_parent, authorization_only=auth_only)
-                if fresh != 'VERIFIED_READY':
-                    print(f'HALT: changed evidence {fresh} {why}')
-                    return 0
-                overlap = authorized_file_conflicts(gh, item, f, ordered)
-                if overlap:
-                    print(f'HALT: authorized file overlap changed before squash: {overlap}')
-                    return 0
-                if gh.main_sha() != original_main:
-                    print('HALT: main changed immediately before squash')
-                    return 0
-                latest_rev = {}
-                for idx, r in enumerate(rev):
-                    if isinstance(r, dict):
-                        login = (r.get('user') or {}).get('login')
-                        sub = r.get('submitted_at')
-                        k = (1, sub, idx) if isinstance(sub, str) and sub else (0, '', idx)
-                        if login and (login not in latest_rev or k > latest_rev[login][0]):
-                            latest_rev[login] = (k, r)
-                author = (p.get('user') or {}).get('login')
-                has_independent = any(
-                    login != author and login in latest_rev and
-                    latest_rev[login][1].get('state') == 'APPROVED' and
-                    latest_rev[login][1].get('commit_id') == item['head_sha']
-                    for login in (item.get('reviewers') or [])
-                )
-                if authorization_expiry_error(item):
-                    print('HALT: authorization expired before squash')
-                    return 0
-                try:
-                    result = gh.squash(number, item['head_sha'], has_independent_review=has_independent)
-                except TypeError:
-                    result = gh.squash(number, item['head_sha'])
-                if result.get('merged') is not True:
-                    raise ValueError(f'GitHub did not confirm merge for #{number}')
-                new_head = gh.main_sha()
-                if new_head != result.get('sha'):
-                    print(f'WARNING: external main movement after merge: {new_head}')
-                print(f'MERGED #{number} HEAD={new_head} GH_MERGE_SHA={result.get("sha")}')
-                return 0
+                ret = _process_verified_ready(gh, number, item, ordered, original_main, auth_parent, auth_only)
+                if ret is not None:
+                    return ret
         except (urllib.error.HTTPError, urllib.error.URLError, ValueError, KeyError) as ex:
             print(f'BLOCKED #{number}: GitHub evidence unavailable: {ex}', file=sys.stderr)
             continue
     print('NO QUALIFIED MERGE; no repository files or pack bytes changed')
     return 0
-
 
 if __name__ == '__main__':
     try:
