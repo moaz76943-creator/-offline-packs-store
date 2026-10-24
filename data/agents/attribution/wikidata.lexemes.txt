@@ -1,6 +1,6 @@
 Title: wikidata.lexemes
 License: CC0-1.0
 Source: see catalog/organization/sources.v1.json
-Records: 195
+Records: 256
 Changes: bounded extract; no words invented; content-policy exclusions removed.
 This file is not the ledger. Root manifest release stays fail-closed.
