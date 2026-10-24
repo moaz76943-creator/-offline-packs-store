@@ -7,7 +7,7 @@ def validate_token(token):
     if not isinstance(token, dict):
         raise ValueError("Token must be a dictionary")
 
-    required_keys = {'concept_id', 'version', 'viewBox', 'paths', 'palette', 'semantic_label'}
+    required_keys = {'concept_id', 'version', 'viewBox', 'paths', 'palette', 'semantic_label', 'alt_text'}
     if not required_keys.issubset(token.keys()):
         missing = required_keys - token.keys()
         raise ValueError(f"Missing required token keys: {missing}")
@@ -46,27 +46,30 @@ def validate_token(token):
     if not isinstance(semantic_label, str) or not semantic_label or len(semantic_label) > 100:
         raise ValueError("semantic_label must be a string up to 100 characters")
 
+    alt_text = token['alt_text']
+    if not isinstance(alt_text, str) or not alt_text or len(alt_text) > 200:
+        raise ValueError("alt_text must be a string up to 200 characters")
+
     return True
 
 def validate_manifest(manifest):
-    """Synthetic geometry fixtures only. They carry no license and no source claim."""
+    """Validates real author, source, and strictly enforces CC0-1.0 license."""
     if not isinstance(manifest, dict):
         raise ValueError("Manifest must be a dictionary")
 
-    required_keys = {'concept_id', 'author', 'fixture_status'}
+    required_keys = {'concept_id', 'author', 'source', 'license'}
     if not required_keys.issubset(manifest.keys()):
         missing = required_keys - manifest.keys()
         raise ValueError(f"Missing required manifest keys: {missing}")
 
-    if manifest.get('fixture_status') != 'synthetic':
-        raise ValueError("only synthetic fixtures are accepted")
+    if manifest.get('license') != 'CC0-1.0':
+        raise ValueError("license must be CC0-1.0")
 
-    if 'license' in manifest or 'licence' in manifest:
-        raise ValueError("synthetic fixtures must not carry a license claim")
+    if 'fixture_status' in manifest and manifest['fixture_status'] == 'synthetic':
+        raise ValueError("synthetic fixtures are not allowed")
 
-    source = manifest.get('source')
-    if source is not None and source != 'synthetic-fixture':
-        raise ValueError("synthetic fixtures must not cite an external source")
+    if manifest.get('source') == 'synthetic-fixture':
+        raise ValueError("source must not be synthetic-fixture")
 
     for key in required_keys:
         if not isinstance(manifest[key], str) or not manifest[key]:
