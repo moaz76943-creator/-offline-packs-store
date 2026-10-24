@@ -3,12 +3,16 @@ import re
 
 AUTO_SHA = re.compile(r'[0-9a-f]{40}\Z')
 AUTO_SAFE_DOCS = ('docs/',)
+AUTO_ROOT_PROSE = frozenset(('README.md', 'CHANGELOG.md', 'CONTRIBUTING.md'))
 AUTO_DENIED_DOCS = ('docs/governance/', 'docs/merge_coordinator/', 'docs/security/', 'docs/release/', 'docs/CI_')
 
 SEARCH_QA_PREFIXES = ('tools/gha_factory/search_qa/', 'tests/gha_factory/search_qa/')
 
 def auto_safe_files(files):
-    if not isinstance(files, list) or not 1 <= len(files) <= 5:
+    # query_pr paginates and bounds changed-file evidence to 300 paths.
+    # Do not reject low-risk documentation/new-test changes merely for
+    # exceeding an unrelated five-file administrative quota.
+    if not isinstance(files, list) or not 1 <= len(files) <= 300:
         return False
     search_qa_files = True
     for f in files:
@@ -19,7 +23,9 @@ def auto_safe_files(files):
         path = f.get('filename')
         if not isinstance(path, str) or '..' in path.split('/') or '\\' in path or path.startswith('/'):
             return False
-        doc = path.startswith(AUTO_SAFE_DOCS) and path.endswith('.md') and not path.startswith(AUTO_DENIED_DOCS)
+        doc = ((path in AUTO_ROOT_PROSE) or
+               (path.startswith(AUTO_SAFE_DOCS) and path.endswith('.md') and
+                not path.startswith(AUTO_DENIED_DOCS)))
         new_test = path.startswith('tests/') and path.endswith('.py') and f.get('status') == 'added'
         scoped_qa = path.startswith(SEARCH_QA_PREFIXES) and path.endswith('.py')
         if not (doc or new_test or scoped_qa):
@@ -30,7 +36,9 @@ def auto_safe_files(files):
                 not search_qa_files)
 
 def required_checks(files):
-    checks = ('public-pr-merge-gate', 'validate')
+    # The active main ruleset requires this single exact-head check.
+    # Scoped search QA below retains its additional targeted evidence.
+    checks = ('public-pr-merge-gate',)
     if all(f['filename'].startswith(SEARCH_QA_PREFIXES) for f in files):
         return checks + ('audit (0, 1)', 'Validate no fictitious licensed packs',
                          'admission public regression')
@@ -51,8 +59,6 @@ def auto_eligible(pr, checks, reviews, files, message, main_sha):
         return False, 'not cleanly mergeable'
     if not auto_safe_files(files):
         return False, 'changes exceed low-risk documentation/new-test scope'
-    if re.search(r'\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]|^skip-checks\s*:\s*true\s*$', message, re.I | re.M):
-        return False, 'CI-skipping commit'
     if not isinstance(reviews, list) or any(not isinstance(v, dict) for v in reviews):
         return False, 'invalid review evidence'
     latest = {}

@@ -7,7 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from tools.agents.common import halted, load_json_tolerant, write_heartbeat, write_json
+from tools.agents.common import halted, load_json_tolerant, script_matches, write_heartbeat, write_json
 from tools.agents.ops import docs_check, performance_report, schema_guard, untested_modules
 from tools.agents.root_cause import open_recorded_issue, repair_update, signature_id
 from tools.agents.roster import ROSTER
@@ -100,7 +100,7 @@ def command_legal(_args):
     notices = {}
     evidence = ROOT / 'legal' / 'source_evidence'
     mapping = {
-        'wikidata.lexemes': None,
+        'wikidata.lexemes': evidence / 'wikidata-structured-cc0.txt',
         'kaikki.wiktextract': evidence / 'wiktionary-copyrights.txt',
         'tatoeba.sentences': evidence / 'tatoeba-terms.txt',
         'universal-dependencies': evidence / 'ud-english-ewt-license.txt',
@@ -140,11 +140,15 @@ def command_packs(_args):
     for language, group in sorted(by_language.items()):
         result = build_pack(group, _out(f'data/agents/packs/{language}.sqlite'))
         wrote += int(bool(result.get('wrote')))
-    warning = '' if wrote or not rows else 'rows were not traceable'
+    warning = ('LEGACY_CANDIDATE_ONLY: entries-only SQLite is not v2 or production'
+               if wrote else 'no new legacy candidate; no production packs')
     if not rows:
         warning = 'no harvested rows; root manifest was not modified'
-    write_heartbeat(_out('state/agents'), 'packs', 'ok', warning)
-    print(json.dumps({'packs': wrote, 'warning': warning}))
+    # An operationally completed agent is not a successful pack release.
+    write_heartbeat(_out('state/agents'), 'packs', 'degraded', warning)
+    print(json.dumps({'packs': wrote, 'candidate_packs': wrote,
+                      'production_packs': 0, 'production_status': 'LEGACY_CANDIDATE_ONLY',
+                      'warning': warning}))
     return 0
 
 
@@ -328,7 +332,7 @@ def command_harvest(args):
     if _halt(name):
         return 0
     from datetime import date
-    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexemes
+    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexeme_page
     languages = load_languages()['languages']
     by_qid = {row['wikidata']: row['id'] for row in languages if row.get('wikidata') and row.get('id')}
     profiles = {row['id']: row for row in load_profiles().get('languages') or []}
@@ -369,22 +373,51 @@ def command_harvest(args):
     retrieved = date.today().isoformat()
     grouped = {}
     skipped = []
+    source_errors = 0
+    outcomes = []
     if name == 'harvest-wikidata':
+        offsets = cursor.get('search_offsets', {})
+        valid_qids = {row.get('wikidata') for row in concept_rows(graph)}
+        if not isinstance(offsets, dict):
+            offsets = {}
+            cursor_warning = 'malformed Wikidata pagination checkpoint; restarted'
+        else:
+            cleaned = {qid: offset for qid, offset in offsets.items()
+                       if qid in valid_qids and type(offset) is int and 0 < offset <= 10000}
+            if len(cleaned) != len(offsets):
+                cursor_warning = 'stale or malformed Wikidata pagination entries; dropped'
+            offsets = cleaned
         for concept in concepts:
+            qid = concept['wikidata']
+            offset = offsets.get(qid, 0)
+            outcome = {'wikidata': concept.get('wikidata'), 'fetched_entities': 0,
+                       'accepted_rows': 0, 'rejected_entities': 0, 'search_offset': offset}
+            outcomes.append(outcome)
             try:
-                ids = search_lexemes(concept['wikidata'])
+                ids, next_offset = search_lexeme_page(qid, offset=offset)
                 entities = load_lexemes(ids)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
+                source_errors += 1
+                outcome['status'] = 'SOURCE_ERROR'
                 skipped.append({'wikidata': concept.get('wikidata'), 'reason': exc.__class__.__name__})
                 continue
+            outcome['fetched_entities'] = len(entities)
+            outcome['status'] = 'FETCHED' if entities else 'EMPTY_SEARCH'
             for entity in entities.values():
                 rows, reason = rows_from_lexeme(entity, concept, by_qid, profiles, retrieved)
                 if reason != 'keep':
-                    if reason in ('exclude', 'quarantine', 'placeholder'):
-                        skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
+                    outcome['rejected_entities'] += 1
+                    skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                     continue
+                outcome['accepted_rows'] += len(rows)
                 for row in rows:
                     grouped.setdefault((row['language'], row['section']), []).append(row)
+            # Commit the page cursor only after fetch and parsing succeed.
+            # A source error preserves its offset for the next concept rotation.
+            if next_offset:
+                offsets[qid] = next_offset
+            else:
+                offsets.pop(qid, None)
     elif name == 'harvest-kaikki':
         notice = (ROOT / 'legal' / 'source_evidence' / 'wiktionary-copyrights.txt').read_text(encoding='utf-8')
         try:
@@ -464,6 +497,7 @@ def command_harvest(args):
         relative = f'data/agents/harvest/{name.replace("harvest-", "")}/{language}/{section}.json'
         stored = ROOT / relative
         previous_rows = []
+        prior_quarantine = []
         if stored.exists():
             # Fail closed on a corrupt or mismatched checkpoint: never erase a
             # previously published window because it could not be decoded.
@@ -476,11 +510,25 @@ def command_harvest(args):
                     or not isinstance(previous.get('rows'), list)):
                 raise ValueError(f'invalid harvest checkpoint: {relative}')
             previous_rows = previous['rows']
+            if name == 'harvest-ud':
+                prior_quarantine = previous.get('quarantined_rows', [])
+                if (not isinstance(prior_quarantine, list)
+                        or len(prior_quarantine) > 1000
+                        or any(not isinstance(row, dict)
+                               or not isinstance(row.get('source_id'), str)
+                               or not row.get('source_id')
+                               or not isinstance(row.get('record_id'), str)
+                               or not row.get('record_id')
+                               for row in prior_quarantine)):
+                    raise ValueError(f'invalid UD quarantine checkpoint: {relative}')
 
         # A scheduled source window is incremental; files are snapshots.
         # Stable provenance keys prevent replay duplication without mixing
         # independent senses or directed concepts.
         accumulated = {}
+        quarantined = {
+            (row['source_id'], row['record_id']): row for row in prior_quarantine
+        }
         for row in [*previous_rows, *rows]:
             if (not isinstance(row, dict)
                     or row.get('language') != language
@@ -494,6 +542,15 @@ def command_harvest(args):
                 row['source_id'], row['record_id'],
                 row.get('sense_id') or '', row.get('concept_id') or '',
             )
+            if (name == 'harvest-ud'
+                    and not script_matches(
+                        row.get('text'), (profiles.get(language) or {}).get('script'))):
+                # Preserve the complete attested source record for audit while
+                # keeping non-linguistic separators out of QA and pack inputs.
+                quarantined[(row['source_id'], row['record_id'])] = row
+                if len(quarantined) > 1000:
+                    raise ValueError(f'UD quarantine limit exceeded: {relative}')
+                continue
             accumulated[identity] = row
         payload = {
             'schema_version': '1.0.0',
@@ -504,6 +561,10 @@ def command_harvest(args):
             'rows': list(accumulated.values()),
             'skipped': skipped,
         }
+        if name == 'harvest-ud':
+            payload['quarantined_rows'] = [
+                quarantined[key] for key in sorted(quarantined)
+            ]
         write_json(_out(relative), payload)
         wrote += 1
     if not grouped:
@@ -514,22 +575,31 @@ def command_harvest(args):
             'rows': [],
             'skipped': skipped,
             'concepts_attempted': [row.get('wikidata') or row.get('language') for row in concepts],
+            'outcomes': outcomes,
+        })
+    if name == 'harvest-wikidata':
+        write_json(_out(f'state/agents/{name}-report.json'), {
+            'schema_version': '1.0.0', 'source': name, 'retrieval_date': retrieved,
+            'outcomes': outcomes, 'source_errors': source_errors,
+            'accepted_rows': sum(item['accepted_rows'] for item in outcomes),
+            'production_publication': False,
         })
     # Advance only after bounded source processing finishes. The existing
     # checkpoint publisher writes the cursor to agents/data on each run.
     write_json(_out(cursor_path), {
         'schema_version': '1.0.0',
         'next_index': next_index,
+        **({'search_offsets': offsets} if name == 'harvest-wikidata' else {}),
     })
     warning_text = f'skipped {len(skipped)}' if skipped else ''
     if not wrote:
         warning_text = warning_text or 'no candidate rows; not production throughput'
     write_heartbeat(_out('state/agents'), name,
-                    'ok' if wrote else 'degraded', warning_text)
+                    'failed' if source_errors else ('ok' if wrote else 'degraded'), warning_text)
     warnings = [item for item in (warning, cursor_warning, window_warning) if item]
     print(json.dumps({'files': wrote, 'skipped': len(skipped),
                       'attempted_concepts': len(concepts), 'warning': '; '.join(warnings)}))
-    return 0
+    return 1 if source_errors else 0
 
 
 def command_watchdog(_args):

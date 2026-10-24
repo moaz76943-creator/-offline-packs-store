@@ -9,17 +9,18 @@ import uuid
 import time
 from pathlib import Path
 
-# Try importing OBLIGATIONS; fallback if not available
+# Keep module and direct-script entry points bound to the same canonical policy.
 try:
-    from legal.ledger.admission import OBLIGATIONS
+    from legal.ledger.admission import LICENSES, OBLIGATIONS
 except ImportError:
-    OBLIGATIONS = {
-        'CC-BY-SA-4.0': ('attribution', 'license_link', 'changes_disclosed',
-                         'sharealike', 'no_additional_restrictions'),
-        'GFDL-1.3-only': ('license_copy', 'copyright_notices', 'history',
-                          'invariant_sections_checked', 'cover_texts_checked',
-                          'transparent_copy_checked'),
-    }
+    import importlib.util
+    policy_path = Path(__file__).resolve().parents[2] / 'legal/ledger/admission.py'
+    spec = importlib.util.spec_from_file_location('_ingestion_ledger_policy', policy_path)
+    if spec is None or spec.loader is None:
+        raise ImportError('canonical ledger policy unavailable')
+    policy = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(policy)
+    LICENSES, OBLIGATIONS = policy.LICENSES, policy.OBLIGATIONS
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
@@ -130,9 +131,18 @@ def process(args):
             errors.append("MISSING_OUTPUT_LICENSE")
         if not src_license:
             errors.append("MISSING_SOURCE_LICENSE")
+        output_supported = isinstance(output_license, str) and output_license in LICENSES
+        source_supported = isinstance(src_license, str) and src_license in LICENSES
+        if output_license and not output_supported:
+            errors.append("UNSUPPORTED_OUTPUT_LICENSE")
+        if src_license and not source_supported:
+            errors.append("UNSUPPORTED_SOURCE_LICENSE")
+        if (src_license == 'CC-BY-2.0-FR'
+                and output_license != 'CC-BY-2.0-FR'):
+            errors.append("LICENSE_CONVERSION_REVIEW_REQUIRED")
 
-        if src_license and output_license:
-            # Simple compatibility check:
+        if source_supported and output_supported:
+            # Keep the enforced ledger's restriction on automatic conversion.
             if src_license == 'CC0-1.0' and output_license == 'PUBLIC-DOMAIN':
                 errors.append("LICENSE_CONFLICT")
             elif src_license in OBLIGATIONS and output_license != src_license:
@@ -150,7 +160,8 @@ def process(args):
         "source_id": source_id,
         "artifact_sha256": actual_hash,
         "source_license": src_license,
-        "destination": manifest_dict.get("destination", "unknown")
+        "destination": manifest_dict.get("destination", "unknown"),
+        "expires_at": int(time.time()) + 300
     }
 
     print(json.dumps(admission))

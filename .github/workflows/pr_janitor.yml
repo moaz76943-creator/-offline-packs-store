@@ -1,29 +1,39 @@
-# Labels blocked PRs on a schedule. Never merges: the incumbent
-# public_merge_coordinator is the single protected-main integration authority.
+# Two disjoint PR label scouts; PR tests now run inside the required merge gate.
+# the event-driven canonical coordinator alone merges PRs.
 name: PR blocker-label janitor
 
 on:
   schedule:
-    - cron: '17 1,7,13,19 * * *'
+    - cron: '17 */4 * * *'
   workflow_dispatch:
 
 permissions:
   contents: read
-  pull-requests: write
 
 concurrency:
-  group: pr-janitor
+  group: pr-janitor-scheduled
   cancel-in-progress: false
 
 jobs:
-  janitor:
+  scout:
+    if: github.event_name != 'pull_request'
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0, 1]
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
+          ref: main
           persist-credentials: false
-      - name: Label blockers without integrating pull requests
+      - name: Classify disjoint half of open PRs without merging
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python3 tools/pr_janitor.py
+          SHARD: ${{ matrix.shard }}
+        run: python3 tools/pr_janitor.py --shard-count 2 --shard-index "$SHARD"

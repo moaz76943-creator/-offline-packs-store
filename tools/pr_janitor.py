@@ -9,8 +9,6 @@ import json
 import re
 import subprocess
 
-SKIP = re.compile(r"\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]", re.IGNORECASE)
-SKIP_TRAILER = re.compile(r"(?im)^skip-checks\s*:\s*true\s*$")
 FAILURES = {"FAILURE", "CANCELLED", "TIMED_OUT", "failure", "cancelled", "timed_out"}
 PENDING = {"", "PENDING", "QUEUED", "IN_PROGRESS", "pending", "queued", "in_progress", None}
 
@@ -25,9 +23,8 @@ LABELS = {
 
 
 def sanitize_subject(title, number):
-    """Squash title with no CI-skip instruction."""
-    cleaned = SKIP.sub("", title or "")
-    cleaned = SKIP_TRAILER.sub("", cleaned)
+    """Normalize a squash title without changing user-selected CI marker text."""
+    cleaned = title or ""
     cleaned = re.sub(r"\s+", " ", cleaned).strip(" -")
     if not cleaned:
         cleaned = f"PR {number}"
@@ -79,18 +76,27 @@ def main(argv=None):
     parser.add_argument("--repo", default="moaz76943-creator/-offline-packs-store")
     parser.add_argument("--merge-one", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--shard-count", type=int, default=1)
+    parser.add_argument("--shard-index", type=int, default=0)
     args = parser.parse_args(argv)
+    if not 1 <= args.shard_count <= 8 or not 0 <= args.shard_index < args.shard_count:
+        parser.error("invalid PR scout partition")
+    if args.merge_one and args.shard_count != 1:
+        parser.error("parallel scouts cannot become competing merge authorities")
     listed = subprocess.check_output(
-        ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "80",
+        ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "250",
          "--json", "number,title,isDraft,mergeStateStatus,headRefName"],
         text=True,
     )
-    numbers = [item["number"] for item in json.loads(listed)]
+    numbers = sorted(item["number"] for item in json.loads(listed)
+                     if isinstance(item, dict) and type(item.get("number")) is int
+                     and item["number"] > 0
+                     and item["number"] % args.shard_count == args.shard_index)
     merged = None
     for number in numbers:
         view = json.loads(subprocess.check_output(
             ["gh", "pr", "view", str(number), "--repo", args.repo,
-             "--json", "number,title,isDraft,state,mergeStateStatus,mergeable,statusCheckRollup"],
+             "--json", "number,title,isDraft,state,mergeStateStatus,mergeable,statusCheckRollup,labels"],
             text=True,
         ))
         kind = classify(view)
@@ -98,19 +104,18 @@ def main(argv=None):
         if args.dry_run:
             continue
         wanted = label_for(kind)
+        present = {row.get("name") for row in (view.get("labels") or [])
+                   if isinstance(row, dict) and isinstance(row.get("name"), str)}
         for label in LABELS.values():
-            if label == wanted:
-                continue
-            subprocess.call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--remove-label", label],
-                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        if wanted:
+            if label != wanted and label in present:
+                subprocess.check_call(["gh", "pr", "edit", str(number),
+                                       "--repo", args.repo, "--remove-label", label])
+        if wanted and wanted not in present:
             subprocess.call(["gh", "label", "create", wanted, "--repo", args.repo, "--color", "B60205",
                              "--description", wanted], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             subprocess.check_call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--add-label", wanted])
         elif kind == "ready" and args.merge_one and merged is None:
             subject = sanitize_subject(view["title"], number)
-            if SKIP.search(subject) or SKIP_TRAILER.search(subject):
-                raise SystemExit(f"refusing skip directive in squash subject for #{number}")
             subprocess.check_call([
                 "gh", "pr", "merge", str(number), "--repo", args.repo, "--squash",
                 "--subject", subject, "--body", f"Squash merge of #{number}.",

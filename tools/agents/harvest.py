@@ -18,6 +18,20 @@ class SourceSkip(Exception):
     pass
 
 
+class SourceAPIError(ValueError):
+    """A failed or malformed upstream response, never evidence of an empty source."""
+
+
+def _wikidata_payload(payload):
+    if not isinstance(payload, dict):
+        raise SourceAPIError('malformed Wikidata response')
+    if 'error' in payload:
+        error = payload['error']
+        code = error.get('code', 'unknown') if isinstance(error, dict) else 'unknown'
+        raise SourceAPIError(f'Wikidata API error: {code}')
+    return payload
+
+
 def fetch_bytes(url, timeout=30, max_bytes=200000):
     request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
     with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -100,23 +114,48 @@ def rows_from_lexeme(entity, concept, language_by_qid, profiles, retrieved):
     }], 'keep'
 
 
-def search_lexemes(qid, fetch=fetch_json, limit=8):
+def search_lexeme_page(qid, fetch=fetch_json, limit=8, offset=0):
+    """Fetch one bounded page and return the upstream continuation, or zero at EOF."""
+    if type(offset) is not int or not 0 <= offset <= 10000:
+        raise SourceAPIError('invalid Wikidata search offset')
     query = urllib.parse.urlencode({
         'action': 'query',
         'list': 'search',
         'srsearch': f'haswbstatement:P5137={qid}',
         'srnamespace': '146',
         'srlimit': str(limit),
+        'sroffset': str(offset),
+        # Relevance changes when an existing lexeme is edited. Creation order
+        # keeps new lexemes at the tail across bounded scheduled pages.
+        'srsort': 'create_timestamp_asc',
         'format': 'json',
     })
-    payload = fetch('https://www.wikidata.org/w/api.php?' + query)
-    hits = ((payload.get('query') or {}).get('search') or [])
+    payload = _wikidata_payload(fetch('https://www.wikidata.org/w/api.php?' + query))
+    result = payload.get('query')
+    if not isinstance(result, dict) or not isinstance(result.get('search'), list):
+        raise SourceAPIError('missing Wikidata search results')
+    hits = result['search']
     ids = []
     for hit in hits:
-        title = hit.get('title') or ''
-        if title.startswith('Lexeme:'):
-            ids.append(title.split(':', 1)[1])
-    return ids
+        title = hit.get('title') if isinstance(hit, dict) else None
+        if (not isinstance(title, str) or not title.startswith('Lexeme:L')
+                or not title[8:].isascii() or not title[8:].isdigit()):
+            raise SourceAPIError('malformed Wikidata lexeme search hit')
+        ids.append(title.split(':', 1)[1])
+    continuation = payload.get('continue', {})
+    if (not isinstance(continuation, dict)
+            or ('continue' in payload and 'sroffset' not in continuation)):
+        raise SourceAPIError('malformed Wikidata search continuation')
+    next_offset = continuation.get('sroffset', 0)
+    if (type(next_offset) is not int or not 0 <= next_offset <= 10000
+            or ('continue' in payload and next_offset <= offset)):
+        raise SourceAPIError('nonadvancing Wikidata search continuation')
+    return ids, next_offset
+
+
+def search_lexemes(qid, fetch=fetch_json, limit=8):
+    """Compatibility adapter for callers requesting only the first bounded page."""
+    return search_lexeme_page(qid, fetch=fetch, limit=limit)[0]
 
 
 def load_lexemes(ids, fetch=fetch_json):
@@ -128,8 +167,13 @@ def load_lexemes(ids, fetch=fetch_json):
         'format': 'json',
         'formatversion': '2',
     })
-    payload = fetch('https://www.wikidata.org/w/api.php?' + query)
-    return payload.get('entities') or {}
+    payload = _wikidata_payload(fetch('https://www.wikidata.org/w/api.php?' + query))
+    entities = payload.get('entities')
+    if not isinstance(entities, dict) or not entities:
+        raise SourceAPIError('missing Wikidata entities')
+    if any(not isinstance(entity, dict) for entity in entities.values()):
+        raise SourceAPIError('malformed Wikidata entity')
+    return entities
 
 
 def tatoeba_sample(code, limit=12):
@@ -140,10 +184,14 @@ def tatoeba_sample(code, limit=12):
         f'{code}/{code}_sentences_detailed.tsv.bz2'
     )
     raw = fetch_bytes(url, timeout=40, max_bytes=1_500_000)
-    try:
-        text = bz2.decompress(raw).decode('utf-8', 'replace')
-    except OSError:
-        text = bz2.BZ2Decompressor().decompress(raw).decode('utf-8', 'replace')
+    # The download is intentionally capped: its BZip2 end marker may be
+    # outside the prefix. Incremental decompression accepts those prefixes
+    # without treating a normal bounded sample as corrupt.
+    decoder = bz2.BZ2Decompressor()
+    text = decoder.decompress(raw, max_length=2_000_000).decode('utf-8', 'replace')
+    # A non-final prefix can end mid-row; never publish that truncated row.
+    if not decoder.eof and not text.endswith('\n'):
+        text = text.rsplit('\n', 1)[0] if '\n' in text else ''
     rows = []
     for line in text.splitlines():
         parts = line.split('\t')
@@ -180,7 +228,7 @@ def ud_sample(limit=12):
             tokens = []
         elif line.startswith('# text = '):
             sentence = line.split('=', 1)[1].strip()
-            if sent_id and sentence and not is_placeholder(sentence):
+            if sent_id and sentence and not is_placeholder(sentence) and script_matches(sentence, 'Latn'):
                 rows.append({
                     'text': sentence,
                     'record_id': 'ud:en_ewt:' + sent_id,

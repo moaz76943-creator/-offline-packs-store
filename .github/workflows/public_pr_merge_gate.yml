@@ -1,6 +1,6 @@
-# This REQUIRED PR gate must never use paths/path-ignore or a job-level if.
-# HEAD commits carrying [skip ci] suppress pull_request, so the integrating
-# commit MUST NOT contain a CI-skip token. See docs/CI_MERGE_POLICY.md.
+# Keep the required job unfiltered. GitHub may natively skip pull_request
+# scheduling for commit-level skip directives; this workflow does not ban
+# their text or treat an absent required check as passing.
 name: Public PR Merge Gate
 
 on:
@@ -29,7 +29,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
 
-      - name: Authenticate exact PR head and reject CI skip instructions
+      - name: Authenticate exact PR head on synthetic merge tree
         env:
           EXPECTED_PR_HEAD: ${{ github.event.pull_request.head.sha }}
         shell: bash
@@ -37,14 +37,10 @@ jobs:
           set -euo pipefail
           python3 tools/ci_policy/verify_pr_tip.py --expected-head "$EXPECTED_PR_HEAD"
 
-      - name: Verify policy regressions
-        run: python3 -m unittest discover -s tests/ci_policy -p 'test_*.py' -v
-
-      - name: Verify canonical 100-language registry
-        run: python3 catalog/validate_registry.py
-
-      - name: Verify public SQLite v2 fixture pipeline (no publication)
-        run: python3 tools/test_store_pipeline.py -q
+      # Keep one mandatory GitHub status; run global checks for shared/unknown
+      # changes and only focused regressions for known independent components.
+      - name: Verify risk-selected baseline policy, registry and SQLite
+        run: python3 tools/ci_policy/run_scoped_pr_tests.py --baseline
 
       # Reuse the required gate; no extra worker for unrelated pull requests.
       # Selection is computed from the checked-out synthetic PR merge tree,

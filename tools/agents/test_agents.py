@@ -235,6 +235,32 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(duplicated['warnings'],
                          ['wikidata.lexemes: notice not loaded'])
 
+    def test_official_wikidata_cc0_notice_is_source_scoped_and_fail_closed(self):
+        """Official Wikidata structured-data notice never approves other texts."""
+        from tools.open_sources.assess import positive_match
+        notice_path = ROOT / 'legal/source_evidence/wikidata-structured-cc0.txt'
+        notice = notice_path.read_text(encoding='utf-8')
+        self.assertIn('https://www.wikidata.org/wiki/Wikidata:Copyright', notice)
+        self.assertIn('Lexeme', notice)
+        self.assertIn('CC0-1.0', notice)
+        self.assertTrue(positive_match(notice, 'CC0-1.0')[0])
+        self.assertFalse(positive_match(notice, 'CC-BY-SA-4.0')[0])
+        accepted = legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC0-1.0'},
+        ], {'wikidata.lexemes': notice})
+        self.assertEqual(accepted['problems'], [])
+        self.assertEqual(accepted['warnings'], [])
+        # Missing evidence remains degraded and unknown licenses stay blocked.
+        self.assertEqual(legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC0-1.0'}], {})['warnings'],
+                         ['wikidata.lexemes: notice not loaded'])
+        self.assertTrue(legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC-BY-SA-4.0'}],
+            {'wikidata.lexemes': notice})['problems'])
+
     def test_janitor_cleanup_and_repair_do_not_force_or_touch_main(self):
         green = {
             'branch': 'cursor/example-cf19',
@@ -295,6 +321,22 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
 
+    def test_wikidata_api_errors_and_malformed_payloads_are_not_empty_sources(self):
+        from tools.agents.harvest import search_lexemes, load_lexemes
+        for payload in ({'error': {'code': 'maxlag', 'info': 'Waiting for replica'}},
+                        {}, {'query': {'search': None}},
+                        {'query': {'search': [{'title': 'not-a-lexeme'}]}}, []):
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                search_lexemes('Q144', fetch=lambda _url: payload)
+        for payload in ({'error': {'code': 'badvalue'}}, {}, {'entities': []}):
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                load_lexemes(['L1'], fetch=lambda _url: payload)
+        self.assertEqual(search_lexemes('Q144', fetch=lambda _url: {
+            'query': {'search': []}}), [])
+        self.assertEqual(search_lexemes('Q144', fetch=lambda _url: {
+            'query': {'search': [{'title': 'Lexeme:L34727'}]}}), ['L34727'])
+        self.assertEqual(load_lexemes([], fetch=lambda _url: self.fail('empty request')), {})
+
     def test_wikidata_harvest_rotates_attested_concepts_between_runs(self):
         """Two scheduled harvests must not retry the same first concepts."""
         import argparse
@@ -321,9 +363,9 @@ class ContractTests(unittest.TestCase):
             }]}
             attempted = []
 
-            def observed_query(qid):
+            def observed_query(qid, **_kwargs):
                 attempted.append(qid)
-                return []
+                return [], 0
 
             with (mock.patch.object(agent_cli, 'ROOT', root),
                   mock.patch.object(agent_cli, 'OUT', root / 'output'),
@@ -332,7 +374,7 @@ class ContractTests(unittest.TestCase):
                       'languages': [{'id': 'de', 'wikidata': 'Q188'}]}),
                   mock.patch.object(agent_cli, 'load_profiles', return_value={
                       'languages': [{'id': 'de', 'script': 'Latn'}]}),
-                  mock.patch.object(source, 'search_lexemes', side_effect=observed_query),
+                  mock.patch.object(source, 'search_lexeme_page', side_effect=observed_query),
                   mock.patch.object(source, 'load_lexemes', return_value={}),
                   mock.patch.dict(os.environ, {'AGENTS_HALT': '',
                                                'LANGUAGE_PRODUCTION_HALT': ''})):
@@ -352,6 +394,88 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(json.loads(cursor.read_text())['next_index'], 0)
             self.assertFalse(list((root / 'output/data/agents/packs').glob('*.sqlite'))
                              if (root / 'output/data/agents/packs').exists() else [])
+
+    def test_wikidata_pagination_checkpoint_resumes_and_preserves_failed_page(self):
+        import argparse
+        import shutil
+        import urllib.parse
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.cat', 'concepts': [{'id': 'concept.cat', 'wikidata': 'Q146'}],
+        }]}]}
+        requested = []
+        fail_page = [True]
+        def api(url):
+            query = urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)
+            self.assertEqual(query['srsort'], ['create_timestamp_asc'])
+            offset = int(query['sroffset'][0])
+            requested.append(offset)
+            if offset == 16 and fail_page[0]:
+                fail_page[0] = False
+                raise OSError('interrupted')
+            if offset == 16:
+                return {'query': {'search': []}}
+            return {'query': {'search': [{'title': 'Lexeme:L' + str(offset + 1)}]},
+                    'continue': {'sroffset': offset + 8}}
+        search = harvest.search_lexeme_page
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / 'state/agents'
+            state.mkdir(parents=True)
+            (state / 'harvest-wikidata-cursor.json').write_text(json.dumps({
+                'schema_version': '1.0.0', 'next_index': 0,
+                'search_offsets': {'Q146': 'invalid', 'Q999': 8},
+            }))
+            with (mock.patch.object(cli, 'ROOT', root),
+                  mock.patch.object(cli, 'OUT', root / 'out'),
+                  mock.patch.object(cli, 'load_graph', return_value=graph),
+                  mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                  mock.patch.object(cli, '_halt', return_value=False),
+                  mock.patch.object(harvest, 'search_lexeme_page', side_effect=lambda q, **kw: search(q, fetch=api, **kw)),
+                  mock.patch.object(harvest, 'load_lexemes', side_effect=lambda ids: {x: {} for x in ids}),
+                  mock.patch.object(harvest, 'rows_from_lexeme', return_value=([], 'other_language'))):
+                for code, next_offset in [(0, 8), (0, 16), (1, 16), (0, 0), (0, 8)]:
+                    self.assertEqual(cli.command_harvest(argparse.Namespace(name='harvest-wikidata')), code)
+                    cursor = root / 'out/state/agents/harvest-wikidata-cursor.json'
+                    saved = json.loads(cursor.read_text())
+                    self.assertEqual(saved['search_offsets'].get('Q146', 0), next_offset)
+                    self.assertNotIn('Q999', saved['search_offsets'])
+                    shutil.copyfile(cursor, state / cursor.name)
+        self.assertEqual(requested, [0, 8, 16, 16, 0])
+        for continuation in ({'sroffset': 8}, {'sroffset': -1}, {'sroffset': True},
+                             {'sroffset': 0}, {}, {'continue': '-||'}, []):
+            with self.subTest(continuation=continuation), self.assertRaises(ValueError):
+                search('Q146', offset=8, fetch=lambda _url: {
+                    'query': {'search': []}, 'continue': continuation})
+
+    def test_wikidata_source_failure_is_not_successful_empty_harvest(self):
+        import argparse
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.cat', 'concepts': [{'id': 'concept.cat', 'wikidata': 'Q146'}],
+        }]}]}
+        for error in (OSError('network unavailable'),
+                      harvest.SourceAPIError('Wikidata API error: maxlag')):
+            with self.subTest(error=type(error).__name__), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                with (mock.patch.object(cli, 'ROOT', root),
+                      mock.patch.object(cli, 'OUT', root / 'out'),
+                      mock.patch.object(cli, 'load_graph', return_value=graph),
+                      mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                      mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                      mock.patch.object(cli, '_halt', return_value=False),
+                      mock.patch.object(harvest, 'search_lexeme_page', side_effect=error)):
+                    self.assertEqual(cli.command_harvest(
+                        argparse.Namespace(name='harvest-wikidata')), 1)
+                report = json.loads((root / 'out/state/agents/harvest-wikidata-report.json').read_text())
+                self.assertEqual(report['source_errors'], 1)
+                self.assertEqual(report['accepted_rows'], 0)
+                self.assertEqual(report['outcomes'][0]['status'], 'SOURCE_ERROR')
+                heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
+                self.assertEqual(heartbeat['status'], 'failed')
 
     def test_harvest_preserves_previous_verified_concepts_across_windows(self):
         """Real checkpoint publication must not clobber earlier language rows."""
@@ -401,7 +525,7 @@ class ContractTests(unittest.TestCase):
                       'languages': [{'id': 'de', 'wikidata': 'Q188'}]}),
                   mock.patch.object(agent_cli, 'load_profiles', return_value={
                       'languages': [{'id': 'de', 'script': 'Latn'}]}),
-                  mock.patch.object(source, 'search_lexemes', side_effect=lambda q: [q]),
+                  mock.patch.object(source, 'search_lexeme_page', side_effect=lambda q, **_kwargs: ([q], 0)),
                   mock.patch.object(source, 'load_lexemes',
                                     side_effect=lambda ids: {x: {'id': x} for x in ids}),
                   mock.patch.object(source, 'rows_from_lexeme', side_effect=synthetic_row),
@@ -447,6 +571,32 @@ class ContractTests(unittest.TestCase):
             heartbeat = json.loads((root/'output/state/agents/watchdog.json').read_text())
             self.assertEqual(heartbeat['status'], 'degraded')
             self.assertIn('degraded=2', heartbeat['warning'])
+
+    def test_tatoeba_truncated_bzip2_prefix_keeps_only_complete_attributed_rows(self):
+        """Bounded downloads are valid BZip2 prefixes, not finished streams."""
+        import bz2
+        from unittest import mock
+        from tools.agents import harvest as source
+
+        tsv = (
+            '100\ttur\tMerhaba.\tAuthor 1\n'
+            '101\ttur\tNeredesin?\tAuthor 2\n'
+            '102\ttur\tNo author\t\n'
+        ).encode('utf-8')
+        compressed = bz2.compress(tsv)
+        # The on-wire 1.5 MB sample can end before the stream's end marker.
+        prefix = compressed[:-5]
+        with mock.patch.object(source, 'fetch_bytes', return_value=prefix):
+            rows = source.tatoeba_sample('tur', limit=10)
+        self.assertEqual([row['record_id'] for row in rows],
+                         ['tatoeba:100', 'tatoeba:101'])
+        self.assertEqual([row['author'] for row in rows],
+                         ['Author 1', 'Author 2'])
+        self.assertEqual(rows[1]['sentence_slot'], 'sentence.question')
+
+        with mock.patch.object(source, 'fetch_bytes', return_value=compressed):
+            complete = source.tatoeba_sample('tur', limit=10)
+        self.assertEqual(complete, rows)
 
     def test_tatoeba_harvest_rotates_supported_real_language_codes(self):
         import argparse
@@ -667,10 +817,78 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(len(calls), 2)
         root = Path(__file__).resolve().parents[2]
         workflow = (root / '.github/workflows/agent_tests.yml').read_text(encoding='utf-8')
-        self.assertIn('python3 -m unittest tools.agents.test_agents -q', workflow)
+        self.assertIn("python3 -m unittest discover -s tools/agents -p 'test_*.py' -q", workflow)
         self.assertNotIn('legal.ledger.test_license_notice', workflow)
         publish = (root / 'tools/agents/publish.sh').read_text(encoding='utf-8')
         self.assertNotIn('while', publish)
+
+
+    def test_ud_scriptless_sentence_dropped_and_old_row_quarantined(self):
+        """Reject non-language separators without deleting their provenance."""
+        import argparse
+        from unittest import mock
+        from tools.agents import cli as agent_cli, harvest
+
+        sample = (
+            '# sent_id = valid-one\n'
+            '# text = An English sentence.\n'
+            '# sent_id = invalid-two\n'
+            '# text = ***\n'
+        ).encode('utf-8')
+        with mock.patch.object(harvest, 'fetch_bytes', return_value=sample):
+            records = harvest.ud_sample(limit=12)
+        self.assertEqual([row['record_id'] for row in records], ['ud:en_ewt:valid-one'])
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            prior = root / 'data/agents/harvest/ud/en/grammar.json'
+            prior.parent.mkdir(parents=True)
+            bad = {
+                'language': 'en', 'section': 'grammar',
+                'text': '***', 'source_id': 'universal-dependencies',
+                'record_id': 'ud:en_ewt:invalid-two',
+                'license_id': 'CC-BY-SA-4.0', 'retrieval_date': '2026-10-20',
+            }
+            previous = {
+                'schema_version': '1.0.0', 'source': 'harvest-ud',
+                'language': 'en', 'section': 'grammar', 'rows': [bad],
+            }
+            prior.write_text(json.dumps(previous), encoding='utf-8')
+            evidence = root / 'legal/source_evidence/ud-english-ewt-license.txt'
+            evidence.parent.mkdir(parents=True)
+            evidence.write_text('fixture notice', encoding='utf-8')
+            args = argparse.Namespace(name='harvest-ud')
+            patches = (
+                mock.patch.object(agent_cli, 'ROOT', root),
+                mock.patch.object(agent_cli, 'OUT', root / 'out'),
+                mock.patch.object(agent_cli, 'load_languages', return_value={'languages': []}),
+                mock.patch.object(agent_cli, 'load_profiles', return_value={
+                    'languages': [{'id': 'en', 'script': 'Latn'}]}),
+                mock.patch.object(agent_cli, 'load_graph', return_value={'sections': []}),
+                mock.patch.object(agent_cli, 'concept_rows', return_value=[]),
+                mock.patch.object(agent_cli, 'next_window', return_value=([], 0, '')),
+                mock.patch.object(harvest, 'accept_notice', return_value=True),
+                mock.patch.object(harvest, 'ud_sample', return_value=[{
+                    'text': 'An English sentence.', 'record_id': 'ud:en_ewt:valid-one',
+                    'sentence_slot': 'sentence.statement'}]),
+            )
+            with patches[0], patches[1], patches[2], patches[3], patches[4], \
+                    patches[5], patches[6], patches[7], patches[8]:
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            saved = json.loads((root / 'out/data/agents/harvest/ud/en/grammar.json').read_text())
+            self.assertEqual([row['record_id'] for row in saved['rows']],
+                             ['ud:en_ewt:valid-one'])
+            self.assertEqual(saved['quarantined_rows'], [bad])
+            # A second scheduled run must keep audit evidence and must not
+            # restore the bad row or duplicate accepted source identities.
+            prior.write_text(json.dumps(saved), encoding='utf-8')
+            with patches[0], patches[1], patches[2], patches[3], patches[4], \
+                    patches[5], patches[6], patches[7], patches[8]:
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            repeated = json.loads(
+                (root / 'out/data/agents/harvest/ud/en/grammar.json').read_text())
+            self.assertEqual(repeated['rows'], saved['rows'])
+            self.assertEqual(repeated['quarantined_rows'], [bad])
 
 
 # The existing agent CI command also runs real-git checkpoint regressions.
