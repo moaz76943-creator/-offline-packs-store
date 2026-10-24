@@ -7,7 +7,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "am": {
       "lang_code": "am",
@@ -16,7 +16,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ar": {
       "lang_code": "ar",
@@ -25,7 +25,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "as": {
       "lang_code": "as",
@@ -34,7 +34,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "az": {
       "lang_code": "az",
@@ -43,7 +43,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ba": {
       "lang_code": "ba",
@@ -52,7 +52,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "be": {
       "lang_code": "be",
@@ -61,7 +61,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "bg": {
       "lang_code": "bg",
@@ -70,7 +70,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "bn": {
       "lang_code": "bn",
@@ -79,7 +79,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "br": {
       "lang_code": "br",
@@ -88,7 +88,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "bs": {
       "lang_code": "bs",
@@ -97,7 +97,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ca": {
       "lang_code": "ca",
@@ -106,7 +106,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "cs": {
       "lang_code": "cs",
@@ -115,7 +115,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "cy": {
       "lang_code": "cy",
@@ -124,7 +124,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "da": {
       "lang_code": "da",
@@ -133,7 +133,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "de": {
       "lang_code": "de",
@@ -142,7 +142,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "dv": {
       "lang_code": "dv",
@@ -151,7 +151,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "el": {
       "lang_code": "el",
@@ -160,7 +160,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "en": {
       "lang_code": "en",
@@ -169,7 +169,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "eo": {
       "lang_code": "eo",
@@ -178,7 +178,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "es": {
       "lang_code": "es",
@@ -187,7 +187,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "et": {
       "lang_code": "et",
@@ -196,7 +196,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "eu": {
       "lang_code": "eu",
@@ -205,7 +205,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "fa": {
       "lang_code": "fa",
@@ -214,7 +214,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "fi": {
       "lang_code": "fi",
@@ -223,7 +223,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "fo": {
       "lang_code": "fo",
@@ -232,7 +232,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "fr": {
       "lang_code": "fr",
@@ -241,7 +241,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "fy": {
       "lang_code": "fy",
@@ -250,7 +250,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ga": {
       "lang_code": "ga",
@@ -259,7 +259,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "gd": {
       "lang_code": "gd",
@@ -268,7 +268,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "gl": {
       "lang_code": "gl",
@@ -277,7 +277,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "gu": {
       "lang_code": "gu",
@@ -286,7 +286,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ha": {
       "lang_code": "ha",
@@ -295,7 +295,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "hi": {
       "lang_code": "hi",
@@ -304,7 +304,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "hr": {
       "lang_code": "hr",
@@ -313,7 +313,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "hu": {
       "lang_code": "hu",
@@ -322,7 +322,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "hy": {
       "lang_code": "hy",
@@ -331,7 +331,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "id": {
       "lang_code": "id",
@@ -340,7 +340,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ig": {
       "lang_code": "ig",
@@ -349,7 +349,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "is": {
       "lang_code": "is",
@@ -358,7 +358,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "it": {
       "lang_code": "it",
@@ -367,7 +367,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ja": {
       "lang_code": "ja",
@@ -376,7 +376,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ka": {
       "lang_code": "ka",
@@ -385,7 +385,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "kk": {
       "lang_code": "kk",
@@ -394,7 +394,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "km": {
       "lang_code": "km",
@@ -403,7 +403,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "kn": {
       "lang_code": "kn",
@@ -412,7 +412,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ko": {
       "lang_code": "ko",
@@ -421,7 +421,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ku": {
       "lang_code": "ku",
@@ -430,7 +430,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ky": {
       "lang_code": "ky",
@@ -439,7 +439,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "la": {
       "lang_code": "la",
@@ -448,7 +448,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "lb": {
       "lang_code": "lb",
@@ -457,7 +457,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "lo": {
       "lang_code": "lo",
@@ -466,7 +466,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "lt": {
       "lang_code": "lt",
@@ -475,7 +475,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "lv": {
       "lang_code": "lv",
@@ -484,7 +484,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "mg": {
       "lang_code": "mg",
@@ -493,7 +493,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "mk": {
       "lang_code": "mk",
@@ -502,7 +502,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ml": {
       "lang_code": "ml",
@@ -511,7 +511,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "mn": {
       "lang_code": "mn",
@@ -520,7 +520,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "mr": {
       "lang_code": "mr",
@@ -529,7 +529,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ms": {
       "lang_code": "ms",
@@ -538,7 +538,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "mt": {
       "lang_code": "mt",
@@ -547,7 +547,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "my": {
       "lang_code": "my",
@@ -556,7 +556,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ne": {
       "lang_code": "ne",
@@ -565,7 +565,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "nl": {
       "lang_code": "nl",
@@ -574,7 +574,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "no": {
       "lang_code": "no",
@@ -583,7 +583,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "or": {
       "lang_code": "or",
@@ -592,7 +592,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "pa": {
       "lang_code": "pa",
@@ -601,7 +601,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "pl": {
       "lang_code": "pl",
@@ -610,7 +610,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ps": {
       "lang_code": "ps",
@@ -619,7 +619,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "pt": {
       "lang_code": "pt",
@@ -628,7 +628,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ro": {
       "lang_code": "ro",
@@ -637,7 +637,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ru": {
       "lang_code": "ru",
@@ -646,7 +646,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "rw": {
       "lang_code": "rw",
@@ -655,7 +655,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "sd": {
       "lang_code": "sd",
@@ -664,7 +664,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "si": {
       "lang_code": "si",
@@ -673,7 +673,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "sk": {
       "lang_code": "sk",
@@ -682,7 +682,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "sl": {
       "lang_code": "sl",
@@ -691,7 +691,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "sn": {
       "lang_code": "sn",
@@ -700,7 +700,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "so": {
       "lang_code": "so",
@@ -709,7 +709,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "sq": {
       "lang_code": "sq",
@@ -718,7 +718,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "sr": {
       "lang_code": "sr",
@@ -727,7 +727,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "sv": {
       "lang_code": "sv",
@@ -736,7 +736,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "sw": {
       "lang_code": "sw",
@@ -745,7 +745,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ta": {
       "lang_code": "ta",
@@ -754,7 +754,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "te": {
       "lang_code": "te",
@@ -763,7 +763,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "tg": {
       "lang_code": "tg",
@@ -772,7 +772,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "th": {
       "lang_code": "th",
@@ -781,7 +781,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "tk": {
       "lang_code": "tk",
@@ -790,7 +790,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "tl": {
       "lang_code": "tl",
@@ -799,7 +799,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "tr": {
       "lang_code": "tr",
@@ -808,7 +808,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "tt": {
       "lang_code": "tt",
@@ -817,7 +817,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ug": {
       "lang_code": "ug",
@@ -826,7 +826,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "uk": {
       "lang_code": "uk",
@@ -835,7 +835,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "ur": {
       "lang_code": "ur",
@@ -844,7 +844,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "uz": {
       "lang_code": "uz",
@@ -853,7 +853,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "vi": {
       "lang_code": "vi",
@@ -862,7 +862,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "xh": {
       "lang_code": "xh",
@@ -871,7 +871,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "yo": {
       "lang_code": "yo",
@@ -880,7 +880,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "zh": {
       "lang_code": "zh",
@@ -889,7 +889,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     },
     "zu": {
       "lang_code": "zu",
@@ -898,7 +898,7 @@
         "No pack for this language in manifest.packs.",
         "No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs."
       ],
-      "status": "BLOCKED_DEPENDENCY"
+      "status": "metadataOnly"
     }
   },
   "readiness_rule": "releaseReady requires a manifest.packs entry whose source provenance matches an APPROVED_FOR_REDISTRIBUTION ledger source and whose path exists with a matching sha256",
