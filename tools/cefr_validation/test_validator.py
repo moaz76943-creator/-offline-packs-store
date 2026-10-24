@@ -112,7 +112,7 @@ class CEFRValidatorTest(unittest.TestCase):
         # But for conflicts we actually did set `_resolution` in the code, let's just check the wrapper reason here
         # or we can verify that the rejected item has "conflicting" somewhere.
         # Since original_record is returned we won't see _resolution on it, but the reason has it.
-        pass
+
 
     def test_preserves_independent_sources_without_conflict(self):
         # A1 and A2 for the same word is not a "substantial" conflict
@@ -132,7 +132,36 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        # We need a source_attested valid record. We bypass static framework limits
+        # by manually adding a valid source to the catalog sources for testing.
+        self.validator.catalog.sources["TEST-CORPUS"] = {
+            "version": "1.0",
+            "url": "https://test.com",
+            "scope": "content_classification",
+            "sha256": "abcdef"
+        }
+
+        evidence = [{
+            "source_id": "TEST-CORPUS",
+            "source_version": "1.0",
+            "source_url": "https://test.com",
+            "locator": "id-1",
+            "method": "published_content_assignment",
+            "reviewer_id": "auto"
+        }]
+
+        # 'en' supports CEFR corpora
+        rec_en = self.create_record("word-en", "en", "source_attested", "CEFR", "B1", evidence)
+
+        # 'zh' does not support CEFR corpora in the registry
+        rec_zh = self.create_record("word-zh", "zh", "source_attested", "CEFR", "B1", evidence)
+
+        accepted, rejected = self.validator.process_dataset([rec_en, rec_zh])
+
+        self.assertEqual(len(accepted), 1)
+        self.assertEqual(len(rejected), 1)
+        self.assertEqual(accepted[0]["language"], "en")
+        self.assertIn("lacks certified CEFR corpora", rejected[0]["reason"])
 
 if __name__ == '__main__':
     unittest.main()
