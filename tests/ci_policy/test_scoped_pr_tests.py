@@ -86,6 +86,35 @@ class ScopedTestSelectionTests(unittest.TestCase):
                                     ".github/workflows/validate_json.yml"]),
             ("policy", "coordinator", "json_security"))
 
+    def test_advisory_janitor_uses_one_required_gate_with_focused_tests(self):
+        for path in ("tools/pr_janitor.py", "tools/test_pr_janitor.py",
+                     ".github/workflows/pr_janitor.yml"):
+            self.assertEqual(select_baseline_checks([path]), ("janitor",))
+        self.assertEqual(
+            select_baseline_checks(["tools/pr_janitor.py",
+                                    ".github/workflows/public_merge_coordinator.yml"]),
+            ("coordinator", "janitor"))
+        self.assertEqual(
+            select_baseline_checks([".github/workflows/pr_janitor.yml",
+                                    "tools/ci_policy/run_scoped_pr_tests.py"]),
+            ("policy", "janitor"))
+
+    def test_janitor_changes_do_not_bypass_shared_safety_baseline(self):
+        self.assertEqual(
+            select_baseline_checks(["tools/pr_janitor.py", "legal/ledger/sources.json"]),
+            ("policy", "registry", "sqlite"))
+
+    def test_advisory_scout_has_no_separate_pr_verification_runner(self):
+        from pathlib import Path
+        source = (Path(__file__).resolve().parents[2] /
+                  ".github/workflows/pr_janitor.yml").read_text(encoding="utf-8")
+        self.assertNotIn("  pull_request:", source)
+        self.assertNotIn("  verify:", source)
+        self.assertIn("  schedule:", source)
+        self.assertIn("  workflow_dispatch:", source)
+        self.assertIn("    - cron: '17 */4 * * *'", source)
+        self.assertIn("      pull-requests: write", source)
+
     def test_sensitive_shared_change_with_coordinator_still_runs_full_baseline(self):
         self.assertEqual(
             select_baseline_checks(["tools/merge_coordinator/auto_policy.py",
