@@ -108,6 +108,9 @@
     "script": {
       "type": "string"
     },
+    "transliteration": {
+      "type": "string"
+    },
     "orthographic_variant": {
       "type": "string"
     },

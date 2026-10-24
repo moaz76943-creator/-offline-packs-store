@@ -48,6 +48,7 @@ class MorphologyValidator:
             'vowel_harmony_class': 'vowel_harmony',
             'segmentation': 'segmentation',
             'orthographic_variant': 'orthographic_variants',
+            'transliteration': 'transliteration',
         }
         for prop, feat in prop_feature_map.items():
             if prop in form_record:
