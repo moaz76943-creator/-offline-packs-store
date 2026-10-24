@@ -54,7 +54,7 @@ def validate_artifact(artifact, repo_root):
 
     validations = artifact.get('validations', {})
 
-    for check in ['schema_conformance', 'format_conformance', 'provenance_evidence', 'attribution_evidence']:
+    for check in ['schema_conformance', 'format_conformance', 'provenance_evidence', 'attribution_evidence', 'sqlite_v2', 'asset_integrity']:
         status = validations.get(check)
         if status is None:
             reasons.append(f"{check.upper()}_NOT_RUN")
