@@ -46,6 +46,22 @@ def _json(data):
 
 
 
+
+def _repository_file(root, relative, label):
+    """Resolve only repository-local ordinary paths, never a symlink component."""
+    relative = Path(relative)
+    if relative.is_absolute() or '..' in relative.parts:
+        raise AuditError(f'unsafe {label} path')
+    candidate = root
+    for component in relative.parts:
+        candidate = candidate / component
+        if candidate.is_symlink():
+            raise AuditError(f'unsafe {label} symlink path')
+    if not candidate.resolve().is_relative_to(root):
+        raise AuditError(f'unsafe {label} path escape')
+    return candidate
+
+
 def probe_search(con, language, query, *, limit=MAX_SAMPLES):
     """QA-only read-only ranking oracle; not private application search logic."""
     if not isinstance(language, str) or not re.fullmatch(r'[a-z]{2,3}', language):
@@ -233,8 +249,8 @@ def audit_manifest(root, *, shard=0, shards=10):
     if type(shards) is not int or type(shard) is not int or not 1 <= shards <= 100 or not 0 <= shard < shards:
         raise AuditError('invalid shard plan')
     root = Path(root).resolve()
-    manifest = _json((root/'manifest.json').read_bytes())
-    ledger = _json((root/'legal/ledger/sources.json').read_bytes())
+    manifest = _json(_repository_file(root, 'manifest.json', 'manifest').read_bytes())
+    ledger = _json(_repository_file(root, 'legal/ledger/sources.json', 'ledger').read_bytes())
     entries = manifest.get('languages')
     if not isinstance(entries, list) or len(entries) != 100:
         raise AuditError('100 canonical language registry not found')
@@ -290,7 +306,7 @@ def audit_manifest(root, *, shard=0, shards=10):
         digest = pack.get('sha256')
         if not isinstance(version,str) or not VERSION.fullmatch(version) or not isinstance(digest,str) or not HEX.fullmatch(digest):
             raise AuditError('invalid published archive identity/hash')
-        path = root/'packs'/f'{language}-{version}.pack.gz'
+        path = _repository_file(root, Path('packs')/f'{language}-{version}.pack.gz', 'pack')
         if not path.is_file() or path.is_symlink() or path.stat().st_size > MAX_ARCHIVE:
             raise AuditError('missing, symlink or oversized published archive')
         blob = path.read_bytes()

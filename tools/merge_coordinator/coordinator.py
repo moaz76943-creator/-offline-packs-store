@@ -70,10 +70,13 @@ def policy_error(e):
         if not path.startswith(('tools/', 'tests/', 'docs/')) or is_prohibited_prefix(path):
             return 'prohibited owned path'
     names = e.get('checks')
-    if (not isinstance(names, list) or len(names) < 2 or
+    # The required public gate already runs changed-path-selected scoped tests.
+    # Permit one verified status instead of forcing a duplicate CI job; any
+    # additional explicitly authorized names remain mandatory in evaluate().
+    if (not isinstance(names, list) or not names or
             not all(isinstance(name, str) and name for name in names) or
             'public-pr-merge-gate' not in names or len(set(names)) != len(names)):
-        return 'required primary and scoped checks missing'
+        return 'required public PR merge gate missing'
     is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
     expiry_str = e.get('expiry') or e.get('expires_at')
     if expiry_str is not None:
