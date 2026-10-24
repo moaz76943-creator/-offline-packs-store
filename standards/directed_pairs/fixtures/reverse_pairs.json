@@ -1,0 +1,48 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc-reverse-001",
+  "translations": [
+    {
+      "translation_id": "trans-rev-1",
+      "source_language": "en",
+      "target_language": "fr",
+      "source_sense_id": "sense-en-hello",
+      "target_sense_id": "sense-fr-bonjour",
+      "target_text": "bonjour",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src-wiktionary",
+        "origin_url": "https://en.wiktionary.org",
+        "publisher": "Wikimedia",
+        "dataset_version": "2023.10",
+        "retrieval_id": "ret-2023",
+        "license_id": "CC-BY-SA-4.0",
+        "record_locator": "loc-7",
+        "publication_approved": true,
+        "fixture_only": true,
+        "confidence": 0.99
+      }
+    },
+    {
+      "translation_id": "trans-rev-2",
+      "source_language": "fr",
+      "target_language": "en",
+      "source_sense_id": "sense-fr-bonjour",
+      "target_sense_id": "sense-en-hello",
+      "target_text": "hello",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src-wiktionary",
+        "origin_url": "https://en.wiktionary.org",
+        "publisher": "Wikimedia",
+        "dataset_version": "2023.10",
+        "retrieval_id": "ret-2023",
+        "license_id": "CC-BY-SA-4.0",
+        "record_locator": "loc-8",
+        "publication_approved": true,
+        "fixture_only": true,
+        "confidence": 0.99
+      }
+    }
+  ]
+}
