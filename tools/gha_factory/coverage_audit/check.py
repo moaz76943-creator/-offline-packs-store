@@ -30,10 +30,26 @@ def _unique_pairs(pairs):
     return result
 
 
+def _repository_file(root, relative):
+    """Resolve only real files below the checkout; never follow symlink parents."""
+    base = Path(root).resolve()
+    fragment = Path(relative)
+    if fragment.is_absolute() or '..' in fragment.parts or '.git' in fragment.parts:
+        raise AuditError(f'unsafe repository path: {relative}')
+    path = base
+    for part in fragment.parts:
+        path = path / part
+        if path.is_symlink():
+            raise AuditError(f'symlinked repository path: {relative}')
+    if not path.is_file() or not path.resolve().is_relative_to(base):
+        raise AuditError(f'missing/unsafe repository file: {relative}')
+    return path
+
+
 def read_json(root, name):
-    path = root / name
-    if path.is_symlink() or not path.is_file() or path.stat().st_size > 5 * 1024 * 1024:
-        raise AuditError(f'missing/oversized metadata: {name}')
+    path = _repository_file(root, name)
+    if path.stat().st_size > 5 * 1024 * 1024:
+        raise AuditError(f'oversized metadata: {name}')
     try:
         return json.loads(path.read_text(encoding='utf-8'),
                           object_pairs_hook=_unique_pairs,
@@ -187,9 +203,7 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
 
 def _load_pack_checker(root):
     """Load the checked-out public pack verifier regardless of sys.path or CWD."""
-    path = root / 'tools/pack_v2/pipeline.py'
-    if not path.is_file() or path.is_symlink():
-        raise AuditError('canonical v2 verifier missing or unsafe')
+    path = _repository_file(root, 'tools/pack_v2/pipeline.py')
     spec = importlib.util.spec_from_file_location('_public_coverage_pack_v2', path)
     if spec is None or spec.loader is None:
         raise AuditError('cannot load canonical v2 verifier')
@@ -209,9 +223,7 @@ def _verify_pack(root, pack, language):
     expected = pack.get('sha256')
     if not isinstance(expected, str) or not SHA.fullmatch(expected):
         raise AuditError('invalid package SHA256')
-    path = root / 'packs' / f'{language}-{version}.pack.gz'
-    if not path.is_file() or path.is_symlink():
-        raise AuditError('published package missing or symlink')
+    path = _repository_file(root, f'packs/{language}-{version}.pack.gz')
     actual, length = _sha_file(path, MAX_PACK_BYTES)
     if actual != expected or length != pack.get('archiveSizeBytes'):
         raise AuditError('package bytes/length do not match manifest')
