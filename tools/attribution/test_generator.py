@@ -117,6 +117,45 @@ class AttributionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+    def test_missing_license(self):
+        self.source["license"]["id"] = ""
+        with self.assertRaises(ValueError):
+            self.run_gate()
+
+    def test_public_domain_missing_proof(self):
+        self.source["license"]["id"] = "PUBLIC-DOMAIN"
+        if "public_domain_proof" in self.source["license"]:
+            del self.source["license"]["public_domain_proof"]
+        with self.assertRaisesRegex(ValueError, "PD_PROOF|Missing public_domain_proof"):
+            self.run_gate()
+
+    def test_public_domain_has_proof(self):
+        self.source["license"]["id"] = "PUBLIC-DOMAIN"
+        self.source["license"]["public_domain_proof"] = {
+            "jurisdiction": "Global",
+            "legal_basis": "CC0",
+            "work_date": "2023"
+        }
+        result = self.run_gate()
+        self.assertEqual(result[0]["license_id"], "PUBLIC-DOMAIN")
+        notice_content = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("Public-domain basis", notice_content)
+        self.assertNotIn("Alterations", notice_content)
+
+    def test_conditional_alterations(self):
+        self.source["license"]["id"] = "CC-BY-SA-4.0"
+        self.run_gate()
+        notice_content = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("Alterations", notice_content)
+
+        # Test CC0 does not have alterations
+        import shutil
+        shutil.rmtree(self.out)
+        self.source["license"]["id"] = "CC0-1.0"
+        self.run_gate()
+        notice_content = (self.out / "case-source_notice.txt").read_text()
+        self.assertNotIn("Alterations", notice_content)
+
     def test_multi_source_combined_package(self):
         # We need another source to combine.
         import copy
