@@ -277,6 +277,44 @@ class FactoryTests(unittest.TestCase):
             make_cloze(sentence,ann,{},set())
 
 
+    def test_cloze_rejects_canonically_equivalent_distractor(self):
+        # Synthetic exact-form evidence: NFC-equivalent alternatives are not
+        # distinct answer choices, even if separately attested.
+        for answer, alternate, language in [
+            ('Äpfel', 'A\u0308pfel', 'de'),
+            ('Café', 'Cafe\u0301', 'fr'),
+        ]:
+            with self.subTest(language=language):
+                text = answer + '!'
+                features = {'number': 'singular'}
+                ann = {
+                    'sentence_id': '41', 'language': language,
+                    'sentence_sha256': sha(text), 'editorial_unambiguous': True,
+                    'editor_review_url': 'https://example.org/review',
+                    'start': 0, 'end': len(answer),
+                    'sense_id': 'sense.answer', 'lexeme_id': 'lex.answer',
+                    'features': features,
+                    'distractors': [
+                        {'surface': alternate, 'sense_id': 'sense.alternate'},
+                        {'surface': 'other', 'sense_id': 'sense.other'},
+                    ],
+                }
+                senses = {
+                    'sense.answer': {'language': language, 'lexeme_id': 'lex.answer', 'approved': True},
+                    'sense.alternate': {'language': language, 'lexeme_id': 'lex.alternate', 'approved': True},
+                    'sense.other': {'language': language, 'lexeme_id': 'lex.other', 'approved': True},
+                }
+                tags = tuple(sorted(features.items()))
+                forms = {
+                    (language, 'sense.answer', answer, tags),
+                    (language, 'sense.alternate', alternate, tags),
+                    (language, 'sense.other', 'other', tags),
+                }
+                sentence = {'id': '41', 'language': language, 'text': text,
+                            'admitted': True}
+                with self.assertRaisesRegex(Rejected, 'unsupported or ambiguous distractor'):
+                    make_cloze(sentence, ann, senses, forms)
+
     def test_cc0_import_enforces_record_budget_before_detailed_rows(self):
         # Synthetic oversized CC0 fixture: must fail in the CC0 phase, not
         # continue indexing until the unrelated detailed-file budget fires.
