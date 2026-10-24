@@ -153,5 +153,19 @@ class TestAccessibilityValidator(unittest.TestCase):
         self.assertEqual(result["status"], "rejected")
         self.assertIn("Malformed RTL/LTR direction metadata", result["errors"])
 
+
+
+    def test_invalid_language_against_registry(self):
+        asset = self.load_fixture("invalid_language.json")
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Unsupported language: invalid_lang", result["errors"])
+
+    def test_invalid_script_against_registry(self):
+        asset = self.load_fixture("invalid_script.json")
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Unsupported script: InvalidScript", result["errors"])
+
 if __name__ == "__main__":
     unittest.main()
