@@ -1,0 +1,59 @@
+{
+  "language": "ja",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q147651",
+      "forms": [
+        "ピーナッツ・バター"
+      ],
+      "language": "ja",
+      "lemma": "ピーナッツ・バター",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1716524",
+      "pos": "",
+      "qids": [
+        "Q147651"
+      ],
+      "record_id": "L1716524",
+      "retrieval_date": "2026-10-18",
+      "revision": "2549860131",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1716524-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q147651"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "麺",
+        "めん"
+      ],
+      "language": "ja",
+      "lemma": "麺",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1500014",
+      "pos": "",
+      "qids": [
+        "Q192874"
+      ],
+      "record_id": "L1500014",
+      "retrieval_date": "2026-10-18",
+      "revision": "2466479879",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1500014-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

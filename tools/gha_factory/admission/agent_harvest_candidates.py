@@ -1,0 +1,129 @@
+"""Rebuild source-attested REVIEW_REQUIRED candidates from pinned derived harvest snapshots.
+
+This is NOT original Wikidata Lexeme JSON or Route 05 source approval.
+"""
+import hashlib
+import json
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[3]
+FOLDER = Path("legal/ledger/evidence/agent-harvest-20261024")
+QID = re.compile(r"Q[1-9][0-9]*\Z")
+LEX = re.compile(r"L[1-9][0-9]*\Z")
+SENSE = re.compile(r"L[1-9][0-9]*-S[1-9][0-9]*\Z")
+
+
+def digest(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def strict_json(raw):
+    def pairs(items):
+        obj = {}
+        for key, value in items:
+            if key in obj:
+                raise ValueError("duplicate JSON property")
+            obj[key] = value
+        return obj
+    return json.loads(raw, object_pairs_hook=pairs,
+                      parse_constant=lambda _: (_ for _ in ()).throw(ValueError("nonfinite")))
+
+
+def safe_file(root, relative):
+    if not isinstance(relative, str):
+        raise ValueError("invalid evidence path")
+    parts = Path(relative)
+    if parts.is_absolute() or not parts.parts or ".." in parts.parts or "\\" in relative:
+        raise ValueError("unsafe evidence path")
+    root = Path(root).resolve()
+    current = root
+    for part in parts.parts:
+        current = current / part
+        if current.is_symlink():
+            raise ValueError("symlinked evidence")
+    resolved = current.resolve()
+    if not resolved.is_relative_to(root) or not resolved.is_file():
+        raise ValueError("missing or escaping evidence")
+    return resolved
+
+
+def build(root, receipt):
+    root = Path(root)
+    if (receipt.get("schema_version") != 1 or receipt.get("status") != "REVIEW_REQUIRED"
+            or receipt.get("production_ready") is not False
+            or receipt.get("source_admission_approved") is not False):
+        raise ValueError("unapproved source must remain review-only")
+    notice = safe_file(root, receipt["source_license_evidence_path"]).read_bytes()
+    if (digest(notice) != receipt["source_license_evidence_sha256"]
+            or b"Lexeme and EntitySchema namespaces ONLY." not in notice
+            or b"CC0-1.0" not in notice):
+        raise ValueError("Wikidata Lexeme CC0 notice mismatch")
+    rows, seen = [], set()
+    for source in receipt["source_files"]:
+        relative = source["path"]
+        if not relative.startswith(str(FOLDER) + "/sources/"):
+            raise ValueError("untrusted snapshot location")
+        raw = safe_file(root, relative).read_bytes()
+        if digest(raw) != source["sha256"]:
+            raise ValueError("source SHA256 mismatch")
+        git_blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+        if git_blob != source["origin_git_blob_sha1"]:
+            raise ValueError("origin Git blob mismatch")
+        data = strict_json(raw)
+        lang, topic = source["language"], source["topic"]
+        if (data.get("schema_version") != "1.0.0" or data.get("source") != "harvest-wikidata"
+                or data.get("language") != lang or data.get("section") != topic
+                or not isinstance(data.get("rows"), list) or len(data["rows"]) != source["rows"]):
+            raise ValueError("source identity mismatch")
+        for r in data["rows"]:
+            record, sense, qid = r.get("record_id"), r.get("sense_id"), r.get("wikidata")
+            if (r.get("status") != "keep" or r.get("language") != lang or r.get("section") != topic
+                    or r.get("source_id") != "wikidata.lexemes" or r.get("license_id") != "CC0-1.0"
+                    or not isinstance(record, str) or not LEX.fullmatch(record)
+                    or not isinstance(sense, str) or not SENSE.fullmatch(sense)
+                    or sense.split("-")[0] != record or not isinstance(qid, str) or not QID.fullmatch(qid)
+                    or qid not in r.get("qids", []) or r.get("concept_id") != "concept." + qid.lower()
+                    or r.get("origin_url") != "https://www.wikidata.org/wiki/Lexeme:" + record
+                    or not isinstance(r.get("revision"), str) or not r["revision"].isdigit()
+                    or not isinstance(r.get("retrieval_date"), str)
+                    or not re.fullmatch(r"20[0-9]{2}-[0-9]{2}-[0-9]{2}", r["retrieval_date"])
+                    or not isinstance(r.get("lemma"), str) or not r["lemma"].strip()
+                    or not isinstance(r.get("forms"), list)
+                    or any(not isinstance(f, str) or not f.strip() for f in r["forms"])):
+                raise ValueError("invalid harvested lexical identity")
+            key = (lang, record, sense, r["concept_id"])
+            if key in seen:
+                raise ValueError("duplicate candidate")
+            seen.add(key)
+            rows.append({
+                "id": ":".join((lang, record, sense, r["concept_id"])),
+                "language": lang, "topic": topic, "subtopic": r.get("subsection"),
+                "concept_id": r["concept_id"], "wikidata": qid,
+                "lexeme_id": record, "sense_id": sense, "lemma": r["lemma"],
+                "forms": list(dict.fromkeys(r["forms"])), "revision": r["revision"],
+                "retrieval_date": r["retrieval_date"], "source_id": "wikidata.lexemes",
+                "license_id": "CC0-1.0", "origin_url": r["origin_url"],
+                "source_snapshot": relative, "source_snapshot_sha256": source["sha256"],
+                "level": "UNKNOWN", "level_evidence": None,
+                "directed_translations": [], "examples": [], "review_status": "REVIEW_REQUIRED",
+            })
+    rows.sort(key=lambda r: (r["language"], r["topic"], r["lexeme_id"], r["sense_id"], r["concept_id"]))
+    if len(rows) != receipt["actual_rows"]:
+        raise ValueError("candidate count mismatch")
+    return {"schema_version": 1, "source_commit": receipt["source_commit"],
+            "review_status": "REVIEW_REQUIRED", "production_ready": False,
+            "actual_rows": len(rows), "candidates": rows}
+
+
+def canonical(value):
+    return (json.dumps(value, ensure_ascii=False, sort_keys=True, indent=2,
+                       allow_nan=False) + "\n").encode("utf-8")
+
+
+if __name__ == "__main__":
+    receipt = strict_json(safe_file(ROOT, str(FOLDER / "receipt.json")).read_bytes())
+    saved = safe_file(ROOT, str(FOLDER / "candidates.json")).read_bytes()
+    if canonical(build(ROOT, receipt)) != saved or digest(saved) != receipt["candidate_sha256"]:
+        raise SystemExit("FAIL: review-only candidate export differs from pinned source")
+    print("PASS: review-only candidates =", receipt["actual_rows"])

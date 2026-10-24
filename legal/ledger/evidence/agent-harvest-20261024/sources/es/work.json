@@ -1,0 +1,120 @@
+{
+  "language": "es",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "alpinista",
+        "alpinistas",
+        "alpinista",
+        "alpinistas"
+      ],
+      "language": "es",
+      "lemma": "alpinista",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1334294",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L1334294",
+      "retrieval_date": "2026-10-23",
+      "revision": "2443792667",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1334294-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "montañero",
+        "montañeros",
+        "montañera",
+        "montañeras"
+      ],
+      "language": "es",
+      "lemma": "montañero",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1334296",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L1334296",
+      "retrieval_date": "2026-10-23",
+      "revision": "2206918127",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1334296-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ictiólogo",
+        "ictiólogos",
+        "ictióloga",
+        "ictiólogas"
+      ],
+      "language": "es",
+      "lemma": "ictiólogo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L750412",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L750412",
+      "retrieval_date": "2026-10-23",
+      "revision": "2415722189",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L750412-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q9149093"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q8178443"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q3303330"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

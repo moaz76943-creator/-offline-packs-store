@@ -1,0 +1,227 @@
+{
+  "actual_rows": 115,
+  "candidate_sha256": "23b7727d9677bcfbaf97a6bfcf5e5c23cced34a1b059dc3cd29fd97816226c5e",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via existing agent harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "2ac92fbf1521a617db59dede784163b939c811e6",
+  "source_files": [
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "8a8f849ec82ee9af062efa65be0cd93e2e738132",
+      "origin_path": "data/agents/harvest/wikidata/de/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/de/food.json",
+      "rows": 3,
+      "sha256": "abc353e64a5c2fc6d610f23c4dbecde6fd767fa7b2fab85617ec672515e036ac",
+      "topic": "food"
+    },
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "3d3f6fcbeec34d4a2f825ecf515b7f009c3ec5d6",
+      "origin_path": "data/agents/harvest/wikidata/de/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/de/work.json",
+      "rows": 11,
+      "sha256": "4248310d84015c15c8a17139c776c66fbb721afb45af563ff5711670049fe829",
+      "topic": "work"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "71f8e3b0e174db217d09c531c4656b84fcb0a594",
+      "origin_path": "data/agents/harvest/wikidata/en/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/en/food.json",
+      "rows": 3,
+      "sha256": "625b2c2bfd86e3c282291055f63fd4247480d8a3714c2edda7fecb74a1c55a98",
+      "topic": "food"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "726f31216d42b3ef69c978f2ea881bf730c78988",
+      "origin_path": "data/agents/harvest/wikidata/en/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/en/work.json",
+      "rows": 7,
+      "sha256": "fe3b2088aabfcb63f96546aa55676962638948cac18c9c87dc1ea7a9beb1fe20",
+      "topic": "work"
+    },
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "bc8a33cdd0d95a45acd608299a2802b160bd548d",
+      "origin_path": "data/agents/harvest/wikidata/es/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/es/food.json",
+      "rows": 1,
+      "sha256": "6686bc54b64a50cf25dc9a52065df57795b675ec2d9170d9b474a21fdb30c4b9",
+      "topic": "food"
+    },
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "d2d241bc9e20efbc753c8a29a890bdd1ddda5b2d",
+      "origin_path": "data/agents/harvest/wikidata/es/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/es/work.json",
+      "rows": 3,
+      "sha256": "4eb2bc50a3f5bfcebc5a40b39df9ec9ef170bd4f4ad4ab43321d614f5616c714",
+      "topic": "work"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "9e2d42a9ee17ea909730480017b605aa71666749",
+      "origin_path": "data/agents/harvest/wikidata/fr/health.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/fr/health.json",
+      "rows": 2,
+      "sha256": "428fba3305ad7f4d9674d5c0fab858a497bc9323026885d25f59687a49511e0d",
+      "topic": "health"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "539c06431afced6a07904e96a013d9f7711c9f7b",
+      "origin_path": "data/agents/harvest/wikidata/fr/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/fr/work.json",
+      "rows": 12,
+      "sha256": "411fdac57c630e4d8f1e617eb9a4ffbd2237037b1ba491526d2fcfe58bbcbf81",
+      "topic": "work"
+    },
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "5a8867c1d39b00eac6ca95c848f69bfd11fdcd9d",
+      "origin_path": "data/agents/harvest/wikidata/de/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/de/city.json",
+      "rows": 10,
+      "sha256": "ea98fe2b9be7a0f0bfa938d8080cf2755e2de5f9c0dd5eb61d5fdc5b33f6d3fa",
+      "topic": "city"
+    },
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "48270154712b82fbf07031ef96cec58572e76005",
+      "origin_path": "data/agents/harvest/wikidata/de/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/de/clothing.json",
+      "rows": 2,
+      "sha256": "9faf5881417a0a60ac4d72e8e1243b2e5f40c7a3b6e64f55b73f7a23d756a0b5",
+      "topic": "clothing"
+    },
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "47416975c5ba5c6198d7c5ceef13f0e910f0b21b",
+      "origin_path": "data/agents/harvest/wikidata/de/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/de/colors.json",
+      "rows": 1,
+      "sha256": "291be38ea3b6ed7eb2b461d05dfc2fc43aa59944825e6e85cee0441fbbbe95f1",
+      "topic": "colors"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "b57495f7d9f83be16b6b06195a95b7d1f40f014e",
+      "origin_path": "data/agents/harvest/wikidata/en/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/en/city.json",
+      "rows": 16,
+      "sha256": "1bbf7c25a5c2cdcc97a254dd9166aa7ba71e3ae5b270300d7d09bf2cd5b8d058",
+      "topic": "city"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "d405332194892c16dc507f120c20288e48b16a95",
+      "origin_path": "data/agents/harvest/wikidata/en/health.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/en/health.json",
+      "rows": 4,
+      "sha256": "7d89b44b305169755a25b232dfb4bd7e94b103a96601b0c23b771394e3dd5910",
+      "topic": "health"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "4899f4c3300efe11c9a1d3e255e51d9329b64efd",
+      "origin_path": "data/agents/harvest/wikidata/en/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/en/clothing.json",
+      "rows": 2,
+      "sha256": "693dce1c4206dc11665f55fb3ee5108b3973fcc80f4222ad5a80684064c46d79",
+      "topic": "clothing"
+    },
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "6f5a7a47c0442f7e39fabfacf55ecfa21bd0d1db",
+      "origin_path": "data/agents/harvest/wikidata/es/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/es/city.json",
+      "rows": 6,
+      "sha256": "b89dd3b85b7b08419b72f4a3782fbee350b4a0e221779a3f0ebcb38e053e07ea",
+      "topic": "city"
+    },
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "9ac6755da1f92081e5b770bc94bff1f78e19abfe",
+      "origin_path": "data/agents/harvest/wikidata/es/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/es/clothing.json",
+      "rows": 1,
+      "sha256": "7dbc018887f55dc7bb4b128fe64fb5500faabcce26c1d3429001cf41a4219027",
+      "topic": "clothing"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "f47dcadc96cac41b10e6cf3ce806264d1e098e89",
+      "origin_path": "data/agents/harvest/wikidata/fr/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/fr/city.json",
+      "rows": 11,
+      "sha256": "4b47fad8ed127e7a2312bcb2f31aea33d92d8c7278de0222584431ee1f0f9e19",
+      "topic": "city"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "13f142cec28c44409fc2aaf91b8e651c8f4e47f4",
+      "origin_path": "data/agents/harvest/wikidata/fr/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/fr/animals.json",
+      "rows": 2,
+      "sha256": "67ea1664d07cd0e0a24da5c0660f2427da30a82c4085d2e15b9563c25f633d30",
+      "topic": "animals"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "37598a04130f6867fb79ef4c4f57c467ef2c7ca9",
+      "origin_path": "data/agents/harvest/wikidata/it/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/it/city.json",
+      "rows": 7,
+      "sha256": "09cf7944c2fd4c88ceb98fcbb619256e594cf5da42516b7fc6277a179684d651",
+      "topic": "city"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "6814c00f303a54ef74c57688434da9f574582f19",
+      "origin_path": "data/agents/harvest/wikidata/ru/health.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/ru/health.json",
+      "rows": 4,
+      "sha256": "6ac6cc6d1fbd94690076b1a7355042ab942dabed8abbe659d79d5aab6d5fc8e9",
+      "topic": "health"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "1be04eba9acf9aacea2788f2b3bf91a1e5582afe",
+      "origin_path": "data/agents/harvest/wikidata/ja/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/ja/city.json",
+      "rows": 4,
+      "sha256": "6026a1d0ff8f99f976cedb23129d79a96045bcf516651d9471857e940c65614d",
+      "topic": "city"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "bad7b8d265a48534dedc3a5dee2635145a54dc39",
+      "origin_path": "data/agents/harvest/wikidata/ja/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/ja/food.json",
+      "rows": 2,
+      "sha256": "e195b24aed22270556e32d869e718914502e83f48cdce68718e190d925bc44d3",
+      "topic": "food"
+    },
+    {
+      "language": "pt",
+      "origin_git_blob_sha1": "53aa2c4a556f100788fa1a56c59f5cf14a1a39cf",
+      "origin_path": "data/agents/harvest/wikidata/pt/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/pt/city.json",
+      "rows": 1,
+      "sha256": "063de33d60da4c7a974e61630977624bf10d9d7ee4f36f5168f7de3ca10de556",
+      "topic": "city"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}
