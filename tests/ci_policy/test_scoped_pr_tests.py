@@ -67,6 +67,31 @@ class ScopedTestSelectionTests(unittest.TestCase):
             select_baseline_checks([".github/workflows/public_pr_merge_gate.yml"]),
             ("policy",))
 
+    def test_merge_orchestration_changes_use_focused_contracts(self):
+        self.assertEqual(
+            select_baseline_checks(["tools/merge_coordinator/auto_policy.py"]),
+            ("coordinator",))
+        self.assertEqual(
+            select_baseline_checks([".github/workflows/public_merge_coordinator.yml"]),
+            ("coordinator",))
+        self.assertEqual(
+            select_baseline_checks([".github/workflows/validate_json.yml"]),
+            ("coordinator", "json_security"))
+        self.assertEqual(
+            select_baseline_checks(["tests/ci_security/test_validate_json.py"]),
+            ("json_security",))
+        self.assertEqual(
+            select_baseline_checks(["tools/ci_policy/run_scoped_pr_tests.py",
+                                    "tools/merge_coordinator/auto_policy.py",
+                                    ".github/workflows/validate_json.yml"]),
+            ("policy", "coordinator", "json_security"))
+
+    def test_sensitive_shared_change_with_coordinator_still_runs_full_baseline(self):
+        self.assertEqual(
+            select_baseline_checks(["tools/merge_coordinator/auto_policy.py",
+                                    "legal/ledger/sources.json"]),
+            ("policy", "registry", "sqlite"))
+
     def test_shared_sensitive_or_unrecognized_changes_still_require_full_baseline(self):
         mandatory = ("policy", "registry", "sqlite")
         for paths in ([], ["tools/pack_v2/pipeline.py"],
