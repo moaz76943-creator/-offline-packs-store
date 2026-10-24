@@ -1,0 +1,399 @@
+{
+  "language": "de",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "Politiker",
+        "Politiker",
+        "Politikers",
+        "Politiker",
+        "Politiker",
+        "Politiker",
+        "Politikern",
+        "Politiker"
+      ],
+      "language": "de",
+      "lemma": "Politiker",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72809",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L72809",
+      "retrieval_date": "2026-10-19",
+      "revision": "2366231146",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72809-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "Politikerin",
+        "Politikerinnen",
+        "Politikerin",
+        "Politikerin",
+        "Politikerin",
+        "Politikerinnen",
+        "Politikerinnen",
+        "Politikerinnen"
+      ],
+      "language": "de",
+      "lemma": "Politikerin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L73001",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L73001",
+      "retrieval_date": "2026-10-19",
+      "revision": "2306709391",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L73001-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspielers",
+        "Fussballspielers",
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspieler",
+        "Fussballspieler",
+        "Fußballspielern",
+        "Fussballspielern",
+        "Fußballspieler",
+        "Fussballspieler"
+      ],
+      "language": "de",
+      "lemma": "Fußballspieler",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L226871",
+      "pos": "",
+      "qids": [
+        "Q937857"
+      ],
+      "record_id": "L226871",
+      "retrieval_date": "2026-10-19",
+      "revision": "2452780290",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L226871-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "Fußballer",
+        "Fussballer",
+        "Fußballers",
+        "Fussballers",
+        "Fußballer",
+        "Fussballer",
+        "Fußballer",
+        "Fussballer",
+        "Fußballer",
+        "Fussballer",
+        "Fußballer",
+        "Fussballer",
+        "Fußballern",
+        "Fussballern",
+        "Fußballer",
+        "Fussballer"
+      ],
+      "language": "de",
+      "lemma": "Fußballer",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L498621",
+      "pos": "",
+      "qids": [
+        "Q937857"
+      ],
+      "record_id": "L498621",
+      "retrieval_date": "2026-10-19",
+      "revision": "2326913211",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L498621-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "Kickerin",
+        "Kickerinnen",
+        "Kickerin",
+        "Kickerinnen",
+        "Kickerin",
+        "Kickerinnen",
+        "Kickerin",
+        "Kickerinnen"
+      ],
+      "language": "de",
+      "lemma": "Kickerin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L931688",
+      "pos": "",
+      "qids": [
+        "Q937857"
+      ],
+      "record_id": "L931688",
+      "retrieval_date": "2026-10-19",
+      "revision": "2087791309",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L931688-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "Autorin",
+        "Autorin",
+        "Autorin",
+        "Autorin",
+        "Autorinnen",
+        "Autorinnen",
+        "Autorinnen",
+        "Autorinnen"
+      ],
+      "language": "de",
+      "lemma": "Autorin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L34182",
+      "pos": "",
+      "qids": [
+        "Q482980",
+        "Q36180",
+        "Q482980"
+      ],
+      "record_id": "L34182",
+      "retrieval_date": "2026-10-19",
+      "revision": "2326824381",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L34182-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "Schauspieler",
+        "Schauspielers",
+        "Schauspieler",
+        "Schauspieler",
+        "Schauspieler",
+        "Schauspieler",
+        "Schauspielern",
+        "Schauspieler"
+      ],
+      "language": "de",
+      "lemma": "Schauspieler",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72660",
+      "pos": "",
+      "qids": [
+        "Q33999"
+      ],
+      "record_id": "L72660",
+      "retrieval_date": "2026-10-19",
+      "revision": "2332943374",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72660-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "Schauspielerin",
+        "Schauspielerinnen",
+        "Schauspielerin",
+        "Schauspielerin",
+        "Schauspielerin",
+        "Schauspielerinnen",
+        "Schauspielerinnen",
+        "Schauspielerinnen"
+      ],
+      "language": "de",
+      "lemma": "Schauspielerin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72861",
+      "pos": "",
+      "qids": [
+        "Q21169216",
+        "Q33999"
+      ],
+      "record_id": "L72861",
+      "retrieval_date": "2026-10-19",
+      "revision": "2332951304",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72861-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "Genetikerin",
+        "Genetikerin",
+        "Genetikerin",
+        "Genetikerin",
+        "Genetikerinnen",
+        "Genetikerinnen",
+        "Genetikerinnen",
+        "Genetikerinnen"
+      ],
+      "language": "de",
+      "lemma": "Genetikerin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348730",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L348730",
+      "retrieval_date": "2026-10-23",
+      "revision": "1879939798",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348730-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "Genetiker",
+        "Genetikers",
+        "Genetiker",
+        "Genetiker",
+        "Genetiker",
+        "Genetiker",
+        "Genetikern",
+        "Genetiker"
+      ],
+      "language": "de",
+      "lemma": "Genetiker",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L407323",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L407323",
+      "retrieval_date": "2026-10-23",
+      "revision": "2306660344",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L407323-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "Bergsteiger",
+        "Bergsteigers",
+        "Bergsteiger",
+        "Bergsteiger",
+        "Bergsteiger",
+        "Bergsteiger",
+        "Bergsteigern",
+        "Bergsteiger"
+      ],
+      "language": "de",
+      "lemma": "Bergsteiger",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L616463",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L616463",
+      "retrieval_date": "2026-10-23",
+      "revision": "2306632326",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L616463-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q9149093"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q8178443"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q3303330"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
