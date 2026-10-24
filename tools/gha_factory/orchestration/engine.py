@@ -1,6 +1,7 @@
 """Short serialized mutations, independently running worker jobs, fail-closed recovery."""
 import hashlib
 import json
+import sys
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
@@ -20,12 +21,25 @@ def trusted(issue):
         and isinstance(issue.get('number'),int) and issue['number']>0
         and issue.get('title','').startswith(p.PREFIX))
 
-def inventory(api,ctx):
+def inventory(api,ctx,invalid_active=None):
     entries=[]
     for issue in api.issues():
         if not trusted(issue):continue
-        t=p.parse(issue.get('body'),ctx['languages'])
-        if issue['title']!=p.PREFIX+t['task_id']:raise ValueError('task title identity mismatch')
+        try:
+            t=p.parse(issue.get('body'),ctx['languages'])
+        except (ValueError, TypeError, KeyError, UnicodeError) as exc:
+            print('QUARANTINED_INVALID_ISSUE', issue['number'],
+                  type(exc).__name__, file=sys.stderr)
+            continue
+        if issue['title']!=p.PREFIX+t['task_id']:
+            print('QUARANTINED_INVALID_ISSUE', issue['number'],
+                  'TitleIdentityMismatch', file=sys.stderr)
+            if t['state'] not in p.ACTIVE:
+                continue
+            # A validated active lease retains its capacity and source/language
+            # lock, even with a changed title. Never mutate or execute it.
+            if invalid_active is not None:
+                invalid_active.add(issue['number'])
         entries.append((issue['number'],t))
     if len(entries)>2000:raise ValueError('queue inventory exceeds 2000 tasks')
     return sorted(entries)
@@ -83,7 +97,8 @@ def _blocked(t,state):
 
 def control(api,run_id,attempt,now,root,ctx=None,registry_sha=None):
     if ctx is None:ctx,registry_sha=legacy.context(root)
-    entries=inventory(api,ctx)
+    invalid_active=set()
+    entries=inventory(api,ctx,invalid_active)
     groups=defaultdict(list)
     for n,t in entries:groups[t['task_id']].append((n,t))
     # Any duplicate is ambiguous: completed receipts are immutable; only incomplete
@@ -108,6 +123,10 @@ def control(api,run_id,attempt,now,root,ctx=None,registry_sha=None):
         t=original
         if t['state'] in p.ACTIVE:
             if len(active)>=32:raise ValueError('unexpected active lease count')
+            if n in invalid_active:
+                # Fail closed: reserve the slot and lock until title correction.
+                active.append((n,t))
+                continue
             if t['run_id'] not in runs:runs[t['run_id']]=api.run(t['run_id'])
             r=runs[t['run_id']]
             exact=(r.get('id')==t['run_id'] and r.get('run_attempt')==t['run_attempt']
