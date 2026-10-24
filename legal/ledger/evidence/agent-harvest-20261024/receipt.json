@@ -1,6 +1,6 @@
 {
-  "actual_rows": 42,
-  "candidate_sha256": "15de1f02d3b3505a632cf94c28d8d843658fe7fb833f4d4ca97ac02ef42c3a1f",
+  "actual_rows": 115,
+  "candidate_sha256": "23b7727d9677bcfbaf97a6bfcf5e5c23cced34a1b059dc3cd29fd97816226c5e",
   "directed_translations": 0,
   "examples": 0,
   "original_lexeme_json_pinned": false,
@@ -82,6 +82,141 @@
       "rows": 12,
       "sha256": "411fdac57c630e4d8f1e617eb9a4ffbd2237037b1ba491526d2fcfe58bbcbf81",
       "topic": "work"
+    },
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "5a8867c1d39b00eac6ca95c848f69bfd11fdcd9d",
+      "origin_path": "data/agents/harvest/wikidata/de/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/de/city.json",
+      "rows": 10,
+      "sha256": "ea98fe2b9be7a0f0bfa938d8080cf2755e2de5f9c0dd5eb61d5fdc5b33f6d3fa",
+      "topic": "city"
+    },
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "48270154712b82fbf07031ef96cec58572e76005",
+      "origin_path": "data/agents/harvest/wikidata/de/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/de/clothing.json",
+      "rows": 2,
+      "sha256": "9faf5881417a0a60ac4d72e8e1243b2e5f40c7a3b6e64f55b73f7a23d756a0b5",
+      "topic": "clothing"
+    },
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "47416975c5ba5c6198d7c5ceef13f0e910f0b21b",
+      "origin_path": "data/agents/harvest/wikidata/de/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/de/colors.json",
+      "rows": 1,
+      "sha256": "291be38ea3b6ed7eb2b461d05dfc2fc43aa59944825e6e85cee0441fbbbe95f1",
+      "topic": "colors"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "b57495f7d9f83be16b6b06195a95b7d1f40f014e",
+      "origin_path": "data/agents/harvest/wikidata/en/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/en/city.json",
+      "rows": 16,
+      "sha256": "1bbf7c25a5c2cdcc97a254dd9166aa7ba71e3ae5b270300d7d09bf2cd5b8d058",
+      "topic": "city"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "d405332194892c16dc507f120c20288e48b16a95",
+      "origin_path": "data/agents/harvest/wikidata/en/health.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/en/health.json",
+      "rows": 4,
+      "sha256": "7d89b44b305169755a25b232dfb4bd7e94b103a96601b0c23b771394e3dd5910",
+      "topic": "health"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "4899f4c3300efe11c9a1d3e255e51d9329b64efd",
+      "origin_path": "data/agents/harvest/wikidata/en/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/en/clothing.json",
+      "rows": 2,
+      "sha256": "693dce1c4206dc11665f55fb3ee5108b3973fcc80f4222ad5a80684064c46d79",
+      "topic": "clothing"
+    },
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "6f5a7a47c0442f7e39fabfacf55ecfa21bd0d1db",
+      "origin_path": "data/agents/harvest/wikidata/es/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/es/city.json",
+      "rows": 6,
+      "sha256": "b89dd3b85b7b08419b72f4a3782fbee350b4a0e221779a3f0ebcb38e053e07ea",
+      "topic": "city"
+    },
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "9ac6755da1f92081e5b770bc94bff1f78e19abfe",
+      "origin_path": "data/agents/harvest/wikidata/es/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/es/clothing.json",
+      "rows": 1,
+      "sha256": "7dbc018887f55dc7bb4b128fe64fb5500faabcce26c1d3429001cf41a4219027",
+      "topic": "clothing"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "f47dcadc96cac41b10e6cf3ce806264d1e098e89",
+      "origin_path": "data/agents/harvest/wikidata/fr/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/fr/city.json",
+      "rows": 11,
+      "sha256": "4b47fad8ed127e7a2312bcb2f31aea33d92d8c7278de0222584431ee1f0f9e19",
+      "topic": "city"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "13f142cec28c44409fc2aaf91b8e651c8f4e47f4",
+      "origin_path": "data/agents/harvest/wikidata/fr/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/fr/animals.json",
+      "rows": 2,
+      "sha256": "67ea1664d07cd0e0a24da5c0660f2427da30a82c4085d2e15b9563c25f633d30",
+      "topic": "animals"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "37598a04130f6867fb79ef4c4f57c467ef2c7ca9",
+      "origin_path": "data/agents/harvest/wikidata/it/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/it/city.json",
+      "rows": 7,
+      "sha256": "09cf7944c2fd4c88ceb98fcbb619256e594cf5da42516b7fc6277a179684d651",
+      "topic": "city"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "6814c00f303a54ef74c57688434da9f574582f19",
+      "origin_path": "data/agents/harvest/wikidata/ru/health.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/ru/health.json",
+      "rows": 4,
+      "sha256": "6ac6cc6d1fbd94690076b1a7355042ab942dabed8abbe659d79d5aab6d5fc8e9",
+      "topic": "health"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "1be04eba9acf9aacea2788f2b3bf91a1e5582afe",
+      "origin_path": "data/agents/harvest/wikidata/ja/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/ja/city.json",
+      "rows": 4,
+      "sha256": "6026a1d0ff8f99f976cedb23129d79a96045bcf516651d9471857e940c65614d",
+      "topic": "city"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "bad7b8d265a48534dedc3a5dee2635145a54dc39",
+      "origin_path": "data/agents/harvest/wikidata/ja/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/ja/food.json",
+      "rows": 2,
+      "sha256": "e195b24aed22270556e32d869e718914502e83f48cdce68718e190d925bc44d3",
+      "topic": "food"
+    },
+    {
+      "language": "pt",
+      "origin_git_blob_sha1": "53aa2c4a556f100788fa1a56c59f5cf14a1a39cf",
+      "origin_path": "data/agents/harvest/wikidata/pt/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024/sources/pt/city.json",
+      "rows": 1,
+      "sha256": "063de33d60da4c7a974e61630977624bf10d9d7ee4f36f5168f7de3ca10de556",
+      "topic": "city"
     }
   ],
   "source_license": "CC0-1.0",

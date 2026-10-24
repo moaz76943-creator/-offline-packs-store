@@ -1,0 +1,119 @@
+{
+  "language": "ja",
+  "retrieval_date": "2026-10-24",
+  "rows": [
+    {
+      "concept_id": "concept.q1754",
+      "forms": [
+        "ストックホルム"
+      ],
+      "language": "ja",
+      "lemma": "ストックホルム",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L626951",
+      "pos": "",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "L626951",
+      "retrieval_date": "2026-10-24",
+      "revision": "2381787997",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L626951-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "concept_id": "concept.q270",
+      "forms": [],
+      "language": "ja",
+      "lemma": "ワルシャワ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L625357",
+      "pos": "",
+      "qids": [
+        "Q270"
+      ],
+      "record_id": "L625357",
+      "retrieval_date": "2026-10-24",
+      "revision": "2381783164",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L625357-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q65",
+      "forms": [
+        "ロサンゼルス"
+      ],
+      "language": "ja",
+      "lemma": "ロサンゼルス",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L625406",
+      "pos": "",
+      "qids": [
+        "Q65"
+      ],
+      "record_id": "L625406",
+      "retrieval_date": "2026-10-24",
+      "revision": "2528330726",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L625406-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q65"
+    },
+    {
+      "concept_id": "concept.q727",
+      "forms": [],
+      "language": "ja",
+      "lemma": "アムステルダム",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L625412",
+      "pos": "",
+      "qids": [
+        "Q727"
+      ],
+      "record_id": "L625412",
+      "retrieval_date": "2026-10-24",
+      "revision": "2381754129",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L625412-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q727"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q1492"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1757"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

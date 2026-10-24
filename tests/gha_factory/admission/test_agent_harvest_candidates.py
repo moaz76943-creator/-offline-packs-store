@@ -14,19 +14,24 @@ class HarvestCandidateTests(unittest.TestCase):
         raw = (self.root / c.FOLDER / "candidates.json").read_bytes()
         self.assertEqual(c.canonical(c.build(self.root, self.receipt)), raw)
         self.assertEqual(c.digest(raw), self.receipt["candidate_sha256"])
-        self.assertEqual(self.receipt["actual_rows"], 42)
+        self.assertEqual(self.receipt["actual_rows"], 115)
 
     def test_languages_topics_unknown_levels_and_no_translation(self):
         rows = c.build(self.root, self.receipt)["candidates"]
         counts = {}
         for r in rows:
             counts[r["language"]] = counts.get(r["language"], 0) + 1
-            self.assertIn(r["topic"], ("food", "work", "health"))
+            self.assertIn(r["topic"], ("food", "work", "health", "city", "clothing", "colors", "animals"))
             self.assertEqual(r["level"], "UNKNOWN")
             self.assertEqual(r["review_status"], "REVIEW_REQUIRED")
             self.assertEqual(r["directed_translations"], [])
             self.assertEqual(r["examples"], [])
-        self.assertEqual(counts, {"de": 14, "en": 10, "es": 4, "fr": 14})
+        self.assertEqual(counts, {"de": 27, "en": 32, "es": 11, "fr": 27, "it": 7, "ja": 6, "pt": 1, "ru": 4})
+
+    def test_extended_source_receipts_pinned_to_one_commit(self):
+        self.assertEqual(self.receipt["source_commit"], "2ac92fbf1521a617db59dede784163b939c811e6")
+        self.assertEqual(len(self.receipt["source_files"]), 23)
+        self.assertEqual(sum(s["rows"] for s in self.receipt["source_files"]), 115)
 
     def test_refuse_false_approval(self):
         with self.assertRaises(ValueError):
