@@ -206,6 +206,7 @@ def database_checks(data, language, info, root, fixture):
                 'lexical_relations':{'relation_id':'relation_id','from_lexeme_id':'from_lexeme_id','to_lexeme_id':'to_lexeme_id','kind':'kind'},
                 'grammar':{'grammar_id':'grammar_id','category':'category','title':'title'},
             }
+            sense_links = {r[0]: (r[1], r[2]) for r in db.execute('SELECT s.sense_id, s.lexeme_id, l.language_code FROM senses s JOIN lexicon l ON l.id=s.lexeme_id')}
             for table, fields in projections.items():
                 for row in db.execute('SELECT * FROM '+table):
                     payload = object_json(row['payload_json'],pipeline.MAX_ROW)
@@ -218,14 +219,14 @@ def database_checks(data, language, info, root, fixture):
                         if row['language_code'] != language or object_json(row['source_json'],pipeline.MAX_ROW) != payload['source']:
                             fail('LANGUAGE_ID_MISMATCH', 'grammar identity/source')
                     if table == 'examples':
-                        link = db.execute('SELECT s.lexeme_id,l.language_code FROM senses s JOIN lexicon l ON l.id=s.lexeme_id WHERE s.sense_id=?',(row['sense_id'],)).fetchone()
-                        if tuple(link) != (row['lexeme_id'],row['language_code']):
+                        link = sense_links.get(row['sense_id'])
+                        if link is None or link != (row['lexeme_id'],row['language_code']):
                             fail('LANGUAGE_ID_MISMATCH', 'example sense language/reference')
                         for tr in payload.get('translations',[]):
                             provenance(tr.get('source'))
                     if table == 'translations':
-                        target = db.execute('SELECT l.language_code FROM senses s JOIN lexicon l ON l.id=s.lexeme_id WHERE s.sense_id=?',(row['to_sense_id'],)).fetchone()[0]
-                        if target != row['language_code']:
+                        target_link = sense_links.get(row['to_sense_id'])
+                        if target_link is None or target_link[1] != row['language_code']:
                             fail('LANGUAGE_ID_MISMATCH', 'directed target language')
             present = sorted({r[0] for r in db.execute('SELECT DISTINCT language_code FROM lexicon')})
             if present != info.get('languagesPresent') or language not in present:
