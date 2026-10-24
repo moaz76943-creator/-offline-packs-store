@@ -19,7 +19,9 @@ class PolicyTests(unittest.TestCase):
     def test_reject_draft_or_foreign(self):
         for change in ({'draft':True},{'mergeable':False},{'mergeable_state':'dirty'},{'user':{'login':'other'}},{'base':{'ref':'main','sha':'c'*40}}):
             self.assertFalse(self.check(pr={**PR,**change})[0])
-    def test_reject_ci_skip(self): self.assertFalse(self.check(message='fix: docs [skip ci]')[0])
+    def test_ci_skip_text_does_not_override_exact_head_evidence(self):
+        self.assertTrue(self.check(message='fix: docs [skip ci]')[0])
+        self.assertFalse(self.check(message='fix: docs [skip ci]', checks={'check_runs': []})[0])
     def test_reject_review_block(self): self.assertFalse(self.check(reviews=[{'state':'CHANGES_REQUESTED'}])[0])
     def test_reject_missing_or_failed_checks(self):
         for run in ([],[{'id':4,'name':'public-pr-merge-gate','head_sha':SHA,'conclusion':'failure','status':'completed','app':{'slug':'github-actions'}}]):
@@ -33,7 +35,7 @@ class PolicyTests(unittest.TestCase):
                     'app':{'slug':'github-actions'}}
         self.assertTrue(self.check(checks={'check_runs':CHECKS['check_runs']+[optional]})[0])
 
-    def test_no_skip_or_sensitive_automerge(self): self.assertFalse(self.check(files=[{'filename':'docs/guide.md','status':'modified'},{'filename':'tools/release_gate/gate.py','status':'modified'}])[0])
+    def test_sensitive_files_still_rejected(self): self.assertFalse(self.check(files=[{'filename':'docs/guide.md','status':'modified'},{'filename':'tools/release_gate/gate.py','status':'modified'}])[0])
 
     def test_scoped_search_qa_requires_targeted_hosted_checks(self):
         files = [{'filename':'tools/gha_factory/search_qa/audit.py','status':'modified'},
