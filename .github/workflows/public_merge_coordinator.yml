@@ -18,9 +18,9 @@ on:
   workflow_run:
     workflows: ["Public PR Merge Gate", "Validate JSON Files"]
     types: [completed]
-  # Bounded recovery sweep for missed webhook events; stagger away from :00.
+  # One hourly recovery sweep; successful hosted PR checks trigger immediate runs.
   schedule:
-    - cron: '13,28,43,58 * * * *'
+    - cron: '13 * * * *'
 
 permissions:
   contents: read

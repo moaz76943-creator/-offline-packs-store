@@ -19,7 +19,8 @@ class TriggerSafetyTests(unittest.TestCase):
         self.assertIn("github.event.workflow_run.head_repository.full_name == github.repository", self.workflow)
 
     def test_recovery_polling_is_bounded_and_off_peak(self):
-        self.assertIn("cron: '13,28,43,58 * * * *'", self.workflow)
+        self.assertIn("cron: '13 * * * *'", self.workflow)
+        self.assertEqual(self.workflow.count('    - cron:'), 1)
 
     def test_write_job_runs_trusted_main_only(self):
         self.assertIn("github.ref == 'refs/heads/main'", self.workflow)
