@@ -42,6 +42,8 @@ BASELINE_COMMANDS = {
                     "-s", "tools/merge_coordinator", "-p", "test_*.py", "-v"),
     "json_security": (sys.executable, "-m", "unittest", "discover",
                       "-s", "tests/ci_security", "-p", "test_*.py", "-v"),
+    "janitor": (sys.executable, "-m", "unittest", "discover",
+                "-s", "tools", "-p", "test_pr_janitor.py", "-v"),
     "registry": (sys.executable, "catalog/validate_registry.py"),
     "sqlite": (sys.executable, "tools/test_store_pipeline.py", "-q"),
 }
@@ -52,6 +54,8 @@ COORD_PATHS = ("tools/merge_coordinator/",)
 COORD_WORKFLOW = ".github/workflows/public_merge_coordinator.yml"
 JSON_SECURITY_PATHS = ("tests/ci_security/",)
 JSON_WORKFLOW = ".github/workflows/validate_json.yml"
+JANITOR_PATHS = ("tools/pr_janitor.py", "tools/test_pr_janitor.py",
+                 ".github/workflows/pr_janitor.yml")
 SENSITIVE_DOCS = ("docs/governance/", "docs/merge_coordinator/",
                   "docs/security/", "docs/release/", "docs/CI_")
 
@@ -65,7 +69,7 @@ def select_baseline_checks(changed_paths):
                 or path.startswith("/") or ".." in path.split("/")):
             return BASELINE_ORDER
 
-    # Core merge orchestration and JSON syntax checks are independently tested.
+    # Merge orchestration, advisory scout and JSON syntax have focused contract suites.
     # Route those changes to their own contract suites, never to unrelated SQLite
     # and language-registry fixtures. Mixed unknown or sensitive changes still
     # execute the complete fail-closed baseline.
@@ -78,8 +82,11 @@ def select_baseline_checks(changed_paths):
     def json_security_path(path):
         return path.startswith(JSON_SECURITY_PATHS) or path == JSON_WORKFLOW
 
+    def janitor_path(path):
+        return path in JANITOR_PATHS
+
     if all(policy_path(p) or coordinator_path(p) or json_security_path(p)
-           for p in changed_paths):
+           or janitor_path(p) for p in changed_paths):
         selected = []
         if any(policy_path(p) for p in changed_paths):
             selected.append("policy")
@@ -87,6 +94,8 @@ def select_baseline_checks(changed_paths):
             selected.append("coordinator")
         if any(json_security_path(p) for p in changed_paths):
             selected.append("json_security")
+        if any(janitor_path(p) for p in changed_paths):
+            selected.append("janitor")
         return tuple(selected)
 
     def low_risk(path):
