@@ -87,6 +87,20 @@ class TestGate(unittest.TestCase):
         self.assertGreaterEqual(admission["expires_at"], int(time.time()))
         self.assertLessEqual(admission["expires_at"], int(time.time()) + 300)
 
+    def test_unauthorized_workspace(self):
+        manifest = {
+            "source_id": "test-source-1",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+            "destination": "packs/out"
+        }
+        with patch('os.access', return_value=False):
+            code, errors, _, stderr = self.run_process(manifest)
+            self.assertEqual(code, 1)
+            self.assertIn("WORKSPACE_ACCESS_DENIED", errors)
+            self.assertIn("WORKSPACE_ACCESS_DENIED", stderr)
+
     def test_missing_license(self):
         manifest = {
             "source_id": "test-source-1",
