@@ -128,5 +128,21 @@ class ExerciseQualityTests(unittest.TestCase):
             evaluate_response('x',{'x'},{'x'})
 
 
+    def test_oversized_sentence_rejected_before_replay(self):
+        # Synthetic attested-looking fixture: source importer permits <=2000 chars.
+        self.sentence['text'] = 'B' * 2001
+        with patch('tools.gha_factory.exercise_quality.validator.make_cloze',
+                   return_value=self.exercise):
+            with self.assertRaisesRegex(ExerciseError, 'OVERSIZED_SENTENCE'):
+                self.valid()
+
+    def test_blank_attestation_evidence_never_grades_correct_or_ambiguous(self):
+        # Whitespace is not a source-backed lexical answer.
+        with self.assertRaisesRegex(ExerciseError, 'INVALID_ANSWER_EVIDENCE'):
+            evaluate_response(' ', {' '})
+        with self.assertRaisesRegex(ExerciseError, 'INVALID_ALTERNATE_EVIDENCE'):
+            evaluate_response(' ', {'Buch'}, {'\\t'})
+
+
 if __name__ == '__main__':
     unittest.main()
