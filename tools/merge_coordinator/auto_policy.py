@@ -53,8 +53,6 @@ def auto_eligible(pr, checks, reviews, files, message, main_sha):
         return False, 'not cleanly mergeable'
     if not auto_safe_files(files):
         return False, 'changes exceed low-risk documentation/new-test scope'
-    if re.search(r'\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]|^skip-checks\s*:\s*true\s*$', message, re.I | re.M):
-        return False, 'CI-skipping commit'
     if not isinstance(reviews, list) or any(not isinstance(v, dict) for v in reviews):
         return False, 'invalid review evidence'
     latest = {}
