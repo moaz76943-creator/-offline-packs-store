@@ -89,3 +89,57 @@ class TestPublicationFactory(unittest.TestCase):
         artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "de"}]
         with self.assertRaises(ValueError):
             publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+
+    def test_invalid_vct_rejected(self):
+        vct_file = self.root / "bad.vct"
+        vct_file.write_bytes(b"not a valid vct token")
+        artifacts = [{"path": "bad.vct", "sha256": file_hash(vct_file)}]
+        with self.assertRaisesRegex(ValueError, "Invalid compact semantic asset"):
+            publish_artifacts(self.root, self.target, artifacts, check_auth=False)
+
+    def test_unapproved_language_rejected_with_auth(self):
+        artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "unsupported_lang"}]
+        # mock registry
+        cat_dir = self.root / "catalog"
+        cat_dir.mkdir(parents=True, exist_ok=True)
+        (cat_dir / "language_registry.v1.json").write_text('{"languages": [{"code": "de"}, {"code": "en"}]}')
+
+        # we need to skip other auth checks for this test to fail specifically on language
+        # or we mock check_auth, but check_auth=True runs the release gate which will fail
+        # let's just make it check_auth=True and mock verify_publication_eligibility and verify_publication_authorization
+
+        import tools.release_publication.factory as f
+        old_eligibility = f.verify_publication_eligibility
+        old_auth = f.verify_publication_authorization
+        old_validate = f.validate_artifact
+        f.verify_publication_eligibility = lambda r: {"status": "VERIFIED_CANDIDATE"}
+        f.verify_publication_authorization = lambda r: None
+        f.validate_artifact = lambda a, r: []
+
+        try:
+            with self.assertRaisesRegex(ValueError, "Unapproved language: unsupported_lang"):
+                publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+        finally:
+            f.verify_publication_eligibility = old_eligibility
+            f.verify_publication_authorization = old_auth
+            f.validate_artifact = old_validate
+
+
+    def test_gate_validation_failure(self):
+        artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "de"}]
+
+        import tools.release_publication.factory as f
+        old_eligibility = f.verify_publication_eligibility
+        old_auth = f.verify_publication_authorization
+        old_validate = f.validate_artifact
+        f.verify_publication_eligibility = lambda r: {"status": "VERIFIED_CANDIDATE"}
+        f.verify_publication_authorization = lambda r: None
+        f.validate_artifact = lambda a, r: ["INVALID_LICENSE"]
+
+        try:
+            with self.assertRaisesRegex(ValueError, "failed validation: \\['INVALID_LICENSE'\\]"):
+                publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+        finally:
+            f.verify_publication_eligibility = old_eligibility
+            f.verify_publication_authorization = old_auth
+            f.validate_artifact = old_validate
