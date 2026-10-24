@@ -28,8 +28,9 @@ SUITES = {
     "community_automation": ("tools/community_automation", "test_gate.py"),
     "registry_unit": ("catalog", "test_registry.py"),
     "utils": ("tests", "test_utils.py"),
+    "inventory": ("tests/merge_accelerator", "test_inventory.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "utils", "registry_unit")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "utils", "registry_unit", "inventory")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -162,6 +163,8 @@ def select_suites(changed_paths):
             selected.add("community_automation")
         if path == "utils.py" or path == "tests/test_utils.py":
             selected.add("utils")
+        if path.startswith(("tools/merge_accelerator/", "tests/merge_accelerator/")):
+            selected.add("inventory")
         if path.startswith("catalog/"):
             selected.add("registry_unit")
         if path.startswith("legal/ledger/"):
