@@ -1,0 +1,1933 @@
+{
+  "schema_version": "1.0.0",
+  "status": "REVIEW_REQUIRED",
+  "publication_approved": false,
+  "source_dossier": "legal/ledger/evidence/wikidata-20261023",
+  "summary": {
+    "lexemes": 3,
+    "senses": 25,
+    "forms": 40,
+    "attested_concept_links": 1,
+    "actual_rows": 68,
+    "languages": [
+      "ar",
+      "de",
+      "en"
+    ]
+  },
+  "rows": [
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "lexeme",
+      "row_id": "L1026",
+      "attested": {
+        "lemma": "gehen",
+        "lexical_category_qid": "Q24905",
+        "language_qid": "Q188",
+        "revision": 2457144138
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L1026-S1",
+      "attested": {
+        "glosses": {
+          "de": "sich zu Fuß fortbewegen",
+          "en": "to move on foot",
+          "ru": "перемещаться на ногах"
+        },
+        "concept_qids": [
+          "Q25443024"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L1026-S2",
+      "attested": {
+        "glosses": {
+          "de": "etwas verlassen",
+          "en": "to leave",
+          "ru": "покидать"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L1026-S3",
+      "attested": {
+        "glosses": {
+          "de": "funktionieren",
+          "ru": "работать, функционировать",
+          "en": "for a tool or process, to work properly"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L1026-S5",
+      "attested": {
+        "glosses": {
+          "en": "to move to a different place, independed of the means"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L1026-S6",
+      "attested": {
+        "glosses": {
+          "en": "to go"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F1",
+      "attested": {
+        "surface": "gegangen",
+        "grammatical_feature_qids": [
+          "Q12717679"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F2",
+      "attested": {
+        "surface": "gehend",
+        "grammatical_feature_qids": [
+          "Q10345583"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F3",
+      "attested": {
+        "surface": "gehe",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q192613",
+          "Q21714344",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F4",
+      "attested": {
+        "surface": "gehst",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q192613",
+          "Q51929049",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F5",
+      "attested": {
+        "surface": "geht",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q192613",
+          "Q51929074",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F6",
+      "attested": {
+        "surface": "gehen",
+        "grammatical_feature_qids": [
+          "Q179230"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F7",
+      "attested": {
+        "surface": "gehen",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q192613",
+          "Q21714344",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F8",
+      "attested": {
+        "surface": "geht",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q192613",
+          "Q51929049",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F9",
+      "attested": {
+        "surface": "gehen",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q192613",
+          "Q51929074",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F10",
+      "attested": {
+        "surface": "ging",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q21714344",
+          "Q442485",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F11",
+      "attested": {
+        "surface": "gingst",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q442485",
+          "Q51929049",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F12",
+      "attested": {
+        "surface": "ging",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q442485",
+          "Q51929074",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F13",
+      "attested": {
+        "surface": "gingen",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q21714344",
+          "Q442485",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F14",
+      "attested": {
+        "surface": "gingt",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q442485",
+          "Q51929049",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F15",
+      "attested": {
+        "surface": "gingen",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q442485",
+          "Q51929074",
+          "Q682111"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F16",
+      "attested": {
+        "surface": "geh",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q192613",
+          "Q22716",
+          "Q51929049",
+          "Q55228835"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F17",
+      "attested": {
+        "surface": "gehe",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q192613",
+          "Q22716",
+          "Q51929049"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F18",
+      "attested": {
+        "surface": "geht",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q192613",
+          "Q22716",
+          "Q51929049"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F19",
+      "attested": {
+        "surface": "gehet",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q192613",
+          "Q22716",
+          "Q51929049"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F20",
+      "attested": {
+        "surface": "ginge",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q21714344",
+          "Q442485",
+          "Q54671845"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F21",
+      "attested": {
+        "surface": "gehest",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q192613",
+          "Q51929049",
+          "Q55685962"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F22",
+      "attested": {
+        "surface": "gehe",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q192613",
+          "Q21714344",
+          "Q55685962"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F23",
+      "attested": {
+        "surface": "gehe",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q192613",
+          "Q51929074",
+          "Q55685962"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F24",
+      "attested": {
+        "surface": "gehen",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q192613",
+          "Q21714344",
+          "Q55685962"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F25",
+      "attested": {
+        "surface": "gehet",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q192613",
+          "Q51929049",
+          "Q55685962"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F26",
+      "attested": {
+        "surface": "gehen",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q192613",
+          "Q51929074",
+          "Q55685962"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F28",
+      "attested": {
+        "surface": "gingest",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q442485",
+          "Q51929049",
+          "Q54671845"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F29",
+      "attested": {
+        "surface": "ginge",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q1317831",
+          "Q442485",
+          "Q51929074",
+          "Q54671845"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F30",
+      "attested": {
+        "surface": "gingen",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q21714344",
+          "Q442485",
+          "Q54671845"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F31",
+      "attested": {
+        "surface": "ginget",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q442485",
+          "Q51929049",
+          "Q54671845"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F32",
+      "attested": {
+        "surface": "gingen",
+        "grammatical_feature_qids": [
+          "Q1317831",
+          "Q146786",
+          "Q442485",
+          "Q51929074",
+          "Q54671845"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L1026",
+      "language": "de",
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L1026-F41",
+      "attested": {
+        "surface": "zu gehen",
+        "grammatical_feature_qids": [
+          "Q100952920"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "lexeme",
+      "row_id": "L3006",
+      "attested": {
+        "lemma": "go",
+        "lexical_category_qid": "Q24905",
+        "language_qid": "Q1860",
+        "revision": 2549891188
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S1",
+      "attested": {
+        "glosses": {
+          "en": "move; change location",
+          "ru": "идти",
+          "nl": "gaan",
+          "es": "ir",
+          "zh-tw": "走",
+          "zh-hant": "走",
+          "zh": "走",
+          "nan": "kiâⁿ",
+          "gu": "ખસવું; સ્થળ બદલવું",
+          "de": "sich fortbewegen; gehen",
+          "it": "andare",
+          "kn": "ಹೋಗು; ಹೋಗಿ",
+          "hi": "जाना",
+          "hr": "ići",
+          "fr": "aller",
+          "ka": "წასვლა",
+          "tr": "gitmek",
+          "ms": "pergi",
+          "ms-arab": "ڤرݢي",
+          "bjn": "tulak",
+          "tay": "mosa"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S2",
+      "attested": {
+        "glosses": {
+          "en": "move away, leave",
+          "gu": "જવું",
+          "fr": "partir"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S4",
+      "attested": {
+        "glosses": {
+          "en": "operate, function"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S5",
+      "attested": {
+        "glosses": {
+          "en": "pursue (often with after)"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S6",
+      "attested": {
+        "glosses": {
+          "en": "serial verb construction"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S7",
+      "attested": {
+        "glosses": {
+          "en": "become"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S8",
+      "attested": {
+        "glosses": {
+          "en": "benefactive"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S9",
+      "attested": {
+        "glosses": {
+          "en": "experience, undergo"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S10",
+      "attested": {
+        "glosses": {
+          "en": "have on your side"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S11",
+      "attested": {
+        "glosses": {
+          "en": "say"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S12",
+      "attested": {
+        "glosses": {
+          "en": "go with, match, accompany"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S13",
+      "attested": {
+        "glosses": {
+          "en": "existential usage (here/there you go)"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S14",
+      "attested": {
+        "glosses": {
+          "en": "serves, stands, is attributed to"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S15",
+      "attested": {
+        "glosses": {
+          "en": "sell"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S16",
+      "attested": {
+        "glosses": {
+          "en": "modal / future"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S17",
+      "attested": {
+        "glosses": {
+          "en": "be left"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S18",
+      "attested": {
+        "glosses": {
+          "en": "potty"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S19",
+      "attested": {
+        "glosses": {
+          "en": "an attempt, effort"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L3006-S20",
+      "attested": {
+        "glosses": {
+          "en": "spatial positioning; belong in a spot"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L3006-F1",
+      "attested": {
+        "surface": "go",
+        "grammatical_feature_qids": [
+          "Q3910936"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L3006-F2",
+      "attested": {
+        "surface": "goes",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q3910936",
+          "Q51929074"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L3006-F3",
+      "attested": {
+        "surface": "went",
+        "grammatical_feature_qids": [
+          "Q1392475"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L3006-F4",
+      "attested": {
+        "surface": "gone",
+        "grammatical_feature_qids": [
+          "Q1230649"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L3006",
+      "language": "en",
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L3006-F5",
+      "attested": {
+        "surface": "going",
+        "grammatical_feature_qids": [
+          "Q10345583"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L7882",
+      "language": "ar",
+      "source_id": "wikidata-lexeme-l7882-r2548839684",
+      "source_artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "lexeme",
+      "row_id": "L7882",
+      "attested": {
+        "lemma": "ذَهَبَ",
+        "lexical_category_qid": "Q24905",
+        "language_qid": "Q13955",
+        "revision": 2548839684
+      }
+    },
+    {
+      "lexeme_id": "L7882",
+      "language": "ar",
+      "source_id": "wikidata-lexeme-l7882-r2548839684",
+      "source_artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "sense",
+      "row_id": "L7882-S1",
+      "attested": {
+        "glosses": {
+          "en": "to go"
+        },
+        "concept_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L7882",
+      "language": "ar",
+      "source_id": "wikidata-lexeme-l7882-r2548839684",
+      "source_artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L7882-F1",
+      "attested": {
+        "surface": "ذَهَبَ",
+        "grammatical_feature_qids": [
+          "Q110786",
+          "Q124351233",
+          "Q1317831",
+          "Q499327",
+          "Q51929074"
+        ]
+      }
+    },
+    {
+      "lexeme_id": "L7882",
+      "language": "ar",
+      "source_id": "wikidata-lexeme-l7882-r2548839684",
+      "source_artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L7882-F2",
+      "attested": {
+        "surface": "ذَهَبْتُ",
+        "grammatical_feature_qids": []
+      }
+    },
+    {
+      "lexeme_id": "L7882",
+      "language": "ar",
+      "source_id": "wikidata-lexeme-l7882-r2548839684",
+      "source_artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+      "license_id": "CC0-1.0",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "source_status": "REVIEW_REQUIRED",
+      "publication_approved": false,
+      "topic_id": null,
+      "subtopic_id": null,
+      "scenario_id": null,
+      "intent_id": null,
+      "skill_id": null,
+      "grammar_id": null,
+      "level": "UNKNOWN",
+      "level_framework": "UNKNOWN",
+      "row_type": "form",
+      "row_id": "L7882-F3",
+      "attested": {
+        "surface": "أذْهَبُ",
+        "grammatical_feature_qids": []
+      }
+    }
+  ]
+}
