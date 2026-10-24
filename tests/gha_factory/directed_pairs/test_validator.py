@@ -198,5 +198,24 @@ class PairValidationTests(unittest.TestCase):
             audit_pairs(*[v for k in ('detailed','links','cc0','candidates') for v in vals[k]], dict(PILOT), set(PILOT.values()), max_pairs=1)
 
 
+    def test_exponent_overflow_in_review_metadata_is_rejected(self):
+        # A syntactically finite-looking exponent decodes to infinity in Python.
+        original = self.inputs['candidates'].decode('utf-8').rstrip('\n')
+        for exponent in ('1e999', '-1e999'):
+            with self.subTest(exponent=exponent):
+                self.inputs['candidates'] = (original[:-1] +
+                    ',"review_metadata":{"score":' + exponent + '}}\n').encode('utf-8')
+                with self.assertRaisesRegex(PairError, 'NONFINITE_JSON'):
+                    self.audit()
+
+    def test_escaped_lone_surrogate_in_review_metadata_is_rejected(self):
+        # JSON can decode an escaped lone surrogate that is not valid UTF-8 text.
+        original = self.inputs['candidates'].decode('utf-8').rstrip('\n')
+        self.inputs['candidates'] = (original[:-1] +
+            ',"review_metadata":{"notes":["\\\\ud800"]}}\n').encode('utf-8')
+        with self.assertRaisesRegex(PairError, 'INVALID_UNICODE_JSON'):
+            self.audit()
+
+
 if __name__ == '__main__':
     unittest.main()
