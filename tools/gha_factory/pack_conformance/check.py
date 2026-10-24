@@ -207,7 +207,13 @@ def database_checks(data, language, info, root, fixture):
                 'grammar':{'grammar_id':'grammar_id','category':'category','title':'title'},
             }
             for table, fields in projections.items():
-                for row in db.execute('SELECT * FROM '+table):
+                query = 'SELECT * FROM ' + table
+                if table == 'examples':
+                    query = 'SELECT e.*, s.lexeme_id AS target_lexeme_id, l.language_code AS target_language_code FROM examples e LEFT JOIN senses s ON s.sense_id = e.sense_id LEFT JOIN lexicon l ON l.id = s.lexeme_id'
+                elif table == 'translations':
+                    query = 'SELECT t.*, l.language_code AS target_language_code FROM translations t LEFT JOIN senses s ON s.sense_id = t.to_sense_id LEFT JOIN lexicon l ON l.id = s.lexeme_id'
+
+                for row in db.execute(query):
                     payload = object_json(row['payload_json'],pipeline.MAX_ROW)
                     if any(row[col] != payload.get(key) for col,key in fields.items()):
                         fail('INVALID_RECEIPT', table+' payload projection')
@@ -218,14 +224,12 @@ def database_checks(data, language, info, root, fixture):
                         if row['language_code'] != language or object_json(row['source_json'],pipeline.MAX_ROW) != payload['source']:
                             fail('LANGUAGE_ID_MISMATCH', 'grammar identity/source')
                     if table == 'examples':
-                        link = db.execute('SELECT s.lexeme_id,l.language_code FROM senses s JOIN lexicon l ON l.id=s.lexeme_id WHERE s.sense_id=?',(row['sense_id'],)).fetchone()
-                        if tuple(link) != (row['lexeme_id'],row['language_code']):
+                        if (row['target_lexeme_id'], row['target_language_code']) != (row['lexeme_id'], row['language_code']):
                             fail('LANGUAGE_ID_MISMATCH', 'example sense language/reference')
                         for tr in payload.get('translations',[]):
                             provenance(tr.get('source'))
                     if table == 'translations':
-                        target = db.execute('SELECT l.language_code FROM senses s JOIN lexicon l ON l.id=s.lexeme_id WHERE s.sense_id=?',(row['to_sense_id'],)).fetchone()[0]
-                        if target != row['language_code']:
+                        if row['target_language_code'] != row['language_code']:
                             fail('LANGUAGE_ID_MISMATCH', 'directed target language')
             present = sorted({r[0] for r in db.execute('SELECT DISTINCT language_code FROM lexicon')})
             if present != info.get('languagesPresent') or language not in present:
