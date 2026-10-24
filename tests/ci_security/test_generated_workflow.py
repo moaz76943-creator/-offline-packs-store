@@ -39,7 +39,9 @@ class GeneratedJsonWorkflowSecurityTests(unittest.TestCase):
     def test_inspection_has_no_generator_side_effect(self):
         self.assertTrue(GENERATOR.is_file())
         self.assertTrue(WORKFLOW.is_file())
-        self.assertIn("on: [push, pull_request]", literal_workflow_template())
+        self.assertIn("  pull_request:\\n    paths:", literal_workflow_template())
+        self.assertIn("      - '**/*.json'", literal_workflow_template())
+        self.assertNotIn("on: [push, pull_request]", literal_workflow_template())
 
 
 if __name__ == "__main__":
