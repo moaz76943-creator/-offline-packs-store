@@ -48,7 +48,7 @@ def safe_file(root, relative):
     return resolved
 
 
-def build(root, receipt):
+def build(root, receipt, folder=FOLDER):
     root = Path(root)
     if (receipt.get("schema_version") != 1 or receipt.get("status") != "REVIEW_REQUIRED"
             or receipt.get("production_ready") is not False
@@ -62,7 +62,7 @@ def build(root, receipt):
     rows, seen = [], set()
     for source in receipt["source_files"]:
         relative = source["path"]
-        if not relative.startswith(str(FOLDER) + "/sources/"):
+        if not relative.startswith(str(folder) + "/sources/"):
             raise ValueError("untrusted snapshot location")
         raw = safe_file(root, relative).read_bytes()
         if digest(raw) != source["sha256"]:
