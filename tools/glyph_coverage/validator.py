@@ -1,5 +1,6 @@
 import os
-from typing import Dict, List, Optional, Set
+import json
+from typing import Dict, List, Optional, Set, Any
 from fontTools.ttLib import TTFont
 from dataclasses import dataclass
 from legal.font_assets.registry import FontAsset, FontRightsRegistry, FONT_LICENSES
@@ -34,6 +35,35 @@ class GlyphCoverageValidator:
     def __init__(self, repo_root: str):
         self.repo_root = repo_root
         self.registry = FontRightsRegistry()
+        self._cached_scripts: Optional[Set[str]] = None
+
+    def _get_canonical_scripts(self) -> Set[str]:
+        if self._cached_scripts is not None:
+            return self._cached_scripts
+
+        registry_path = os.path.join(self.repo_root, "catalog", "language_registry.v1.json")
+        with open(registry_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        scripts = set()
+
+        # Read directly from the 'scripts' top-level object if present
+        if "scripts" in data and isinstance(data["scripts"], dict):
+            scripts.update(data["scripts"].keys())
+
+        for lang in data.get("languages", []):
+            if "scripts" in lang:
+                scripts.update(lang["scripts"])
+        for variant in data.get("locale_variants", []):
+            if variant.get("script"):
+                scripts.add(variant["script"])
+
+        # Also statically add Hani if CJK (Hani) is implied by Hans/Hant/Jpan/Kore
+        if any(s in scripts for s in ["Hans", "Hant", "Jpan", "Kore"]):
+            scripts.add("Hani")
+
+        self._cached_scripts = scripts
+        return scripts
 
     def get_font_cmap(self, font_path: str) -> Set[int]:
         try:
@@ -46,17 +76,33 @@ class GlyphCoverageValidator:
         except Exception:
             return set()
 
-    def validate_coverage(self, script: str, font_path: str) -> Dict[str, List[int]]:
+    def validate_coverage(self, script: str, font_path: str) -> Dict[str, Any]:
+        try:
+            canonical_scripts = self._get_canonical_scripts()
+        except FileNotFoundError:
+            return {
+                "status": "REJECT",
+                "issues": ["Canonical registry missing"],
+                "supported": [],
+                "unsupported": SCRIPT_SAMPLES.get(script, []).copy() + VARIATION_SELECTORS
+            }
+
         samples = SCRIPT_SAMPLES.get(script, [])
         samples = samples.copy()
-
-        # Include variation selectors to see if the font supports them
         samples.extend(VARIATION_SELECTORS)
+
+        if script not in canonical_scripts:
+            return {
+                "status": "REJECT",
+                "issues": ["Script not in canonical registry"],
+                "supported": [],
+                "unsupported": samples
+            }
 
         cmap = self.get_font_cmap(font_path)
         supported = [cp for cp in samples if cp in cmap]
         unsupported = [cp for cp in samples if cp not in cmap]
-        return {"supported": supported, "unsupported": unsupported}
+        return {"status": "EVIDENCE_PASS", "issues": [], "supported": supported, "unsupported": unsupported}
 
     def generate_fallback_mapping(self, script: str, assets: List[FontAsset]) -> FallbackMapping:
         samples = SCRIPT_SAMPLES.get(script, [])
@@ -84,6 +130,9 @@ class GlyphCoverageValidator:
                 continue
 
             coverage = self.validate_coverage(script, full_path)
+
+            if coverage.get("status") == "REJECT":
+                continue
 
             if not coverage["unsupported"]:
                 valid_families.append(asset.family)
