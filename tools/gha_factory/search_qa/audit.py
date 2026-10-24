@@ -3,6 +3,7 @@ import argparse
 from contextlib import closing
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 import sqlite3
@@ -40,9 +41,33 @@ def _pairs(values):
     return result
 
 
+def _finite_float(token):
+    value = float(token)
+    if not math.isfinite(value):
+        raise AuditError('invalid JSON number')
+    return value
+
+
 def _json(data):
-    return json.loads(data, object_pairs_hook=_pairs,
-                      parse_constant=lambda _: (_ for _ in ()).throw(AuditError('invalid JSON number')))
+    result = json.loads(data, object_pairs_hook=_pairs, parse_float=_finite_float,
+                        parse_constant=lambda _: (_ for _ in ()).throw(AuditError('invalid JSON number')))
+    # JSON permits escaped lone surrogates; they are not valid UTF-8 metadata.
+    # Walk iteratively so the check does not add Python recursion or serialize
+    # another copy of a potentially large, already-bounded archive envelope.
+    pending = [result]
+    while pending:
+        item = pending.pop()
+        if isinstance(item, str):
+            try:
+                item.encode('utf-8')
+            except UnicodeEncodeError as exc:
+                raise AuditError('invalid Unicode JSON text') from exc
+        elif isinstance(item, dict):
+            pending.extend(item.keys())
+            pending.extend(item.values())
+        elif isinstance(item, list):
+            pending.extend(item)
+    return result
 
 
 
@@ -67,6 +92,7 @@ def probe_search(con, language, query, *, limit=MAX_SAMPLES):
     if not isinstance(language, str) or not re.fullmatch(r'[a-z]{2,3}', language):
         raise AuditError('invalid search probe language')
     if (not isinstance(query, str) or not query.strip() or '\x00' in query
+            or any(unicodedata.category(char) == 'Cs' for char in query)
             or not unicodedata.is_normalized('NFC', query)
             or len(query.encode('utf-8')) > MAX_SEARCH_TERM_BYTES):
         raise AuditError('invalid/non-NFC/oversized search probe')

@@ -141,6 +141,20 @@ class SearchQualityTests(unittest.TestCase):
             with self.assertRaises(audit.AuditError):
                 audit.probe_search(db, "de", surface)
 
+    def test_json_rejects_nonfinite_exponents_and_unpaired_surrogates(self):
+        # Synthetic malformed metadata, not source or corpus data.
+        for raw in (b'{"count":1e999}', b'{"count":-1e999}',
+                    b'{"text":"\\ud800"}'):
+            with self.subTest(raw=raw):
+                with self.assertRaises(audit.AuditError):
+                    audit._json(raw)
+
+    def test_probe_rejects_unpaired_surrogate_as_audit_error(self):
+        self.make_db("de", ("Wort",))
+        with sqlite3.connect(self.path) as db:
+            with self.assertRaises(audit.AuditError):
+                audit.probe_search(db, "de", "\ud800")
+
     def test_probe_rejects_unbounded_or_non_nfc_input(self):
         self.make_db("de", ("Wort",))
         with sqlite3.connect(self.path) as db:
