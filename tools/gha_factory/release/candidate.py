@@ -4,6 +4,7 @@ import argparse
 import base64
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -90,9 +91,15 @@ def _json(raw, label):
     def finite_only(value):
         raise ValueError('non-finite JSON constant')
 
+    def finite_float(value):
+        number = float(value)
+        if not math.isfinite(number):
+            raise ValueError('overflowed JSON number')
+        return number
+
     try:
         item = json.loads(raw, object_pairs_hook=unique_object,
-                          parse_constant=finite_only)
+                          parse_constant=finite_only, parse_float=finite_float)
     except (UnicodeError, ValueError, TypeError) as exc:
         raise ReleaseError('invalid ' + label) from exc
     if not isinstance(item, dict):
