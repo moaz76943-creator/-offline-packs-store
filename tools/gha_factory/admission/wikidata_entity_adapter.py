@@ -38,6 +38,8 @@ def extract_entity(raw, *, language, source, repo_root):
     try:
         document = json.loads(raw.decode("utf-8"), object_pairs_hook=unique,
                               parse_constant=lambda _: (_ for _ in ()).throw(ValueError("nonfinite")))
+    except AdmissionError:
+        raise
     except (ValueError, UnicodeError, TypeError) as exc:
         raise AdmissionError("REJECTED_RECORD: invalid Wikidata JSON") from exc
     entities = document.get("entities") if isinstance(document, dict) else None
