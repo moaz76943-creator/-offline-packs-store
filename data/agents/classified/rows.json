@@ -545,6 +545,42 @@
       "wikidata": "Q33999"
     },
     {
+      "concept_id": "concept.q970153",
+      "forms": [
+        "børneskuespiller",
+        "børneskuespilleren",
+        "børneskuespillere",
+        "børneskuespillerne",
+        "børneskuespillers",
+        "børneskuespillerens",
+        "børneskuespilleres",
+        "børneskuespillernes"
+      ],
+      "language": "da",
+      "lemma": "børneskuespiller",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1327860",
+      "pos": "",
+      "qids": [
+        "Q970153"
+      ],
+      "record_id": "L1327860",
+      "retrieval_date": "2026-10-23",
+      "revision": "2343129799",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1327860-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q970153"
+    },
+    {
       "concept_id": "concept.q1780",
       "forms": [
         "Pressburg",
@@ -1134,6 +1170,114 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "Genetikerin",
+        "Genetikerin",
+        "Genetikerin",
+        "Genetikerin",
+        "Genetikerinnen",
+        "Genetikerinnen",
+        "Genetikerinnen",
+        "Genetikerinnen"
+      ],
+      "language": "de",
+      "lemma": "Genetikerin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348730",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L348730",
+      "retrieval_date": "2026-10-23",
+      "revision": "1879939798",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348730-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "Genetiker",
+        "Genetikers",
+        "Genetiker",
+        "Genetiker",
+        "Genetiker",
+        "Genetiker",
+        "Genetikern",
+        "Genetiker"
+      ],
+      "language": "de",
+      "lemma": "Genetiker",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L407323",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L407323",
+      "retrieval_date": "2026-10-23",
+      "revision": "2306660344",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L407323-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "Bergsteiger",
+        "Bergsteigers",
+        "Bergsteiger",
+        "Bergsteiger",
+        "Bergsteiger",
+        "Bergsteiger",
+        "Bergsteigern",
+        "Bergsteiger"
+      ],
+      "language": "de",
+      "lemma": "Bergsteiger",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L616463",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L616463",
+      "retrieval_date": "2026-10-23",
+      "revision": "2306632326",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L616463-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
     },
     {
       "concept_id": "concept.q726",
@@ -2234,6 +2378,96 @@
       "wikidata": "Q33999"
     },
     {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "geneticist",
+        "geneticists"
+      ],
+      "language": "en",
+      "lemma": "geneticist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L86298",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L86298",
+      "retrieval_date": "2026-10-23",
+      "revision": "2549888042",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L86298-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "mountaineer",
+        "mountaineers"
+      ],
+      "language": "en",
+      "lemma": "mountaineer",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L324197",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L324197",
+      "retrieval_date": "2026-10-23",
+      "revision": "2306540946",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L324197-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ichthyologist",
+        "ichthyologists"
+      ],
+      "language": "en",
+      "lemma": "ichthyologist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L36014",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L36014",
+      "retrieval_date": "2026-10-23",
+      "revision": "2551585516",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L36014-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "ĉevalo",
@@ -2524,6 +2758,102 @@
       "wikidata": "Q12106"
     },
     {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "alpinista",
+        "alpinistas",
+        "alpinista",
+        "alpinistas"
+      ],
+      "language": "es",
+      "lemma": "alpinista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1334294",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L1334294",
+      "retrieval_date": "2026-10-23",
+      "revision": "2443792667",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1334294-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "montañero",
+        "montañeros",
+        "montañera",
+        "montañeras"
+      ],
+      "language": "es",
+      "lemma": "montañero",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1334296",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L1334296",
+      "retrieval_date": "2026-10-23",
+      "revision": "2206918127",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1334296-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ictiólogo",
+        "ictiólogos",
+        "ictióloga",
+        "ictiólogas"
+      ],
+      "language": "es",
+      "lemma": "ictiólogo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L750412",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L750412",
+      "retrieval_date": "2026-10-23",
+      "revision": "2415722189",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L750412-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    },
+    {
       "concept_id": "concept.q2778382",
       "forms": [
         "pronks",
@@ -2597,6 +2927,78 @@
       "wikidata": "Q19357317"
     },
     {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ihtüoloog",
+        "ihtüoloogi",
+        "ihtüoloogi",
+        "ihtüoloogisse",
+        "ihtüoloogis",
+        "ihtüoloogist",
+        "ihtüoloogile",
+        "ihtüoloogil"
+      ],
+      "language": "et",
+      "lemma": "ihtüoloog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L357497",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L357497",
+      "retrieval_date": "2026-10-23",
+      "revision": "2327763303",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L357497-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "kalateadlane",
+        "kalateadlase",
+        "kalateadlast",
+        "kalateadlasesse",
+        "kalateadlases",
+        "kalateadlasest",
+        "kalateadlasele",
+        "kalateadlasel"
+      ],
+      "language": "et",
+      "lemma": "kalateadlane",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L360373",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L360373",
+      "retrieval_date": "2026-10-23",
+      "revision": "2327763970",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L360373-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    },
+    {
       "concept_id": "concept.q430",
       "forms": [
         "dinosauro",
@@ -2667,6 +3069,42 @@
       "status": "keep",
       "subsection": "emotions.q9415",
       "wikidata": "Q2826051"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "mendigoizale",
+        "mendigoizalea",
+        "mendigoizaleak",
+        "mendigoizalek",
+        "mendigoizaleak",
+        "mendigoizaleek",
+        "mendigoizaleri",
+        "mendigoizaleari"
+      ],
+      "language": "eu",
+      "lemma": "mendigoizale",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L69723",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L69723",
+      "retrieval_date": "2026-10-23",
+      "revision": "1354657813",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L69723-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
     },
     {
       "concept_id": "concept.q726",
@@ -3064,6 +3502,187 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "généticien",
+        "généticiens"
+      ],
+      "language": "fr",
+      "lemma": "généticien",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621862",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L621862",
+      "retrieval_date": "2026-10-23",
+      "revision": "1767890810",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621862-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q970153",
+      "forms": [
+        "enfant acteur",
+        "enfants acteurs"
+      ],
+      "language": "fr",
+      "lemma": "enfant acteur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577747",
+      "pos": "",
+      "qids": [
+        "Q970153"
+      ],
+      "record_id": "L1577747",
+      "retrieval_date": "2026-10-23",
+      "revision": "2532048091",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577747-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q970153"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "alpiniste",
+        "alpinistes"
+      ],
+      "language": "fr",
+      "lemma": "alpiniste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621509",
+      "pos": "",
+      "qids": [
+        "Q9149093",
+        "Q99756919"
+      ],
+      "record_id": "L621509",
+      "retrieval_date": "2026-10-23",
+      "revision": "2524854877",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621509-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q18535215",
+      "forms": [
+        "directeur de l'enregistrement",
+        "directeurs de l'enregistrement"
+      ],
+      "language": "fr",
+      "lemma": "directeur de l'enregistrement",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577753",
+      "pos": "",
+      "qids": [
+        "Q18535215"
+      ],
+      "record_id": "L1577753",
+      "retrieval_date": "2026-10-23",
+      "revision": "2532048104",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577753-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q18535215"
+    },
+    {
+      "concept_id": "concept.q18535215",
+      "forms": [
+        "directrice de l'enregistrement",
+        "directrices de l'enregistrement"
+      ],
+      "language": "fr",
+      "lemma": "directrice de l'enregistrement",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1578832",
+      "pos": "",
+      "qids": [
+        "Q18535215"
+      ],
+      "record_id": "L1578832",
+      "retrieval_date": "2026-10-23",
+      "revision": "2532048311",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1578832-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q18535215"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ichtyologiste",
+        "ichtyologistes"
+      ],
+      "language": "fr",
+      "lemma": "ichtyologiste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621583",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L621583",
+      "retrieval_date": "2026-10-23",
+      "revision": "2454586364",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621583-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
     },
     {
       "concept_id": "concept.q59099",
@@ -3492,6 +4111,36 @@
       "wikidata": "Q131482"
     },
     {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "alpinista",
+        "alpinisti"
+      ],
+      "language": "it",
+      "lemma": "alpinista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1214277",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L1214277",
+      "retrieval_date": "2026-10-23",
+      "revision": "2230292173",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1214277-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "着物",
@@ -3638,6 +4287,36 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q192874"
+    },
+    {
+      "concept_id": "concept.q970153",
+      "forms": [
+        "子役",
+        "こやく"
+      ],
+      "language": "ja",
+      "lemma": "子役",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1558368",
+      "pos": "",
+      "qids": [
+        "Q970153"
+      ],
+      "record_id": "L1558368",
+      "retrieval_date": "2026-10-23",
+      "revision": "2489210946",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1558368-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q970153"
     },
     {
       "concept_id": "concept.q319763",
@@ -4673,6 +5352,78 @@
       "wikidata": "Q937857"
     },
     {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "генетик",
+        "генетика",
+        "генетику",
+        "генетика",
+        "генетиком",
+        "генетике",
+        "генетики",
+        "генетиков"
+      ],
+      "language": "ru",
+      "lemma": "генетик",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L100012",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L100012",
+      "retrieval_date": "2026-10-23",
+      "revision": "2237068004",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L100012-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ихтиолог",
+        "ихтиолога",
+        "ихтиологу",
+        "ихтиолога",
+        "ихтиологом",
+        "ихтиологе",
+        "ихтиологи",
+        "ихтиологов"
+      ],
+      "language": "ru",
+      "lemma": "ихтиолог",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L114021",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L114021",
+      "retrieval_date": "2026-10-23",
+      "revision": "2237086191",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L114021-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "häst",
@@ -5055,6 +5806,114 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "genetiker",
+        "genetikern",
+        "genetiker",
+        "genetikerna",
+        "genetikers",
+        "genetikerns",
+        "genetikers",
+        "genetikernas"
+      ],
+      "language": "sv",
+      "lemma": "genetiker",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482414",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L482414",
+      "retrieval_date": "2026-10-23",
+      "revision": "2483339859",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L482414-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q970153",
+      "forms": [
+        "barnskådespelare",
+        "barnskådespelaren",
+        "barnskådespelare",
+        "barnskådespelarna",
+        "barnskådespelares",
+        "barnskådespelarens",
+        "barnskådespelares",
+        "barnskådespelarnas"
+      ],
+      "language": "sv",
+      "lemma": "barnskådespelare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1402287",
+      "pos": "",
+      "qids": [
+        "Q970153"
+      ],
+      "record_id": "L1402287",
+      "retrieval_date": "2026-10-23",
+      "revision": "2484854844",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1402287-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q970153"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "iktyolog",
+        "iktyologen",
+        "iktyologer",
+        "iktyologerna",
+        "iktyologs",
+        "iktyologens",
+        "iktyologers",
+        "iktyologernas"
+      ],
+      "language": "sv",
+      "lemma": "iktyolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L487617",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L487617",
+      "retrieval_date": "2026-10-23",
+      "revision": "2483346490",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L487617-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
     },
     {
       "concept_id": "concept.q12106",
