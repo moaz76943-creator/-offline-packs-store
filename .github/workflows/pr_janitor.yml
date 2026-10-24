@@ -1,5 +1,5 @@
-# Two disjoint, low-cost PR scouts; the canonical merge coordinator remains
-# the only protected-main integration writer.
+# Two disjoint PR label scouts on a reduced recovery cadence;
+# the event-driven canonical coordinator alone merges PRs.
 name: PR blocker-label janitor
 
 on:
@@ -10,7 +10,7 @@ on:
       - 'tools/test_pr_janitor.py'
       - '.github/workflows/pr_janitor.yml'
   schedule:
-    - cron: '17 * * * *'
+    - cron: '17 */4 * * *'
   workflow_dispatch:
 
 permissions:
