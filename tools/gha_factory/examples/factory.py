@@ -242,6 +242,8 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
         for table in ('sentences', 'cc0', 'edges', 'audio'):
             con.execute('DELETE FROM ' + table)
         for line, row, error in bounded_tsv(paths['cc0'], 4):
+            if time.monotonic() - start_time > deadline_seconds or line > MAX_RECORDS:
+                raise Rejected('BLOCKED_DEPENDENCY: CC0 worker budget exhausted; split snapshot upstream')
             if error or not ID.fullmatch(row[0]):
                 counters['rejected_cc0'] += 1
                 continue
@@ -327,6 +329,9 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
         index = 0
         try:
             for item in pairs:
+                if (time.monotonic() - start_time > deadline_seconds or
+                        counters['translation_pairs_verified'] >= MAX_RECORDS * 5):
+                    raise Rejected('BLOCKED_DEPENDENCY: pair worker budget exhausted; split snapshot upstream')
                 counters['translation_pairs_verified'] += 1
                 a,b,la,lb,ta,tb,au,bu,lic_a,lic_b = item
                 if la == 'ar' or lb == 'ar':
