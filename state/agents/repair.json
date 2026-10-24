@@ -1,6 +1,6 @@
 {
-  "action": "recorded",
-  "last_signature": "public-queue-40076556639-1",
+  "action": "already-tracked",
+  "last_signature": "agent-harvest-wikidata",
   "retries": 0,
   "schema_version": "1.0.0"
 }
