@@ -58,6 +58,7 @@ JANITOR_PATHS = ("tools/pr_janitor.py", "tools/test_pr_janitor.py",
                  ".github/workflows/pr_janitor.yml")
 SENSITIVE_DOCS = ("docs/governance/", "docs/merge_coordinator/",
                   "docs/security/", "docs/release/", "docs/CI_")
+ROOT_PROSE_DOCS = frozenset(("README.md", "CHANGELOG.md", "CONTRIBUTING.md"))
 
 
 def select_baseline_checks(changed_paths):
@@ -99,6 +100,8 @@ def select_baseline_checks(changed_paths):
         return tuple(selected)
 
     def low_risk(path):
+        if path in ROOT_PROSE_DOCS:
+            return True
         if any(path.startswith(prefix) for prefix in ISOLATED_PREFIXES):
             return True
         if path.startswith("docs/") and path.endswith(".md"):

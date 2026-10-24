@@ -55,6 +55,19 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(
             select_baseline_checks(["docs/design/notes.md"]), ())
 
+    def test_root_prose_docs_need_no_global_database_or_catalog_tests(self):
+        for path in ("README.md", "CHANGELOG.md", "CONTRIBUTING.md"):
+            self.assertEqual(select_baseline_checks([path]), ())
+        self.assertEqual(
+            select_baseline_checks(["README.md", "docs/design/notes.md"]), ())
+
+    def test_sensitive_root_files_and_mixed_code_still_require_full_baseline(self):
+        baseline = ("policy", "registry", "sqlite")
+        for path in ("LICENSE", "CODEOWNERS", "pubspec.yaml",
+                     "README.md/another.md", "tools/other/new.py"):
+            self.assertEqual(select_baseline_checks(["README.md", path]), baseline)
+        self.assertEqual(select_baseline_checks(["docs/security/review.md"]), baseline)
+
     def test_ci_policy_edits_run_policy_without_sqlite_or_catalog(self):
         self.assertEqual(
             select_baseline_checks(["tools/ci_policy/run_scoped_pr_tests.py"]),
