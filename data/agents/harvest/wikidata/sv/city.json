@@ -1,0 +1,102 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-10-24",
+  "rows": [
+    {
+      "concept_id": "concept.q1754",
+      "forms": [
+        "Stockholm",
+        "Stockholms"
+      ],
+      "language": "sv",
+      "lemma": "Stockholm",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L231853",
+      "pos": "",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "L231853",
+      "retrieval_date": "2026-10-24",
+      "revision": "2484850545",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L231853-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "concept_id": "concept.q1492",
+      "forms": [
+        "Barcelona",
+        "Barcelonas"
+      ],
+      "language": "sv",
+      "lemma": "Barcelona",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L475548",
+      "pos": "",
+      "qids": [
+        "Q1492"
+      ],
+      "record_id": "L475548",
+      "retrieval_date": "2026-10-24",
+      "revision": "2317159188",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L475548-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1492"
+    },
+    {
+      "concept_id": "concept.q727",
+      "forms": [
+        "Amsterdam",
+        "Amsterdams"
+      ],
+      "language": "sv",
+      "lemma": "Amsterdam",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482654",
+      "pos": "",
+      "qids": [
+        "Q727"
+      ],
+      "record_id": "L482654",
+      "retrieval_date": "2026-10-24",
+      "revision": "2523050536",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L482654-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q727"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q1492"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1757"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

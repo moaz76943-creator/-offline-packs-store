@@ -152,22 +152,146 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q8673"
+    },
+    {
+      "concept_id": "concept.q1754",
+      "forms": [
+        "സ്റ്റോക്ക്ഹോം"
+      ],
+      "language": "ml",
+      "lemma": "സ്റ്റോക്ക്ഹോം",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453380",
+      "pos": "",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "L453380",
+      "retrieval_date": "2026-10-24",
+      "revision": "2522372082",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453380-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "concept_id": "concept.q1492",
+      "forms": [
+        "ബാഴ്സലോണ"
+      ],
+      "language": "ml",
+      "lemma": "ബാഴ്സലോണ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453878",
+      "pos": "",
+      "qids": [
+        "Q1492"
+      ],
+      "record_id": "L453878",
+      "retrieval_date": "2026-10-24",
+      "revision": "2522370533",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453878-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1492"
+    },
+    {
+      "concept_id": "concept.q270",
+      "forms": [
+        "വാഴ്സ"
+      ],
+      "language": "ml",
+      "lemma": "വാഴ്സ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453356",
+      "pos": "",
+      "qids": [
+        "Q270"
+      ],
+      "record_id": "L453356",
+      "retrieval_date": "2026-10-24",
+      "revision": "1973797446",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453356-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q65",
+      "forms": [
+        "ലോസ് ആഞ്ചെലെസ്"
+      ],
+      "language": "ml",
+      "lemma": "ലോസ് ആഞ്ചെലെസ്",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453323",
+      "pos": "",
+      "qids": [
+        "Q65"
+      ],
+      "record_id": "L453323",
+      "retrieval_date": "2026-10-24",
+      "revision": "1398171357",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453323-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q65"
+    },
+    {
+      "concept_id": "concept.q727",
+      "forms": [
+        "ആംസ്റ്റർഡാം"
+      ],
+      "language": "ml",
+      "lemma": "ആംസ്റ്റർഡാം",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453472",
+      "pos": "",
+      "qids": [
+        "Q727"
+      ],
+      "record_id": "L453472",
+      "retrieval_date": "2026-10-24",
+      "revision": "2523050439",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453472-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q727"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1865"
+      "reason": "other_language",
+      "wikidata": "Q1492"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q41621"
+      "wikidata": "Q1757"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q4115712"
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
     }
   ],
   "source": "harvest-wikidata"

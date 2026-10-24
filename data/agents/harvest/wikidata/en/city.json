@@ -178,22 +178,147 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q8673"
+    },
+    {
+      "concept_id": "concept.q1754",
+      "forms": [
+        "Stockholm"
+      ],
+      "language": "en",
+      "lemma": "Stockholm",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452597",
+      "pos": "",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "L452597",
+      "retrieval_date": "2026-10-24",
+      "revision": "2278061303",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452597-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "concept_id": "concept.q1492",
+      "forms": [
+        "Barcelona",
+        "Barcelonas"
+      ],
+      "language": "en",
+      "lemma": "Barcelona",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453104",
+      "pos": "",
+      "qids": [
+        "Q1492"
+      ],
+      "record_id": "L453104",
+      "retrieval_date": "2026-10-24",
+      "revision": "2445754865",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453104-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1492"
+    },
+    {
+      "concept_id": "concept.q270",
+      "forms": [
+        "Warsaw"
+      ],
+      "language": "en",
+      "lemma": "Warsaw",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452631",
+      "pos": "",
+      "qids": [
+        "Q270"
+      ],
+      "record_id": "L452631",
+      "retrieval_date": "2026-10-24",
+      "revision": "2551459322",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452631-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q65",
+      "forms": [
+        "Los Angeles"
+      ],
+      "language": "en",
+      "lemma": "Los Angeles",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452537",
+      "pos": "",
+      "qids": [
+        "Q65"
+      ],
+      "record_id": "L452537",
+      "retrieval_date": "2026-10-24",
+      "revision": "2431314962",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452537-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q65"
+    },
+    {
+      "concept_id": "concept.q727",
+      "forms": [
+        "Amsterdam"
+      ],
+      "language": "en",
+      "lemma": "Amsterdam",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452795",
+      "pos": "",
+      "qids": [
+        "Q727"
+      ],
+      "record_id": "L452795",
+      "retrieval_date": "2026-10-24",
+      "revision": "2526366682",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452795-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q727"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1865"
+      "reason": "other_language",
+      "wikidata": "Q1492"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q41621"
+      "wikidata": "Q1757"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q4115712"
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
     }
   ],
   "source": "harvest-wikidata"

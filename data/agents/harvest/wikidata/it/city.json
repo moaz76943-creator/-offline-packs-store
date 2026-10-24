@@ -84,22 +84,57 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2683"
+    },
+    {
+      "concept_id": "concept.q727",
+      "forms": [
+        "Amsterdam"
+      ],
+      "language": "it",
+      "lemma": "Amsterdam",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1321166",
+      "pos": "",
+      "qids": [
+        "Q3152900",
+        "Q2049529",
+        "Q959016",
+        "Q37471983",
+        "Q727",
+        "Q9899",
+        "Q478456",
+        "Q2038528"
+      ],
+      "record_id": "L1321166",
+      "retrieval_date": "2026-10-24",
+      "revision": "2523050596",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1321166-S5",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q727"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1865"
+      "reason": "other_language",
+      "wikidata": "Q1492"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q41621"
+      "wikidata": "Q1757"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q4115712"
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
     }
   ],
   "source": "harvest-wikidata"

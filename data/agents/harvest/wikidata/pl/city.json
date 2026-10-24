@@ -63,22 +63,122 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q41252"
+    },
+    {
+      "concept_id": "concept.q1754",
+      "forms": [
+        "Sztokholm",
+        "Sztokholmu",
+        "Sztokholmowi",
+        "Sztokholm",
+        "Sztokholmem",
+        "Sztokholmie",
+        "Sztokholmie"
+      ],
+      "language": "pl",
+      "lemma": "Sztokholm",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L730960",
+      "pos": "",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "L730960",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337973386",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L730960-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "concept_id": "concept.q270",
+      "forms": [
+        "Warszawa",
+        "Warszawy",
+        "Warszawie",
+        "Warszawę",
+        "Warszawą",
+        "Warszawie",
+        "Warszawo",
+        "Warszawy"
+      ],
+      "language": "pl",
+      "lemma": "Warszawa",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L2041",
+      "pos": "",
+      "qids": [
+        "Q270",
+        "Q9371134",
+        "Q7970959",
+        "Q7970956",
+        "Q30910818",
+        "Q30911370",
+        "Q30911357",
+        "Q30911311"
+      ],
+      "record_id": "L2041",
+      "retrieval_date": "2026-10-24",
+      "revision": "2442939209",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L2041-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q270",
+      "forms": [
+        "warszawski",
+        "warszawska",
+        "warszawskie",
+        "warszawscy",
+        "warszawskie"
+      ],
+      "language": "pl",
+      "lemma": "warszawski",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L52987",
+      "pos": "",
+      "qids": [
+        "Q270"
+      ],
+      "record_id": "L52987",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337980333",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L52987-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q270"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1865"
+      "reason": "other_language",
+      "wikidata": "Q1492"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q41621"
+      "wikidata": "Q1757"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q4115712"
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
     }
   ],
   "source": "harvest-wikidata"

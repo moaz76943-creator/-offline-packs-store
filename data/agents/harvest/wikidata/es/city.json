@@ -101,22 +101,76 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2683"
+    },
+    {
+      "concept_id": "concept.q1754",
+      "forms": [
+        "Estocolmo"
+      ],
+      "language": "es",
+      "lemma": "Estocolmo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L645399",
+      "pos": "",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "L645399",
+      "retrieval_date": "2026-10-24",
+      "revision": "2436171134",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L645399-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "concept_id": "concept.q1492",
+      "forms": [
+        "Barcelona",
+        "Barcelonas"
+      ],
+      "language": "es",
+      "lemma": "Barcelona",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L640120",
+      "pos": "",
+      "qids": [
+        "Q1492",
+        "Q81949"
+      ],
+      "record_id": "L640120",
+      "retrieval_date": "2026-10-24",
+      "revision": "2303242099",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L640120-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1492"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1865"
+      "reason": "other_language",
+      "wikidata": "Q1492"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q41621"
+      "wikidata": "Q1757"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q4115712"
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
     }
   ],
   "source": "harvest-wikidata"
