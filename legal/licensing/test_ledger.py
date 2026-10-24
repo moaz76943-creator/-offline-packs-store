@@ -141,7 +141,7 @@ class TestLicensingLedger(unittest.TestCase):
                 "obligations": []
             },
             "modification_status": "unchanged",
-            "artifact_hash": "deadbeef"
+            "artifact_hash": "a" * 64
         }
         self.assertEqual(ledger.evaluate_source(source), "verified")
 
@@ -177,6 +177,56 @@ class TestLicensingLedger(unittest.TestCase):
         }
         self.assertEqual(ledger.evaluate_source(source), "blocked")
 
+
+    def test_invalid_artifact_hash_is_blocked(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "s1", "url": "https://example.org",
+            "author": "Author", "version": "1",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged", "artifact_hash": "deadbeef",
+        }
+        self.assertEqual(ledger.evaluate_source(source), "blocked")
+
+    def test_malformed_obligations_fail_closed_without_exception(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "s1", "url": "https://example.org",
+            "author": "Author", "version": "1",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True,
+                        "obligations": [{"not": "a string"}]},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_source(source), "blocked")
+        self.assertEqual(ledger.evaluate_combination([source]), "blocked")
+
+    def test_conflicting_reused_source_id_cannot_overwrite_provenance(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "s1", "url": "https://example.org",
+            "author": "Original", "version": "1",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.add_source(source), "verified")
+        changed = dict(source, author="Other")
+        self.assertEqual(ledger.add_source(changed), "blocked")
+        self.assertEqual(ledger.sources["s1"]["author"], "Original")
+
+    def test_stored_license_is_not_aliased_to_mutable_caller_data(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "s1", "url": "https://example.org",
+            "author": "Author", "version": "1",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True,
+                        "obligations": []},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.add_source(source), "verified")
+        source["license"]["declared"] = "UNKNOWN"
+        source["license"]["obligations"].append("forged")
+        self.assertEqual(ledger.sources["s1"]["license"]["declared"], "CC0-1.0")
+        self.assertEqual(ledger.sources["s1"]["license"]["obligations"], [])
 
 if __name__ == '__main__':
     unittest.main()
