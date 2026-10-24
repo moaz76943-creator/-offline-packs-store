@@ -1,0 +1,41 @@
+{
+  "language": "ru",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q131482",
+      "forms": [
+        "хиджра",
+        "хиджры",
+        "хиджре",
+        "хиджру",
+        "хиджрой",
+        "хиджрою",
+        "хиджре",
+        "хиджры"
+      ],
+      "language": "ru",
+      "lemma": "хиджра",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L176978",
+      "pos": "",
+      "qids": [
+        "Q131482"
+      ],
+      "record_id": "L176978",
+      "retrieval_date": "2026-10-20",
+      "revision": "1912050650",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L176978-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q61509",
+      "wikidata": "Q131482"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "travel",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,86 @@
+{
+  "language": "cs",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q726",
+      "forms": [
+        "kůň",
+        "koně",
+        "koni",
+        "koňovi",
+        "koně",
+        "koni",
+        "koni",
+        "koňovi"
+      ],
+      "language": "cs",
+      "lemma": "kůň",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L10381",
+      "pos": "",
+      "qids": [
+        "Q27022",
+        "Q726"
+      ],
+      "record_id": "L10381",
+      "retrieval_date": "2026-10-20",
+      "revision": "2453490688",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L10381-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
+      "concept_id": "concept.q59099",
+      "forms": [
+        "býložravec",
+        "býložravce",
+        "býložravci",
+        "býložravce",
+        "býložravče",
+        "býložravci",
+        "býložravcem",
+        "býložravci"
+      ],
+      "language": "cs",
+      "lemma": "býložravec",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1371706",
+      "pos": "",
+      "qids": [
+        "Q59099"
+      ],
+      "record_id": "L1371706",
+      "retrieval_date": "2026-10-20",
+      "revision": "2261532521",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1371706-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q59099"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "animals",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q26401003"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q25326"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q164509"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
