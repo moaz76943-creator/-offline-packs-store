@@ -33,6 +33,13 @@ class TriggerSafetyTests(unittest.TestCase):
         self.assertIn("  workflow_dispatch:", workflow)
         self.assertNotIn("on: [push, pull_request]", workflow)
 
+    def test_no_redundant_pr_validation_runner(self):
+        self.assertNotIn("  pull_request:\n", self.workflow)
+        self.assertNotIn("  verify-coordinator:", self.workflow)
+        # The single required PR job executes the coordinator contract suite.
+        gate = (WORKFLOW.parent / "public_pr_merge_gate.yml").read_text(encoding="utf-8")
+        self.assertIn("run_scoped_pr_tests.py --baseline", gate)
+
     def test_write_job_runs_trusted_main_only(self):
         self.assertIn("github.ref == 'refs/heads/main'", self.workflow)
         self.assertIn("github.repository == 'moaz76943-creator/-offline-packs-store'", self.workflow)
