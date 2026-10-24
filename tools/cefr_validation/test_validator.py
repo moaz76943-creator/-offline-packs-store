@@ -108,11 +108,8 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertEqual(len(rejected), 1) # Second one is rejected due to conflict
         self.assertIn("Substantial source conflict", rejected[0]["reason"])
 
-        # In the rejection flow we keep source dataset immutable so the input is wrapped.
-        # But for conflicts we actually did set `_resolution` in the code, let's just check the wrapper reason here
-        # or we can verify that the rejected item has "conflicting" somewhere.
         # Since original_record is returned we won't see _resolution on it, but the reason has it.
-        pass
+        self.assertEqual(rejected[0]["record"]["record_id"], "word-conflict")
 
     def test_preserves_independent_sources_without_conflict(self):
         # A1 and A2 for the same word is not a "substantial" conflict
@@ -132,7 +129,46 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        # 'vi' language does not have 'CEFR' in framework_ids in the registry
+        evidence = [{
+            "source_id": "COE-CEFR-2020",
+            "source_version": "2020 Companion volume",
+            "source_url": "https://www.coe.int/en/web/common-european-framework-reference-languages/introduction-and-context",
+            "locator": "page 10",
+            "method": "descriptor_guided_review",
+            "reviewer_id": "reviewer-1"
+        }]
+
+        # We can add a valid content_classification source to the catalog sources
+        self.validator.catalog.sources["TEST-CONTENT-SOURCE"] = {
+            "source_id": "TEST-CONTENT-SOURCE",
+            "publisher": "Test",
+            "version": "1.0",
+            "url": "https://test.com",
+            "scope": "content_classification",
+            "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+        }
+
+        evidence = [{
+            "source_id": "TEST-CONTENT-SOURCE",
+            "source_version": "1.0",
+            "source_url": "https://test.com",
+            "locator": "page 10",
+            "method": "published_content_assignment",
+            "reviewer_id": "reviewer-1"
+        }]
+
+        rec1 = self.create_record("word-vi-1", "vi", "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec1])
+        self.assertEqual(len(accepted), 0)
+        self.assertEqual(len(rejected), 1)
+        self.assertIn("lacks certified CEFR corpora", rejected[0]["reason"])
+
+        rec2 = self.create_record("word-mt-1", "mt", "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec2])
+        self.assertEqual(len(rejected), 0)
+        self.assertEqual(len(accepted), 1)
+        self.assertEqual(accepted[0]["_resolution"], "verified")
 
 if __name__ == '__main__':
     unittest.main()
