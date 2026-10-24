@@ -8,6 +8,7 @@ from pathlib import Path
 
 from tools.gha_factory.admission.review_only_wikidata import (
     DEFAULT_CANDIDATE, DEFAULT_DOSSIER, ReviewError, build, checked,
+    verify_original_wikidata_scope,
 )
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -83,6 +84,25 @@ class WikidataReviewCandidatesTests(unittest.TestCase):
                 checked(root, "link", digest)
             with self.assertRaisesRegex(ReviewError, "unsafe"):
                 checked(root, "../original", digest)
+
+    def test_original_copyright_notice_scopes_cc0_to_lexemes(self):
+        proof = (ROOT / DEFAULT_DOSSIER / "copyright-1523614187.txt").read_bytes()
+        self.assertTrue(verify_original_wikidata_scope(proof))
+
+    def test_reject_generic_cc0_and_other_namespace_only_notice(self):
+        for notice in (
+            b"Creative Commons CC0 License",
+            b"All structured data from the main and Property namespaces "
+            b"is available under Creative Commons CC0 License",
+            b"All structured data from the main, Property, Lexeme, and "
+            b"EntitySchema namespaces is available under CC-BY-SA 3.0",
+            b"All structured data from the main, Property, Lexeme, and "
+            b"EntitySchema namespaces is available under CC-BY-SA 3.0; "
+            b"Creative Commons CC0 License elsewhere",
+        ):
+            with self.subTest(notice=notice):
+                with self.assertRaisesRegex(ReviewError, "Lexeme-scoped CC0"):
+                    verify_original_wikidata_scope(notice)
 
     def test_duplicate_source_json_keys_rejected(self):
         from tools.gha_factory.admission.review_only_wikidata import _decode
