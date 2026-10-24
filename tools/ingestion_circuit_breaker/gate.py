@@ -61,8 +61,11 @@ def quarantine_files(args, manifest_dict, errors):
                     shutil.copy2(artifact_path, q_dir / f"{uid}_{artifact_path.name}")
 
 def process(args):
-    if not os.access(os.getcwd(), os.W_OK):
-        print("WORKSPACE_ACCESS_DENIED: write permissions missing", file=sys.stderr)
+    # Preflight the selected workspace, not the process working directory.
+    # This is an availability check; actual writes must still handle OS errors.
+    workspace = args.repo_root.resolve()
+    if not workspace.is_dir() or not os.access(workspace, os.W_OK | os.X_OK):
+        print("WORKSPACE_ACCESS_DENIED: workspace is not writable/traversable", file=sys.stderr)
         return 1, ["WORKSPACE_ACCESS_DENIED"]
 
     try:
