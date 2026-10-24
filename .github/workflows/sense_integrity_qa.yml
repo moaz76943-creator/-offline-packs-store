@@ -1,0 +1,118 @@
+# Public-only, read-only. Never publishes packs.
+name: Sense integrity QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      snapshot_dir:
+        description: 'Reviewed JSONL directory within repo (empty = tests only)'
+        required: false
+        type: string
+      previous_dir:
+        description: 'Previous JSONL snapshot directory, if available'
+        required: false
+        type: string
+  pull_request:
+    paths:
+      - 'tools/factory_extensions/sense_integrity/**'
+      - 'tests/factory_extensions/sense_integrity/**'
+      - '.github/workflows/sense_integrity_qa.yml'
+      - 'standards/lexical/**'
+      - 'catalog/language_registry.v1.json'
+      - 'legal/ledger/sources.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sense-integrity-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run synthetic identity and replay cases
+        run: python3 -m unittest discover -s tests/factory_extensions/sense_integrity -p 'test_*.py' -v
+
+  indexed_qa:
+    needs: regression
+    if: github.event_name == 'workflow_dispatch' && inputs.snapshot_dir != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify public input paths
+        shell: bash
+        env:
+          SNAPSHOT_DIR: ${{ inputs.snapshot_dir }}
+          PREVIOUS_DIR: ${{ inputs.previous_dir }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          root = Path.cwd().resolve()
+          for key in ('SNAPSHOT_DIR', 'PREVIOUS_DIR'):
+              value = os.environ[key]
+              if not value:
+                  continue
+              path = (root / value).resolve(strict=True)
+              if not path.is_relative_to(root) or not path.is_dir():
+                  raise SystemExit(f'{key} is outside public checkout')
+              for name in ('lexemes', 'senses', 'translations', 'relations', 'examples'):
+                  f = path / (name + '.jsonl')
+                  if not f.is_file() or f.is_symlink():
+                      raise SystemExit(f'missing/unsafe {name} in {key}')
+          PY
+      - name: Generate and replay SHA-verified QA shard
+        shell: bash
+        env:
+          SNAPSHOT_DIR: ${{ inputs.snapshot_dir }}
+          PREVIOUS_DIR: ${{ inputs.previous_dir }}
+        run: |
+          set -euo pipefail
+          args=(--input-dir "$SNAPSHOT_DIR"
+                --ledger legal/ledger/sources.json
+                --registry catalog/language_registry.v1.json
+                --out-dir "$RUNNER_TEMP/sense_qa_${{ matrix.shard }}"
+                --shard "${{ matrix.shard }}" --shards 4)
+          if [[ -n "$PREVIOUS_DIR" ]]; then args+=(--previous-dir "$PREVIOUS_DIR"); fi
+          python3 -m tools.factory_extensions.sense_integrity.audit "${args[@]}"
+          python3 -m tools.factory_extensions.sense_integrity.audit "${args[@]}" --resume
+      - name: Fail on blocking integrity errors and summarize reports
+        shell: bash
+        env:
+          OUT: ${{ runner.temp }}/sense_qa_${{ matrix.shard }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          out = Path(os.environ['OUT'])
+          metrics = json.loads((out/'per-language.json').read_text())['languages']
+          findings = [json.loads(x) for x in (out/'conflicts.jsonl').read_text().splitlines()]
+          errors = sum(x['severity'] == 'error' for x in findings)
+          accepted = sum(x['accepted_senses'] for x in metrics.values())
+          unresolved = sum(x['unresolved_ambiguity'] for x in metrics.values())
+          summary = chr(10).join([
+              '### Read-only sense QA',
+              f'Accepted senses (ledger-gated): {accepted}',
+              f'Unresolved groups: {unresolved}',
+              f'Conflicts: {len(findings)}, blocking: {errors}',
+              'Reports are runner-local; no canonical or release writes.'
+          ]) + chr(10)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as stream:
+              stream.write(summary)
+          if errors:
+              raise SystemExit(f'{errors} blocking identity violations')
+          PY
