@@ -30,7 +30,9 @@ def auto_safe_files(files):
                 not search_qa_files)
 
 def required_checks(files):
-    checks = ('public-pr-merge-gate', 'validate')
+    # The active main ruleset requires this single exact-head check.
+    # Scoped search QA below retains its additional targeted evidence.
+    checks = ('public-pr-merge-gate',)
     if all(f['filename'].startswith(SEARCH_QA_PREFIXES) for f in files):
         return checks + ('audit (0, 1)', 'Validate no fictitious licensed packs',
                          'admission public regression')
