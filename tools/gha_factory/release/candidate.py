@@ -213,15 +213,15 @@ def verify_signature(archive, key_path, signature_path):
     """Ed25519 signs SIGN_DOMAIN + binary SHA-256; public-key verify only."""
     msg = SIGN_DOMAIN + hashlib.sha256(archive).digest()
     try:
-        keytype = subprocess.run(['openssl', 'pkey', '-pubin', '-in', str(key_path), '-text', '-noout'],
+        keytype = subprocess.run(['openssl', 'pkey', '-pubin', '-in', str(Path(key_path).resolve()), '-text', '-noout'],
                                  capture_output=True, text=True, timeout=10, check=True)
         if 'ED25519 Public-Key' not in keytype.stdout:
             raise ReleaseError('only Ed25519 public keys accepted')
         with tempfile.TemporaryDirectory(prefix='rc-sign-') as td:
             payload = Path(td) / 'signed-message.bin'
             payload.write_bytes(msg)
-            subprocess.run(['openssl', 'pkeyutl', '-verify', '-pubin', '-inkey', str(key_path),
-                            '-rawin', '-in', str(payload), '-sigfile', str(signature_path)],
+            subprocess.run(['openssl', 'pkeyutl', '-verify', '-pubin', '-inkey', str(Path(key_path).resolve()),
+                            '-rawin', '-in', str(payload.resolve()), '-sigfile', str(Path(signature_path).resolve())],
                            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=10)
     except (FileNotFoundError, subprocess.SubprocessError) as exc:
         raise ReleaseError('public-key signature verification failed') from exc
