@@ -303,13 +303,13 @@ class FactoryTests(unittest.TestCase):
                'editorial_unambiguous': True, 'editor_review_url': 'https://example.org/review',
                'start': 0, 'end': 4, 'sense_id': 's.cafe', 'lexeme_id': 'l.cafe',
                'features': {'number': 'singular'},
-               'distractors': [{'surface': 'cafe\\u0301', 'sense_id': 's.other'},
+               'distractors': [{'surface': 'cafe\u0301', 'sense_id': 's.other'},
                                {'surface': 'write', 'sense_id': 's.write'}]}
         senses = {'s.cafe': {'language': 'en', 'lexeme_id': 'l.cafe', 'approved': True},
                   's.other': {'language': 'en', 'lexeme_id': 'l.other', 'approved': True},
                   's.write': {'language': 'en', 'lexeme_id': 'l.write', 'approved': True}}
         forms = {('en', sid, surface, (('number', 'singular'),))
-                 for sid, surface in [('s.cafe', 'café'), ('s.other', 'cafe\\u0301'),
+                 for sid, surface in [('s.cafe', 'café'), ('s.other', 'cafe\u0301'),
                                       ('s.write', 'write')]}
         # NFC-equivalent strings are one visible answer even across distinct IDs.
         with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
