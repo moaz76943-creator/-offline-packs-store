@@ -38,12 +38,20 @@ BASELINE_ORDER = ("policy", "registry", "sqlite")
 BASELINE_COMMANDS = {
     "policy": (sys.executable, "-m", "unittest", "discover",
                "-s", "tests/ci_policy", "-p", "test_*.py", "-v"),
+    "coordinator": (sys.executable, "-m", "unittest", "discover",
+                    "-s", "tools/merge_coordinator", "-p", "test_*.py", "-v"),
+    "json_security": (sys.executable, "-m", "unittest", "discover",
+                      "-s", "tests/ci_security", "-p", "test_*.py", "-v"),
     "registry": (sys.executable, "catalog/validate_registry.py"),
     "sqlite": (sys.executable, "tools/test_store_pipeline.py", "-q"),
 }
 ISOLATED_PREFIXES = tuple(folder + "/" for folder, _ in SUITES.values() if folder not in ("tests", "catalog"))
 POLICY_PATHS = ("tools/ci_policy/", "tests/ci_policy/")
 POLICY_WORKFLOW = ".github/workflows/public_pr_merge_gate.yml"
+COORD_PATHS = ("tools/merge_coordinator/",)
+COORD_WORKFLOW = ".github/workflows/public_merge_coordinator.yml"
+JSON_SECURITY_PATHS = ("tests/ci_security/",)
+JSON_WORKFLOW = ".github/workflows/validate_json.yml"
 SENSITIVE_DOCS = ("docs/governance/", "docs/merge_coordinator/",
                   "docs/security/", "docs/release/", "docs/CI_")
 
@@ -56,6 +64,30 @@ def select_baseline_checks(changed_paths):
         if (not isinstance(path, str) or not path or "\\" in path
                 or path.startswith("/") or ".." in path.split("/")):
             return BASELINE_ORDER
+
+    # Core merge orchestration and JSON syntax checks are independently tested.
+    # Route those changes to their own contract suites, never to unrelated SQLite
+    # and language-registry fixtures. Mixed unknown or sensitive changes still
+    # execute the complete fail-closed baseline.
+    def policy_path(path):
+        return path.startswith(POLICY_PATHS) or path == POLICY_WORKFLOW
+
+    def coordinator_path(path):
+        return path.startswith(COORD_PATHS) or path == COORD_WORKFLOW
+
+    def json_security_path(path):
+        return path.startswith(JSON_SECURITY_PATHS) or path == JSON_WORKFLOW
+
+    if all(policy_path(p) or coordinator_path(p) or json_security_path(p)
+           for p in changed_paths):
+        selected = []
+        if any(policy_path(p) for p in changed_paths):
+            selected.append("policy")
+        if any(coordinator_path(p) or p == JSON_WORKFLOW for p in changed_paths):
+            selected.append("coordinator")
+        if any(json_security_path(p) for p in changed_paths):
+            selected.append("json_security")
+        return tuple(selected)
 
     def low_risk(path):
         if any(path.startswith(prefix) for prefix in ISOLATED_PREFIXES):
