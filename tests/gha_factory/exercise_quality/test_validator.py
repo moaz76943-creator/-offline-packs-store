@@ -141,7 +141,7 @@ class ExerciseQualityTests(unittest.TestCase):
         with self.assertRaisesRegex(ExerciseError, 'INVALID_ANSWER_EVIDENCE'):
             evaluate_response(' ', {' '})
         with self.assertRaisesRegex(ExerciseError, 'INVALID_ALTERNATE_EVIDENCE'):
-            evaluate_response(' ', {'Buch'}, {'\\t'})
+            evaluate_response(' ', {'Buch'}, {'\t'})
 
 
 if __name__ == '__main__':
