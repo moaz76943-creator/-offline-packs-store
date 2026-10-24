@@ -116,6 +116,36 @@ class SearchAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(audit.AuditError, 'no approved source'):
             audit.audit_manifest(self.root, shard=0, shards=1)
 
+
+    def test_symlinked_manifest_is_rejected_before_read(self):
+        self.write_inputs([])
+        target = self.root / 'manifest-target.json'
+        (self.root / 'manifest.json').rename(target)
+        (self.root / 'manifest.json').symlink_to(target)
+        with self.assertRaisesRegex(audit.AuditError, 'unsafe.*manifest'):
+            audit.audit_manifest(self.root, shards=1)
+
+    def test_symlinked_source_ledger_is_rejected_before_read(self):
+        self.write_inputs([])
+        ledger = self.root / 'legal/ledger/sources.json'
+        target = self.root / 'legal/ledger/ledger-target.json'
+        ledger.rename(target)
+        ledger.symlink_to(target)
+        with self.assertRaisesRegex(audit.AuditError, 'unsafe.*ledger'):
+            audit.audit_manifest(self.root, shards=1)
+
+    def test_symlinked_pack_directory_cannot_escape_repo(self):
+        source = self.reviewed_source()
+        blob = gzip.compress(b'{}', mtime=0)
+        outside = self.root / 'external-pack-dir'
+        outside.mkdir()
+        (outside / 'aa-1.0.0.pack.gz').write_bytes(blob)
+        (self.root / 'packs').symlink_to(outside, target_is_directory=True)
+        self.write_inputs([source], [dict(id='aa', version='1.0.0',
+                                          sha256=hashlib.sha256(blob).hexdigest())])
+        with self.assertRaisesRegex(audit.AuditError, 'unsafe.*pack'):
+            audit.audit_manifest(self.root, shards=1)
+
     def test_invalid_shard_is_rejected(self):
         with self.assertRaisesRegex(audit.AuditError,'shard'):
             audit.audit_manifest(self.root, shard=10, shards=10)
