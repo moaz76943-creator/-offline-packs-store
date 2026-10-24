@@ -56,7 +56,7 @@ class EngineTests(unittest.TestCase):
         jobs=self.run_controller(api,11)
         self.assertEqual([j['number'] for j in jobs],[3])
         self.assertEqual(api.one(1)['body'],original)
-        self.assertEqual(p.parse(api.one(2)['body'])['state'],'NEW')
+        self.assertEqual(p.parse(api.one(2)['body'])['state'],'READY')
         self.assertEqual(p.parse(api.one(3)['body'])['state'],'CLAIMED')
 
     def test_three_mismatched_active_titles_exhaust_global_capacity(self):
@@ -68,7 +68,7 @@ class EngineTests(unittest.TestCase):
             api.data[i]['title']=p.PREFIX+'0'*64
         self.assertEqual(self.run_controller(api,20),[])
         self.assertEqual({i:api.one(i)['body'] for i in (1,2,3)},bodies)
-        self.assertEqual(p.parse(api.one(4)['body'])['state'],'NEW')
+        self.assertEqual(p.parse(api.one(4)['body'])['state'],'READY')
 
     def test_three_global_capacity(self):
         api=FakeAPI([(i,task(language=l)) for i,l in enumerate(('de','en','fr','ar'),1)])
