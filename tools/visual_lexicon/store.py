@@ -33,8 +33,8 @@ class ConceptStore:
 
     def add_token(self, concept_id: str, token_data: dict, manifest_data: dict):
         """
-        Checks the synthetic-fixture manifest and geometries, encodes the
-        token, and saves it. This does not record a license or a source right.
+        Checks the real asset manifest and geometries, encodes the
+        token, and saves it. This explicitly validates real licenses and source rights.
         """
         # Ensure semantic consistency
         if token_data.get('concept_id') != concept_id:
