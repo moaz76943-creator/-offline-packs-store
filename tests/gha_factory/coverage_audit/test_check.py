@@ -239,5 +239,35 @@ class CoverageAuditTests(unittest.TestCase):
                 checker._directed_pairs(database.read_bytes(), {'aa','ab'})
 
 
+    def test_orphan_translation_endpoints_never_disappear_from_coverage(self):
+        # Valid A->B evidence must not mask an unresolvable second edge.
+        # No FOREIGN KEY constraints are declared in this synthetic SQLite
+        # fixture, so the coverage reader must reject missing joins itself.
+        for broken in ('source_sense', 'target_sense', 'source_lexeme', 'target_lexeme'):
+            with self.subTest(broken=broken), tempfile.TemporaryDirectory() as temp:
+                database = Path(temp) / 'directed.sqlite'
+                with closing(sqlite3.connect(database)) as db:
+                    db.executescript("""
+                        CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                        CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                        CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT, language_code TEXT);
+                        INSERT INTO lexicon VALUES('l1','aa'),('l2','ab');
+                        INSERT INTO senses VALUES('s1','l1'),('s2','l2');
+                        INSERT INTO translations VALUES('s1','s2','ab');
+                    """)
+                    if broken == 'source_sense':
+                        db.execute("INSERT INTO translations VALUES('missing','s2','ab')")
+                    elif broken == 'target_sense':
+                        db.execute("INSERT INTO translations VALUES('s1','missing','ab')")
+                    elif broken == 'source_lexeme':
+                        db.execute("INSERT INTO senses VALUES('s3','missing')")
+                        db.execute("INSERT INTO translations VALUES('s3','s2','ab')")
+                    else:
+                        db.execute("INSERT INTO senses VALUES('s4','missing')")
+                        db.execute("INSERT INTO translations VALUES('s1','s4','ab')")
+                with self.assertRaisesRegex(checker.AuditError, 'orphan translation'):
+                    checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
+
+
 if __name__ == '__main__':
     unittest.main()
