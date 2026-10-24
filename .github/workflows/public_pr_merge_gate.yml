@@ -1,6 +1,6 @@
-# This REQUIRED PR gate must never use paths/path-ignore or a job-level if.
-# HEAD commits carrying [skip ci] suppress pull_request, so the integrating
-# commit MUST NOT contain a CI-skip token. See docs/CI_MERGE_POLICY.md.
+# Keep the required job unfiltered. GitHub may natively skip pull_request
+# scheduling for commit-level skip directives; this workflow does not ban
+# their text or treat an absent required check as passing.
 name: Public PR Merge Gate
 
 on:
@@ -29,7 +29,7 @@ jobs:
           fetch-depth: 2
           persist-credentials: false
 
-      - name: Authenticate exact PR head and reject CI skip instructions
+      - name: Authenticate exact PR head on synthetic merge tree
         env:
           EXPECTED_PR_HEAD: ${{ github.event.pull_request.head.sha }}
         shell: bash
