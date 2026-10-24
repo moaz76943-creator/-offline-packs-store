@@ -48,6 +48,28 @@ class EngineTests(unittest.TestCase):
         self.assertEqual([job['number'] for job in jobs],[2])
         self.assertEqual(p.parse(api.one(2)['body'])['state'],'CLAIMED')
 
+    def test_mismatched_active_title_retains_source_lock_and_lease(self):
+        running=p.claim(task(state='READY'),NOW,10,1)
+        api=FakeAPI([(1,running),(2,task(shard=1)),(3,task(language='en'))])
+        api.data[1]['title']=p.PREFIX+'0'*64
+        original=api.one(1)['body']
+        jobs=self.run_controller(api,11)
+        self.assertEqual([j['number'] for j in jobs],[3])
+        self.assertEqual(api.one(1)['body'],original)
+        self.assertEqual(p.parse(api.one(2)['body'])['state'],'NEW')
+        self.assertEqual(p.parse(api.one(3)['body'])['state'],'CLAIMED')
+
+    def test_three_mismatched_active_titles_exhaust_global_capacity(self):
+        running=[(i,p.claim(task(language=lang,state='READY'),NOW,10+i,1))
+                 for i,lang in enumerate(('de','en','fr'),1)]
+        api=FakeAPI(running+[(4,task(language='ar'))])
+        bodies={i:api.one(i)['body'] for i in (1,2,3)}
+        for i in (1,2,3):
+            api.data[i]['title']=p.PREFIX+'0'*64
+        self.assertEqual(self.run_controller(api,20),[])
+        self.assertEqual({i:api.one(i)['body'] for i in (1,2,3)},bodies)
+        self.assertEqual(p.parse(api.one(4)['body'])['state'],'NEW')
+
     def test_three_global_capacity(self):
         api=FakeAPI([(i,task(language=l)) for i,l in enumerate(('de','en','fr','ar'),1)])
         jobs=self.run_controller(api)
