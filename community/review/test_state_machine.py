@@ -56,6 +56,7 @@ class TestReviewStateMachine(unittest.TestCase):
         self.metadata = {
             "source_id": "src1",
             "language": "eng",
+            "translation_direction": "eng-fra",
             "sense_id": "sense1",
             "license_id": "CC-BY-4.0",
             "dataset_version": "1.0",
@@ -175,5 +176,73 @@ class TestReviewStateMachine(unittest.TestCase):
         with self.assertRaises(PermissionError):
             self.machine.complete_validation("sub7", "val1", token)
 
+
+    def test_stale_approval(self):
+        self.machine.submit("sub_stale", self.test_hash, self.metadata, self.test_artifact)
+        self.machine.start_validation("sub_stale")
+        val_token = self._sign("VALIDATE", "val1", "sub_stale", 1, self.validator_key)
+        self.machine.complete_validation("sub_stale", "val1", val_token)
+
+        # Stale approval token for revision 1
+        stale_token = self._sign("APPROVE", "rev1", "sub_stale", 1, self.reviewer_key)
+
+        # New revision submitted
+        metadata_v2 = self.metadata.copy()
+        metadata_v2["dataset_version"] = "2.0"
+        self.machine.submit("sub_stale", self.test_hash, metadata_v2, self.test_artifact)
+
+        self.machine.start_validation("sub_stale")
+        # When updating metadata, sha256 of metadata changes. We need to use new metadata for sign.
+        metadata_sha256_v2 = hashlib.sha256(canonical(metadata_v2)).hexdigest()
+        payload = {"action": "VALIDATE", "actor": "val1", "submission_id": "sub_stale", "sha256": self.test_hash, "metadata_sha256": metadata_sha256_v2, "revision": 2}
+        val_token2 = sign(self.validator_key, payload)
+        self.machine.complete_validation("sub_stale", "val1", val_token2)
+
+        # Try to approve with stale token
+        with self.assertRaises(PermissionError):
+            self.machine.review("sub_stale", "rev1", True, stale_token)
+
+    def test_state_conflicts(self):
+        self.machine.submit("sub_conflict", self.test_hash, self.metadata, self.test_artifact)
+
+        # Cannot complete validation before starting
+        val_token = self._sign("VALIDATE", "val1", "sub_conflict", 1, self.validator_key)
+        with self.assertRaises(ValueError) as ctx:
+            self.machine.complete_validation("sub_conflict", "val1", val_token)
+        self.assertIn("invalid validation transition", str(ctx.exception))
+
+        # Cannot review before validation is complete
+        rev_token = self._sign("APPROVE", "rev1", "sub_conflict", 1, self.reviewer_key)
+        with self.assertRaises(ValueError) as ctx:
+            self.machine.review("sub_conflict", "rev1", True, rev_token)
+        self.assertIn("invalid review transition", str(ctx.exception))
+
+        self.machine.start_validation("sub_conflict")
+
+        # Cannot start validation if already validating
+        with self.assertRaises(ValueError) as ctx:
+            self.machine.start_validation("sub_conflict")
+        self.assertIn("invalid validation transition", str(ctx.exception))
+
+        # Cannot mark published eligible if not approved
+        with self.assertRaises(ValueError) as ctx:
+            self.machine.mark_published_eligible("sub_conflict")
+        self.assertIn("review not approved", str(ctx.exception))
+
+
+    def test_repeated_submissions(self):
+        res1 = self.machine.submit("sub_repeat", self.test_hash, self.metadata, self.test_artifact)
+        self.assertEqual(res1["revision"], 1)
+
+        self.machine.start_validation("sub_repeat")
+        val_token = self._sign("VALIDATE", "val1", "sub_repeat", 1, self.validator_key)
+        self.machine.complete_validation("sub_repeat", "val1", val_token)
+
+        res2 = self.machine.submit("sub_repeat", self.test_hash, self.metadata, self.test_artifact)
+        # Should be same revision, idempotency holds even after validation completes
+        self.assertEqual(res2["revision"], 1)
+
 if __name__ == '__main__':
+
+
     unittest.main()
