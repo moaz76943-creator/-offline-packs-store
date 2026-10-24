@@ -195,18 +195,25 @@ def make_cloze(sentence, annotation, senses, forms):
     if not isinstance(distractors, list) or not 2 <= len(distractors) <= 5:
         raise Rejected('REJECTED_EXERCISE: insufficient attested distractors')
     options = [answer]
+    # A canonically equivalent spelling is the same answer, not a distractor.
+    # Keep diacritics and language-specific distinctions; NFC is not NFKC.
+    option_keys = {unicodedata.normalize('NFC', answer).casefold()}
     for item in distractors:
         if not isinstance(item, dict) or not isinstance(item.get('surface'), str):
             raise Rejected('REJECTED_EXERCISE: bad distractor')
         surface = item['surface']
         other_sense = item.get('sense_id')
+        # Another inflected form of the answer's own sense is also correct.
+        if not isinstance(other_sense, str) or other_sense == sid:
+            raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         evidence = senses.get(other_sense)
         other_key = (sentence['language'], other_sense, surface, tuple(sorted(feats.items())))
         if (not surface.strip() or other_key not in forms or not evidence or
                 evidence.get('language') != sentence['language'] or evidence.get('approved') is not True or
-                surface.casefold() in {v.casefold() for v in options}):
+                unicodedata.normalize('NFC', surface).casefold() in option_keys):
             raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         options.append(surface)
+        option_keys.add(unicodedata.normalize('NFC', surface).casefold())
     return {'exercise_id': 'clz1_' + hashlib.sha256(canonical([sentence['id'], sid, start, end])).hexdigest()[:24],
             'sentence_id': sentence['id'], 'language': sentence['language'],
             'sense_id': sid, 'cloze': text[:start] + '____' + text[end:],
