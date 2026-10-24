@@ -32,7 +32,8 @@ def flatten(inventory):
     entries = inventory.get("lexemes")
     _require(isinstance(entries, list) and bool(entries), "missing lexical inventory")
     rows, seen = [], set()
-    counts = {"lexemes": 0, "senses": 0, "forms": 0, "attested_concept_links": 0}
+    counts = {"lexemes": 0, "senses": 0, "forms": 0, "attested_concept_links": 0,
+              "attested_grammar_feature_links": 0}
     languages = set()
     for entry in entries:
         _require(isinstance(entry, dict), "invalid lexeme")
@@ -105,11 +106,22 @@ def flatten(inventory):
                      isinstance(features, list) and
                      all(isinstance(q, str) and _QID.fullmatch(q) for q in features),
                      "invalid attested form")
+            _require(len(features) == len(set(features)),
+                     "duplicate attested grammatical feature")
             add("form", fid, {"surface": form["surface"], "grammatical_feature_qids": features})
             counts["forms"] += 1
+            # Each QID is an independently traceable assertion in the original
+            # form's grammaticalFeatures array, not an inferred conjugation.
+            # The form itself is stored only once; zero-feature forms add none.
+            for feature_qid in features:
+                add("form_grammar_feature", f"{fid}:grammaticalFeature:{feature_qid}", {
+                    "form_id": fid, "grammatical_feature_qid": feature_qid,
+                })
+                counts["attested_grammar_feature_links"] += 1
     expected = inventory.get("summary")
     _require(isinstance(expected, dict) and
-             all(expected.get(key) == value for key, value in counts.items()) and
+             all(expected.get(key) == counts[key] for key in
+                 ("lexemes", "senses", "forms", "attested_concept_links")) and
              expected.get("languages") == sorted(languages), "inventory count mismatch")
     return {
         "schema_version": "1.0.0", "status": "REVIEW_REQUIRED",

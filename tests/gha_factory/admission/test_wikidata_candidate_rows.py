@@ -27,12 +27,13 @@ class ReviewRowsTests(unittest.TestCase):
     def test_actual_rows_and_language_counts(self):
         self.assertEqual(self.generated["summary"], {
             "lexemes": 3, "senses": 25, "forms": 40,
-            "attested_concept_links": 1, "actual_rows": 69,
+            "attested_concept_links": 1, "attested_grammar_feature_links": 157,
+            "actual_rows": 226,
             "languages": ["ar", "de", "en"],
         })
-        self.assertEqual(len({r["row_id"] for r in self.generated["rows"]}), 69)
+        self.assertEqual(len({r["row_id"] for r in self.generated["rows"]}), 226)
         self.assertEqual({lang: sum(r["language"] == lang for r in self.generated["rows"])
-                          for lang in ("ar", "de", "en")}, {"ar": 5, "de": 39, "en": 25})
+                          for lang in ("ar", "de", "en")}, {"ar": 10, "de": 184, "en": 32})
 
     def test_no_fictitious_levels_topics_translations_or_publication(self):
         self.assertEqual(self.generated["status"], "REVIEW_REQUIRED")
@@ -78,6 +79,34 @@ class ReviewRowsTests(unittest.TestCase):
         self.assertIs(link["publication_approved"], False)
         self.assertNotIn("translation", link)
 
+    def test_attested_form_grammar_links_are_independent_and_source_bound(self):
+        forms = {r["row_id"]: r for r in self.generated["rows"]
+                 if r["row_type"] == "form"}
+        links = [r for r in self.generated["rows"]
+                 if r["row_type"] == "form_grammar_feature"]
+        self.assertEqual(len(links), 157)
+        self.assertEqual({lang: sum(r["language"] == lang for r in links)
+                          for lang in ("ar", "de", "en")},
+                         {"ar": 5, "de": 145, "en": 7})
+        for link in links:
+            fid = link["attested"]["form_id"]
+            qid = link["attested"]["grammatical_feature_qid"]
+            parent = forms[fid]
+            self.assertIn(qid, parent["attested"]["grammatical_feature_qids"])
+            self.assertEqual(link["row_id"], f"{fid}:grammaticalFeature:{qid}")
+            self.assertEqual(link["source_artifact_sha256"],
+                             parent["source_artifact_sha256"])
+            self.assertEqual(link["license_evidence_sha256"],
+                             parent["license_evidence_sha256"])
+            self.assertEqual(link["language"], parent["language"])
+            self.assertEqual(link["level"], "UNKNOWN")
+            self.assertIsNone(link["grammar_id"])
+            self.assertIs(link["publication_approved"], False)
+        # The two Arabic forms without attested features must remain unfilled.
+        self.assertEqual({r["row_id"] for r in links if r["language"] == "ar"},
+                         {f"L7882-F1:grammaticalFeature:{q}"
+                          for q in forms["L7882-F1"]["attested"]["grammatical_feature_qids"]})
+
     def test_modified_source_status_and_guessed_cefr_fail(self):
         bad = copy.deepcopy(self.inventory)
         bad["lexemes"][0]["source_status"] = "APPROVED_FOR_REDISTRIBUTION"
@@ -92,6 +121,11 @@ class ReviewRowsTests(unittest.TestCase):
         bad = copy.deepcopy(self.inventory)
         bad["lexemes"][0]["forms"].append(copy.deepcopy(bad["lexemes"][0]["forms"][0]))
         with self.assertRaisesRegex(ReviewError, "duplicate"):
+            flatten(bad)
+        bad = copy.deepcopy(self.inventory)
+        features = bad["lexemes"][0]["forms"][0]["grammatical_feature_qids"]
+        features.append(features[0])
+        with self.assertRaisesRegex(ReviewError, "duplicate attested grammatical feature"):
             flatten(bad)
         bad = copy.deepcopy(self.inventory)
         bad["summary"]["forms"] += 1
