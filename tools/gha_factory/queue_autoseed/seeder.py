@@ -48,15 +48,35 @@ def _existing_issues(items):
     known = {}
     known_partitions = set()
     partition_sources = {}
+    reserved_ids = set()
     for issue in items:
-        if (not isinstance(issue, dict)
-                or issue.get('pull_request')
-                or (issue.get('user') or {}).get('login') not in controller.ALLOWED_ISSUE_CREATORS
-                or not issue.get('title', '').startswith(queue.PREFIX)):
+        if not isinstance(issue, dict) or issue.get('pull_request'):
             continue
-        task = proto.parse(issue.get('body'))
-        if issue['title'] != queue.PREFIX + task['task_id']:
-            raise ValueError('owner-authored queue issue title/body mismatch')
+        user, title = issue.get('user'), issue.get('title')
+        if (not isinstance(user, dict)
+                or user.get('login') not in controller.ALLOWED_ISSUE_CREATORS
+                or not isinstance(title, str) or not title.startswith(queue.PREFIX)):
+            continue
+        title_id = title[len(queue.PREFIX):]
+        number = issue.get('number') if type(issue.get('number')) is int else 'unknown'
+        if not queue.HEX.fullmatch(title_id):
+            print(f'QUARANTINED_INVALID_ISSUE number={number} reason=INVALID_TITLE')
+            continue
+        try:
+            task = proto.parse(issue.get('body'))
+        except (ValueError, TypeError, KeyError, UnicodeError, OverflowError) as exc:
+            # The untrusted body cannot authorize new work. Reserve its valid
+            # title fingerprint so an independent shard can still proceed,
+            # without creating a second issue for this uncertain identity.
+            reserved_ids.add(title_id)
+            print(f'QUARANTINED_INVALID_ISSUE number={number} reason={type(exc).__name__}')
+            continue
+        if title != queue.PREFIX + task['task_id']:
+            # Either identity may refer to an existing task. Reserve both;
+            # never infer which one the malformed issue was intended to own.
+            reserved_ids.update((title_id, task['task_id']))
+            print(f'QUARANTINED_INVALID_ISSUE number={number} reason=TITLE_BODY_MISMATCH')
+            continue
         prior = known.get(task['task_id'])
         if prior is not None:
             if prior != task['source_id']:
@@ -70,14 +90,14 @@ def _existing_issues(items):
             if previous_source is not None and previous_source != task['source_id']:
                 raise ValueError('source-ID collision across existing queue issues')
             partition_sources[identity] = task['source_id']
-    return known, known_partitions, partition_sources
+    return known, known_partitions, partition_sources, reserved_ids
 
 
 def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
     """Return ≤5 new deterministic queue v1 tasks, never speculative source jobs."""
     if type(limit) is not int or not 1 <= limit <= MAX_NEW_ISSUES:
         raise ValueError('invalid bounded enqueue limit')
-    known, known_partitions, partition_sources = _existing_issues(issues)
+    known, known_partitions, partition_sources, reserved_ids = _existing_issues(issues)
     identities = {}
     eligible = []
     for key in sorted(context.get('admissions', {})):
@@ -96,6 +116,8 @@ def plan(context, registry_sha, issues, limit=MAX_NEW_ISSUES):
         if prior is not None and prior != sid:
             raise ValueError('source-ID fingerprint collision; queue v1 migration needed')
         identities[item['task_id']] = sid
+        if item['task_id'] in reserved_ids:
+            continue
         if key in known_partitions:
             continue
         existing_sid = known.get(item['task_id'])
@@ -170,7 +192,7 @@ def verified_context(context, root, existing_issues=()):
     root = Path(root).resolve()
     approved = {}
     checked_sources = {}
-    known, known_partitions, partition_sources = _existing_issues(existing_issues)
+    known, known_partitions, partition_sources, reserved_ids = _existing_issues(existing_issues)
     accepted_root = (root / 'tools/gha_factory/admission/accepted').resolve()
     # V1 fingerprints omit source_id: check ALL admitted descriptors before
     # the bounded five-issue batch so later collisions cannot be hidden.
@@ -202,7 +224,7 @@ def verified_context(context, root, existing_issues=()):
         if ((task['task_id'] in known and known[task['task_id']] != source_id)
                 or (existing_source is not None and existing_source != source_id)):
             raise ValueError('source-ID collision with existing queue history')
-        if task['task_id'] in known or key in known_partitions:
+        if task['task_id'] in reserved_ids or task['task_id'] in known or key in known_partitions:
             continue
         item = context['admissions'][key]
         source_matches = [s for s in context['sources']
