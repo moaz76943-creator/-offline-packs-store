@@ -73,8 +73,9 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(evaluate(record, current, checks(), [], [], new_main, 'safe', {},
             authorization_parent=SHA_B, authorization_only=False)[0], 'STALE_MAIN')
 
-    def test_skip_ci_and_stale_base_block(self):
-        self.assertEqual(self.decide(title='feat: candidate [skip ci]')[0], 'BLOCKED_SKIP_CI')
+    def test_skip_ci_text_is_not_independent_blocker(self):
+        self.assertEqual(self.decide(title='feat: candidate [skip ci]')[0], 'VERIFIED_READY')
+        self.assertEqual(self.decide(title='feat: candidate [skip ci]', c={'check_runs': []})[0], 'NOT_RUN')
         self.assertEqual(self.decide(p=pr(base={'ref':'main', 'sha':SHA_A}))[0], 'STALE_MAIN')
 
     def test_unverified_review_blocks(self):

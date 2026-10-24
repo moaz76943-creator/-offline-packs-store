@@ -28,6 +28,8 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["catalog/validate_registry.py"]), ("registry_unit",))
         self.assertEqual(select_suites(["utils.py"]), ("utils",))
         self.assertEqual(select_suites(["tests/test_utils.py"]), ("utils",))
+        self.assertEqual(select_suites(["tools/merge_accelerator/inventory.py"]), ("inventory",))
+        self.assertEqual(select_suites(["tests/merge_accelerator/test_inventory.py"]), ("inventory",))
 
     def test_shared_provenance_logic_runs_all_affected_tests(self):
         self.assertEqual(select_suites(["legal/ledger/admission.py"]),
