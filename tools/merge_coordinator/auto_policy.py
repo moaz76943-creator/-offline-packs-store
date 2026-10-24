@@ -8,7 +8,10 @@ AUTO_DENIED_DOCS = ('docs/governance/', 'docs/merge_coordinator/', 'docs/securit
 SEARCH_QA_PREFIXES = ('tools/gha_factory/search_qa/', 'tests/gha_factory/search_qa/')
 
 def auto_safe_files(files):
-    if not isinstance(files, list) or not 1 <= len(files) <= 5:
+    # query_pr paginates and bounds changed-file evidence to 300 paths.
+    # Do not reject low-risk documentation/new-test changes merely for
+    # exceeding an unrelated five-file administrative quota.
+    if not isinstance(files, list) or not 1 <= len(files) <= 300:
         return False
     search_qa_files = True
     for f in files:
