@@ -67,6 +67,27 @@ def checked(root, relative, digest, limit=MAX_EVIDENCE):
     return raw
 
 
+def verify_original_wikidata_scope(raw):
+    """Require the pinned original copyright notice to scope CC0 to Lexeme data.
+
+    A locally summarized SPDX marker is not sufficient evidence of the
+    original namespace-specific grant. This is evidence QA, NOT admission.
+    """
+    try:
+        notice = raw.decode("utf-8")
+    except UnicodeError as exc:
+        raise ReviewError("invalid original copyright notice") from exc
+    first_clause = notice.split(";", 1)[0]
+    required_scope = (
+        "All structured data from the main, Property, Lexeme, and "
+        "EntitySchema namespaces is available under"
+    )
+    if (required_scope not in first_clause
+            or "Creative Commons CC0 License" not in first_clause):
+        raise ReviewError("original copyright notice lacks Lexeme-scoped CC0")
+    return True
+
+
 def _entity_record(source, root, languages, receipt_row):
     match = VERSION.fullmatch(source.get("dataset_version", ""))
     if not match:
@@ -186,7 +207,7 @@ def build(root, dossier=DEFAULT_DOSSIER):
     proposals = _decode(checked(root, str(dossier_path / "proposed-sources.json"),
                                 receipt["proposed_sources_sha256"]))
     copyright_proof = receipt["retrievals"]["license"]
-    checked(root, copyright_proof["artifact_path"], copyright_proof["sha256"])
+    verify_original_wikidata_scope(checked(root, copyright_proof["artifact_path"], copyright_proof["sha256"]))
     registry = _decode((root / "catalog/production_languages.v1.json").read_bytes())
     languages = {row["wikidata"]: row["id"] for row in registry["languages"]}
     sources = proposals.get("sources")
