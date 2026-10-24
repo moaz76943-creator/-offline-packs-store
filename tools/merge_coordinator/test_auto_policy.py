@@ -9,6 +9,17 @@ class PolicyTests(unittest.TestCase):
     def check(self,pr=None,checks=None,reviews=None,files=None,message='feat: docs',main=MAIN):
         return auto_eligible(pr if pr is not None else PR,checks if checks is not None else CHECKS,reviews if reviews is not None else [],files if files is not None else DOC,message,main)
     def test_accept_safe_document(self): self.assertTrue(self.check()[0])
+    def test_many_low_risk_docs_without_arbitrary_five_file_limit(self):
+        files = [{'filename': f'docs/notes_{index}.md', 'status': 'added'}
+                 for index in range(24)]
+        self.assertTrue(self.check(files=files)[0])
+        self.assertFalse(self.check(files=files + [
+            {'filename':'legal/ledger/source.json','status':'modified'}])[0])
+
+    def test_large_unproven_file_list_stays_bounded(self):
+        files = [{'filename': f'docs/notes_{index}.md', 'status': 'added'}
+                 for index in range(301)]
+        self.assertFalse(self.check(files=files)[0])
     def test_accept_added_test(self): self.assertTrue(self.check(files=[{'filename':'tests/test_new.py','status':'added'}])[0])
     def test_reject_malformed_and_changed_tests(self):
         for f in ([],[{'filename':'tests/test_existing.py','status':'modified'}],[{'filename':'docs/notes.md','status':'renamed','previous_filename':'docs/old.md'}],[{'filename':'docs/../legal/sources.md','status':'added'}],[{'filename':'docs/governance/decisions.md','status':'added'}]):
