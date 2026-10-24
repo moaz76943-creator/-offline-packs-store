@@ -209,5 +209,28 @@ class AttributionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+
+    def test_explicit_gfdl_and_cc_by_sa(self):
+        self.source["license"]["id"] = "CC-BY-SA-4.0"
+        self.source["license"]["co_offered_licenses"] = ["GFDL-1.3-only"]
+        self.run_gate()
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("License: CC-BY-SA-4.0", notice)
+        self.assertIn("Co-offered licenses: GFDL-1.3-only", notice)
+
+    def test_public_domain_metadata(self):
+        self.source["license"]["id"] = "PUBLIC-DOMAIN"
+        self.source["license"]["public_domain_proof"] = {
+            "jurisdiction": "US",
+            "legal_basis": "Pre-1929 publication",
+            "work_date": "1910"
+        }
+        self.run_gate()
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("License: PUBLIC-DOMAIN", notice)
+        self.assertIn('"jurisdiction": "US"', notice)
+        self.assertIn('"legal_basis": "Pre-1929 publication"', notice)
+
 if __name__ == "__main__":
+
     unittest.main()
