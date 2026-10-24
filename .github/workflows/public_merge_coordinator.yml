@@ -16,7 +16,7 @@ on:
   # React to existing required PR checks instead of waiting for the hourly sweep.
   # This privileged job only executes trusted main, never PR code or artifacts.
   workflow_run:
-    workflows: ["Public PR Merge Gate", "Validate JSON Files"]
+    workflows: ["Public PR Merge Gate"]
     types: [completed]
   # One hourly recovery sweep; successful hosted PR checks trigger immediate runs.
   schedule:
