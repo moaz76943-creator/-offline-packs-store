@@ -5,10 +5,11 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from tools.gha_factory.admission.review_only_wikidata import (
     DEFAULT_CANDIDATE, DEFAULT_DOSSIER, ReviewError, build, checked,
-    verify_original_wikidata_scope,
+    confined, main, verify_original_wikidata_scope,
 )
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -25,7 +26,8 @@ class WikidataReviewCandidatesTests(unittest.TestCase):
 
     def test_attested_three_languages_and_exact_counts(self):
         self.assertEqual(self.generated["summary"], {
-            "lexemes": 3, "senses": 25, "forms": 40, "languages": ["ar", "de", "en"],
+            "lexemes": 3, "senses": 25, "forms": 40,
+            "attested_concept_links": 1, "languages": ["ar", "de", "en"],
         })
         by_lang = {row["language"]: row for row in self.generated["lexemes"]}
         self.assertEqual({key: row["lemma"] for key, row in by_lang.items()},
@@ -53,6 +55,17 @@ class WikidataReviewCandidatesTests(unittest.TestCase):
                                     for form in row["forms"]))
                 self.assertTrue(all(sense["sense_id"].startswith(row["entity_id"] + "-S")
                                     for sense in row["senses"]))
+
+    def test_only_source_attested_sense_concept_is_preserved(self):
+        links = [(row["language"], sense["sense_id"], qid)
+                 for row in self.generated["lexemes"]
+                 for sense in row["senses"]
+                 for qid in sense["attested_concept_qids"]]
+        self.assertEqual(links, [("de", "L1026-S1", "Q25443024")])
+        # Multilingual glosses are not evidence of sense identity or
+        # reversible translations.
+        self.assertTrue(all(not row["directed_translations"]
+                            for row in self.generated["lexemes"]))
 
     def test_tampered_candidate_is_not_equal_to_pinned_evidence(self):
         altered = copy.deepcopy(self.committed)
@@ -103,6 +116,32 @@ class WikidataReviewCandidatesTests(unittest.TestCase):
             with self.subTest(notice=notice):
                 with self.assertRaisesRegex(ReviewError, "Lexeme-scoped CC0"):
                     verify_original_wikidata_scope(notice)
+
+    def test_review_output_cannot_escape_repository_or_follow_symlinks(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "safe").mkdir()
+            (root / "alias").symlink_to(root / "safe", target_is_directory=True)
+            for path in ("../outside.json", "/tmp/outside.json",
+                         ".git/refs/heads/main", "alias/out.json"):
+                with self.subTest(path=path):
+                    with self.assertRaisesRegex(ReviewError, "unsafe|symlink"):
+                        confined(root, path)
+            # CLI must refuse unsafe write-new before creating a file.
+            with patch("tools.gha_factory.admission.review_only_wikidata.build",
+                       return_value=self.generated):
+                self.assertEqual(main(["--repo-root", str(root),
+                                       "--candidate", "../escape.json",
+                                       "--write-new"]), 2)
+
+    def test_negated_or_modified_original_rights_notice_rejected(self):
+        raw = (ROOT / DEFAULT_DOSSIER / "copyright-1523614187.txt").read_bytes()
+        for altered in (raw.replace(b"is available under", b"is NOT available under", 1),
+                        raw.replace(b"Lexeme, and EntitySchema", b"Property and EntitySchema", 1),
+                        raw.replace(b"Creative Commons CC0 License", b"Creative Commons CC-BY License", 1)):
+            with self.subTest(altered=altered[:100]):
+                with self.assertRaisesRegex(ReviewError, "Lexeme-scoped CC0"):
+                    verify_original_wikidata_scope(altered)
 
     def test_duplicate_source_json_keys_rejected(self):
         from tools.gha_factory.admission.review_only_wikidata import _decode
