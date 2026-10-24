@@ -112,7 +112,7 @@ class CEFRValidatorTest(unittest.TestCase):
         # But for conflicts we actually did set `_resolution` in the code, let's just check the wrapper reason here
         # or we can verify that the rejected item has "conflicting" somewhere.
         # Since original_record is returned we won't see _resolution on it, but the reason has it.
-        pass
+        self.assertIn("Substantial source conflict", rejected[0]["reason"])
 
     def test_preserves_independent_sources_without_conflict(self):
         # A1 and A2 for the same word is not a "substantial" conflict
@@ -132,7 +132,21 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        self.validator.supported_languages["es"] = {"id": "es", "proficiency": {"framework_ids": []}}
+
+        evidence = self.get_valid_evidence()
+
+        original_catalog = self.validator.catalog
+        self.validator.catalog = type('MockCatalog', (), {'validate_record': lambda self, rec: None})()
+
+        rec = self.create_record("word-es", "es", "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec])
+
+        self.validator.catalog = original_catalog
+
+        self.assertEqual(len(accepted), 0)
+        self.assertEqual(len(rejected), 1)
+        self.assertIn("Language es lacks certified CEFR corpora", rejected[0]["reason"])
 
 if __name__ == '__main__':
     unittest.main()
