@@ -1,4 +1,5 @@
-import json
+from copy import deepcopy
+import re
 
 try:
     from legal.ledger.admission import LICENSES, OBLIGATIONS
@@ -72,8 +73,16 @@ class LicensingLedger:
         if not self._is_string(source["license"]["declared"]):
             return False
 
-        if "obligations" in source["license"] and not isinstance(source["license"]["obligations"], list):
-            return False
+        if "obligations" in source["license"]:
+            obligations = source["license"]["obligations"]
+            if not isinstance(obligations, list) or any(not self._is_string(item) for item in obligations):
+                return False
+
+        # A supplied artifact digest must be a real SHA-256, never an arbitrary label.
+        if "artifact_hash" in source:
+            digest = source["artifact_hash"]
+            if not isinstance(digest, str) or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+                return False
 
         if "evidence_verified" in source["license"] and not isinstance(source["license"]["evidence_verified"], bool):
             return False
@@ -136,5 +145,9 @@ class LicensingLedger:
         if status in ("verified", "reviewRequired"):
             # Avoid rewriting source license claims automatically, store a copy or just reference
             # maintain actual source hashes when artifacts exist.
-            self.sources[source["source_id"]] = source.copy()
+            source_id = source["source_id"]
+            # Never silently replace one source identity with incompatible rights/provenance.
+            if source_id in self.sources and self.sources[source_id] != source:
+                return "blocked"
+            self.sources[source_id] = deepcopy(source)
         return status
