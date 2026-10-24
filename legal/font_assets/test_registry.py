@@ -6,6 +6,8 @@ from pathlib import Path
 
 from legal.font_assets.registry import FontAsset, FontRightsRegistry
 
+import json
+
 class FontEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -17,6 +19,22 @@ class FontEvidenceTests(unittest.TestCase):
             p.write_bytes(content)
             return hashlib.sha256(content).hexdigest()
         self.put = put
+
+        registry_mock = {
+            "schema_version": "1.0.0",
+            "source": {
+                "repository": "moaz76943-creator/-offline-packs-store",
+                "manifest_path": "manifest.json",
+                "reviewed_head_sha": "bb15e9f02b216bbcb62a254d4a5bd695d405e9d5",
+                "selection_policy": "preserve_all_100_published_stable_ids"
+            },
+            "scripts": {
+                "Latn": {"name": "Latin", "direction": "ltr"},
+                "Cyrl": {"name": "Cyrillic", "direction": "ltr"}
+            }
+        }
+        put("catalog/language_registry.v1.json", json.dumps(registry_mock).encode("utf-8"))
+
         self.font_hash = put("fonts/fixture.otf", b"fixture font test bytes ONLY")
         self.lic_hash = put("evidence/rights.txt", b"Fixture origin font SIL OPEN FONT LICENSE")
         self.notice_hash = put("notices/OFL.txt", b"SIL OPEN FONT LICENSE fixture")
@@ -147,6 +165,14 @@ class FontEvidenceTests(unittest.TestCase):
         twin = FontAsset(**self.asset.__dict__)
         with self.assertRaises(ValueError):
             self.gate.generate_script_mapping([self.asset, twin], repo_root=self.root)
+
+    def test_missing_registry_fails_closed(self):
+        (self.root / "catalog/language_registry.v1.json").unlink()
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_unsupported_script_rejected(self):
+        self.asset.scripts = ["InvalidScript"]
+        self.assertEqual(self.check()["status"], "REJECT")
 
 if __name__ == "__main__":
     unittest.main()
