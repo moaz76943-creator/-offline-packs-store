@@ -1,3 +1,5 @@
+import json
+import os
 import re
 from typing import Dict, Any, List
 from .schema import VisualAssetMetadata
@@ -5,6 +7,22 @@ from .schema import VisualAssetMetadata
 CONTROL_CHAR_RE = re.compile(r'[\x00-\x1F\x7F]')
 
 class AccessibilityValidator:
+
+    def __init__(self, registry_path: str = None):
+        self.valid_languages = set()
+        self.valid_scripts = set()
+        if registry_path is None:
+            # Default to the repo root's catalog/language_registry.v1.json
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            registry_path = os.path.join(current_dir, "..", "..", "catalog", "language_registry.v1.json")
+
+        with open(registry_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            if "languages" in data:
+                self.valid_languages = {l["id"] for l in data["languages"]}
+            if "scripts" in data:
+                self.valid_scripts = set(data["scripts"].keys())
+
     def validate_asset(self, asset: VisualAssetMetadata) -> Dict[str, Any]:
         errors = []
         warnings = []
@@ -43,12 +61,24 @@ class AccessibilityValidator:
             errors.append("Missing or empty alt text")
             return
 
-        for label in labels:
-            if not label.get("language"):
-                errors.append("Missing language metadata")
+        seen_languages = set()
 
-            if not label.get("script"):
+        for label in labels:
+            lang = label.get("language")
+            if not lang:
+                errors.append("Missing language metadata")
+            else:
+                if lang in seen_languages:
+                    errors.append(f"Duplicate language alt-text: {lang}")
+                seen_languages.add(lang)
+                if lang not in self.valid_languages:
+                    errors.append(f"Unsupported language: {lang}")
+
+            script = label.get("script")
+            if not script:
                 errors.append("Missing script metadata")
+            elif script not in self.valid_scripts:
+                errors.append(f"Unsupported script: {script}")
 
             text = label.get("text")
             if not text:
