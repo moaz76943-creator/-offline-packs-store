@@ -64,7 +64,8 @@ class TestReviewStateMachine(unittest.TestCase):
             "record_locator": "loc1",
             "source_artifact_sha256": hashlib.sha256(b"source").hexdigest(),
             "fixture_only": False,
-            "rights_status": "APPROVED_FOR_REDISTRIBUTION"
+            "rights_status": "APPROVED_FOR_REDISTRIBUTION",
+            "translation_direction": "eng-fra"
         }
 
     def tearDown(self):
