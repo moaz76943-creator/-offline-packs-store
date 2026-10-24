@@ -5,6 +5,7 @@ from .schema import VisualAssetMetadata
 CONTROL_CHAR_RE = re.compile(r'[\x00-\x1F\x7F]')
 
 class AccessibilityValidator:
+    """Validator for semantic visual asset accessibility."""
     def validate_asset(self, asset: VisualAssetMetadata) -> Dict[str, Any]:
         errors = []
         warnings = []
