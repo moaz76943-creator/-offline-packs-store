@@ -115,6 +115,80 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "Lipsia"
+      ],
+      "language": "it",
+      "lemma": "Lipsia",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1236492",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L1236492",
+      "retrieval_date": "2026-10-24",
+      "revision": "2198399741",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1236492-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edimburgo"
+      ],
+      "language": "it",
+      "lemma": "Edimburgo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1245833",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L1245833",
+      "retrieval_date": "2026-10-24",
+      "revision": "2310789466",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1245833-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto"
+      ],
+      "language": "it",
+      "lemma": "Toronto",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1235605",
+      "pos": "",
+      "qids": [
+        "Q736775",
+        "Q172",
+        "Q37510260"
+      ],
+      "record_id": "L1235605",
+      "retrieval_date": "2026-10-24",
+      "revision": "2198699894",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1235605-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
     }
   ],
   "schema_version": "1.0.0",
@@ -122,19 +196,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1492"
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1757"
+      "wikidata": "Q62"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q10690"
+      "wikidata": "Q1794"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q490"
+      "wikidata": "Q1489"
     }
   ],
   "source": "harvest-wikidata"

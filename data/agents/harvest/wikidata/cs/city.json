@@ -120,6 +120,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q36600",
+      "forms": [
+        "Haag",
+        "Haagu",
+        "Haagu",
+        "Haag",
+        "Haagu",
+        "Haagu",
+        "Haagem"
+      ],
+      "language": "cs",
+      "lemma": "Haag",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L222269",
+      "pos": "",
+      "qids": [
+        "Q36600"
+      ],
+      "record_id": "L222269",
+      "retrieval_date": "2026-10-24",
+      "revision": "2458376839",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L222269-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36600"
     }
   ],
   "schema_version": "1.0.0",
@@ -127,19 +157,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1492"
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1757"
+      "wikidata": "Q62"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q10690"
+      "wikidata": "Q1794"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q490"
+      "wikidata": "Q1489"
     }
   ],
   "source": "harvest-wikidata"

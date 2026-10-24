@@ -272,6 +272,126 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "ലീപ്സിഗ്"
+      ],
+      "language": "ml",
+      "lemma": "ലീപ്സിഗ്",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453461",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L453461",
+      "retrieval_date": "2026-10-24",
+      "revision": "2522370727",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453461-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "എഡിൻബറോ"
+      ],
+      "language": "ml",
+      "lemma": "എഡിൻബറോ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453903",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L453903",
+      "retrieval_date": "2026-10-24",
+      "revision": "1973172144",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453903-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q174",
+      "forms": [
+        "സാവോ പോളോ"
+      ],
+      "language": "ml",
+      "lemma": "സാവോ പോളോ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L454242",
+      "pos": "",
+      "qids": [
+        "Q174"
+      ],
+      "record_id": "L454242",
+      "retrieval_date": "2026-10-24",
+      "revision": "1394142252",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L454242-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "ടൊറാന്റോ"
+      ],
+      "language": "ml",
+      "lemma": "ടൊറാന്റോ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453350",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L453350",
+      "retrieval_date": "2026-10-24",
+      "revision": "1398171248",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453350-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
+    },
+    {
+      "concept_id": "concept.q36600",
+      "forms": [
+        "ഹേഗ്"
+      ],
+      "language": "ml",
+      "lemma": "ഹേഗ്",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L457452",
+      "pos": "",
+      "qids": [
+        "Q36600"
+      ],
+      "record_id": "L457452",
+      "retrieval_date": "2026-10-24",
+      "revision": "1395386048",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L457452-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36600"
     }
   ],
   "schema_version": "1.0.0",
@@ -279,19 +399,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1492"
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1757"
+      "wikidata": "Q62"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q10690"
+      "wikidata": "Q1794"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q490"
+      "wikidata": "Q1489"
     }
   ],
   "source": "harvest-wikidata"

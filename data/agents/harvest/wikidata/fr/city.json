@@ -217,6 +217,54 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q174",
+      "forms": [
+        "São Paulo"
+      ],
+      "language": "fr",
+      "lemma": "São Paulo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578407",
+      "pos": "",
+      "qids": [
+        "Q174"
+      ],
+      "record_id": "L578407",
+      "retrieval_date": "2026-10-24",
+      "revision": "1458150482",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578407-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto"
+      ],
+      "language": "fr",
+      "lemma": "Toronto",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578441",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L578441",
+      "retrieval_date": "2026-10-24",
+      "revision": "1458285048",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578441-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
     }
   ],
   "schema_version": "1.0.0",
@@ -224,19 +272,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1492"
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1757"
+      "wikidata": "Q62"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q10690"
+      "wikidata": "Q1794"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q490"
+      "wikidata": "Q1489"
     }
   ],
   "source": "harvest-wikidata"

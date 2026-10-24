@@ -159,6 +159,68 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edynburg",
+        "Edynburga",
+        "Edyburgowi",
+        "Edynburg",
+        "Edynburgiem",
+        "Edynburgu",
+        "Edynburgu",
+        "Edynburgi"
+      ],
+      "language": "pl",
+      "lemma": "Edynburg",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L727893",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L727893",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337979105",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L727893-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q36600",
+      "forms": [
+        "Haga",
+        "Hagi",
+        "Hadze",
+        "Hagę",
+        "Hagą",
+        "Hadze",
+        "Hago",
+        "Hagi"
+      ],
+      "language": "pl",
+      "lemma": "Haga",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L728170",
+      "pos": "",
+      "qids": [
+        "Q36600"
+      ],
+      "record_id": "L728170",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337974401",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L728170-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36600"
     }
   ],
   "schema_version": "1.0.0",
@@ -166,19 +228,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1492"
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1757"
+      "wikidata": "Q62"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q10690"
+      "wikidata": "Q1794"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q490"
+      "wikidata": "Q1489"
     }
   ],
   "source": "harvest-wikidata"

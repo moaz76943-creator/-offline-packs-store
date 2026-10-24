@@ -299,6 +299,103 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "Leipzig"
+      ],
+      "language": "en",
+      "lemma": "Leipzig",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452763",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L452763",
+      "retrieval_date": "2026-10-24",
+      "revision": "1398176606",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452763-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edinburgh"
+      ],
+      "language": "en",
+      "lemma": "Edinburgh",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L447440",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L447440",
+      "retrieval_date": "2026-10-24",
+      "revision": "2435411145",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L447440-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q174",
+      "forms": [
+        "São Paulo"
+      ],
+      "language": "en",
+      "lemma": "São Paulo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1408476",
+      "pos": "",
+      "qids": [
+        "Q174",
+        "Q175"
+      ],
+      "record_id": "L1408476",
+      "retrieval_date": "2026-10-24",
+      "revision": "2437327679",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1408476-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto"
+      ],
+      "language": "en",
+      "lemma": "Toronto",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L414191",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L414191",
+      "retrieval_date": "2026-10-24",
+      "revision": "2551479562",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L414191-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
     }
   ],
   "schema_version": "1.0.0",
@@ -306,19 +403,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1492"
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1757"
+      "wikidata": "Q62"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q10690"
+      "wikidata": "Q1794"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q490"
+      "wikidata": "Q1489"
     }
   ],
   "source": "harvest-wikidata"

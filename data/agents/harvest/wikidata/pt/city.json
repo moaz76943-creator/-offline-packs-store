@@ -1,0 +1,58 @@
+{
+  "language": "pt",
+  "retrieval_date": "2026-10-24",
+  "rows": [
+    {
+      "concept_id": "concept.q174",
+      "forms": [
+        "São Paulo",
+        "S. Paulo"
+      ],
+      "language": "pt",
+      "lemma": "São Paulo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L184915",
+      "pos": "",
+      "qids": [
+        "Q174",
+        "Q9200",
+        "Q20061158"
+      ],
+      "record_id": "L184915",
+      "retrieval_date": "2026-10-24",
+      "revision": "1384108226",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L184915-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q62"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1794"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1489"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

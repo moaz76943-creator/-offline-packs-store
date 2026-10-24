@@ -1,45 +1,45 @@
 {
-  "accepted_rows": 36,
+  "accepted_rows": 25,
   "outcomes": [
     {
-      "accepted_rows": 8,
-      "fetched_entities": 8,
+      "accepted_rows": 6,
+      "fetched_entities": 6,
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q1754"
+      "wikidata": "Q2079"
     },
     {
-      "accepted_rows": 7,
-      "fetched_entities": 8,
+      "accepted_rows": 6,
+      "fetched_entities": 7,
       "rejected_entities": 1,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q1492"
+      "wikidata": "Q23436"
     },
     {
-      "accepted_rows": 8,
-      "fetched_entities": 8,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "FETCHED",
-      "wikidata": "Q270"
-    },
-    {
-      "accepted_rows": 5,
+      "accepted_rows": 4,
       "fetched_entities": 5,
+      "rejected_entities": 1,
+      "search_offset": 0,
+      "status": "FETCHED",
+      "wikidata": "Q174"
+    },
+    {
+      "accepted_rows": 6,
+      "fetched_entities": 6,
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q65"
+      "wikidata": "Q172"
     },
     {
-      "accepted_rows": 8,
-      "fetched_entities": 8,
+      "accepted_rows": 3,
+      "fetched_entities": 3,
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q727"
+      "wikidata": "Q36600"
     },
     {
       "accepted_rows": 0,
@@ -47,7 +47,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "SOURCE_ERROR",
-      "wikidata": "Q1757"
+      "wikidata": "Q62"
     },
     {
       "accepted_rows": 0,
@@ -55,7 +55,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "SOURCE_ERROR",
-      "wikidata": "Q10690"
+      "wikidata": "Q1794"
     },
     {
       "accepted_rows": 0,
@@ -63,7 +63,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "SOURCE_ERROR",
-      "wikidata": "Q490"
+      "wikidata": "Q1489"
     }
   ],
   "production_publication": false,

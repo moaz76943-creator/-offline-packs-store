@@ -1,6 +1,6 @@
 {
   "language": "ms",
-  "retrieval_date": "2026-10-20",
+  "retrieval_date": "2026-10-24",
   "rows": [
     {
       "concept_id": "concept.q3130",
@@ -26,26 +26,55 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3130"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto",
+        "تورونتو"
+      ],
+      "language": "ms",
+      "lemma": "Toronto",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1568644",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L1568644",
+      "retrieval_date": "2026-10-24",
+      "revision": "2521601272",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1568644-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "quarantine",
-      "wikidata": "Q3711"
+      "reason": "other_language",
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q586"
+      "wikidata": "Q62"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q1156"
+      "wikidata": "Q1794"
     },
     {
       "reason": "HTTPError",
-      "wikidata": "Q641"
+      "wikidata": "Q1489"
     }
   ],
   "source": "harvest-wikidata"
