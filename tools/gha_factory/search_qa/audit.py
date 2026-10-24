@@ -15,6 +15,7 @@ import unicodedata
 from tools.pack_v2 import pipeline
 
 MAX_ARCHIVE = 40 * 1024 * 1024
+MAX_REPO_METADATA_BYTES = 1024 * 1024  # manifest and Route 05 ledger, not pack archives
 MAX_SAMPLES = 12
 MAX_SQLITE_BYTES = pipeline.MAX_DATABASE
 # FTS glosses aggregate many individually bounded senses/translations. SQLite's
@@ -85,6 +86,17 @@ def _repository_file(root, relative, label):
     if not candidate.resolve().is_relative_to(root):
         raise AuditError(f'unsafe {label} path escape')
     return candidate
+
+
+
+def _read_repository_metadata(root, relative, label):
+    """Bound repository-controlled JSON bytes before decoding or allocating its tree."""
+    path = _repository_file(root, relative, label)
+    with path.open('rb') as stream:
+        raw = stream.read(MAX_REPO_METADATA_BYTES + 1)
+    if len(raw) > MAX_REPO_METADATA_BYTES:
+        raise AuditError(f'oversized {label} metadata')
+    return _json(raw)
 
 
 def probe_search(con, language, query, *, limit=MAX_SAMPLES):
@@ -275,13 +287,16 @@ def audit_manifest(root, *, shard=0, shards=10):
     if type(shards) is not int or type(shard) is not int or not 1 <= shards <= 100 or not 0 <= shard < shards:
         raise AuditError('invalid shard plan')
     root = Path(root).resolve()
-    manifest = _json(_repository_file(root, 'manifest.json', 'manifest').read_bytes())
-    ledger = _json(_repository_file(root, 'legal/ledger/sources.json', 'ledger').read_bytes())
+    manifest = _read_repository_metadata(root, 'manifest.json', 'manifest')
+    ledger = _read_repository_metadata(root, 'legal/ledger/sources.json', 'ledger')
     entries = manifest.get('languages')
     if not isinstance(entries, list) or len(entries) != 100:
         raise AuditError('100 canonical language registry not found')
-    codes = [item.get('code') for item in entries]
-    if len(set(codes)) != 100 or any(not isinstance(code,str) for code in codes):
+    if any(not isinstance(item, dict) or not isinstance(item.get('code'), str)
+           for item in entries):
+        raise AuditError('invalid registered language IDs')
+    codes = [item['code'] for item in entries]
+    if len(set(codes)) != 100:
         raise AuditError('ambiguous registered language IDs')
     packs = manifest.get('packs')
     sources = ledger.get('sources')
