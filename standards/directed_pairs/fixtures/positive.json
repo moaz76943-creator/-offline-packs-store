@@ -1,0 +1,52 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.pairs.fixture.1",
+  "pairs": [
+    {
+      "pair_id": "pair.en.es.1",
+      "source_language": "en",
+      "target_language": "es",
+      "source_sense_id": "sense.en.bank.financial",
+      "target_sense_id": "sense.es.banco.financial",
+      "target_text": "banco",
+      "equivalence": "exact",
+      "context": "financial institution",
+      "domain": "finance",
+      "examples": ["He went to the bank to deposit money."],
+      "confidence": 0.95,
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "ret.1",
+        "license_id": "CC0-1.0",
+        "record_locator": "rec.1",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.en.es.2",
+      "source_language": "en",
+      "target_language": "es",
+      "source_sense_id": "sense.en.bank.river",
+      "target_sense_id": "sense.es.orilla.river",
+      "target_text": "orilla",
+      "equivalence": "contextual",
+      "context": "edge of a river",
+      "domain": "geography",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "ret.2",
+        "license_id": "CC0-1.0",
+        "record_locator": "rec.2",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    }
+  ]
+}
