@@ -115,7 +115,7 @@ class CandidateTests(unittest.TestCase):
                 rc._json(raw, label)
 
     def test_json_decoder_rejects_nonfinite_constants(self):
-        for value in (b'NaN', b'Infinity', b'-Infinity'):
+        for value in (b'NaN', b'Infinity', b'-Infinity', b'1e9999'):
             with self.subTest(value=value), self.assertRaisesRegex(rc.ReleaseError, 'invalid envelope'):
                 rc._json(b'{"untrusted":' + value + b'}', 'envelope')
 
