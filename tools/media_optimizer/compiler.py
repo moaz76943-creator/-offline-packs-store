@@ -195,7 +195,7 @@ class MediaCompiler:
         return final_path
 
     def compile(self, raw_tokens, prior_pack_meta=None, runtime_evidence=None):
-        if runtime_evidence is None or not runtime_evidence.get('compatible'):
+        if runtime_evidence is None or not runtime_evidence.get('wordbit_compatible'):
             raise CompilationError("Cannot mark pack production-ready without downstream runtime decoder compatibility evidence")
 
         self.check_disk_space()
@@ -270,6 +270,6 @@ class MediaCompiler:
             'metadata': meta,
             'delta_plan': delta_plan,
             'change_events': change_events,
-            'decoder_manifest': decoder_manifest,
+            'wordbit_decoder_manifest': decoder_manifest,
             'pack_data_for_future': pack_data # just for tests
         }
