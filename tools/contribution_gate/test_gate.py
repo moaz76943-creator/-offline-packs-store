@@ -229,5 +229,46 @@ class ContributionTests(unittest.TestCase):
         save_ledger(self.root, self.ledger)
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_vector_art_accepted_with_artwork_evidence(self):
+        self.source["kind"] = "vector_art"
+        self.source["license"]["artwork_evidence_url"] = "https://example.org/artwork"
+        path = "evidence/artwork.pdf"
+        sha = put(self.root, path, b"artwork evidence bytes")
+        self.source["license"]["artwork_evidence_path"] = path
+        self.source["license"]["artwork_evidence_sha256"] = sha
+        save_ledger(self.root, self.ledger)
+        self.manifest["kind"] = "vector_art"
+        self.assertEqual(self.check()["status"], "ACCEPT")
+
+    def test_vector_art_rejected_missing_artwork_evidence_url(self):
+        self.source["kind"] = "vector_art"
+        path = "evidence/artwork.pdf"
+        sha = put(self.root, path, b"artwork evidence bytes")
+        self.source["license"]["artwork_evidence_path"] = path
+        self.source["license"]["artwork_evidence_sha256"] = sha
+        save_ledger(self.root, self.ledger)
+        self.manifest["kind"] = "vector_art"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_vector_art_rejected_missing_artwork_evidence_path(self):
+        self.source["kind"] = "vector_art"
+        self.source["license"]["artwork_evidence_url"] = "https://example.org/artwork"
+        path = "evidence/artwork.pdf"
+        sha = put(self.root, path, b"artwork evidence bytes")
+        self.source["license"]["artwork_evidence_sha256"] = sha
+        save_ledger(self.root, self.ledger)
+        self.manifest["kind"] = "vector_art"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_vector_art_rejected_missing_artwork_evidence_sha256(self):
+        self.source["kind"] = "vector_art"
+        self.source["license"]["artwork_evidence_url"] = "https://example.org/artwork"
+        path = "evidence/artwork.pdf"
+        sha = put(self.root, path, b"artwork evidence bytes")
+        self.source["license"]["artwork_evidence_path"] = path
+        save_ledger(self.root, self.ledger)
+        self.manifest["kind"] = "vector_art"
+        self.assertEqual(self.check()["status"], "REJECT")
+
 if __name__ == "__main__":
     unittest.main()
