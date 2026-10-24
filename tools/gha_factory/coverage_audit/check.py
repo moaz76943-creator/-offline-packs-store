@@ -172,6 +172,21 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
         db = sqlite3.connect(f'file:{path}?mode=ro', uri=True)
         try:
             db.execute('PRAGMA query_only=ON')
+            # INNER JOIN coverage queries silently drop broken source/target
+            # sense or lexeme links. Reject them before counting directions,
+            # even if a synthetic or legacy SQLite file has no FK constraints.
+            orphan = db.execute("""
+                SELECT 1 FROM translations AS t
+                LEFT JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
+                LEFT JOIN lexicon AS source ON source.id = src_sense.lexeme_id
+                LEFT JOIN senses AS dst_sense ON dst_sense.sense_id = t.to_sense_id
+                LEFT JOIN lexicon AS target ON target.id = dst_sense.lexeme_id
+                WHERE src_sense.sense_id IS NULL OR source.id IS NULL
+                   OR dst_sense.sense_id IS NULL OR target.id IS NULL
+                LIMIT 1
+            """).fetchone()
+            if orphan:
+                raise AuditError('orphan translation sense/lexeme reference')
             mismatch = db.execute("""
                 SELECT 1 FROM translations AS t
                 JOIN senses AS s ON s.sense_id = t.to_sense_id
