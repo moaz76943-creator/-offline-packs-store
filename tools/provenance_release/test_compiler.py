@@ -255,5 +255,25 @@ class TestProvenanceCompiler(unittest.TestCase):
         self.assertEqual(statuses['approved'], [])
         self.assertEqual(self._compile_exit(), 1)
 
+    def test_direct_cli_imports_without_pythonpath(self):
+        import subprocess
+        import os
+        import sys
+        self.write_ledger([self.base_source])
+        self.write_daily([self.base_candidate])
+        script = Path(__file__).resolve().parent / 'compiler.py'
+        env = os.environ.copy()
+        env.pop('PYTHONPATH', None)
+        result = subprocess.run([
+            sys.executable, str(script),
+            '--repo-root', str(self.root),
+            '--ledger', str(self.ledger_path),
+            '--daily-dir', str(self.daily_dir),
+            '--manifest-out', str(self.manifest_out),
+            '--notice-out', str(self.notice_out),
+        ], env=env, capture_output=True, text=True, check=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn('No module named', result.stdout + result.stderr)
+
 if __name__ == '__main__':
     unittest.main()

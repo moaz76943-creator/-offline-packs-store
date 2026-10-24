@@ -10,6 +10,16 @@ import logging
 import sys
 from pathlib import Path
 
+def install_repo_import_path():
+    """Put the checkout on sys.path so a direct script run can import legal.*."""
+    root = Path(__file__).resolve().parent.parent.parent
+    resolved = str(root)
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
+
+install_repo_import_path()
+
 # We reuse the logic from legal.ledger.admission as much as possible for validation.
 from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
 
