@@ -1,6 +1,8 @@
 """Bounded source adapters. A failed source is skipped; it does not invent a row."""
 
 import json
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -33,13 +35,40 @@ def _wikidata_payload(payload):
 
 
 def fetch_bytes(url, timeout=30, max_bytes=200000):
+    """Pace Wikidata and retry transient throttling without masking failures.
+
+    Preserve bounded-prefix sampling for Tatoeba and UD. Persistent errors
+    still fail the agent and keep the search cursor for a later attempt.
+    """
     request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return response.read(max_bytes + 1)[:max_bytes]
+    wikidata = urllib.parse.urlsplit(url).hostname == 'www.wikidata.org'
+    for attempt in range(3):
+        if wikidata and attempt == 0:
+            time.sleep(0.4)
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.read(max_bytes + 1)[:max_bytes]
+        except urllib.error.HTTPError as exc:
+            if not wikidata or exc.code not in (429, 502, 503, 504) or attempt == 2:
+                raise
+            retry_after = exc.headers.get('Retry-After') if exc.headers else None
+            if retry_after is not None:
+                if not retry_after.isascii() or not retry_after.isdecimal():
+                    raise
+                delay = int(retry_after)
+                if delay > 8:
+                    raise
+            else:
+                delay = 1 << attempt
+            time.sleep(max(1, delay))
 
 
 def fetch_json(url, timeout=30):
-    return json.loads(fetch_bytes(url, timeout=timeout, max_bytes=2_000_000).decode('utf-8'))
+    # A truncated API document is not evidence of an empty lexicon.
+    raw = fetch_bytes(url, timeout=timeout, max_bytes=2_000_001)
+    if len(raw) > 2_000_000:
+        raise SourceAPIError('oversized Wikidata API response')
+    return json.loads(raw.decode('utf-8'))
 
 
 def _sense_qids(sense):

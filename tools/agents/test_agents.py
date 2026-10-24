@@ -337,6 +337,46 @@ class ContractTests(unittest.TestCase):
             'query': {'search': [{'title': 'Lexeme:L34727'}]}}), ['L34727'])
         self.assertEqual(load_lexemes([], fetch=lambda _url: self.fail('empty request')), {})
 
+    def test_wikidata_http_retry_is_bounded_and_does_not_mask_errors(self):
+        import io
+        from urllib.error import HTTPError
+        from unittest import mock
+        from tools.agents import harvest
+        url = 'https://www.wikidata.org/w/api.php?action=query'
+        def http(code, retry_after=None):
+            headers = {} if retry_after is None else {'Retry-After': retry_after}
+            return HTTPError(url, code, 'synthetic source failure', headers, None)
+        valid = b'{"query":{"search":[]}}'
+        with (mock.patch.object(harvest.urllib.request, 'urlopen',
+                                side_effect=[http(429, '2'), io.BytesIO(valid)]) as request,
+              mock.patch.object(harvest.time, 'sleep') as sleep):
+            self.assertEqual(harvest.fetch_json(url), {'query': {'search': []}})
+            self.assertEqual(request.call_count, 2)
+            sleep.assert_any_call(2)
+        with (mock.patch.object(harvest.urllib.request, 'urlopen',
+                                side_effect=[http(503), http(503), io.BytesIO(valid)]) as request,
+              mock.patch.object(harvest.time, 'sleep') as sleep):
+            self.assertEqual(harvest.fetch_json(url), {'query': {'search': []}})
+            self.assertEqual(request.call_count, 3)
+            sleep.assert_any_call(1)
+            sleep.assert_any_call(2)
+        for error in (http(404), http(429, '120'), http(429, 'invalid')):
+            with self.subTest(code=error.code, after=error.headers.get('Retry-After')):
+                with (mock.patch.object(harvest.urllib.request, 'urlopen', side_effect=error) as request,
+                      mock.patch.object(harvest.time, 'sleep')):
+                    with self.assertRaises(HTTPError):
+                        harvest.fetch_json(url)
+                    self.assertEqual(request.call_count, 1)
+        with (mock.patch.object(harvest.urllib.request, 'urlopen',
+                                side_effect=[http(429), http(429), http(429)]) as request,
+              mock.patch.object(harvest.time, 'sleep')):
+            with self.assertRaises(HTTPError):
+                harvest.fetch_json(url)
+            self.assertEqual(request.call_count, 3)
+        with mock.patch.object(harvest, 'fetch_bytes', return_value=b' ' * 2_000_001):
+            with self.assertRaisesRegex(harvest.SourceAPIError, 'oversized'):
+                harvest.fetch_json(url)
+
     def test_wikidata_harvest_rotates_attested_concepts_between_runs(self):
         """Two scheduled harvests must not retry the same first concepts."""
         import argparse
@@ -453,12 +493,14 @@ class ContractTests(unittest.TestCase):
     def test_wikidata_source_failure_is_not_successful_empty_harvest(self):
         import argparse
         from unittest import mock
+        from urllib.error import HTTPError
         from tools.agents import cli, harvest
         graph = {'sections': [{'id': 'animals', 'subsections': [{
             'id': 'animals.cat', 'concepts': [{'id': 'concept.cat', 'wikidata': 'Q146'}],
         }]}]}
         for error in (OSError('network unavailable'),
-                      harvest.SourceAPIError('Wikidata API error: maxlag')):
+                      harvest.SourceAPIError('Wikidata API error: maxlag'),
+                      HTTPError('https://www.wikidata.org', 429, 'throttled', {}, None)):
             with self.subTest(error=type(error).__name__), tempfile.TemporaryDirectory() as tmp:
                 root = Path(tmp)
                 with (mock.patch.object(cli, 'ROOT', root),
@@ -474,6 +516,9 @@ class ContractTests(unittest.TestCase):
                 self.assertEqual(report['source_errors'], 1)
                 self.assertEqual(report['accepted_rows'], 0)
                 self.assertEqual(report['outcomes'][0]['status'], 'SOURCE_ERROR')
+                if isinstance(error, HTTPError):
+                    checkpoint = json.loads((root / 'out/data/agents/harvest/wikidata/checkpoint.json').read_text())
+                    self.assertEqual(checkpoint['skipped'][0]['reason'], 'HTTP_429')
                 heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
                 self.assertEqual(heartbeat['status'], 'failed')
 
