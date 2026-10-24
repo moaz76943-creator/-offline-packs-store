@@ -242,6 +242,41 @@
       "wikidata": "Q270"
     },
     {
+      "concept_id": "concept.q36600",
+      "forms": [
+        "Haag",
+        "Haagu",
+        "Haagu",
+        "Haag",
+        "Haagu",
+        "Haagu",
+        "Haagem"
+      ],
+      "language": "cs",
+      "lemma": "Haag",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L222269",
+      "pos": "",
+      "qids": [
+        "Q36600"
+      ],
+      "record_id": "L222269",
+      "retrieval_date": "2026-10-24",
+      "revision": "2458376839",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L222269-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36600"
+    },
+    {
       "concept_id": "concept.q16868715",
       "forms": [
         "úžas",
@@ -474,6 +509,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "Leipzig",
+        "Leipzigs"
+      ],
+      "language": "da",
+      "lemma": "Leipzig",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1586684",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L1586684",
+      "retrieval_date": "2026-10-24",
+      "revision": "2528384388",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1586684-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
     },
     {
       "concept_id": "concept.q71404162",
@@ -878,6 +943,136 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "Leipzig",
+        "Leipzig",
+        "Leipzigs",
+        "Leipzig"
+      ],
+      "language": "de",
+      "lemma": "Leipzig",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297298",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L297298",
+      "retrieval_date": "2026-10-24",
+      "revision": "1878976651",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297298-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edinburgh",
+        "Edinburgh",
+        "Edinburghs",
+        "Edinburgh"
+      ],
+      "language": "de",
+      "lemma": "Edinburgh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297292",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L297292",
+      "retrieval_date": "2026-10-24",
+      "revision": "2347869131",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297292-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edinburg",
+        "Edinburg",
+        "Edinburgs",
+        "Edinburg",
+        "Edinburg"
+      ],
+      "language": "de",
+      "lemma": "Edinburg",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L585958",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L585958",
+      "retrieval_date": "2026-10-24",
+      "revision": "2235157206",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L585958-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto",
+        "Toronto",
+        "Torontos",
+        "Toronto",
+        "Toronto"
+      ],
+      "language": "de",
+      "lemma": "Toronto",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L494981",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L494981",
+      "retrieval_date": "2026-10-24",
+      "revision": "1880960473",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L494981-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
     },
     {
       "concept_id": "concept.q3354532",
@@ -2050,6 +2245,123 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "Leipzig"
+      ],
+      "language": "en",
+      "lemma": "Leipzig",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452763",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L452763",
+      "retrieval_date": "2026-10-24",
+      "revision": "1398176606",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452763-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edinburgh"
+      ],
+      "language": "en",
+      "lemma": "Edinburgh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L447440",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L447440",
+      "retrieval_date": "2026-10-24",
+      "revision": "2435411145",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L447440-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q174",
+      "forms": [
+        "São Paulo"
+      ],
+      "language": "en",
+      "lemma": "São Paulo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1408476",
+      "pos": "",
+      "qids": [
+        "Q174",
+        "Q175"
+      ],
+      "record_id": "L1408476",
+      "retrieval_date": "2026-10-24",
+      "revision": "2437327679",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1408476-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto"
+      ],
+      "language": "en",
+      "lemma": "Toronto",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L414191",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L414191",
+      "retrieval_date": "2026-10-24",
+      "revision": "2551479562",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L414191-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
     },
     {
       "concept_id": "concept.q483444",
@@ -3984,6 +4296,64 @@
       "wikidata": "Q727"
     },
     {
+      "concept_id": "concept.q174",
+      "forms": [
+        "São Paulo"
+      ],
+      "language": "fr",
+      "lemma": "São Paulo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578407",
+      "pos": "",
+      "qids": [
+        "Q174"
+      ],
+      "record_id": "L578407",
+      "retrieval_date": "2026-10-24",
+      "revision": "1458150482",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578407-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto"
+      ],
+      "language": "fr",
+      "lemma": "Toronto",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578441",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L578441",
+      "retrieval_date": "2026-10-24",
+      "revision": "1458285048",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578441-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
+    },
+    {
       "concept_id": "concept.q105688",
       "forms": [
         "hypoxie",
@@ -4575,6 +4945,95 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "Lipsia"
+      ],
+      "language": "it",
+      "lemma": "Lipsia",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1236492",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L1236492",
+      "retrieval_date": "2026-10-24",
+      "revision": "2198399741",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1236492-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edimburgo"
+      ],
+      "language": "it",
+      "lemma": "Edimburgo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1245833",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L1245833",
+      "retrieval_date": "2026-10-24",
+      "revision": "2310789466",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1245833-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto"
+      ],
+      "language": "it",
+      "lemma": "Toronto",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1235605",
+      "pos": "",
+      "qids": [
+        "Q736775",
+        "Q172",
+        "Q37510260"
+      ],
+      "record_id": "L1235605",
+      "retrieval_date": "2026-10-24",
+      "revision": "2198699894",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1235605-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
     },
     {
       "concept_id": "concept.q10940",
@@ -5690,6 +6149,151 @@
       "wikidata": "Q727"
     },
     {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "ലീപ്സിഗ്"
+      ],
+      "language": "ml",
+      "lemma": "ലീപ്സിഗ്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453461",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L453461",
+      "retrieval_date": "2026-10-24",
+      "revision": "2522370727",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453461-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "എഡിൻബറോ"
+      ],
+      "language": "ml",
+      "lemma": "എഡിൻബറോ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453903",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L453903",
+      "retrieval_date": "2026-10-24",
+      "revision": "1973172144",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453903-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q174",
+      "forms": [
+        "സാവോ പോളോ"
+      ],
+      "language": "ml",
+      "lemma": "സാവോ പോളോ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L454242",
+      "pos": "",
+      "qids": [
+        "Q174"
+      ],
+      "record_id": "L454242",
+      "retrieval_date": "2026-10-24",
+      "revision": "1394142252",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L454242-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "ടൊറാന്റോ"
+      ],
+      "language": "ml",
+      "lemma": "ടൊറാന്റോ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453350",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L453350",
+      "retrieval_date": "2026-10-24",
+      "revision": "1398171248",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453350-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
+    },
+    {
+      "concept_id": "concept.q36600",
+      "forms": [
+        "ഹേഗ്"
+      ],
+      "language": "ml",
+      "lemma": "ഹേഗ്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L457452",
+      "pos": "",
+      "qids": [
+        "Q36600"
+      ],
+      "record_id": "L457452",
+      "retrieval_date": "2026-10-24",
+      "revision": "1395386048",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L457452-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36600"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "കിമോണോ"
@@ -5747,6 +6351,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3130"
+    },
+    {
+      "concept_id": "concept.q172",
+      "forms": [
+        "Toronto",
+        "تورونتو"
+      ],
+      "language": "ms",
+      "lemma": "Toronto",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1568644",
+      "pos": "",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "L1568644",
+      "retrieval_date": "2026-10-24",
+      "revision": "2521601272",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1568644-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
     },
     {
       "concept_id": "concept.q2941309",
@@ -6150,6 +6784,78 @@
       "wikidata": "Q270"
     },
     {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edynburg",
+        "Edynburga",
+        "Edyburgowi",
+        "Edynburg",
+        "Edynburgiem",
+        "Edynburgu",
+        "Edynburgu",
+        "Edynburgi"
+      ],
+      "language": "pl",
+      "lemma": "Edynburg",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L727893",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L727893",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337979105",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L727893-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q36600",
+      "forms": [
+        "Haga",
+        "Hagi",
+        "Hadze",
+        "Hagę",
+        "Hagą",
+        "Hadze",
+        "Hago",
+        "Hagi"
+      ],
+      "language": "pl",
+      "lemma": "Haga",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L728170",
+      "pos": "",
+      "qids": [
+        "Q36600"
+      ],
+      "record_id": "L728170",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337974401",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L728170-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36600"
+    },
+    {
       "concept_id": "concept.q12199",
       "forms": [
         "dżuma XX wieku",
@@ -6219,6 +6925,38 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q430"
+    },
+    {
+      "concept_id": "concept.q174",
+      "forms": [
+        "São Paulo",
+        "S. Paulo"
+      ],
+      "language": "pt",
+      "lemma": "São Paulo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L184915",
+      "pos": "",
+      "qids": [
+        "Q174",
+        "Q9200",
+        "Q20061158"
+      ],
+      "record_id": "L184915",
+      "retrieval_date": "2026-10-24",
+      "revision": "1384108226",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L184915-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
     },
     {
       "concept_id": "concept.q3354532",
@@ -6913,6 +7651,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q2079",
+      "forms": [
+        "Leipzig",
+        "Leipzigs"
+      ],
+      "language": "sv",
+      "lemma": "Leipzig",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L475565",
+      "pos": "",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "L475565",
+      "retrieval_date": "2026-10-24",
+      "revision": "2317150570",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L475565-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
     },
     {
       "concept_id": "concept.q483444",
