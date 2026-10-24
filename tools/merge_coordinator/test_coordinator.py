@@ -51,6 +51,29 @@ class ContractTests(unittest.TestCase):
     def test_accepted_exact_sha_with_real_check_and_review(self):
         self.assertEqual(self.decide(), ('VERIFIED_READY', 'exact-head validated'))
 
+    def test_one_actual_required_gate_is_sufficient_for_scoped_contract(self):
+        # public-pr-merge-gate already executes affected subsystem regression
+        # suites. Requiring a separately named status duplicates verification.
+        minimal = entry(checks=['public-pr-merge-gate'])
+        self.assertIsNone(policy_error(minimal))
+        self.assertEqual(self.decide(e=minimal), ('VERIFIED_READY', 'exact-head validated'))
+
+    def test_single_required_gate_cannot_be_missing_failed_or_skipped(self):
+        minimal = entry(checks=['public-pr-merge-gate'])
+        for runs in (
+            [],
+            [dict(checks()['check_runs'][0], conclusion='skipped')],
+            [dict(checks()['check_runs'][0], conclusion='failure')],
+            [dict(checks()['check_runs'][0], head_sha=SHA_B)],
+        ):
+            with self.subTest(runs=runs):
+                self.assertEqual(self.decide(e=minimal, c={'check_runs': runs})[0], 'NOT_RUN')
+
+    def test_optional_named_extra_scope_check_remains_binding(self):
+        self.assertEqual(self.decide(c={'check_runs': [checks()['check_runs'][0]]})[0], 'NOT_RUN')
+        self.assertIsNotNone(policy_error(entry(checks=[])))
+        self.assertIsNotNone(policy_error(entry(checks=['scoped-qa'])))
+
     def test_no_implicit_authorization(self):
         self.assertEqual(evaluate({}, pr(), checks(), [], [], SHA_B, 'no skip', {})[0], 'BLOCKED_POLICY')
 
