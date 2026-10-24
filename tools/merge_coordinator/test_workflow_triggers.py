@@ -12,7 +12,8 @@ class TriggerSafetyTests(unittest.TestCase):
 
     def test_existing_checks_trigger_after_completion(self):
         self.assertIn('workflow_run:', self.workflow)
-        self.assertIn('workflows: ["Public PR Merge Gate"]', self.workflow)\n        self.assertNotIn('workflows: ["Public PR Merge Gate", "Validate JSON Files"]', self.workflow)
+        self.assertIn('workflows: ["Public PR Merge Gate"]', self.workflow)
+        self.assertNotIn('workflows: ["Public PR Merge Gate", "Validate JSON Files"]', self.workflow)
         self.assertIn('types: [completed]', self.workflow)
         self.assertIn("github.event.workflow_run.event == 'pull_request'", self.workflow)
         self.assertIn("github.event.workflow_run.conclusion == 'success'", self.workflow)
@@ -24,8 +25,8 @@ class TriggerSafetyTests(unittest.TestCase):
 
     def test_auxiliary_json_validation_is_path_scoped(self):
         workflow = (WORKFLOW.parent / "validate_json.yml").read_text(encoding="utf-8")
-        self.assertIn("  pull_request:\\n    paths:", workflow)
-        self.assertIn("  push:\\n    branches: [main]\\n    paths:", workflow)
+        self.assertIn("  pull_request:\n    paths:", workflow)
+        self.assertIn("  push:\n    branches: [main]\n    paths:", workflow)
         self.assertIn("      - '**/*.json'", workflow)
         self.assertIn("      - '.github/workflows/validate_json.yml'", workflow)
         self.assertIn("      - 'tests/ci_security/**'", workflow)
