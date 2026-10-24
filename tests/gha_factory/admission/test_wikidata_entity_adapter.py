@@ -118,7 +118,48 @@ class WikidataAdapterTests(unittest.TestCase):
                 self.assertEqual((len(content["senses"]), len(content["forms"])), expected[language])
                 self.assertEqual(content["directed_translations"], [])
                 self.assertEqual(content["level"], "UNKNOWN")
+                links = [(sense["sense_id"], qid) for sense in content["senses"]
+                         for qid in sense["attested_concept_qids"]]
+                self.assertEqual(links, [("L1026-S1", "Q25443024")] if language == "de" else [])
         self.assertEqual(set(expected), {"de", "en", "ar"})
+
+    def test_attested_sense_concept_survives_approved_handoff_without_translation(self):
+        sense = self.document["entities"]["L1"]["senses"][0]
+        claim = {"rank": "normal", "mainsnak": {
+            "property": "P5137", "snaktype": "value",
+            "datavalue": {"type": "wikibase-entityid",
+                          "value": {"entity-type": "item", "id": "Q123"}}}}
+        sense["claims"] = {"P5137": [claim, copy.deepcopy(claim)]}
+        self.save()
+        report = self.admit()
+        payload = (self.root / "out" / report["jobs"][0]["path"]).read_bytes()
+        content = json.loads(payload)["content"]
+        self.assertEqual(content["senses"][0]["attested_concept_qids"], ["Q123"])
+        self.assertEqual(content["directed_translations"], [])
+        self.assertIs(report["publication_approved"], False)
+
+    def test_deprecated_and_malformed_concept_assertions(self):
+        sense = self.document["entities"]["L1"]["senses"][0]
+        valid = {"rank": "normal", "mainsnak": {
+            "property": "P5137", "snaktype": "value",
+            "datavalue": {"type": "wikibase-entityid",
+                          "value": {"entity-type": "item", "id": "Q123"}}}}
+        sense["claims"] = {"P5137": [{**valid, "rank": "deprecated"}]}
+        raw = self.save()
+        content, _ = extract_entity(raw, language="de", source=self.source,
+                                    repo_root=self.root)
+        self.assertEqual(content["senses"][0]["attested_concept_qids"], [])
+        for bad in ({"P5137": {}},
+                    {"P5137": [{**valid, "mainsnak": {
+                        **valid["mainsnak"], "datavalue": {
+                            "type": "string", "value": "Q123"}}}]},
+                    {"P5137": [None]}):
+            with self.subTest(claims=bad):
+                sense["claims"] = bad
+                raw = self.save()
+                with self.assertRaisesRegex(AdmissionError, "P5137"):
+                    extract_entity(raw, language="de", source=self.source,
+                                   repo_root=self.root)
 
     def test_review_required_source_cannot_enter_queue(self):
         self.source["status"] = "REVIEW_REQUIRED"

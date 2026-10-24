@@ -80,7 +80,37 @@ def extract_entity(raw, *, language, source, repo_root):
             if not isinstance(lang, str) or not lang or not isinstance(gloss, str) or not gloss.strip() or len(gloss) > 10000:
                 raise AdmissionError("REJECTED_RECORD: invalid attested gloss")
             attested[lang] = gloss
-        senses.append({"sense_id": sid, "attested_glosses": attested})
+        # P5137 is an explicit sense-to-item statement in the pinned Lexeme.
+        # Preserve only attested non-deprecated item IDs. Glosses are not
+        # evidence of concept identity or either translation direction.
+        claims = s.get("claims") or {}
+        if not isinstance(claims, dict):
+            raise AdmissionError("REJECTED_RECORD: malformed sense claims")
+        statements = claims.get("P5137", [])
+        if not isinstance(statements, list):
+            raise AdmissionError("REJECTED_RECORD: malformed P5137 statements")
+        concepts = []
+        for statement in statements:
+            if not isinstance(statement, dict):
+                raise AdmissionError("REJECTED_RECORD: malformed P5137 statement")
+            if statement.get("rank") == "deprecated":
+                continue
+            snak = statement.get("mainsnak") or {}
+            datum = snak.get("datavalue") or {} if isinstance(snak, dict) else {}
+            value = datum.get("value") or {} if isinstance(datum, dict) else {}
+            if (not isinstance(snak, dict) or
+                    snak.get("property") != "P5137" or
+                    snak.get("snaktype") != "value" or
+                    not isinstance(datum, dict) or
+                    datum.get("type") != "wikibase-entityid" or
+                    not isinstance(value, dict) or
+                    value.get("entity-type") != "item" or
+                    not isinstance(value.get("id"), str) or
+                    not _QID.fullmatch(value["id"])):
+                raise AdmissionError("REJECTED_RECORD: invalid attested P5137 concept")
+            concepts.append(value["id"])
+        senses.append({"sense_id": sid, "attested_glosses": attested,
+                       "attested_concept_qids": sorted(set(concepts))})
     if not senses:
         raise AdmissionError("REJECTED_RECORD: Lexeme has no attested senses")
     for f in entity.get("forms") or []:
