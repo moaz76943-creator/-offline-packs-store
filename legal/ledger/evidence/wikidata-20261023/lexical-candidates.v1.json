@@ -1,0 +1,688 @@
+{
+  "schema_version": "1.0.0",
+  "status": "REVIEW_REQUIRED",
+  "publication_approved": false,
+  "source_dossier": "legal/ledger/evidence/wikidata-20261023",
+  "summary": {
+    "lexemes": 3,
+    "senses": 25,
+    "forms": 40,
+    "languages": [
+      "ar",
+      "de",
+      "en"
+    ],
+    "attested_concept_links": 1
+  },
+  "lexemes": [
+    {
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "source_artifact_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "license_id": "CC0-1.0",
+      "source_status": "REVIEW_REQUIRED",
+      "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+      "entity_id": "L1026",
+      "revision": 2457144138,
+      "language": "de",
+      "language_qid": "Q188",
+      "lexical_category_qid": "Q24905",
+      "lemma": "gehen",
+      "forms": [
+        {
+          "form_id": "L1026-F1",
+          "surface": "gegangen",
+          "grammatical_feature_qids": [
+            "Q12717679"
+          ]
+        },
+        {
+          "form_id": "L1026-F2",
+          "surface": "gehend",
+          "grammatical_feature_qids": [
+            "Q10345583"
+          ]
+        },
+        {
+          "form_id": "L1026-F3",
+          "surface": "gehe",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q21714344",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F4",
+          "surface": "gehst",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q51929049",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F5",
+          "surface": "geht",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q51929074",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F6",
+          "surface": "gehen",
+          "grammatical_feature_qids": [
+            "Q179230"
+          ]
+        },
+        {
+          "form_id": "L1026-F7",
+          "surface": "gehen",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q21714344",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F8",
+          "surface": "geht",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q51929049",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F9",
+          "surface": "gehen",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q51929074",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F10",
+          "surface": "ging",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q21714344",
+            "Q442485",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F11",
+          "surface": "gingst",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q442485",
+            "Q51929049",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F12",
+          "surface": "ging",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q442485",
+            "Q51929074",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F13",
+          "surface": "gingen",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q21714344",
+            "Q442485",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F14",
+          "surface": "gingt",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q442485",
+            "Q51929049",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F15",
+          "surface": "gingen",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q442485",
+            "Q51929074",
+            "Q682111"
+          ]
+        },
+        {
+          "form_id": "L1026-F16",
+          "surface": "geh",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q22716",
+            "Q51929049",
+            "Q55228835"
+          ]
+        },
+        {
+          "form_id": "L1026-F17",
+          "surface": "gehe",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q22716",
+            "Q51929049"
+          ]
+        },
+        {
+          "form_id": "L1026-F18",
+          "surface": "geht",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q22716",
+            "Q51929049"
+          ]
+        },
+        {
+          "form_id": "L1026-F19",
+          "surface": "gehet",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q22716",
+            "Q51929049"
+          ]
+        },
+        {
+          "form_id": "L1026-F20",
+          "surface": "ginge",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q21714344",
+            "Q442485",
+            "Q54671845"
+          ]
+        },
+        {
+          "form_id": "L1026-F21",
+          "surface": "gehest",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q51929049",
+            "Q55685962"
+          ]
+        },
+        {
+          "form_id": "L1026-F22",
+          "surface": "gehe",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q21714344",
+            "Q55685962"
+          ]
+        },
+        {
+          "form_id": "L1026-F23",
+          "surface": "gehe",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q51929074",
+            "Q55685962"
+          ]
+        },
+        {
+          "form_id": "L1026-F24",
+          "surface": "gehen",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q21714344",
+            "Q55685962"
+          ]
+        },
+        {
+          "form_id": "L1026-F25",
+          "surface": "gehet",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q51929049",
+            "Q55685962"
+          ]
+        },
+        {
+          "form_id": "L1026-F26",
+          "surface": "gehen",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q51929074",
+            "Q55685962"
+          ]
+        },
+        {
+          "form_id": "L1026-F28",
+          "surface": "gingest",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q442485",
+            "Q51929049",
+            "Q54671845"
+          ]
+        },
+        {
+          "form_id": "L1026-F29",
+          "surface": "ginge",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q442485",
+            "Q51929074",
+            "Q54671845"
+          ]
+        },
+        {
+          "form_id": "L1026-F30",
+          "surface": "gingen",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q21714344",
+            "Q442485",
+            "Q54671845"
+          ]
+        },
+        {
+          "form_id": "L1026-F31",
+          "surface": "ginget",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q442485",
+            "Q51929049",
+            "Q54671845"
+          ]
+        },
+        {
+          "form_id": "L1026-F32",
+          "surface": "gingen",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q442485",
+            "Q51929074",
+            "Q54671845"
+          ]
+        },
+        {
+          "form_id": "L1026-F41",
+          "surface": "zu gehen",
+          "grammatical_feature_qids": [
+            "Q100952920"
+          ]
+        }
+      ],
+      "senses": [
+        {
+          "sense_id": "L1026-S1",
+          "attested_glosses": {
+            "de": "sich zu Fuß fortbewegen",
+            "en": "to move on foot",
+            "ru": "перемещаться на ногах"
+          },
+          "attested_concept_qids": [
+            "Q25443024"
+          ]
+        },
+        {
+          "sense_id": "L1026-S2",
+          "attested_glosses": {
+            "de": "etwas verlassen",
+            "en": "to leave",
+            "ru": "покидать"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L1026-S3",
+          "attested_glosses": {
+            "de": "funktionieren",
+            "ru": "работать, функционировать",
+            "en": "for a tool or process, to work properly"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L1026-S5",
+          "attested_glosses": {
+            "en": "to move to a different place, independed of the means"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L1026-S6",
+          "attested_glosses": {
+            "en": "to go"
+          },
+          "attested_concept_qids": []
+        }
+      ],
+      "topic_status": "UNASSIGNED",
+      "level_status": "UNKNOWN",
+      "directed_translations": [],
+      "examples": [],
+      "publication_approved": false
+    },
+    {
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "source_artifact_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "license_id": "CC0-1.0",
+      "source_status": "REVIEW_REQUIRED",
+      "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+      "entity_id": "L3006",
+      "revision": 2549891188,
+      "language": "en",
+      "language_qid": "Q1860",
+      "lexical_category_qid": "Q24905",
+      "lemma": "go",
+      "forms": [
+        {
+          "form_id": "L3006-F1",
+          "surface": "go",
+          "grammatical_feature_qids": [
+            "Q3910936"
+          ]
+        },
+        {
+          "form_id": "L3006-F2",
+          "surface": "goes",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q3910936",
+            "Q51929074"
+          ]
+        },
+        {
+          "form_id": "L3006-F3",
+          "surface": "went",
+          "grammatical_feature_qids": [
+            "Q1392475"
+          ]
+        },
+        {
+          "form_id": "L3006-F4",
+          "surface": "gone",
+          "grammatical_feature_qids": [
+            "Q1230649"
+          ]
+        },
+        {
+          "form_id": "L3006-F5",
+          "surface": "going",
+          "grammatical_feature_qids": [
+            "Q10345583"
+          ]
+        }
+      ],
+      "senses": [
+        {
+          "sense_id": "L3006-S1",
+          "attested_glosses": {
+            "en": "move; change location",
+            "ru": "идти",
+            "nl": "gaan",
+            "es": "ir",
+            "zh-tw": "走",
+            "zh-hant": "走",
+            "zh": "走",
+            "nan": "kiâⁿ",
+            "gu": "ખસવું; સ્થળ બદલવું",
+            "de": "sich fortbewegen; gehen",
+            "it": "andare",
+            "kn": "ಹೋಗು; ಹೋಗಿ",
+            "hi": "जाना",
+            "hr": "ići",
+            "fr": "aller",
+            "ka": "წასვლა",
+            "tr": "gitmek",
+            "ms": "pergi",
+            "ms-arab": "ڤرݢي",
+            "bjn": "tulak",
+            "tay": "mosa"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S2",
+          "attested_glosses": {
+            "en": "move away, leave",
+            "gu": "જવું",
+            "fr": "partir"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S4",
+          "attested_glosses": {
+            "en": "operate, function"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S5",
+          "attested_glosses": {
+            "en": "pursue (often with after)"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S6",
+          "attested_glosses": {
+            "en": "serial verb construction"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S7",
+          "attested_glosses": {
+            "en": "become"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S8",
+          "attested_glosses": {
+            "en": "benefactive"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S9",
+          "attested_glosses": {
+            "en": "experience, undergo"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S10",
+          "attested_glosses": {
+            "en": "have on your side"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S11",
+          "attested_glosses": {
+            "en": "say"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S12",
+          "attested_glosses": {
+            "en": "go with, match, accompany"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S13",
+          "attested_glosses": {
+            "en": "existential usage (here/there you go)"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S14",
+          "attested_glosses": {
+            "en": "serves, stands, is attributed to"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S15",
+          "attested_glosses": {
+            "en": "sell"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S16",
+          "attested_glosses": {
+            "en": "modal / future"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S17",
+          "attested_glosses": {
+            "en": "be left"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S18",
+          "attested_glosses": {
+            "en": "potty"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S19",
+          "attested_glosses": {
+            "en": "an attempt, effort"
+          },
+          "attested_concept_qids": []
+        },
+        {
+          "sense_id": "L3006-S20",
+          "attested_glosses": {
+            "en": "spatial positioning; belong in a spot"
+          },
+          "attested_concept_qids": []
+        }
+      ],
+      "topic_status": "UNASSIGNED",
+      "level_status": "UNKNOWN",
+      "directed_translations": [],
+      "examples": [],
+      "publication_approved": false
+    },
+    {
+      "source_id": "wikidata-lexeme-l7882-r2548839684",
+      "source_artifact_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+      "license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+      "license_id": "CC0-1.0",
+      "source_status": "REVIEW_REQUIRED",
+      "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684",
+      "entity_id": "L7882",
+      "revision": 2548839684,
+      "language": "ar",
+      "language_qid": "Q13955",
+      "lexical_category_qid": "Q24905",
+      "lemma": "ذَهَبَ",
+      "forms": [
+        {
+          "form_id": "L7882-F1",
+          "surface": "ذَهَبَ",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q124351233",
+            "Q1317831",
+            "Q499327",
+            "Q51929074"
+          ]
+        },
+        {
+          "form_id": "L7882-F2",
+          "surface": "ذَهَبْتُ",
+          "grammatical_feature_qids": []
+        },
+        {
+          "form_id": "L7882-F3",
+          "surface": "أذْهَبُ",
+          "grammatical_feature_qids": []
+        }
+      ],
+      "senses": [
+        {
+          "sense_id": "L7882-S1",
+          "attested_glosses": {
+            "en": "to go"
+          },
+          "attested_concept_qids": []
+        }
+      ],
+      "topic_status": "UNASSIGNED",
+      "level_status": "UNKNOWN",
+      "directed_translations": [],
+      "examples": [],
+      "publication_approved": false
+    }
+  ]
+}

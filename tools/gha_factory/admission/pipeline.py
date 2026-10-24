@@ -109,8 +109,10 @@ def route05_source(repo_root, source_id, dataset_version, input_path, fmt):
     s=sources[0]
     if s.get('status')!='APPROVED_FOR_REDISTRIBUTION':
         raise AdmissionError('BLOCKED_SOURCE: Route 05 reviewer approval absent')
-    if s.get('kind')!='dictionary' or fmt!='wiktextract-jsonl':
+    if s.get('kind')!='dictionary' or fmt not in ('wiktextract-jsonl', 'wikidata-entity-json'):
         raise AdmissionError('BLOCKED_SOURCE: unsupported kind/format; sentences and human audio require separate adapters and rights')
+    if fmt == 'wikidata-entity-json' and (s.get('license') or {}).get('id') != 'CC0-1.0':
+        raise AdmissionError('BLOCKED_SOURCE: Wikidata structured Lexeme adapter requires CC0')
     if s.get('dataset_version')!=dataset_version:
         raise AdmissionError('BLOCKED_SOURCE: unapproved source version')
     license_info=s.get('license') or {}
@@ -226,14 +228,26 @@ def admit(*,repo_root,source_id,input_path,out_dir,language,dataset_version,
     try:
         h=None;file_handle=None;part_records=0;part_file=None
         with input_path.open('rb') as stream:
-            for line,raw in enumerate(iter(lambda: stream.readline(MAX_LINE + 1), b''), start=1):
-                if not raw or len(raw)>MAX_LINE or not raw.endswith(b'\n') or raw.startswith(b'\xef\xbb\xbf'):
-                    raise AdmissionError(f'REJECTED_RECORD: line {line}: invalid JSONL framing/encoding')
-                try:
-                    doc=json.loads(raw.decode('utf-8'),parse_constant=lambda v: (_ for _ in ()).throw(ValueError(v)))
-                except (UnicodeError,ValueError) as e:
-                    raise AdmissionError(f'REJECTED_RECORD: line {line}: invalid UTF-8/JSON') from e
-                content,excluded=extract(doc,language,lic['id'],source_id,catalog[language],line)
+            if format_name == 'wikidata-entity-json':
+                from tools.gha_factory.admission.wikidata_entity_adapter import MAX_ENTITY_BYTES, extract_entity
+                raw_entity = stream.read(MAX_ENTITY_BYTES + 1)
+                if not raw_entity or len(raw_entity) > MAX_ENTITY_BYTES:
+                    raise AdmissionError('REJECTED_RECORD: Wikidata entity exceeds bounded size')
+                source_rows = [(1, raw_entity)]
+            else:
+                source_rows = enumerate(iter(lambda: stream.readline(MAX_LINE + 1), b''), start=1)
+            for line,raw in source_rows:
+                if format_name == 'wikidata-entity-json':
+                    content,excluded = extract_entity(raw, language=language, source=source,
+                                                       repo_root=repo_root)
+                else:
+                    if not raw or len(raw)>MAX_LINE or not raw.endswith(b'\n') or raw.startswith(b'\xef\xbb\xbf'):
+                        raise AdmissionError(f'REJECTED_RECORD: line {line}: invalid JSONL framing/encoding')
+                    try:
+                        doc=json.loads(raw.decode('utf-8'),parse_constant=lambda v: (_ for _ in ()).throw(ValueError(v)))
+                    except (UnicodeError,ValueError) as e:
+                        raise AdmissionError(f'REJECTED_RECORD: line {line}: invalid UTF-8/JSON') from e
+                    content,excluded=extract(doc,language,lic['id'],source_id,catalog[language],line)
                 if file_handle is None:
                     part_file=f'partition-{parts:08d}.jsonl';file_handle=(stage/part_file).open('wb')
                     h=hashlib.sha256();part_records=0
@@ -297,7 +311,7 @@ def main(argv=None):
     p.add_argument('--out',required=True,type=Path)
     p.add_argument('--language',required=True)
     p.add_argument('--dataset-version',required=True)
-    p.add_argument('--format',default='wiktextract-jsonl',choices=['wiktextract-jsonl'])
+    p.add_argument('--format',default='wiktextract-jsonl',choices=['wiktextract-jsonl', 'wikidata-entity-json'])
     p.add_argument('--part-size',type=int,default=1000)
     a=p.parse_args(argv)
     try:

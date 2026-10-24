@@ -1,0 +1,153 @@
+"""Regression tests for genuine revision-pinned, UNAPPROVED lexical candidates."""
+import copy
+import hashlib
+import json
+import tempfile
+import unittest
+from pathlib import Path
+from unittest.mock import patch
+
+from tools.gha_factory.admission.review_only_wikidata import (
+    DEFAULT_CANDIDATE, DEFAULT_DOSSIER, ReviewError, build, checked,
+    confined, main, verify_original_wikidata_scope,
+)
+
+ROOT = Path(__file__).resolve().parents[3]
+
+
+class WikidataReviewCandidatesTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.generated = build(ROOT, DEFAULT_DOSSIER)
+        cls.committed = json.loads((ROOT / DEFAULT_CANDIDATE).read_text(encoding="utf-8"))
+
+    def test_pinned_originals_reproduce_committed_candidate_inventory(self):
+        self.assertEqual(self.generated, self.committed)
+
+    def test_attested_three_languages_and_exact_counts(self):
+        self.assertEqual(self.generated["summary"], {
+            "lexemes": 3, "senses": 25, "forms": 40,
+            "attested_concept_links": 1, "languages": ["ar", "de", "en"],
+        })
+        by_lang = {row["language"]: row for row in self.generated["lexemes"]}
+        self.assertEqual({key: row["lemma"] for key, row in by_lang.items()},
+                         {"de": "gehen", "en": "go", "ar": "ذَهَبَ"})
+        self.assertEqual({key: len(row["forms"]) for key, row in by_lang.items()},
+                         {"de": 32, "en": 5, "ar": 3})
+        self.assertEqual({key: len(row["senses"]) for key, row in by_lang.items()},
+                         {"de": 5, "en": 19, "ar": 1})
+
+    def test_no_unreviewed_publication_or_inferred_levels(self):
+        self.assertEqual(self.generated["status"], "REVIEW_REQUIRED")
+        self.assertIs(self.generated["publication_approved"], False)
+        for row in self.generated["lexemes"]:
+            with self.subTest(row=row["entity_id"]):
+                self.assertEqual(row["source_status"], "REVIEW_REQUIRED")
+                self.assertEqual(row["license_id"], "CC0-1.0")
+                self.assertEqual(row["level_status"], "UNKNOWN")
+                self.assertEqual(row["topic_status"], "UNASSIGNED")
+                self.assertEqual(row["directed_translations"], [])
+                self.assertEqual(row["examples"], [])
+                self.assertIs(row["publication_approved"], False)
+                self.assertNotIn("cefr", row)
+                self.assertNotIn("translations", row)
+                self.assertTrue(all(form["form_id"].startswith(row["entity_id"] + "-F")
+                                    for form in row["forms"]))
+                self.assertTrue(all(sense["sense_id"].startswith(row["entity_id"] + "-S")
+                                    for sense in row["senses"]))
+
+    def test_only_source_attested_sense_concept_is_preserved(self):
+        links = [(row["language"], sense["sense_id"], qid)
+                 for row in self.generated["lexemes"]
+                 for sense in row["senses"]
+                 for qid in sense["attested_concept_qids"]]
+        self.assertEqual(links, [("de", "L1026-S1", "Q25443024")])
+        # Multilingual glosses are not evidence of sense identity or
+        # reversible translations.
+        self.assertTrue(all(not row["directed_translations"]
+                            for row in self.generated["lexemes"]))
+
+    def test_tampered_candidate_is_not_equal_to_pinned_evidence(self):
+        altered = copy.deepcopy(self.committed)
+        altered["lexemes"][0]["forms"][0]["surface"] = "fabricated"
+        self.assertNotEqual(altered, build(ROOT, DEFAULT_DOSSIER))
+        altered = copy.deepcopy(self.committed)
+        altered["publication_approved"] = True
+        self.assertNotEqual(altered, build(ROOT, DEFAULT_DOSSIER))
+
+    def test_original_source_hash_mismatch_blocks(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "source.json"
+            original = b'{"source":"verified"}\n'
+            path.write_bytes(original)
+            digest = hashlib.sha256(original).hexdigest()
+            self.assertEqual(checked(folder, "source.json", digest), original)
+            path.write_bytes(b'{"source":"tampered"}\n')
+            with self.assertRaisesRegex(ReviewError, "SHA256 mismatch"):
+                checked(folder, "source.json", digest)
+
+    def test_symlink_and_parent_escape_are_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            original = root / "original"
+            original.write_bytes(b"original")
+            (root / "link").symlink_to(original)
+            digest = hashlib.sha256(b"original").hexdigest()
+            with self.assertRaisesRegex(ReviewError, "symlink"):
+                checked(root, "link", digest)
+            with self.assertRaisesRegex(ReviewError, "unsafe"):
+                checked(root, "../original", digest)
+
+    def test_original_copyright_notice_scopes_cc0_to_lexemes(self):
+        proof = (ROOT / DEFAULT_DOSSIER / "copyright-1523614187.txt").read_bytes()
+        self.assertTrue(verify_original_wikidata_scope(proof))
+
+    def test_reject_generic_cc0_and_other_namespace_only_notice(self):
+        for notice in (
+            b"Creative Commons CC0 License",
+            b"All structured data from the main and Property namespaces "
+            b"is available under Creative Commons CC0 License",
+            b"All structured data from the main, Property, Lexeme, and "
+            b"EntitySchema namespaces is available under CC-BY-SA 3.0",
+            b"All structured data from the main, Property, Lexeme, and "
+            b"EntitySchema namespaces is available under CC-BY-SA 3.0; "
+            b"Creative Commons CC0 License elsewhere",
+        ):
+            with self.subTest(notice=notice):
+                with self.assertRaisesRegex(ReviewError, "Lexeme-scoped CC0"):
+                    verify_original_wikidata_scope(notice)
+
+    def test_review_output_cannot_escape_repository_or_follow_symlinks(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "safe").mkdir()
+            (root / "alias").symlink_to(root / "safe", target_is_directory=True)
+            for path in ("../outside.json", "/tmp/outside.json",
+                         ".git/refs/heads/main", "alias/out.json"):
+                with self.subTest(path=path):
+                    with self.assertRaisesRegex(ReviewError, "unsafe|symlink"):
+                        confined(root, path)
+            # CLI must refuse unsafe write-new before creating a file.
+            with patch("tools.gha_factory.admission.review_only_wikidata.build",
+                       return_value=self.generated):
+                self.assertEqual(main(["--repo-root", str(root),
+                                       "--candidate", "../escape.json",
+                                       "--write-new"]), 2)
+
+    def test_negated_or_modified_original_rights_notice_rejected(self):
+        raw = (ROOT / DEFAULT_DOSSIER / "copyright-1523614187.txt").read_bytes()
+        for altered in (raw.replace(b"is available under", b"is NOT available under", 1),
+                        raw.replace(b"Lexeme, and EntitySchema", b"Property and EntitySchema", 1),
+                        raw.replace(b"Creative Commons CC0 License", b"Creative Commons CC-BY License", 1)):
+            with self.subTest(altered=altered[:100]):
+                with self.assertRaisesRegex(ReviewError, "Lexeme-scoped CC0"):
+                    verify_original_wikidata_scope(altered)
+
+    def test_duplicate_source_json_keys_rejected(self):
+        from tools.gha_factory.admission.review_only_wikidata import _decode
+        with self.assertRaisesRegex(ReviewError, "duplicate JSON key"):
+            _decode(b'{"entities":{},"entities":{}}')
+
+
+if __name__ == "__main__":
+    unittest.main()
