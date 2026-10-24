@@ -212,9 +212,17 @@ class PairValidationTests(unittest.TestCase):
         # JSON can decode an escaped lone surrogate that is not valid UTF-8 text.
         original = self.inputs['candidates'].decode('utf-8').rstrip('\n')
         self.inputs['candidates'] = (original[:-1] +
-            ',"review_metadata":{"notes":["\\\\ud800"]}}\n').encode('utf-8')
+            ',"review_metadata":{"notes":["\\ud800"]}}\n').encode('utf-8')
         with self.assertRaisesRegex(PairError, 'INVALID_UNICODE_JSON'):
             self.audit()
+
+
+    def test_valid_finite_exponent_and_multiscript_metadata_remain_accepted(self):
+        original = self.inputs['candidates'].decode('utf-8').rstrip('\n')
+        self.inputs['candidates'] = (original[:-1] +
+            ',"review_metadata":{"score":1e2,"notes":"äöüß العربية İı"}}\n').encode('utf-8')
+        result = self.audit()
+        self.assertEqual(1, result['counts']['cc0_direct_candidates_review_required'])
 
 
 if __name__ == '__main__':
