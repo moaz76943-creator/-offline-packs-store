@@ -31,6 +31,8 @@ def validate_svg(data):
         raise ValueError("unsafe svg: invalid utf-8 encoding")
 
 def process_bundle(source, staging_root):
+    if not os.access(os.getcwd(), os.W_OK):
+        raise RuntimeError('workspace access not authorized')
     # This logic sits alongside community/contributions/ingest.py,
     # but we will likely want to process .vct and .svg files too.
     source_path = Path(source)
