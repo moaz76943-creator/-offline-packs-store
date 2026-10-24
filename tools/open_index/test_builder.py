@@ -122,6 +122,12 @@ class TestIndexBuilder(unittest.TestCase):
         with self.assertRaisesRegex(IndexBuilderError, 'Unsupported tokenizer'):
             build_index(self.db_path)
 
+    @patch('builtins.open', side_effect=FileNotFoundError)
+    def test_missing_language_registry(self, mock_open):
+        setup_dummy_db(self.db_path, 'eng', ['test'])
+        with self.assertRaisesRegex(IndexBuilderError, 'Public workspace is inaccessible'):
+            build_index(self.db_path)
+
     @patch('os.replace')
     def test_interrupted_index_generation(self, mock_replace):
         mock_replace.side_effect = Exception("Interrupted!")
