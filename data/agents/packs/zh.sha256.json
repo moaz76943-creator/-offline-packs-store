@@ -1,0 +1,8 @@
+{
+  "format": "legacy-entry-candidate",
+  "path": "/tmp/agent-out/data/agents/packs/zh.sqlite",
+  "production_ready": false,
+  "rows": 12,
+  "schema_version": "1.0.0",
+  "sha256": "2578f947120f96a9944518bf82464cfd9cc9481ce41324d70ffa05d060537655"
+}
