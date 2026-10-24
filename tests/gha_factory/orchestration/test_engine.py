@@ -39,11 +39,11 @@ class EngineTests(unittest.TestCase):
                 api.data[1][field]=invalid
                 jobs=self.run_controller(api)
                 self.assertEqual([j['number'] for j in jobs],[2])
-                self.assertEqual(p.parse(api.one(1)['body'])['state'],'READY')
+                self.assertEqual(p.parse(api.one(1)['body'])['state'],'NEW')
         api=FakeAPI([(1,task()),(2,task(language='en'))])
         api.data[1]['number']=True
         self.assertEqual([j['number'] for j in self.run_controller(api)],[2])
-        self.assertEqual(p.parse(api.one(1)['body'])['state'],'READY')
+        self.assertEqual(p.parse(api.one(1)['body'])['state'],'NEW')
 
     def test_malformed_owned_issue_does_not_stop_other_jobs(self):
         # A single corrupted owner-created issue must not halt the hourly queue.
