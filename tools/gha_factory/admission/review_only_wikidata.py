@@ -77,15 +77,36 @@ def verify_original_wikidata_scope(raw):
         notice = raw.decode("utf-8")
     except UnicodeError as exc:
         raise ReviewError("invalid original copyright notice") from exc
-    first_clause = notice.split(";", 1)[0]
-    required_scope = (
+    first_clause = notice.split(";", 1)[0].strip()
+    # The original revision is MediaWiki wikitext, not plain English. Match
+    # the complete affirmative grant; a negated or re-scoped notice must fail.
+    exact_grant = (
         "All structured data from the main, Property, Lexeme, and "
-        "EntitySchema namespaces is available under"
+        "EntitySchema namespaces is available under the "
+        "[[Wikidata:Text of the Creative Commons Public Domain Dedication|"
+        "Creative Commons CC0 License]]"
     )
-    if (required_scope not in first_clause
-            or "Creative Commons CC0 License" not in first_clause):
+    if first_clause != exact_grant:
         raise ReviewError("original copyright notice lacks Lexeme-scoped CC0")
     return True
+
+
+def confined(root, relative):
+    """Resolve only a repository-relative, non-symlinked review artifact."""
+    if not isinstance(relative, str) or not relative:
+        raise ReviewError("unsafe review artifact path")
+    p = Path(relative)
+    if p.is_absolute() or any(part in ("..", ".git") for part in p.parts):
+        raise ReviewError("unsafe review artifact path")
+    root = Path(root).resolve()
+    current = root
+    for part in p.parts:
+        current = current / part
+        if current.is_symlink():
+            raise ReviewError("symlink review artifact path")
+    if not current.resolve().is_relative_to(root):
+        raise ReviewError("unsafe review artifact path")
+    return current
 
 
 def _entity_record(source, root, languages, receipt_row):
@@ -161,7 +182,31 @@ def _entity_record(source, root, languages, receipt_row):
             if not isinstance(value, str) or not value.strip():
                 raise ReviewError("invalid attested gloss")
             copied[code] = value
-        senses.append({"sense_id": sense["id"], "attested_glosses": copied})
+        # P5137 is an attested "item for this sense" link. Preserve only
+        # explicit, non-deprecated item statements; gloss translations do NOT
+        # establish concept identity or a directed translation pair.
+        statements = (sense.get("claims") or {}).get("P5137", [])
+        if not isinstance(statements, list):
+            raise ReviewError("invalid attested sense concept")
+        concepts = []
+        for statement in statements:
+            if not isinstance(statement, dict):
+                raise ReviewError("invalid attested sense concept")
+            if statement.get("rank") == "deprecated":
+                continue
+            snak = statement.get("mainsnak") or {}
+            datum = snak.get("datavalue") or {}
+            value = datum.get("value") or {}
+            if (snak.get("property") != "P5137" or snak.get("snaktype") != "value"
+                    or datum.get("type") != "wikibase-entityid"
+                    or not isinstance(value, dict)
+                    or value.get("entity-type") != "item"
+                    or not isinstance(value.get("id"), str)
+                    or not QID.fullmatch(value["id"])):
+                raise ReviewError("invalid attested sense concept")
+            concepts.append(value["id"])
+        senses.append({"sense_id": sense["id"], "attested_glosses": copied,
+                       "attested_concept_qids": sorted(set(concepts))})
     if len({x["form_id"] for x in forms}) != len(forms) or len({x["sense_id"] for x in senses}) != len(senses):
         raise ReviewError("duplicate form/sense identity")
     if (receipt_row.get("source_id") != source["source_id"]
@@ -198,10 +243,8 @@ def _entity_record(source, root, languages, receipt_row):
 def build(root, dossier=DEFAULT_DOSSIER):
     root = Path(root).resolve()
     dossier_path = Path(dossier)
-    if dossier_path.is_absolute() or ".." in dossier_path.parts:
-        raise ReviewError("unsafe dossier path")
-    receipt_path = root / dossier_path / "review-receipt.json"
-    if receipt_path.is_symlink() or not receipt_path.is_file():
+    receipt_path = confined(root, str(dossier_path / "review-receipt.json"))
+    if not receipt_path.is_file():
         raise ReviewError("missing review receipt")
     receipt = _decode(receipt_path.read_bytes())
     proposals = _decode(checked(root, str(dossier_path / "proposed-sources.json"),
@@ -232,6 +275,8 @@ def build(root, dossier=DEFAULT_DOSSIER):
             "lexemes": len(records),
             "senses": sum(len(r["senses"]) for r in records),
             "forms": sum(len(r["forms"]) for r in records),
+            "attested_concept_links": sum(
+                len(s["attested_concept_qids"]) for r in records for s in r["senses"]),
             "languages": sorted({r["language"] for r in records}),
         },
         "lexemes": records,
@@ -248,7 +293,7 @@ def main(argv=None):
     args = parser.parse_args(argv)
     try:
         expected = build(args.repo_root, args.dossier)
-        path = args.repo_root / args.candidate
+        path = confined(args.repo_root, args.candidate)
         if args.write_new:
             if path.exists() or path.is_symlink():
                 raise ReviewError("candidate already exists; refusing overwrite")
