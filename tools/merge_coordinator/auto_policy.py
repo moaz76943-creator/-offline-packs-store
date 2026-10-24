@@ -3,6 +3,7 @@ import re
 
 AUTO_SHA = re.compile(r'[0-9a-f]{40}\Z')
 AUTO_SAFE_DOCS = ('docs/',)
+AUTO_ROOT_PROSE = frozenset(('README.md', 'CHANGELOG.md', 'CONTRIBUTING.md'))
 AUTO_DENIED_DOCS = ('docs/governance/', 'docs/merge_coordinator/', 'docs/security/', 'docs/release/', 'docs/CI_')
 
 SEARCH_QA_PREFIXES = ('tools/gha_factory/search_qa/', 'tests/gha_factory/search_qa/')
@@ -22,7 +23,9 @@ def auto_safe_files(files):
         path = f.get('filename')
         if not isinstance(path, str) or '..' in path.split('/') or '\\' in path or path.startswith('/'):
             return False
-        doc = path.startswith(AUTO_SAFE_DOCS) and path.endswith('.md') and not path.startswith(AUTO_DENIED_DOCS)
+        doc = ((path in AUTO_ROOT_PROSE) or
+               (path.startswith(AUTO_SAFE_DOCS) and path.endswith('.md') and
+                not path.startswith(AUTO_DENIED_DOCS)))
         new_test = path.startswith('tests/') and path.endswith('.py') and f.get('status') == 'added'
         scoped_qa = path.startswith(SEARCH_QA_PREFIXES) and path.endswith('.py')
         if not (doc or new_test or scoped_qa):
