@@ -84,6 +84,31 @@ class MapperTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+    def test_invalid_language_direction(self):
+        self.records[0]["language"] = "de"
+        self.records[1]["language"] = "de"
+        self.records[-1]["from_language"] = "de"
+        with self.assertRaisesRegex(ValueError, "Invalid language direction"):
+            self.run_gate()
+
+    def test_conflicting_translations(self):
+        self.records.append(self.records[-1].copy())
+        # The conflicting translation has a duplicate ID
+        with self.assertRaisesRegex(ValueError, "Duplicate translation_id"):
+            self.run_gate()
+
+        self.records.pop()
+
+        # Test translation with contradictory direction
+        self.records[-1]["from_language"] = "fr"
+        with self.assertRaisesRegex(ValueError, "Translation direction contradicts sense ownership"):
+            self.run_gate()
+
+    def test_altered_hashes(self):
+        self.records[-1]["translation_evidence"]["sha256"] = "a" * 64
+        with self.assertRaisesRegex(ValueError, "HASH_MISMATCH|hash"):
+            self.run_gate()
+
     def test_preserve_regional_variants_and_contextual_labels(self):
         self.records[-1]["regional_variant"] = "Swiss German"
         self.records[-1]["contextual_label"] = "finance"
