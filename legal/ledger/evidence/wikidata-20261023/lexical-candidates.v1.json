@@ -11,7 +11,8 @@
       "ar",
       "de",
       "en"
-    ]
+    ],
+    "attested_concept_links": 1
   },
   "lexemes": [
     {
@@ -373,7 +374,10 @@
             "de": "sich zu Fuß fortbewegen",
             "en": "to move on foot",
             "ru": "перемещаться на ногах"
-          }
+          },
+          "attested_concept_qids": [
+            "Q25443024"
+          ]
         },
         {
           "sense_id": "L1026-S2",
@@ -381,7 +385,8 @@
             "de": "etwas verlassen",
             "en": "to leave",
             "ru": "покидать"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L1026-S3",
@@ -389,19 +394,22 @@
             "de": "funktionieren",
             "ru": "работать, функционировать",
             "en": "for a tool or process, to work properly"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L1026-S5",
           "attested_glosses": {
             "en": "to move to a different place, independed of the means"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L1026-S6",
           "attested_glosses": {
             "en": "to go"
-          }
+          },
+          "attested_concept_qids": []
         }
       ],
       "topic_status": "UNASSIGNED",
@@ -487,7 +495,8 @@
             "ms-arab": "ڤرݢي",
             "bjn": "tulak",
             "tay": "mosa"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S2",
@@ -495,109 +504,127 @@
             "en": "move away, leave",
             "gu": "જવું",
             "fr": "partir"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S4",
           "attested_glosses": {
             "en": "operate, function"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S5",
           "attested_glosses": {
             "en": "pursue (often with after)"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S6",
           "attested_glosses": {
             "en": "serial verb construction"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S7",
           "attested_glosses": {
             "en": "become"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S8",
           "attested_glosses": {
             "en": "benefactive"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S9",
           "attested_glosses": {
             "en": "experience, undergo"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S10",
           "attested_glosses": {
             "en": "have on your side"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S11",
           "attested_glosses": {
             "en": "say"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S12",
           "attested_glosses": {
             "en": "go with, match, accompany"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S13",
           "attested_glosses": {
             "en": "existential usage (here/there you go)"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S14",
           "attested_glosses": {
             "en": "serves, stands, is attributed to"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S15",
           "attested_glosses": {
             "en": "sell"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S16",
           "attested_glosses": {
             "en": "modal / future"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S17",
           "attested_glosses": {
             "en": "be left"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S18",
           "attested_glosses": {
             "en": "potty"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S19",
           "attested_glosses": {
             "en": "an attempt, effort"
-          }
+          },
+          "attested_concept_qids": []
         },
         {
           "sense_id": "L3006-S20",
           "attested_glosses": {
             "en": "spatial positioning; belong in a spot"
-          }
+          },
+          "attested_concept_qids": []
         }
       ],
       "topic_status": "UNASSIGNED",
@@ -647,7 +674,8 @@
           "sense_id": "L7882-S1",
           "attested_glosses": {
             "en": "to go"
-          }
+          },
+          "attested_concept_qids": []
         }
       ],
       "topic_status": "UNASSIGNED",
