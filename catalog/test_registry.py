@@ -17,7 +17,11 @@ def fixture():
                   proficiency={"framework_ids":[], "mapping_status":"not_mapped"}) for code in codes]
     registry = dict(schema_version="1.0.0", scripts={"Latn":{"name":"Latin","direction":"ltr"},
                     "Arab":{"name":"Arabic","direction":"rtl"}, "Hebr":{"name":"Hebrew","direction":"rtl"}},
-                    frameworks={}, languages=langs, aliases=[], locale_variants=[])
+                    frameworks={}, languages=langs, aliases=[], locale_variants=[],
+                    source={"repository": "moaz76943-creator/-offline-packs-store",
+                            "manifest_path": "manifest.json",
+                            "reviewed_head_sha": "0000000000000000000000000000000000000000",
+                            "selection_policy": "preserve_all_100_published_stable_ids"})
     readiness = dict(schema_version="1.0.0",registry_version="1.0.0", states={x:"unverified" for x in codes},validation_evidence={})
     manifest = dict(languages=[dict(code=l["id"],family=l["family"],native_name=l["native_name"]) for l in langs])
     return registry, readiness, manifest
@@ -123,9 +127,10 @@ class TaxonomyValidationTests(unittest.TestCase):
 
     def test_real_public_registry_integrity(self):
         registry = json.loads((HERE / "language_registry.v1.json").read_text(encoding="utf-8"))
+        schema = json.loads((HERE / "language_registry.schema.json").read_text(encoding="utf-8"))
         readiness = json.loads((HERE / "content_readiness.v1.json").read_text(encoding="utf-8"))
         manifest = json.loads((HERE.parent / "manifest.json").read_text(encoding="utf-8"))
-        self.assertEqual([], validate(registry, readiness, manifest))
+        self.assertEqual([], validate(registry, readiness, manifest, schema=schema))
         self.assertEqual(100, len(registry["languages"]))
         self.assertTrue(all(value != "releaseReady" for value in readiness["states"].values()))
 

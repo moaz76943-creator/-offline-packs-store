@@ -8,6 +8,7 @@ import argparse
 import json
 import re
 from pathlib import Path
+import jsonschema
 
 HERE = Path(__file__).resolve().parent
 TAG = re.compile(r"^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-(?:[a-z0-9]{5,8}|[0-9][a-z0-9]{3}))*$")
@@ -17,11 +18,17 @@ FEATURES = {"gender", "noun_classes", "case", "number", "root_pattern", "inflect
 STATES = {"unverified", "not_started", "in_progress", "metadataOnly", "sourceAvailable", "verifiedPack", "installedCapable", "releaseReady", "blocked", "deprecated"}
 
 
-def validate(registry, readiness, manifest=None, required_count=100, source_ledger=None):
+def validate(registry, readiness, manifest=None, required_count=100, source_ledger=None, schema=None):
     """Return deterministic human-readable problems without mutating inputs."""
     errors = []
     def problem(message):
         errors.append(message)
+
+    if schema is not None:
+        try:
+            jsonschema.validate(instance=registry, schema=schema)
+        except jsonschema.ValidationError as e:
+            problem(str(e))
 
     if registry.get("schema_version") != "1.0.0":
         problem("unsupported registry schema_version")
@@ -189,14 +196,16 @@ def validate(registry, readiness, manifest=None, required_count=100, source_ledg
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--registry", type=Path, default=HERE / "language_registry.v1.json")
+    parser.add_argument("--schema", type=Path, default=HERE / "language_registry.schema.json")
     parser.add_argument("--readiness", type=Path, default=HERE / "content_readiness.v1.json")
     parser.add_argument("--manifest", type=Path, default=HERE.parent / "manifest.json")
     args = parser.parse_args(argv)
     registry = json.loads(args.registry.read_text(encoding="utf-8"))
+    schema = json.loads(args.schema.read_text(encoding="utf-8"))
     readiness = json.loads(args.readiness.read_text(encoding="utf-8"))
     manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
     ledger = json.loads((HERE.parent / "legal" / "ledger" / "sources.json").read_text(encoding="utf-8"))
-    failures = validate(registry, readiness, manifest, source_ledger=ledger)
+    failures = validate(registry, readiness, manifest, source_ledger=ledger, schema=schema)
     for failure in failures:
         print("ERROR:", failure)
     if failures:
