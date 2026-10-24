@@ -27,11 +27,12 @@ SUITES = {
     "open_export": ("tools/open_export", "test_lifecycle.py"),
     "community_automation": ("tools/community_automation", "test_gate.py"),
     "community_intake": ("tests/community/contributions", "test_*.py"),
+    "licensing": ("legal/licensing", "test_ledger.py"),
     "registry_unit": ("catalog", "test_registry.py"),
     "utils": ("tests", "test_utils.py"),
     "inventory": ("tests/merge_accelerator", "test_inventory.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "utils", "registry_unit", "inventory")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "licensing", "utils", "registry_unit", "inventory")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -102,6 +103,9 @@ def select_baseline_checks(changed_paths):
         return tuple(selected)
 
     def low_risk(path):
+        # New licensing logic must retain the full global safety baseline.
+        if path.startswith("legal/licensing/"):
+            return False
         if path in ROOT_PROSE_DOCS:
             return True
         if any(path.startswith(prefix) for prefix in ISOLATED_PREFIXES):
@@ -164,6 +168,8 @@ def select_suites(changed_paths):
             selected.add("community_automation")
         if path.startswith(("community/contributions/", "tests/community/contributions/")):
             selected.add("community_intake")
+        if path.startswith("legal/licensing/"):
+            selected.add("licensing")
         if path == "utils.py" or path == "tests/test_utils.py":
             selected.add("utils")
         if path.startswith(("tools/merge_accelerator/", "tests/merge_accelerator/")):
