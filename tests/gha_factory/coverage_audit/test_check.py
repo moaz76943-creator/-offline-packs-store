@@ -187,6 +187,36 @@ class CoverageAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(checker.AuditError, 'duplicate provenance'):
             checker.audit(self.root, shard=0, shards=1)
 
+    def test_metadata_symlinked_parent_is_rejected(self):
+        # Synthetic fixture: metadata reached through a symlinked directory
+        # must not be trusted even when the final JSON file is ordinary.
+        (self.root / 'alias').symlink_to(self.root / 'catalog', target_is_directory=True)
+        with self.assertRaisesRegex(checker.AuditError, 'symlink'):
+            checker.read_json(self.root, 'alias/content_readiness.v1.json')
+
+    def test_published_pack_symlinked_parent_is_rejected(self):
+        # A symlinked packs/ parent currently bypasses the final-file check.
+        real = self.root / 'real_packs'
+        real.mkdir()
+        blob = b'untrusted archive bytes'
+        (real / 'aa-1.0.0.pack.gz').write_bytes(blob)
+        (self.root / 'packs').symlink_to(real, target_is_directory=True)
+        entry = {'id': 'aa', 'languageCode': 'aa',
+                 'schemaVersion': '2.0.0', 'format': 'json-gzip-v1',
+                 'version': '1.0.0', 'sha256': hashlib.sha256(blob).hexdigest(),
+                 'archiveSizeBytes': len(blob)}
+        with self.assertRaisesRegex(checker.AuditError, 'symlink'):
+            checker._verify_pack(self.root, entry, 'aa')
+
+    def test_verifier_symlinked_parent_is_rejected(self):
+        # Never import a verifier through a symlinked tools/ directory.
+        module = self.root / 'real_tools/pack_v2/pipeline.py'
+        module.parent.mkdir(parents=True)
+        module.write_text('def check_envelope(blob, language): return {}\n', encoding='utf-8')
+        (self.root / 'tools').symlink_to(self.root / 'real_tools', target_is_directory=True)
+        with self.assertRaisesRegex(checker.AuditError, 'symlink'):
+            checker._load_pack_checker(self.root)
+
     def test_verifier_import_uses_repo_root_not_process_pythonpath(self):
         module = self.root / 'tools/pack_v2/pipeline.py'
         module.parent.mkdir(parents=True)
