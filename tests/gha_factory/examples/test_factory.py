@@ -371,9 +371,9 @@ class FactoryTests(unittest.TestCase):
         # A second visual occurrence can be canonically equivalent even when
         # str.count(answer) sees only one byte-distinct spelling.
         for answer, alternate, language in [
-            ('café', 'cafe\\u0301', 'fr'),
-            ('Äpfel', 'A\\u0308pfel', 'de'),
-            ('أ', 'ا\\u0654', 'ar'),
+            ('café', 'cafe\u0301', 'fr'),
+            ('Äpfel', 'A\u0308pfel', 'de'),
+            ('أ', 'ا\u0654', 'ar'),
         ]:
             with self.subTest(language=language):
                 text = answer + ' ' + alternate
