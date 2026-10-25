@@ -200,19 +200,21 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
                 SELECT 1 FROM translations AS t
                 JOIN senses AS s ON s.sense_id = t.to_sense_id
                 JOIN lexicon AS target ON target.id = s.lexeme_id
-                WHERE t.language_code <> target.language_code
+                WHERE t.language_code IS NULL OR source.language_code IS NULL
+                   OR target.language_code IS NULL
+                   OR t.language_code <> target.language_code
                 LIMIT 1
             """).fetchone()
             if mismatch:
-                raise AuditError('translation target language mismatch')
+                raise AuditError('translation target language mismatch or missing')
             rows = db.execute("""
+
                 SELECT source.language_code, target.language_code, COUNT(*)
                 FROM translations AS t
                 JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
                 JOIN lexicon AS source ON source.id = src_sense.lexeme_id
                 JOIN senses AS dst_sense ON dst_sense.sense_id = t.to_sense_id
                 JOIN lexicon AS target ON target.id = dst_sense.lexeme_id
-                WHERE source.language_code <> target.language_code
                 GROUP BY source.language_code, target.language_code
                 ORDER BY source.language_code, target.language_code
             """).fetchall()
@@ -220,8 +222,10 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
             db.close()
     if any(a not in canonical_ids or b not in canonical_ids for a, b, _ in rows):
         raise AuditError('translation references unregistered language')
+    # Same-language edges are not directed translations, but their language
+    # identities must still be checked before they are omitted from coverage.
     return [{'source_language': a, 'target_language': b, 'verified_count': count}
-            for a, b, count in rows]
+            for a, b, count in rows if a != b]
 
 
 
