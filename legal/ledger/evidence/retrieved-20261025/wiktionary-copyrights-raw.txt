@@ -1,0 +1,79 @@
+{{caution
+| text = This page is '''outdated'''. It dates to 2002 and was copied from Wikipedia. Parts of it may not be applicable to Wiktionary or may need to be handled differently. Please take this information with a [[grain of salt]].
+}}
+{{policy-DP}} {{shortcut|WT:COPY}}
+The goal of Wiktionary is to develop a freely available international dictionary. The realities of modern copyright law demand that we pay attention to legal issues to ensure that our work can be made available, and to protect our project from legal liability.
+
+The original texts of Wiktionary entries are dual-licensed to the public under both the '''[[WT:CC-BY-SA|Creative Commons Attribution-ShareAlike 4.0 International License]]''' (CC-BY-SA) and the '''[[WT:GFDL|GNU Free Documentation License]]''' (GFDL). The full text of both licenses can be found at [[Wiktionary:Text of Creative Commons Attribution-ShareAlike 4.0 International License]], as well as [[Wiktionary:Text of the GNU Free Documentation License]]. Permission is granted to copy, distribute and/or modify the text of all Wiktionary entries under the terms of the Creative Commons Attribution-ShareAlike 4.0 International License, and the GNU Free Documentation License, Version 1.1 or any later version published by the [[w:Free Software Foundation|Free Software Foundation]]; ''with no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover Texts''.
+
+Essentially, this means that the entries will remain free forever and can be used by anybody subject to the restrictions mentioned below, which serve to ensure that freedom.
+
+Frequently, Wiktionary entries may include text, images, sounds, or other material from external sources with different copyright terms, and which is used with permission or under the "[[w:fair use|fair use]]" doctrine. In this case, the material will be identified as from an external source (in the entry, on the image description page, in the page's history{{,}} or on the talk page, as appropriate) and copyright holders of that material retain their rights.  Quoting a sentence from a contemporary author to illustrate the use of a word is an important example of fair use, but properly identifying the source is still essential.
+
+==Contributors' rights and obligations==
+If you contribute material to Wiktionary, you thereby license it to the public under CC-BY-SA and GFDL (with no invariant sections, front-cover texts, or back-cover texts). In order to contribute, you therefore must be in a position to grant this license, which means that either:
+
+* you own the copyright to the material, for instance because you produced it yourself, or
+* you acquired the material from a source which allows licensing under CC-BY-SA or GFDL, for instance because the material is in the public domain or is itself published under CC-BY-SA and GFDL, or
+* copyright no longer subsists in the material, meaning that it is in the public domain under copyright law.
+
+In the first case, you retain copyright to your materials. You can later republish and relicense them in any way you like. However, you can never retract CC-BY-SA licensing or the GFDL license for the versions you placed here: that material will remain under GFDL forever. In the second case, if you incorporate external CC-BY-SA or GFDL materials, you need to acknowledge the authorship on the history page or [[w:talk page|talk page]] and provide a link back to the network location of the original copy. If the original copy required invariant sections, you have to incorporate those into the Wiktionary article; but as with texts used with permission, CC-BY-SA or GFDL texts with invariant sections should be replaced with original or more freely licensed text whenever possible.
+
+If you use part of a copyrighted work under "fair use", or if you obtain special permission to use a copyrighted work from the copyright holder, you must note that fact (along with names and dates) on the history page or talk page of the article. It is our goal to be able to freely redistribute as much of Wiktionary's material as possible, so original material licensed under CC-BY-SA or the GFDL is greatly preferred to copyrighted material (even used with permission) for our purposes.
+
+Never use materials that infringe the copyrights of others. This could create legal liabilities and seriously hurt the project. If in doubt, write it yourself.  In extreme cases of contributors continuing to post copyrighted material after appropriate warnings, such users may be blocked from editing to protect the project.
+
+Note that copyright law governs the creative expression of ideas, not the ideas or information themselves. Therefore, it is perfectly legal to read a dictionary entry, or other work, reformulate it in your own words, and submit it to Wiktionary. (See [[w:plagiarism|plagiarism]] and fair use for discussions of how much reformulation is necessary in a general context.)
+
+Individual words are not copyrightable, although some may be trademarks, but this does not prevent us from using these words as long as we are not producing a product to compete with the trademark holder.  Lists of words in a standard arrangement such as alphabetical order are not copyrightable, but using a selection similar to that of another person may draw suspicions.  Using a definition from a copyright dictionary may infringe on copyrights, but may nevertheless be a fair use.  Indeed, a definition is often a '''short''' description of a word's meaning which may inadvertently be identical to what is found in a published work.  Any claim for copyright infringement would likely depend on proving a pattern of individual infringements.
+
+== Users' rights and obligations ==
+If you want to use Wiktionary materials in your own books/articles/web sites or other publications, you may do so, but you have to follow CC-BY-SA / the GFDL. CC-BY-SA entails the following requirements:
+* your materials have to be licensed under the same, similar, or compatible license,
+* you must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work);
+
+the GFDL entails these requirements:
+* your materials in turn have to be licensed under GFDL,
+* you must acknowledge the authorship of the article (section 4B), and
+* you must provide access to the "transparent copy" of the material (section 4J). (The "transparent copy" of a Wiktionary article is its wiki text.) These last two obligations can be fulfilled by providing a conspicuous link back to the home of the article here at [http://www.wiktionary.org wiktionary.org].
+
+If the Wiktionary article you wish to use contains text, images, sounds, or other material from external sources used with permission or under fair use, you must comply with the separate copyright terms for that material as well. For example, if we include an image under fair use, you must ensure that your use of the article also qualifies for fair use (this might not be the case, for example, if you were using a Wiktionary article for a commercial use that would otherwise be allowed by CC-BY-SA or the GFDL).
+
+== If you find a copyright infringement ==
+It is not the job of rank-and-file Wiktionarians to police every article for possible copyright infringement, but if you suspect one, remain calm and then raise the issue in one of our major discussion fora, such as the [[Wiktionary:Information desk|Information desk]]. Administrators will examine the situation and take action as needed. The most helpful piece of information you can provide is a URL or other reference to what you believe is the source of the text.
+
+There is a standard text for this notice which explains the situation to the poster in the [[w:Wikipedia:Boilerplate text|Wikipedia:Boilerplate text]] page.
+
+Some cases will be false alarms. For example, if the contributor was in fact the author of the text which is published elsewhere under different terms, that does not affect their right to post it here under CC-BY-SA or the GFDL unless it was contrary to their contract with their publisher, but you have no way of knowing if that is so. Also, sometimes you will find text elsewhere on the web that was copied from Wiktionary. In both of these cases, it is a good idea to make a note on the entry's talk page so that others will not raise the same false alarm later.
+
+If a page really is an infringement, then an administrator will delete the infringing content and make a note to that effect on the talk page. If the author's permission to use the information is obtained later, it can be restored.
+
+== See also ==
+* [[Wiktionary:Community Portal]] for an evolving collection of policy papers and discussions.
+* The [[w:Wikipedia:Contributing FAQ|Wikipedia:Contributing FAQ]] for questions on copyright.
+* [[Wiktionary:Trademarks]]
+* [[Wiktionary:Non-free content criteria]]
+* [[Wiktionary:Public domain sources]]
+
+== Further discussion ==
+* [[Wiktionary:License discussion]]
+* [[w:Wikipedia:Copyright issues|Wikipedia:Copyright issues]]
+* [[m:Avoid Copyright Paranoia|Avoid Copyright Paranoia]]
+
+[[Category:Wiktionary licensing|Copyrights]]
+
+[[an:Wiktionary:Dreitos d'autor]]
+[[ca:Viccionari:Drets d'autor]]
+[[es:Wikcionario:Copyrights]]
+[[io:Wikivortaro:Copyrights]]
+[[la:Victionarium:Ius auctorum]]
+[[mr:Wiktionary:Copyrights]]
+[[ja:Wiktionary:著作権]]
+[[pt:Wikcionário:Direitos autorais]]
+[[scn:Wikizziunariu:Copyrights]]
+[[simple:Wiktionary:Copyrights]]
+[[sd:Wiktionary:Copyrights]]
+[[sv:Wiktionary:Licens]]
+[[tr:Vikisözlük:Telif hakkı]]
+[[vi:Wiktionary:Quyền tác giả]]
+[[zh:Wiktionary:版权信息]]
