@@ -178,6 +178,24 @@ class SearchQualityTests(unittest.TestCase):
         self.assertEqual(report["ranked_samples"], 12)
         self.assertEqual(before, hashlib.sha256(self.path.read_bytes()).hexdigest())
 
+    def test_sqlite_metadata_language_mismatch_is_rejected(self):
+        # A valid lexical language cannot override a contradictory, producer-
+        # supplied SQLite v2 metadata language. Audit must not rewrite either.
+        self.make_db("de", ("Wort",))
+        with sqlite3.connect(self.path) as db:
+            db.execute("INSERT INTO metadata VALUES('language_code','ar')")
+        original = hashlib.sha256(self.path.read_bytes()).hexdigest()
+        with self.assertRaisesRegex(audit.AuditError, "metadata language mismatch"):
+            audit.check_sqlite(self.path, "de")
+        self.assertEqual(hashlib.sha256(self.path.read_bytes()).hexdigest(), original)
+
+    def test_matching_sqlite_metadata_language_is_accepted(self):
+        self.make_db("de", ("Wort",))
+        with sqlite3.connect(self.path) as db:
+            db.execute("INSERT INTO metadata VALUES('language_code','de')")
+        self.assertEqual(audit.check_sqlite(self.path, "de")["qa_status"],
+                         "PASS_SYNTACTIC_SEARCH_ONLY")
+
     def test_structurally_fake_fts_table_rejected(self):
         self.make_db("de", ("Wort",))
         with sqlite3.connect(self.path) as db:
