@@ -54,18 +54,17 @@ def _repository_file(root, relative):
     return path
 
 
-def read_json(root, name):
-    path = _repository_file(root, name)
-    if path.stat().st_size > 5 * 1024 * 1024:
-        raise AuditError(f'oversized metadata: {name}')
+def _parse_strict_json(content, name):
+    """Decode repository or verified pack-member JSON without ambiguous evidence."""
     try:
-        data = json.loads(path.read_text(encoding='utf-8'),
-                          object_pairs_hook=_unique_pairs,
+        if isinstance(content, bytes):
+            content = content.decode('utf-8', errors='strict')
+        data = json.loads(content, object_pairs_hook=_unique_pairs,
                           parse_float=_finite_json_float,
-                          parse_constant=lambda value: (_ for _ in ()).throw(AuditError('invalid number')))
-        # Escaped lone UTF-16 surrogates survive json.loads, but cannot be
-        # represented as valid UTF-8 evidence. Check keys as well as values
-        # without recursion or modifying the original multilingual text.
+                          parse_constant=lambda value: (_ for _ in ()).throw(
+                              AuditError('invalid number')))
+        # Escaped lone surrogates survive json.loads; keys and values must
+        # remain valid UTF-8 without changing multilingual text.
         pending = [data]
         while pending:
             value = pending.pop()
@@ -76,9 +75,18 @@ def read_json(root, name):
                 pending.extend(value.values())
             elif isinstance(value, list):
                 pending.extend(value)
+        if not isinstance(data, dict):
+            raise AuditError(f'JSON object required in {name}')
         return data
     except (UnicodeError, json.JSONDecodeError) as error:
         raise AuditError(f'invalid Unicode/JSON encoding in {name}: {error}') from error
+
+
+def read_json(root, name):
+    path = _repository_file(root, name)
+    if path.stat().st_size > 5 * 1024 * 1024:
+        raise AuditError(f'oversized metadata: {name}')
+    return _parse_strict_json(path.read_bytes(), name)
 
 
 def _identity_list(items, key, label):
@@ -278,8 +286,8 @@ def _verify_pack(root, pack, language):
         contents = _load_pack_checker(root)(blob, language)
     except (OSError, EOFError, ValueError, KeyError) as error:
         raise AuditError(f'invalid SQLite v2 envelope: {error}') from error
-    payload = json.loads(contents['metadata/pack.json'])
-    info = json.loads(contents['content/content.json'])
+    payload = _parse_strict_json(contents['metadata/pack.json'], 'metadata/pack.json')
+    info = _parse_strict_json(contents['content/content.json'], 'content/content.json')
     if payload.get('version') != version or info.get('schemaVersion') != '2.0.0':
         raise AuditError('package metadata version mismatch')
     ids = _pack_source_ids(payload, info)
