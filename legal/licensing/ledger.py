@@ -114,18 +114,20 @@ class LicensingLedger:
 
         return "verified"
 
-    def evaluate_combination(self, sources: list, *, output_license=None, expected_versions=None) -> str:
+    def evaluate_combination(self, sources: list, *, output_license=None, expected_versions=None, expected_artifact_hashes=None) -> str:
         """Check claimed source compatibility, never authorize publication.
 
         Release approval remains exclusively with legal.ledger.admission,
         which verifies original source bytes, license evidence and reviews.
-        A caller may pin every input version and the proposed output license.
+        A caller may pin every input version, immutable artifact SHA-256, and the proposed output license.
         """
         if not isinstance(sources, list) or not sources:
             return "blocked"
         if output_license is not None and output_license not in LICENSES:
             return "blocked"
         if expected_versions is not None and not isinstance(expected_versions, dict):
+            return "blocked"
+        if expected_artifact_hashes is not None and not isinstance(expected_artifact_hashes, dict):
             return "blocked"
 
         statuses = set()
@@ -143,6 +145,13 @@ class LicensingLedger:
             seen_ids.add(source_id)
             if expected_versions is not None and expected_versions.get(source_id) != source["version"]:
                 return "blocked"
+            if expected_artifact_hashes is not None:
+                # A missing digest must not match a missing expectation.
+                actual_hash = source.get("artifact_hash")
+                if (not isinstance(actual_hash, str) or
+                        re.fullmatch(r"[0-9a-f]{64}", actual_hash) is None or
+                        expected_artifact_hashes.get(source_id) != actual_hash):
+                    return "blocked"
 
             declared_license = source["license"]["declared"]
             if declared_license in ("CC-BY-SA-4.0", "GFDL-1.3-only"):
@@ -157,6 +166,8 @@ class LicensingLedger:
                     return "blocked"
 
         if expected_versions is not None and set(expected_versions) != seen_ids:
+            return "blocked"
+        if expected_artifact_hashes is not None and set(expected_artifact_hashes) != seen_ids:
             return "blocked"
         if len(copyleft_licenses) > 1:
             return "blocked"

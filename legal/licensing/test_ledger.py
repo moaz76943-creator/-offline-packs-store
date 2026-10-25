@@ -333,5 +333,71 @@ class TestLicensingLedger(unittest.TestCase):
         }
         self.assertEqual(ledger.evaluate_combination([source], output_license="UNKNOWN"), "blocked")
 
+    def test_combination_requires_matching_pinned_artifact_sha256(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "cc0", "url": "https://example.org/corpus",
+            "author": "Author", "version": "2",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged", "artifact_hash": "a" * 64,
+        }
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_artifact_hashes={"cc0": "a" * 64}),
+            "verified",
+        )
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_artifact_hashes={"cc0": "b" * 64}),
+            "blocked",
+        )
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_artifact_hashes={}),
+            "blocked",
+        )
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_artifact_hashes={"cc0": "a" * 64, "other": "b" * 64}),
+            "blocked",
+        )
+
+    def test_missing_artifact_digest_never_satisfies_pinned_usage(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "cc0", "url": "https://example.org/corpus",
+            "author": "Author", "version": "2",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_combination([source]), "verified")
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_artifact_hashes={"cc0": None}),
+            "blocked",
+        )
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_artifact_hashes={"cc0": "a" * 64}),
+            "blocked",
+        )
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_artifact_hashes=[]),
+            "blocked",
+        )
+
+    def test_pinned_artifact_digest_and_version_must_both_match(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "cc0", "url": "https://example.org/corpus",
+            "author": "Author", "version": "2",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged", "artifact_hash": "a" * 64,
+        }
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_versions={"cc0": "1"},
+                                        expected_artifact_hashes={"cc0": "a" * 64}),
+            "blocked",
+        )
+        self.assertEqual(
+            ledger.evaluate_combination([source], expected_versions={"cc0": "2"},
+                                        expected_artifact_hashes={"cc0": "a" * 64}),
+            "verified",
+        )
+
 if __name__ == '__main__':
     unittest.main()
