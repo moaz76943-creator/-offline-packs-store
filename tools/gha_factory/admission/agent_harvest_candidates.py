@@ -4,6 +4,7 @@ This is NOT original Wikidata Lexeme JSON or Route 05 source approval.
 """
 import hashlib
 import json
+import math
 import re
 from pathlib import Path
 
@@ -26,7 +27,12 @@ def strict_json(raw):
                 raise ValueError("duplicate JSON property")
             obj[key] = value
         return obj
-    return json.loads(raw, object_pairs_hook=pairs,
+    def finite_float(token):
+        value = float(token)
+        if not math.isfinite(value):
+            raise ValueError("nonfinite JSON exponent")
+        return value
+    return json.loads(raw, object_pairs_hook=pairs, parse_float=finite_float,
                       parse_constant=lambda _: (_ for _ in ()).throw(ValueError("nonfinite")))
 
 
