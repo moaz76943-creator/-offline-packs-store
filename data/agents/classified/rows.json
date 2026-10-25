@@ -609,6 +609,38 @@
       "wikidata": "Q71404162"
     },
     {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "mauve",
+        "mauve",
+        "mauve",
+        "mauve"
+      ],
+      "language": "da",
+      "lemma": "mauve",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1355107",
+      "pos": "",
+      "qids": [
+        "Q604079"
+      ],
+      "record_id": "L1355107",
+      "retrieval_date": "2026-10-25",
+      "revision": "2378664169",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1355107-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
+    },
+    {
       "concept_id": "concept.q2941309",
       "forms": [
         "solbær",
@@ -1360,6 +1392,79 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q192874"
+    },
+    {
+      "concept_id": "concept.q191780",
+      "forms": [
+        "Ordinalzahl",
+        "Ordinalzahl",
+        "Ordinalzahl",
+        "Ordinalzahl",
+        "Ordinalzahlen",
+        "Ordinalzahlen",
+        "Ordinalzahlen",
+        "Ordinalzahlen"
+      ],
+      "language": "de",
+      "lemma": "Ordinalzahl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L492457",
+      "pos": "",
+      "qids": [
+        "Q191780",
+        "Q923933"
+      ],
+      "record_id": "L492457",
+      "retrieval_date": "2026-10-25",
+      "revision": "2383240719",
+      "schema_version": "1.0.0",
+      "section": "numbers",
+      "sense_id": "L492457-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "numbers.q11563",
+      "wikidata": "Q191780"
+    },
+    {
+      "concept_id": "concept.q191780",
+      "forms": [
+        "Ordnungszahl",
+        "Ordnungszahlen",
+        "Ordnungszahl",
+        "Ordnungszahlen",
+        "Ordnungszahl",
+        "Ordnungszahlen",
+        "Ordnungszahl",
+        "Ordnungszahlen"
+      ],
+      "language": "de",
+      "lemma": "Ordnungszahl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L860011",
+      "pos": "",
+      "qids": [
+        "Q191780"
+      ],
+      "record_id": "L860011",
+      "retrieval_date": "2026-10-25",
+      "revision": "2087988032",
+      "schema_version": "1.0.0",
+      "section": "numbers",
+      "sense_id": "L860011-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "numbers.q11563",
+      "wikidata": "Q191780"
     },
     {
       "concept_id": "concept.q11756",
@@ -2788,6 +2893,160 @@
       "wikidata": "Q5148721"
     },
     {
+      "concept_id": "concept.q533047",
+      "forms": [
+        "rose",
+        "roses"
+      ],
+      "language": "en",
+      "lemma": "rose",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L18379",
+      "pos": "",
+      "qids": [
+        "Q533047",
+        "Q102231",
+        "Q34687"
+      ],
+      "record_id": "L18379",
+      "retrieval_date": "2026-10-25",
+      "revision": "2549975946",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L18379-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q533047"
+    },
+    {
+      "concept_id": "concept.q3014419",
+      "forms": [
+        "wine",
+        "wines"
+      ],
+      "language": "en",
+      "lemma": "wine",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L4710",
+      "pos": "",
+      "qids": [
+        "Q282",
+        "Q3014419"
+      ],
+      "record_id": "L4710",
+      "retrieval_date": "2026-10-25",
+      "revision": "2532910327",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L4710-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q3014419"
+    },
+    {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "mauve",
+        "mauves"
+      ],
+      "language": "en",
+      "lemma": "mauve",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L24330",
+      "pos": "",
+      "qids": [
+        "Q604079"
+      ],
+      "record_id": "L24330",
+      "retrieval_date": "2026-10-25",
+      "revision": "2531379311",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L24330-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
+    },
+    {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "mauve",
+        "mauver",
+        "mauvest"
+      ],
+      "language": "en",
+      "lemma": "mauve",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L24331",
+      "pos": "",
+      "qids": [
+        "Q604079"
+      ],
+      "record_id": "L24331",
+      "retrieval_date": "2026-10-25",
+      "revision": "2531379411",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L24331-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
+    },
+    {
+      "concept_id": "concept.q901731",
+      "forms": [
+        "umber",
+        "umbers"
+      ],
+      "language": "en",
+      "lemma": "umber",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L29004",
+      "pos": "",
+      "qids": [
+        "Q901731"
+      ],
+      "record_id": "L29004",
+      "retrieval_date": "2026-10-25",
+      "revision": "2549940723",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L29004-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q901731"
+    },
+    {
       "concept_id": "concept.q26132411",
       "forms": [
         "lucidity",
@@ -3987,6 +4246,37 @@
       "wikidata": "Q483444"
     },
     {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "malva",
+        "malvas"
+      ],
+      "language": "es",
+      "lemma": "malva",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1415169",
+      "pos": "",
+      "qids": [
+        "Q147325",
+        "Q604079"
+      ],
+      "record_id": "L1415169",
+      "retrieval_date": "2026-10-25",
+      "revision": "2314333889",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1415169-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
+    },
+    {
       "concept_id": "concept.q3437709",
       "forms": [
         "victimismo",
@@ -4354,6 +4644,42 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q430"
+    },
+    {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "malba",
+        "malba",
+        "malbak",
+        "malbak",
+        "malbak",
+        "malbek",
+        "malbari",
+        "malbari"
+      ],
+      "language": "eu",
+      "lemma": "malba",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L73213",
+      "pos": "",
+      "qids": [
+        "Q604079"
+      ],
+      "record_id": "L73213",
+      "retrieval_date": "2026-10-25",
+      "revision": "1354523191",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L73213-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
     },
     {
       "concept_id": "concept.q2826051",
@@ -4881,6 +5207,36 @@
       "wikidata": "Q172"
     },
     {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "mauve",
+        "mauves"
+      ],
+      "language": "fr",
+      "lemma": "mauve",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L671264",
+      "pos": "",
+      "qids": [
+        "Q604079"
+      ],
+      "record_id": "L671264",
+      "retrieval_date": "2026-10-25",
+      "revision": "2257847185",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L671264-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
+    },
+    {
       "concept_id": "concept.q105688",
       "forms": [
         "hypoxie",
@@ -4939,6 +5295,36 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q12916",
+      "forms": [
+        "nombre réel",
+        "nombres réels"
+      ],
+      "language": "fr",
+      "lemma": "nombre réel",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1313083",
+      "pos": "",
+      "qids": [
+        "Q12916"
+      ],
+      "record_id": "L1313083",
+      "retrieval_date": "2026-10-25",
+      "revision": "2215899899",
+      "schema_version": "1.0.0",
+      "section": "numbers",
+      "sense_id": "L1313083-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "numbers.q11563",
+      "wikidata": "Q12916"
     },
     {
       "concept_id": "concept.q11756",
@@ -5748,6 +6134,98 @@
       "wikidata": "Q5148721"
     },
     {
+      "concept_id": "concept.q533047",
+      "forms": [
+        "rosato",
+        "rosati"
+      ],
+      "language": "it",
+      "lemma": "rosato",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1219216",
+      "pos": "",
+      "qids": [
+        "Q12979",
+        "Q533047"
+      ],
+      "record_id": "L1219216",
+      "retrieval_date": "2026-10-25",
+      "revision": "2229020042",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1219216-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q533047"
+    },
+    {
+      "concept_id": "concept.q425278",
+      "forms": [
+        "cobalto"
+      ],
+      "language": "it",
+      "lemma": "cobalto",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1209364",
+      "pos": "",
+      "qids": [
+        "Q740",
+        "Q425278"
+      ],
+      "record_id": "L1209364",
+      "retrieval_date": "2026-10-25",
+      "revision": "2230331433",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1209364-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q425278"
+    },
+    {
+      "concept_id": "concept.q3014419",
+      "forms": [
+        "vinaccia",
+        "vinacce"
+      ],
+      "language": "it",
+      "lemma": "vinaccia",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1168678",
+      "pos": "",
+      "qids": [
+        "Q3014419",
+        "Q3122830"
+      ],
+      "record_id": "L1168678",
+      "retrieval_date": "2026-10-25",
+      "revision": "2229017357",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1168678-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q3014419"
+    },
+    {
       "concept_id": "concept.q2826051",
       "forms": [
         "affettività",
@@ -6189,6 +6667,35 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q10940"
+    },
+    {
+      "concept_id": "concept.q901731",
+      "forms": [
+        "アンバー"
+      ],
+      "language": "ja",
+      "lemma": "アンバー",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1587263",
+      "pos": "",
+      "qids": [
+        "Q901731"
+      ],
+      "record_id": "L1587263",
+      "retrieval_date": "2026-10-25",
+      "revision": "2528716445",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1587263-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q901731"
     },
     {
       "concept_id": "concept.q16868715",
@@ -7031,6 +7538,35 @@
       "wikidata": "Q483444"
     },
     {
+      "concept_id": "concept.q12916",
+      "forms": [
+        "വാസ്തവികസംഖ്യ"
+      ],
+      "language": "ml",
+      "lemma": "വാസ്തവികസംഖ്യ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L502056",
+      "pos": "",
+      "qids": [
+        "Q12916"
+      ],
+      "record_id": "L502056",
+      "retrieval_date": "2026-10-25",
+      "revision": "1439667607",
+      "schema_version": "1.0.0",
+      "section": "numbers",
+      "sense_id": "L502056-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "numbers.q11563",
+      "wikidata": "Q12916"
+    },
+    {
       "concept_id": "concept.q130788",
       "forms": [
         "കാലാനുക്രമണിക"
@@ -7861,6 +8397,79 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q10940"
+    },
+    {
+      "concept_id": "concept.q901731",
+      "forms": [
+        "умбра",
+        "умбры",
+        "умбре",
+        "умбру",
+        "умброй",
+        "умброю",
+        "умбре",
+        "умбры"
+      ],
+      "language": "ru",
+      "lemma": "умбра",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L173083",
+      "pos": "",
+      "qids": [
+        "Q901731",
+        "Q30157802"
+      ],
+      "record_id": "L173083",
+      "retrieval_date": "2026-10-25",
+      "revision": "2464559492",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L173083-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q901731"
+    },
+    {
+      "concept_id": "concept.q901731",
+      "forms": [
+        "умбра",
+        "умбры",
+        "умбре",
+        "умбру",
+        "умброй",
+        "умброю",
+        "умбре",
+        "умбры"
+      ],
+      "language": "ru",
+      "lemma": "умбра",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L173084",
+      "pos": "",
+      "qids": [
+        "Q901731"
+      ],
+      "record_id": "L173084",
+      "retrieval_date": "2026-10-25",
+      "revision": "1912075803",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L173084-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q901731"
     },
     {
       "concept_id": "concept.q12106",
