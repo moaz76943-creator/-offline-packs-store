@@ -485,5 +485,14 @@ class CoverageAuditTests(unittest.TestCase):
         ])
 
 
+    def test_unbacked_pack_verified_flag_is_rejected(self):
+        # Synthetic manifest claims a verified v2 pack but publishes no pack
+        # entry. The audit must not silently report REGISTERED and PASS.
+        self.values['manifest.json']['languages'][0]['pack_verified'] = True
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'unbacked pack_verified'):
+            checker.audit(self.root, shard=0, shards=1)
+
+
 if __name__ == '__main__':
     unittest.main()
