@@ -35,6 +35,21 @@ class GlyphCoverageValidator:
         self.repo_root = repo_root
         self.registry = FontRightsRegistry()
 
+    def validate_script_metadata(self) -> Dict:
+        import json
+        registry_path = os.path.join(self.repo_root, "catalog", "language_registry.v1.json")
+        try:
+            with open(registry_path, "r", encoding="utf-8") as f:
+                registry = json.load(f)
+        except FileNotFoundError:
+            return {"status": "REJECT", "issues": ["Missing registry file"]}
+
+        canonical_scripts = set(registry.get("scripts", {}).keys())
+        if any(s in canonical_scripts for s in ['Hans', 'Hant', 'Jpan', 'Kore']):
+            canonical_scripts.add('Hani')
+
+        return {"status": "ACCEPT", "canonical_scripts": list(canonical_scripts)}
+
     def get_font_cmap(self, font_path: str) -> Set[int]:
         try:
             with TTFont(font_path) as font:
@@ -67,6 +82,18 @@ class GlyphCoverageValidator:
         best_supported = []
         best_unsupported = samples.copy()
         cmap_coverage = False
+
+        metadata_res = self.validate_script_metadata()
+        if metadata_res.get("status") != "ACCEPT" or script not in metadata_res.get("canonical_scripts", []):
+            return FallbackMapping(
+                script=script,
+                supported_points=best_supported,
+                unsupported_points=best_unsupported,
+                cmap_coverage=cmap_coverage,
+                shaping_guaranteed=False,
+                device_rendering_guaranteed=False,
+                valid_fallback_families=valid_families
+            )
 
         for asset in assets:
             res = self.registry.validate_asset(asset, repo_root=self.repo_root)
