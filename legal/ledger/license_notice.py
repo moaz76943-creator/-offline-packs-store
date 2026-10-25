@@ -227,6 +227,7 @@ def incidental_public_domain(text):
             'meaning-that-it-is-in-the-',
             'if-the-material-is-in-the-',
             'if-it-is-in-the-',
+            'if-that-content-has-entered-the-',
         ))
         source_page = short.endswith('wiktionary-') and suffix.startswith('-sources')
         if not (eligibility or source_page):
