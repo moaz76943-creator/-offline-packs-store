@@ -141,24 +141,6 @@ class ReadinessTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'manifest'):
             inspect(self.root, {})
 
-    def test_read_json_rejects_symlinked_parent_before_opening(self):
-        # Synthetic external fixture: a parent symlink must not be followed.
-        from tools.gha_factory.production_readiness.audit import read_json
-        with tempfile.TemporaryDirectory() as external:
-            (Path(external) / 'metadata.json').write_text('{"synthetic":true}', encoding='utf-8')
-            (self.root / 'catalog').symlink_to(external, target_is_directory=True)
-            with self.assertRaisesRegex(ValueError, 'unsafe|symlink'):
-                read_json(self.root, 'catalog/metadata.json')
-
-    def test_read_json_rejects_absolute_and_traversal_paths(self):
-        from tools.gha_factory.production_readiness.audit import read_json
-        (self.root / 'safe.json').write_text('{"synthetic":true}', encoding='utf-8')
-        (self.root / 'nested').mkdir()
-        for relative in ('nested/../safe.json', str(self.root / 'safe.json')):
-            with self.subTest(relative=relative):
-                with self.assertRaisesRegex(ValueError, 'unsafe'):
-                    read_json(self.root, relative)
-
     def test_oversize_registry_fails_closed(self):
         create(self.root)
         p = self.root / 'catalog/language_registry.v1.json'

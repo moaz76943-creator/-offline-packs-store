@@ -28,10 +28,7 @@ def main(argv=None):
         with open(os.environ['GITHUB_OUTPUT'],'a') as out:
             out.write('jobs='+json.dumps({'include':jobs},separators=(',',':'))+'\n')
             out.write('has_work='+str(bool(jobs)).lower()+'\n')
-        print(json.dumps({'run_id':run_id,'run_attempt':attempt,'seeded':seeded,
-                          'stage':'controller','claimed':len(jobs),
-                          'work_status':'WORK_CLAIMED' if jobs else 'SUCCESS_NO_WORK',
-                          'production_publication':False}))
+        print(json.dumps({'run_id':run_id,'run_attempt':attempt,'seeded':seeded,'claimed':len(jobs),'production_publication':False}))
     elif args.command=='worker':
         result=engine.execute(gh,args.issue,args.task_id,run_id,attempt,args.out,legacy.ROOT,now)
         print(json.dumps(result));return int(result['status']=='FAILED')

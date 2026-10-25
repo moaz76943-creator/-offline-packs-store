@@ -2,7 +2,7 @@
 
 This is a fail-closed, offline, standard-library-only admission validator for the PUBLIC content repository. It provides a repeatable evidence gate, **not a legal opinion**.
 
-**Baseline: RIGHTS REVIEW REQUIRED.** The current public manifest lists 100 registered languages but has `packs=[]`, zero production-ready languages, and `intellectual_property_status=UNVERIFIED_RIGHTS`. The canonical source ledger stays `sources=[]`: source/license snapshots retained under `legal/ledger/evidence/` are research evidence, not an independent review decision or authorization to ship a corpus. The validator rejects blanket public-domain claims and publication without approved, byte-pinned source-backed candidates. No production manifest or existing legacy assets are modified by this lane.
+**Baseline: NO-GO.** The current public manifest declares the blanket intellectual-property status PUBLIC_DOMAIN_ZERO_COPYRIGHT and marks 100 packs active. Neither upstream corpus license notices nor source artifact hashes are documented in this repository. The source ledger starts empty to avoid fabricating evidence or silently approving third-party material. The validator rejects the blanket claim and all active packs without source-backed daily admission candidates. This scoped PR does not remove previously public files or activate a CI workflow.
 
 ## Run locally
 

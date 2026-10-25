@@ -3,7 +3,6 @@ import argparse
 from contextlib import closing
 import hashlib
 import json
-import math
 from pathlib import Path
 import re
 import sqlite3
@@ -15,7 +14,6 @@ import unicodedata
 from tools.pack_v2 import pipeline
 
 MAX_ARCHIVE = 40 * 1024 * 1024
-MAX_REPO_METADATA_BYTES = 1024 * 1024  # manifest and Route 05 ledger, not pack archives
 MAX_SAMPLES = 12
 MAX_SQLITE_BYTES = pipeline.MAX_DATABASE
 # FTS glosses aggregate many individually bounded senses/translations. SQLite's
@@ -42,33 +40,9 @@ def _pairs(values):
     return result
 
 
-def _finite_float(token):
-    value = float(token)
-    if not math.isfinite(value):
-        raise AuditError('invalid JSON number')
-    return value
-
-
 def _json(data):
-    result = json.loads(data, object_pairs_hook=_pairs, parse_float=_finite_float,
-                        parse_constant=lambda _: (_ for _ in ()).throw(AuditError('invalid JSON number')))
-    # JSON permits escaped lone surrogates; they are not valid UTF-8 metadata.
-    # Walk iteratively so the check does not add Python recursion or serialize
-    # another copy of a potentially large, already-bounded archive envelope.
-    pending = [result]
-    while pending:
-        item = pending.pop()
-        if isinstance(item, str):
-            try:
-                item.encode('utf-8')
-            except UnicodeEncodeError as exc:
-                raise AuditError('invalid Unicode JSON text') from exc
-        elif isinstance(item, dict):
-            pending.extend(item.keys())
-            pending.extend(item.values())
-        elif isinstance(item, list):
-            pending.extend(item)
-    return result
+    return json.loads(data, object_pairs_hook=_pairs,
+                      parse_constant=lambda _: (_ for _ in ()).throw(AuditError('invalid JSON number')))
 
 
 
@@ -88,23 +62,11 @@ def _repository_file(root, relative, label):
     return candidate
 
 
-
-def _read_repository_metadata(root, relative, label):
-    """Bound repository-controlled JSON bytes before decoding or allocating its tree."""
-    path = _repository_file(root, relative, label)
-    with path.open('rb') as stream:
-        raw = stream.read(MAX_REPO_METADATA_BYTES + 1)
-    if len(raw) > MAX_REPO_METADATA_BYTES:
-        raise AuditError(f'oversized {label} metadata')
-    return _json(raw)
-
-
 def probe_search(con, language, query, *, limit=MAX_SAMPLES):
     """QA-only read-only ranking oracle; not private application search logic."""
     if not isinstance(language, str) or not re.fullmatch(r'[a-z]{2,3}', language):
         raise AuditError('invalid search probe language')
     if (not isinstance(query, str) or not query.strip() or '\x00' in query
-            or any(unicodedata.category(char) == 'Cs' for char in query)
             or not unicodedata.is_normalized('NFC', query)
             or len(query.encode('utf-8')) > MAX_SEARCH_TERM_BYTES):
         raise AuditError('invalid/non-NFC/oversized search probe')
@@ -148,11 +110,8 @@ def check_sqlite(path, language):
     """Verify a standalone SQLite file as an untrusted read-only QA subject."""
     if not isinstance(language, str) or not re.fullmatch(r'[a-z]{2,3}', language):
         raise AuditError('invalid language')
-    # Resolve neither the candidate nor its parents before checking links:
-    # SQLite's immutable read-only URI would otherwise silently follow a
-    # symlinked directory even when the final database file is ordinary.
-    path = Path(path).absolute()
-    if not path.is_file() or any(part.is_symlink() for part in (path, *path.parents)):
+    path = Path(path)
+    if not path.is_file() or path.is_symlink():
         raise AuditError('missing/unsafe SQLite file')
     if path.stat().st_size > MAX_SQLITE_BYTES:
         raise AuditError('oversized SQLite file')
@@ -186,12 +145,6 @@ def check_sqlite(path, language):
             if (metadata.get('mapping_version') != '2.0.0'
                     or metadata.get('contract_version') != '1.0.0'):
                 raise AuditError('SQLite metadata version mismatch')
-            # Actual SQLite v2 producer metadata binds an archive to its
-            # lexical language. Legacy miniature QA fixtures may omit it,
-            # but a declared, contradictory identity must never pass.
-            if ('language_code' in metadata
-                    and metadata['language_code'] != language):
-                raise AuditError('SQLite metadata language mismatch')
             total = con.execute('SELECT COUNT(*) FROM lexicon').fetchone()[0]
             if total <= 0:
                 raise AuditError('empty lexical corpus is not search-ready')
@@ -296,16 +249,13 @@ def audit_manifest(root, *, shard=0, shards=10):
     if type(shards) is not int or type(shard) is not int or not 1 <= shards <= 100 or not 0 <= shard < shards:
         raise AuditError('invalid shard plan')
     root = Path(root).resolve()
-    manifest = _read_repository_metadata(root, 'manifest.json', 'manifest')
-    ledger = _read_repository_metadata(root, 'legal/ledger/sources.json', 'ledger')
+    manifest = _json(_repository_file(root, 'manifest.json', 'manifest').read_bytes())
+    ledger = _json(_repository_file(root, 'legal/ledger/sources.json', 'ledger').read_bytes())
     entries = manifest.get('languages')
     if not isinstance(entries, list) or len(entries) != 100:
         raise AuditError('100 canonical language registry not found')
-    if any(not isinstance(item, dict) or not isinstance(item.get('code'), str)
-           for item in entries):
-        raise AuditError('invalid registered language IDs')
-    codes = [item['code'] for item in entries]
-    if len(set(codes)) != 100:
+    codes = [item.get('code') for item in entries]
+    if len(set(codes)) != 100 or any(not isinstance(code,str) for code in codes):
         raise AuditError('ambiguous registered language IDs')
     packs = manifest.get('packs')
     sources = ledger.get('sources')

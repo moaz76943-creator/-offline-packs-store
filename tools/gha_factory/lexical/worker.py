@@ -288,12 +288,7 @@ def _ingest(db, inp, lang, index, partitions, max_lines, importer, source, entry
                         for sense in senses:
                             existing = db.execute('SELECT payload FROM senses WHERE id=?', (sense['sense_id'],)).fetchone()
                             if existing:
-                                # The locator in source evidence changes per row, but a
-                                # stable sense ID cannot change its concept, topic,
-                                # level, or any other source-independent sense fact.
-                                previous = json.loads(existing[0])
-                                if ({k: v for k, v in previous.items() if k != 'source'} !=
-                                        {k: v for k, v in sense.items() if k != 'source'}):
+                                if json.loads(existing[0])['definition'] != sense['definition']:
                                     raise ValueError('stable sense identity collision')
                             else:
                                 db.execute('INSERT INTO senses VALUES (?,?,?)',

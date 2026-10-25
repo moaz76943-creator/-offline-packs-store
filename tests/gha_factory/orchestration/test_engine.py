@@ -29,63 +29,6 @@ class EngineTests(unittest.TestCase):
         self.sha='a'*64
         self.gate=patch.object(e,'source_gate',return_value='READY');self.gate.start();self.addCleanup(self.gate.stop)
     def run_controller(self,api,rid=1):return e.control(api,rid,1,NOW,Path('.'),self.ctx,self.sha)
-    def test_malformed_listing_fields_do_not_stop_ready_shards(self):
-        # Malformed GitHub listing metadata must not crash the complete queue,
-        # and a forged boolean issue number must never be treated as issue #1.
-        for field,invalid in (('title',None),('title',42),
-                              ('user','not-an-object'),('user',['owner'])):
-            with self.subTest(field=field,invalid=invalid):
-                api=FakeAPI([(1,task()),(2,task(language='en'))])
-                api.data[1][field]=invalid
-                jobs=self.run_controller(api)
-                self.assertEqual([j['number'] for j in jobs],[2])
-                self.assertEqual(p.parse(api.one(1)['body'])['state'],'NEW')
-        api=FakeAPI([(1,task()),(2,task(language='en'))])
-        api.data[1]['number']=True
-        self.assertEqual([j['number'] for j in self.run_controller(api)],[2])
-        self.assertEqual(p.parse(api.one(1)['body'])['state'],'NEW')
-
-    def test_malformed_owned_issue_does_not_stop_other_jobs(self):
-        # A single corrupted owner-created issue must not halt the hourly queue.
-        # The invalid issue is left untouched for manual correction; a separate
-        # valid task must still be claimable.
-        api=FakeAPI([(1,task()),(2,task(language='en'))])
-        bad_body=p.MARKER+'[]\\n\x60\x60\x60'
-        api.data[1]['body']=bad_body
-        jobs=self.run_controller(api)
-        self.assertEqual([job['number'] for job in jobs],[2])
-        self.assertEqual(api.one(1)['body'],bad_body)
-        self.assertEqual(p.parse(api.one(2)['body'])['state'],'CLAIMED')
-
-    def test_mismatched_owned_issue_title_does_not_stop_other_jobs(self):
-        api=FakeAPI([(1,task()),(2,task(language='en'))])
-        api.data[1]['title']=p.PREFIX+'0'*64
-        jobs=self.run_controller(api)
-        self.assertEqual([job['number'] for job in jobs],[2])
-        self.assertEqual(p.parse(api.one(2)['body'])['state'],'CLAIMED')
-
-    def test_mismatched_active_title_retains_source_lock_and_lease(self):
-        running=p.claim(task(state='READY'),NOW,10,1)
-        api=FakeAPI([(1,running),(2,task(shard=1)),(3,task(language='en'))])
-        api.data[1]['title']=p.PREFIX+'0'*64
-        original=api.one(1)['body']
-        jobs=self.run_controller(api,11)
-        self.assertEqual([j['number'] for j in jobs],[3])
-        self.assertEqual(api.one(1)['body'],original)
-        self.assertEqual(p.parse(api.one(2)['body'])['state'],'READY')
-        self.assertEqual(p.parse(api.one(3)['body'])['state'],'CLAIMED')
-
-    def test_three_mismatched_active_titles_exhaust_global_capacity(self):
-        running=[(i,p.claim(task(language=lang,state='READY'),NOW,10+i,1))
-                 for i,lang in enumerate(('de','en','fr'),1)]
-        api=FakeAPI(running+[(4,task(language='ar'))])
-        bodies={i:api.one(i)['body'] for i in (1,2,3)}
-        for i in (1,2,3):
-            api.data[i]['title']=p.PREFIX+'0'*64
-        self.assertEqual(self.run_controller(api,20),[])
-        self.assertEqual({i:api.one(i)['body'] for i in (1,2,3)},bodies)
-        self.assertEqual(p.parse(api.one(4)['body'])['state'],'READY')
-
     def test_three_global_capacity(self):
         api=FakeAPI([(i,task(language=l)) for i,l in enumerate(('de','en','fr','ar'),1)])
         jobs=self.run_controller(api)

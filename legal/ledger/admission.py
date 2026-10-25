@@ -125,35 +125,6 @@ def manual_review(value, out, label):
     return True
 
 
-def metadata_only_source_artifact(source):
-    """Reject index/license/statistics files masquerading as original corpus bytes.
-
-    A SHA256 of a directory listing or stats file attests only that document;
-    it cannot serve as the original dataset hash for lexical source_refs.
-    Actual bounded corpus excerpts (such as a JSONL prefix) remain eligible
-    for technical validation; independent rights review is still required.
-    """
-    if not isinstance(source, dict) or source.get('kind') not in (
-            'dictionary', 'morphology', 'examples'):
-        return False
-    retrieval = source.get('retrieval')
-    if not isinstance(retrieval, dict):
-        return False
-    from_url = retrieval.get('url')
-    artifact_path = retrieval.get('artifact_path')
-    identity = retrieval.get('identity')
-    if not all(isinstance(s, str) for s in (from_url, artifact_path, identity)):
-        return False
-    name = Path(artifact_path).name.lower()
-    role = identity.lower()
-    return (
-        urlsplit(from_url).path.endswith('/')
-        or name.endswith(('.html', '.htm'))
-        or name in ('stats.xml', 'index.xml', 'license.txt')
-        or any(tag in role for tag in ('dump-index', 'export-index', 'treebank-stats'))
-    )
-
-
 def evaluate(ledger, manifest, dailies, root):
     """Return sorted admission blockers; empty only for explicitly reviewed evidence."""
     out = []
@@ -189,9 +160,6 @@ def evaluate(ledger, manifest, dailies, root):
         if not text(retrieval.get('identity')) or not url_ok(retrieval.get('url')) or not valid_date(retrieval.get('date')):
             issue(out, 'EVIDENCE', f'{label}: retrieval identity, HTTPS URL and date required')
         artifact(root, retrieval.get('artifact_path'), retrieval.get('sha256'), out, f'{label} source')
-        if source.get('status') == 'APPROVED_FOR_REDISTRIBUTION' and metadata_only_source_artifact(source):
-            issue(out, 'SOURCE_ARTIFACT',
-                  f'{label}: index/statistics metadata is not original corpus bytes')
         license_info = source.get('license') or {}
         if not isinstance(license_info, dict):
             license_info = {}

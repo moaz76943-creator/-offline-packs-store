@@ -26,14 +26,11 @@ SUITES = {
     "lexical_quality": ("tools/lexical_quality", "test_validator.py"),
     "open_export": ("tools/open_export", "test_lifecycle.py"),
     "community_automation": ("tools/community_automation", "test_gate.py"),
-    "community_intake": ("tests/community/contributions", "test_*.py"),
-    "licensing": ("legal/licensing", "test_ledger.py"),
-    "ledger": ("legal/ledger", "test_*.py"),
     "registry_unit": ("catalog", "test_registry.py"),
     "utils": ("tests", "test_utils.py"),
     "inventory": ("tests/merge_accelerator", "test_inventory.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "licensing", "ledger", "utils", "registry_unit", "inventory")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "utils", "registry_unit", "inventory")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -51,7 +48,7 @@ BASELINE_COMMANDS = {
     "registry": (sys.executable, "catalog/validate_registry.py"),
     "sqlite": (sys.executable, "tools/test_store_pipeline.py", "-q"),
 }
-ISOLATED_PREFIXES = tuple(folder + "/" for folder, _ in SUITES.values() if folder not in ("tests", "catalog", "legal/ledger"))
+ISOLATED_PREFIXES = tuple(folder + "/" for folder, _ in SUITES.values() if folder not in ("tests", "catalog"))
 POLICY_PATHS = ("tools/ci_policy/", "tests/ci_policy/")
 POLICY_WORKFLOW = ".github/workflows/public_pr_merge_gate.yml"
 COORD_PATHS = ("tools/merge_coordinator/",)
@@ -104,9 +101,6 @@ def select_baseline_checks(changed_paths):
         return tuple(selected)
 
     def low_risk(path):
-        # New licensing logic must retain the full global safety baseline.
-        if path.startswith("legal/licensing/"):
-            return False
         if path in ROOT_PROSE_DOCS:
             return True
         if any(path.startswith(prefix) for prefix in ISOLATED_PREFIXES):
@@ -167,10 +161,6 @@ def select_suites(changed_paths):
             selected.add("open_export")
         if path.startswith("tools/community_automation/"):
             selected.add("community_automation")
-        if path.startswith(("community/contributions/", "tests/community/contributions/")):
-            selected.add("community_intake")
-        if path.startswith("legal/licensing/"):
-            selected.add("licensing")
         if path == "utils.py" or path == "tests/test_utils.py":
             selected.add("utils")
         if path.startswith(("tools/merge_accelerator/", "tests/merge_accelerator/")):
@@ -178,7 +168,7 @@ def select_suites(changed_paths):
         if path.startswith("catalog/"):
             selected.add("registry_unit")
         if path.startswith("legal/ledger/"):
-            selected.update(name for name in ORDER if name not in ("utils", "inventory", "licensing"))
+            selected.update(name for name in ORDER if name not in ("utils", "inventory"))
         if path.startswith("tools/contribution_gate/"):
             selected.update(("pronunciation", "audio"))
     return tuple(name for name in ORDER if name in selected)

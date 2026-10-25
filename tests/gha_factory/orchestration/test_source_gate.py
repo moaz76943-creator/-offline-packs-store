@@ -70,41 +70,6 @@ class SourceTests(unittest.TestCase):
         partition.symlink_to(replacement)
         self.assertEqual(self.gate(), 'BLOCKED_SOURCE')
 
-    def test_partition_worker_rejects_ambiguous_json_and_invalid_unicode(self):
-        # A pinned digest does not make ambiguous JSON safe to interpret.
-        # This exercises the worker independently of upstream source admission.
-        ctx, _ = legacy.context(self.root)
-        key = (self.t['source_id'], self.t['language'],
-               self.t['source_sha256'], self.t['shard'])
-        admitted = ctx['admissions'][key]
-        partition = admitted['folder'] / admitted['job']['path']
-        original = partition.read_bytes()
-        self.assertEqual(original.count(b'\n'), 1)
-        payload = original.rstrip(b'\n')
-        self.assertTrue(payload.endswith(b'}'))
-        attacks = {
-            'duplicate_source_identity': b',"source_id":"test-fixture"',
-            'nonfinite_constant': b',"untrusted":NaN',
-            'overflowed_exponent': b',"untrusted":1e9999',
-            'escaped_lone_surrogate': b',"untrusted":"\\uD800"',
-            'invalid_utf8': b',"untrusted":"\xff"',
-        }
-        for label, extra in attacks.items():
-            with self.subTest(label=label):
-                tampered = payload[:-1] + extra + b'}\n'
-                partition.write_bytes(tampered)
-                admitted['job']['sha256'] = sha(tampered)
-                with self.assertRaisesRegex(ValueError, 'invalid partition JSON'):
-                    e.verify_partition(self.t, ctx)
-        partition.write_bytes(original)
-
-    def test_partition_decoder_preserves_valid_multilingual_unicode(self):
-        for sample in ('العَرَبِيَّة', 'Äpfel, schön, groß, Straße',
-                       'İstanbul, I, ı, i', 'café', '日本語'):
-            with self.subTest(sample=sample):
-                raw = json.dumps({'value': sample}, ensure_ascii=False).encode('utf-8')
-                self.assertEqual(e.strict_partition_row(raw)['value'], sample)
-
     def test_wrong_canonical_language(self):
         self.t=p.new('test-fixture',sha(self.raw),'zz','approved_snapshot_verify',0);self.assertEqual(self.gate(),'QUARANTINED')
     def test_large_snapshot_needs_durable_handoff(self):

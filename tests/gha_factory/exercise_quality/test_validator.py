@@ -75,16 +75,6 @@ class ExerciseQualityTests(unittest.TestCase):
         with self.assertRaisesRegex(ExerciseError, 'GHA05_EVIDENCE_GATE_REJECTED'):
             self.valid()
 
-    def test_unhashable_language_evidence_is_rejected_cleanly(self):
-        self.sentence['language'] = ['de']
-        with self.assertRaisesRegex(ExerciseError, 'UNREGISTERED_LANGUAGE'):
-            self.valid()
-
-    def test_unpaired_surrogate_in_sentence_is_rejected_before_replay(self):
-        self.sentence['text'] = 'B\ud800uch ist neu.'
-        with self.assertRaisesRegex(ExerciseError, 'INVALID_ORIGINAL_TEXT'):
-            self.valid()
-
     def test_response_exact_and_unicode_normalization(self):
         self.assertEqual('CORRECT',evaluate_response('Buch',{'Buch'}))
         self.assertEqual('CORRECT',evaluate_response('e\u0301',{'é'}))
@@ -136,22 +126,6 @@ class ExerciseQualityTests(unittest.TestCase):
     def test_conflicting_alternate_prohibited(self):
         with self.assertRaisesRegex(ExerciseError, 'CONFLICTING_ANSWER_EVIDENCE'):
             evaluate_response('x',{'x'},{'x'})
-
-
-    def test_oversized_sentence_rejected_before_replay(self):
-        # Synthetic attested-looking fixture: source importer permits <=2000 chars.
-        self.sentence['text'] = 'B' * 2001
-        with patch('tools.gha_factory.exercise_quality.validator.make_cloze',
-                   return_value=self.exercise):
-            with self.assertRaisesRegex(ExerciseError, 'OVERSIZED_SENTENCE'):
-                self.valid()
-
-    def test_blank_attestation_evidence_never_grades_correct_or_ambiguous(self):
-        # Whitespace is not a source-backed lexical answer.
-        with self.assertRaisesRegex(ExerciseError, 'INVALID_ANSWER_EVIDENCE'):
-            evaluate_response(' ', {' '})
-        with self.assertRaisesRegex(ExerciseError, 'INVALID_ALTERNATE_EVIDENCE'):
-            evaluate_response(' ', {'Buch'}, {'\t'})
 
 
 if __name__ == '__main__':

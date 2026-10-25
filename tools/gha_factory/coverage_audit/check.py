@@ -4,7 +4,6 @@ import gzip
 import hashlib
 import importlib.util
 import json
-import math
 import sqlite3
 import tempfile
 from urllib.parse import urlsplit
@@ -22,13 +21,6 @@ class AuditError(ValueError):
     pass
 
 
-def _finite_json_float(token):
-    value = float(token)
-    if not math.isfinite(value):
-        raise AuditError('nonfinite JSON number')
-    return value
-
-
 def _unique_pairs(pairs):
     result = {}
     for key, value in pairs:
@@ -38,30 +30,13 @@ def _unique_pairs(pairs):
     return result
 
 
-def _repository_file(root, relative):
-    """Resolve only real files below the checkout; never follow symlink parents."""
-    base = Path(root).resolve()
-    fragment = Path(relative)
-    if fragment.is_absolute() or '..' in fragment.parts or '.git' in fragment.parts:
-        raise AuditError(f'unsafe repository path: {relative}')
-    path = base
-    for part in fragment.parts:
-        path = path / part
-        if path.is_symlink():
-            raise AuditError(f'symlinked repository path: {relative}')
-    if not path.is_file() or not path.resolve().is_relative_to(base):
-        raise AuditError(f'missing/unsafe repository file: {relative}')
-    return path
-
-
 def read_json(root, name):
-    path = _repository_file(root, name)
-    if path.stat().st_size > 5 * 1024 * 1024:
-        raise AuditError(f'oversized metadata: {name}')
+    path = root / name
+    if path.is_symlink() or not path.is_file() or path.stat().st_size > 5 * 1024 * 1024:
+        raise AuditError(f'missing/oversized metadata: {name}')
     try:
         return json.loads(path.read_text(encoding='utf-8'),
                           object_pairs_hook=_unique_pairs,
-                          parse_float=_finite_json_float,
                           parse_constant=lambda value: (_ for _ in ()).throw(AuditError('invalid number')))
     except (UnicodeError, json.JSONDecodeError) as error:
         raise AuditError(f'invalid JSON/encoding in {name}: {error}') from error
@@ -181,21 +156,6 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
         db = sqlite3.connect(f'file:{path}?mode=ro', uri=True)
         try:
             db.execute('PRAGMA query_only=ON')
-            # INNER JOIN coverage queries silently drop broken source/target
-            # sense or lexeme links. Reject them before counting directions,
-            # even if a synthetic or legacy SQLite file has no FK constraints.
-            orphan = db.execute("""
-                SELECT 1 FROM translations AS t
-                LEFT JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
-                LEFT JOIN lexicon AS source ON source.id = src_sense.lexeme_id
-                LEFT JOIN senses AS dst_sense ON dst_sense.sense_id = t.to_sense_id
-                LEFT JOIN lexicon AS target ON target.id = dst_sense.lexeme_id
-                WHERE src_sense.sense_id IS NULL OR source.id IS NULL
-                   OR dst_sense.sense_id IS NULL OR target.id IS NULL
-                LIMIT 1
-            """).fetchone()
-            if orphan:
-                raise AuditError('orphan translation sense/lexeme reference')
             mismatch = db.execute("""
                 SELECT 1 FROM translations AS t
                 JOIN senses AS s ON s.sense_id = t.to_sense_id
@@ -227,7 +187,9 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
 
 def _load_pack_checker(root):
     """Load the checked-out public pack verifier regardless of sys.path or CWD."""
-    path = _repository_file(root, 'tools/pack_v2/pipeline.py')
+    path = root / 'tools/pack_v2/pipeline.py'
+    if not path.is_file() or path.is_symlink():
+        raise AuditError('canonical v2 verifier missing or unsafe')
     spec = importlib.util.spec_from_file_location('_public_coverage_pack_v2', path)
     if spec is None or spec.loader is None:
         raise AuditError('cannot load canonical v2 verifier')
@@ -247,7 +209,9 @@ def _verify_pack(root, pack, language):
     expected = pack.get('sha256')
     if not isinstance(expected, str) or not SHA.fullmatch(expected):
         raise AuditError('invalid package SHA256')
-    path = _repository_file(root, f'packs/{language}-{version}.pack.gz')
+    path = root / 'packs' / f'{language}-{version}.pack.gz'
+    if not path.is_file() or path.is_symlink():
+        raise AuditError('published package missing or symlink')
     actual, length = _sha_file(path, MAX_PACK_BYTES)
     if actual != expected or length != pack.get('archiveSizeBytes'):
         raise AuditError('package bytes/length do not match manifest')

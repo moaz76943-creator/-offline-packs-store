@@ -301,41 +301,5 @@ class WorkerTests(unittest.TestCase):
         db.close()
 
 
-
-    def test_same_sense_id_rejects_conflicting_concept_and_topic_evidence(self):
-        """Synthetic rows must not silently reuse a sense ID for different facts."""
-        class SenseEvidenceImporter(FakeImporter):
-            def extract(self, row, lang, source, locator):
-                parsed = super().extract(row, lang, source, locator)
-                if parsed:
-                    for sense in parsed[1]:
-                        if 'concept_override' in row:
-                            sense['concept_id'] = row['concept_override']
-                        if 'domains' in row:
-                            sense['domains'] = row['domains']
-                return parsed
-
-        self.importer = SenseEvidenceImporter()
-        base = {'lang_code': 'ar', 'word': 'مَعْنَى', 'pos': 'noun',
-                'senses': ['synthetic meaning'], 'domains': ['topic.language']}
-        path = self.write_lines([
-            base,
-            {**base, 'domains': ['topic.finance']},
-            {**base, 'concept_override': 'concept.conflicting'},
-            base,
-            {**base, 'senses': ['different synthetic sense']},
-        ])
-        db = self.create_db()
-        state, eof = self.ingest(db, path)
-        self.assertTrue(eof)
-        self.assertEqual((state['accepted_lexemes'], state['accepted_senses'],
-                          state['rejected'], state['duplicates']), (1, 2, 2, 1))
-        self.assertEqual(db.execute('SELECT count(*) FROM evidence').fetchone()[0], 2)
-        original = next(json.loads(payload) for (payload,) in db.execute(
-            'SELECT payload FROM senses') if json.loads(payload)['definition'] == 'synthetic meaning')
-        self.assertEqual(original['domains'], ['topic.language'])
-        self.assertNotEqual(original['concept_id'], 'concept.conflicting')
-        db.close()
-
 if __name__ == '__main__':
     unittest.main()

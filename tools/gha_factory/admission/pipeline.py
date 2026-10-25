@@ -109,9 +109,6 @@ def route05_source(repo_root, source_id, dataset_version, input_path, fmt):
     s=sources[0]
     if s.get('status')!='APPROVED_FOR_REDISTRIBUTION':
         raise AdmissionError('BLOCKED_SOURCE: Route 05 reviewer approval absent')
-    from legal.ledger.admission import metadata_only_source_artifact
-    if metadata_only_source_artifact(s):
-        raise AdmissionError('BLOCKED_SOURCE: index/statistics bytes are not the corpus')
     if s.get('kind')!='dictionary' or fmt!='wiktextract-jsonl':
         raise AdmissionError('BLOCKED_SOURCE: unsupported kind/format; sentences and human audio require separate adapters and rights')
     if s.get('dataset_version')!=dataset_version:

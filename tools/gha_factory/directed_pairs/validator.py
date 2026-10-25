@@ -9,7 +9,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import math
 import os
 import re
 import sqlite3
@@ -87,32 +86,6 @@ def _json(pairs):
     return out
 
 
-def _finite_float(raw):
-    # json.loads accepts 1e999 as float('inf') even when NaN tokens are banned.
-    value = float(raw)
-    if not math.isfinite(value):
-        raise PairError('NONFINITE_JSON')
-    return value
-
-
-def _check_json_unicode(value):
-    # Escaped lone surrogates are accepted by json.loads but cannot be UTF-8.
-    # Traverse bounded JSONL iteratively, including nested metadata and keys.
-    pending = [value]
-    while pending:
-        item = pending.pop()
-        if isinstance(item, str):
-            try:
-                item.encode('utf-8', 'strict')
-            except UnicodeEncodeError as exc:
-                raise PairError('INVALID_UNICODE_JSON') from exc
-        elif isinstance(item, dict):
-            pending.extend(item.keys())
-            pending.extend(item.values())
-        elif isinstance(item, list):
-            pending.extend(item)
-
-
 def _lines(path, fields=None):
     with Path(path).open('rb') as stream:
         number = 0
@@ -123,9 +96,8 @@ def _lines(path, fields=None):
             try:
                 txt = line.decode('utf-8', 'strict').rstrip('\r\n')
                 if fields is None:
-                    data = json.loads(txt, object_pairs_hook=_json, parse_float=_finite_float,
+                    data = json.loads(txt, object_pairs_hook=_json,
                                       parse_constant=lambda _: (_ for _ in ()).throw(PairError('NONFINITE_JSON')))
-                    _check_json_unicode(data)
                 else:
                     data = txt.split('\t')
                     if len(data) != fields or any('\x00' in x for x in data):
@@ -264,22 +236,15 @@ def main(argv=None):
     temp = out.with_name(out.name + '.tmp')
     if out.is_symlink() or temp.is_symlink():
         raise PairError('UNSAFE_OUTPUT_PATH')
-    # Write a new receipt only. os.replace() silently overwrites an existing
-    # output even though the staging file was opened exclusively. Hard-linking
-    # the completed staging file is atomic and fails closed on existing outputs,
-    # including symlinks; always clean up the temporary file.
-    created_temp = False
+    # Exclusive create refuses pre-existing files and symlinks (including
+    # dangling links) without following either. Never truncate an old .tmp.
     try:
         with temp.open('x', encoding='utf-8') as stream:
-            created_temp = True
             json.dump(report, stream, sort_keys=True, ensure_ascii=False, separators=(',', ':'))
             stream.write('\n')
-        os.link(temp, out)
     except FileExistsError as exc:
         raise PairError('UNSAFE_OUTPUT_PATH') from exc
-    finally:
-        if created_temp:
-            temp.unlink(missing_ok=True)
+    os.replace(temp, out)
     print(json.dumps(report, sort_keys=True))
 
 

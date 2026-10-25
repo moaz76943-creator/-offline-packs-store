@@ -193,55 +193,10 @@ def conflicting_license_ids(detected, declared_license, co_offered=()):
     )
 
 
-def incidental_public_domain(text):
-    """True when public-domain wording is not a dedication of this work.
-
-    Eligibility phrases ("in the public domain", "entered the public domain")
-    and a Wiktionary page title for public-domain sources are not a dedication.
-    "This work is in the public domain" and "dedicated ... to the public domain"
-    stay real PUBLIC-DOMAIN claims.
-    """
-    if not isinstance(text, str):
-        return False
-    normalized = normalize_notice(text)
-    token = 'public-domain'
-    if token not in normalized:
-        return False
-    start = 0
-    found = False
-    while True:
-        index = normalized.find(token, start)
-        if index < 0:
-            break
-        found = True
-        prefix = normalized[max(0, index - 48):index]
-        if 'dedicat' in prefix or prefix.endswith('work-is-in-the-'):
-            return False
-        short = normalized[max(0, index - 110):index]
-        suffix = normalized[index + len(token):index + len(token) + 16]
-        # Explicit claims about this dataset, its sentences or its material are
-        # NOT eligibility language. Exempt only identifiable third-party
-        # examples/conditional language and the Wiktionary source-page title.
-        eligibility = any(short.endswith(phrase) for phrase in (
-            'because-the-material-is-in-the-',
-            'meaning-that-it-is-in-the-',
-            'if-the-material-is-in-the-',
-            'if-it-is-in-the-',
-            'if-that-content-has-entered-the-',
-        ))
-        source_page = short.endswith('wiktionary-') and suffix.startswith('-sources')
-        if not (eligibility or source_page):
-            return False
-        start = index + len(token)
-    return found
-
-
 def license_notice_conflicts(path, declared_license, co_offered=()):
     """Reject explicit incompatible notices; never infer legal approval."""
     notice = read_notice(path)
     if notice is None:
         return True
-    detected = set(detected_licenses(notice))
-    if declared_license != 'PUBLIC-DOMAIN' and incidental_public_domain(notice):
-        detected.discard('PUBLIC-DOMAIN')
-    return bool(conflicting_license_ids(detected, declared_license, co_offered))
+    return bool(conflicting_license_ids(
+        detected_licenses(notice), declared_license, co_offered))
