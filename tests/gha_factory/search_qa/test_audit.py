@@ -146,6 +146,40 @@ class SearchAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(audit.AuditError, 'unsafe.*pack'):
             audit.audit_manifest(self.root, shards=1)
 
+    def test_oversized_manifest_is_rejected_before_json_decode(self):
+        self.write_inputs([])
+        manifest = json.loads((self.root / 'manifest.json').read_text())
+        manifest['padding'] = 'x' * (audit.MAX_REPO_METADATA_BYTES + 1)
+        (self.root / 'manifest.json').write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(audit.AuditError, 'oversized manifest'):
+            audit.audit_manifest(self.root, shards=1)
+
+    def test_oversized_ledger_is_rejected_before_json_decode(self):
+        self.write_inputs([])
+        ledger = json.loads((self.root / 'legal/ledger/sources.json').read_text())
+        ledger['padding'] = 'x' * (audit.MAX_REPO_METADATA_BYTES + 1)
+        (self.root / 'legal/ledger/sources.json').write_text(json.dumps(ledger))
+        with self.assertRaisesRegex(audit.AuditError, 'oversized ledger'):
+            audit.audit_manifest(self.root, shards=1)
+
+    def test_malformed_registry_item_is_audit_error(self):
+        self.write_inputs([])
+        manifest_path = self.root / 'manifest.json'
+        manifest = json.loads(manifest_path.read_text())
+        manifest['languages'][-1] = None
+        manifest_path.write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(audit.AuditError, 'language'):
+            audit.audit_manifest(self.root, shards=1)
+
+    def test_unhashable_language_code_is_audit_error(self):
+        self.write_inputs([])
+        manifest_path = self.root / 'manifest.json'
+        manifest = json.loads(manifest_path.read_text())
+        manifest['languages'][0]['code'] = ['aa']
+        manifest_path.write_text(json.dumps(manifest))
+        with self.assertRaisesRegex(audit.AuditError, 'language'):
+            audit.audit_manifest(self.root, shards=1)
+
     def test_invalid_shard_is_rejected(self):
         with self.assertRaisesRegex(audit.AuditError,'shard'):
             audit.audit_manifest(self.root, shard=10, shards=10)
