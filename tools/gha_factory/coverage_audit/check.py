@@ -14,12 +14,21 @@ import sys
 
 MAX_PACK_BYTES = 80 * 1024 * 1024
 MAX_ENVELOPE_BYTES = 120 * 1024 * 1024
+MAX_JSON_INTEGER_DIGITS = 128
 SHA = re.compile(r'^[a-f0-9]{64}$')
 CODE = re.compile(r'^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$')
 
 
 class AuditError(ValueError):
     pass
+
+
+def _bounded_json_int(token):
+    # Metadata integer tokens are evidence, not arbitrary-precision payloads.
+    # Bound before int() to avoid interpreter-dependent exceptions and CPU use.
+    if len(token.lstrip('-')) > MAX_JSON_INTEGER_DIGITS:
+        raise AuditError('oversized JSON integer')
+    return int(token)
 
 
 def _finite_json_float(token):
@@ -61,6 +70,7 @@ def _parse_strict_json(content, name):
             content = content.decode('utf-8', errors='strict')
         data = json.loads(content, object_pairs_hook=_unique_pairs,
                           parse_float=_finite_json_float,
+                          parse_int=_bounded_json_int,
                           parse_constant=lambda value: (_ for _ in ()).throw(
                               AuditError('invalid number')))
         # Escaped lone surrogates survive json.loads; keys and values must
