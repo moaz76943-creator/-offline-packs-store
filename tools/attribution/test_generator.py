@@ -209,5 +209,35 @@ class AttributionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+
+    def test_co_offered_licenses_and_public_domain_proof(self):
+        self.source["license"]["co_offered_licenses"] = ["CC-BY-SA-4.0"]
+        self.source["license"]["public_domain_proof"] = {
+            "jurisdiction": "US",
+            "legal_basis": "Expired",
+            "work_date": "1920"
+        }
+        save_ledger(self.root, self.ledger)
+        result = self.run_gate()
+
+        manifest = json.loads((self.out / "attribution.json").read_text())
+        self.assertEqual(manifest[0]["co_offered_licenses"], ["CC-BY-SA-4.0"])
+        self.assertIn("jurisdiction", manifest[0]["public_domain_proof"])
+
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("Co-offered licenses: CC-BY-SA-4.0", notice)
+        self.assertIn("Public-domain basis:", notice)
+
+    def test_no_null_public_domain_proof(self):
+        self.run_gate()
+
+        manifest = json.loads((self.out / "attribution.json").read_text())
+        self.assertNotIn("public_domain_proof", manifest[0])
+        self.assertNotIn("co_offered_licenses", manifest[0])
+
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertNotIn("Public-domain basis", notice)
+        self.assertNotIn("Co-offered licenses", notice)
+
 if __name__ == "__main__":
     unittest.main()
