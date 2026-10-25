@@ -382,6 +382,11 @@ def audit(root, *, shard=0, shards=10):
     # Even with a nonempty ledger, an empty v2 manifest cannot back a release.
     if not packs and (version.get('packs') or version.get('release_status') != 'BLOCKED_DEPENDENCY'):
         raise AuditError('release metadata conflicts with empty published packs')
+    # A verified version is a publication claim independent of release_status.
+    # With no published v2 packs, metadata must not advertise any verified
+    # release even when the status remains BLOCKED_DEPENDENCY.
+    if not packs and version.get('latest_verified_version') is not None:
+        raise AuditError('unbacked latest verified version without published packs')
     indexed = {}
     for p in packs:
         if not isinstance(p, dict) or not isinstance(p.get('id'), str):
