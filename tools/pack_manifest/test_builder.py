@@ -26,8 +26,7 @@ class TestPackManifestBuilder(unittest.TestCase):
                 "version": "1.0.0",
                 "terms_count": 2,
                 "vocabulary": [1, 2],
-                "license": "CC-BY-SA-4.0",
-                "dependencies": ["pack2"]
+                "license": "CC-BY-SA-4.0"
             }, f)
 
         self.pack2_path = self.base_dir / "pack2.pack.gz"
@@ -68,7 +67,8 @@ class TestPackManifestBuilder(unittest.TestCase):
         self.assertEqual(data["schema_version"], "1.0.0")
         packs = data["packs"]
         self.assertIn("af", packs)
-        self.assertEqual(packs["af"]["dependencies"], ["pack2"])
+        self.assertIn("ar", packs)
+        self.assertIn("test_icon", packs)
 
     def test_missing_files_rejected(self):
         manifest_path = self.base_dir / "manifest.json"
@@ -155,7 +155,9 @@ class TestPackManifestBuilder(unittest.TestCase):
                     bounded_json_parse(bad)
 
     def test_colliding_pack_ids_abort_without_overwriting_manifest(self):
-        other = self.base_dir / "duplicate.pack.gz"
+        sub_dir = self.base_dir / "sub"
+        sub_dir.mkdir()
+        other = sub_dir / "pack1.pack.gz"
         with gzip.open(other, 'wt', encoding='utf-8') as output:
             json.dump({"lang_code": "af", "terms_count": 1,
                        "vocabulary": ["word"], "license": "CC0-1.0"}, output)
@@ -163,7 +165,7 @@ class TestPackManifestBuilder(unittest.TestCase):
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(target))
         original = target.read_bytes()
         with self.assertRaisesRegex(ValueError, 'Duplicate pack identity'):
-            build_manifest(self.base_dir, ["pack1.pack.gz", "duplicate.pack.gz"],
+            build_manifest(self.base_dir, ["pack1.pack.gz", "sub/pack1.pack.gz"],
                            str(target))
         self.assertEqual(target.read_bytes(), original)
 
@@ -178,6 +180,79 @@ class TestPackManifestBuilder(unittest.TestCase):
         with open(manifest_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         self.assertIn("af", data["packs"])
+
+
+    def test_broken_dependency_rejected(self):
+        pack4_path = self.base_dir / "pack4.pack.gz"
+        with gzip.open(pack4_path, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "en",
+                "version": "1.0.0",
+                "terms_count": 1,
+                "vocabulary": ["test"],
+                "license": "CC0-1.0",
+                "dependencies": ["missing_pack"]
+            }, f)
+        manifest_path = self.base_dir / "manifest.json"
+        with self.assertRaisesRegex(ValueError, 'Missing dependency: missing_pack required by en'):
+            build_manifest(self.base_dir, ["pack1.pack.gz", "pack4.pack.gz"], str(manifest_path))
+
+    def test_valid_dependency_accepted(self):
+        pack4_path = self.base_dir / "pack4.pack.gz"
+        with gzip.open(pack4_path, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "en",
+                "version": "1.0.0",
+                "terms_count": 1,
+                "vocabulary": ["test"],
+                "license": "CC0-1.0",
+                "dependencies": ["af"]
+            }, f)
+        manifest_path = self.base_dir / "manifest.json"
+        build_manifest(self.base_dir, ["pack1.pack.gz", "pack4.pack.gz"], str(manifest_path))
+        with open(manifest_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        self.assertIn("en", data["packs"])
+        self.assertEqual(data["packs"]["en"]["dependencies"], ["af"])
+
+    def test_metadata_change_no_payload_delta_is_unchanged(self):
+        old_manifest_path = self.base_dir / "old_manifest.json"
+        new_manifest_path = self.base_dir / "new_manifest.json"
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
+
+        with gzip.open(self.pack1_path, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "af",
+                "version": "2.0.0", # Changed version
+                "terms_count": 2,
+                "vocabulary": [1, 2], # Same vocabulary
+                "license": "CC-BY-SA-4.0",
+                "source": "modified_source" # Changed source
+            }, f)
+
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
+        plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
+        self.assertEqual(plan['unchanged'], ['af'])
+        self.assertEqual(plan['updated'], [])
+
+    def test_payload_delta_is_updated(self):
+        old_manifest_path = self.base_dir / "old_manifest.json"
+        new_manifest_path = self.base_dir / "new_manifest.json"
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
+
+        with gzip.open(self.pack1_path, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "af",
+                "version": "1.0.0",
+                "terms_count": 2,
+                "vocabulary": [1, 3], # Changed vocabulary
+                "license": "CC-BY-SA-4.0"
+            }, f)
+
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
+        plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
+        self.assertEqual(plan['updated'], ['af'])
+        self.assertEqual(plan['unchanged'], [])
 
 if __name__ == '__main__':
     unittest.main()
