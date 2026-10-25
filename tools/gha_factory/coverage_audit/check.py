@@ -59,12 +59,26 @@ def read_json(root, name):
     if path.stat().st_size > 5 * 1024 * 1024:
         raise AuditError(f'oversized metadata: {name}')
     try:
-        return json.loads(path.read_text(encoding='utf-8'),
+        data = json.loads(path.read_text(encoding='utf-8'),
                           object_pairs_hook=_unique_pairs,
                           parse_float=_finite_json_float,
                           parse_constant=lambda value: (_ for _ in ()).throw(AuditError('invalid number')))
+        # Escaped lone UTF-16 surrogates survive json.loads, but cannot be
+        # represented as valid UTF-8 evidence. Check keys as well as values
+        # without recursion or modifying the original multilingual text.
+        pending = [data]
+        while pending:
+            value = pending.pop()
+            if isinstance(value, str):
+                value.encode('utf-8', errors='strict')
+            elif isinstance(value, dict):
+                pending.extend(value.keys())
+                pending.extend(value.values())
+            elif isinstance(value, list):
+                pending.extend(value)
+        return data
     except (UnicodeError, json.JSONDecodeError) as error:
-        raise AuditError(f'invalid JSON/encoding in {name}: {error}') from error
+        raise AuditError(f'invalid Unicode/JSON encoding in {name}: {error}') from error
 
 
 def _identity_list(items, key, label):
