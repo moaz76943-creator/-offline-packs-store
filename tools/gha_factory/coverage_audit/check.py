@@ -250,6 +250,20 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
             """).fetchone()
             if dangling_sense:
                 raise AuditError('orphan sense/lexeme reference')
+            # A valid directed edge does not validate unrelated lexicon rows.
+            # Fail closed on missing/unknown language identities throughout the
+            # SQLite payload, including words with no sense or translation.
+            if not canonical_ids:
+                raise AuditError('empty canonical language registry')
+            canonical_languages = tuple(sorted(canonical_ids))
+            placeholders = ','.join('?' for _ in canonical_languages)
+            unknown_lexeme = db.execute(
+                f'SELECT 1 FROM lexicon WHERE language_code IS NULL '
+                f'OR language_code NOT IN ({placeholders}) LIMIT 1',
+                canonical_languages,
+            ).fetchone()
+            if unknown_lexeme:
+                raise AuditError('missing or unregistered lexicon language')
             mismatch = db.execute("""
                 SELECT 1 FROM translations AS t
                 JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
