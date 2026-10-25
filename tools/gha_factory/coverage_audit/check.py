@@ -88,6 +88,8 @@ def _parse_strict_json(content, name):
         if not isinstance(data, dict):
             raise AuditError(f'JSON object required in {name}')
         return data
+    except RecursionError as error:
+        raise AuditError(f'JSON nesting exceeds decoder depth in {name}') from error
     except (UnicodeError, json.JSONDecodeError) as error:
         raise AuditError(f'invalid Unicode/JSON encoding in {name}: {error}') from error
 
