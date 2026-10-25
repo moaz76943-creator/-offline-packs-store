@@ -1,6 +1,6 @@
 {
   "action": "already-tracked",
-  "last_signature": "public-pr-merge-gate",
+  "last_signature": "public-gha-factory-regression-suites",
   "retries": 0,
   "schema_version": "1.0.0"
 }
