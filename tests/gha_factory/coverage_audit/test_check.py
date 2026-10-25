@@ -282,6 +282,31 @@ class CoverageAuditTests(unittest.TestCase):
         report = checker.audit(self.root, shard=1, shards=100)
         self.assertEqual(report['verified_v2_packs'], 0)
 
+    def test_version_index_digest_and_size_must_match_manifest_across_shards(self):
+        # Synthetic metadata, not a production pack. A version index entry
+        # must not advertise a different checksum or size from its manifest,
+        # including when the selected shard does not contain this language.
+        self.values['legal/ledger/sources.json']['sources'] = [
+            {'source_id': 'pending', 'status': 'REVIEW_REQUIRED'}]
+        self.values['manifest.json']['packs'] = [{
+            'id': 'aa', 'version': '1.0.0',
+            'sha256': 'a' * 64, 'archiveSizeBytes': 1234}]
+        url = ('https://cdn.jsdelivr.net/gh/'
+               'moaz76943-creator/-offline-packs-store@main/'
+               'packs/aa-1.0.0.pack.gz')
+        record = {'version': '1.0.0', 'file_url': url,
+                  'sha256': 'a' * 64, 'size_bytes': 1234}
+        for key, bad in (('sha256', 'b' * 64), ('size_bytes', 5678)):
+            with self.subTest(key=key):
+                self.values['version.json']['packs'] = {
+                    'aa': {**record, key: bad}}
+                self.write_all()
+                with self.assertRaisesRegex(checker.AuditError, 'version pack'):
+                    checker.audit(self.root, shard=1, shards=100)
+        self.values['version.json']['packs'] = {'aa': record}
+        self.write_all()
+        self.assertEqual(checker.audit(self.root, shard=1, shards=100)['verified_v2_packs'], 0)
+
     def test_unverified_release_claim_rejected_even_if_flags_set(self):
         self.values['legal/ledger/sources.json']['sources'] = [
             {'source_id': 'forged', 'status': 'APPROVED_FOR_REDISTRIBUTION'}]
