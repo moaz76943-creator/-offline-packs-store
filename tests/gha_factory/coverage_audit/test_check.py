@@ -251,6 +251,30 @@ class CoverageAuditTests(unittest.TestCase):
                 with self.assertRaisesRegex(checker.AuditError, 'version pack'):
                     checker.audit(self.root, shard=1, shards=100)
 
+    def test_version_index_descriptor_must_match_manifest_across_shards(self):
+        # Synthetic, nonpublishable metadata: the version index is global
+        # release evidence, even if the pack is outside the selected shard.
+        self.values['legal/ledger/sources.json']['sources'] = [
+            {'source_id': 'pending', 'status': 'REVIEW_REQUIRED'}]
+        self.values['manifest.json']['packs'] = [
+            {'id': 'aa', 'version': '1.0.0'}]
+        good_url = ('https://cdn.jsdelivr.net/gh/'
+                    'moaz76943-creator/-offline-packs-store@main/'
+                    'packs/aa-1.0.0.pack.gz')
+        invalid_records = (
+            None,
+            {'version': '9.9.9', 'file_url': good_url},
+            {'version': '1.0.0', 'file_url': 'https://example.org/aa.pack.gz'},
+            {'version': '1.0.0', 'file_url': good_url.replace('aa-1.0.0', 'ab-1.0.0')},
+            {'version': '1.0.0'},
+        )
+        for record in invalid_records:
+            with self.subTest(record=record):
+                self.values['version.json']['packs'] = {'aa': record}
+                self.write_all()
+                with self.assertRaisesRegex(checker.AuditError, 'version pack'):
+                    checker.audit(self.root, shard=1, shards=100)
+
     def test_unverified_release_claim_rejected_even_if_flags_set(self):
         self.values['legal/ledger/sources.json']['sources'] = [
             {'source_id': 'forged', 'status': 'APPROVED_FOR_REDISTRIBUTION'}]
