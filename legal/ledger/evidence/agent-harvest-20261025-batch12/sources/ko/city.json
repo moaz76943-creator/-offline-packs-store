@@ -1,0 +1,51 @@
+{
+  "language": "ko",
+  "retrieval_date": "2026-10-24",
+  "rows": [
+    {
+      "concept_id": "concept.q65",
+      "forms": [
+        "로스앤젤레스"
+      ],
+      "language": "ko",
+      "lemma": "로스앤젤레스",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1474919",
+      "pos": "",
+      "qids": [
+        "Q65"
+      ],
+      "record_id": "L1474919",
+      "retrieval_date": "2026-10-24",
+      "revision": "2530379911",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1474919-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q65"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q1492"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1757"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
