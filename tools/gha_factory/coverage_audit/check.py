@@ -223,6 +223,18 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
                 raise AuditError('SQLite integrity check failed')
             if db.execute('PRAGMA foreign_key_check').fetchone() is not None:
                 raise AuditError('SQLite foreign key violation')
+            # A legacy SQLite table may omit FK declarations altogether.
+            # Check every sense, not only senses joined from translations:
+            # otherwise an unreferenced dangling lexeme_id is invisible to
+            # both foreign_key_check and directed-edge JOINs.
+            dangling_sense = db.execute("""
+                SELECT 1 FROM senses AS sense
+                LEFT JOIN lexicon AS lexeme ON lexeme.id = sense.lexeme_id
+                WHERE lexeme.id IS NULL
+                LIMIT 1
+            """).fetchone()
+            if dangling_sense:
+                raise AuditError('orphan sense/lexeme reference')
             # INNER JOIN coverage queries silently drop broken source/target
             # sense or lexeme links. Reject them before counting directions,
             # even if a synthetic or legacy SQLite file has no FK constraints.
