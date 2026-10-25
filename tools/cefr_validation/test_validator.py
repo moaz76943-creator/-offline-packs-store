@@ -108,12 +108,6 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertEqual(len(rejected), 1) # Second one is rejected due to conflict
         self.assertIn("Substantial source conflict", rejected[0]["reason"])
 
-        # In the rejection flow we keep source dataset immutable so the input is wrapped.
-        # But for conflicts we actually did set `_resolution` in the code, let's just check the wrapper reason here
-        # or we can verify that the rejected item has "conflicting" somewhere.
-        # Since original_record is returned we won't see _resolution on it, but the reason has it.
-        pass
-
     def test_preserves_independent_sources_without_conflict(self):
         # A1 and A2 for the same word is not a "substantial" conflict
         rec1 = self.create_record("word-no-conflict", "en", "estimated", "CEFR", "A1", self.get_valid_evidence())
@@ -132,7 +126,27 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        evidence = self.get_valid_evidence()
+
+        rec = self.create_record("word-1", "en", "source_attested", "CEFR", "A1", evidence)
+
+        # mock lack of CEFR support temporarily
+        original_prof = self.validator.supported_languages["en"].get("proficiency", {})
+        self.validator.supported_languages["en"]["proficiency"] = {"framework_ids": []}
+
+        # Mock the catalog validate_record to avoid schema validation failure on 'source_attested' using 'descriptor_guided_review'
+        # Since we just want to test the CEFR corpus rejection logic.
+        original_validate = self.validator.catalog.validate_record
+        self.validator.catalog.validate_record = lambda x: x
+
+        try:
+            accepted, rejected = self.validator.process_dataset([rec])
+            self.assertEqual(len(accepted), 0)
+            self.assertEqual(len(rejected), 1)
+            self.assertIn("lacks certified CEFR corpora", rejected[0]["reason"])
+        finally:
+            self.validator.supported_languages["en"]["proficiency"] = original_prof
+            self.validator.catalog.validate_record = original_validate
 
 if __name__ == '__main__':
     unittest.main()
