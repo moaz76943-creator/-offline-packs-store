@@ -406,5 +406,36 @@ class CoverageAuditTests(unittest.TestCase):
                     checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
 
 
+    def test_corrupt_sqlite_coverage_is_a_classified_audit_failure(self):
+        # Synthetic invalid bytes must fail closed as AuditError, not leak
+        # an uncaught sqlite3.DatabaseError from a scheduled audit.
+        with self.assertRaisesRegex(checker.AuditError, 'SQLite'):
+            checker._directed_pairs(b'not a SQLite database', {'aa', 'ab'})
+
+    def test_unreferenced_orphan_sense_fails_sqlite_foreign_key_audit(self):
+        # A broken sense can be invisible to the translation JOIN. A canonical
+        # SQLite v2 pack declares FK constraints; verify all of them even if
+        # the translation table is empty. This is synthetic fixture data.
+        with tempfile.TemporaryDirectory() as temp:
+            database = Path(temp) / 'directed.sqlite'
+            with closing(sqlite3.connect(database)) as db:
+                db.executescript("""
+                    PRAGMA foreign_keys=OFF;
+                    CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                    CREATE TABLE senses(
+                        sense_id TEXT PRIMARY KEY,
+                        lexeme_id TEXT REFERENCES lexicon(id));
+                    CREATE TABLE translations(
+                        from_sense_id TEXT REFERENCES senses(sense_id),
+                        to_sense_id TEXT REFERENCES senses(sense_id),
+                        language_code TEXT);
+                    INSERT INTO lexicon VALUES('l1','aa');
+                    INSERT INTO senses VALUES('s1','l1'),('orphan','missing');
+                """)
+                db.commit()
+            with self.assertRaisesRegex(checker.AuditError, 'foreign key'):
+                checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
+
+
 if __name__ == '__main__':
     unittest.main()
