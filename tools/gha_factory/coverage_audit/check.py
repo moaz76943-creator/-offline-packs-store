@@ -263,7 +263,7 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
                 canonical_languages,
             ).fetchone()
             if unknown_lexeme:
-                raise AuditError('missing or unregistered lexicon language')
+                raise AuditError('unregistered language: lexicon language missing or unknown')
             mismatch = db.execute("""
                 SELECT 1 FROM translations AS t
                 JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
