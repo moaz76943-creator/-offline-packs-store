@@ -43,6 +43,25 @@ class HarvestCandidateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             c.build(self.root, bad)
 
+    def test_reject_forged_source_license_and_origin_receipts(self):
+        # A forged receipt must not be able to claim approval by substituting
+        # a different license notice, source branch, or arbitrary origin path.
+        for field, value in (
+            ("source_license", "CC-BY-SA-4.0"),
+            ("source_branch", "untrusted"),
+            ("source_commit", "not-a-commit"),
+            ("original_lexeme_json_pinned", True),
+            ("source_license_evidence_path", "legal/ledger/sources.json"),
+            ("source_license_evidence_sha256", "0" * 64),
+            ("source_files", []),
+        ):
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                c.build(self.root, dict(self.receipt, **{field: value}))
+        bad = dict(self.receipt, source_files=[dict(s) for s in self.receipt["source_files"]])
+        bad["source_files"][0]["origin_path"] = "data/agents/harvest/wikidata/en/work.json"
+        with self.assertRaises(ValueError):
+            c.build(self.root, bad)
+
     def test_reject_duplicate_json_property(self):
         with self.assertRaises(ValueError):
             c.strict_json(b'{"a":1,"a":2}')
