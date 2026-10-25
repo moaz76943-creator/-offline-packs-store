@@ -48,6 +48,7 @@ class SixteenthHarvestCandidates(unittest.TestCase):
         self.assertFalse(self.receipt["production_ready"])
         self.assertFalse(self.receipt["source_admission_approved"])
         self.assertFalse(self.receipt["original_lexeme_json_pinned"])
+        self.assertEqual(self.receipt["linguistic_qa_status"], "SUSPECT_MISMATCH")
 
     def test_fail_closed_source_or_license_tampering(self):
         with self.assertRaises(ValueError):

@@ -3,6 +3,12 @@
   "candidate_sha256": "32922ad8ebfa16dcf151e51c8accec32d8cc5e2b37a02cb303b8d7ac0c0442ab",
   "directed_translations": 0,
   "examples": 0,
+  "linguistic_qa_evidence": [
+    "https://www.wikidata.org/wiki/Q7367",
+    "https://en.wikibooks.org/wiki/Punjabi/Vocabulary/Miscellaneous"
+  ],
+  "linguistic_qa_note": "Review required: Q7367 is mosquito, while attested Punjabi lemma در/ਦਰ is commonly rate/door; original Lexeme sense mapping not independently verified. Candidate must not be promoted or translated.",
+  "linguistic_qa_status": "SUSPECT_MISMATCH",
   "original_lexeme_json_pinned": false,
   "production_ready": false,
   "schema_version": 1,
