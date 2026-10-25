@@ -1,0 +1,170 @@
+{
+  "language": "de",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "Urgeschichte",
+        "Urgeschichte",
+        "Urgeschichte",
+        "Urgeschichte"
+      ],
+      "language": "de",
+      "lemma": "Urgeschichte",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L500302",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L500302",
+      "retrieval_date": "2026-10-25",
+      "revision": "1885841484",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L500302-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "Prähistorie",
+        "Prähistorie",
+        "Prähistorie",
+        "Prähistorie"
+      ],
+      "language": "de",
+      "lemma": "Prähistorie",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L784878",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L784878",
+      "retrieval_date": "2026-10-25",
+      "revision": "1880660120",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L784878-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "Vorzeit",
+        "Vorzeiten",
+        "Vorzeit",
+        "Vorzeiten",
+        "Vorzeit",
+        "Vorzeiten",
+        "Vorzeit",
+        "Vorzeiten"
+      ],
+      "language": "de",
+      "lemma": "Vorzeit",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L811050",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L811050",
+      "retrieval_date": "2026-10-25",
+      "revision": "1885906202",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L811050-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q347066",
+      "forms": [
+        "Echtzeit",
+        "Echtzeit",
+        "Echtzeit",
+        "Echtzeit"
+      ],
+      "language": "de",
+      "lemma": "Echtzeit",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L496179",
+      "pos": "",
+      "qids": [
+        "Q347066"
+      ],
+      "record_id": "L496179",
+      "retrieval_date": "2026-10-25",
+      "revision": "2306643637",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L496179-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q347066"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "Urlaub",
+        "Urlaubes",
+        "Urlaubs",
+        "Urlaub",
+        "Urlaub",
+        "Urlaube",
+        "Urlaube",
+        "Urlauben"
+      ],
+      "language": "de",
+      "lemma": "Urlaub",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L498021",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L498021",
+      "retrieval_date": "2026-10-25",
+      "revision": "2306764519",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L498021-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
