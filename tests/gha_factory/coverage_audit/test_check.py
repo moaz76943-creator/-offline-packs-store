@@ -78,6 +78,27 @@ class CoverageAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(checker.AuditError, 'duplicate JSON key'):
             checker.audit(self.root, shard=0, shards=1)
 
+    def test_nonfinite_exponent_in_repository_metadata_is_rejected(self):
+        # These are syntactically invalid JSON numeric values, even though
+        # Python's default JSON decoder converts their exponents to infinity.
+        for number in ('1e999', '-1e999'):
+            with self.subTest(number=number):
+                (self.root / 'version.json').write_text(
+                    '{"release_status":"BLOCKED_DEPENDENCY","packs":{},'
+                    '"synthetic_quality_score":' + number + '}',
+                    encoding='utf-8')
+                with self.assertRaisesRegex(checker.AuditError, 'nonfinite JSON'):
+                    checker.read_json(self.root, 'version.json')
+                with self.assertRaisesRegex(checker.AuditError, 'nonfinite JSON'):
+                    checker.audit(self.root, shard=0, shards=1)
+
+    def test_finite_exponent_in_repository_metadata_remains_valid(self):
+        (self.root / 'version.json').write_text(
+            '{"release_status":"BLOCKED_DEPENDENCY","packs":{},'
+            '"synthetic_quality_score":1.25e2}', encoding='utf-8')
+        self.assertEqual(checker.read_json(self.root, 'version.json')['synthetic_quality_score'], 125.0)
+        self.assertEqual(checker.audit(self.root, shard=0, shards=1)['production_ready_languages'], 0)
+
     def test_malformed_shard_rejected(self):
         with self.assertRaisesRegex(checker.AuditError, 'invalid shard'):
             checker.audit(self.root, shard=10, shards=10)
