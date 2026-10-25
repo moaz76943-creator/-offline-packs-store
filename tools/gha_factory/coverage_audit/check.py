@@ -402,6 +402,22 @@ def audit(root, *, shard=0, shards=10):
         raise AuditError('invalid version pack index')
     if not set(version_packs).issubset(indexed):
         raise AuditError('unbacked version pack index entry')
+    # A matching index key alone does not prove that a public download
+    # references the same archive. Check the version and canonical URL
+    # globally, before sharding, so a nonselected language cannot hide
+    # an external, missing or mismatched release target.
+    for pack_id, record in version_packs.items():
+        pack_version = indexed[pack_id].get('version')
+        expected_url = (
+            'https://cdn.jsdelivr.net/gh/'
+            'moaz76943-creator/-offline-packs-store@main/'
+            f'packs/{pack_id}-{pack_version}.pack.gz'
+        )
+        if (not isinstance(record, dict)
+                or not isinstance(pack_version, str)
+                or record.get('version') != pack_version
+                or record.get('file_url') != expected_url):
+            raise AuditError(f'version pack descriptor mismatch: {pack_id}')
     metadata = {item['code']: item for item in manifest['languages']}
     aliases = {item['id']: item for item in registry['languages']}
     selected = sorted(m_ids)[shard::shards]
