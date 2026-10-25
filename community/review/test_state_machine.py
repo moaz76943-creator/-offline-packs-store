@@ -56,6 +56,7 @@ class TestReviewStateMachine(unittest.TestCase):
         self.metadata = {
             "source_id": "src1",
             "language": "eng",
+            "translation_direction": "eng-spa",
             "sense_id": "sense1",
             "license_id": "CC-BY-4.0",
             "dataset_version": "1.0",
@@ -70,13 +71,15 @@ class TestReviewStateMachine(unittest.TestCase):
     def tearDown(self):
         self.tmp_dir.cleanup()
 
-    def _sign(self, action, actor, sub_id, rev, key):
+    def _sign(self, action, actor, sub_id, rev, key, metadata=None):
+        if metadata is None:
+            metadata = self.metadata
         payload = {
             "action": action,
             "actor": actor,
             "submission_id": sub_id,
             "sha256": self.test_hash,
-            "metadata_sha256": hashlib.sha256(canonical(self.metadata)).hexdigest(),
+            "metadata_sha256": hashlib.sha256(canonical(metadata)).hexdigest(),
             "revision": rev
         }
         return sign(key, payload)
@@ -143,6 +146,34 @@ class TestReviewStateMachine(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             self.machine.submit("sub5", self.test_hash, bad_meta, self.test_artifact)
+
+    def test_stale_approvals(self):
+        self.machine.submit("sub_stale", self.test_hash, self.metadata, self.test_artifact)
+        self.machine.start_validation("sub_stale")
+
+        # Update metadata to create revision 2
+        metadata_v2 = self.metadata.copy()
+        metadata_v2["dataset_version"] = "2.0"
+        self.machine.submit("sub_stale", self.test_hash, metadata_v2, self.test_artifact)
+        self.machine.start_validation("sub_stale")
+
+        # Validate revision 2
+        token = self._sign("VALIDATE", "val1", "sub_stale", 2, self.validator_key, metadata=metadata_v2)
+        self.machine.complete_validation("sub_stale", "val1", token)
+
+        # Try to review using a token signed for revision 1
+        stale_token = self._sign("APPROVE", "rev1", "sub_stale", 1, self.reviewer_key, metadata=self.metadata)
+        with self.assertRaises(PermissionError):
+            self.machine.review("sub_stale", "rev1", True, stale_token)
+
+    def test_reviewer_state_conflicts(self):
+        self.machine.submit("sub_conflict", self.test_hash, self.metadata, self.test_artifact)
+        self.machine.start_validation("sub_conflict")
+
+        # Attempt to review while in VALIDATING state (before REVIEW_REQUIRED)
+        token = self._sign("APPROVE", "rev1", "sub_conflict", 1, self.reviewer_key)
+        with self.assertRaises(ValueError):
+            self.machine.review("sub_conflict", "rev1", True, token)
 
     def test_interruption_restart(self):
         # Submit and start validating
