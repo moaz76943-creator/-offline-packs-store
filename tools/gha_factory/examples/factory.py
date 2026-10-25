@@ -185,6 +185,20 @@ def source_approval(ledger, source_id, cc0_sha):
             and bool(review.get('reviewer')) and review['decision_url'].startswith('https://'))
 
 
+def _choice_key(surface, language):
+    """Canonical choice identity without conflating language-distinct letters.
+
+    Turkish/Azeri dotted and dotless I follow local casing; German ß is
+    distinct from ss. NFC keeps Arabic diacritics and source text unchanged.
+    """
+    value = unicodedata.normalize('NFC', surface)
+    if language in ('tr', 'az'):
+        return value.replace('I', 'ı').replace('İ', 'i').lower()
+    if language == 'de':
+        return value.lower()
+    return value.casefold()
+
+
 def make_cloze(sentence, annotation, senses, forms):
     """Use externally attested exact spans. Never fabricate or generate distractors."""
     if not sentence or sentence['admitted'] is not True:
@@ -223,8 +237,8 @@ def make_cloze(sentence, annotation, senses, forms):
         raise Rejected('REJECTED_EXERCISE: insufficient attested distractors')
     options = [answer]
     # Distinct choices must also be distinct under canonical Unicode spelling.
-    # NFC preserves Arabic diacritics and Turkish dotted/dotless I distinctions.
-    normalized_options = {unicodedata.normalize('NFC', answer).casefold()}
+    # Locale-aware identity preserves Turkish I/ı, İ/i and German ß/ss.
+    normalized_options = {_choice_key(answer, sentence['language'])}
     for item in distractors:
         if not isinstance(item, dict) or not isinstance(item.get('surface'), str):
             raise Rejected('REJECTED_EXERCISE: bad distractor')
@@ -238,10 +252,10 @@ def make_cloze(sentence, annotation, senses, forms):
         other_key = (sentence['language'], other_sense, surface, tuple(sorted(feats.items())))
         if (not surface.strip() or other_key not in forms or not evidence or
                 evidence.get('language') != sentence['language'] or evidence.get('approved') is not True or
-                unicodedata.normalize('NFC', surface).casefold() in normalized_options):
+                _choice_key(surface, sentence['language']) in normalized_options):
             raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         options.append(surface)
-        normalized_options.add(unicodedata.normalize('NFC', surface).casefold())
+        normalized_options.add(_choice_key(surface, sentence['language']))
     return {'exercise_id': 'clz1_' + hashlib.sha256(canonical([sentence['id'], sid, start, end])).hexdigest()[:24],
             'sentence_id': sentence['id'], 'language': sentence['language'],
             'sense_id': sid, 'cloze': text[:start] + '____' + text[end:],
