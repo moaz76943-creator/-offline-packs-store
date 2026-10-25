@@ -4,7 +4,9 @@ import json
 import urllib.parse
 import urllib.request
 
-from tools.agents.common import BLOCKED_CONCEPTS, SCHEMA_VERSION, is_placeholder, script_matches
+from tools.agents.common import (
+    BLOCKED_CONCEPTS, SCHEMA_VERSION, is_placeholder, policy_qids, script_matches,
+)
 from tools.open_sources.assess import positive_match
 
 USER_AGENT = 'offline-packs-store/1.0 (language-production)'
@@ -246,3 +248,137 @@ def accept_notice(notice, declared, co_offered=()):
     if not ok:
         raise SourceSkip(','.join(reasons) or 'license_rejected')
     return True
+
+
+KAIKKI_GERMAN_URL = (
+    'https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl'
+)
+KAIKKI_SLICE_BYTES = 1_500_000
+KAIKKI_MAX_ROWS = 200
+_QID = __import__('re').compile(r'^Q[1-9][0-9]*$')
+
+
+def fetch_range(url, start, length, timeout=40):
+    """Read one bounded HTTP range. A full-file download is never requested."""
+    if type(start) is not int or not 0 <= start <= 2_000_000_000:
+        raise SourceAPIError('invalid range offset')
+    if type(length) is not int or not 1 <= length <= 2_000_000:
+        raise SourceAPIError('invalid range length')
+    request = urllib.request.Request(
+        url,
+        headers={
+            'User-Agent': USER_AGENT,
+            'Range': f'bytes={start}-{start + length - 1}',
+        },
+    )
+    with urllib.request.urlopen(request, timeout=timeout) as response:
+        status = response.getcode()
+        header = response.headers.get('Content-Range')
+        payload = response.read(length + 1)[:length]
+    return status, header, payload
+
+
+def kaikki_window(offset, url=KAIKKI_GERMAN_URL, size=KAIKKI_SLICE_BYTES, fetch=fetch_range):
+    """Return complete JSONL bytes and the next line-aligned offset.
+
+    The German extract is about a gigabyte. Re-reading its first 120KB never
+    reaches later Wikidata anchors. A server that ignores Range is a source
+    error, not an empty harvest of that same prefix.
+    """
+    if type(offset) is not int or offset < 0:
+        raise SourceAPIError('invalid kaikki offset')
+    status, header, payload = fetch(url, offset, size)
+    if status == 416 or payload == b'':
+        return b'', 0, True
+    if offset and (status != 206 or not isinstance(header, str)
+                   or not header.startswith(f'bytes {offset}-')):
+        raise SourceAPIError('kaikki range was not honored')
+    if status not in (200, 206):
+        raise SourceAPIError(f'unexpected kaikki status {status}')
+    newline = payload.rfind(b'\n')
+    if newline < 0:
+        # The whole window sits inside one line. Skip the fragment.
+        return b'', offset + len(payload), False
+    complete = payload[:newline + 1]
+    next_offset = offset + len(complete)
+    total = None
+    if isinstance(header, str) and '/' in header:
+        raw_total = header.rsplit('/', 1)[-1]
+        if raw_total.isdigit():
+            total = int(raw_total)
+    if total is not None and next_offset >= total:
+        return complete, 0, True
+    return complete, next_offset, False
+
+
+def rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved, url=KAIKKI_GERMAN_URL):
+    """Keep senses that carry a catalog Wikidata anchor and a real sense id.
+
+    A missing Wiktionary revision is not a reason to drop the row: the
+    Wiktextract sense id is the traceable record. Senses without that id,
+    without a catalog anchor, or tied to a blocked concept are not stored.
+    """
+    if not isinstance(obj, dict):
+        return []
+    word = obj.get('word')
+    language = obj.get('lang_code')
+    if (not isinstance(word, str) or not isinstance(language, str)
+            or language != 'de'):
+        return []
+    profile = (profiles or {}).get(language) or {}
+    if is_placeholder(word) or not script_matches(word, profile.get('script')):
+        return []
+    pos = obj.get('pos') if isinstance(obj.get('pos'), str) else ''
+    rows = []
+    for sense in obj.get('senses') or []:
+        if not isinstance(sense, dict):
+            continue
+        raw_qids = sense.get('wikidata')
+        if not isinstance(raw_qids, list):
+            continue
+        qids = [qid for qid in raw_qids if isinstance(qid, str) and _QID.fullmatch(qid)]
+        if policy_qids(qids)[0] != 'keep':
+            continue
+        sense_id = sense.get('id')
+        if (not isinstance(sense_id, str) or not sense_id.strip()
+                or any(character.isspace() for character in sense_id)
+                or len(sense_id) > 200):
+            continue
+        glosses = sense.get('glosses') or []
+        gloss = glosses[0] if glosses and isinstance(glosses[0], str) else ''
+        seen = set()
+        for qid in qids:
+            for concept in concepts_by_qid.get(qid) or []:
+                if not isinstance(concept, dict):
+                    continue
+                concept_id = concept.get('concept_id')
+                section = concept.get('section')
+                if not isinstance(concept_id, str) or not concept_id:
+                    continue
+                if not isinstance(section, str) or not section:
+                    continue
+                identity = (sense_id, concept_id)
+                if identity in seen:
+                    continue
+                seen.add(identity)
+                rows.append({
+                    'schema_version': SCHEMA_VERSION,
+                    'language': language,
+                    'section': section,
+                    'subsection': concept.get('subsection') or '',
+                    'concept_id': concept_id,
+                    'wikidata': qid,
+                    'qids': qids,
+                    'lemma': word,
+                    'gloss': gloss,
+                    'pos': pos,
+                    'source_id': 'kaikki.wiktextract',
+                    'record_id': sense_id,
+                    'sense_id': sense_id,
+                    'license_id': 'CC-BY-SA-4.0',
+                    'co_offered': ['GFDL-1.3-only'],
+                    'retrieval_date': retrieved,
+                    'origin_url': url,
+                    'status': 'keep',
+                })
+    return rows
