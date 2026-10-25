@@ -86,6 +86,23 @@ class EngineTests(unittest.TestCase):
         self.assertEqual({i:api.one(i)['body'] for i in (1,2,3)},bodies)
         self.assertEqual(p.parse(api.one(4)['body'])['state'],'READY')
 
+    def test_queue_snapshot_metrics_preserve_completed_history(self):
+        finished=p.claim(task(state='READY'),NOW,21,1)
+        finished=p.finish(finished,p.receipt(finished,'SUCCEEDED',1,0,None,None),NOW)
+        api=FakeAPI([(1,finished),(2,task(language='en'))])
+        telemetry={}
+        jobs=e.control(api,22,1,NOW,Path('.'),self.ctx,self.sha,telemetry=telemetry)
+        self.assertEqual([j['number'] for j in jobs],[2])
+        self.assertEqual(telemetry,{'queue_total':2,
+                                    'task_states':{'NEW':1,'SUCCEEDED':1}})
+
+    def test_empty_queue_metrics_are_distinct_from_broken_inventory(self):
+        api=FakeAPI([])
+        telemetry={}
+        self.assertEqual(e.control(api,22,1,NOW,Path('.'),self.ctx,self.sha,
+                                   telemetry=telemetry),[])
+        self.assertEqual(telemetry,{'queue_total':0,'task_states':{}})
+
     def test_three_global_capacity(self):
         api=FakeAPI([(i,task(language=l)) for i,l in enumerate(('de','en','fr','ar'),1)])
         jobs=self.run_controller(api)
