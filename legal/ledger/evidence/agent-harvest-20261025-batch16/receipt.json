@@ -1,0 +1,29 @@
+{
+  "actual_rows": 1,
+  "candidate_sha256": "32922ad8ebfa16dcf151e51c8accec32d8cc5e2b37a02cb303b8d7ac0c0442ab",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "334bc3c01302126eef61352bb4fa54e1f7eedb4b",
+  "source_files": [
+    {
+      "language": "pa",
+      "origin_git_blob_sha1": "560f9f1876ad49d8e037e3fff90b69a282e08f61",
+      "origin_path": "data/agents/harvest/wikidata/pa/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch16/sources/pa/animals.json",
+      "rows": 1,
+      "sha256": "fa5eef09ad891af7f43fbc2d857c9b76ac7d093ea57ac5288f1f33fa4abeaf1b",
+      "topic": "animals"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}
