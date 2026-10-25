@@ -4,6 +4,7 @@ import gzip
 import hashlib
 import importlib.util
 import json
+import math
 import sqlite3
 import tempfile
 from urllib.parse import urlsplit
@@ -19,6 +20,13 @@ CODE = re.compile(r'^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$')
 
 class AuditError(ValueError):
     pass
+
+
+def _finite_json_float(token):
+    value = float(token)
+    if not math.isfinite(value):
+        raise AuditError('nonfinite JSON number')
+    return value
 
 
 def _unique_pairs(pairs):
@@ -53,6 +61,7 @@ def read_json(root, name):
     try:
         return json.loads(path.read_text(encoding='utf-8'),
                           object_pairs_hook=_unique_pairs,
+                          parse_float=_finite_json_float,
                           parse_constant=lambda value: (_ for _ in ()).throw(AuditError('invalid number')))
     except (UnicodeError, json.JSONDecodeError) as error:
         raise AuditError(f'invalid JSON/encoding in {name}: {error}') from error
