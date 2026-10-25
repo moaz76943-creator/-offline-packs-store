@@ -116,24 +116,40 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
         if not author or not str(author).strip():
             raise ValueError("Missing author for source " + sid)
 
+        publisher = source.get("publisher")
+        if not publisher or not str(publisher).strip():
+            raise ValueError("Missing publisher for source " + sid)
+
+        license_id = source.get("license", {}).get("id")
+        if not license_id or not str(license_id).strip():
+            raise ValueError("Missing license_id for source " + sid)
+
+        public_domain_proof = source.get("license", {}).get("public_domain_proof")
+        if license_id == "PUBLIC-DOMAIN":
+            if not public_domain_proof or not isinstance(public_domain_proof, dict):
+                raise ValueError("Missing public_domain_proof for PUBLIC-DOMAIN source " + sid)
+            for req in ["jurisdiction", "legal_basis", "work_date"]:
+                if not public_domain_proof.get(req) or not str(public_domain_proof.get(req)).strip():
+                    raise ValueError(f"Missing {req} in public_domain_proof for source " + sid)
+
         records.append({
-            "source_id": sid, "author": author, "publisher": source["publisher"],
+            "source_id": sid, "author": author, "publisher": publisher,
             "origin_url": source["origin_url"], "dataset_version": source["dataset_version"],
             "artifact_sha256": source["retrieval"]["sha256"],
             "retrieval_identity": source["retrieval"]["identity"],
             "retrieval_url": source["retrieval"]["url"],
-            "license_id": source["license"]["id"],
+            "license_id": license_id,
             "license_evidence_url": source["license"]["evidence_url"],
             "license_evidence_sha256": source["license"]["evidence_sha256"],
             "alterations": source["alterations"],
             "review": source["review"],
-            "public_domain_proof": source["license"].get("public_domain_proof"),
+            "public_domain_proof": public_domain_proof,
             "notice_file": sid + "_notice.txt"
         })
     records.sort(key=lambda r: r["source_id"])
     notices = {}
     for r in records:
-        notices[r["notice_file"]] = "\n".join([
+        notice_lines = [
             "Source: " + r["source_id"],
             "Author: " + r["author"],
             "Publisher: " + r["publisher"],
@@ -144,10 +160,16 @@ def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
             "License: " + r["license_id"],
             "Source-specific rights: " + r["license_evidence_url"],
             "Rights proof SHA-256: " + r["license_evidence_sha256"],
-            "Alterations: " + "; ".join(r["alterations"]),
-            "Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"],
-            "Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True)
-        ]) + "\n"
+        ]
+        if r["license_id"] in ("CC-BY-SA-4.0", "GFDL-1.3-only"):
+            notice_lines.append("Alterations: " + "; ".join(r["alterations"]))
+
+        notice_lines.append("Independent review: " + r["review"]["reviewer"] + " " + r["review"]["decision_url"])
+
+        if r["license_id"] == "PUBLIC-DOMAIN" and r["public_domain_proof"]:
+            notice_lines.append("Public-domain basis: " + json.dumps(r["public_domain_proof"], sort_keys=True))
+
+        notices[r["notice_file"]] = "\n".join(notice_lines) + "\n"
     notices["attribution.json"] = json.dumps(
         records, sort_keys=True, ensure_ascii=False, indent=2) + "\n"
     _write_notices_safely(out_dir, notices)
