@@ -132,7 +132,39 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        # We need a source with scope "content_classification" for "source_attested"
+        # We can dynamically add one to self.validator.catalog.sources for the test
+        valid_source = {
+            "source_id": "TEST-CORPUS",
+            "publisher": "Test",
+            "version": "1.0",
+            "url": "https://example.com/test",
+            "scope": "content_classification",
+            "sha256": "0" * 64
+        }
+        self.validator.catalog.sources["TEST-CORPUS"] = valid_source
+
+        evidence = [{
+            "source_id": "TEST-CORPUS",
+            "source_version": "1.0",
+            "source_url": "https://example.com/test",
+            "locator": "page 10",
+            "method": "published_content_assignment",
+            "reviewer_id": "reviewer-1"
+        }]
+
+        # 'en' has CEFR certified corpora
+        rec1 = self.create_record("word-en", "en", "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec1])
+        self.assertEqual(len(accepted), 1)
+        self.assertEqual(len(rejected), 0)
+
+        # 'la' does not have CEFR certified corpora
+        rec2 = self.create_record("word-la", "la", "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec2])
+        self.assertEqual(len(accepted), 0)
+        self.assertEqual(len(rejected), 1)
+        self.assertIn("Language la lacks certified CEFR corpora", rejected[0]["reason"])
 
 if __name__ == '__main__':
     unittest.main()
