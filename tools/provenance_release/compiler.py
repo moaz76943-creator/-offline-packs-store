@@ -8,6 +8,7 @@ import argparse
 import json
 import logging
 import sys
+import os
 from pathlib import Path
 
 # We reuse the logic from legal.ledger.admission as much as possible for validation.
@@ -224,6 +225,10 @@ class ProvenanceCompiler:
         return statuses
 
 def main(argv=None):
+    if not os.access(os.getcwd(), os.W_OK):
+        print("Blocked: Repository access unavailable.", file=sys.stderr)
+        return 1
+
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo-root', type=Path, default=Path.cwd())
     parser.add_argument('--ledger', type=Path)

@@ -1,9 +1,10 @@
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 import hashlib
-from tools.provenance_release.compiler import ProvenanceCompiler, main
+from tools.provenance_release.compiler import main, ProvenanceCompiler
 
 def sha256_str(data: str) -> str:
     return hashlib.sha256(data.encode('utf-8')).hexdigest()
@@ -254,6 +255,13 @@ class TestProvenanceCompiler(unittest.TestCase):
         ])
         self.assertEqual(statuses['approved'], [])
         self.assertEqual(self._compile_exit(), 1)
+
+
+    @patch('os.access')
+    def test_main_no_access(self, mock_access):
+        from tools.provenance_release.compiler import main
+        mock_access.return_value = False
+        self.assertEqual(main(['--manifest-out', 'm', '--notice-out', 'n']), 1)
 
 if __name__ == '__main__':
     unittest.main()
