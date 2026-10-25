@@ -28,6 +28,41 @@ class Tests(unittest.TestCase):
         self.sha=hashlib.sha256((self.root/'catalog/language_registry.v1.json').read_bytes()).hexdigest()
     def issue(self,n,t,owner=controller.OWNER):
         return {'number':n,'title':queue.PREFIX+t['task_id'],'body':queue.serialize(t),'user':{'login':owner}}
+    def test_malformed_accepted_batch_does_not_stop_registry_work(self):
+        # A single corrupt optional acceptance batch is not a reason to stop
+        # an unrelated registry-validation job. Leave the bad bytes untouched.
+        folder=self.root/'tools/gha_factory/admission/accepted/corrupt'
+        folder.mkdir(parents=True)
+        manifest=folder/'queue.json'
+        for contents in ('{broken', '[]', 'null', '"wrong-type"'):
+            with self.subTest(contents=contents):
+                manifest.write_text(contents,encoding='utf-8')
+                t=task(source_sha256=self.sha,language='de',state='NEW')
+                api=FakeGitHub([self.issue(1,t)])
+                self.assertEqual([j['number'] for j in controller.controller(api,11,1,NOW,self.root)],[1])
+                self.assertEqual(queue.parse(api.one(1)['body'])['state'],'CLAIMED')
+                self.assertEqual(manifest.read_text(encoding='utf-8'),contents)
+
+    def test_symlinked_accepted_manifest_is_not_loaded(self):
+        # No admission can be forged by following a queue.json link to bytes
+        # outside the audited accepted/ tree.
+        folder=self.root/'tools/gha_factory/admission/accepted/linked'
+        folder.mkdir(parents=True)
+        forged={
+            'schema_version':'1.0.0','status':'ACCEPTED_FOR_QUEUE',
+            'publication_approved':False,
+            'source_id':'linked-source','language':'de','dataset_version':'1',
+            'source_artifact_sha256':'a'*64,
+            'jobs':[{'source_id':'linked-source','language':'de','dataset_version':'1',
+                     'category':'dictionary','partition_index':0,
+                     'path':'partition-00000000.jsonl','record_count':1,'sha256':'b'*64}]
+        }
+        external=self.root/'outside-acceptance.json'
+        external.write_text(json.dumps(forged),encoding='utf-8')
+        (folder/'queue.json').symlink_to(external)
+        ctx,_=controller.context(self.root)
+        self.assertEqual(ctx['admissions'],{})
+
     def test_claim_parallel_and_duplicate_safety(self):
         a=task(source_sha256=self.sha,language='de',state='NEW')
         b=task(source_sha256=self.sha,language='en')
