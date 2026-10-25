@@ -54,6 +54,20 @@ def build(root, receipt, folder=FOLDER):
             or receipt.get("production_ready") is not False
             or receipt.get("source_admission_approved") is not False):
         raise ValueError("unapproved source must remain review-only")
+    # A suspected source/sense mismatch is a hard, explicit candidate-level hold.
+    # Derived-harvest structure alone never constitutes independent language QA.
+    qa_hold = receipt.get("linguistic_qa_status")
+    if qa_hold is None:
+        if "linguistic_qa_note" in receipt or "linguistic_qa_evidence" in receipt:
+            raise ValueError("incomplete linguistic QA hold")
+    elif (qa_hold != "SUSPECT_MISMATCH"
+          or not isinstance(receipt.get("linguistic_qa_note"), str)
+          or len(receipt["linguistic_qa_note"].strip()) < 20
+          or not isinstance(receipt.get("linguistic_qa_evidence"), list)
+          or not receipt["linguistic_qa_evidence"]
+          or any(not isinstance(url, str) or not url.startswith("https://")
+                 for url in receipt["linguistic_qa_evidence"])):
+        raise ValueError("invalid or unsupported linguistic QA hold")
     notice = safe_file(root, receipt["source_license_evidence_path"]).read_bytes()
     if (digest(notice) != receipt["source_license_evidence_sha256"]
             or b"Lexeme and EntitySchema namespaces ONLY." not in notice
@@ -108,6 +122,9 @@ def build(root, receipt, folder=FOLDER):
                 "level": "UNKNOWN", "level_evidence": None,
                 "directed_translations": [], "examples": [], "review_status": "REVIEW_REQUIRED",
             })
+            if qa_hold == "SUSPECT_MISMATCH":
+                rows[-1]["linguistic_qa_status"] = qa_hold
+                rows[-1]["eligible_for_promotion"] = False
     rows.sort(key=lambda r: (r["language"], r["topic"], r["lexeme_id"], r["sense_id"], r["concept_id"]))
     if len(rows) != receipt["actual_rows"]:
         raise ValueError("candidate count mismatch")
