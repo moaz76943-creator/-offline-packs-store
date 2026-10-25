@@ -21,6 +21,126 @@
       "retrieval_date": "registry",
       "source_id": "catalog.language_profiles",
       "value": "ltr"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2481",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Intentemos algo!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2482",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Tengo que irme a dormir."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2483",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Qué estás haciendo?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2484",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Qué es eso?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2485",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Hoy es 18 de junio y es el cumpleaños de Muiriel!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2486",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Feliz cumpleaños, Muiriel!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2487",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Ahora, Muiriel tiene 20 años."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2488",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "La contraseña es \"Muiriel\"."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2489",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Volveré pronto."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2491",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "No tengo palabras."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2492",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Esto no acabará nunca."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2493",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Simplemente no sé qué decir..."
     }
   ]
 }
