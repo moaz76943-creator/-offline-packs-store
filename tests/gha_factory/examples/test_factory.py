@@ -132,6 +132,35 @@ class FactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(Rejected,'remapped'):
             verified_catalog(self.catalog, {'deu':'ar'})
 
+    def test_catalog_rejects_malformed_language_manifest(self):
+        # Synthetic catalog corruption must fail closed, not crash or accept
+        # non-string language identities as canonical production IDs.
+        original = self.catalog.read_text(encoding='utf-8')
+        baseline = json.loads(original)['languages']
+        invalid = [
+            None,
+            {'code': 'de'},
+            [None] + baseline[1:],
+            [{'code': ['de']}] + baseline[1:],
+            [{'code': None}] + baseline[1:],
+        ]
+        try:
+            for languages in invalid:
+                with self.subTest(languages=repr(languages)[:80]):
+                    self.catalog.write_text(json.dumps({'languages': languages}),
+                                            encoding='utf-8')
+                    with self.assertRaisesRegex(Rejected, 'canonical 100-language manifest'):
+                        verified_catalog(self.catalog, {})
+        finally:
+            self.catalog.write_text(original, encoding='utf-8')
+
+    def test_catalog_rejects_malformed_explicit_language_mappings(self):
+        for mappings in [None, [], {'zzz': ['zz005']},
+                         {7: 'zz005'}, {'zzz': None}]:
+            with self.subTest(mappings=mappings):
+                with self.assertRaisesRegex(Rejected, 'invalid explicit language mapping'):
+                    verified_catalog(self.catalog, mappings)
+
     def test_empty_route05_ledger_blocks_approval(self):
         self.assertFalse(source_approval(self.ledger,'tatoeba',self.snapshots['cc0']['sha256']))
 
