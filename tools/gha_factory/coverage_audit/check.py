@@ -389,6 +389,14 @@ def audit(root, *, shard=0, shards=10):
         if p['id'] in indexed or p['id'] not in m_ids:
             raise AuditError('duplicate or unknown published pack')
         indexed[p['id']] = p
+    # Version metadata is a separate public release claim. Validate its
+    # shape and identities globally, even when this audit checks only one
+    # language shard and the referenced manifest pack is in another shard.
+    version_packs = version.get('packs')
+    if not isinstance(version_packs, dict):
+        raise AuditError('invalid version pack index')
+    if not set(version_packs).issubset(indexed):
+        raise AuditError('unbacked version pack index entry')
     metadata = {item['code']: item for item in manifest['languages']}
     aliases = {item['id']: item for item in registry['languages']}
     selected = sorted(m_ids)[shard::shards]
