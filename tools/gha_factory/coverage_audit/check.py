@@ -413,10 +413,23 @@ def audit(root, *, shard=0, shards=10):
             'moaz76943-creator/-offline-packs-store@main/'
             f'packs/{pack_id}-{pack_version}.pack.gz'
         )
+        # A version index may expose an archive digest/size to clients.
+        # When present, these must agree with the canonical manifest; checking
+        # only the URL and version permits contradictory download evidence.
+        # Validate globally, not only for languages selected by this shard.
+        manifest_pack = indexed[pack_id]
         if (not isinstance(record, dict)
                 or not isinstance(pack_version, str)
                 or record.get('version') != pack_version
-                or record.get('file_url') != expected_url):
+                or record.get('file_url') != expected_url
+                or ('sha256' in record and (
+                    not isinstance(record['sha256'], str)
+                    or not SHA.fullmatch(record['sha256'])
+                    or record['sha256'] != manifest_pack.get('sha256')))
+                or ('size_bytes' in record and (
+                    type(record['size_bytes']) is not int
+                    or record['size_bytes'] < 0
+                    or record['size_bytes'] != manifest_pack.get('archiveSizeBytes')))):
             raise AuditError(f'version pack descriptor mismatch: {pack_id}')
     metadata = {item['code']: item for item in manifest['languages']}
     aliases = {item['id']: item for item in registry['languages']}
