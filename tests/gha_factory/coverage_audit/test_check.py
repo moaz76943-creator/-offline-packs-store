@@ -108,7 +108,7 @@ class CoverageAuditTests(unittest.TestCase):
             b'{"score":1e999}',
             b'{"note":"\\ud800"}',
             b'["not", "an", "object"]',
-            b'{"word":"\\xff"}',
+            b'{"word":"' + bytes([255]) + b'"}',
         )
         for raw in bad_members:
             with self.subTest(raw=raw):
