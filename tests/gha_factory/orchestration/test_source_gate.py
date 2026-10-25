@@ -98,6 +98,13 @@ class SourceTests(unittest.TestCase):
                     e.verify_partition(self.t, ctx)
         partition.write_bytes(original)
 
+    def test_partition_decoder_preserves_valid_multilingual_unicode(self):
+        for sample in ('العَرَبِيَّة', 'Äpfel, schön, groß, Straße',
+                       'İstanbul, I, ı, i', 'café', '日本語'):
+            with self.subTest(sample=sample):
+                raw = json.dumps({'value': sample}, ensure_ascii=False).encode('utf-8')
+                self.assertEqual(e.strict_partition_row(raw)['value'], sample)
+
     def test_wrong_canonical_language(self):
         self.t=p.new('test-fixture',sha(self.raw),'zz','approved_snapshot_verify',0);self.assertEqual(self.gate(),'QUARANTINED')
     def test_large_snapshot_needs_durable_handoff(self):
