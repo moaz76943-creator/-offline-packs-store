@@ -198,6 +198,8 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
                 raise AuditError('orphan translation sense/lexeme reference')
             mismatch = db.execute("""
                 SELECT 1 FROM translations AS t
+                JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
+                JOIN lexicon AS source ON source.id = src_sense.lexeme_id
                 JOIN senses AS s ON s.sense_id = t.to_sense_id
                 JOIN lexicon AS target ON target.id = s.lexeme_id
                 WHERE t.language_code IS NULL OR source.language_code IS NULL
@@ -208,7 +210,6 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
             if mismatch:
                 raise AuditError('translation target language mismatch or missing')
             rows = db.execute("""
-
                 SELECT source.language_code, target.language_code, COUNT(*)
                 FROM translations AS t
                 JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
