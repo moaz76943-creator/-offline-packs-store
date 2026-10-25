@@ -229,6 +229,14 @@ class CoverageAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(checker.AuditError, 'release metadata|published packs'):
             checker.audit(self.root, shard=0, shards=1)
 
+    def test_empty_published_packs_cannot_claim_latest_verified_version(self):
+        # A non-null verified version is a publication claim even if the
+        # release_status flag remains BLOCKED_DEPENDENCY. No v2 pack exists.
+        self.values['version.json']['latest_verified_version'] = '4.0.0'
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'verified version|release metadata'):
+            checker.audit(self.root, shard=0, shards=1)
+
     def test_nonempty_manifest_cannot_mask_unbacked_version_index(self):
         # Synthetic fixture: a pending source and a manifest entry for aa
         # must not let version.json advertise phantom packs. Shard ab does
