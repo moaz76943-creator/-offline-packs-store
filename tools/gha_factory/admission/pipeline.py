@@ -117,7 +117,7 @@ def route05_source(repo_root, source_id, dataset_version, input_path, fmt):
     if fmt == 'wikidata-lexeme-json':
         retrieval = s.get('retrieval') or {}
         url = retrieval.get('url', '')
-        match = re.fullmatch(r'https://www\\.wikidata\\.org/wiki/Special:EntityData/(L[1-9][0-9]*)\\.json\\?revision=([1-9][0-9]*)', url) if isinstance(url, str) else None
+        match = re.fullmatch(r'https://www[.]wikidata[.]org/wiki/Special:EntityData/(L[1-9][0-9]*)[.]json[?]revision=([1-9][0-9]*)', url) if isinstance(url, str) else None
         if (s.get('license', {}).get('id') != 'CC0-1.0' or not match
                 or s.get('origin_url') != url
                 or retrieval.get('identity') != 'wikidata:Lexeme:%s:revision:%s' % match.groups()):
