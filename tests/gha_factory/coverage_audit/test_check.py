@@ -494,5 +494,43 @@ class CoverageAuditTests(unittest.TestCase):
             checker.audit(self.root, shard=0, shards=1)
 
 
+    def test_unreferenced_lexeme_language_must_be_canonical(self):
+        # Synthetic SQLite: a valid aa->ab edge must not mask an unrelated
+        # lexicon row whose language is NULL or outside the 100-language set.
+        # Foreign keys and translation joins cannot detect this corruption.
+        for bad_language in (None, 'zz'):
+            with self.subTest(bad_language=bad_language), tempfile.TemporaryDirectory() as temp:
+                database = Path(temp) / 'directed.sqlite'
+                with closing(sqlite3.connect(database)) as db:
+                    db.executescript("""
+                        CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                        CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                        CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT, language_code TEXT);
+                        INSERT INTO lexicon VALUES('l1','aa'),('l2','ab');
+                        INSERT INTO senses VALUES('s1','l1'),('s2','l2');
+                        INSERT INTO translations VALUES('s1','s2','ab');
+                    """)
+                    db.execute("INSERT INTO lexicon VALUES('unreferenced', ?)", (bad_language,))
+                    db.commit()
+                with self.assertRaisesRegex(checker.AuditError, 'lexicon language'):
+                    checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
+
+    def test_unreferenced_canonical_lexeme_does_not_inflate_directed_count(self):
+        with tempfile.TemporaryDirectory() as temp:
+            database = Path(temp) / 'directed.sqlite'
+            with closing(sqlite3.connect(database)) as db:
+                db.executescript("""
+                    CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                    CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                    CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT, language_code TEXT);
+                    INSERT INTO lexicon VALUES('l1','aa'),('l2','ab'),('l3','aa');
+                    INSERT INTO senses VALUES('s1','l1'),('s2','l2');
+                    INSERT INTO translations VALUES('s1','s2','ab');
+                """)
+                db.commit()
+            self.assertEqual(checker._directed_pairs(database.read_bytes(), {'aa', 'ab'}),
+                             [{'source_language': 'aa', 'target_language': 'ab', 'verified_count': 1}])
+
+
 if __name__ == '__main__':
     unittest.main()
