@@ -221,6 +221,24 @@ class PairValidationTests(unittest.TestCase):
         self.assertEqual(output.read_bytes(), original)
         self.assertFalse((self.dir / 'first-report.json.tmp').exists())
 
+    def test_preexisting_staged_receipt_is_not_deleted_on_exclusive_create_failure(self):
+        output = self.dir / 'contended-report.json'
+        staged = self.dir / 'contended-report.json.tmp'
+        staged.write_bytes(b'OTHER_RUN_STAGED_RECEIPT\n')
+        catalog = self.dir / 'manifest-contended.json'
+        catalog.write_text(json.dumps({'languages': [{'code': 'l' + str(i)}
+                                                    for i in range(100)]}))
+        args = ['--catalog', str(catalog), '--out', str(output)]
+        for name in ('detailed', 'links', 'cc0', 'candidates'):
+            args.extend(['--' + name, 'fixture', '--' + name + '-sha256', 'a' * 64])
+        with patch('validator.audit_pairs',
+                   return_value={'status': 'QA_ONLY_REVIEW_REQUIRED'}):
+            with self.assertRaisesRegex(PairError, 'UNSAFE_OUTPUT_PATH'):
+                main(args)
+        self.assertTrue(staged.exists(), 'Another run owns the existing staging file')
+        self.assertEqual(staged.read_bytes(), b'OTHER_RUN_STAGED_RECEIPT\n')
+        self.assertFalse(output.exists())
+
     def test_bounded_pair_budget(self):
         with self.assertRaisesRegex(PairError, 'PAIR_BUDGET_EXCEEDED'):
             self.inputs['candidates'] *= 2
