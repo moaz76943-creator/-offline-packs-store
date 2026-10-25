@@ -14,16 +14,13 @@ class TestPRJanitor(unittest.TestCase):
         self.assertEqual(pr_janitor.sanitize_subject("Fix bug (#42)", 42), "Fix bug (#42)")
         self.assertEqual(pr_janitor.sanitize_subject("Fix bug #42", 42), "Fix bug #42")
 
-        # Skip CI instructions
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [skip ci]", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("[CI SKIP] Fix bug", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [no ci]", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [skip actions]", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [actions skip]", 42), "Fix bug (#42)")
-
-        # Skip trailer
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug\nskip-checks: true", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug\nskip-checks: true\n", 42), "Fix bug (#42)")
+        # Squash subjects preserve user-supplied text, including CI-skip tokens.
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [skip ci]", 42), "Fix bug [skip ci] (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("[CI SKIP] Fix bug", 42), "[CI SKIP] Fix bug (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [no ci]", 42), "Fix bug [no ci] (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [skip actions]", 42), "Fix bug [skip actions] (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [actions skip]", 42), "Fix bug [actions skip] (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug\nskip-checks: true", 42), "Fix bug skip-checks: true (#42)")
 
         # Empty/None titles
         self.assertEqual(pr_janitor.sanitize_subject(None, 42), "PR 42 (#42)")
@@ -215,8 +212,8 @@ class TestPRJanitor(unittest.TestCase):
     @patch("tools.pr_janitor.subprocess.check_output")
     @patch("tools.pr_janitor.subprocess.call")
     @patch("tools.pr_janitor.subprocess.check_call")
-    def test_main_skip_directive_aborts_merge(self, mock_check_call, mock_call, mock_check_output):
-        # Ready PR scenario but subject has skip ci
+    def test_main_preserves_explicit_skip_in_squash_subject(self, mock_check_call, mock_call, mock_check_output):
+        # Ready PR with user-selected CI marker still needs a passing real gate
         mock_check_output.side_effect = [
             json.dumps([{"number": 42}]),
             json.dumps({
@@ -226,13 +223,12 @@ class TestPRJanitor(unittest.TestCase):
             })
         ]
 
-        # We mock sanitize_subject to simulate a scenario where a skip directive is
-        # somehow retained in the subject to trigger the SystemExit check.
         with patch("tools.pr_janitor.sanitize_subject", return_value="Clean PR [skip ci] (#42)"):
-            with self.assertRaises(SystemExit) as cm:
-                pr_janitor.main(["--merge-one"])
-
-        self.assertIn("refusing skip directive", str(cm.exception))
+            self.assertEqual(pr_janitor.main(["--merge-one"]), 0)
+        commands = [call.args[0] for call in mock_check_call.call_args_list]
+        self.assertTrue(any("merge" in c and "--subject" in c
+                            and c[c.index("--subject") + 1] == "Clean PR [skip ci] (#42)"
+                            for c in commands))
 
 
 if __name__ == "__main__":
