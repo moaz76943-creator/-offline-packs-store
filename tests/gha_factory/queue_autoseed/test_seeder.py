@@ -86,11 +86,26 @@ class SeederTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'collision'):
             seeder.plan(context(), REGISTRY_SHA, [as_existing(collision)])
 
-    def test_invalid_existing_owner_task_blocks_batch(self):
-        bad = as_existing(seeder.plan(context(), REGISTRY_SHA, [])[0])
+    def test_malformed_owner_issue_is_reserved_without_stalling_other_ready_shards(self):
+        tasks = seeder.plan(context(), REGISTRY_SHA, [])
+        bad = as_existing(tasks[0])
         bad['body'] = 'untrusted malformed content'
-        with self.assertRaises(ValueError):
-            seeder.plan(context(), REGISTRY_SHA, [bad])
+        self.assertEqual([x['shard'] for x in seeder.plan(context(), REGISTRY_SHA, [bad])], [1, 2])
+        self.assertEqual(seeder.verified_context(
+            {'languages': frozenset(('de',)), 'sources': [], 'admissions': {}},
+            Path('.'), [bad])['admissions'], {})
+
+    def test_title_body_mismatch_reserves_both_fingerprints(self):
+        tasks = seeder.plan(context(), REGISTRY_SHA, [])
+        bad = as_existing(tasks[1])
+        bad['title'] = queue.PREFIX + tasks[0]['task_id']
+        self.assertEqual([x['shard'] for x in seeder.plan(context(), REGISTRY_SHA, [bad])], [2])
+
+    def test_invalid_owner_issue_does_not_suppress_existing_collision_guard(self):
+        tasks = seeder.plan(context(), REGISTRY_SHA, [])
+        duplicate = as_existing(tasks[0])
+        with self.assertRaisesRegex(ValueError, 'duplicate pre-existing queue issue'):
+            seeder.plan(context(), REGISTRY_SHA, [duplicate, dict(duplicate, number=56)])
 
     def test_issue_filter_ignores_pull_requests_and_other_owner(self):
         example = as_existing(seeder.plan(context(), REGISTRY_SHA, [])[0])
@@ -105,6 +120,27 @@ class SeederTests(unittest.TestCase):
             with self.subTest(value=value):
                 with self.assertRaises(ValueError):
                     seeder.plan(context(), REGISTRY_SHA, [], limit=value)
+
+    def test_invalid_title_still_reserves_validated_body_partition(self):
+        tasks = seeder.plan(context(), REGISTRY_SHA, [])
+        bad = as_existing(tasks[0])
+        bad['title'] = queue.PREFIX + 'broken'
+        self.assertEqual([x['shard'] for x in seeder.plan(context(), REGISTRY_SHA, [bad])], [1, 2])
+
+    def test_mismatched_v2_title_reserves_partition_across_fingerprint_versions(self):
+        from tools.gha_factory.orchestration import protocol as proto
+        v2_task = proto.new(SOURCE, SHA, 'de', 'approved_snapshot_verify', 0)
+        mismatched = {
+            'number': 56,
+            'title': queue.PREFIX + ('ab' * 32),
+            'body': proto.serialize(v2_task),
+            'user': {'login': seeder.OWNER},
+            'state': 'open',
+        }
+        self.assertNotEqual(v2_task['task_id'], 'ab' * 32)
+        self.assertEqual(
+            [t['shard'] for t in seeder.plan(context(), REGISTRY_SHA, [mismatched])],
+            [1, 2])
 
     def test_v2_task_in_existing_issues_deduplicates_partition(self):
         from tools.gha_factory.orchestration import protocol as proto
