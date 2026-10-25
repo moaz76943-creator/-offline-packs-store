@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "retrieval_date": "2026-10-21",
+  "retrieval_date": "2026-10-25",
   "rows": [
     {
       "concept_id": "concept.q2778382",
@@ -105,18 +105,155 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q5148721"
+    },
+    {
+      "concept_id": "concept.q533047",
+      "forms": [
+        "rose",
+        "roses"
+      ],
+      "language": "en",
+      "lemma": "rose",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L18379",
+      "pos": "",
+      "qids": [
+        "Q533047",
+        "Q102231",
+        "Q34687"
+      ],
+      "record_id": "L18379",
+      "retrieval_date": "2026-10-25",
+      "revision": "2549975946",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L18379-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q533047"
+    },
+    {
+      "concept_id": "concept.q3014419",
+      "forms": [
+        "wine",
+        "wines"
+      ],
+      "language": "en",
+      "lemma": "wine",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L4710",
+      "pos": "",
+      "qids": [
+        "Q282",
+        "Q3014419"
+      ],
+      "record_id": "L4710",
+      "retrieval_date": "2026-10-25",
+      "revision": "2532910327",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L4710-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q3014419"
+    },
+    {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "mauve",
+        "mauves"
+      ],
+      "language": "en",
+      "lemma": "mauve",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L24330",
+      "pos": "",
+      "qids": [
+        "Q604079"
+      ],
+      "record_id": "L24330",
+      "retrieval_date": "2026-10-25",
+      "revision": "2531379311",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L24330-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
+    },
+    {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "mauve",
+        "mauver",
+        "mauvest"
+      ],
+      "language": "en",
+      "lemma": "mauve",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L24331",
+      "pos": "",
+      "qids": [
+        "Q604079"
+      ],
+      "record_id": "L24331",
+      "retrieval_date": "2026-10-25",
+      "revision": "2531379411",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L24331-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
+    },
+    {
+      "concept_id": "concept.q901731",
+      "forms": [
+        "umber",
+        "umbers"
+      ],
+      "language": "en",
+      "lemma": "umber",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L29004",
+      "pos": "",
+      "qids": [
+        "Q901731"
+      ],
+      "record_id": "L29004",
+      "retrieval_date": "2026-10-25",
+      "revision": "2549940723",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L29004-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q901731"
     }
   ],
   "schema_version": "1.0.0",
   "section": "colors",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1324818"
+      "reason": "other_language",
+      "wikidata": "Q425278"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q797446"
+      "reason": "other_language",
+      "wikidata": "Q425278"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q1520693"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7622361"
     }
   ],
   "source": "harvest-wikidata"

@@ -1,6 +1,6 @@
 {
   "language": "da",
-  "retrieval_date": "2026-10-21",
+  "retrieval_date": "2026-10-25",
   "rows": [
     {
       "concept_id": "concept.q71404162",
@@ -28,18 +28,53 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q71404162"
+    },
+    {
+      "concept_id": "concept.q604079",
+      "forms": [
+        "mauve",
+        "mauve",
+        "mauve",
+        "mauve"
+      ],
+      "language": "da",
+      "lemma": "mauve",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1355107",
+      "pos": "",
+      "qids": [
+        "Q604079"
+      ],
+      "record_id": "L1355107",
+      "retrieval_date": "2026-10-25",
+      "revision": "2378664169",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1355107-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q604079"
     }
   ],
   "schema_version": "1.0.0",
   "section": "colors",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1324818"
+      "reason": "other_language",
+      "wikidata": "Q425278"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q797446"
+      "reason": "other_language",
+      "wikidata": "Q425278"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q1520693"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7622361"
     }
   ],
   "source": "harvest-wikidata"
