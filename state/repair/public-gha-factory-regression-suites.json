@@ -1,0 +1,16 @@
+{
+  "action": "recorded",
+  "issue_body": "## Signature\n`public-gha-factory-regression-suites`\n\n## Root cause\nThe run failed with signature Public GHA factory regression suites.\n\n## Structural fix\nChange the producer so this signature cannot recur: one output file per shard, schema_version on the contract, and a regression test. Do not rerun the job.\n\nOne issue per signature. If ROOT_CAUSES.md already describes this cause, close this issue.\n",
+  "issue_number": null,
+  "issue_title": "Root cause: public-gha-factory-regression-suites",
+  "last_run_id": "40159557161",
+  "raw_signature": "Public GHA factory regression suites",
+  "retries": 0,
+  "root_cause": "The run failed with signature Public GHA factory regression suites.",
+  "schema_version": "1.0.0",
+  "seen_count": 1,
+  "signature": "public-gha-factory-regression-suites",
+  "structural_fix": "Change the producer so this signature cannot recur: one output file per shard, schema_version on the contract, and a regression test. Do not rerun the job.",
+  "tracked_in": "",
+  "warning": ""
+}
