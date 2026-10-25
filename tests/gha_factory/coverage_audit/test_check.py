@@ -437,5 +437,33 @@ class CoverageAuditTests(unittest.TestCase):
                 checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
 
 
+    def test_duplicate_translation_rows_do_not_inflate_directed_sense_coverage(self):
+        # Synthetic fixture: distinct row IDs/evidence may refer to the same
+        # directed sense edge. Coverage must count unique A->B sense pairs,
+        # not duplicate rows; B->A remains a separate directed edge.
+        with tempfile.TemporaryDirectory() as temp:
+            database = Path(temp) / 'directed.sqlite'
+            with closing(sqlite3.connect(database)) as db:
+                db.executescript("""
+                    CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                    CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                    CREATE TABLE translations(translation_id TEXT PRIMARY KEY,
+                        from_sense_id TEXT, to_sense_id TEXT, language_code TEXT);
+                    INSERT INTO lexicon VALUES('l1','aa'),('l2','ab'),('l3','aa');
+                    INSERT INTO senses VALUES('s1','l1'),('s2','l2'),('s3','l3');
+                    INSERT INTO translations VALUES
+                        ('t1','s1','s2','ab'),
+                        ('t2','s1','s2','ab'),
+                        ('t3','s3','s2','ab'),
+                        ('t4','s2','s1','aa');
+                """)
+                db.commit()
+            pairs = checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
+        self.assertEqual(pairs, [
+            {'source_language': 'aa', 'target_language': 'ab', 'verified_count': 2},
+            {'source_language': 'ab', 'target_language': 'aa', 'verified_count': 1},
+        ])
+
+
 if __name__ == '__main__':
     unittest.main()
