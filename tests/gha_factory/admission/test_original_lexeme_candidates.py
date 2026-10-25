@@ -54,6 +54,12 @@ class OriginalLexemeCandidatesTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             c.build(c.ROOT, bad)
 
+    def test_duplicate_source_lexeme_is_rejected(self):
+        bad = copy.deepcopy(self.receipt)
+        bad["source_files"].append(copy.deepcopy(bad["source_files"][0]))
+        with self.assertRaisesRegex(ValueError, "duplicate source lexeme"):
+            c.build(c.ROOT, bad)
+
     def test_ranked_source_claims_never_infer_directed_translations(self):
         source = {"claims": {"P9970": [
             {"rank": "deprecated", "mainsnak": {"snaktype": "value",
