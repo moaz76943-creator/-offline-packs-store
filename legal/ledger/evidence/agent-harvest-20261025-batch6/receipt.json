@@ -1,0 +1,110 @@
+{
+  "actual_rows": 21,
+  "candidate_sha256": "19646de349c1ccfab723acfc146a80e739b06cb9b9401f1561b7412fbd93ecc8",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "2ac92fbf1521a617db59dede784163b939c811e6",
+  "source_files": [
+    {
+      "language": "bg",
+      "origin_git_blob_sha1": "72e617e8eb4bc1147f54924dd6c2099812978432",
+      "origin_path": "data/agents/harvest/wikidata/bg/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/bg/clothing.json",
+      "rows": 1,
+      "sha256": "7b9dff435f975511321184836e3087fa36d68a6fdd522aa28d0c9b4ee4e2b1d5",
+      "topic": "clothing"
+    },
+    {
+      "language": "da",
+      "origin_git_blob_sha1": "1c40284e501f3e7cbb7527e6d44a60f7f515367b",
+      "origin_path": "data/agents/harvest/wikidata/da/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/da/animals.json",
+      "rows": 3,
+      "sha256": "d5bd9918d0364bdc0dfd0e029a4fd03f402d2c053cca10f3fb5957c61e90e632",
+      "topic": "animals"
+    },
+    {
+      "language": "eo",
+      "origin_git_blob_sha1": "c573a47179778d04be192338fd28c40a65b2a25f",
+      "origin_path": "data/agents/harvest/wikidata/eo/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/eo/animals.json",
+      "rows": 1,
+      "sha256": "ead5cc681846952cfac85bc740c42b6693e43a0b5b2f8176461ccca62b987e68",
+      "topic": "animals"
+    },
+    {
+      "language": "et",
+      "origin_git_blob_sha1": "ef7df49f96570562269756ab59af0f4b8a0d3476",
+      "origin_path": "data/agents/harvest/wikidata/et/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/et/work.json",
+      "rows": 2,
+      "sha256": "0163e4b5ddf8dbcef74fc980dee48bfbc596e77deacdf29679318fd7e62d9096",
+      "topic": "work"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "35667266a18dbc48cd763e08f2cf4461c6eb88e1",
+      "origin_path": "data/agents/harvest/wikidata/ja/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/ja/clothing.json",
+      "rows": 2,
+      "sha256": "850c3164dc129400d2fd7c60c6ed8aaa517932a0e83eaf93d0c05d460ea4a241",
+      "topic": "clothing"
+    },
+    {
+      "language": "ms",
+      "origin_git_blob_sha1": "63fcb4844e53da0e582dcae9b95cae55ac539968",
+      "origin_path": "data/agents/harvest/wikidata/ms/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/ms/city.json",
+      "rows": 2,
+      "sha256": "5e7f7068b29d25d60d2fa390ca33fdcdfe68ed8ec92a070d09c5d75b156776f3",
+      "topic": "city"
+    },
+    {
+      "language": "pa",
+      "origin_git_blob_sha1": "f12556f47c1bb8f3eaadd7c8f276304048f71ffa",
+      "origin_path": "data/agents/harvest/wikidata/pa/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/pa/emotions.json",
+      "rows": 3,
+      "sha256": "eafce04b7d1e63d769096c36fc1cc0af6f77a94982f8cd0c20d4371da28b4d2f",
+      "topic": "emotions"
+    },
+    {
+      "language": "sv",
+      "origin_git_blob_sha1": "a19525962cedecd6986392fcb5b46492fb7c882f",
+      "origin_path": "data/agents/harvest/wikidata/sv/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/sv/work.json",
+      "rows": 5,
+      "sha256": "47fd75bc87aac8bdf3e2fa549d035c421d00498a5e619a0c3737d788827be8b5",
+      "topic": "work"
+    },
+    {
+      "language": "ta",
+      "origin_git_blob_sha1": "43a05938e25b07d9d0075e20664e72c90aa776e8",
+      "origin_path": "data/agents/harvest/wikidata/ta/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/ta/food.json",
+      "rows": 1,
+      "sha256": "764522f86c0dcef1e1c5b4d85639d299571d82da3a377db0a7760556d8c484d2",
+      "topic": "food"
+    },
+    {
+      "language": "uk",
+      "origin_git_blob_sha1": "929978056babf06cc4b5b6facb5168359a393266",
+      "origin_path": "data/agents/harvest/wikidata/uk/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch6/sources/uk/food.json",
+      "rows": 1,
+      "sha256": "fa14411c2762c5c2291e5d7d6b42db1659df2a733a36f1bc03652909b1ec756e",
+      "topic": "food"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}
