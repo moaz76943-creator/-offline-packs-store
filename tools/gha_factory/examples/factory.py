@@ -195,25 +195,26 @@ def make_cloze(sentence, annotation, senses, forms):
     if not isinstance(distractors, list) or not 2 <= len(distractors) <= 5:
         raise Rejected('REJECTED_EXERCISE: insufficient attested distractors')
     options = [answer]
-    # A canonically equivalent spelling is the same answer, not a distractor.
-    # Keep diacritics and language-specific distinctions; NFC is not NFKC.
-    option_keys = {unicodedata.normalize('NFC', answer).casefold()}
+    # Distinct choices must also be distinct under canonical Unicode spelling.
+    # NFC preserves Arabic diacritics and Turkish dotted/dotless I distinctions.
+    normalized_options = {unicodedata.normalize('NFC', answer).casefold()}
     for item in distractors:
         if not isinstance(item, dict) or not isinstance(item.get('surface'), str):
             raise Rejected('REJECTED_EXERCISE: bad distractor')
         surface = item['surface']
         other_sense = item.get('sense_id')
         # Another inflected form of the answer's own sense is also correct.
+        # A non-string sense id cannot be used as a morphology key.
         if not isinstance(other_sense, str) or other_sense == sid:
             raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         evidence = senses.get(other_sense)
         other_key = (sentence['language'], other_sense, surface, tuple(sorted(feats.items())))
         if (not surface.strip() or other_key not in forms or not evidence or
                 evidence.get('language') != sentence['language'] or evidence.get('approved') is not True or
-                unicodedata.normalize('NFC', surface).casefold() in option_keys):
+                unicodedata.normalize('NFC', surface).casefold() in normalized_options):
             raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         options.append(surface)
-        option_keys.add(unicodedata.normalize('NFC', surface).casefold())
+        normalized_options.add(unicodedata.normalize('NFC', surface).casefold())
     return {'exercise_id': 'clz1_' + hashlib.sha256(canonical([sentence['id'], sid, start, end])).hexdigest()[:24],
             'sentence_id': sentence['id'], 'language': sentence['language'],
             'sense_id': sid, 'cloze': text[:start] + '____' + text[end:],
@@ -249,6 +250,8 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
         for table in ('sentences', 'cc0', 'edges', 'audio'):
             con.execute('DELETE FROM ' + table)
         for line, row, error in bounded_tsv(paths['cc0'], 4):
+            if time.monotonic() - start_time > deadline_seconds or line > MAX_RECORDS:
+                raise Rejected('BLOCKED_DEPENDENCY: CC0 worker budget exhausted; split snapshot upstream')
             if error or not ID.fullmatch(row[0]):
                 counters['rejected_cc0'] += 1
                 continue
@@ -334,6 +337,9 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
         index = 0
         try:
             for item in pairs:
+                if (time.monotonic() - start_time > deadline_seconds or
+                        counters['translation_pairs_verified'] >= MAX_RECORDS * 5):
+                    raise Rejected('BLOCKED_DEPENDENCY: pair worker budget exhausted; split snapshot upstream')
                 counters['translation_pairs_verified'] += 1
                 a,b,la,lb,ta,tb,au,bu,lic_a,lic_b = item
                 if la == 'ar' or lb == 'ar':

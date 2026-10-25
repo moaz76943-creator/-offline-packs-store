@@ -329,6 +329,81 @@ class FactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
             make_cloze(sentence, ann, senses, forms)
 
+    def test_cloze_rejects_canonically_equivalent_distractor(self):
+        # Synthetic exact-form evidence: NFC-equivalent alternatives are not
+        # distinct answer choices, even if separately attested.
+        for answer, alternate, language in [
+            ('Äpfel', 'A\u0308pfel', 'de'),
+            ('Café', 'Cafe\u0301', 'fr'),
+        ]:
+            with self.subTest(language=language):
+                text = answer + '!'
+                features = {'number': 'singular'}
+                ann = {
+                    'sentence_id': '41', 'language': language,
+                    'sentence_sha256': sha(text), 'editorial_unambiguous': True,
+                    'editor_review_url': 'https://example.org/review',
+                    'start': 0, 'end': len(answer),
+                    'sense_id': 'sense.answer', 'lexeme_id': 'lex.answer',
+                    'features': features,
+                    'distractors': [
+                        {'surface': alternate, 'sense_id': 'sense.alternate'},
+                        {'surface': 'other', 'sense_id': 'sense.other'},
+                    ],
+                }
+                senses = {
+                    'sense.answer': {'language': language, 'lexeme_id': 'lex.answer', 'approved': True},
+                    'sense.alternate': {'language': language, 'lexeme_id': 'lex.alternate', 'approved': True},
+                    'sense.other': {'language': language, 'lexeme_id': 'lex.other', 'approved': True},
+                }
+                tags = tuple(sorted(features.items()))
+                forms = {
+                    (language, 'sense.answer', answer, tags),
+                    (language, 'sense.alternate', alternate, tags),
+                    (language, 'sense.other', 'other', tags),
+                }
+                sentence = {'id': '41', 'language': language, 'text': text,
+                            'admitted': True}
+                with self.assertRaisesRegex(Rejected, 'unsupported or ambiguous distractor'):
+                    make_cloze(sentence, ann, senses, forms)
+
+    def test_cc0_import_enforces_record_budget_before_detailed_rows(self):
+        # Synthetic oversized CC0 fixture: must fail in the CC0 phase, not
+        # continue indexing until the unrelated detailed-file budget fires.
+        self.write_snapshot('cc0', '1\tdeu\tHallo\t2026\n'
+                            '2\tara\tمرحبا\t2026\n'
+                            '3\teng\tHello\t2026\n')
+        self.job['snapshots'] = self.snapshots
+        self.save_config()
+        with patch.object(example_factory, 'MAX_RECORDS', 2):
+            with self.assertRaisesRegex(Rejected, 'CC0 worker budget exhausted'):
+                self.process()
+        self.assertFalse(self.out.exists())
+
+    def test_pair_serialization_obeys_deadline_and_keeps_prior_output(self):
+        # Time expires immediately after the first reciprocal pair is written.
+        # A successful prior generation must survive the aborted retry.
+        self.process()
+        before = {p.relative_to(self.out).as_posix(): digest(p)
+                  for p in self.out.rglob('*') if p.is_file()}
+        expired = [False]
+        original = example_factory.canonical
+
+        def expire_after_first_pair(obj):
+            if isinstance(obj, dict) and obj.get('link_proof') == 'tatoeba_explicit_reciprocal':
+                expired[0] = True
+            return original(obj)
+
+        def clock():
+            return 20 if expired[0] else 0
+
+        with patch.object(example_factory, 'canonical', side_effect=expire_after_first_pair), \
+             patch.object(example_factory.time, 'monotonic', side_effect=clock):
+            with self.assertRaisesRegex(Rejected, 'pair worker budget exhausted'):
+                self.process()
+        after = {p.relative_to(self.out).as_posix(): digest(p)
+                 for p in self.out.rglob('*') if p.is_file()}
+        self.assertEqual(before, after)
 
 
 if __name__=='__main__':
