@@ -367,6 +367,44 @@ class FactoryTests(unittest.TestCase):
                 with self.assertRaisesRegex(Rejected, 'unsupported or ambiguous distractor'):
                     make_cloze(sentence, ann, senses, forms)
 
+    def test_cloze_rejects_canonically_equivalent_second_span(self):
+        # A second visual occurrence can be canonically equivalent even when
+        # str.count(answer) sees only one byte-distinct spelling.
+        for answer, alternate, language in [
+            ('café', 'cafe\\u0301', 'fr'),
+            ('Äpfel', 'A\\u0308pfel', 'de'),
+            ('أ', 'ا\\u0654', 'ar'),
+        ]:
+            with self.subTest(language=language):
+                text = answer + ' ' + alternate
+                tags = (('number', 'singular'),)
+                sentence = {'id': 'nfc-span', 'language': language,
+                            'text': text, 'admitted': True}
+                annotation = {
+                    'sentence_id': 'nfc-span', 'language': language,
+                    'sentence_sha256': sha(text),
+                    'editorial_unambiguous': True,
+                    'editor_review_url': 'https://example.org/review',
+                    'start': 0, 'end': len(answer),
+                    'sense_id': 's.answer', 'lexeme_id': 'l.answer',
+                    'features': dict(tags),
+                    'distractors': [
+                        {'surface': 'other1', 'sense_id': 's.other1'},
+                        {'surface': 'other2', 'sense_id': 's.other2'},
+                    ],
+                }
+                senses = {
+                    's.answer': {'language': language, 'lexeme_id': 'l.answer', 'approved': True},
+                    's.other1': {'language': language, 'lexeme_id': 'l.other1', 'approved': True},
+                    's.other2': {'language': language, 'lexeme_id': 'l.other2', 'approved': True},
+                }
+                forms = {(language, sid, surface, tags)
+                         for sid, surface in [
+                             ('s.answer', answer), ('s.other1', 'other1'),
+                             ('s.other2', 'other2')]}
+                with self.assertRaisesRegex(Rejected, 'ambiguous answer span'):
+                    make_cloze(sentence, annotation, senses, forms)
+
     def test_cc0_import_enforces_record_budget_before_detailed_rows(self):
         # Synthetic oversized CC0 fixture: must fail in the CC0 phase, not
         # continue indexing until the unrelated detailed-file budget fires.
