@@ -1,6 +1,6 @@
 {
   "language": "pa",
-  "retrieval_date": "2026-10-21",
+  "retrieval_date": "2026-10-25",
   "rows": [
     {
       "concept_id": "concept.q19357317",
@@ -87,18 +87,49 @@
       "status": "keep",
       "subsection": "emotions.q9415",
       "wikidata": "Q16868715"
+    },
+    {
+      "concept_id": "concept.q104776501",
+      "forms": [
+        "اندھار",
+        "ਅੰਧਾਰ",
+        "اندھار",
+        "ਅੰਧਾਰ",
+        "اندھار",
+        "ਅੰਧਾਰ",
+        "اندھاراں",
+        "ਅੰਧਾਰਾਂ"
+      ],
+      "language": "pa",
+      "lemma": "اندھار",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1034602",
+      "pos": "",
+      "qids": [
+        "Q104776501",
+        "Q815577",
+        "Q204170",
+        "Q22082330",
+        "Q182878"
+      ],
+      "record_id": "L1034602",
+      "retrieval_date": "2026-10-25",
+      "revision": "2008283340",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1034602-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q104776501"
     }
   ],
   "schema_version": "1.0.0",
   "section": "emotions",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q10923556"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q2563496"
+      "reason": "other_language",
+      "wikidata": "Q19358081"
     }
   ],
   "source": "harvest-wikidata"
