@@ -66,6 +66,14 @@ class HarvestCandidateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             c.strict_json(b'{"a":1,"a":2}')
 
+    def test_reject_nonfinite_exponents_in_derived_source_json(self):
+        # JSON syntax permits exponents, but Python float may overflow to infinity.
+        for raw in (b'{"weight":1e999}', b'{"weight":-1e999}',
+                    b'{"weight":NaN}', b'{"weight":Infinity}'):
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                c.strict_json(raw)
+        self.assertEqual(c.strict_json(b'{"weight":1.25}'), {"weight": 1.25})
+
     def test_ledger_still_empty(self):
         ledger = json.loads((self.root / "legal/ledger/sources.json").read_text())
         self.assertEqual(ledger["sources"], [])
