@@ -38,7 +38,8 @@ def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
     """
     if not isinstance(exercise, dict) or not isinstance(sentence, dict) or not isinstance(annotation, dict):
         raise ExerciseError('INVALID_EVIDENCE_ENVELOPE')
-    if not isinstance(languages, set) or sentence.get('language') not in languages:
+    language = sentence.get('language')
+    if not isinstance(languages, set) or not isinstance(language, str) or language not in languages:
         raise ExerciseError('UNREGISTERED_LANGUAGE')
     if sentence.get('admitted') is not True:
         raise ExerciseError('UNADMITTED_SENTENCE')
@@ -48,6 +49,10 @@ def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
         raise ExerciseError('INVALID_ORIGINAL_TEXT')
     if len(sentence['text']) > MAX_TEXT:
         raise ExerciseError('OVERSIZED_SENTENCE')
+    try:
+        sentence['text'].encode('utf-8', 'strict')
+    except UnicodeEncodeError as exc:
+        raise ExerciseError('INVALID_ORIGINAL_TEXT') from exc
     if sentence.get('source_sha256') is None or not isinstance(sentence['source_sha256'], str) or len(sentence['source_sha256']) != 64 or not all(c in '0123456789abcdef' for c in sentence['source_sha256']):
         raise ExerciseError('MISSING_SOURCE_SNAPSHOT_SHA')
     if not isinstance(sentence.get('attribution'), str) or not sentence['attribution'].startswith('https://'):
