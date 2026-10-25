@@ -1,0 +1,29 @@
+{
+  "id": "asset_dup",
+  "concept_id": "concept_dup",
+  "version": "1.0",
+  "hash": "abcdef",
+  "provenance": "source1",
+  "fallback_label": "concept_dup",
+  "contrast": {"supported": true},
+  "vector": {"bounds": {"max_x": 100, "max_y": 100}, "complexity": 10},
+  "device_shaping_evidence": true,
+  "labels": [
+    {
+      "language": "en",
+      "script": "Latn",
+      "text": "Valid text 1",
+      "direction": "ltr",
+      "related_concept_id": "concept_dup",
+      "verified": true
+    },
+    {
+      "language": "en",
+      "script": "Latn",
+      "text": "Valid text 2",
+      "direction": "ltr",
+      "related_concept_id": "concept_dup",
+      "verified": true
+    }
+  ]
+}
