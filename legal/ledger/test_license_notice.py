@@ -144,3 +144,34 @@ class LicenseNoticeTests(unittest.TestCase):
             self.assertNotIn('CC-BY-NC-4.0', found, notice)
             self.assertNotIn('CC-BY-ND-4.0', found, notice)
             self.assertTrue(self.conflicts(notice, 'CC0-1.0'), notice)
+
+    def test_retrieved_owner_approved_notices_match_their_declared_licenses(self):
+        root = Path(__file__).resolve().parents[2]
+        cases = (
+            ('legal/ledger/evidence/retrieved-20261025/wikidata-copyright-1523614187.txt',
+             'CC0-1.0', ()),
+            ('legal/ledger/evidence/retrieved-20261025/wiktionary-copyrights-raw.txt',
+             'CC-BY-SA-4.0', ('GFDL-1.3-only',)),
+            ('legal/ledger/evidence/retrieved-20261025/tatoeba-terms-of-use.html',
+             'CC-BY-2.0-FR', ('CC0-1.0',)),
+            ('legal/ledger/evidence/retrieved-20261025/ud-english-ewt-LICENSE.txt',
+             'CC-BY-SA-4.0', ()),
+        )
+        for relative, declared, co_offered in cases:
+            path = root / relative
+            self.assertFalse(
+                license_notice_conflicts(path, declared, co_offered), relative)
+        self.assertTrue(self.conflicts('This work is in the public domain.', 'CC-BY-SA-4.0'))
+        self.assertTrue(self.conflicts(
+            'Dedicated the work to the public domain.', 'CC-BY-SA-4.0'))
+
+    def test_explicit_corpus_public_domain_claim_conflicts(self):
+        for notice in (
+            'This dataset is in the public domain.',
+            'All of these sentences are in the public domain.',
+            'The original corpus is in the public domain.',
+            'CC BY-SA 4.0. This material is in the public domain.',
+        ):
+            with self.subTest(notice=notice):
+                self.assertTrue(self.conflicts(notice, 'CC-BY-SA-4.0'))
+
