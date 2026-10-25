@@ -81,7 +81,7 @@ class ExerciseQualityTests(unittest.TestCase):
             self.valid()
 
     def test_unpaired_surrogate_in_sentence_is_rejected_before_replay(self):
-        self.sentence['text'] = 'B\u005cud800uch ist neu.'
+        self.sentence['text'] = 'B\ud800uch ist neu.'
         with self.assertRaisesRegex(ExerciseError, 'INVALID_ORIGINAL_TEXT'):
             self.valid()
 
