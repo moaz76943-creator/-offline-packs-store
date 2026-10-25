@@ -217,13 +217,17 @@ def incidental_public_domain(text):
         prefix = normalized[max(0, index - 48):index]
         if 'dedicat' in prefix or prefix.endswith('work-is-in-the-'):
             return False
-        short = normalized[max(0, index - 24):index]
+        short = normalized[max(0, index - 110):index]
         suffix = normalized[index + len(token):index + len(token) + 16]
-        eligibility = (
-            short.endswith('in-the-')
-            or short.endswith('entered-the-')
-            or short.endswith('into-the-')
-        )
+        # Explicit claims about this dataset, its sentences or its material are
+        # NOT eligibility language. Exempt only identifiable third-party
+        # examples/conditional language and the Wiktionary source-page title.
+        eligibility = any(short.endswith(phrase) for phrase in (
+            'because-the-material-is-in-the-',
+            'meaning-that-it-is-in-the-',
+            'if-the-material-is-in-the-',
+            'if-it-is-in-the-',
+        ))
         source_page = short.endswith('wiktionary-') and suffix.startswith('-sources')
         if not (eligibility or source_page):
             return False
