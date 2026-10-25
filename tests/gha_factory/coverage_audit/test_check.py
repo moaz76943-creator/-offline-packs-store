@@ -437,6 +437,26 @@ class CoverageAuditTests(unittest.TestCase):
                 checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
 
 
+    def test_unreferenced_orphan_sense_without_declared_foreign_keys_is_rejected(self):
+        # Synthetic legacy SQLite fixture: foreign_key_check cannot detect
+        # orphan senses when a table omits FK declarations. A valid A->B
+        # translation must not hide an unrelated dangling sense/lexeme ID.
+        with tempfile.TemporaryDirectory() as temp:
+            database = Path(temp) / 'directed.sqlite'
+            with closing(sqlite3.connect(database)) as db:
+                db.executescript("""
+                    CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                    CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                    CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT, language_code TEXT);
+                    INSERT INTO lexicon VALUES('l1','aa'),('l2','ab');
+                    INSERT INTO senses VALUES('s1','l1'),('s2','l2'),('orphan','missing');
+                    INSERT INTO translations VALUES('s1','s2','ab');
+                """)
+                db.commit()
+            with self.assertRaisesRegex(checker.AuditError, 'orphan sense'):
+                checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
+
+
     def test_duplicate_translation_rows_do_not_inflate_directed_sense_coverage(self):
         # Synthetic fixture: distinct row IDs/evidence may refer to the same
         # directed sense edge. Coverage must count unique A->B sense pairs,
