@@ -1,0 +1,51 @@
+{
+  "language": "ja",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q901731",
+      "forms": [
+        "アンバー"
+      ],
+      "language": "ja",
+      "lemma": "アンバー",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1587263",
+      "pos": "",
+      "qids": [
+        "Q901731"
+      ],
+      "record_id": "L1587263",
+      "retrieval_date": "2026-10-25",
+      "revision": "2528716445",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1587263-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q901731"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "colors",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q425278"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q425278"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q1520693"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7622361"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

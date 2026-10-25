@@ -1,0 +1,65 @@
+{
+  "actual_rows": 6,
+  "candidate_sha256": "770f01de464db89cc22e9767841d30026c212c9ebcbd3f6bc4cee95bbec41565",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "ef0c7417cae242df4404532518d4df342a408bc0",
+  "source_files": [
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "3c0bcc06d28be4d1076c7d83b3e8cc62b24e0217",
+      "origin_path": "data/agents/harvest/wikidata/es/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch15/sources/es/colors.json",
+      "rows": 1,
+      "sha256": "c898429f085b25d778f5591a126ca96ceab67956a95c597bbd2455f482f65648",
+      "topic": "colors"
+    },
+    {
+      "language": "eu",
+      "origin_git_blob_sha1": "75282ab046d9cefc4d4b9e6fdc5efef9c6a11df0",
+      "origin_path": "data/agents/harvest/wikidata/eu/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch15/sources/eu/colors.json",
+      "rows": 1,
+      "sha256": "227e3198a1de3294149f6d0be844e43dbe1bf4d68456996437f5a96bf52b911b",
+      "topic": "colors"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "e40bdb572dad7bd9793b36ab467fb06503da5d09",
+      "origin_path": "data/agents/harvest/wikidata/fr/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch15/sources/fr/colors.json",
+      "rows": 1,
+      "sha256": "10e23c7895eb3fc3e97d02884be963cd2fe9b62c98f35441d46db18910a1ad82",
+      "topic": "colors"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "ccbd2bfdee89b63a2967365fc7436c928ee23041",
+      "origin_path": "data/agents/harvest/wikidata/ja/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch15/sources/ja/colors.json",
+      "rows": 1,
+      "sha256": "5ea743293ac0e87af7adefabe2d9872637ea068b850d1739e7b79437cef8d0b6",
+      "topic": "colors"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "c5488dd7aeab73be88ffccf485f73e755035e36d",
+      "origin_path": "data/agents/harvest/wikidata/ru/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch15/sources/ru/colors.json",
+      "rows": 2,
+      "sha256": "965277f051cf6dcccb670d14372d2eb468476deee6dd70e1b63c2879b8f833a4",
+      "topic": "colors"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}
