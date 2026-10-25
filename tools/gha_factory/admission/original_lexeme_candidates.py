@@ -89,8 +89,12 @@ def build(root, receipt):
     if b"Lexeme" not in notice or b"Creative Commons CC0 License" not in notice:
         raise ValueError("scoped Wikidata license evidence missing")
     lexemes, candidates, identities = [], [], set()
+    source_identities = set()
     for source in receipt["source_files"]:
         language, lexeme_id = source["language"], source["lexeme_id"]
+        if (language, lexeme_id) in source_identities:
+            raise ValueError("duplicate source lexeme")
+        source_identities.add((language, lexeme_id))
         if (language not in ("de", "en", "ar") or not LEXEME.fullmatch(lexeme_id)
                 or source["path"] != "legal/ledger/evidence/wikidata-20261023/%s-%s.json" %
                 (lexeme_id, source["revision"])):
