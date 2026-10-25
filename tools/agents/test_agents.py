@@ -477,6 +477,110 @@ class ContractTests(unittest.TestCase):
                 heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
                 self.assertEqual(heartbeat['status'], 'failed')
 
+    def test_wikidata_http_error_after_written_rows_is_degraded_not_failed(self):
+        """One concept's HTTP failure must not fail a run that already stored rows."""
+        import argparse
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.examples', 'concepts': [
+                {'id': 'concept.cat', 'wikidata': 'Q146'},
+                {'id': 'concept.dog', 'wikidata': 'Q144'},
+            ],
+        }]}]}
+
+        def search(qid, offset=0):
+            if qid == 'Q144':
+                raise urllib.error.HTTPError(
+                    'https://www.wikidata.org/w/api.php', 503, 'unavailable',
+                    email.message.Message(), None)
+            return ['L1'], 0
+
+        def rows(_entity, concept, *_args):
+            return ([{
+                'language': 'de',
+                'section': 'animals',
+                'concept_id': concept['concept_id'],
+                'wikidata': concept['wikidata'],
+                'lemma': 'Katze',
+                'source_id': 'wikidata.lexemes',
+                'record_id': 'L1',
+                'license_id': 'CC0-1.0',
+                'retrieval_date': '2026-10-25',
+                'status': 'keep',
+            }], 'keep')
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with (mock.patch.object(cli, 'ROOT', root),
+                  mock.patch.object(cli, 'OUT', root / 'out'),
+                  mock.patch.object(cli, 'load_graph', return_value=graph),
+                  mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                  mock.patch.object(cli, '_halt', return_value=False),
+                  mock.patch.object(harvest, 'search_lexeme_page', side_effect=search),
+                  mock.patch.object(harvest, 'load_lexemes', return_value={'L1': {'id': 'L1'}}),
+                  mock.patch.object(harvest, 'rows_from_lexeme', side_effect=rows)):
+                self.assertEqual(cli.command_harvest(
+                    argparse.Namespace(name='harvest-wikidata')), 0)
+            report = json.loads((root / 'out/state/agents/harvest-wikidata-report.json').read_text())
+            self.assertEqual(report['source_errors'], 1)
+            self.assertEqual(report['accepted_rows'], 1)
+            failed = [item for item in report['outcomes'] if item['status'] == 'SOURCE_ERROR']
+            self.assertEqual(failed[0]['reason'], 'HTTPError:503')
+            saved = json.loads((root / 'out/data/agents/harvest/wikidata/de/animals.json').read_text())
+            self.assertEqual([row['lemma'] for row in saved['rows']], ['Katze'])
+            heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
+            self.assertEqual(heartbeat['status'], 'degraded')
+
+    def test_transient_http_is_retried_and_client_errors_are_not(self):
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import harvest
+
+        class Body:
+            def __init__(self, payload):
+                self.payload = payload
+
+            def read(self, _n):
+                return self.payload
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return False
+
+        pauses = []
+        calls = {'n': 0}
+
+        def opener(*_args, **_kwargs):
+            calls['n'] += 1
+            if calls['n'] == 1:
+                raise urllib.error.HTTPError(
+                    'https://www.wikidata.org/w/api.php', 503, 'unavailable',
+                    email.message.Message(), None)
+            return Body(b'{"ok":true}')
+
+        with mock.patch('urllib.request.urlopen', side_effect=opener):
+            payload = harvest.fetch_bytes('https://www.wikidata.org/w/api.php', pause=pauses.append)
+        self.assertEqual(payload, b'{"ok":true}')
+        self.assertEqual(calls['n'], 2)
+        self.assertEqual(pauses, [1])
+
+        def client_error(*_args, **_kwargs):
+            raise urllib.error.HTTPError(
+                'https://www.wikidata.org/w/api.php', 404, 'missing',
+                email.message.Message(), None)
+
+        with mock.patch('urllib.request.urlopen', side_effect=client_error) as client:
+            with self.assertRaises(urllib.error.HTTPError):
+                harvest.fetch_bytes('https://www.wikidata.org/w/api.php', pause=pauses.append)
+        self.assertEqual(client.call_count, 1)
+
     def test_harvest_preserves_previous_verified_concepts_across_windows(self):
         """Real checkpoint publication must not clobber earlier language rows."""
         import argparse
@@ -889,6 +993,168 @@ class ContractTests(unittest.TestCase):
                 (root / 'out/data/agents/harvest/ud/en/grammar.json').read_text())
             self.assertEqual(repeated['rows'], saved['rows'])
             self.assertEqual(repeated['quarantined_rows'], [bad])
+
+
+class KaikkiHarvestTests(unittest.TestCase):
+    """The German extract is scanned by range. Anchored senses are real rows."""
+
+    def _concept(self):
+        return {'Q3947': [{
+            'concept_id': 'concept.house', 'section': 'city',
+            'subsection': 'buildings', 'wikidata': 'Q3947',
+        }]}
+
+    def test_catalog_anchor_with_sense_id_is_stored_without_a_revision(self):
+        from tools.agents import harvest
+        rows = harvest.rows_from_kaikki_record({
+            'word': 'Haus', 'lang_code': 'de', 'pos': 'noun',
+            'senses': [{'id': 'de-Haus-noun-1', 'glosses': ['house'], 'wikidata': ['Q3947']}],
+        }, self._concept(), {'de': {'script': 'Latn'}}, '2026-10-25')
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]['record_id'], 'de-Haus-noun-1')
+        self.assertEqual(rows[0]['license_id'], 'CC-BY-SA-4.0')
+        self.assertEqual(rows[0]['source_id'], 'kaikki.wiktextract')
+        self.assertEqual(rows[0]['lemma'], 'Haus')
+        self.assertEqual(rows[0]['co_offered'], ['GFDL-1.3-only'])
+        self.assertNotIn('revision', rows[0])
+
+    def test_blocked_unanchored_and_unidentified_senses_are_not_stored(self):
+        from tools.agents import harvest
+        profiles = {'de': {'script': 'Latn'}}
+        concepts = self._concept()
+        self.assertEqual(harvest.rows_from_kaikki_record({
+            'word': 'Wein', 'lang_code': 'de',
+            'senses': [{'id': 'de-Wein', 'wikidata': ['Q3947', 'Q154']}],
+        }, concepts, profiles, '2026-10-25'), [])
+        self.assertEqual(harvest.rows_from_kaikki_record({
+            'word': 'Haus', 'lang_code': 'de',
+            'senses': [{'id': 'de-Haus', 'wikidata': ['Q1']}],
+        }, concepts, profiles, '2026-10-25'), [])
+        self.assertEqual(harvest.rows_from_kaikki_record({
+            'word': 'Haus', 'lang_code': 'de',
+            'senses': [{'glosses': ['house'], 'wikidata': ['Q3947']}],
+        }, concepts, profiles, '2026-10-25'), [])
+
+    def test_window_aligns_to_newlines_and_rejects_an_ignored_range(self):
+        from tools.agents.harvest import SourceAPIError, kaikki_window
+        payload = b'{"word":"Haus"}\n{"word":"partial"'
+        data, nxt, eof = kaikki_window(0, fetch=lambda *_args: (200, None, payload))
+        self.assertEqual(data, b'{"word":"Haus"}\n')
+        self.assertEqual(nxt, len(b'{"word":"Haus"}\n'))
+        self.assertFalse(eof)
+        with self.assertRaises(SourceAPIError):
+            kaikki_window(40, fetch=lambda *_args: (200, None, payload))
+        header = 'bytes 40-45/100'
+        data, nxt, eof = kaikki_window(
+            40, fetch=lambda *_args: (206, header, b'abc\n'))
+        self.assertEqual((data, nxt, eof), (b'abc\n', 44, False))
+        data, nxt, eof = kaikki_window(
+            90, fetch=lambda *_args: (206, 'bytes 90-99/100', b'012345678\n'))
+        self.assertEqual((data, nxt, eof), (b'012345678\n', 0, True))
+        data, nxt, eof = kaikki_window(
+            100, fetch=lambda *_args: (416, None, b''))
+        self.assertEqual((data, nxt, eof), (b'', 0, True))
+
+    def test_urlopen_416_resets_instead_of_sticking_past_eof(self):
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import harvest
+
+        def boom(*_args, **_kwargs):
+            raise urllib.error.HTTPError(
+                'https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl',
+                416, 'Range Not Satisfiable', email.message.Message(), None)
+
+        with mock.patch('urllib.request.urlopen', side_effect=boom):
+            data, nxt, eof = harvest.kaikki_window(8000)
+        self.assertEqual((data, nxt, eof), (b'', 0, True))
+
+    def test_scheduled_runs_advance_the_byte_cursor_and_keep_the_row(self):
+        import argparse
+        import shutil
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        from tools.agents import harvest
+
+        line = json.dumps({
+            'word': 'Haus', 'lang_code': 'de', 'pos': 'noun',
+            'senses': [{'id': 'de-Haus-noun-1', 'glosses': ['house'], 'wikidata': ['Q3947']}],
+        }, ensure_ascii=False).encode() + b'\n'
+        calls = []
+
+        def window(offset):
+            calls.append(offset)
+            if offset == 0:
+                return line, len(line), False
+            return b'', len(line), False
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'state/agents').mkdir(parents=True)
+            notice = root / 'legal/source_evidence/wiktionary-copyrights.txt'
+            notice.parent.mkdir(parents=True)
+            notice.write_text('CC BY-SA 4.0 and GFDL fixture', encoding='utf-8')
+            graph = {'sections': []}
+            args = argparse.Namespace(name='harvest-kaikki')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'out'),
+                  mock.patch.object(agent_cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(agent_cli, 'load_profiles', return_value={
+                      'languages': [{'id': 'de', 'script': 'Latn'}]}),
+                  mock.patch.object(agent_cli, 'load_graph', return_value=graph),
+                  mock.patch.object(agent_cli, 'concept_rows', return_value=[{
+                      'concept_id': 'concept.house', 'section': 'city',
+                      'subsection': 'buildings', 'wikidata': 'Q3947'}]),
+                  mock.patch.object(agent_cli, 'next_window', return_value=([], 1, '')),
+                  mock.patch.object(harvest, 'accept_notice', return_value=True),
+                  mock.patch.object(harvest, 'kaikki_window', side_effect=window)):
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+                saved = json.loads((root / 'out/data/agents/harvest/kaikki/de/city.json').read_text())
+                self.assertEqual([row['lemma'] for row in saved['rows']], ['Haus'])
+                cursor = json.loads((root / 'out/state/agents/harvest-kaikki-cursor.json').read_text())
+                self.assertEqual(cursor['byte_offset'], len(line))
+                shutil.copyfile(
+                    root / 'out/state/agents/harvest-kaikki-cursor.json',
+                    root / 'state/agents/harvest-kaikki-cursor.json')
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            self.assertEqual(calls, [0, len(line)])
+            repeated = json.loads((root / 'out/data/agents/harvest/kaikki/de/city.json').read_text())
+            self.assertEqual(repeated['rows'], saved['rows'])
+
+    def test_ignored_upstream_range_fails_and_keeps_the_cursor(self):
+        import argparse
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        from tools.agents.harvest import SourceAPIError
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / 'state/agents'
+            state.mkdir(parents=True)
+            (state / 'harvest-kaikki-cursor.json').write_text(json.dumps({
+                'schema_version': '1.0.0', 'next_index': 0, 'byte_offset': 80,
+            }), encoding='utf-8')
+            notice = root / 'legal/source_evidence/wiktionary-copyrights.txt'
+            notice.parent.mkdir(parents=True)
+            notice.write_text('fixture', encoding='utf-8')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'out'),
+                  mock.patch.object(agent_cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(agent_cli, 'load_profiles', return_value={'languages': []}),
+                  mock.patch.object(agent_cli, 'load_graph', return_value={'sections': []}),
+                  mock.patch.object(agent_cli, 'concept_rows', return_value=[]),
+                  mock.patch.object(agent_cli, 'next_window', return_value=([], 0, '')),
+                  mock.patch.object(agent_cli, '_halt', return_value=False),
+                  mock.patch('tools.agents.harvest.kaikki_window',
+                             side_effect=SourceAPIError('kaikki range was not honored'))):
+                self.assertEqual(agent_cli.command_harvest(
+                    argparse.Namespace(name='harvest-kaikki')), 1)
+            cursor = json.loads((root / 'out/state/agents/harvest-kaikki-cursor.json').read_text())
+            self.assertEqual(cursor['byte_offset'], 80)
+            heartbeat = json.loads((root / 'out/state/agents/harvest-kaikki.json').read_text())
+            self.assertEqual(heartbeat['status'], 'failed')
+            self.assertFalse((root / 'out/data/agents/harvest/kaikki/de').exists())
 
 
 # The existing agent CI command also runs real-git checkpoint regressions.
