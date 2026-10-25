@@ -54,6 +54,20 @@ def build(root, receipt, folder=FOLDER):
             or receipt.get("production_ready") is not False
             or receipt.get("source_admission_approved") is not False):
         raise ValueError("unapproved source must remain review-only")
+    # A self-reported license or source path is not legal/provenance evidence.
+    if (not isinstance(receipt.get("source_commit"), str)
+            or not re.fullmatch(r"[0-9a-f]{40}", receipt["source_commit"])
+            or receipt.get("source_branch") != "agents/data"
+            or receipt.get("source_license") != "CC0-1.0"
+            or receipt.get("original_lexeme_json_pinned") is not False):
+        raise ValueError("invalid derived-harvest provenance")
+    if (receipt.get("source_license_evidence_path")
+            != "legal/source_evidence/wikidata-structured-cc0.txt"
+            or receipt.get("source_license_evidence_sha256")
+            != "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6"):
+        raise ValueError("untrusted source license notice")
+    if not isinstance(receipt.get("source_files"), list) or not receipt["source_files"]:
+        raise ValueError("missing source evidence")
     # A suspected source/sense mismatch is a hard, explicit candidate-level hold.
     # Derived-harvest structure alone never constitutes independent language QA.
     qa_hold = receipt.get("linguistic_qa_status")
@@ -92,6 +106,11 @@ def build(root, receipt, folder=FOLDER):
             raise ValueError("invalid selected source senses")
         selected_found = set()
         lang, topic = source["language"], source["topic"]
+        if (not isinstance(lang, str) or not re.fullmatch(r"[a-z]{2,3}", lang)
+                or not isinstance(topic, str) or not re.fullmatch(r"[a-z_]+", topic)
+                or source.get("origin_path")
+                != f"data/agents/harvest/wikidata/{lang}/{topic}.json"):
+            raise ValueError("source origin path does not match language/topic")
         if (data.get("schema_version") != "1.0.0" or data.get("source") != "harvest-wikidata"
                 or data.get("language") != lang or data.get("section") != topic
                 or not isinstance(data.get("rows"), list) or len(data["rows"]) != source["rows"]):
