@@ -4,8 +4,8 @@ Counts below are computed from stored rows and the concept graph.
 A missing harvest file stays a gap. No word is invented.
 
 Concepts in the graph: 5182
-Filled language-concept cells: 264
-Open language-concept cells: 517936
+Filled language-concept cells: 277
+Open language-concept cells: 517923
 
 | Language | Filled | Open gaps | Fill ratio |
 | --- | ---: | ---: | ---: |
