@@ -75,6 +75,16 @@ class ExerciseQualityTests(unittest.TestCase):
         with self.assertRaisesRegex(ExerciseError, 'GHA05_EVIDENCE_GATE_REJECTED'):
             self.valid()
 
+    def test_unhashable_language_evidence_is_rejected_cleanly(self):
+        self.sentence['language'] = ['de']
+        with self.assertRaisesRegex(ExerciseError, 'UNREGISTERED_LANGUAGE'):
+            self.valid()
+
+    def test_unpaired_surrogate_in_sentence_is_rejected_before_replay(self):
+        self.sentence['text'] = 'B\ud800uch ist neu.'
+        with self.assertRaisesRegex(ExerciseError, 'INVALID_ORIGINAL_TEXT'):
+            self.valid()
+
     def test_response_exact_and_unicode_normalization(self):
         self.assertEqual('CORRECT',evaluate_response('Buch',{'Buch'}))
         self.assertEqual('CORRECT',evaluate_response('e\u0301',{'é'}))
