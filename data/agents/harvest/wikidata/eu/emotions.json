@@ -1,6 +1,6 @@
 {
   "language": "eu",
-  "retrieval_date": "2026-10-21",
+  "retrieval_date": "2026-10-25",
   "rows": [
     {
       "concept_id": "concept.q2826051",
@@ -23,7 +23,7 @@
         "Q2826051"
       ],
       "record_id": "L50723",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-25",
       "revision": "1354677224",
       "schema_version": "1.0.0",
       "section": "emotions",
@@ -38,12 +38,8 @@
   "section": "emotions",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q16572092"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1681455"
+      "reason": "other_language",
+      "wikidata": "Q988842"
     }
   ],
   "source": "harvest-wikidata"
