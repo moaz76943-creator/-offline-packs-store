@@ -1,0 +1,44 @@
+{
+  "actual_rows": 2,
+  "candidate_sha256": "d47456872c265ebdc3c28c799725cb0264d00a2219d5c3a51f8bced7a27e47d7",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "767c3ba3eaa25c9677cd4449788614202b0346db",
+  "source_files": [
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "42f4afc26c7240561a4785d541b118b8159f09cb",
+      "origin_path": "data/agents/harvest/wikidata/en/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch18/sources/en/colors.json",
+      "rows": 9,
+      "selected_sense_ids": [
+        "L4710-S2"
+      ],
+      "sha256": "6f533d80182c192d89030a37d4f90af3b04d10a2070f7734695aad926983a150",
+      "topic": "colors"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "be8022b084c24b9e8e0e89a5e0b0c4209e74ed33",
+      "origin_path": "data/agents/harvest/wikidata/it/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch18/sources/it/colors.json",
+      "rows": 6,
+      "selected_sense_ids": [
+        "L1168678-S1"
+      ],
+      "sha256": "401f5b1b7695cfb6c2b157d51f044718c9500fd8449c967eb049e23950b9b3fe",
+      "topic": "colors"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}
