@@ -260,6 +260,36 @@ class CoverageAuditTests(unittest.TestCase):
                 checker._directed_pairs(database.read_bytes(), {'aa','ab'})
 
 
+    def test_null_or_unknown_translation_languages_never_pass_coverage(self):
+        # Legacy SQLite may omit NOT NULL constraints. SQL comparisons with
+        # NULL evaluate to UNKNOWN, not TRUE, so bad evidence must be rejected
+        # explicitly rather than counted or silently omitted.
+        for broken in ('null_translation', 'null_source', 'null_target', 'unknown_same_language'):
+            with self.subTest(broken=broken), tempfile.TemporaryDirectory() as temp:
+                database = Path(temp) / 'directed.sqlite'
+                with closing(sqlite3.connect(database)) as db:
+                    db.executescript("""
+                        CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                        CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                        CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT, language_code TEXT);
+                        INSERT INTO lexicon VALUES('l1','aa'),('l2','ab');
+                        INSERT INTO senses VALUES('s1','l1'),('s2','l2');
+                        INSERT INTO translations VALUES('s1','s2','ab');
+                    """)
+                    if broken == 'null_translation':
+                        db.execute("UPDATE translations SET language_code=NULL")
+                    elif broken == 'null_source':
+                        db.execute("UPDATE lexicon SET language_code=NULL WHERE id='l1'")
+                    elif broken == 'null_target':
+                        db.execute("UPDATE lexicon SET language_code=NULL WHERE id='l2'")
+                    else:
+                        db.execute("UPDATE lexicon SET language_code='zz'")
+                        db.execute("UPDATE translations SET language_code='zz'")
+                    db.commit()
+                with self.assertRaisesRegex(checker.AuditError, 'translation.*language|unregistered language'):
+                    checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
+
+
     def test_orphan_translation_endpoints_never_disappear_from_coverage(self):
         # Valid A->B evidence must not mask an unresolvable second edge.
         # No FOREIGN KEY constraints are declared in this synthetic SQLite
