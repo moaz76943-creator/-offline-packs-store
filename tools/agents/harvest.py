@@ -1,6 +1,7 @@
 """Bounded source adapters. A failed source is skipped; it does not invent a row."""
 
 import json
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -35,10 +36,27 @@ def _wikidata_payload(payload):
     return payload
 
 
-def fetch_bytes(url, timeout=30, max_bytes=200000):
-    request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return response.read(max_bytes + 1)[:max_bytes]
+_TRANSIENT_HTTP = frozenset({429, 500, 502, 503, 504})
+
+
+def fetch_bytes(url, timeout=30, max_bytes=200000, attempts=3, pause=None):
+    """Read a bounded body. Retry only transient HTTP statuses, at most twice."""
+    if type(attempts) is not int or not 1 <= attempts <= 3:
+        raise SourceAPIError('invalid fetch attempt bound')
+    if pause is None:
+        pause = time.sleep
+    last = None
+    for attempt in range(attempts):
+        request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.read(max_bytes + 1)[:max_bytes]
+        except urllib.error.HTTPError as exc:
+            last = exc
+            if exc.code not in _TRANSIENT_HTTP or attempt + 1 == attempts:
+                raise
+            pause(attempt + 1)
+    raise last
 
 
 def fetch_json(url, timeout=30):

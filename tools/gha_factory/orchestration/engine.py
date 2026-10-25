@@ -1,6 +1,7 @@
 """Short serialized mutations, independently running worker jobs, fail-closed recovery."""
 import hashlib
 import json
+import math
 import sys
 from collections import defaultdict
 from datetime import date
@@ -201,6 +202,46 @@ def seed(api,ctx,registry_sha,root):
         t=dict(t,state='READY');created.append(api.create(t));known.add(t['task_id'])
     return created
 
+def strict_partition_row(raw):
+    """Decode one bounded queue row without ambiguous JSON or invalid scalars."""
+    def unique_object(pairs):
+        item = {}
+        for key, value in pairs:
+            if key in item:
+                raise ValueError('duplicate JSON property')
+            item[key] = value
+        return item
+
+    def reject_constant(_value):
+        raise ValueError('nonfinite JSON constant')
+
+    def finite_float(value):
+        number = float(value)
+        if not math.isfinite(number):
+            raise ValueError('overflowed JSON number')
+        return number
+
+    try:
+        row = json.loads(raw.decode('utf-8', 'strict'),
+                         object_pairs_hook=unique_object,
+                         parse_constant=reject_constant,
+                         parse_float=finite_float)
+        # json.loads permits escaped lone UTF-16 surrogates. Never pass these
+        # through as legitimate Arabic, German or other Unicode source text.
+        pending = [row]
+        while pending:
+            value = pending.pop()
+            if isinstance(value, dict):
+                pending.extend(value.keys())
+                pending.extend(value.values())
+            elif isinstance(value, list):
+                pending.extend(value)
+            elif isinstance(value, str):
+                value.encode('utf-8', 'strict')
+        return row
+    except (UnicodeError, ValueError, TypeError, RecursionError) as exc:
+        raise ValueError('invalid partition JSON') from exc
+
 def verify_partition(t,ctx):
     approved=ctx['admissions'][(t['source_id'],t['language'],t['source_sha256'],t['shard'])]
     job=approved['job'];report=approved['report']
@@ -212,7 +253,7 @@ def verify_partition(t,ctx):
             if len(raw)>1_048_576 or not raw.endswith(b'\n'):raise ValueError('invalid partition line')
             count+=1
             if count>10000:raise ValueError('partition limit')
-            digest.update(raw);row=json.loads(raw)
+            digest.update(raw);row=strict_partition_row(raw)
             if (not isinstance(row,dict) or row.get('source_id')!=t['source_id']
                     or row.get('language')!=t['language'] or row.get('source_artifact_sha256')!=t['source_sha256']
                     or row.get('dataset_version')!=report['dataset_version']):raise ValueError('partition record identity mismatch')
