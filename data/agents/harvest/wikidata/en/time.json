@@ -125,27 +125,40 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q7124679"
+    },
+    {
+      "concept_id": "concept.q398085",
+      "forms": [
+        "eon",
+        "aeon",
+        "eon",
+        "eons",
+        "aeons",
+        "eons"
+      ],
+      "language": "en",
+      "lemma": "eon",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L14799",
+      "pos": "",
+      "qids": [
+        "Q108256",
+        "Q398085"
+      ],
+      "record_id": "L14799",
+      "retrieval_date": "2026-10-25",
+      "revision": "2306504873",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L14799-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q398085"
     }
   ],
   "schema_version": "1.0.0",
   "section": "time",
-  "skipped": [
-    {
-      "reason": "other_language",
-      "wikidata": "Q347066"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q186566"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5447288"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q7806612"
-    }
-  ],
+  "skipped": [],
   "source": "harvest-wikidata"
 }
