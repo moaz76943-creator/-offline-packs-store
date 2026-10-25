@@ -375,6 +375,7 @@ def command_harvest(args):
     skipped = []
     source_errors = 0
     outcomes = []
+    kaikki_byte_offset = None
     if name == 'harvest-wikidata':
         offsets = cursor.get('search_offsets', {})
         valid_qids = {row.get('wikidata') for row in concept_rows(graph)}
@@ -419,35 +420,53 @@ def command_harvest(args):
             else:
                 offsets.pop(qid, None)
     elif name == 'harvest-kaikki':
+        from tools.agents.harvest import (
+            KAIKKI_MAX_ROWS, SourceAPIError, kaikki_window, rows_from_kaikki_record,
+        )
         notice = (ROOT / 'legal' / 'source_evidence' / 'wiktionary-copyrights.txt').read_text(encoding='utf-8')
+        concepts_by_qid = {}
+        for concept in concept_rows(graph):
+            qid = concept.get('wikidata')
+            if isinstance(qid, str) and qid:
+                concepts_by_qid.setdefault(qid, []).append(concept)
+        offset = cursor.get('byte_offset', 0)
+        if type(offset) is not int or offset < 0 or offset > 2_000_000_000:
+            offset = 0
+            cursor_warning = 'malformed Kaikki byte cursor; restarted'
+        next_byte = offset
         try:
             accept_notice(notice, 'CC-BY-SA-4.0', ('GFDL-1.3-only',))
-            from tools.agents.harvest import fetch_bytes
-            raw = fetch_bytes(
-                'https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl',
-                max_bytes=120000,
-            )
-        except (OSError, SourceSkip, UnicodeError) as exc:
+            raw, next_byte, _eof = kaikki_window(offset)
+        except (OSError, SourceSkip, UnicodeError, SourceAPIError, ValueError) as exc:
+            source_errors += 1
             skipped.append({'reason': exc.__class__.__name__})
             raw = b''
-        wanted = {row['wikidata'] for row in concepts}
-        for line in raw.splitlines():
+            next_byte = offset
+        kept = 0
+        consumed = 0
+        capped = False
+        for raw_line in raw.splitlines(keepends=True):
+            if kept >= KAIKKI_MAX_ROWS:
+                capped = True
+                break
+            consumed += len(raw_line)
+            line = raw_line.rstrip(b'\r\n')
             if not line.startswith(b'{') or not line.endswith(b'}'):
                 continue
             try:
                 obj = json.loads(line)
             except json.JSONDecodeError:
+                skipped.append({'reason': 'malformed_json'})
                 continue
-            qids = []
-            for sense in obj.get('senses') or []:
-                for qid in sense.get('wikidata') or []:
-                    if isinstance(qid, str):
-                        qids.append(qid)
-            if not set(qids) & wanted:
+            rows = rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved)
+            if not rows:
                 continue
-            # Kaikki lines in the sampled window have not carried a Wiktionary revision.
-            # Without a page revision the row is not traceable, so it is not stored.
-            skipped.append({'reason': 'missing_wiktionary_revision', 'word': obj.get('word')})
+            kept += len(rows)
+            for row in rows:
+                grouped.setdefault((row['language'], row['section']), []).append(row)
+        # A full slice advances past its last complete line. A row cap stops
+        # on the first unstored line so the next run does not skip it.
+        kaikki_byte_offset = offset + consumed if capped else next_byte
     elif name == 'harvest-tatoeba':
         from tools.agents.harvest import TATOEBA_CODES, tatoeba_sample
         notice = (ROOT / 'legal' / 'source_evidence' / 'tatoeba-terms.txt').read_text(encoding='utf-8')
@@ -586,11 +605,15 @@ def command_harvest(args):
         })
     # Advance only after bounded source processing finishes. The existing
     # checkpoint publisher writes the cursor to agents/data on each run.
-    write_json(_out(cursor_path), {
+    cursor_payload = {
         'schema_version': '1.0.0',
         'next_index': next_index,
-        **({'search_offsets': offsets} if name == 'harvest-wikidata' else {}),
-    })
+    }
+    if name == 'harvest-wikidata':
+        cursor_payload['search_offsets'] = offsets
+    if kaikki_byte_offset is not None:
+        cursor_payload['byte_offset'] = kaikki_byte_offset
+    write_json(_out(cursor_path), cursor_payload)
     warning_text = f'skipped {len(skipped)}' if skipped else ''
     if not wrote:
         warning_text = warning_text or 'no candidate rows; not production throughput'
