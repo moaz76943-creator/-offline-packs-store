@@ -316,6 +316,38 @@ class FactoryTests(unittest.TestCase):
         self.assertEqual(before,after)
         self.assertEqual(a['checkpoint'],b['checkpoint'])
 
+    def test_locale_specific_choice_equivalence(self):
+        # Synthetic-only attestation: default casefold conflates Turkish I/i
+        # and German ß/ss, while missing Turkish I/ı and İ/i duplicates.
+        for language, answer, other in (('tr', 'I', 'i'),
+                                         ('de', 'Maße', 'Masse'),
+                                         ('tr', 'I', 'ı'),
+                                         ('tr', 'İ', 'i')):
+            text = answer + ' fixture.'
+            sentence = {'id': 'fixture', 'language': language, 'text': text,
+                        'admitted': True}
+            annotation = {
+                'sentence_id': 'fixture', 'language': language,
+                'sentence_sha256': sha(text), 'editorial_unambiguous': True,
+                'editor_review_url': 'https://example.org/review',
+                'start': 0, 'end': len(answer), 'sense_id': 's1',
+                'lexeme_id': 'l1', 'features': {'number': 'singular'},
+                'distractors': [{'surface': other, 'sense_id': 's2'},
+                                {'surface': 'fixtureword', 'sense_id': 's3'}]}
+            senses = {sid: {'language': language, 'lexeme_id': 'l' + sid[1:],
+                            'approved': True} for sid in ('s1', 's2', 's3')}
+            tags = (('number', 'singular'),)
+            forms = {(language, sid, surface, tags)
+                     for sid, surface in (('s1', answer), ('s2', other),
+                                          ('s3', 'fixtureword'))}
+            with self.subTest(language=language, answer=answer, other=other):
+                if (answer, other) in (('I', 'ı'), ('İ', 'i')):
+                    with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+                        make_cloze(sentence, annotation, senses, forms)
+                else:
+                    result = make_cloze(sentence, annotation, senses, forms)
+                    self.assertEqual([answer, other, 'fixtureword'], result['options'])
+
     def test_cloze_requires_attested_morphology_and_editorial_review(self):
         text = 'I read books.'
         row = {'id':'42','language':'en','text':text,'admitted':True,'attribution':'fixture only'}
