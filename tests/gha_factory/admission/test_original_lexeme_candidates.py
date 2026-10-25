@@ -1,0 +1,85 @@
+"""Original pinned Lexeme JSON -> review-only sense candidates, no network."""
+import copy
+import json
+import unittest
+
+from tools.gha_factory.admission import original_lexeme_candidates as c
+
+
+class OriginalLexemeCandidatesTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.receipt = c.strict_json((c.ROOT / c.FOLDER / "receipt.json").read_bytes())
+        cls.candidates = c.strict_json((c.ROOT / c.FOLDER / "candidates.json").read_bytes())
+
+    def test_rebuild_exact_original_sources_and_sha256(self):
+        raw = (c.ROOT / c.FOLDER / "candidates.json").read_bytes()
+        self.assertEqual(c.canonical(c.build(c.ROOT, self.receipt)), raw)
+        self.assertEqual(c.digest(raw), self.receipt["candidate_sha256"])
+
+    def test_actual_rows_forms_senses_and_priority_languages(self):
+        data = c.build(c.ROOT, self.receipt)
+        self.assertEqual((data["actual_rows"], data["lexeme_count"], data["form_count"]), (25, 3, 40))
+        self.assertEqual({x["language"]: len(x["forms"]) for x in data["lexemes"]},
+                         {"ar": 3, "de": 32, "en": 5})
+        self.assertEqual({lang: sum(x["language"] == lang for x in data["candidates"])
+                          for lang in ("de", "en", "ar")}, {"de": 5, "en": 19, "ar": 1})
+        self.assertEqual(len({x["id"] for x in data["candidates"]}), 25)
+
+    def test_no_fake_cefr_examples_translations_or_production(self):
+        self.assertFalse(self.receipt["source_admission_approved"])
+        self.assertFalse(self.receipt["production_ready"])
+        self.assertTrue(self.receipt["original_lexeme_json_pinned"])
+        self.assertEqual(self.receipt["topic_estimates"], 3)
+        for row in self.candidates["candidates"]:
+            self.assertEqual(row["level"], "UNKNOWN")
+            self.assertEqual(row["review_status"], "REVIEW_REQUIRED")
+            self.assertEqual(row["directed_translations"], [])
+            self.assertEqual(row["examples"], [])
+            self.assertIn(row["topic"], ("activities", "UNASSIGNED"))
+            self.assertEqual(row["topic_status"],
+                             "MAPPED_ESTIMATE" if row["topic"] == "activities" else "UNKNOWN")
+
+    def test_fail_closed_false_approval_and_tampered_source(self):
+        for field in ("production_ready", "source_admission_approved"):
+            bad = dict(self.receipt, **{field: True})
+            with self.assertRaises(ValueError):
+                c.build(c.ROOT, bad)
+        bad = copy.deepcopy(self.receipt)
+        bad["source_files"][0]["sha256"] = "0" * 64
+        with self.assertRaises(ValueError):
+            c.build(c.ROOT, bad)
+        bad = copy.deepcopy(self.receipt)
+        bad["source_files"][0]["revision"] += 1
+        with self.assertRaises(ValueError):
+            c.build(c.ROOT, bad)
+
+    def test_ranked_source_claims_never_infer_directed_translations(self):
+        source = {"claims": {"P9970": [
+            {"rank": "deprecated", "mainsnak": {"snaktype": "value",
+             "datavalue": {"value": {"entity-type": "item", "id": "Q11"}}}},
+            {"rank": "preferred", "mainsnak": {"snaktype": "novalue"}},
+            {"rank": "normal", "mainsnak": {"snaktype": "value",
+             "datavalue": {"value": {"entity-type": "item", "id": "Q22"}}}}
+        ]}}
+        self.assertEqual(c.claim_qids(source, "P9970"), [])
+        self.assertEqual(self.receipt["directed_translations"], 0)
+
+    def test_no_cross_batch_lexeme_duplication(self):
+        from tools.gha_factory.admission import agent_harvest_candidates as a
+        folders = [a.FOLDER] + [a.Path("legal/ledger/evidence/" + x)
+                   for x in ("agent-harvest-20261024-batch2",
+                             "agent-harvest-20261025-batch3",
+                             "agent-harvest-20261025-batch4",
+                             "agent-harvest-20261025-batch5",
+                             "agent-harvest-20261025-batch6")]
+        prior = set()
+        for folder in folders:
+            obj = json.loads((c.ROOT / folder / "candidates.json").read_text(encoding="utf-8"))
+            prior.update((row["language"], row["lexeme_id"]) for row in obj["candidates"])
+        self.assertFalse(prior.intersection(
+            (row["language"], row["lexeme_id"]) for row in self.candidates["candidates"]))
+
+
+if __name__ == "__main__":
+    unittest.main()
