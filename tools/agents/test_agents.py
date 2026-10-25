@@ -477,6 +477,110 @@ class ContractTests(unittest.TestCase):
                 heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
                 self.assertEqual(heartbeat['status'], 'failed')
 
+    def test_wikidata_http_error_after_written_rows_is_degraded_not_failed(self):
+        """One concept's HTTP failure must not fail a run that already stored rows."""
+        import argparse
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.examples', 'concepts': [
+                {'id': 'concept.cat', 'wikidata': 'Q146'},
+                {'id': 'concept.dog', 'wikidata': 'Q144'},
+            ],
+        }]}]}
+
+        def search(qid, offset=0):
+            if qid == 'Q144':
+                raise urllib.error.HTTPError(
+                    'https://www.wikidata.org/w/api.php', 503, 'unavailable',
+                    email.message.Message(), None)
+            return ['L1'], 0
+
+        def rows(_entity, concept, *_args):
+            return ([{
+                'language': 'de',
+                'section': 'animals',
+                'concept_id': concept['concept_id'],
+                'wikidata': concept['wikidata'],
+                'lemma': 'Katze',
+                'source_id': 'wikidata.lexemes',
+                'record_id': 'L1',
+                'license_id': 'CC0-1.0',
+                'retrieval_date': '2026-10-25',
+                'status': 'keep',
+            }], 'keep')
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with (mock.patch.object(cli, 'ROOT', root),
+                  mock.patch.object(cli, 'OUT', root / 'out'),
+                  mock.patch.object(cli, 'load_graph', return_value=graph),
+                  mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                  mock.patch.object(cli, '_halt', return_value=False),
+                  mock.patch.object(harvest, 'search_lexeme_page', side_effect=search),
+                  mock.patch.object(harvest, 'load_lexemes', return_value={'L1': {'id': 'L1'}}),
+                  mock.patch.object(harvest, 'rows_from_lexeme', side_effect=rows)):
+                self.assertEqual(cli.command_harvest(
+                    argparse.Namespace(name='harvest-wikidata')), 0)
+            report = json.loads((root / 'out/state/agents/harvest-wikidata-report.json').read_text())
+            self.assertEqual(report['source_errors'], 1)
+            self.assertEqual(report['accepted_rows'], 1)
+            failed = [item for item in report['outcomes'] if item['status'] == 'SOURCE_ERROR']
+            self.assertEqual(failed[0]['reason'], 'HTTPError:503')
+            saved = json.loads((root / 'out/data/agents/harvest/wikidata/de/animals.json').read_text())
+            self.assertEqual([row['lemma'] for row in saved['rows']], ['Katze'])
+            heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
+            self.assertEqual(heartbeat['status'], 'degraded')
+
+    def test_transient_http_is_retried_and_client_errors_are_not(self):
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import harvest
+
+        class Body:
+            def __init__(self, payload):
+                self.payload = payload
+
+            def read(self, _n):
+                return self.payload
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return False
+
+        pauses = []
+        calls = {'n': 0}
+
+        def opener(*_args, **_kwargs):
+            calls['n'] += 1
+            if calls['n'] == 1:
+                raise urllib.error.HTTPError(
+                    'https://www.wikidata.org/w/api.php', 503, 'unavailable',
+                    email.message.Message(), None)
+            return Body(b'{"ok":true}')
+
+        with mock.patch('urllib.request.urlopen', side_effect=opener):
+            payload = harvest.fetch_bytes('https://www.wikidata.org/w/api.php', pause=pauses.append)
+        self.assertEqual(payload, b'{"ok":true}')
+        self.assertEqual(calls['n'], 2)
+        self.assertEqual(pauses, [1])
+
+        def client_error(*_args, **_kwargs):
+            raise urllib.error.HTTPError(
+                'https://www.wikidata.org/w/api.php', 404, 'missing',
+                email.message.Message(), None)
+
+        with mock.patch('urllib.request.urlopen', side_effect=client_error) as client:
+            with self.assertRaises(urllib.error.HTTPError):
+                harvest.fetch_bytes('https://www.wikidata.org/w/api.php', pause=pauses.append)
+        self.assertEqual(client.call_count, 1)
+
     def test_harvest_preserves_previous_verified_concepts_across_windows(self):
         """Real checkpoint publication must not clobber earlier language rows."""
         import argparse
