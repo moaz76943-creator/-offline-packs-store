@@ -135,6 +135,50 @@ class FactoryTests(unittest.TestCase):
     def test_empty_route05_ledger_blocks_approval(self):
         self.assertFalse(source_approval(self.ledger,'tatoeba',self.snapshots['cc0']['sha256']))
 
+    def test_route05_approval_requires_well_formed_evidence_and_rows(self):
+        approved = {
+            'source_id': 'tatoeba', 'kind': 'examples',
+            'status': 'APPROVED_FOR_REDISTRIBUTION',
+            'license': {'id': 'CC0-1.0', 'evidence_sha256': 'b' * 64,
+                        'evidence_url': 'https://example.org/license'},
+            'retrieval': {'sha256': self.snapshots['cc0']['sha256'],
+                          'identity': 'pinned-cc0-export',
+                          'url': 'https://example.org/export'},
+            'review': {'reviewer': 'test-reviewer',
+                       'decision_url': 'https://example.org/review'},
+        }
+
+        def write_sources(rows):
+            self.ledger.write_text(json.dumps(
+                {'schema_version': '1.0.0', 'sources': rows}), encoding='utf-8')
+
+        write_sources([approved])
+        self.assertTrue(source_approval(
+            self.ledger, 'tatoeba', self.snapshots['cc0']['sha256']))
+
+        # An arbitrary nonempty string is not an evidence SHA-256.
+        bad_digest = dict(approved, license=dict(approved['license'], evidence_sha256='bogus'))
+        write_sources([bad_digest])
+        self.assertFalse(source_approval(
+            self.ledger, 'tatoeba', self.snapshots['cc0']['sha256']))
+
+        # Malformed ledger records and nested evidence must fail closed with
+        # a classified error, never an uncaught AttributeError/TypeError.
+        malformed = [
+            [None],
+            [dict(approved, license=['CC0-1.0'])],
+            [dict(approved, retrieval=dict(approved['retrieval'],
+                                            url=['https://example.org/export']))],
+            [dict(approved, review=dict(approved['review'],
+                                         decision_url=['https://example.org/review']))],
+        ]
+        for rows in malformed:
+            with self.subTest(rows=rows):
+                write_sources(rows)
+                with self.assertRaisesRegex(Rejected, 'malformed Route 05 ledger'):
+                    source_approval(self.ledger, 'tatoeba',
+                                    self.snapshots['cc0']['sha256'])
+
     def test_malformed_and_oversized_tsv_lines(self):
         p = self.source/'malformed.tsv'
         p.write_bytes(b'1\tx\n'+b'a'*40000+b'\n'+b'\xff\tfoo\n')
