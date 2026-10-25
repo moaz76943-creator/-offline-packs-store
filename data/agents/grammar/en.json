@@ -42,6 +42,126 @@
       "id": "sentence.statement",
       "language": "en",
       "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1276",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Let's try something."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1277",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "I have to go to sleep."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1280",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Today is June 18th and it is Muiriel's birthday!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1282",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Muiriel is 20 now."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1283",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "The password is \"Muiriel\"."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1284",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "I will be back soon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1286",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm at a loss for words."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1287",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "This is never going to end."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1288",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "I just don't know what to say."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1289",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "That was an evil bunny."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1290",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "I was in the mountains."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1291",
+      "retrieval_date": "2026-10-25",
+      "source_id": "tatoeba.sentences",
+      "value": "Is it a recent picture?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
       "license_id": "CC-BY-SA-4.0",
       "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0001",
       "retrieval_date": "2026-10-25",
