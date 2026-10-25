@@ -85,6 +85,12 @@ def build(root, receipt, folder=FOLDER):
         if git_blob != source["origin_git_blob_sha1"]:
             raise ValueError("origin Git blob mismatch")
         data = strict_json(raw)
+        selected = source.get("selected_sense_ids")
+        if selected is not None and (not isinstance(selected, list) or not selected
+                or any(not isinstance(x, str) or not SENSE.fullmatch(x) for x in selected)
+                or len(set(selected)) != len(selected)):
+            raise ValueError("invalid selected source senses")
+        selected_found = set()
         lang, topic = source["language"], source["topic"]
         if (data.get("schema_version") != "1.0.0" or data.get("source") != "harvest-wikidata"
                 or data.get("language") != lang or data.get("section") != topic
@@ -106,6 +112,10 @@ def build(root, receipt, folder=FOLDER):
                     or not isinstance(r.get("forms"), list)
                     or any(not isinstance(f, str) or not f.strip() for f in r["forms"])):
                 raise ValueError("invalid harvested lexical identity")
+            if selected is not None:
+                if sense not in selected:
+                    continue
+                selected_found.add(sense)
             key = (lang, record, sense, r["concept_id"])
             if key in seen:
                 raise ValueError("duplicate candidate")
@@ -125,6 +135,8 @@ def build(root, receipt, folder=FOLDER):
             if qa_hold == "SUSPECT_MISMATCH":
                 rows[-1]["linguistic_qa_status"] = qa_hold
                 rows[-1]["eligible_for_promotion"] = False
+        if selected is not None and selected_found != set(selected):
+            raise ValueError("selected source sense missing from snapshot")
     rows.sort(key=lambda r: (r["language"], r["topic"], r["lexeme_id"], r["sense_id"], r["concept_id"]))
     if len(rows) != receipt["actual_rows"]:
         raise ValueError("candidate count mismatch")
