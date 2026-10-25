@@ -1,0 +1,73 @@
+{
+  "language": "de",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q191780",
+      "forms": [
+        "Ordinalzahl",
+        "Ordinalzahl",
+        "Ordinalzahl",
+        "Ordinalzahl",
+        "Ordinalzahlen",
+        "Ordinalzahlen",
+        "Ordinalzahlen",
+        "Ordinalzahlen"
+      ],
+      "language": "de",
+      "lemma": "Ordinalzahl",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L492457",
+      "pos": "",
+      "qids": [
+        "Q191780",
+        "Q923933"
+      ],
+      "record_id": "L492457",
+      "retrieval_date": "2026-10-25",
+      "revision": "2383240719",
+      "schema_version": "1.0.0",
+      "section": "numbers",
+      "sense_id": "L492457-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "numbers.q11563",
+      "wikidata": "Q191780"
+    },
+    {
+      "concept_id": "concept.q191780",
+      "forms": [
+        "Ordnungszahl",
+        "Ordnungszahlen",
+        "Ordnungszahl",
+        "Ordnungszahlen",
+        "Ordnungszahl",
+        "Ordnungszahlen",
+        "Ordnungszahl",
+        "Ordnungszahlen"
+      ],
+      "language": "de",
+      "lemma": "Ordnungszahl",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L860011",
+      "pos": "",
+      "qids": [
+        "Q191780"
+      ],
+      "record_id": "L860011",
+      "retrieval_date": "2026-10-25",
+      "revision": "2087988032",
+      "schema_version": "1.0.0",
+      "section": "numbers",
+      "sense_id": "L860011-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "numbers.q11563",
+      "wikidata": "Q191780"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "numbers",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

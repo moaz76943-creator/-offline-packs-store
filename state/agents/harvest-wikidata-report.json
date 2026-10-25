@@ -1,69 +1,69 @@
 {
-  "accepted_rows": 3,
+  "accepted_rows": 4,
   "outcomes": [
     {
-      "accepted_rows": 3,
-      "fetched_entities": 3,
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q3343010"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q120765651"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q130341721"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q48740485"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q130341731"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q5697927"
+    },
+    {
+      "accepted_rows": 2,
+      "fetched_entities": 2,
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q398085"
+      "wikidata": "Q191780"
     },
     {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
+      "accepted_rows": 2,
+      "fetched_entities": 2,
       "rejected_entities": 0,
       "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q2675808"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q1020027"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q1747087"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q6146512"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q7663751"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q2527923"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q36980955"
+      "status": "FETCHED",
+      "wikidata": "Q12916"
     }
   ],
   "production_publication": false,
