@@ -175,7 +175,15 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        required_terms = [
+                            sid,
+                            src.get('publisher', ''),
+                            src.get('license', {}).get('id', ''),
+                            src.get('origin_url', ''),
+                        ]
+                        if src.get('author'):
+                            required_terms.append(src['author'])
+                        if not all(term in content for term in required_terms):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:
