@@ -53,7 +53,7 @@ class KinshipPageCandidatesTest(unittest.TestCase):
         for x in rows:
             self.assertIn((x["language"], x["lexeme_id"]), lex)
             self.assertEqual(x["id"], ":".join((x["language"], x["lexeme_id"], x["sense_id"], x["concept_id"])))
-            self.assertRegex(x["concept_id"], r"^concept\\.q[1-9][0-9]*$")
+            self.assertRegex(x["concept_id"], r"^concept\.q[1-9][0-9]*$")
             self.assertEqual((x["topic"], x["subtopic"], x["level"]), ("family", "kinship", "UNKNOWN"))
             self.assertEqual((x["directed_translations"], x["examples"], x["review_status"]),
                              ([], [], "REVIEW_REQUIRED"))
