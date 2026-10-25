@@ -391,6 +391,11 @@ def audit(root, *, shard=0, shards=10):
                 or script_metadata.get('direction') not in ('ltr', 'rtl')
                 or item.get('direction') != script_metadata['direction']):
             raise AuditError(f'script direction mismatch: {code}')
+        # A verified-pack claim without a published v2 manifest entry is
+        # unsupported metadata, not a REGISTERED/PASS result. Do not promote
+        # legacy placeholders or report verification from flags alone.
+        if item.get('pack_verified') is True and code not in indexed:
+            raise AuditError(f'unbacked pack_verified metadata: {code}')
         active = item.get('production_ready') is True or item.get('is_active') is True
         if active and not (item.get('pack_verified') is True and item.get('content_available') is True
                            and code in indexed):
