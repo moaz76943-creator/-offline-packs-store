@@ -69,6 +69,15 @@ class SearchAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(audit.AuditError, 'language'):
             audit.check_sqlite(self.db, 'fr')
 
+    def test_sqlite_symlinked_parent_is_rejected(self):
+        # QA-only fixture: a regular database reached through a directory
+        # symlink must not be treated as a repository-local ordinary file.
+        self.make_db('de')
+        alias = self.root / 'sqlite-alias'
+        alias.symlink_to(self.root, target_is_directory=True)
+        with self.assertRaisesRegex(audit.AuditError, 'unsafe SQLite'):
+            audit.check_sqlite(alias / self.db.name, 'de')
+
     def test_missing_fts_row_rejected(self):
         self.make_db()
         with sqlite3.connect(self.db) as db:

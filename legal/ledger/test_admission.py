@@ -178,6 +178,23 @@ class AdmissionTests(unittest.TestCase):
         self.assertIn('license notice conflicts', str(self.issues()))
 
 
+    def test_metadata_index_cannot_be_approved_as_original_corpus(self):
+        content = self.put('evidence/index.html', b'<html>download links</html>')
+        self.source['origin_url'] = 'https://example.org/lexemes.json.bz2'
+        self.source['retrieval'].update({
+            'identity': 'dump-index', 'url': 'https://example.org/dumps/',
+            'artifact_path': content, 'sha256': sha256_file(self.root / content)})
+        self.assertIn('SOURCE_ARTIFACT', str(self.issues()))
+
+    def test_stats_xml_cannot_be_approved_as_example_corpus(self):
+        content = self.put('evidence/stats.xml', b'<stats/>')
+        self.source['kind'] = 'examples'
+        self.candidate['kind'] = 'examples'
+        self.source['retrieval'].update({
+            'identity': 'treebank-stats', 'url': 'https://example.org/treebank/stats.xml',
+            'artifact_path': content, 'sha256': sha256_file(self.root / content)})
+        self.assertIn('SOURCE_ARTIFACT', str(self.issues()))
+
 class AdmissionPathImportTests(unittest.TestCase):
     def test_admission_loads_by_file_path_without_ledger_on_sys_path(self):
         ledger = Path(__file__).resolve().parent

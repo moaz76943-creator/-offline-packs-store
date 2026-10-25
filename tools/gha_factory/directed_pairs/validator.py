@@ -264,15 +264,22 @@ def main(argv=None):
     temp = out.with_name(out.name + '.tmp')
     if out.is_symlink() or temp.is_symlink():
         raise PairError('UNSAFE_OUTPUT_PATH')
-    # Exclusive create refuses pre-existing files and symlinks (including
-    # dangling links) without following either. Never truncate an old .tmp.
+    # Write a new receipt only. os.replace() silently overwrites an existing
+    # output even though the staging file was opened exclusively. Hard-linking
+    # the completed staging file is atomic and fails closed on existing outputs,
+    # including symlinks; always clean up the temporary file.
+    created_temp = False
     try:
         with temp.open('x', encoding='utf-8') as stream:
+            created_temp = True
             json.dump(report, stream, sort_keys=True, ensure_ascii=False, separators=(',', ':'))
             stream.write('\n')
+        os.link(temp, out)
     except FileExistsError as exc:
         raise PairError('UNSAFE_OUTPUT_PATH') from exc
-    os.replace(temp, out)
+    finally:
+        if created_temp:
+            temp.unlink(missing_ok=True)
     print(json.dumps(report, sort_keys=True))
 
 

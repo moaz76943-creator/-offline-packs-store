@@ -400,7 +400,12 @@ def command_harvest(args):
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 source_errors += 1
                 outcome['status'] = 'SOURCE_ERROR'
-                skipped.append({'wikidata': concept.get('wikidata'), 'reason': exc.__class__.__name__})
+                code = getattr(exc, 'code', None)
+                reason = exc.__class__.__name__
+                if isinstance(code, int):
+                    reason = f'{reason}:{code}'
+                outcome['reason'] = reason
+                skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                 continue
             outcome['fetched_entities'] = len(entities)
             outcome['status'] = 'FETCHED' if entities else 'EMPTY_SEARCH'
@@ -617,12 +622,20 @@ def command_harvest(args):
     warning_text = f'skipped {len(skipped)}' if skipped else ''
     if not wrote:
         warning_text = warning_text or 'no candidate rows; not production throughput'
-    write_heartbeat(_out('state/agents'), name,
-                    'failed' if source_errors else ('ok' if wrote else 'degraded'), warning_text)
+    # A concept that raises after sibling concepts already wrote rows is a
+    # degraded run, not a failed one. A run that wrote nothing stays failed.
+    incomplete = bool(source_errors) and not wrote
+    if source_errors and wrote:
+        extra = f'{source_errors} concept source errors after rows were written'
+        warning_text = f'{warning_text}; {extra}' if warning_text else extra
+    heartbeat_status = (
+        'failed' if incomplete else ('degraded' if source_errors or not wrote else 'ok')
+    )
+    write_heartbeat(_out('state/agents'), name, heartbeat_status, warning_text)
     warnings = [item for item in (warning, cursor_warning, window_warning) if item]
     print(json.dumps({'files': wrote, 'skipped': len(skipped),
                       'attempted_concepts': len(concepts), 'warning': '; '.join(warnings)}))
-    return 1 if source_errors else 0
+    return 1 if incomplete else 0
 
 
 def command_watchdog(_args):

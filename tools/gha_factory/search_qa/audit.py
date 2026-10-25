@@ -148,8 +148,11 @@ def check_sqlite(path, language):
     """Verify a standalone SQLite file as an untrusted read-only QA subject."""
     if not isinstance(language, str) or not re.fullmatch(r'[a-z]{2,3}', language):
         raise AuditError('invalid language')
-    path = Path(path)
-    if not path.is_file() or path.is_symlink():
+    # Resolve neither the candidate nor its parents before checking links:
+    # SQLite's immutable read-only URI would otherwise silently follow a
+    # symlinked directory even when the final database file is ordinary.
+    path = Path(path).absolute()
+    if not path.is_file() or any(part.is_symlink() for part in (path, *path.parents)):
         raise AuditError('missing/unsafe SQLite file')
     if path.stat().st_size > MAX_SQLITE_BYTES:
         raise AuditError('oversized SQLite file')
@@ -183,6 +186,12 @@ def check_sqlite(path, language):
             if (metadata.get('mapping_version') != '2.0.0'
                     or metadata.get('contract_version') != '1.0.0'):
                 raise AuditError('SQLite metadata version mismatch')
+            # Actual SQLite v2 producer metadata binds an archive to its
+            # lexical language. Legacy miniature QA fixtures may omit it,
+            # but a declared, contradictory identity must never pass.
+            if ('language_code' in metadata
+                    and metadata['language_code'] != language):
+                raise AuditError('SQLite metadata language mismatch')
             total = con.execute('SELECT COUNT(*) FROM lexicon').fetchone()[0]
             if total <= 0:
                 raise AuditError('empty lexical corpus is not search-ready')
