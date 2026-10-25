@@ -274,6 +274,13 @@ class CoverageAuditTests(unittest.TestCase):
                 self.write_all()
                 with self.assertRaisesRegex(checker.AuditError, 'version pack'):
                     checker.audit(self.root, shard=1, shards=100)
+        # Valid index metadata remains legal for an unselected shard;
+        # this is not a claim that the synthetic pack is publishable.
+        self.values['version.json']['packs'] = {
+            'aa': {'version': '1.0.0', 'file_url': good_url}}
+        self.write_all()
+        report = checker.audit(self.root, shard=1, shards=100)
+        self.assertEqual(report['verified_v2_packs'], 0)
 
     def test_unverified_release_claim_rejected_even_if_flags_set(self):
         self.values['legal/ledger/sources.json']['sources'] = [
