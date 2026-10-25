@@ -177,7 +177,10 @@ def make_cloze(sentence, annotation, senses, forms):
             not 0 <= start < end <= len(text)):
         raise Rejected('REJECTED_EXERCISE: invalid span')
     answer = text[start:end]
-    if not answer.strip() or text.count(answer) != 1:
+    # Count canonical-equivalent occurrences, not just byte-identical spans.
+    # Keep the original source text and editor-attested offsets unchanged.
+    if (not answer.strip() or
+            unicodedata.normalize('NFC', text).count(unicodedata.normalize('NFC', answer)) != 1):
         raise Rejected('REJECTED_EXERCISE: ambiguous answer span')
     sid = annotation.get('sense_id')
     lexeme = annotation.get('lexeme_id')
