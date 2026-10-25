@@ -35,7 +35,7 @@ class RetrievedEvidenceTests(unittest.TestCase):
     def test_kaikki_bounded_prefix_is_complete_jsonl_not_an_index(self):
         path = EVIDENCE / 'kaikki-de-prefix.jsonl'
         data = path.read_bytes()
-        self.assertTrue(data.endswith(b'\\n'))
+        self.assertTrue(data.endswith(b'\n'))
         self.assertGreater(len(data), 0)
         for line in data.splitlines():
             self.assertIsInstance(json.loads(line), dict)
