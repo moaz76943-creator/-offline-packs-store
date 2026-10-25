@@ -1,6 +1,7 @@
 """Bounded source adapters. A failed source is skipped; it does not invent a row."""
 
 import json
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -271,7 +272,15 @@ def fetch_range(url, start, length, timeout=40):
             'Range': f'bytes={start}-{start + length - 1}',
         },
     )
-    with urllib.request.urlopen(request, timeout=timeout) as response:
+    try:
+        response = urllib.request.urlopen(request, timeout=timeout)
+    except urllib.error.HTTPError as exc:
+        # urlopen raises 416 instead of returning a response. A persisted
+        # offset past a replaced shorter extract must restart, not fail forever.
+        if exc.code == 416:
+            return 416, None, b''
+        raise
+    with response:
         status = response.getcode()
         header = response.headers.get('Content-Range')
         payload = response.read(length + 1)[:length]

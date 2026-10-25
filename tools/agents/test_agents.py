@@ -951,6 +951,21 @@ class KaikkiHarvestTests(unittest.TestCase):
             100, fetch=lambda *_args: (416, None, b''))
         self.assertEqual((data, nxt, eof), (b'', 0, True))
 
+    def test_urlopen_416_resets_instead_of_sticking_past_eof(self):
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import harvest
+
+        def boom(*_args, **_kwargs):
+            raise urllib.error.HTTPError(
+                'https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl',
+                416, 'Range Not Satisfiable', email.message.Message(), None)
+
+        with mock.patch('urllib.request.urlopen', side_effect=boom):
+            data, nxt, eof = harvest.kaikki_window(8000)
+        self.assertEqual((data, nxt, eof), (b'', 0, True))
+
     def test_scheduled_runs_advance_the_byte_cursor_and_keep_the_row(self):
         import argparse
         import shutil
