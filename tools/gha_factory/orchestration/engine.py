@@ -26,17 +26,21 @@ def trusted(issue):
         and type(number) is int and number>0
         and isinstance(title,str) and title.startswith(p.PREFIX))
 
-def inventory(api,ctx,invalid_active=None):
+def inventory(api,ctx,invalid_active=None,telemetry=None):
     entries=[]
     for issue in api.issues():
         if not trusted(issue):continue
         try:
             t=p.parse(issue.get('body'),ctx['languages'])
         except (ValueError, TypeError, KeyError, UnicodeError) as exc:
+            if telemetry is not None:
+                telemetry['malformed_queue_issues']=telemetry.get('malformed_queue_issues',0)+1
             print('QUARANTINED_INVALID_ISSUE', issue['number'],
                   type(exc).__name__, file=sys.stderr)
             continue
         if issue['title']!=p.PREFIX+t['task_id']:
+            if telemetry is not None:
+                telemetry['malformed_queue_issues']=telemetry.get('malformed_queue_issues',0)+1
             print('QUARANTINED_INVALID_ISSUE', issue['number'],
                   'TitleIdentityMismatch', file=sys.stderr)
             if t['state'] not in p.ACTIVE:
@@ -103,7 +107,7 @@ def _blocked(t,state):
 def control(api,run_id,attempt,now,root,ctx=None,registry_sha=None,telemetry=None):
     if ctx is None:ctx,registry_sha=legacy.context(root)
     invalid_active=set()
-    entries=inventory(api,ctx,invalid_active)
+    entries=inventory(api,ctx,invalid_active,telemetry)
     if telemetry is not None:
         observed=Counter(t['state'] for _,t in entries)
         telemetry.update(queue_total=len(entries),
