@@ -211,6 +211,24 @@ class CoverageAuditTests(unittest.TestCase):
         self.assertEqual(report['source_approved_ids'], 0)
         self.assertEqual(report['source_approval_missing_evidence'], 1)
 
+    def test_nonempty_unapproved_ledger_cannot_advertise_release_without_packs(self):
+        # A pending ledger row must not bypass the empty-pack release gate.
+        self.values['legal/ledger/sources.json']['sources'] = [
+            {'source_id': 'pending', 'status': 'REVIEW_REQUIRED'}]
+        self.values['version.json']['release_status'] = 'VERIFIED_CANDIDATE'
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'release metadata|published packs'):
+            checker.audit(self.root, shard=0, shards=1)
+
+    def test_nonempty_unapproved_ledger_cannot_advertise_phantom_version_packs(self):
+        # No published v2 pack exists, regardless of ledger row count.
+        self.values['legal/ledger/sources.json']['sources'] = [
+            {'source_id': 'pending', 'status': 'REVIEW_REQUIRED'}]
+        self.values['version.json']['packs'] = {'aa': {'sha256': '0' * 64}}
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'release metadata|published packs'):
+            checker.audit(self.root, shard=0, shards=1)
+
     def test_unverified_release_claim_rejected_even_if_flags_set(self):
         self.values['legal/ledger/sources.json']['sources'] = [
             {'source_id': 'forged', 'status': 'APPROVED_FOR_REDISTRIBUTION'}]
