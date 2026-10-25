@@ -48,6 +48,9 @@ class PackConformanceValidator:
         self.language_codes = set()
 
     def validate(self):
+        import os
+        if not os.access(self.repo_root, os.R_OK):
+            raise OSError("UNAUTHORIZED_WORKSPACE")
         self.is_verified = False
         self.language_code = None
         self.language_codes = set()
@@ -179,7 +182,8 @@ class PackConformanceValidator:
             raise PackConformanceError('Mismatched declared count in metadata')
         if db.execute('SELECT count(*) FROM lexicon_fts').fetchone()[0] != count:
             raise PackConformanceError('FTS5 count mismatch')
-        db.execute("INSERT INTO lexicon_fts(lexicon_fts,rank) VALUES('integrity-check',1)")
+        if [tuple(r) for r in db.execute("PRAGMA integrity_check('lexicon_fts')")] != [('ok',)]:
+            raise PackConformanceError('FTS5 integrity check failed')
         # The reference producer derives CEFR from attested sense levels.
         # Index these once rather than issuing a query for each lexeme.
         cefr_by_lexeme = {}
