@@ -143,22 +143,32 @@ def script_check(text, language):
 def source_approval(ledger, source_id, cc0_sha):
     """Actual Route 05 approval, never inferred from a licence name or a URL."""
     data = json.loads(Path(ledger).read_text(encoding='utf-8'))
-    if data.get('schema_version') != '1.0.0' or not isinstance(data.get('sources'), list):
+    if (data.get('schema_version') != '1.0.0'
+            or not isinstance(data.get('sources'), list)
+            or any(not isinstance(s, dict) for s in data['sources'])):
         raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
     matches = [s for s in data['sources'] if s.get('source_id') == source_id]
     if len(matches) != 1:
         return False
     src = matches[0]
-    lic = src.get('license') or {}
-    retrieval = src.get('retrieval') or {}
-    review = src.get('review') or {}
+    lic = src.get('license')
+    retrieval = src.get('retrieval')
+    review = src.get('review')
+    if any(not isinstance(section, dict) for section in (lic, retrieval, review)):
+        raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
+    for section, field in ((retrieval, 'url'), (lic, 'evidence_url'),
+                           (review, 'decision_url')):
+        if not isinstance(section.get(field), str):
+            raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
+    evidence_sha = lic.get('evidence_sha256')
     # The CC0 export (not the mixed-licence detailed corpus) must be approved.
     return (src.get('kind') == 'examples' and src.get('status') == 'APPROVED_FOR_REDISTRIBUTION'
             and lic.get('id') == 'CC0-1.0' and lic.get('id') in LICENSES
             and retrieval.get('sha256') == cc0_sha and bool(retrieval.get('identity'))
-            and bool(retrieval.get('url', '').startswith('https://'))
-            and bool(lic.get('evidence_sha256')) and bool(lic.get('evidence_url', '').startswith('https://'))
-            and bool(review.get('reviewer')) and bool(review.get('decision_url', '').startswith('https://')))
+            and retrieval['url'].startswith('https://')
+            and isinstance(evidence_sha, str) and SHA.fullmatch(evidence_sha) is not None
+            and lic['evidence_url'].startswith('https://')
+            and bool(review.get('reviewer')) and review['decision_url'].startswith('https://'))
 
 
 def make_cloze(sentence, annotation, senses, forms):
