@@ -134,6 +134,25 @@ class CoverageAuditTests(unittest.TestCase):
         self.assertEqual(checker._parse_strict_json(valid, 'synthetic pack metadata'),
                          {'word': 'عربي Äpfel Straße İ ı 日本語'})
 
+    def test_oversized_json_integers_fail_as_audit_errors(self):
+        # JSON numeric tokens must be bounded before Python's int parser
+        # raises an implementation-specific ValueError on very long input.
+        # The same rule applies to repository and synthetic pack metadata.
+        for digits in (129, 5000):
+            for sign in ('', '-'):
+                with self.subTest(digits=digits, sign=sign):
+                    raw = ('{"value":' + sign + '9' * digits + '}').encode('ascii')
+                    with self.assertRaisesRegex(checker.AuditError, 'integer'):
+                        checker._parse_strict_json(raw, 'synthetic metadata')
+                    (self.root / 'version.json').write_bytes(raw)
+                    with self.assertRaisesRegex(checker.AuditError, 'integer'):
+                        checker.read_json(self.root, 'version.json')
+
+    def test_bounded_json_integer_is_preserved(self):
+        value = 10 ** 127 - 1
+        raw = ('{"value":' + str(value) + '}').encode('ascii')
+        self.assertEqual(checker._parse_strict_json(raw, 'synthetic metadata')['value'], value)
+
     def test_nonfinite_exponent_in_repository_metadata_is_rejected(self):
         # These are syntactically invalid JSON numeric values, even though
         # Python's default JSON decoder converts their exponents to infinity.
