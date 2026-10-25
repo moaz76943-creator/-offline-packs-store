@@ -251,15 +251,24 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
             """).fetchone()
             if mismatch:
                 raise AuditError('translation target language mismatch or missing')
+            # Multiple evidence/translation rows can represent one directed
+            # sense edge. Count distinct (source sense, target sense) links
+            # rather than inflated raw rows; do not infer reverse directions.
             rows = db.execute("""
-                SELECT source.language_code, target.language_code, COUNT(*)
-                FROM translations AS t
-                JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
-                JOIN lexicon AS source ON source.id = src_sense.lexeme_id
-                JOIN senses AS dst_sense ON dst_sense.sense_id = t.to_sense_id
-                JOIN lexicon AS target ON target.id = dst_sense.lexeme_id
-                GROUP BY source.language_code, target.language_code
-                ORDER BY source.language_code, target.language_code
+                SELECT source_language, target_language, COUNT(*)
+                FROM (
+                    SELECT DISTINCT
+                        source.language_code AS source_language,
+                        target.language_code AS target_language,
+                        t.from_sense_id, t.to_sense_id
+                    FROM translations AS t
+                    JOIN senses AS src_sense ON src_sense.sense_id = t.from_sense_id
+                    JOIN lexicon AS source ON source.id = src_sense.lexeme_id
+                    JOIN senses AS dst_sense ON dst_sense.sense_id = t.to_sense_id
+                    JOIN lexicon AS target ON target.id = dst_sense.lexeme_id
+                )
+                GROUP BY source_language, target_language
+                ORDER BY source_language, target_language
             """).fetchall()
         except sqlite3.DatabaseError as error:
             raise AuditError(f'invalid SQLite directed coverage database: {error}') from error
