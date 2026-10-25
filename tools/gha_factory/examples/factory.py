@@ -111,13 +111,27 @@ def bounded_tsv(path, columns):
 
 
 def verified_catalog(manifest, mappings):
-    data = json.loads(Path(manifest).read_text(encoding='utf-8'))
-    codes = [item['code'] for item in data['languages']]
-    if len(codes) != 100 or len(set(codes)) != 100:
+    # A damaged registry must not crash the worker or introduce an unverified
+    # language identity. Keep the 100-entry contract and fail closed.
+    try:
+        data = json.loads(Path(manifest).read_text(encoding='utf-8'))
+    except (OSError, ValueError, UnicodeError) as exc:
+        raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available') from exc
+    languages = data.get('languages') if isinstance(data, dict) else None
+    if (not isinstance(languages, list) or len(languages) != 100 or
+            any(not isinstance(item, dict) or
+                not isinstance(item.get('code'), str) or
+                not item['code'] for item in languages)):
         raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available')
+    codes = [item['code'] for item in languages]
+    if len(set(codes)) != 100:
+        raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available')
+    if not isinstance(mappings, dict):
+        raise Rejected('BLOCKED_DEPENDENCY: invalid explicit language mapping')
     result = dict(PILOT_MAP)
     for src, dst in mappings.items():
-        if not re.fullmatch(r'[a-z]{3}', src) or dst not in codes:
+        if (not isinstance(src, str) or not isinstance(dst, str) or
+                not re.fullmatch(r'[a-z]{3}', src) or dst not in codes):
             raise Rejected('BLOCKED_DEPENDENCY: invalid explicit language mapping')
         if src in result and result[src] != dst:
             raise Rejected('BLOCKED_DEPENDENCY: pilot language identity cannot be remapped')
