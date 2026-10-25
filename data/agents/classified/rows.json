@@ -674,6 +674,42 @@
       "wikidata": "Q105688"
     },
     {
+      "concept_id": "concept.q28130149",
+      "forms": [
+        "skærmtid",
+        "skærmtiden",
+        "skærmtider",
+        "skærmtiderne",
+        "skærmtids",
+        "skærmtidens",
+        "skærmtiders",
+        "skærmtidernes"
+      ],
+      "language": "da",
+      "lemma": "skærmtid",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1187944",
+      "pos": "",
+      "qids": [
+        "Q28130149"
+      ],
+      "record_id": "L1187944",
+      "retrieval_date": "2026-10-25",
+      "revision": "1987189566",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1187944-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q28130149"
+    },
+    {
       "concept_id": "concept.q82955",
       "forms": [
         "politiker",
@@ -1424,6 +1460,74 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q347066",
+      "forms": [
+        "Echtzeit",
+        "Echtzeit",
+        "Echtzeit",
+        "Echtzeit"
+      ],
+      "language": "de",
+      "lemma": "Echtzeit",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L496179",
+      "pos": "",
+      "qids": [
+        "Q347066"
+      ],
+      "record_id": "L496179",
+      "retrieval_date": "2026-10-25",
+      "revision": "2306643637",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L496179-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q347066"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "Urlaub",
+        "Urlaubes",
+        "Urlaubs",
+        "Urlaub",
+        "Urlaub",
+        "Urlaube",
+        "Urlaube",
+        "Urlauben"
+      ],
+      "language": "de",
+      "lemma": "Urlaub",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L498021",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L498021",
+      "retrieval_date": "2026-10-25",
+      "revision": "2306764519",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L498021-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
     },
     {
       "concept_id": "concept.q82955",
@@ -3222,6 +3326,96 @@
       "wikidata": "Q55313888"
     },
     {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "chronology",
+        "chronologies"
+      ],
+      "language": "en",
+      "lemma": "chronology",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L58591",
+      "pos": "",
+      "qids": [
+        "Q130788",
+        "Q67439188"
+      ],
+      "record_id": "L58591",
+      "retrieval_date": "2026-10-25",
+      "revision": "2537968384",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L58591-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "PTO"
+      ],
+      "language": "en",
+      "lemma": "PTO",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L726560",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L726560",
+      "retrieval_date": "2026-10-25",
+      "revision": "2434292531",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L726560-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "paid leave",
+        "paid leaves"
+      ],
+      "language": "en",
+      "lemma": "paid leave",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1553876",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L1553876",
+      "retrieval_date": "2026-10-25",
+      "revision": "2459308218",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1553876-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
+    },
+    {
       "concept_id": "concept.q82955",
       "forms": [
         "politician",
@@ -4199,6 +4393,42 @@
       "wikidata": "Q11756"
     },
     {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "kronologia",
+        "kronologia",
+        "kronologiak",
+        "kronologiak",
+        "kronologiak",
+        "kronologiek",
+        "kronologiari",
+        "kronologiari"
+      ],
+      "language": "eu",
+      "lemma": "kronologia",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72475",
+      "pos": "",
+      "qids": [
+        "Q130788"
+      ],
+      "record_id": "L72475",
+      "retrieval_date": "2026-10-25",
+      "revision": "1354657347",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L72475-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    },
+    {
       "concept_id": "concept.q9149093",
       "forms": [
         "mendigoizale",
@@ -4704,6 +4934,37 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "chronologie",
+        "chronologies"
+      ],
+      "language": "fr",
+      "lemma": "chronologie",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L17249",
+      "pos": "",
+      "qids": [
+        "Q67439188",
+        "Q130788"
+      ],
+      "record_id": "L17249",
+      "retrieval_date": "2026-10-25",
+      "revision": "2332750268",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L17249-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
     },
     {
       "concept_id": "concept.q82955",
@@ -5633,6 +5894,37 @@
       "wikidata": "Q116007"
     },
     {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "cronologia",
+        "cronologie"
+      ],
+      "language": "it",
+      "lemma": "cronologia",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L685381",
+      "pos": "",
+      "qids": [
+        "Q130788",
+        "Q67439188"
+      ],
+      "record_id": "L685381",
+      "retrieval_date": "2026-10-25",
+      "revision": "2230761667",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L685381-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    },
+    {
       "concept_id": "concept.q131482",
       "forms": [
         "egira",
@@ -5981,6 +6273,36 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q55313888"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "有給休暇",
+        "ゆうきゅうきゅうか"
+      ],
+      "language": "ja",
+      "lemma": "有給休暇",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1549380",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L1549380",
+      "retrieval_date": "2026-10-25",
+      "revision": "2445483112",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1549380-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
     },
     {
       "concept_id": "concept.q970153",
@@ -6643,6 +6965,35 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q483444"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "കാലാനുക്രമണിക"
+      ],
+      "language": "ml",
+      "lemma": "കാലാനുക്രമണിക",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L456261",
+      "pos": "",
+      "qids": [
+        "Q130788"
+      ],
+      "record_id": "L456261",
+      "retrieval_date": "2026-10-25",
+      "revision": "1394978818",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L456261-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
     },
     {
       "concept_id": "concept.q3130",
@@ -7346,6 +7697,37 @@
       "wikidata": "Q2778382"
     },
     {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "cronologia",
+        "cronologias"
+      ],
+      "language": "pt",
+      "lemma": "cronologia",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L499932",
+      "pos": "",
+      "qids": [
+        "Q186117",
+        "Q130788"
+      ],
+      "record_id": "L499932",
+      "retrieval_date": "2026-10-25",
+      "revision": "2539005298",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L499932-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    },
+    {
       "concept_id": "concept.q107246703",
       "forms": [
         "пятачок",
@@ -7630,6 +8012,43 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q268594"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "хронология",
+        "хронологии",
+        "хронологии",
+        "хронологию",
+        "хронологией",
+        "хронологиею",
+        "хронологии",
+        "хронологии"
+      ],
+      "language": "ru",
+      "lemma": "хронология",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L177761",
+      "pos": "",
+      "qids": [
+        "Q186117",
+        "Q130788"
+      ],
+      "record_id": "L177761",
+      "retrieval_date": "2026-10-25",
+      "revision": "2236739954",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L177761-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
     },
     {
       "concept_id": "concept.q131482",
@@ -8206,6 +8625,74 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q193211"
+    },
+    {
+      "concept_id": "concept.q28130149",
+      "forms": [
+        "skärmtid",
+        "skärmtiden",
+        "skärmtids",
+        "skärmtidens"
+      ],
+      "language": "sv",
+      "lemma": "skärmtid",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L584851",
+      "pos": "",
+      "qids": [
+        "Q28130149"
+      ],
+      "record_id": "L584851",
+      "retrieval_date": "2026-10-25",
+      "revision": "2484843026",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L584851-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q28130149"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "tideräkning",
+        "tideräkningen",
+        "tideräkningar",
+        "tideräkningarna",
+        "tideräknings",
+        "tideräkningens",
+        "tideräkningars",
+        "tideräkningarnas"
+      ],
+      "language": "sv",
+      "lemma": "tideräkning",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L489412",
+      "pos": "",
+      "qids": [
+        "Q130788"
+      ],
+      "record_id": "L489412",
+      "retrieval_date": "2026-10-25",
+      "revision": "2503879937",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L489412-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
     },
     {
       "concept_id": "concept.q82955",
