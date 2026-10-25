@@ -186,6 +186,23 @@ class PairValidationTests(unittest.TestCase):
                 main(args)
         self.assertEqual('DO_NOT_OVERWRITE', victim.read_text(encoding='utf-8'))
 
+    def test_existing_receipt_cannot_be_overwritten(self):
+        # A later run must not replace an already staged QA receipt.
+        output = self.dir / 'immutable-report.json'
+        output.write_bytes(b'PREVIOUS_VERIFIED_RECEIPT\n')
+        catalog = self.dir / 'manifest-immutable.json'
+        catalog.write_text(json.dumps({'languages': [{'code': 'l' + str(i)}
+                                                    for i in range(100)]}))
+        args = ['--catalog', str(catalog), '--out', str(output)]
+        for name in ('detailed', 'links', 'cc0', 'candidates'):
+            args.extend(['--' + name, 'fixture', '--' + name + '-sha256', 'a' * 64])
+        with patch('validator.audit_pairs',
+                   return_value={'status': 'QA_ONLY_REVIEW_REQUIRED'}):
+            with self.assertRaisesRegex(PairError, 'UNSAFE_OUTPUT_PATH'):
+                main(args)
+        self.assertEqual(output.read_bytes(), b'PREVIOUS_VERIFIED_RECEIPT\n')
+        self.assertFalse((self.dir / 'immutable-report.json.tmp').exists())
+
     def test_bounded_pair_budget(self):
         with self.assertRaisesRegex(PairError, 'PAIR_BUDGET_EXCEEDED'):
             self.inputs['candidates'] *= 2
