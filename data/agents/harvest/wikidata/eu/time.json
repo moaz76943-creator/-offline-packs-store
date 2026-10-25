@@ -1,0 +1,46 @@
+{
+  "language": "eu",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "historiaurre",
+        "historiaurrea",
+        "historiaurreak",
+        "historiaurrek",
+        "historiaurreak",
+        "historiaurreek",
+        "historiaurreri",
+        "historiaurreari"
+      ],
+      "language": "eu",
+      "lemma": "historiaurre",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L70498",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L70498",
+      "retrieval_date": "2026-10-25",
+      "revision": "1354685112",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L70498-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

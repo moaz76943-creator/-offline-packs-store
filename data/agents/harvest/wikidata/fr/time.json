@@ -1,0 +1,40 @@
+{
+  "language": "fr",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "préhistoire",
+        "préhistoires"
+      ],
+      "language": "fr",
+      "lemma": "préhistoire",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L28222",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L28222",
+      "retrieval_date": "2026-10-25",
+      "revision": "1767743685",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L28222-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

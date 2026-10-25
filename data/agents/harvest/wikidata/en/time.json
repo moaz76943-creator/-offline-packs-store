@@ -1,0 +1,64 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "prehistory",
+        "prehistories"
+      ],
+      "language": "en",
+      "lemma": "prehistory",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L41247",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L41247",
+      "retrieval_date": "2026-10-25",
+      "revision": "2549926995",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L41247-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q55313888",
+      "forms": [
+        "a.m."
+      ],
+      "language": "en",
+      "lemma": "a.m.",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L44235",
+      "pos": "",
+      "qids": [
+        "Q55313888"
+      ],
+      "record_id": "L44235",
+      "retrieval_date": "2026-10-25",
+      "revision": "2538824159",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L44235-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

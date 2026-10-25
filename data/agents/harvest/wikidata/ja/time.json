@@ -1,0 +1,40 @@
+{
+  "language": "ja",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q55313888",
+      "forms": [
+        "午前",
+        "ごぜん"
+      ],
+      "language": "ja",
+      "lemma": "午前",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L308508",
+      "pos": "",
+      "qids": [
+        "Q55313888"
+      ],
+      "record_id": "L308508",
+      "retrieval_date": "2026-10-25",
+      "revision": "2479966838",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L308508-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
