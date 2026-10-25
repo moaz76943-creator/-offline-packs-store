@@ -114,8 +114,18 @@ class LicensingLedger:
 
         return "verified"
 
-    def evaluate_combination(self, sources: list) -> str:
+    def evaluate_combination(self, sources: list, *, output_license=None, expected_versions=None) -> str:
+        """Check claimed source compatibility, never authorize publication.
+
+        Release approval remains exclusively with legal.ledger.admission,
+        which verifies original source bytes, license evidence and reviews.
+        A caller may pin every input version and the proposed output license.
+        """
         if not isinstance(sources, list) or not sources:
+            return "blocked"
+        if output_license is not None and output_license not in LICENSES:
+            return "blocked"
+        if expected_versions is not None and not isinstance(expected_versions, dict):
             return "blocked"
 
         statuses = set()
@@ -127,23 +137,31 @@ class LicensingLedger:
             statuses.add(status)
             if status == "blocked":
                 return "blocked"
-            # One source identity must not represent multiple records in a release.
             source_id = source["source_id"]
             if source_id in seen_ids:
                 return "blocked"
             seen_ids.add(source_id)
+            if expected_versions is not None and expected_versions.get(source_id) != source["version"]:
+                return "blocked"
 
             declared_license = source["license"]["declared"]
-            # Identify copyleft licenses (GFDL-1.3-only and CC-BY-SA-4.0 require sharealike / history which are copyleft)
             if declared_license in ("CC-BY-SA-4.0", "GFDL-1.3-only"):
                 copyleft_licenses.add(declared_license)
 
+            if output_license is not None:
+                # Mirror the canonical admission gate's fail-closed rule:
+                # attribution/copyleft sources cannot silently be relicensed.
+                if declared_license in OBLIGATIONS and output_license != declared_license:
+                    return "blocked"
+                if output_license == "PUBLIC-DOMAIN" and declared_license != "PUBLIC-DOMAIN":
+                    return "blocked"
+
+        if expected_versions is not None and set(expected_versions) != seen_ids:
+            return "blocked"
         if len(copyleft_licenses) > 1:
             return "blocked"
-
         if "reviewRequired" in statuses:
             return "reviewRequired"
-
         return "verified"
 
     def add_source(self, source: dict) -> str:

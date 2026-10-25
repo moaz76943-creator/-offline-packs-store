@@ -270,5 +270,68 @@ class TestLicensingLedger(unittest.TestCase):
         }
         self.assertEqual(ledger.evaluate_source(source), "blocked")
 
+    def test_output_license_rejects_unapproved_relicensing(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "attributed", "url": "https://example.org/corpus",
+            "author": "Author", "version": "2026-01",
+            "license": {"declared": "CC-BY-2.0-FR", "evidence_verified": True,
+                        "obligations": ["attribution", "license_link"]},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_combination([source]), "verified")
+        self.assertEqual(ledger.evaluate_combination([source], output_license="CC0-1.0"), "blocked")
+        self.assertEqual(ledger.evaluate_combination([source], output_license="CC-BY-SA-4.0"), "blocked")
+        self.assertEqual(ledger.evaluate_combination([source], output_license="CC-BY-2.0-FR"), "verified")
+
+    def test_cc0_is_not_automatically_public_domain(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "cc0", "url": "https://example.org/corpus",
+            "author": "Author", "version": "1",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_combination([source], output_license="PUBLIC-DOMAIN"), "blocked")
+        self.assertEqual(ledger.evaluate_combination([source], output_license="CC0-1.0"), "verified")
+
+    def test_cc0_can_combine_with_sharealike_without_downgrading_it(self):
+        ledger = LicensingLedger()
+        base = {
+            "url": "https://example.org/corpus", "author": "Author",
+            "version": "1", "modification_status": "unchanged",
+        }
+        cc0 = dict(base, source_id="cc0",
+                   license={"declared": "CC0-1.0", "evidence_verified": True})
+        sa = dict(base, source_id="sa",
+                  license={"declared": "CC-BY-SA-4.0", "evidence_verified": True,
+                           "obligations": ["attribution", "license_link",
+                                           "changes_disclosed", "sharealike",
+                                           "no_additional_restrictions"]})
+        self.assertEqual(ledger.evaluate_combination([cc0, sa], output_license="CC-BY-SA-4.0"), "verified")
+        self.assertEqual(ledger.evaluate_combination([cc0, sa], output_license="CC0-1.0"), "blocked")
+
+    def test_combination_requires_all_pinned_versions(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "cc0", "url": "https://example.org/corpus",
+            "author": "Author", "version": "2",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_combination([source], expected_versions={"cc0": "1"}), "blocked")
+        self.assertEqual(ledger.evaluate_combination([source], expected_versions={}), "blocked")
+        self.assertEqual(ledger.evaluate_combination([source], expected_versions={"cc0": "2"}), "verified")
+
+    def test_unknown_output_license_is_blocked(self):
+        ledger = LicensingLedger()
+        source = {
+            "source_id": "cc0", "url": "https://example.org/corpus",
+            "author": "Author", "version": "1",
+            "license": {"declared": "CC0-1.0", "evidence_verified": True},
+            "modification_status": "unchanged",
+        }
+        self.assertEqual(ledger.evaluate_combination([source], output_license="UNKNOWN"), "blocked")
+
 if __name__ == '__main__':
     unittest.main()
