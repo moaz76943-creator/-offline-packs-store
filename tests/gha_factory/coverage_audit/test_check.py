@@ -229,6 +229,20 @@ class CoverageAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(checker.AuditError, 'release metadata|published packs'):
             checker.audit(self.root, shard=0, shards=1)
 
+    def test_nonempty_manifest_cannot_mask_unbacked_version_index(self):
+        # Synthetic fixture: a pending source and a manifest entry for aa
+        # must not let version.json advertise phantom packs. Shard ab does
+        # not inspect aa, so this exercises the global release index gate.
+        self.values['legal/ledger/sources.json']['sources'] = [
+            {'source_id': 'pending', 'status': 'REVIEW_REQUIRED'}]
+        self.values['manifest.json']['packs'] = [{'id': 'aa'}]
+        for bogus_index in ({'zz': {'sha256': '0' * 64}}, ['aa']):
+            with self.subTest(index=bogus_index):
+                self.values['version.json']['packs'] = bogus_index
+                self.write_all()
+                with self.assertRaisesRegex(checker.AuditError, 'version pack'):
+                    checker.audit(self.root, shard=1, shards=100)
+
     def test_unverified_release_claim_rejected_even_if_flags_set(self):
         self.values['legal/ledger/sources.json']['sources'] = [
             {'source_id': 'forged', 'status': 'APPROVED_FOR_REDISTRIBUTION'}]
