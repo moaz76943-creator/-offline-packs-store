@@ -277,6 +277,58 @@ class FactoryTests(unittest.TestCase):
             make_cloze(sentence,ann,{},set())
 
 
+    def test_cloze_rejects_attested_alternative_of_the_answer_sense(self):
+        text = 'I read books.'
+        sentence = {'id': '42', 'language': 'en', 'text': text, 'admitted': True}
+        ann = {'sentence_id': '42', 'language': 'en', 'sentence_sha256': sha(text),
+               'editorial_unambiguous': True, 'editor_review_url': 'https://example.org/review',
+               'start': 2, 'end': 6, 'sense_id': 's.read', 'lexeme_id': 'l.read',
+               'features': {'tense': 'present'},
+               'distractors': [{'surface': 'reading', 'sense_id': 's.read'},
+                               {'surface': 'write', 'sense_id': 's.write'}]}
+        senses = {'s.read': {'language': 'en', 'lexeme_id': 'l.read', 'approved': True},
+                  's.write': {'language': 'en', 'lexeme_id': 'l.write', 'approved': True}}
+        forms = {('en', sid, surface, (('tense', 'present'),))
+                 for sid, surface in [('s.read', 'read'), ('s.read', 'reading'),
+                                      ('s.write', 'write')]}
+        # Before the fix, 'reading' was accepted as a distractor even though
+        # it is attested as the answer's own sense.
+        with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+            make_cloze(sentence, ann, senses, forms)
+
+    def test_cloze_rejects_nfc_equivalent_distractor_from_other_sense(self):
+        text = 'café is open.'
+        sentence = {'id': '43', 'language': 'en', 'text': text, 'admitted': True}
+        ann = {'sentence_id': '43', 'language': 'en', 'sentence_sha256': sha(text),
+               'editorial_unambiguous': True, 'editor_review_url': 'https://example.org/review',
+               'start': 0, 'end': 4, 'sense_id': 's.cafe', 'lexeme_id': 'l.cafe',
+               'features': {'number': 'singular'},
+               'distractors': [{'surface': 'cafe\u0301', 'sense_id': 's.other'},
+                               {'surface': 'write', 'sense_id': 's.write'}]}
+        senses = {'s.cafe': {'language': 'en', 'lexeme_id': 'l.cafe', 'approved': True},
+                  's.other': {'language': 'en', 'lexeme_id': 'l.other', 'approved': True},
+                  's.write': {'language': 'en', 'lexeme_id': 'l.write', 'approved': True}}
+        forms = {('en', sid, surface, (('number', 'singular'),))
+                 for sid, surface in [('s.cafe', 'café'), ('s.other', 'cafe\u0301'),
+                                      ('s.write', 'write')]}
+        # NFC-equivalent strings are one visible answer even across distinct IDs.
+        with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+            make_cloze(sentence, ann, senses, forms)
+
+    def test_cloze_rejects_unhashable_distractor_sense_id(self):
+        text = 'I read books.'
+        sentence = {'id': '44', 'language': 'en', 'text': text, 'admitted': True}
+        ann = {'sentence_id': '44', 'language': 'en', 'sentence_sha256': sha(text),
+               'editorial_unambiguous': True, 'editor_review_url': 'https://example.org/review',
+               'start': 2, 'end': 6, 'sense_id': 's.read', 'lexeme_id': 'l.read',
+               'features': {'tense': 'present'},
+               'distractors': [{'surface': 'write', 'sense_id': ['s.write']},
+                               {'surface': 'paint', 'sense_id': 's.paint'}]}
+        senses = {'s.read': {'language': 'en', 'lexeme_id': 'l.read', 'approved': True}}
+        forms = {('en', 's.read', 'read', (('tense', 'present'),))}
+        with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+            make_cloze(sentence, ann, senses, forms)
+
     def test_cloze_rejects_canonically_equivalent_distractor(self):
         # Synthetic exact-form evidence: NFC-equivalent alternatives are not
         # distinct answer choices, even if separately attested.
