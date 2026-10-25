@@ -120,6 +120,30 @@ class TestProvenanceCompiler(unittest.TestCase):
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['invalid'], ['asset_1'])
 
+    def test_named_author_is_required_in_notice(self):
+        source = dict(self.base_source, author="Original Author")
+        self.write_ledger([source])
+        self.write_daily([self.base_candidate])
+        # The other four attribution fields alone must not authorize release.
+        self.notice_path.write_text("src_id publisher CC-BY-SA-4.0 https://origin")
+
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], ['asset_1'])
+        self.assertEqual(statuses['approved'], [])
+        self.assertEqual(json.loads(self.manifest_out.read_text())['release_provenance'], [])
+
+    def test_named_author_in_notice_allows_valid_candidate(self):
+        source = dict(self.base_source, author="Original Author")
+        self.write_ledger([source])
+        self.write_daily([self.base_candidate])
+        self.notice_path.write_text(
+            "src_id publisher Original Author CC-BY-SA-4.0 https://origin"
+        )
+
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], [])
+        self.assertEqual(statuses['approved'], ['asset_1'])
+
     def test_missing_author_or_source_id(self):
         # We test that missing source_id in notice also fails
         self.notice_path.write_text("publisher CC-BY-SA-4.0 https://origin")
