@@ -132,7 +132,53 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        validator = CEFRValidator()
+        # Mocking the validation to pass catalog schema check and just verify the logic in validator.py
+        # because the original catalog might not have content_classification sources pre-loaded in testing.
+
+        # We can test this by using descriptor_guided_review with estimated status first (which passes schema check)
+        # However, the logic `status == "source_attested" and "CEFR" not in lang_prof.get("framework_ids", [])` is what we want.
+        # Since we can't easily bypass schema for `source_attested` without a real content_classification source,
+        # we will mock catalog.validate_record.
+
+        original_validate = validator.catalog.validate_record
+        validator.catalog.validate_record = lambda rec: rec  # bypass schema check for this specific test
+
+        # A language with CEFR certified corpora (e.g. en) should be accepted for source_attested
+        evidence_en = [{
+            "source_id": "MOCK-SOURCE",
+            "source_version": "1.0",
+            "source_url": "https://example.com",
+            "locator": "page 11",
+            "method": "published_content_assignment",
+            "reviewer_id": "reviewer-1"
+        }]
+        rec_en = self.create_record("word-en", "en", "source_attested", "CEFR", "A1", evidence_en)
+
+        # A language lacking CEFR certified corpora (e.g. zh) should be rejected for source_attested CEFR
+        evidence_zh = [{
+            "source_id": "MOCK-SOURCE",
+            "source_version": "1.0",
+            "source_url": "https://example.com",
+            "locator": "page 11",
+            "method": "published_content_assignment",
+            "reviewer_id": "reviewer-1"
+        }]
+        rec_zh = self.create_record("word-zh", "zh", "source_attested", "CEFR", "A1", evidence_zh)
+
+        accepted, rejected = validator.process_dataset([rec_en, rec_zh])
+
+        # Restore mock
+        validator.catalog.validate_record = original_validate
+
+        self.assertEqual(len(accepted), 1)
+        self.assertEqual(len(rejected), 1)
+
+        self.assertEqual(accepted[0]["record_id"], "word-en")
+        self.assertEqual(accepted[0]["_resolution"], "verified")
+
+        self.assertEqual(rejected[0]["record"]["record_id"], "word-zh")
+        self.assertIn("lacks certified CEFR corpora", rejected[0]["reason"])
 
 if __name__ == '__main__':
     unittest.main()
