@@ -84,9 +84,21 @@ def context(root=ROOT):
             if batch.is_symlink() or not batch.is_dir():
                 continue
             manifest=batch/'queue.json'
-            if not manifest.is_file() or manifest.stat().st_size>2_000_000:
+            # An optional, malformed batch cannot disable all independent queue
+            # work. Never follow a queue.json link outside the admitted tree.
+            if manifest.is_symlink():
+                print('SKIPPED_UNSAFE_ADMISSION_MANIFEST',batch.name,file=sys.stderr)
                 continue
-            report=json.loads(manifest.read_text(encoding='utf-8'))
+            try:
+                if not manifest.is_file() or manifest.stat().st_size>2_000_000:
+                    continue
+                report=json.loads(manifest.read_text(encoding='utf-8'))
+            except (OSError,ValueError,UnicodeError):
+                print('QUARANTINED_INVALID_ADMISSION_MANIFEST',batch.name,file=sys.stderr)
+                continue
+            if not isinstance(report,dict):
+                print('QUARANTINED_INVALID_ADMISSION_MANIFEST',batch.name,file=sys.stderr)
+                continue
             if (report.get('schema_version')!='1.0.0' or report.get('status')!='ACCEPTED_FOR_QUEUE'
                     or report.get('publication_approved') is not False or not isinstance(report.get('jobs'),list)
                     or len(report['jobs'])>200):
