@@ -11,7 +11,7 @@ from tools.gha_factory.orchestration import cli, engine
 
 
 class FinalizerCLITests(unittest.TestCase):
-    def controller_report(self, jobs, source_count=0, task_states=None):
+    def controller_report(self, jobs, source_count=0, task_states=None, malformed_issues=0):
         with tempfile.TemporaryDirectory() as directory:
             output_path = Path(directory) / 'outputs'
             env = {
@@ -24,7 +24,7 @@ class FinalizerCLITests(unittest.TestCase):
             def fake_control(*_args, **kwargs):
                 telemetry = kwargs.get('telemetry')
                 if telemetry is not None:
-                    telemetry.update(queue_total=sum(states.values()), task_states=states)
+                    telemetry.update(queue_total=sum(states.values()), task_states=states, malformed_queue_issues=malformed_issues)
                 return jobs
             ctx = {'sources': [{'status': 'REVIEW_REQUIRED'}] * source_count}
             with patch.dict(os.environ, env), patch.object(cli.api, 'GitHub'), \
@@ -59,6 +59,14 @@ class FinalizerCLITests(unittest.TestCase):
         self.assertEqual(report['work_status'], 'SUCCESS_NO_WORK')
         self.assertEqual(report['queue_status'], 'NO_ELIGIBLE_TASKS')
         self.assertEqual(report['source_admission'], 'ADMISSION_CHECK_REQUIRED')
+        self.assertFalse(report['production_publication'])
+
+    def test_only_malformed_owned_queue_issue_is_broken_not_empty(self):
+        report = self.controller_report([], malformed_issues=1)
+        self.assertEqual(report['queue_status'], 'BROKEN_QUEUE')
+        self.assertEqual(report['work_status'], 'BROKEN_QUEUE')
+        self.assertEqual(report['malformed_queue_issues'], 1)
+        self.assertEqual(report['claimed'], 0)
         self.assertFalse(report['production_publication'])
 
     def test_claimed_tasks_are_not_productive_success_before_worker_results(self):

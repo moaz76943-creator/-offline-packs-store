@@ -86,6 +86,15 @@ class EngineTests(unittest.TestCase):
         self.assertEqual({i:api.one(i)['body'] for i in (1,2,3)},bodies)
         self.assertEqual(p.parse(api.one(4)['body'])['state'],'READY')
 
+    def test_malformed_owned_issue_is_counted_not_misreported_as_empty(self):
+        api=FakeAPI([(1,task())])
+        api.data[1]['body']=p.MARKER+'[]\n'+'\x60'*3
+        telemetry={}
+        self.assertEqual(e.control(api,22,1,NOW,Path('.'),self.ctx,self.sha,
+                                   telemetry=telemetry),[])
+        self.assertEqual(telemetry['queue_total'],0)
+        self.assertEqual(telemetry['malformed_queue_issues'],1)
+
     def test_queue_snapshot_metrics_preserve_completed_history(self):
         finished=p.claim(task(state='READY'),NOW,21,1)
         finished=p.finish(finished,p.receipt(finished,'SUCCEEDED',1,0,None,None),NOW)
