@@ -108,12 +108,6 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertEqual(len(rejected), 1) # Second one is rejected due to conflict
         self.assertIn("Substantial source conflict", rejected[0]["reason"])
 
-        # In the rejection flow we keep source dataset immutable so the input is wrapped.
-        # But for conflicts we actually did set `_resolution` in the code, let's just check the wrapper reason here
-        # or we can verify that the rejected item has "conflicting" somewhere.
-        # Since original_record is returned we won't see _resolution on it, but the reason has it.
-        pass
-
     def test_preserves_independent_sources_without_conflict(self):
         # A1 and A2 for the same word is not a "substantial" conflict
         rec1 = self.create_record("word-no-conflict", "en", "estimated", "CEFR", "A1", self.get_valid_evidence())
@@ -132,7 +126,48 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Only CEFR is supported by this gate", rejected[0]["reason"])
 
     def test_certified_cefr_corpora(self):
-        pass
+        # Using a custom source injection into the catalog's memory to test "source_attested" classifications
+        self.validator.catalog.sources["TEST-CORPUS"] = {
+            "version": "1.0",
+            "url": "https://example.org",
+            "scope": "content_classification",
+            "sha256": "abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890"
+        }
+
+        evidence = [{
+            "source_id": "TEST-CORPUS",
+            "source_version": "1.0",
+            "source_url": "https://example.org",
+            "locator": "entry 1",
+            "method": "published_content_assignment",
+            "reviewer_id": "reviewer-1"
+        }]
+
+        # Modify english to explicitly lack certified CEFR corpora support
+        self.validator.supported_languages["en"] = {
+            "id": "en",
+            "proficiency": {"framework_ids": [], "mapping_status": "not_mapped"}
+        }
+
+        # Create record for language "en" which now lacks certified CEFR corpora support
+        rec = self.create_record("word-1", "en", "source_attested", "CEFR", "A1", evidence)
+        accepted, rejected = self.validator.process_dataset([rec])
+        self.assertEqual(len(accepted), 0)
+        self.assertEqual(len(rejected), 1)
+        self.assertIn("lacks certified CEFR corpora", rejected[0]["reason"])
+
+        # Restore English to have CEFR support
+        self.validator.supported_languages["en"] = {
+            "id": "en",
+            "proficiency": {"framework_ids": ["CEFR"], "mapping_status": "mapped"}
+        }
+
+        # Create record for language with certified CEFR corpora support
+        rec2 = self.create_record("word-2", "en", "source_attested", "CEFR", "A1", evidence)
+        accepted2, rejected2 = self.validator.process_dataset([rec2])
+        self.assertEqual(len(rejected2), 0)
+        self.assertEqual(len(accepted2), 1)
+        self.assertEqual(accepted2[0]["_resolution"], "verified")
 
 if __name__ == '__main__':
     unittest.main()
