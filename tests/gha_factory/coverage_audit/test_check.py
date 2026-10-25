@@ -49,6 +49,22 @@ class CoverageAuditTests(unittest.TestCase):
         self.assertEqual(sum(x['language_count'] for x in checks), 100)
         self.assertEqual(sum(x['verified_v2_packs'] for x in checks), 0)
 
+    def test_manifest_direction_must_match_canonical_script(self):
+        # A valid-looking direction flag cannot contradict the registered
+        # writing system: otherwise RTL languages can be reported as LTR.
+        self.values['manifest.json']['languages'][0]['direction'] = 'rtl'
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'script.*direction|direction.*script'):
+            checker.audit(self.root, shard=0, shards=1)
+
+    def test_registry_script_direction_must_match_manifest(self):
+        # Registry metadata is not sufficient if it contradicts the
+        # published language's own direction.
+        self.values['catalog/language_registry.v1.json']['scripts']['Latn']['direction'] = 'rtl'
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'script.*direction|direction.*script'):
+            checker.audit(self.root, shard=0, shards=1)
+
     def test_false_legacy_activation_fails_closed(self):
         self.values['manifest.json']['languages'][0]['is_active'] = True
         self.write_all()
