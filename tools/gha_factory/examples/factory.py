@@ -203,6 +203,10 @@ def make_cloze(sentence, annotation, senses, forms):
             raise Rejected('REJECTED_EXERCISE: bad distractor')
         surface = item['surface']
         other_sense = item.get('sense_id')
+        # Another inflected form of the answer's own sense is also correct.
+        # A non-string sense id cannot be used as a morphology key.
+        if not isinstance(other_sense, str) or other_sense == sid:
+            raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         evidence = senses.get(other_sense)
         other_key = (sentence['language'], other_sense, surface, tuple(sorted(feats.items())))
         if (not surface.strip() or other_key not in forms or not evidence or
