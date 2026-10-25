@@ -215,6 +215,14 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
         db = sqlite3.connect(f'file:{path}?mode=ro', uri=True)
         try:
             db.execute('PRAGMA query_only=ON')
+            # Do not trust a SQLite payload merely because its translation
+            # joins happen to return rows. Validate the underlying pages and
+            # all declared foreign keys, including orphan senses not referenced
+            # by a translation. Both checks are read-only and bounded.
+            if db.execute('PRAGMA quick_check(1)').fetchone() != ('ok',):
+                raise AuditError('SQLite integrity check failed')
+            if db.execute('PRAGMA foreign_key_check').fetchone() is not None:
+                raise AuditError('SQLite foreign key violation')
             # INNER JOIN coverage queries silently drop broken source/target
             # sense or lexeme links. Reject them before counting directions,
             # even if a synthetic or legacy SQLite file has no FK constraints.
@@ -253,6 +261,8 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
                 GROUP BY source.language_code, target.language_code
                 ORDER BY source.language_code, target.language_code
             """).fetchall()
+        except sqlite3.DatabaseError as error:
+            raise AuditError(f'invalid SQLite directed coverage database: {error}') from error
         finally:
             db.close()
     if any(a not in canonical_ids or b not in canonical_ids for a, b, _ in rows):
