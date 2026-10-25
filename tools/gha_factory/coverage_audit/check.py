@@ -378,6 +378,10 @@ def audit(root, *, shard=0, shards=10):
     approved, missing_approval_evidence = _approved_sources(root, sources)
     if not sources and (packs or version.get('packs') or version.get('release_status') != 'BLOCKED_DEPENDENCY'):
         raise AuditError('cannot release packages with empty source admission ledger')
+    # A pending/rejected source row does not authorize publication metadata.
+    # Even with a nonempty ledger, an empty v2 manifest cannot back a release.
+    if not packs and (version.get('packs') or version.get('release_status') != 'BLOCKED_DEPENDENCY'):
+        raise AuditError('release metadata conflicts with empty published packs')
     indexed = {}
     for p in packs:
         if not isinstance(p, dict) or not isinstance(p.get('id'), str):
