@@ -49,6 +49,24 @@ class SixteenthHarvestCandidates(unittest.TestCase):
         self.assertFalse(self.receipt["source_admission_approved"])
         self.assertFalse(self.receipt["original_lexeme_json_pinned"])
         self.assertEqual(self.receipt["linguistic_qa_status"], "SUSPECT_MISMATCH")
+        # The hold must survive candidate export, not merely exist in a receipt.
+        self.assertEqual(row["linguistic_qa_status"], "SUSPECT_MISMATCH")
+        self.assertIs(row["eligible_for_promotion"], False)
+
+    def test_linguistic_hold_fails_closed(self):
+        receipt = self.receipt
+        for status in ("PASS", "APPROVED", "UNKNOWN", ""):
+            with self.subTest(status=status), self.assertRaises(ValueError):
+                c.build(c.ROOT, dict(receipt, linguistic_qa_status=status), folder=FOLDER)
+        with self.assertRaises(ValueError):
+            c.build(c.ROOT, dict(receipt, linguistic_qa_note=""), folder=FOLDER)
+        with self.assertRaises(ValueError):
+            c.build(c.ROOT, dict(receipt, linguistic_qa_evidence=[]), folder=FOLDER)
+        with self.assertRaises(ValueError):
+            c.build(c.ROOT, dict(receipt, linguistic_qa_evidence=["http://unsafe"]), folder=FOLDER)
+        with self.assertRaises(ValueError):
+            c.build(c.ROOT, dict(receipt, linguistic_qa_status=None), folder=FOLDER)
+
 
     def test_fail_closed_source_or_license_tampering(self):
         with self.assertRaises(ValueError):
