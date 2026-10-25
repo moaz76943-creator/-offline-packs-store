@@ -99,6 +99,25 @@ class CoverageAuditTests(unittest.TestCase):
                          self.values['version.json']['note'])
         self.assertEqual(checker.audit(self.root, shard=0, shards=1)['production_ready_languages'], 0)
 
+    def test_pack_member_json_is_strict(self):
+        # Synthetic pack metadata: ambiguous JSON cannot be evidence, even
+        # when the surrounding envelope's byte digest is internally correct.
+        bad_members = (
+            b'{"sourceIds":["approved"],"sourceIds":["forged"]}',
+            b'{"score":NaN}',
+            b'{"score":1e999}',
+            b'{"note":"\\ud800"}',
+            b'["not", "an", "object"]',
+            b'{"word":"\\xff"}',
+        )
+        for raw in bad_members:
+            with self.subTest(raw=raw):
+                with self.assertRaises(checker.AuditError):
+                    checker._parse_strict_json(raw, 'synthetic pack metadata')
+        valid = '{"word":"عربي Äpfel Straße İ ı 日本語"}'.encode('utf-8')
+        self.assertEqual(checker._parse_strict_json(valid, 'synthetic pack metadata'),
+                         {'word': 'عربي Äpfel Straße İ ı 日本語'})
+
     def test_nonfinite_exponent_in_repository_metadata_is_rejected(self):
         # These are syntactically invalid JSON numeric values, even though
         # Python's default JSON decoder converts their exponents to infinity.
