@@ -54,6 +54,14 @@ class OriginalLexemeCandidatesTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             c.build(c.ROOT, bad)
 
+    def test_nonfinite_json_exponents_are_rejected(self):
+        # json.loads accepts 1e999 as float('inf') unless parse_float is guarded.
+        for raw in (b'{"weight":1e999}', b'{"weight":-1e999}',
+                    b'{"weight":NaN}', b'{"weight":Infinity}'):
+            with self.subTest(raw=raw), self.assertRaises(ValueError):
+                c.strict_json(raw)
+        self.assertEqual(c.strict_json(b'{"weight":1.25}'), {"weight": 1.25})
+
     def test_duplicate_source_lexeme_is_rejected(self):
         bad = copy.deepcopy(self.receipt)
         bad["source_files"].append(copy.deepcopy(bad["source_files"][0]))
