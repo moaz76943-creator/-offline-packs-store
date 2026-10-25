@@ -32,6 +32,37 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "kronologia",
+        "kronologia",
+        "kronologiak",
+        "kronologiak",
+        "kronologiak",
+        "kronologiek",
+        "kronologiari",
+        "kronologiari"
+      ],
+      "language": "eu",
+      "lemma": "kronologia",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72475",
+      "pos": "",
+      "qids": [
+        "Q130788"
+      ],
+      "record_id": "L72475",
+      "retrieval_date": "2026-10-25",
+      "revision": "1354657347",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L72475-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
     }
   ],
   "schema_version": "1.0.0",
@@ -39,7 +70,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q55313888"
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
     }
   ],
   "source": "harvest-wikidata"

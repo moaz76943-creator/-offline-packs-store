@@ -26,6 +26,32 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "chronologie",
+        "chronologies"
+      ],
+      "language": "fr",
+      "lemma": "chronologie",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L17249",
+      "pos": "",
+      "qids": [
+        "Q67439188",
+        "Q130788"
+      ],
+      "record_id": "L17249",
+      "retrieval_date": "2026-10-25",
+      "revision": "2332750268",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L17249-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
     }
   ],
   "schema_version": "1.0.0",
@@ -33,7 +59,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q55313888"
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
     }
   ],
   "source": "harvest-wikidata"

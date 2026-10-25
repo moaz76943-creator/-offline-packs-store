@@ -1,0 +1,59 @@
+{
+  "language": "ru",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "хронология",
+        "хронологии",
+        "хронологии",
+        "хронологию",
+        "хронологией",
+        "хронологиею",
+        "хронологии",
+        "хронологии"
+      ],
+      "language": "ru",
+      "lemma": "хронология",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L177761",
+      "pos": "",
+      "qids": [
+        "Q186117",
+        "Q130788"
+      ],
+      "record_id": "L177761",
+      "retrieval_date": "2026-10-25",
+      "revision": "2236739954",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L177761-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

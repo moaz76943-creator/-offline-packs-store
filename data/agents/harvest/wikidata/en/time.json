@@ -50,6 +50,81 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q55313888"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "chronology",
+        "chronologies"
+      ],
+      "language": "en",
+      "lemma": "chronology",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L58591",
+      "pos": "",
+      "qids": [
+        "Q130788",
+        "Q67439188"
+      ],
+      "record_id": "L58591",
+      "retrieval_date": "2026-10-25",
+      "revision": "2537968384",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L58591-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "PTO"
+      ],
+      "language": "en",
+      "lemma": "PTO",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L726560",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L726560",
+      "retrieval_date": "2026-10-25",
+      "revision": "2434292531",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L726560-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "paid leave",
+        "paid leaves"
+      ],
+      "language": "en",
+      "lemma": "paid leave",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1553876",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L1553876",
+      "retrieval_date": "2026-10-25",
+      "revision": "2459308218",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1553876-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
     }
   ],
   "schema_version": "1.0.0",
@@ -57,7 +132,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q55313888"
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
     }
   ],
   "source": "harvest-wikidata"

@@ -86,6 +86,64 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q347066",
+      "forms": [
+        "Echtzeit",
+        "Echtzeit",
+        "Echtzeit",
+        "Echtzeit"
+      ],
+      "language": "de",
+      "lemma": "Echtzeit",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L496179",
+      "pos": "",
+      "qids": [
+        "Q347066"
+      ],
+      "record_id": "L496179",
+      "retrieval_date": "2026-10-25",
+      "revision": "2306643637",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L496179-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q347066"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "Urlaub",
+        "Urlaubes",
+        "Urlaubs",
+        "Urlaub",
+        "Urlaub",
+        "Urlaube",
+        "Urlaube",
+        "Urlauben"
+      ],
+      "language": "de",
+      "lemma": "Urlaub",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L498021",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L498021",
+      "retrieval_date": "2026-10-25",
+      "revision": "2306764519",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L498021-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
     }
   ],
   "schema_version": "1.0.0",
@@ -93,7 +151,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q55313888"
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
     }
   ],
   "source": "harvest-wikidata"
