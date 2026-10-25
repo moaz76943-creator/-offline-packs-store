@@ -203,6 +203,24 @@ class PairValidationTests(unittest.TestCase):
         self.assertEqual(output.read_bytes(), b'PREVIOUS_VERIFIED_RECEIPT\n')
         self.assertFalse((self.dir / 'immutable-report.json.tmp').exists())
 
+    def test_new_receipt_is_written_once_and_replay_is_safe(self):
+        output = self.dir / 'first-report.json'
+        catalog = self.dir / 'manifest-first.json'
+        catalog.write_text(json.dumps({'languages': [{'code': 'l' + str(i)}
+                                                    for i in range(100)]}))
+        args = ['--catalog', str(catalog), '--out', str(output)]
+        for name in ('detailed', 'links', 'cc0', 'candidates'):
+            args.extend(['--' + name, 'fixture', '--' + name + '-sha256', 'a' * 64])
+        with patch('validator.audit_pairs',
+                   return_value={'status': 'QA_ONLY_REVIEW_REQUIRED'}):
+            main(args)
+            original = output.read_bytes()
+            self.assertEqual(json.loads(original)['status'], 'QA_ONLY_REVIEW_REQUIRED')
+            with self.assertRaisesRegex(PairError, 'UNSAFE_OUTPUT_PATH'):
+                main(args)
+        self.assertEqual(output.read_bytes(), original)
+        self.assertFalse((self.dir / 'first-report.json.tmp').exists())
+
     def test_bounded_pair_budget(self):
         with self.assertRaisesRegex(PairError, 'PAIR_BUDGET_EXCEEDED'):
             self.inputs['candidates'] *= 2
