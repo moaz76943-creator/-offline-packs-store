@@ -148,6 +148,16 @@ class CoverageAuditTests(unittest.TestCase):
                     with self.assertRaisesRegex(checker.AuditError, 'integer'):
                         checker.read_json(self.root, 'version.json')
 
+    def test_excessive_json_nesting_fails_as_audit_error(self):
+        # The decoder can raise RecursionError on deeply nested untrusted
+        # metadata. The audit CLI must return classified FAIL, not a traceback.
+        raw = ('{"nested":' + '[' * 15000 + '0' + ']' * 15000 + '}').encode('ascii')
+        with self.assertRaisesRegex(checker.AuditError, 'nesting|depth'):
+            checker._parse_strict_json(raw, 'synthetic metadata')
+        (self.root / 'version.json').write_bytes(raw)
+        with self.assertRaisesRegex(checker.AuditError, 'nesting|depth'):
+            checker.read_json(self.root, 'version.json')
+
     def test_bounded_json_integer_is_preserved(self):
         value = 10 ** 127 - 1
         raw = ('{"value":' + str(value) + '}').encode('ascii')
