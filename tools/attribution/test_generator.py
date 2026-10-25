@@ -209,5 +209,26 @@ class AttributionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+    def test_public_domain_no_alterations(self):
+        self.source["license"]["id"] = "PUBLIC-DOMAIN"
+        self.source["alterations"] = ["some changes"]
+        self.source["license"]["public_domain_proof"] = {
+            "jurisdiction": "US",
+            "legal_basis": "prior to 1929",
+            "work_date": "1900"
+        }
+        self.run_gate()
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertNotIn("Alterations", notice)
+        self.assertIn("Public-domain basis", notice)
+
+    def test_cc_by_sa_alterations_included(self):
+        self.source["license"]["id"] = "CC-BY-SA-4.0"
+        self.source["alterations"] = ["formatting changes"]
+        self.run_gate()
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("Alterations: formatting changes", notice)
+        self.assertNotIn("Public-domain basis", notice)
+
 if __name__ == "__main__":
     unittest.main()
