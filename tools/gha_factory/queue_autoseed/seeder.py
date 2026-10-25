@@ -44,6 +44,23 @@ def proposal(source_id, language, source_sha, shard):
     return queue.validate(item)
 
 
+def _remember_task(task, known, known_partitions, partition_sources):
+    """Reserve a validated body, including its partition, not only its fingerprint."""
+    prior = known.get(task['task_id'])
+    if prior is not None:
+        if prior != task['source_id']:
+            raise ValueError('source-ID fingerprint collision in existing issues')
+        raise ValueError('duplicate pre-existing queue issue; halt seeding')
+    known[task['task_id']] = task['source_id']
+    known_partitions.add((task['source_id'], task['language'], task['source_sha256'], task['shard']))
+    if task['task_type'] != 'registry_validate':
+        identity = (task['source_sha256'], task['language'], task['shard'])
+        previous_source = partition_sources.get(identity)
+        if previous_source is not None and previous_source != task['source_id']:
+            raise ValueError('source-ID collision across existing queue issues')
+        partition_sources[identity] = task['source_id']
+
+
 def _existing_issues(items):
     known = {}
     known_partitions = set()
@@ -59,37 +76,29 @@ def _existing_issues(items):
             continue
         title_id = title[len(queue.PREFIX):]
         number = issue.get('number') if type(issue.get('number')) is int else 'unknown'
-        if not queue.HEX.fullmatch(title_id):
-            print(f'QUARANTINED_INVALID_ISSUE number={number} reason=INVALID_TITLE')
-            continue
+        title_is_fingerprint = bool(queue.HEX.fullmatch(title_id))
         try:
             task = proto.parse(issue.get('body'))
         except (ValueError, TypeError, KeyError, UnicodeError, OverflowError) as exc:
-            # The untrusted body cannot authorize new work. Reserve its valid
+            # The untrusted body cannot authorize new work. Reserve a valid
             # title fingerprint so an independent shard can still proceed,
             # without creating a second issue for this uncertain identity.
-            reserved_ids.add(title_id)
+            if title_is_fingerprint:
+                reserved_ids.add(title_id)
             print(f'QUARANTINED_INVALID_ISSUE number={number} reason={type(exc).__name__}')
             continue
-        if title != queue.PREFIX + task['task_id']:
-            # Either identity may refer to an existing task. Reserve both;
-            # never infer which one the malformed issue was intended to own.
-            reserved_ids.update((title_id, task['task_id']))
-            print(f'QUARANTINED_INVALID_ISSUE number={number} reason=TITLE_BODY_MISMATCH')
+        if not title_is_fingerprint or title != queue.PREFIX + task['task_id']:
+            # A broken title must not drop the validated body. v1 proposals use
+            # a different fingerprint from v2, so the partition itself has to
+            # stay reserved or the same shard is opened again.
+            if title_is_fingerprint:
+                reserved_ids.add(title_id)
+            reserved_ids.add(task['task_id'])
+            _remember_task(task, known, known_partitions, partition_sources)
+            reason = 'INVALID_TITLE' if not title_is_fingerprint else 'TITLE_BODY_MISMATCH'
+            print(f'QUARANTINED_INVALID_ISSUE number={number} reason={reason}')
             continue
-        prior = known.get(task['task_id'])
-        if prior is not None:
-            if prior != task['source_id']:
-                raise ValueError('source-ID fingerprint collision in existing issues')
-            raise ValueError('duplicate pre-existing queue issue; halt seeding')
-        known[task['task_id']] = task['source_id']
-        known_partitions.add((task['source_id'], task['language'], task['source_sha256'], task['shard']))
-        if task['task_type'] != 'registry_validate':
-            identity = (task['source_sha256'], task['language'], task['shard'])
-            previous_source = partition_sources.get(identity)
-            if previous_source is not None and previous_source != task['source_id']:
-                raise ValueError('source-ID collision across existing queue issues')
-            partition_sources[identity] = task['source_id']
+        _remember_task(task, known, known_partitions, partition_sources)
     return known, known_partitions, partition_sources, reserved_ids
 
 

@@ -121,6 +121,27 @@ class SeederTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     seeder.plan(context(), REGISTRY_SHA, [], limit=value)
 
+    def test_invalid_title_still_reserves_validated_body_partition(self):
+        tasks = seeder.plan(context(), REGISTRY_SHA, [])
+        bad = as_existing(tasks[0])
+        bad['title'] = queue.PREFIX + 'broken'
+        self.assertEqual([x['shard'] for x in seeder.plan(context(), REGISTRY_SHA, [bad])], [1, 2])
+
+    def test_mismatched_v2_title_reserves_partition_across_fingerprint_versions(self):
+        from tools.gha_factory.orchestration import protocol as proto
+        v2_task = proto.new(SOURCE, SHA, 'de', 'approved_snapshot_verify', 0)
+        mismatched = {
+            'number': 56,
+            'title': queue.PREFIX + ('ab' * 32),
+            'body': proto.serialize(v2_task),
+            'user': {'login': seeder.OWNER},
+            'state': 'open',
+        }
+        self.assertNotEqual(v2_task['task_id'], 'ab' * 32)
+        self.assertEqual(
+            [t['shard'] for t in seeder.plan(context(), REGISTRY_SHA, [mismatched])],
+            [1, 2])
+
     def test_v2_task_in_existing_issues_deduplicates_partition(self):
         from tools.gha_factory.orchestration import protocol as proto
         v2_task = proto.new(SOURCE, SHA, 'de', 'approved_snapshot_verify', 0)
