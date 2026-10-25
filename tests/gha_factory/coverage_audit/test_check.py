@@ -82,8 +82,8 @@ class CoverageAuditTests(unittest.TestCase):
         # JSON permits escaped UTF-16 surrogate code points even though they
         # are not Unicode scalar values. Never admit such metadata evidence.
         for raw in (
-            r'{"release_status":"BLOCKED_DEPENDENCY","packs":{},"note":"\\ud800"}',
-            r'{"release_status":"BLOCKED_DEPENDENCY","packs":{},"\\udc00":"value"}',
+            r'{"release_status":"BLOCKED_DEPENDENCY","packs":{},"note":"\ud800"}',
+            r'{"release_status":"BLOCKED_DEPENDENCY","packs":{},"\udc00":"value"}',
         ):
             with self.subTest(raw=raw):
                 (self.root / 'version.json').write_text(raw, encoding='utf-8')
