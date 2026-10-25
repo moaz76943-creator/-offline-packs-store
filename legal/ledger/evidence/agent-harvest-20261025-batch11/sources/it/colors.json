@@ -1,0 +1,98 @@
+{
+  "language": "it",
+  "retrieval_date": "2026-10-21",
+  "rows": [
+    {
+      "concept_id": "concept.q2778382",
+      "forms": [
+        "bronzo",
+        "bronzi"
+      ],
+      "language": "it",
+      "lemma": "bronzo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L688675",
+      "pos": "",
+      "qids": [
+        "Q34095",
+        "Q2778382"
+      ],
+      "record_id": "L688675",
+      "retrieval_date": "2026-10-21",
+      "revision": "2339533067",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L688675-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2778382"
+    },
+    {
+      "concept_id": "concept.q906936",
+      "forms": [
+        "lime",
+        "lime"
+      ],
+      "language": "it",
+      "lemma": "lime",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1229371",
+      "pos": "",
+      "qids": [
+        "Q906936",
+        "Q13195"
+      ],
+      "record_id": "L1229371",
+      "retrieval_date": "2026-10-21",
+      "revision": "2528891027",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1229371-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q906936"
+    },
+    {
+      "concept_id": "concept.q5148721",
+      "forms": [
+        "pesca",
+        "pesche"
+      ],
+      "language": "it",
+      "lemma": "pesca",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482737",
+      "pos": "",
+      "qids": [
+        "Q13202263",
+        "Q5148721",
+        "Q14373"
+      ],
+      "record_id": "L482737",
+      "retrieval_date": "2026-10-21",
+      "revision": "2536032064",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L482737-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q5148721"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "colors",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1324818"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q797446"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
