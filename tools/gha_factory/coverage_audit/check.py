@@ -343,8 +343,11 @@ def audit(root, *, shard=0, shards=10):
         default_script = lang.get('default_script')
         if default_script not in lang['scripts'] or default_script not in registry.get('scripts', {}):
             raise AuditError(f'invalid canonical script: {code}')
-        if item.get('direction') not in ('ltr', 'rtl'):
-            raise AuditError(f'invalid direction: {code}')
+        script_metadata = registry['scripts'][default_script]
+        if (not isinstance(script_metadata, dict)
+                or script_metadata.get('direction') not in ('ltr', 'rtl')
+                or item.get('direction') != script_metadata['direction']):
+            raise AuditError(f'script direction mismatch: {code}')
         active = item.get('production_ready') is True or item.get('is_active') is True
         if active and not (item.get('pack_verified') is True and item.get('content_available') is True
                            and code in indexed):
