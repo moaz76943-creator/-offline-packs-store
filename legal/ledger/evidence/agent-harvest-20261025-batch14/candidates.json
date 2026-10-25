@@ -1,0 +1,62 @@
+{
+  "actual_rows": 2,
+  "candidates": [
+    {
+      "concept_id": "concept.q1423009",
+      "directed_translations": [],
+      "examples": [],
+      "forms": [
+        "zervanismo",
+        "zervanismi"
+      ],
+      "id": "it:L1168243:L1168243-S1:concept.q1423009",
+      "language": "it",
+      "lemma": "zervanismo",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L1168243",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1168243",
+      "retrieval_date": "2026-10-22",
+      "review_status": "REVIEW_REQUIRED",
+      "revision": "2311722012",
+      "sense_id": "L1168243-S1",
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/agent-harvest-20261025-batch14/sources/it/religion.json",
+      "source_snapshot_sha256": "bd4dbbb14bcb1328f168b986f67637ede1dfbdea1f9aee0e5651b3b44bcc2667",
+      "subtopic": "religion.q9174",
+      "topic": "religion",
+      "wikidata": "Q1423009"
+    },
+    {
+      "concept_id": "concept.q116007",
+      "directed_translations": [],
+      "examples": [],
+      "forms": [
+        "anammox"
+      ],
+      "id": "it:L1190006:L1190006-S1:concept.q116007",
+      "language": "it",
+      "lemma": "anammox",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L1190006",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1190006",
+      "retrieval_date": "2026-10-22",
+      "review_status": "REVIEW_REQUIRED",
+      "revision": "2199681073",
+      "sense_id": "L1190006-S1",
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/agent-harvest-20261025-batch14/sources/it/technology.json",
+      "source_snapshot_sha256": "59cbf018f7a5869c53b463cdbf754d3d2672a1de1b3ad97490e61145e1053bad",
+      "subtopic": "technology.q11016",
+      "topic": "technology",
+      "wikidata": "Q116007"
+    }
+  ],
+  "production_ready": false,
+  "review_status": "REVIEW_REQUIRED",
+  "schema_version": 1,
+  "source_commit": "79817578aa596cf32a0cadaef5a1504a7b85649d"
+}

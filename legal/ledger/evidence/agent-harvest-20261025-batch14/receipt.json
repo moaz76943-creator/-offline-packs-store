@@ -1,0 +1,38 @@
+{
+  "actual_rows": 2,
+  "candidate_sha256": "ed8a313c311de11c602a399526b9afbc799fafc3e136821035ffb78617702997",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "79817578aa596cf32a0cadaef5a1504a7b85649d",
+  "source_files": [
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "6a816ec0a0258e2e3720e1a7da5b6362430a87cb",
+      "origin_path": "data/agents/harvest/wikidata/it/religion.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch14/sources/it/religion.json",
+      "rows": 1,
+      "sha256": "bd4dbbb14bcb1328f168b986f67637ede1dfbdea1f9aee0e5651b3b44bcc2667",
+      "topic": "religion"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "9528077df8d7d2a0601be735408c05ca1f2271b8",
+      "origin_path": "data/agents/harvest/wikidata/it/technology.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch14/sources/it/technology.json",
+      "rows": 1,
+      "sha256": "59cbf018f7a5869c53b463cdbf754d3d2672a1de1b3ad97490e61145e1053bad",
+      "topic": "technology"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}
