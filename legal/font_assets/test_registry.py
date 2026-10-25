@@ -17,6 +17,7 @@ class FontEvidenceTests(unittest.TestCase):
             p.write_bytes(content)
             return hashlib.sha256(content).hexdigest()
         self.put = put
+        self.registry_hash = put("catalog/language_registry.v1.json", b'{"scripts": {"Latn": {}, "Cyrl": {}, "Hans": {}}}')
         self.font_hash = put("fonts/fixture.otf", b"fixture font test bytes ONLY")
         self.lic_hash = put("evidence/rights.txt", b"Fixture origin font SIL OPEN FONT LICENSE")
         self.notice_hash = put("notices/OFL.txt", b"SIL OPEN FONT LICENSE fixture")
@@ -76,6 +77,19 @@ class FontEvidenceTests(unittest.TestCase):
     def test_unverified_distribution_notice_claim_is_not_proof(self):
         self.asset.distribution_notice_sha256 = "0" * 64
         self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_missing_registry_rejected(self):
+        (self.root / "catalog/language_registry.v1.json").unlink()
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_unknown_script_rejected(self):
+        self.asset.scripts = ["Unknown"]
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_hani_script_dynamically_supported(self):
+        self.asset.scripts = ["Hani"]
+        result = self.check()
+        self.assertEqual(result["status"], "EVIDENCE_PASS", result)
 
     def test_malformed_license_id_blocks_instead_of_crash(self):
         self.asset.license_id = []
