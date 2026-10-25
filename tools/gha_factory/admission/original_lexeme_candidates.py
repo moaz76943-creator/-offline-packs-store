@@ -5,6 +5,7 @@ The original source bytes are already retained in legal/ledger/evidence/wikidata
 """
 import hashlib
 import json
+import math
 import re
 from pathlib import Path
 
@@ -33,7 +34,12 @@ def strict_json(raw):
                 raise ValueError("duplicate JSON key")
             value[key] = item
         return value
-    return json.loads(raw, object_pairs_hook=unique,
+    def finite_float(token):
+        value = float(token)
+        if not math.isfinite(value):
+            raise ValueError("nonfinite JSON exponent")
+        return value
+    return json.loads(raw, object_pairs_hook=unique, parse_float=finite_float,
                       parse_constant=lambda _: (_ for _ in ()).throw(ValueError("nonfinite")))
 
 
