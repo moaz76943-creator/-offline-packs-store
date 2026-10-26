@@ -588,6 +588,24 @@ def audit(root, *, shard=0, shards=10):
                 and item.get('content_available') is True
                 and code in indexed):
             raise AuditError(f'false production activation: {code}')
+        # Activation and release acceptance are global claims, even when
+        # this shard will not open the referenced SQLite archive.
+        if item.get('production_ready') is True or item.get('is_active') is True:
+            evidence_map = readiness.get('validation_evidence')
+            validation = evidence_map.get(code) if isinstance(evidence_map, dict) else None
+            if (item.get('production_ready') is not True or state[code] != 'validated'
+                    or not isinstance(validation, dict)
+                    or validation.get('pack_sha256') != indexed[code].get('sha256')
+                    or validation.get('validation_method') != 'automated_quality_gate'
+                    or not isinstance(validation.get('acceptance'), dict)
+                    or not all(validation['acceptance'].get(k) is True for k in (
+                        'source_licensed', 'profile_valid', 'lexicon_coverage',
+                        'grammar_goldens', 'examples_quality', 'search_goldens',
+                        'script_render', 'offline_pack_integrity', 'safety_policy',
+                        'ui_srs_compatibility'))
+                    or version.get('release_status') == 'BLOCKED_DEPENDENCY'
+                    or code not in version.get('packs', {})):
+                raise AuditError(f'false production readiness evidence: {code}')
     selected = sorted(m_ids)[shard::shards]
     verified = 0
     ready = 0
@@ -614,20 +632,6 @@ def audit(root, *, shard=0, shards=10):
                 all_pairs.append({**pair, 'verified_in_pack': code})
                 direction_count += 1
         if active:
-            validation = readiness.get('validation_evidence', {}).get(code)
-            if (item.get('production_ready') is not True or state[code] != 'validated'
-                    or not isinstance(validation, dict)
-                    or validation.get('pack_sha256') != indexed[code].get('sha256')
-                    or validation.get('validation_method') != 'automated_quality_gate'
-                    or not isinstance(validation.get('acceptance'), dict)
-                    or not all(validation['acceptance'].get(k) is True for k in (
-                        'source_licensed', 'profile_valid', 'lexicon_coverage',
-                        'grammar_goldens', 'examples_quality', 'search_goldens',
-                        'script_render', 'offline_pack_integrity', 'safety_policy',
-                        'ui_srs_compatibility'))
-                    or version.get('release_status') == 'BLOCKED_DEPENDENCY'
-                    or code not in version.get('packs', {})):
-                raise AuditError(f'false production readiness evidence: {code}')
             ready += 1
         rows.append({'language_id': code, 'status': 'PRODUCTION_READY' if active else
                      'PACK_VERIFIED' if code in indexed else 'REGISTERED',
