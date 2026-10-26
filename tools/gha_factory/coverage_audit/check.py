@@ -461,6 +461,18 @@ def audit(root, *, shard=0, shards=10):
             raise AuditError(f'version pack descriptor mismatch: {pack_id}')
     metadata = {item['code']: item for item in manifest['languages']}
     aliases = {item['id']: item for item in registry['languages']}
+    # Release claims are global metadata. A single language shard must not
+    # report PASS while another, unselected language falsely advertises a
+    # verified pack or production activation. This check reads no pack bytes;
+    # full pack integrity verification remains scoped to selected shards.
+    for code, item in metadata.items():
+        if item.get('pack_verified') is True and code not in indexed:
+            raise AuditError(f'unbacked pack_verified metadata: {code}')
+        if (item.get('production_ready') is True or item.get('is_active') is True) and not (
+                item.get('pack_verified') is True
+                and item.get('content_available') is True
+                and code in indexed):
+            raise AuditError(f'false production activation: {code}')
     selected = sorted(m_ids)[shard::shards]
     verified = 0
     ready = 0
@@ -479,15 +491,7 @@ def audit(root, *, shard=0, shards=10):
                 or script_metadata.get('direction') not in ('ltr', 'rtl')
                 or item.get('direction') != script_metadata['direction']):
             raise AuditError(f'script direction mismatch: {code}')
-        # A verified-pack claim without a published v2 manifest entry is
-        # unsupported metadata, not a REGISTERED/PASS result. Do not promote
-        # legacy placeholders or report verification from flags alone.
-        if item.get('pack_verified') is True and code not in indexed:
-            raise AuditError(f'unbacked pack_verified metadata: {code}')
         active = item.get('production_ready') is True or item.get('is_active') is True
-        if active and not (item.get('pack_verified') is True and item.get('content_available') is True
-                           and code in indexed):
-            raise AuditError(f'false production activation: {code}')
         pack_status = 'NOT_PUBLISHED'
         source_status = 'NOT_ATTESTED'
         direction_count = 0
