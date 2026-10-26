@@ -98,7 +98,7 @@ class TestMediaCompiler(unittest.TestCase):
             with self.assertRaises(TokenValidationError):
                 self.compiler.validate_token(raw)
             with self.assertRaises(CompilationError):
-                self.compiler.compile([raw], runtime_evidence={'compatible': True})
+                self.compiler.compile([raw], runtime_evidence={'wordbit_compatible': True})
             self.assertFalse(os.path.exists(os.path.join(self.output_dir, 'pack.vct')))
 
     def test_production_ledger_rejects_license_label(self):
@@ -187,7 +187,7 @@ class TestMediaCompiler(unittest.TestCase):
             with self.assertRaises(TokenValidationError):
                 self.compiler.validate_token(raw)
             try:
-                self.compiler.compile([raw], runtime_evidence={'compatible': True})
+                self.compiler.compile([raw], runtime_evidence={'wordbit_compatible': True})
             except CompilationError as exc:
                 self.assertIsInstance(exc.__cause__, TokenValidationError)
             except TokenValidationError:
@@ -233,7 +233,7 @@ class TestMediaCompiler(unittest.TestCase):
         self.assertEqual(tokens[1]['geometry_ref'], 0)
 
     def test_compile_successful(self):
-        runtime_evidence = {'compatible': True}
+        runtime_evidence = {'wordbit_compatible': True}
         res = self.compiler.compile([self.valid_raw], runtime_evidence=runtime_evidence)
         self.assertIn('sha256', res['metadata'])
         self.assertEqual(res['metadata']['concept_count'], 1)
@@ -258,7 +258,7 @@ class TestMediaCompiler(unittest.TestCase):
             }
         }
 
-        res = self.compiler.compile([raw1, raw2], prior_pack_meta=prior_pack_meta, runtime_evidence={'compatible': True})
+        res = self.compiler.compile([raw1, raw2], prior_pack_meta=prior_pack_meta, runtime_evidence={'wordbit_compatible': True})
         events = {e['concept_id']: e['type'] for e in res['change_events']}
 
         self.assertEqual(events['test-1'], 'unchanged')
@@ -275,7 +275,7 @@ class TestMediaCompiler(unittest.TestCase):
             self.compiler.compile(
                 [self.valid_raw, bad],
                 prior_pack_meta=prior,
-                runtime_evidence={'compatible': True},
+                runtime_evidence={'wordbit_compatible': True},
             )
         self.assertIsInstance(caught.exception.__cause__, TokenValidationError)
         with open(pack, 'rb') as handle:
@@ -285,7 +285,7 @@ class TestMediaCompiler(unittest.TestCase):
         bad = self._raw({'source_evidence': {'license': 'CC0'}})
         pack = os.path.join(self.output_dir, 'pack.vct')
         with self.assertRaises(CompilationError):
-            self.compiler.compile([bad, bad], runtime_evidence={'compatible': True})
+            self.compiler.compile([bad, bad], runtime_evidence={'wordbit_compatible': True})
         self.assertFalse(os.path.exists(pack))
 
     def test_duplicate_concept_ids_are_rejected(self):
@@ -299,7 +299,7 @@ class TestMediaCompiler(unittest.TestCase):
         for batch in ((raw_first, raw_second), (raw_second, raw_first)):
             with patch.object(self.compiler, 'deduplicate_geometry', side_effect=AssertionError('pooled duplicates')):
                 with self.assertRaises(CompilationError) as caught:
-                    self.compiler.compile(list(batch), runtime_evidence={'compatible': True})
+                    self.compiler.compile(list(batch), runtime_evidence={'wordbit_compatible': True})
             messages.append(str(caught.exception))
         self.assertEqual(messages[0], messages[1])
         self.assertIn('duplicate concept_id: test-1', messages[0])
@@ -311,8 +311,8 @@ class TestMediaCompiler(unittest.TestCase):
         raw2 = zlib.compress(json.dumps(t2).encode())
 
         # Order shouldn't matter
-        res1 = self.compiler.compile([self.valid_raw, raw2], runtime_evidence={'compatible': True})
-        res2 = self.compiler.compile([raw2, self.valid_raw], runtime_evidence={'compatible': True})
+        res1 = self.compiler.compile([self.valid_raw, raw2], runtime_evidence={'wordbit_compatible': True})
+        res2 = self.compiler.compile([raw2, self.valid_raw], runtime_evidence={'wordbit_compatible': True})
 
         self.assertEqual(res1['metadata']['sha256'], res2['metadata']['sha256'])
 
@@ -327,7 +327,7 @@ class TestMediaCompiler(unittest.TestCase):
                 return real_replace(src, dst)
 
             with patch('os.replace', side_effect=wrapped):
-                self.compiler.compile([self.valid_raw], runtime_evidence={'compatible': True})
+                self.compiler.compile([self.valid_raw], runtime_evidence={'wordbit_compatible': True})
         output = os.path.abspath(self.output_dir)
         self.assertEqual(os.path.dirname(seen['src']), output)
         self.assertEqual(seen['dst'], os.path.join(output, 'pack.vct'))
@@ -339,7 +339,7 @@ class TestMediaCompiler(unittest.TestCase):
             handle.write(b'PRIOR-PACK')
         with patch('os.replace', side_effect=OSError('EXDEV')):
             with self.assertRaises(DiskSpaceError):
-                self.compiler.compile([self.valid_raw], runtime_evidence={'compatible': True})
+                self.compiler.compile([self.valid_raw], runtime_evidence={'wordbit_compatible': True})
         with open(pack, 'rb') as handle:
             self.assertEqual(handle.read(), b'PRIOR-PACK')
         leftovers = [name for name in os.listdir(self.output_dir) if name.startswith('.pack-')]
@@ -349,7 +349,7 @@ class TestMediaCompiler(unittest.TestCase):
     def test_insufficient_disk_space(self, mock_disk):
         mock_disk.return_value = (1000, 1000, 0)
         with self.assertRaises(DiskSpaceError):
-            self.compiler.compile([self.valid_raw], runtime_evidence={'compatible': True})
+            self.compiler.compile([self.valid_raw], runtime_evidence={'wordbit_compatible': True})
 
     def test_output_filesystem_disk_space(self):
         output = os.path.abspath(self.output_dir)
@@ -361,7 +361,7 @@ class TestMediaCompiler(unittest.TestCase):
 
         with patch('shutil.disk_usage', side_effect=usage):
             with self.assertRaises(DiskSpaceError):
-                self.compiler.compile([self.valid_raw], runtime_evidence={'compatible': True})
+                self.compiler.compile([self.valid_raw], runtime_evidence={'wordbit_compatible': True})
         self.assertFalse(os.path.exists(os.path.join(self.output_dir, 'pack.vct')))
 
 if __name__ == '__main__':
