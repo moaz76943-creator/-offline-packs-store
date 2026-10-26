@@ -44,6 +44,19 @@ class DirectedPairSchemaTest(unittest.TestCase):
             validate(draft)
         self.assertIn("source and target languages must be different", str(context.exception))
 
+    def test_exact_equivalence_rejects_cross_concept_senses(self):
+        draft = copy.deepcopy(self.data)
+        draft['directed_translations'][0]['target_sense_id'] = 'sense.en.bank.river'
+        with self.assertRaisesRegex(DirectedPairContractError,
+                                    'exact equivalence requires matching concepts'):
+            validate(draft)
+
+    def test_contextual_equivalence_does_not_assume_same_concept(self):
+        draft = copy.deepcopy(self.data)
+        draft['directed_translations'][0]['target_sense_id'] = 'sense.en.bank.river'
+        draft['directed_translations'][0]['equivalence'] = 'contextual'
+        self.assertIs(validate(draft), draft)
+
     def test_duplicate_pair_direction_rejected(self):
         draft = copy.deepcopy(self.data)
         dup = copy.deepcopy(draft['directed_translations'][0])
