@@ -1,12 +1,14 @@
 """Contract-to-factory adapter regression: directed identity and no fake admission."""
 import copy
+import io
 import hashlib
 import json
 import tempfile
 import unittest
+from contextlib import redirect_stderr
 from pathlib import Path
 
-from factory_adapter import to_factory_jsonl
+from factory_adapter import main, to_factory_jsonl
 from validate import DirectedPairContractError
 from tools.factory_extensions.directed_translation_scale.graph import each_candidate
 
@@ -58,6 +60,40 @@ class FactoryAdapterTest(unittest.TestCase):
             to_factory_jsonl(self.data, attestation_by_pair={'unknown.pair': {}})
         with self.assertRaisesRegex(DirectedPairContractError, 'must be an object'):
             to_factory_jsonl(self.data, attestation_by_pair={pair_id: 'self-approved'})
+
+    def test_cli_rejects_duplicate_direction_keys(self):
+        raw = json.dumps(self.data)
+        original = '"source_language": "de"'
+        self.assertIn(original, raw)
+        raw = raw.replace(original,
+                          '"source_language": "fr", "source_language": "de"', 1)
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / 'ambiguous.json'
+            output = Path(folder) / 'candidate.jsonl'
+            source.write_text(raw, encoding='utf-8')
+            errors = io.StringIO()
+            with redirect_stderr(errors), self.assertRaises(SystemExit) as stopped:
+                main([str(source), str(output)])
+            self.assertEqual(stopped.exception.code, 1)
+            self.assertIn('duplicate JSON key: source_language', errors.getvalue())
+            self.assertFalse(output.exists())
+
+    def test_cli_rejects_duplicate_external_attestation_ids(self):
+        pair_id = self.data['directed_translations'][0]['pair_id']
+        duplicate = json.dumps(pair_id) + ': {}'
+        with tempfile.TemporaryDirectory() as folder:
+            source = Path(folder) / 'document.json'
+            attestations = Path(folder) / 'attestations.json'
+            output = Path(folder) / 'candidate.jsonl'
+            source.write_text(json.dumps(self.data), encoding='utf-8')
+            attestations.write_text('{' + duplicate + ',' + duplicate + '}',
+                                    encoding='utf-8')
+            errors = io.StringIO()
+            with redirect_stderr(errors), self.assertRaises(SystemExit) as stopped:
+                main([str(source), str(output), '--attestations', str(attestations)])
+            self.assertEqual(stopped.exception.code, 1)
+            self.assertIn('duplicate JSON key: ' + pair_id, errors.getvalue())
+            self.assertFalse(output.exists())
 
     def test_factory_line_budget_fails_closed(self):
         changed = copy.deepcopy(self.data)

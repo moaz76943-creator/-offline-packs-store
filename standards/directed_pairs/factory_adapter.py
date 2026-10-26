@@ -15,6 +15,20 @@ MAX_FACTORY_LINE_BYTES = 65536
 MAX_FACTORY_CANDIDATES = 100000
 
 
+def _reject_duplicate_keys(pairs):
+    """Reject ambiguous JSON before identity and provenance validation."""
+    record = {}
+    for key, value in pairs:
+        if key in record:
+            raise DirectedPairContractError(f'duplicate JSON key: {key}')
+        record[key] = value
+    return record
+
+
+def _load_unambiguous_json(raw):
+    return json.loads(raw, object_pairs_hook=_reject_duplicate_keys)
+
+
 def to_factory_jsonl(document, *, canonical_lexeme_languages=None,
                      attestation_by_pair=None, publication=False):
     """Return bounded UTF-8 JSONL understood by graph.each_candidate().
@@ -69,10 +83,10 @@ def main(argv=None):
     parser.add_argument('--publication', action='store_true')
     args = parser.parse_args(argv)
     try:
-        data = json.loads(args.input.read_text(encoding='utf-8'))
-        owners = (json.loads(args.canonical_languages.read_text(encoding='utf-8'))
+        data = _load_unambiguous_json(args.input.read_text(encoding='utf-8'))
+        owners = (_load_unambiguous_json(args.canonical_languages.read_text(encoding='utf-8'))
                   if args.canonical_languages else None)
-        attestations = (json.loads(args.attestations.read_text(encoding='utf-8'))
+        attestations = (_load_unambiguous_json(args.attestations.read_text(encoding='utf-8'))
                         if args.attestations else None)
         output = to_factory_jsonl(data, canonical_lexeme_languages=owners,
                                   attestation_by_pair=attestations,
