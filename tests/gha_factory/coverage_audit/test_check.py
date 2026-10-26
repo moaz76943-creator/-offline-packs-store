@@ -115,6 +115,52 @@ class CoverageAuditTests(unittest.TestCase):
                          self.values['version.json']['note'])
         self.assertEqual(checker.audit(self.root, shard=0, shards=1)['production_ready_languages'], 0)
 
+    def test_outer_envelope_json_is_strict_before_pack_verifier(self):
+        # Synthetic fixture-only bytes; no licensed content or publication.
+        # The canonical v2 envelope reader uses permissive json.loads, so
+        # validate the outer JSON at the audit boundary as well as members.
+        import gzip
+        archive_dir = self.root / 'packs'
+        archive_dir.mkdir()
+        metadata = {'version': '1.0.0', 'contentRows': 1,
+                    'sourceIds': ['fixture'], 'fixtureOnly': False}
+        info = {'schemaVersion': '2.0.0', 'sourceIds': ['fixture'],
+                'fixtureOnly': False}
+        members = {'metadata/pack.json': json.dumps(metadata).encode(),
+                   'content/content.json': json.dumps(info).encode(),
+                   'content/content.sqlite': b'synthetic-not-a-real-sqlite-pack'}
+        archive = archive_dir / 'aa-1.0.0.pack.gz'
+        entry = {'id': 'aa', 'languageCode': 'aa', 'version': '1.0.0',
+                 'schemaVersion': '2.0.0', 'format': 'json-gzip-v1'}
+        malformed = (
+            (b'{"packId":"aa","packId":"aa"}', 'duplicate JSON key'),
+            (b'{"packId":"aa","note":"\\ud800"}', 'Unicode'),
+            (b'{"packId":"aa","score":NaN}', 'invalid number'),
+        )
+        for raw, expected in malformed:
+            with self.subTest(expected=expected):
+                compressed = gzip.compress(raw, mtime=0)
+                archive.write_bytes(compressed)
+                entry.update(sha256=hashlib.sha256(compressed).hexdigest(),
+                             archiveSizeBytes=len(compressed))
+                with patch.object(checker, '_load_pack_checker',
+                                  return_value=lambda *_: members), \
+                     patch.object(checker, '_directed_pairs', return_value=[]):
+                    with self.assertRaisesRegex(checker.AuditError, expected):
+                        checker._verify_pack(self.root, entry, 'aa')
+        # Ordinary UTF-8 multilingual envelope text remains accepted by the
+        # same preflight; verifier and database are stubbed for isolation.
+        good = b'{"packId":"aa","note":"\\u0639\\u0631\\u0628\\u064a"}'
+        compressed = gzip.compress(good, mtime=0)
+        archive.write_bytes(compressed)
+        entry.update(sha256=hashlib.sha256(compressed).hexdigest(),
+                     archiveSizeBytes=len(compressed))
+        with patch.object(checker, '_load_pack_checker',
+                          return_value=lambda *_: members), \
+             patch.object(checker, '_directed_pairs', return_value=[]):
+            result = checker._verify_pack(self.root, entry, 'aa')
+        self.assertEqual(result['source_ids'], ['fixture'])
+
     def test_pack_member_json_is_strict(self):
         # Synthetic pack metadata: ambiguous JSON cannot be evidence, even
         # when the surrounding envelope's byte digest is internally correct.
