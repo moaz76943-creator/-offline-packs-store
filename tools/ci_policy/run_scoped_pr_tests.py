@@ -202,7 +202,10 @@ def select_suites(changed_paths):
         if path.startswith("catalog/"):
             selected.add("registry_unit")
         if path.startswith("legal/ledger/"):
-            selected.update(name for name in ORDER if name not in ("utils", "inventory", "licensing"))
+            # Factory infrastructure is not a consumer of the legal ledger.
+            selected.update(name for name in ORDER if name not in (
+                "utils", "inventory", "licensing", "factory_dispatcher",
+                "factory_orchestration", "factory_queue_autoseed"))
         if path.startswith("tools/contribution_gate/"):
             selected.update(("pronunciation", "audio"))
     return tuple(name for name in ORDER if name in selected)
