@@ -27,13 +27,21 @@ def quantize_numbers(s: str, precision: int = 2) -> str:
     return re.sub(r'[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?', repl, s)
 
 def check_security(xml_bytes: bytes):
+    # Detect UTF-16 before trying UTF-8: BOM-less UTF-16 contains valid
+    # ASCII bytes interleaved with NULs, hiding dangerous XML declarations.
     try:
-        decoded = xml_bytes.decode('utf-8')
-    except UnicodeDecodeError:
-        try:
+        if xml_bytes.startswith((b'\\xff\\xfe', b'\\xfe\\xff')):
             decoded = xml_bytes.decode('utf-16')
-        except UnicodeDecodeError:
-            raise SVGSecurityError("Unsupported encoding, must be utf-8 or utf-16")
+        elif xml_bytes.startswith(b'<\\x00'):
+            decoded = xml_bytes.decode('utf-16le')
+        elif xml_bytes.startswith(b'\\x00<'):
+            decoded = xml_bytes.decode('utf-16be')
+        else:
+            decoded = xml_bytes.decode('utf-8')
+    except UnicodeError as exc:
+        raise SVGSecurityError("Unsupported or malformed XML encoding") from exc
+    if '\\x00' in decoded:
+        raise SVGSecurityError("NUL bytes or invalid encoding in SVG")
 
     upper_str = decoded.upper()
 
@@ -102,12 +110,28 @@ class SVGOptimizer:
                 if tag in ('script', 'foreignObject', 'image', 'style', 'iframe', 'object'):
                     raise SVGSecurityError(f"Forbidden element: {tag}")
                 raise SVGUnsupportedError(f"Unsupported element: {tag}")
+            # This compact-vector format does not model definitions or <use>
+            # references. Reject rather than silently dropping sprite geometry.
+            if tag in ('defs', 'use'):
+                raise SVGUnsupportedError("defs/use geometry is not representable")
 
             for attr, val in node.attrib.items():
                 if attr.lower().startswith('on'):
                     raise SVGSecurityError(f"Event handlers are forbidden: {attr}")
-                if 'url(' in val and not val.strip().startswith('url(#'):
-                    raise SVGSecurityError("External references are forbidden")
+                if re.search(r'url\\s*\\(', val, re.IGNORECASE):
+                    # CSS function names are case-insensitive; only local IDs
+                    # may be retained by the current token format.
+                    if not re.fullmatch(r'url\\s*\\(\\s*\\#[A-Za-z0-9_.:-]+\\s*\\)',
+                                        val.strip(), re.IGNORECASE):
+                        raise SVGSecurityError("External references are forbidden")
+                key = attr.split('}')[-1].lower()
+                if key == 'style':
+                    raise SVGUnsupportedError("CSS presentation is not representable")
+                if key == 'stroke' and val.strip().lower() != 'none':
+                    raise SVGUnsupportedError("Stroked geometry is not representable")
+                if key in ('stroke-width', 'stroke-linecap', 'stroke-linejoin',
+                           'stroke-dasharray', 'stroke-dashoffset'):
+                    raise SVGUnsupportedError("Stroke presentation is not representable")
 
             fill = node.attrib.get('fill', current_fill)
             transform = node.attrib.get('transform')
@@ -207,5 +231,17 @@ class SVGOptimizer:
 
         if token['vb'] != orig_viewBox:
             raise ValueError(f"ViewBox bounds mismatch in roundtrip: {token['vb']} != {orig_viewBox}")
+
+        # Rebuild the independently parsed source geometry. A matching 'src'
+        # hash and viewBox alone cannot prove that palette, shapes or paths
+        # survived the encoding round trip intact.
+        try:
+            expected = self.decode(self.optimize(original_svg, token['id'], token['lic']))
+        except (KeyError, TypeError, SVGParseError, SVGUnsupportedError,
+                SVGSecurityError, SVGSizeError) as exc:
+            raise ValueError("Unverifiable source geometry") from exc
+        for key in ('vb', 'p', 'pd', 'e'):
+            if token.get(key) != expected.get(key):
+                raise ValueError(f"Encoded geometry mismatch in roundtrip: {key}")
 
         return True
