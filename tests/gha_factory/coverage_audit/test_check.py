@@ -780,6 +780,23 @@ class CoverageAuditTests(unittest.TestCase):
                                'verified_count': 1}])
 
 
+    def test_unselected_shard_rejects_invalid_default_script(self):
+        # An audit of 'ab' must not PASS while unselected 'aa' references
+        # a script that is absent from the canonical registry.
+        self.values['catalog/language_registry.v1.json']['languages'][0]['default_script'] = 'Missing'
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'invalid canonical script'):
+            checker.audit(self.root, shard=1, shards=100)
+
+    def test_unselected_shard_rejects_script_direction_mismatch(self):
+        # 'aa' belongs to shard 0; shard 1 must still reject an RTL
+        # publication claim for its canonical LTR default script.
+        self.values['manifest.json']['languages'][0]['direction'] = 'rtl'
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'script direction mismatch'):
+            checker.audit(self.root, shard=1, shards=100)
+
+
     def test_unselected_shard_rejects_global_unbacked_language_claims(self):
         # Synthetic manifest metadata only: a per-shard PASS must not mask
         # another language advertising an unbacked v2 pack or activation.
