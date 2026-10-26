@@ -17,6 +17,14 @@ SENSE = re.compile(r"L[1-9][0-9]*-S[1-9][0-9]*\Z")
 FORM = re.compile(r"L[1-9][0-9]*-F[1-9][0-9]*\Z")
 SOURCE_LANGUAGE_QIDS = {"de": "Q188", "en": "Q1860", "ar": "Q13955"}
 LICENSE_NOTICE_PATH = "legal/ledger/evidence/wikidata-20261023/copyright-1523614187.txt"
+LICENSE_NOTICE_SHA256 = "a74df271d6e2cceb81f71967fb180c66d08c33a670d14d8b64448ee9ef286396"
+# Independently recorded in main/legal/ledger/evidence/wikidata-20261023/review-receipt.json.
+# A receipt may not authorize altered source bytes merely by changing its own SHA256.
+SOURCE_SHA256 = {
+    "L1026": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+    "L3006": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+    "L7882": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+}
 
 
 def digest(data):
@@ -95,7 +103,9 @@ def build(root, receipt):
         raise ValueError("review-only source gate")
     if receipt.get("license_evidence_path") != LICENSE_NOTICE_PATH:
         raise ValueError("untrusted license evidence path")
-    notice = pinned(root, receipt["license_evidence_path"], receipt["license_evidence_sha256"])
+    if receipt.get("license_evidence_sha256") != LICENSE_NOTICE_SHA256:
+        raise ValueError("license notice hash not independently pinned")
+    notice = pinned(root, receipt["license_evidence_path"], LICENSE_NOTICE_SHA256)
     if b"Lexeme" not in notice or b"Creative Commons CC0 License" not in notice:
         raise ValueError("scoped Wikidata license evidence missing")
     lexemes, candidates, identities = [], [], set()
@@ -111,7 +121,9 @@ def build(root, receipt):
                 or source["path"] != "legal/ledger/evidence/wikidata-20261023/%s-%s.json" %
                 (lexeme_id, source["revision"])):
             raise ValueError("untrusted original source")
-        raw = pinned(root, source["path"], source["sha256"])
+        if source.get("sha256") != SOURCE_SHA256.get(lexeme_id):
+            raise ValueError("source hash not independently pinned")
+        raw = pinned(root, source["path"], SOURCE_SHA256[lexeme_id])
         entity = strict_json(raw)["entities"][lexeme_id]
         if (entity.get("id") != lexeme_id or entity.get("lastrevid") != source["revision"]
                 or entity.get("language") != source["language_qid"]
