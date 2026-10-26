@@ -63,11 +63,44 @@ def _repository_file(root, relative):
     return path
 
 
+MAX_JSON_NESTING = 512
+
+
+def _check_json_nesting(content, name):
+    """Bound JSON nesting consistently across Python decoder versions.
+
+    Fast-path shallow JSON in C; scan deeply bracketed inputs while
+    ignoring delimiters inside escaped JSON strings.
+    """
+    if content.count('{') + content.count('[') <= MAX_JSON_NESTING:
+        return
+    depth = 0
+    in_string = False
+    escaped = False
+    for char in content:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif char == '\\':
+                escaped = True
+            elif char == '"':
+                in_string = False
+        elif char == '"':
+            in_string = True
+        elif char in '{[':
+            depth += 1
+            if depth > MAX_JSON_NESTING:
+                raise AuditError(f'JSON nesting exceeds depth limit in {name}')
+        elif char in '}]':
+            depth -= 1
+
+
 def _parse_strict_json(content, name):
     """Decode repository or verified pack-member JSON without ambiguous evidence."""
     try:
         if isinstance(content, bytes):
             content = content.decode('utf-8', errors='strict')
+        _check_json_nesting(content, name)
         data = json.loads(content, object_pairs_hook=_unique_pairs,
                           parse_float=_finite_json_float,
                           parse_int=_bounded_json_int,
