@@ -204,6 +204,13 @@ class CoverageAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(checker.AuditError, 'nesting|depth'):
             checker.read_json(self.root, 'version.json')
 
+    def test_json_depth_guard_ignores_brackets_inside_strings(self):
+        # A large multilingual string with thousands of literal delimiters
+        # is shallow JSON and must not be rejected by the nesting guard.
+        text = ('{[Äöüßİعربي日本語' * 1200) + '\\"'
+        raw = json.dumps({'text': text}, ensure_ascii=False)
+        self.assertEqual(checker._parse_strict_json(raw, 'quoted brackets')['text'], text)
+
     def test_bounded_json_integer_is_preserved(self):
         value = 10 ** 127 - 1
         raw = ('{"value":' + str(value) + '}').encode('ascii')
