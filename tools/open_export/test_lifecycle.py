@@ -40,13 +40,13 @@ class SecurityRegression(unittest.TestCase):
                                           validator_keys={"validator": self.auth["validator"]},
                                           reviewer_keys={"reviewer": self.auth["reviewer"]})
         self.meta = {"source_id": "src-test", "language": "de", "sense_id": "sense-test",
-                     "license_id": "CC0-1.0", "dataset_version": "1.0", "publisher": "Fixture publisher",
+                     "license_id": "CC0-1.0", "dataset_version": "1.0", "publisher": "Fixture publisher", "translation_direction": "de-en",
                      "origin_url": "https://example.org/data", "record_locator": "row-1",
                      "source_artifact_sha256": "a" * 64, "fixture_only": False,
                      "rights_status": "APPROVED_FOR_REDISTRIBUTION"}
         self.ledger = {"schema_version": "1.0.0", "sources": [{"source_id": "src-test",
                        "status": "APPROVED_FOR_REDISTRIBUTION", "dataset_version": "1.0",
-                       "publisher": "Fixture publisher", "origin_url": "https://example.org/data",
+                       "publisher": "Fixture publisher", "translation_direction": "de-en", "origin_url": "https://example.org/data",
                        "kind": "dictionary", "retrieval": {"sha256": "a" * 64},
                        "license": {"id": "CC0-1.0", "evidence_url": "https://example.org/rights"}}]}
         ledgerpath = self.root / "legal/ledger"
