@@ -1,6 +1,7 @@
 {
   "degraded": [
     "harvest-kaikki",
+    "harvest-wikidata",
     "packs"
   ],
   "dispatch": [],
