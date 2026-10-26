@@ -3,7 +3,7 @@ import hashlib
 import json
 import math
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 from tools.gha_factory.admission import pipeline
@@ -26,17 +26,21 @@ def trusted(issue):
         and type(number) is int and number>0
         and isinstance(title,str) and title.startswith(p.PREFIX))
 
-def inventory(api,ctx,invalid_active=None):
+def inventory(api,ctx,invalid_active=None,telemetry=None):
     entries=[]
     for issue in api.issues():
         if not trusted(issue):continue
         try:
             t=p.parse(issue.get('body'),ctx['languages'])
         except (ValueError, TypeError, KeyError, UnicodeError) as exc:
+            if telemetry is not None:
+                telemetry['malformed_queue_issues']=telemetry.get('malformed_queue_issues',0)+1
             print('QUARANTINED_INVALID_ISSUE', issue['number'],
                   type(exc).__name__, file=sys.stderr)
             continue
         if issue['title']!=p.PREFIX+t['task_id']:
+            if telemetry is not None:
+                telemetry['malformed_queue_issues']=telemetry.get('malformed_queue_issues',0)+1
             print('QUARANTINED_INVALID_ISSUE', issue['number'],
                   'TitleIdentityMismatch', file=sys.stderr)
             if t['state'] not in p.ACTIVE:
@@ -100,10 +104,14 @@ def _blocked(t,state):
     if t['schema_version']==v1.VERSION and state=='BLOCKED_DEPENDENCY':state='BLOCKED_SOURCE'
     return p.validate(dict(t,state=state))
 
-def control(api,run_id,attempt,now,root,ctx=None,registry_sha=None):
+def control(api,run_id,attempt,now,root,ctx=None,registry_sha=None,telemetry=None):
     if ctx is None:ctx,registry_sha=legacy.context(root)
     invalid_active=set()
-    entries=inventory(api,ctx,invalid_active)
+    entries=inventory(api,ctx,invalid_active,telemetry)
+    if telemetry is not None:
+        observed=Counter(t['state'] for _,t in entries)
+        telemetry.update(queue_total=len(entries),
+                         task_states=dict(sorted(observed.items())))
     groups=defaultdict(list)
     for n,t in entries:groups[t['task_id']].append((n,t))
     # Any duplicate is ambiguous: completed receipts are immutable; only incomplete
