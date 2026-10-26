@@ -246,6 +246,22 @@ class TestAudioAdmissionGate(unittest.TestCase):
         self.assertEqual(accepted, [])
         self.assertIn("rights missing", rejected[0]["rejection_reason"])
 
+    def test_truncated_file(self):
+        path = self.root / "truncated.ogg"
+        path.write_bytes(self.ogg.read_bytes()[:100])
+        row = self.candidate(self.ogg)
+        row["artifact_path"] = path.name
+        row["sha256"] = _sha256(path)
+        accepted, rejected = process_candidates([row], self.ledger, self.root)
+        self.assertEqual(accepted, [])
+        self.assertIn("Invalid file format", rejected[0]["rejection_reason"])
+
+    def test_unlicensed_audio(self):
+        row = self.candidate(self.wav, source_id="unlicensed-source")
+        accepted, rejected = process_candidates([row], self.ledger, self.root)
+        self.assertEqual(accepted, [])
+        self.assertIn("missing or unapproved", rejected[0]["rejection_reason"])
+
     def test_oversized_sample(self):
         path = self.root / "oversized.ogg"
         path.write_bytes(b"OggS" + b"\x00" * (1024 * 1024 + 10))
