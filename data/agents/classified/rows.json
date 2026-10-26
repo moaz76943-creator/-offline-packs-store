@@ -3586,6 +3586,36 @@
       "wikidata": "Q14786282"
     },
     {
+      "concept_id": "concept.q1055446",
+      "forms": [
+        "cerography",
+        "cerographies"
+      ],
+      "language": "en",
+      "lemma": "cerography",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1403951",
+      "pos": "",
+      "qids": [
+        "Q1055446"
+      ],
+      "record_id": "L1403951",
+      "retrieval_date": "2026-10-26",
+      "revision": "2291366328",
+      "schema_version": "1.0.0",
+      "section": "technology",
+      "sense_id": "L1403951-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "technology.q11016",
+      "wikidata": "Q1055446"
+    },
+    {
       "concept_id": "concept.q11756",
       "forms": [
         "prehistory",
@@ -6875,6 +6905,35 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q192874"
+    },
+    {
+      "concept_id": "concept.q1055446",
+      "forms": [
+        "セログラフィー"
+      ],
+      "language": "ja",
+      "lemma": "セログラフィー",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1604881",
+      "pos": "",
+      "qids": [
+        "Q1055446"
+      ],
+      "record_id": "L1604881",
+      "retrieval_date": "2026-10-26",
+      "revision": "2538026647",
+      "schema_version": "1.0.0",
+      "section": "technology",
+      "sense_id": "L1604881-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "technology.q11016",
+      "wikidata": "Q1055446"
     },
     {
       "concept_id": "concept.q55313888",
