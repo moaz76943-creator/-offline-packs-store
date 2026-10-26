@@ -35,6 +35,19 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["tools/merge_accelerator/inventory.py"]), ("inventory",))
         self.assertEqual(select_suites(["tests/merge_accelerator/test_inventory.py"]), ("inventory",))
 
+    def test_svg_optimizer_source_and_tests_are_mandatory_in_required_gate(self):
+        for source in ("tools/svg_optimizer/optimizer.py",
+                       "tools/svg_optimizer/test_optimizer.py"):
+            with self.subTest(source=source):
+                self.assertEqual(select_suites([source]), ("svg_optimizer",))
+                self.assertEqual(select_baseline_checks([source]), ())
+        # A change to central CI policy retains the policy baseline, without
+        # hiding tests for a simultaneously modified SVG module.
+        mixed = ["tools/ci_policy/run_scoped_pr_tests.py",
+                 "tools/svg_optimizer/optimizer.py"]
+        self.assertIn("policy", select_baseline_checks(mixed))
+        self.assertIn("svg_optimizer", select_suites(mixed))
+
     def test_shared_provenance_logic_runs_all_affected_tests(self):
         self.assertEqual(select_suites(["legal/ledger/admission.py"]),
                          ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "ledger", "registry_unit"))
