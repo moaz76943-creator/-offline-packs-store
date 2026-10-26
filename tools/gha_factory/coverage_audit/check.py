@@ -544,13 +544,28 @@ def audit(root, *, shard=0, shards=10):
         lang = aliases[code]
         if not item.get('registered') or not isinstance(lang.get('scripts'), list):
             raise AuditError(f'invalid registered metadata: {code}')
+        # All declared scripts are part of the public language contract,
+        # not only the default. A nonselected shard must not hide an unknown,
+        # duplicate, or malformed secondary writing system.
+        declared_scripts = lang['scripts']
+        registered_scripts = registry.get('scripts')
+        if (not declared_scripts
+                or any(not isinstance(script, str) for script in declared_scripts)
+                or len(set(declared_scripts)) != len(declared_scripts)):
+            raise AuditError(f'duplicate or invalid canonical script: {code}')
         default_script = lang.get('default_script')
-        if default_script not in lang['scripts'] or default_script not in registry.get('scripts', {}):
+        if (not isinstance(registered_scripts, dict)
+                or default_script not in declared_scripts
+                or any(script not in registered_scripts for script in declared_scripts)):
             raise AuditError(f'invalid canonical script: {code}')
-        script_metadata = registry['scripts'][default_script]
-        if (not isinstance(script_metadata, dict)
-                or script_metadata.get('direction') not in ('ltr', 'rtl')
-                or item.get('direction') != script_metadata['direction']):
+        for script in declared_scripts:
+            script_metadata = registered_scripts[script]
+            if (not isinstance(script_metadata, dict)
+                    or script_metadata.get('direction') not in ('ltr', 'rtl')):
+                raise AuditError(f'script direction mismatch: {code}')
+        # A secondary RTL script may coexist with an LTR default (or vice
+        # versa); the manifest direction must match only the default.
+        if item.get('direction') != registered_scripts[default_script]['direction']:
             raise AuditError(f'script direction mismatch: {code}')
         if item.get('pack_verified') is True and code not in indexed:
             raise AuditError(f'unbacked pack_verified metadata: {code}')
