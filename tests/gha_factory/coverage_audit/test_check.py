@@ -304,6 +304,19 @@ class CoverageAuditTests(unittest.TestCase):
                 with self.assertRaisesRegex(checker.AuditError, 'version pack'):
                     checker.audit(self.root, shard=1, shards=100)
 
+    def test_published_pack_missing_from_version_index_fails_all_shards(self):
+        # A manifest.packs entry is a published v2 claim. Omitting it from
+        # version.packs makes a purported download undiscoverable, even if
+        # the current shard does not verify the archive bytes.
+        self.values['legal/ledger/sources.json']['sources'] = [
+            {'source_id': 'pending', 'status': 'REVIEW_REQUIRED'}]
+        self.values['manifest.json']['packs'] = [
+            {'id': 'aa', 'version': '1.0.0'}]
+        self.values['version.json']['packs'] = {}
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'version pack'):
+            checker.audit(self.root, shard=1, shards=100)
+
     def test_version_index_descriptor_must_match_manifest_across_shards(self):
         # Synthetic, nonpublishable metadata: the version index is global
         # release evidence, even if the pack is outside the selected shard.
