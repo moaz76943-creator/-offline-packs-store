@@ -363,6 +363,11 @@ def _verify_pack(root, pack, language):
             blob = fh.read(MAX_ENVELOPE_BYTES + 1)
         if len(blob) > MAX_ENVELOPE_BYTES:
             raise AuditError('inflated package exceeds maximum envelope size')
+        # The canonical v2 envelope reader uses permissive json.loads for the
+        # outer envelope. Reject duplicate keys, nonfinite numbers and invalid
+        # Unicode before passing bytes to that verifier, just as we already do
+        # for the embedded metadata/pack.json and content/content.json.
+        _parse_strict_json(blob, 'v2 envelope')
         contents = _load_pack_checker(root)(blob, language)
     except (OSError, EOFError, ValueError, KeyError) as error:
         raise AuditError(f'invalid SQLite v2 envelope: {error}') from error
