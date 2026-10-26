@@ -30,17 +30,17 @@ def check_security(xml_bytes: bytes):
     # Detect UTF-16 before trying UTF-8: BOM-less UTF-16 contains valid
     # ASCII bytes interleaved with NULs, hiding dangerous XML declarations.
     try:
-        if xml_bytes.startswith((b'\\xff\\xfe', b'\\xfe\\xff')):
+        if xml_bytes.startswith((b'\xff\xfe', b'\xfe\xff')):
             decoded = xml_bytes.decode('utf-16')
-        elif xml_bytes.startswith(b'<\\x00'):
+        elif xml_bytes.startswith(b'<\x00'):
             decoded = xml_bytes.decode('utf-16le')
-        elif xml_bytes.startswith(b'\\x00<'):
+        elif xml_bytes.startswith(b'\x00<'):
             decoded = xml_bytes.decode('utf-16be')
         else:
             decoded = xml_bytes.decode('utf-8')
     except UnicodeError as exc:
         raise SVGSecurityError("Unsupported or malformed XML encoding") from exc
-    if '\\x00' in decoded:
+    if '\x00' in decoded:
         raise SVGSecurityError("NUL bytes or invalid encoding in SVG")
 
     upper_str = decoded.upper()
@@ -118,10 +118,10 @@ class SVGOptimizer:
             for attr, val in node.attrib.items():
                 if attr.lower().startswith('on'):
                     raise SVGSecurityError(f"Event handlers are forbidden: {attr}")
-                if re.search(r'url\\s*\\(', val, re.IGNORECASE):
+                if re.search(r'url\s*\(', val, re.IGNORECASE):
                     # CSS function names are case-insensitive; only local IDs
                     # may be retained by the current token format.
-                    if not re.fullmatch(r'url\\s*\\(\\s*\\#[A-Za-z0-9_.:-]+\\s*\\)',
+                    if not re.fullmatch(r'url\s*\(\s*\#[A-Za-z0-9_.:-]+\s*\)',
                                         val.strip(), re.IGNORECASE):
                         raise SVGSecurityError("External references are forbidden")
                 key = attr.split('}')[-1].lower()
