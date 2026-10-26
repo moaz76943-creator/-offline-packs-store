@@ -1,6 +1,6 @@
 """Read-only fail-closed 100-language coverage and SQLite v2 audit."""
 import argparse
-import gzip
+import zlib
 import hashlib
 import importlib.util
 import json
@@ -434,10 +434,19 @@ def _verify_pack(root, pack, language):
     if actual != expected or length != pack.get('archiveSizeBytes'):
         raise AuditError('package bytes/length do not match manifest')
     try:
-        with gzip.open(path, 'rb') as fh:
-            blob = fh.read(MAX_ENVELOPE_BYTES + 1)
-        if len(blob) > MAX_ENVELOPE_BYTES:
-            raise AuditError('inflated package exceeds maximum envelope size')
+        # gzip.open transparently concatenates members. A second empty
+        # member leaves the decoded JSON unchanged and can pass SHA256 when
+        # the manifest advertises the concatenated bytes. Require exactly
+        # one complete gzip member, matching the release candidate reader.
+        compressed = path.read_bytes()  # already bounded by _sha_file
+        try:
+            decoder = zlib.decompressobj(16 + zlib.MAX_WBITS)
+            blob = decoder.decompress(compressed, MAX_ENVELOPE_BYTES + 1)
+        except zlib.error as error:
+            raise AuditError('corrupt gzip envelope') from error
+        if (len(blob) > MAX_ENVELOPE_BYTES or not decoder.eof
+                or decoder.unused_data or decoder.unconsumed_tail):
+            raise AuditError('trailing gzip member, truncation or expansion limit')
         # The canonical v2 envelope reader uses permissive json.loads for the
         # outer envelope. Reject duplicate keys, nonfinite numbers and invalid
         # Unicode before passing bytes to that verifier, just as we already do
@@ -546,6 +555,13 @@ def audit(root, *, shard=0, shards=10):
     # verification remains sharded to bound the heavy work.
     for code, item in metadata.items():
         lang = aliases[code]
+        # JSON booleans are public verification claims, not truthy values.
+        # Reject numeric/string stand-ins globally before shard selection:
+        # otherwise an unselected language can silently advertise status.
+        for flag in ('registered', 'is_active', 'content_available',
+                     'pack_verified', 'production_ready'):
+            if type(item.get(flag)) is not bool:
+                raise AuditError(f'invalid publication flag: {code}.{flag}')
         if not item.get('registered') or not isinstance(lang.get('scripts'), list):
             raise AuditError(f'invalid registered metadata: {code}')
         # All declared scripts are part of the public language contract,
@@ -581,6 +597,24 @@ def audit(root, *, shard=0, shards=10):
                 and item.get('content_available') is True
                 and code in indexed):
             raise AuditError(f'false production activation: {code}')
+        # Activation and release acceptance are global claims, even when
+        # this shard will not open the referenced SQLite archive.
+        if item.get('production_ready') is True or item.get('is_active') is True:
+            evidence_map = readiness.get('validation_evidence')
+            validation = evidence_map.get(code) if isinstance(evidence_map, dict) else None
+            if (item.get('production_ready') is not True or state[code] != 'validated'
+                    or not isinstance(validation, dict)
+                    or validation.get('pack_sha256') != indexed[code].get('sha256')
+                    or validation.get('validation_method') != 'automated_quality_gate'
+                    or not isinstance(validation.get('acceptance'), dict)
+                    or not all(validation['acceptance'].get(k) is True for k in (
+                        'source_licensed', 'profile_valid', 'lexicon_coverage',
+                        'grammar_goldens', 'examples_quality', 'search_goldens',
+                        'script_render', 'offline_pack_integrity', 'safety_policy',
+                        'ui_srs_compatibility'))
+                    or version.get('release_status') == 'BLOCKED_DEPENDENCY'
+                    or code not in version.get('packs', {})):
+                raise AuditError(f'false production readiness evidence: {code}')
     selected = sorted(m_ids)[shard::shards]
     verified = 0
     ready = 0
@@ -607,20 +641,6 @@ def audit(root, *, shard=0, shards=10):
                 all_pairs.append({**pair, 'verified_in_pack': code})
                 direction_count += 1
         if active:
-            validation = readiness.get('validation_evidence', {}).get(code)
-            if (item.get('production_ready') is not True or state[code] != 'validated'
-                    or not isinstance(validation, dict)
-                    or validation.get('pack_sha256') != indexed[code].get('sha256')
-                    or validation.get('validation_method') != 'automated_quality_gate'
-                    or not isinstance(validation.get('acceptance'), dict)
-                    or not all(validation['acceptance'].get(k) is True for k in (
-                        'source_licensed', 'profile_valid', 'lexicon_coverage',
-                        'grammar_goldens', 'examples_quality', 'search_goldens',
-                        'script_render', 'offline_pack_integrity', 'safety_policy',
-                        'ui_srs_compatibility'))
-                    or version.get('release_status') == 'BLOCKED_DEPENDENCY'
-                    or code not in version.get('packs', {})):
-                raise AuditError(f'false production readiness evidence: {code}')
             ready += 1
         rows.append({'language_id': code, 'status': 'PRODUCTION_READY' if active else
                      'PACK_VERIFIED' if code in indexed else 'REGISTERED',

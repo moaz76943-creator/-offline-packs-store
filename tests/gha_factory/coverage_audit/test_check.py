@@ -161,6 +161,45 @@ class CoverageAuditTests(unittest.TestCase):
             result = checker._verify_pack(self.root, entry, 'aa')
         self.assertEqual(result['source_ids'], ['fixture'])
 
+    def test_concatenated_gzip_empty_member_is_rejected(self):
+        # Synthetic fixture only: gzip.open accepts concatenated members,
+        # including an empty second member. A release candidate verifier
+        # rejects that ambiguous archive even when its SHA256 matches.
+        import gzip
+        archive_dir = self.root / 'packs'
+        archive_dir.mkdir()
+        path = archive_dir / 'aa-1.0.0.pack.gz'
+        payload = '{"packId":"aa","note":"عربي Äpfel Straße İ"}'.encode('utf-8')
+        valid = gzip.compress(payload, mtime=0)
+        ambiguous = valid + gzip.compress(b'', mtime=0)
+        entry = {'id': 'aa', 'languageCode': 'aa', 'version': '1.0.0',
+                 'schemaVersion': '2.0.0', 'format': 'json-gzip-v1'}
+        members = {
+            'metadata/pack.json': json.dumps({
+                'version': '1.0.0', 'contentRows': 1,
+                'sourceIds': ['synthetic'], 'fixtureOnly': False}).encode(),
+            'content/content.json': json.dumps({
+                'schemaVersion': '2.0.0', 'sourceIds': ['synthetic'],
+                'fixtureOnly': False}).encode(),
+            'content/content.sqlite': b'fixture-only-sqlite',
+        }
+        with patch.object(checker, '_load_pack_checker',
+                          return_value=lambda *_: members), \
+             patch.object(checker, '_directed_pairs', return_value=[]):
+            path.write_bytes(valid)
+            entry.update(sha256=hashlib.sha256(valid).hexdigest(),
+                         archiveSizeBytes=len(valid))
+            self.assertEqual(
+                checker._verify_pack(self.root, entry, 'aa')['source_ids'],
+                ['synthetic'])
+            path.write_bytes(ambiguous)
+            entry.update(sha256=hashlib.sha256(ambiguous).hexdigest(),
+                         archiveSizeBytes=len(ambiguous))
+            with self.assertRaisesRegex(checker.AuditError,
+                                        'gzip|trailing|member'):
+                checker._verify_pack(self.root, entry, 'aa')
+
+
     def test_pack_member_json_is_strict(self):
         # Synthetic pack metadata: ambiguous JSON cannot be evidence, even
         # when the surrounding envelope's byte digest is internally correct.
@@ -870,6 +909,58 @@ class CoverageAuditTests(unittest.TestCase):
                         'unbacked pack_verified|false production activation'):
                     checker.audit(self.root, shard=1, shards=100)
                 lang[flag] = False
+
+
+    def test_unselected_shard_rejects_unattested_production_evidence(self):
+        # Fixture-only metadata: the declared pack belongs to shard 0.
+        # Shard 1 must not PASS when shard 0 falsely advertises activation.
+        language = self.values['manifest.json']['languages'][0]
+        language['pack_verified'] = True
+        language['content_available'] = True
+        self.values['legal/ledger/sources.json']['sources'] = [
+            {'source_id': 'pending', 'status': 'REVIEW_REQUIRED'}]
+        self.values['manifest.json']['packs'] = [
+            {'id': 'aa', 'version': '1.0.0'}]
+        self.values['version.json']['packs'] = {
+            'aa': {
+                'version': '1.0.0',
+                'file_url': (
+                    'https://cdn.jsdelivr.net/gh/'
+                    'moaz76943-creator/-offline-packs-store@main/'
+                    'packs/aa-1.0.0.pack.gz')}}
+        for flags in (
+                {'production_ready': True, 'is_active': False},
+                {'production_ready': False, 'is_active': True},
+                {'production_ready': True, 'is_active': True}):
+            with self.subTest(flags=flags):
+                language.update(flags)
+                self.write_all()
+                with self.assertRaisesRegex(
+                        checker.AuditError, 'false production readiness evidence'):
+                    checker.audit(self.root, shard=1, shards=100)
+        # No activation: the unselected synthetic pack does not need to
+        # exist on disk and is never promoted to production.
+        language.update(production_ready=False, is_active=False)
+        self.write_all()
+        self.assertEqual(
+            checker.audit(self.root, shard=1, shards=100)['production_ready_languages'], 0)
+
+
+    def test_publication_flags_reject_truthy_nonbooleans_globally(self):
+        # Synthetic metadata only. Strings and integer 1 must never be
+        # treated as verified publication evidence, including in another shard.
+        language = self.values['manifest.json']['languages'][0]
+        for field in ('registered', 'is_active', 'content_available',
+                      'pack_verified', 'production_ready'):
+            for invalid in ('true', 1):
+                with self.subTest(field=field, invalid=invalid):
+                    language[field] = invalid
+                    self.write_all()
+                    with self.assertRaisesRegex(checker.AuditError,
+                                                'invalid publication flag'):
+                        checker.audit(self.root, shard=1, shards=100)
+                    language[field] = (field == 'registered')
+
 
 
 if __name__ == '__main__':
