@@ -64,6 +64,13 @@ def validate(document, *, publication=False):
         if src_lang == tgt_lang:
             raise DirectedPairContractError(f'source and target languages must be different: {translation["pair_id"]}')
 
+        # Exact equivalence is only valid for the same verified concept.
+        # Approximate/contextual mappings may legitimately cross concepts.
+        if (translation['equivalence'] == 'exact' and
+                senses[src_id]['concept_id'] != senses[tgt_id]['concept_id']):
+            raise DirectedPairContractError(
+                f'exact equivalence requires matching concepts: {translation["pair_id"]}')
+
         pair_key = (src_id, tgt_id)
         if pair_key in pair_directions:
              raise DirectedPairContractError(f'duplicate translation pair direction: {translation["pair_id"]}')
