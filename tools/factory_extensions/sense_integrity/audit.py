@@ -109,7 +109,7 @@ def source_verdict(source, ledger):
     if (ref.get("dataset_version") != source.get("dataset_version") or
             ledger_sha != sha or lic != source.get("license_id")):
         return False, "stale_or_mismatched_provenance"
-    if ref.get("admission_status", ref.get("status")) != "approved":
+    if ref.get("status") != "APPROVED_FOR_REDISTRIBUTION":
         return False, "source_not_approved_in_ledger"
     return True, "matched"
 
@@ -213,7 +213,7 @@ def analyze_links(db):
     for rid, lang in db.execute("""SELECT s.id,s.language FROM rec s
         WHERE s.snapshot='current' AND s.kind='senses' AND
         (EXISTS (SELECT 1 FROM rec x WHERE x.snapshot='current' AND
-         x.id=s.concept AND x.kind IN ('senses','lexemes')) OR s.id=s.concept)"""):
+         x.id=s.concept AND x.kind IN ('lexemes','senses','translations','relations','examples')) OR s.id=s.concept)"""):
         issue(db, lang, "error", "concept_identity_collision", "senses", rid, "concept ID reused as entity ID")
     for parent, concept, lang in db.execute("""SELECT parent,concept,MIN(language)
         FROM rec WHERE snapshot='current' AND kind='senses'
@@ -312,6 +312,7 @@ def report(db, output, registry, shard, shards, has_previous):
                    CASE WHEN p.id IS NOT NULL AND p.pinned != c.pinned THEN 1 ELSE 0 END,
                    EXISTS(SELECT 1 FROM issue i WHERE i.severity='error' AND
                        ((i.kind=c.kind AND i.id=c.id) OR
+                        (i.kind='identity' AND i.id IN (c.id,c.parent)) OR
                         (c.kind='senses' AND i.kind='lexemes' AND i.id=c.parent)))
             FROM rec c LEFT JOIN rec p ON p.snapshot='previous' AND p.kind=c.kind AND p.id=c.id
             WHERE c.snapshot='current' AND c.kind IN ('lexemes','senses')
@@ -337,7 +338,8 @@ def report(db, output, registry, shard, shards, has_previous):
     for sid, lang, approved, lex_approved, failure in db.execute("""
         SELECT s.id,s.language,s.source_ok,l.source_ok,
           EXISTS(SELECT 1 FROM issue i WHERE i.severity='error' AND
-            ((i.kind='senses' AND i.id=s.id) OR (i.kind='lexemes' AND i.id=s.parent)))
+            ((i.kind='senses' AND i.id=s.id) OR (i.kind='lexemes' AND i.id=s.parent)
+              OR (i.kind='identity' AND i.id IN (s.id,s.parent))))
         FROM rec s LEFT JOIN rec l ON l.snapshot='current' AND l.kind='lexemes' AND l.id=s.parent
         WHERE s.snapshot='current' AND s.kind='senses' ORDER BY s.id"""):
         if shard_for("senses:" + sid, shards) != shard:
@@ -379,8 +381,16 @@ def audit(input_dir, out_dir, *, previous=None, ledger=None, dispositions=None,
         if not resume:
             raise FileExistsError("output exists; pass --resume to verify exact immutable checkpoint")
         checkpoint = strict_json((out_dir / "checkpoint.json").read_text(encoding="utf-8"))
-        if checkpoint.get("fingerprint") != fingerprint or any(
-                hash_file(out_dir / name) != sha for name, sha in checkpoint["outputs"].items()):
+        expected_reports = {"conflicts.jsonl", "candidates.jsonl",
+                            "merge-plan.jsonl", "per-language.json"}
+        outputs = checkpoint.get("outputs") if isinstance(checkpoint, dict) else None
+        if (not isinstance(checkpoint, dict) or
+                checkpoint.get("fingerprint") != fingerprint or
+                not isinstance(outputs, dict) or set(outputs) != expected_reports or
+                any(not isinstance(sha, str) or len(sha) != 64 or
+                    not (out_dir / name).is_file() or (out_dir / name).is_symlink() or
+                    hash_file(out_dir / name) != sha
+                    for name, sha in outputs.items())):
             raise ValueError("stale/corrupted checkpoint; refusing replay")
         return checkpoint
     registry_doc = strict_json(registry.read_text(encoding="utf-8"))
