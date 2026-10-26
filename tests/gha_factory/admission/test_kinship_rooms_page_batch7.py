@@ -7,12 +7,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 FOLDER = ROOT / "legal/ledger/evidence/wikidata-20261026-kinship-rooms-page-batch7"
 EXPECTED = {
-    "L34042": ("de", "Vater", 2544525397, "Q7565", "family", "kinship", "masculine",
-               ["Vater", "Vaters", "Vater", "Vater", "Väter", "Väter", "Vätern", "Väter"]),
+    "L615136": ("de", "Wohnzimmer", 2306778967, "Q475018", "home", "rooms", "neuter",
+               ["Wohnzimmer", "Wohnzimmers", "Wohnzimmer", "Wohnzimmer", "Wohnzimmer", "Wohnzimmer", "Wohnzimmern", "Wohnzimmer"]),
     "L3330": ("en", "room", 2549975269, "Q180516", "home", "rooms", None,
               ["room", "rooms"]),
-    "L3625": ("en", "mother", 2549886139, "Q7560", "family", "kinship", None,
-              ["mother", "mothers"]),
+    "L4167": ("en", "kitchen", 2550123862, "Q43164", "home", "rooms", None,
+              ["kitchen", "kitchens"]),
     "L43711": ("en", "bathroom", 2549778759, "Q190771", "home", "rooms", None,
                ["bathroom", "bathrooms"]),
 }
