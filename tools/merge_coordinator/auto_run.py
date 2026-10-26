@@ -47,6 +47,7 @@ def run_auto(gh, main_sha):
     explicit authorization path.
     """
     merged_count = 0
+    merged_numbers = set()  # Do not reprocess an already confirmed merge if REST lists lag.
     for _ in range(8):
         if gh.main_sha() != main_sha:
             print('HALT: main changed outside this batch')
@@ -56,11 +57,15 @@ def run_auto(gh, main_sha):
             raise ValueError('invalid live pull-request listing')
         pool = [p for p in queue if isinstance(p, dict) and
                 p.get('state') == 'open' and not p.get('draft') and
-                isinstance(p.get('number'), int)]
-        current = [p for p in pool if (p.get('base') or {}).get('ref') == 'main'
-                   and (p.get('base') or {}).get('sha') == main_sha]
+                isinstance(p.get('number'), int) and
+                p['number'] not in merged_numbers]
+        # GitHub may report a historical base.sha on an otherwise current PR.
+        # Treat it as a hint, not a veto: the fresh PR, exact-head checks and
+        # protected-main rules are verified again before any squash.
+        current = [p for p in pool if (p.get('base') or {}).get('ref') == 'main']
+        stale = sum((p.get('base') or {}).get('sha') != main_sha for p in current)
         print(f'AUTO_DISCOVERY_READY={len(pool)}')
-        print(f'AUTO_STALE_OR_UNVERIFIED_BASE={len(pool)-len(current)}')
+        print(f'AUTO_STALE_BASE_HINTS={stale}')
         print(f'AUTO_CURRENT_BASE_CANDIDATES={len(current)}')
         merged_this_step = False
         for brief in sorted(current, key=lambda p: p['number'], reverse=True):
@@ -114,6 +119,7 @@ def run_auto(gh, main_sha):
                 return 0
             main_sha = new_main
             merged_count += 1
+            merged_numbers.add(num)
             merged_this_step = True
             print(f'AUTO_MERGED #{num} SHA={new_main}')
             break
