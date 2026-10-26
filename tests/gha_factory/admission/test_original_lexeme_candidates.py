@@ -68,6 +68,20 @@ class OriginalLexemeCandidatesTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "duplicate source lexeme"):
             c.build(c.ROOT, bad)
 
+    def test_source_language_qid_is_not_receipt_controlled(self):
+        # A self-consistent forged receipt/source must not relabel an English lexeme as German.
+        bad = copy.deepcopy(self.receipt)
+        bad["source_files"][0]["language_qid"] = "Q1860"
+        with self.assertRaisesRegex(ValueError, "language QID"):
+            c.build(c.ROOT, bad)
+
+    def test_license_evidence_path_is_pinned_to_scoped_notice(self):
+        # Matching arbitrary receipt-selected text is not independent license evidence.
+        bad = copy.deepcopy(self.receipt)
+        bad["license_evidence_path"] = bad["source_files"][0]["path"]
+        with self.assertRaisesRegex(ValueError, "license evidence path"):
+            c.build(c.ROOT, bad)
+
     def test_ranked_source_claims_never_infer_directed_translations(self):
         source = {"claims": {"P9970": [
             {"rank": "deprecated", "mainsnak": {"snaktype": "value",
