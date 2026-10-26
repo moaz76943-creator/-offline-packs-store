@@ -111,13 +111,27 @@ def bounded_tsv(path, columns):
 
 
 def verified_catalog(manifest, mappings):
-    data = json.loads(Path(manifest).read_text(encoding='utf-8'))
-    codes = [item['code'] for item in data['languages']]
-    if len(codes) != 100 or len(set(codes)) != 100:
+    # A damaged registry must not crash the worker or introduce an unverified
+    # language identity. Keep the 100-entry contract and fail closed.
+    try:
+        data = json.loads(Path(manifest).read_text(encoding='utf-8'))
+    except (OSError, ValueError, UnicodeError) as exc:
+        raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available') from exc
+    languages = data.get('languages') if isinstance(data, dict) else None
+    if (not isinstance(languages, list) or len(languages) != 100 or
+            any(not isinstance(item, dict) or
+                not isinstance(item.get('code'), str) or
+                not item['code'] for item in languages)):
         raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available')
+    codes = [item['code'] for item in languages]
+    if len(set(codes)) != 100:
+        raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available')
+    if not isinstance(mappings, dict):
+        raise Rejected('BLOCKED_DEPENDENCY: invalid explicit language mapping')
     result = dict(PILOT_MAP)
     for src, dst in mappings.items():
-        if not re.fullmatch(r'[a-z]{3}', src) or dst not in codes:
+        if (not isinstance(src, str) or not isinstance(dst, str) or
+                not re.fullmatch(r'[a-z]{3}', src) or dst not in codes):
             raise Rejected('BLOCKED_DEPENDENCY: invalid explicit language mapping')
         if src in result and result[src] != dst:
             raise Rejected('BLOCKED_DEPENDENCY: pilot language identity cannot be remapped')
@@ -143,22 +157,46 @@ def script_check(text, language):
 def source_approval(ledger, source_id, cc0_sha):
     """Actual Route 05 approval, never inferred from a licence name or a URL."""
     data = json.loads(Path(ledger).read_text(encoding='utf-8'))
-    if data.get('schema_version') != '1.0.0' or not isinstance(data.get('sources'), list):
+    if (data.get('schema_version') != '1.0.0'
+            or not isinstance(data.get('sources'), list)
+            or any(not isinstance(s, dict) for s in data['sources'])):
         raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
     matches = [s for s in data['sources'] if s.get('source_id') == source_id]
     if len(matches) != 1:
         return False
     src = matches[0]
-    lic = src.get('license') or {}
-    retrieval = src.get('retrieval') or {}
-    review = src.get('review') or {}
+    lic = src.get('license')
+    retrieval = src.get('retrieval')
+    review = src.get('review')
+    if any(not isinstance(section, dict) for section in (lic, retrieval, review)):
+        raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
+    for section, field in ((retrieval, 'url'), (lic, 'evidence_url'),
+                           (review, 'decision_url')):
+        if not isinstance(section.get(field), str):
+            raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
+    evidence_sha = lic.get('evidence_sha256')
     # The CC0 export (not the mixed-licence detailed corpus) must be approved.
     return (src.get('kind') == 'examples' and src.get('status') == 'APPROVED_FOR_REDISTRIBUTION'
             and lic.get('id') == 'CC0-1.0' and lic.get('id') in LICENSES
             and retrieval.get('sha256') == cc0_sha and bool(retrieval.get('identity'))
-            and bool(retrieval.get('url', '').startswith('https://'))
-            and bool(lic.get('evidence_sha256')) and bool(lic.get('evidence_url', '').startswith('https://'))
-            and bool(review.get('reviewer')) and bool(review.get('decision_url', '').startswith('https://')))
+            and retrieval['url'].startswith('https://')
+            and isinstance(evidence_sha, str) and SHA.fullmatch(evidence_sha) is not None
+            and lic['evidence_url'].startswith('https://')
+            and bool(review.get('reviewer')) and review['decision_url'].startswith('https://'))
+
+
+def _choice_key(surface, language):
+    """Canonical choice identity without conflating language-distinct letters.
+
+    Turkish/Azeri dotted and dotless I follow local casing; German ß is
+    distinct from ss. NFC keeps Arabic diacritics and source text unchanged.
+    """
+    value = unicodedata.normalize('NFC', surface)
+    if language in ('tr', 'az'):
+        return value.replace('I', 'ı').replace('İ', 'i').lower()
+    if language == 'de':
+        return value.lower()
+    return value.casefold()
 
 
 def make_cloze(sentence, annotation, senses, forms):
@@ -199,8 +237,8 @@ def make_cloze(sentence, annotation, senses, forms):
         raise Rejected('REJECTED_EXERCISE: insufficient attested distractors')
     options = [answer]
     # Distinct choices must also be distinct under canonical Unicode spelling.
-    # NFC preserves Arabic diacritics and Turkish dotted/dotless I distinctions.
-    normalized_options = {unicodedata.normalize('NFC', answer).casefold()}
+    # Locale-aware identity preserves Turkish I/ı, İ/i and German ß/ss.
+    normalized_options = {_choice_key(answer, sentence['language'])}
     for item in distractors:
         if not isinstance(item, dict) or not isinstance(item.get('surface'), str):
             raise Rejected('REJECTED_EXERCISE: bad distractor')
@@ -214,10 +252,10 @@ def make_cloze(sentence, annotation, senses, forms):
         other_key = (sentence['language'], other_sense, surface, tuple(sorted(feats.items())))
         if (not surface.strip() or other_key not in forms or not evidence or
                 evidence.get('language') != sentence['language'] or evidence.get('approved') is not True or
-                unicodedata.normalize('NFC', surface).casefold() in normalized_options):
+                _choice_key(surface, sentence['language']) in normalized_options):
             raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         options.append(surface)
-        normalized_options.add(unicodedata.normalize('NFC', surface).casefold())
+        normalized_options.add(_choice_key(surface, sentence['language']))
     return {'exercise_id': 'clz1_' + hashlib.sha256(canonical([sentence['id'], sid, start, end])).hexdigest()[:24],
             'sentence_id': sentence['id'], 'language': sentence['language'],
             'sense_id': sid, 'cloze': text[:start] + '____' + text[end:],

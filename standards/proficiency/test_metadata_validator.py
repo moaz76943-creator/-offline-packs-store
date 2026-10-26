@@ -8,6 +8,14 @@ class TestProficiencyValidator(unittest.TestCase):
             approved_assignments={
                 "TEST_SOURCE_01": {"language":"en", "target_id":"lex.demo", "classification_target":"entry",
                                    "source_version":"1.0", "cefr_level":"B2", "review_status":"approved"},
+                                "TEST_SOURCE_A1": {"language":"en", "target_id":"lex.demo", "classification_target":"entry",
+                                   "source_version":"1.0", "cefr_level":"A1", "review_status":"approved"},
+                "TEST_SOURCE_A2": {"language":"en", "target_id":"lex.demo", "classification_target":"entry",
+                                   "source_version":"1.0", "cefr_level":"A2", "review_status":"approved"},
+                "TEST_SOURCE_B1": {"language":"en", "target_id":"lex.demo", "classification_target":"entry",
+                                   "source_version":"1.0", "cefr_level":"B1", "review_status":"approved"},
+                "TEST_SOURCE_C1": {"language":"en", "target_id":"lex.demo", "classification_target":"entry",
+                                   "source_version":"1.0", "cefr_level":"C1", "review_status":"approved"},
                 "TEST_SOURCE_03": {"language":"en", "target_id":"lex.demo", "classification_target":"entry",
                                    "source_version":"1.0", "cefr_level":"C2", "review_status":"approved"}
             })
@@ -128,6 +136,108 @@ class TestProficiencyValidator(unittest.TestCase):
         with self.assertRaises(ProficiencyValidationError) as ctx:
             self.validator.validate(metadata)
         self.assertIn("Unverified status must have cefr_level as 'unknown'", str(ctx.exception))
+
+    def test_a1_level(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo",
+            "label_status": "verified",
+            "cefr_level": "A1",
+            "coarse_difficulty": {
+                "beginner": True,
+                "intermediate": False,
+                "advanced": False
+            },
+            "evaluation_method": "published_content_assignment",
+            "source_evidence": {
+                "source_id": "TEST_SOURCE_A1",
+                "source_version": "1.0"
+            }
+        }
+        self.validator.validate(metadata)
+
+    def test_a2_level(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo",
+            "label_status": "verified",
+            "cefr_level": "A2",
+            "coarse_difficulty": {
+                "beginner": True,
+                "intermediate": False,
+                "advanced": False
+            },
+            "evaluation_method": "published_content_assignment",
+            "source_evidence": {
+                "source_id": "TEST_SOURCE_A2",
+                "source_version": "1.0"
+            }
+        }
+        self.validator.validate(metadata)
+
+    def test_b1_level(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo",
+            "label_status": "verified",
+            "cefr_level": "B1",
+            "coarse_difficulty": {
+                "beginner": False,
+                "intermediate": True,
+                "advanced": False
+            },
+            "evaluation_method": "published_content_assignment",
+            "source_evidence": {
+                "source_id": "TEST_SOURCE_B1",
+                "source_version": "1.0"
+            }
+        }
+        self.validator.validate(metadata)
+
+    def test_c1_level(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo",
+            "label_status": "verified",
+            "cefr_level": "C1",
+            "coarse_difficulty": {
+                "beginner": False,
+                "intermediate": False,
+                "advanced": True
+            },
+            "evaluation_method": "published_content_assignment",
+            "source_evidence": {
+                "source_id": "TEST_SOURCE_C1",
+                "source_version": "1.0"
+            }
+        }
+        self.validator.validate(metadata)
+
+    def test_unknown_difficulty(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo",
+            "label_status": "unverified",
+            "cefr_level": "unknown",
+            "coarse_difficulty": {
+                "beginner": True,
+                "intermediate": False,
+                "advanced": False
+            }
+        }
+        with self.assertRaises(ProficiencyValidationError) as ctx:
+            self.validator.validate(metadata)
+        self.assertIn("CEFR level and coarse difficulty disagree", str(ctx.exception))
 
     def test_wrong_language_metadata(self):
         metadata = {
