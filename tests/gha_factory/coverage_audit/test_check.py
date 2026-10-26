@@ -627,6 +627,46 @@ class CoverageAuditTests(unittest.TestCase):
         ])
 
 
+    def test_published_cefr_level_requires_attested_sense_evidence(self):
+        # Synthetic SQLite fixture: a valid directed translation must not
+        # mask a forged A1 level, an unsupported C3 level, or a missing
+        # evidence field. NULL remains the unknown-level fallback.
+        for level, evidence, valid in (
+            ('A1', None, False),
+            ('C3', 'source-attested', False),
+            ('A1', 'source-attested', True),
+            (None, None, True),
+        ):
+            with self.subTest(level=level, evidence=evidence), tempfile.TemporaryDirectory() as temp:
+                database = Path(temp) / 'level.sqlite'
+                sense = {'sense_id': 's1', 'lexeme_id': 'l1',
+                         'levels': ([{'framework_id': 'cefr', 'level_id': level,
+                                     'evidence': evidence}] if level is not None else [])}
+                with closing(sqlite3.connect(database)) as db:
+                    db.executescript("""
+                        CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT,
+                                             cefr_level TEXT);
+                        CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT,
+                                            payload_json TEXT);
+                        CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT,
+                                                  language_code TEXT);
+                    """)
+                    db.execute("INSERT INTO lexicon VALUES('l1','aa',?)", (level,))
+                    db.execute("INSERT INTO lexicon VALUES('l2','ab',NULL)")
+                    db.execute("INSERT INTO senses VALUES('s1','l1',?)",
+                               (json.dumps(sense),))
+                    db.execute("INSERT INTO senses VALUES('s2','l2','{}')")
+                    db.execute("INSERT INTO translations VALUES('s1','s2','ab')")
+                    db.commit()
+                if valid:
+                    self.assertEqual(checker._directed_pairs(database.read_bytes(), {'aa', 'ab'}),
+                                     [{'source_language': 'aa', 'target_language': 'ab',
+                                       'verified_count': 1}])
+                else:
+                    with self.assertRaisesRegex(checker.AuditError, 'CEFR'):
+                        checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
+
+
     def test_unbacked_pack_verified_flag_is_rejected(self):
         # Synthetic manifest claims a verified v2 pack but publishes no pack
         # entry. The audit must not silently report REGISTERED and PASS.
