@@ -35,8 +35,9 @@ SUITES = {
     "factory_dispatcher": ("tests/gha_factory/dispatcher", "test_*.py"),
     "factory_orchestration": ("tests/gha_factory/orchestration", "test_*.py"),
     "factory_queue_autoseed": ("tests/gha_factory/queue_autoseed", "test_*.py"),
+    "svg_optimizer": ("tools/svg_optimizer", "test_optimizer.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "licensing", "ledger", "utils", "registry_unit", "inventory", "factory_dispatcher", "factory_orchestration", "factory_queue_autoseed")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "licensing", "ledger", "utils", "registry_unit", "inventory", "factory_dispatcher", "factory_orchestration", "factory_queue_autoseed", "svg_optimizer")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -161,6 +162,8 @@ def select_suites(changed_paths):
             selected.add("factory_orchestration")
         if path.startswith(("tools/gha_factory/queue_autoseed/", "tests/gha_factory/queue_autoseed/")) or path == FACTORY_QUEUE_WORKFLOW:
             selected.add("factory_queue_autoseed")
+        if path.startswith("tools/svg_optimizer/"):
+            selected.add("svg_optimizer")
         if path.startswith("tools/media_optimizer/"):
             selected.add("media")
         if path.startswith("tools/pronunciation_metadata/"):
@@ -205,7 +208,7 @@ def select_suites(changed_paths):
             # Factory infrastructure is not a consumer of the legal ledger.
             selected.update(name for name in ORDER if name not in (
                 "utils", "inventory", "licensing", "factory_dispatcher",
-                "factory_orchestration", "factory_queue_autoseed"))
+                "factory_orchestration", "factory_queue_autoseed", "svg_optimizer"))
         if path.startswith("tools/contribution_gate/"):
             selected.update(("pronunciation", "audio"))
     return tuple(name for name in ORDER if name in selected)
