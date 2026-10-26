@@ -201,6 +201,22 @@ class AttributionTests(unittest.TestCase):
         finally:
             os.chmod(locked, 0o755)
 
+
+    def test_co_offered_licenses_and_public_domain(self):
+        self.source["license"]["co_offered_licenses"] = ["GFDL-1.3-only", "CC-BY-SA-4.0"]
+        self.source["license"]["public_domain_proof"] = {
+            "jurisdiction": "US", "legal_basis": "Expired", "work_date": "1920"
+        }
+        self.run_gate()
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertIn("Co-offered licenses: GFDL-1.3-only, CC-BY-SA-4.0", notice)
+        self.assertIn('Public-domain basis: {"jurisdiction": "US", "legal_basis": "Expired", "work_date": "1920"}', notice)
+
+    def test_no_public_domain_null(self):
+        self.run_gate()
+        notice = (self.out / "case-source_notice.txt").read_text()
+        self.assertNotIn("Public-domain basis: null", notice)
+
     def test_invalid_notice_format_rejected(self):
         # Test case: we want to verify invalid notices. The generation itself enforces format,
         # but let's test a case where attribution generation fails because of missing metadata
