@@ -35,6 +35,27 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(select_suites(["tools/merge_accelerator/inventory.py"]), ("inventory",))
         self.assertEqual(select_suites(["tests/merge_accelerator/test_inventory.py"]), ("inventory",))
 
+    def test_directed_pair_contract_is_not_silently_unchecked(self):
+        # Regression: PR #188 passed the public gate with
+        # SCOPED_TEST_SELECTION=none despite changing executable validators.
+        for path in ("standards/directed_pairs/validate.py",
+                     "standards/directed_pairs/sqlite_v2.py",
+                     "standards/directed_pairs/test_directed_pair.py",
+                     "standards/directed_pairs/directed_pair.schema.json"):
+            with self.subTest(path=path):
+                self.assertEqual(select_suites([path]), ("directed_pairs",))
+                self.assertEqual(select_baseline_checks([path]), ())
+        mixed = ["standards/directed_pairs/validate.py",
+                 "tools/ci_policy/run_scoped_pr_tests.py"]
+        self.assertIn("directed_pairs", select_suites(mixed))
+        self.assertIn("policy", select_baseline_checks(mixed))
+        from pathlib import Path
+        workflow = (Path(__file__).resolve().parents[2] /
+                    ".github/workflows/public_pr_merge_gate.yml").read_text(
+                        encoding="utf-8")
+        self.assertIn('"directed_pairs" in selected', workflow)
+        self.assertIn("jsonschema==4.26.0", workflow)
+
     def test_svg_optimizer_source_and_tests_are_mandatory_in_required_gate(self):
         for source in ("tools/svg_optimizer/optimizer.py",
                        "tools/svg_optimizer/test_optimizer.py"):
