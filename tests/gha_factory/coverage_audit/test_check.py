@@ -872,5 +872,22 @@ class CoverageAuditTests(unittest.TestCase):
                 lang[flag] = False
 
 
+    def test_publication_flags_reject_truthy_nonbooleans_globally(self):
+        # Synthetic metadata only. Strings and integer 1 must never be
+        # treated as verified publication evidence, including in another shard.
+        language = self.values['manifest.json']['languages'][0]
+        for field in ('registered', 'is_active', 'content_available',
+                      'pack_verified', 'production_ready'):
+            for invalid in ('true', 1):
+                with self.subTest(field=field, invalid=invalid):
+                    language[field] = invalid
+                    self.write_all()
+                    with self.assertRaisesRegex(checker.AuditError,
+                                                'invalid publication flag'):
+                        checker.audit(self.root, shard=1, shards=100)
+                    language[field] = (field == 'registered')
+
+
+
 if __name__ == '__main__':
     unittest.main()
