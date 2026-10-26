@@ -6,7 +6,7 @@ import json
 import unicodedata
 
 import regex  # Full Unicode extended grapheme clusters (UAX #29, pinned in QA workflow).
-from tools.gha_factory.examples.factory import MAX_TEXT, Rejected, make_cloze
+from tools.gha_factory.examples.factory import MAX_TEXT, Rejected, make_cloze, _choice_key
 
 
 class ExerciseError(ValueError):
@@ -38,7 +38,8 @@ def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
     """
     if not isinstance(exercise, dict) or not isinstance(sentence, dict) or not isinstance(annotation, dict):
         raise ExerciseError('INVALID_EVIDENCE_ENVELOPE')
-    if not isinstance(languages, set) or sentence.get('language') not in languages:
+    language = sentence.get('language')
+    if not isinstance(languages, set) or not isinstance(language, str) or language not in languages:
         raise ExerciseError('UNREGISTERED_LANGUAGE')
     if sentence.get('admitted') is not True:
         raise ExerciseError('UNADMITTED_SENTENCE')
@@ -48,6 +49,10 @@ def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
         raise ExerciseError('INVALID_ORIGINAL_TEXT')
     if len(sentence['text']) > MAX_TEXT:
         raise ExerciseError('OVERSIZED_SENTENCE')
+    try:
+        sentence['text'].encode('utf-8', 'strict')
+    except UnicodeEncodeError as exc:
+        raise ExerciseError('INVALID_ORIGINAL_TEXT') from exc
     if sentence.get('source_sha256') is None or not isinstance(sentence['source_sha256'], str) or len(sentence['source_sha256']) != 64 or not all(c in '0123456789abcdef' for c in sentence['source_sha256']):
         raise ExerciseError('MISSING_SOURCE_SNAPSHOT_SHA')
     if not isinstance(sentence.get('attribution'), str) or not sentence['attribution'].startswith('https://'):
@@ -66,7 +71,7 @@ def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
         raise ExerciseError('CANDIDATE_TAMPERED_OR_STALE')
     if exercise.get('status') != 'VERIFIED_CANDIDATE_NOT_PUBLISHED':
         raise ExerciseError('INVALID_CANDIDATE_STATUS')
-    if len(exercise['options']) != len(set(_nfc(x).casefold() for x in exercise['options'])):
+    if len(exercise['options']) != len(set(_choice_key(x, language) for x in exercise['options'])):
         raise ExerciseError('DUPLICATE_CHOICES')
     return {'exercise_id': rebuilt['exercise_id'], 'language': sentence['language'],
             'source_sha256': sentence['source_sha256'],
