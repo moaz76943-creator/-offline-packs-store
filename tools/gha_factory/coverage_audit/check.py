@@ -273,6 +273,48 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
                 """).fetchone()
                 if invalid_example:
                     raise AuditError('example language/sense/lexeme mismatch or orphan')
+            # SQLite integrity and FK checks cannot prove a CEFR claim.
+            # In canonical v2, lexicon.cefr_level is derived from sense
+            # levels; accept only A1-C2 backed by explicit sense evidence.
+            # Legacy directed-edge fixtures without this optional column
+            # remain auditable, and NULL means UNKNOWN rather than a guess.
+            lexicon_columns = {
+                row[1] for row in db.execute('PRAGMA table_info(lexicon)')
+            }
+            if 'cefr_level' in lexicon_columns:
+                sense_columns = {
+                    row[1] for row in db.execute('PRAGMA table_info(senses)')
+                }
+                for lexeme_id, level in db.execute(
+                        'SELECT id, cefr_level FROM lexicon WHERE cefr_level IS NOT NULL'):
+                    if level not in ('A1', 'A2', 'B1', 'B2', 'C1', 'C2'):
+                        raise AuditError('unsupported SQLite CEFR level')
+                    if 'payload_json' not in sense_columns:
+                        raise AuditError('SQLite CEFR level lacks sense evidence')
+                    attested = set()
+                    for (raw,) in db.execute(
+                            'SELECT payload_json FROM senses WHERE lexeme_id = ?',
+                            (lexeme_id,)):
+                        if not isinstance(raw, (str, bytes)):
+                            raise AuditError('invalid SQLite CEFR sense evidence')
+                        payload = _parse_strict_json(raw, 'SQLite sense CEFR evidence')
+                        levels = payload.get('levels', [])
+                        if not isinstance(levels, list):
+                            raise AuditError('invalid SQLite CEFR levels')
+                        for item in levels:
+                            if not isinstance(item, dict):
+                                raise AuditError('invalid SQLite CEFR level record')
+                            if item.get('framework_id') == 'cefr':
+                                value = item.get('level_id')
+                                evidence = item.get('evidence')
+                                if (not isinstance(value, str)
+                                        or value not in ('A1', 'A2', 'B1', 'B2', 'C1', 'C2')
+                                        or not isinstance(evidence, str)
+                                        or not evidence.strip()):
+                                    raise AuditError('unattested SQLite CEFR level')
+                                attested.add(value)
+                    if attested != {level}:
+                        raise AuditError('SQLite CEFR level/sense evidence mismatch')
             # A valid directed edge does not validate unrelated lexicon rows.
             # Fail closed on missing/unknown language identities throughout the
             # SQLite payload, including words with no sense or translation.
