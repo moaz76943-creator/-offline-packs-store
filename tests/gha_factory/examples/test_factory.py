@@ -132,8 +132,81 @@ class FactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(Rejected,'remapped'):
             verified_catalog(self.catalog, {'deu':'ar'})
 
+    def test_catalog_rejects_malformed_language_manifest(self):
+        # Synthetic catalog corruption must fail closed, not crash or accept
+        # non-string language identities as canonical production IDs.
+        original = self.catalog.read_text(encoding='utf-8')
+        baseline = json.loads(original)['languages']
+        invalid = [
+            None,
+            {'code': 'de'},
+            [None] + baseline[1:],
+            [{'code': ['de']}] + baseline[1:],
+            [{'code': None}] + baseline[1:],
+        ]
+        try:
+            for languages in invalid:
+                with self.subTest(languages=repr(languages)[:80]):
+                    self.catalog.write_text(json.dumps({'languages': languages}),
+                                            encoding='utf-8')
+                    with self.assertRaisesRegex(Rejected, 'canonical 100-language manifest'):
+                        verified_catalog(self.catalog, {})
+        finally:
+            self.catalog.write_text(original, encoding='utf-8')
+
+    def test_catalog_rejects_malformed_explicit_language_mappings(self):
+        for mappings in [None, [], {'zzz': ['zz005']},
+                         {7: 'zz005'}, {'zzz': None}]:
+            with self.subTest(mappings=mappings):
+                with self.assertRaisesRegex(Rejected, 'invalid explicit language mapping'):
+                    verified_catalog(self.catalog, mappings)
+
     def test_empty_route05_ledger_blocks_approval(self):
         self.assertFalse(source_approval(self.ledger,'tatoeba',self.snapshots['cc0']['sha256']))
+
+    def test_route05_approval_requires_well_formed_evidence_and_rows(self):
+        approved = {
+            'source_id': 'tatoeba', 'kind': 'examples',
+            'status': 'APPROVED_FOR_REDISTRIBUTION',
+            'license': {'id': 'CC0-1.0', 'evidence_sha256': 'b' * 64,
+                        'evidence_url': 'https://example.org/license'},
+            'retrieval': {'sha256': self.snapshots['cc0']['sha256'],
+                          'identity': 'pinned-cc0-export',
+                          'url': 'https://example.org/export'},
+            'review': {'reviewer': 'test-reviewer',
+                       'decision_url': 'https://example.org/review'},
+        }
+
+        def write_sources(rows):
+            self.ledger.write_text(json.dumps(
+                {'schema_version': '1.0.0', 'sources': rows}), encoding='utf-8')
+
+        write_sources([approved])
+        self.assertTrue(source_approval(
+            self.ledger, 'tatoeba', self.snapshots['cc0']['sha256']))
+
+        # An arbitrary nonempty string is not an evidence SHA-256.
+        bad_digest = dict(approved, license=dict(approved['license'], evidence_sha256='bogus'))
+        write_sources([bad_digest])
+        self.assertFalse(source_approval(
+            self.ledger, 'tatoeba', self.snapshots['cc0']['sha256']))
+
+        # Malformed ledger records and nested evidence must fail closed with
+        # a classified error, never an uncaught AttributeError/TypeError.
+        malformed = [
+            [None],
+            [dict(approved, license=['CC0-1.0'])],
+            [dict(approved, retrieval=dict(approved['retrieval'],
+                                            url=['https://example.org/export']))],
+            [dict(approved, review=dict(approved['review'],
+                                         decision_url=['https://example.org/review']))],
+        ]
+        for rows in malformed:
+            with self.subTest(rows=rows):
+                write_sources(rows)
+                with self.assertRaisesRegex(Rejected, 'malformed Route 05 ledger'):
+                    source_approval(self.ledger, 'tatoeba',
+                                    self.snapshots['cc0']['sha256'])
 
     def test_malformed_and_oversized_tsv_lines(self):
         p = self.source/'malformed.tsv'
@@ -243,6 +316,38 @@ class FactoryTests(unittest.TestCase):
         self.assertEqual(before,after)
         self.assertEqual(a['checkpoint'],b['checkpoint'])
 
+    def test_locale_specific_choice_equivalence(self):
+        # Synthetic-only attestation: default casefold conflates Turkish I/i
+        # and German ß/ss, while missing Turkish I/ı and İ/i duplicates.
+        for language, answer, other in (('tr', 'I', 'i'),
+                                         ('de', 'Maße', 'Masse'),
+                                         ('tr', 'I', 'ı'),
+                                         ('tr', 'İ', 'i')):
+            text = answer + ' fixture.'
+            sentence = {'id': 'fixture', 'language': language, 'text': text,
+                        'admitted': True}
+            annotation = {
+                'sentence_id': 'fixture', 'language': language,
+                'sentence_sha256': sha(text), 'editorial_unambiguous': True,
+                'editor_review_url': 'https://example.org/review',
+                'start': 0, 'end': len(answer), 'sense_id': 's1',
+                'lexeme_id': 'l1', 'features': {'number': 'singular'},
+                'distractors': [{'surface': other, 'sense_id': 's2'},
+                                {'surface': 'fixtureword', 'sense_id': 's3'}]}
+            senses = {sid: {'language': language, 'lexeme_id': 'l' + sid[1:],
+                            'approved': True} for sid in ('s1', 's2', 's3')}
+            tags = (('number', 'singular'),)
+            forms = {(language, sid, surface, tags)
+                     for sid, surface in (('s1', answer), ('s2', other),
+                                          ('s3', 'fixtureword'))}
+            with self.subTest(language=language, answer=answer, other=other):
+                if (answer, other) in (('I', 'ı'), ('İ', 'i')):
+                    with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+                        make_cloze(sentence, annotation, senses, forms)
+                else:
+                    result = make_cloze(sentence, annotation, senses, forms)
+                    self.assertEqual([answer, other, 'fixtureword'], result['options'])
+
     def test_cloze_requires_attested_morphology_and_editorial_review(self):
         text = 'I read books.'
         row = {'id':'42','language':'en','text':text,'admitted':True,'attribution':'fixture only'}
@@ -275,6 +380,173 @@ class FactoryTests(unittest.TestCase):
         ann['sentence_sha256']=sha('go!')
         with self.assertRaisesRegex(Rejected,'unapproved lexical sense'):
             make_cloze(sentence,ann,{},set())
+
+
+    def test_cloze_rejects_attested_alternative_of_the_answer_sense(self):
+        text = 'I read books.'
+        sentence = {'id': '42', 'language': 'en', 'text': text, 'admitted': True}
+        ann = {'sentence_id': '42', 'language': 'en', 'sentence_sha256': sha(text),
+               'editorial_unambiguous': True, 'editor_review_url': 'https://example.org/review',
+               'start': 2, 'end': 6, 'sense_id': 's.read', 'lexeme_id': 'l.read',
+               'features': {'tense': 'present'},
+               'distractors': [{'surface': 'reading', 'sense_id': 's.read'},
+                               {'surface': 'write', 'sense_id': 's.write'}]}
+        senses = {'s.read': {'language': 'en', 'lexeme_id': 'l.read', 'approved': True},
+                  's.write': {'language': 'en', 'lexeme_id': 'l.write', 'approved': True}}
+        forms = {('en', sid, surface, (('tense', 'present'),))
+                 for sid, surface in [('s.read', 'read'), ('s.read', 'reading'),
+                                      ('s.write', 'write')]}
+        # Before the fix, 'reading' was accepted as a distractor even though
+        # it is attested as the answer's own sense.
+        with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+            make_cloze(sentence, ann, senses, forms)
+
+    def test_cloze_rejects_nfc_equivalent_distractor_from_other_sense(self):
+        text = 'café is open.'
+        sentence = {'id': '43', 'language': 'en', 'text': text, 'admitted': True}
+        ann = {'sentence_id': '43', 'language': 'en', 'sentence_sha256': sha(text),
+               'editorial_unambiguous': True, 'editor_review_url': 'https://example.org/review',
+               'start': 0, 'end': 4, 'sense_id': 's.cafe', 'lexeme_id': 'l.cafe',
+               'features': {'number': 'singular'},
+               'distractors': [{'surface': 'cafe\u0301', 'sense_id': 's.other'},
+                               {'surface': 'write', 'sense_id': 's.write'}]}
+        senses = {'s.cafe': {'language': 'en', 'lexeme_id': 'l.cafe', 'approved': True},
+                  's.other': {'language': 'en', 'lexeme_id': 'l.other', 'approved': True},
+                  's.write': {'language': 'en', 'lexeme_id': 'l.write', 'approved': True}}
+        forms = {('en', sid, surface, (('number', 'singular'),))
+                 for sid, surface in [('s.cafe', 'café'), ('s.other', 'cafe\u0301'),
+                                      ('s.write', 'write')]}
+        # NFC-equivalent strings are one visible answer even across distinct IDs.
+        with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+            make_cloze(sentence, ann, senses, forms)
+
+    def test_cloze_rejects_unhashable_distractor_sense_id(self):
+        text = 'I read books.'
+        sentence = {'id': '44', 'language': 'en', 'text': text, 'admitted': True}
+        ann = {'sentence_id': '44', 'language': 'en', 'sentence_sha256': sha(text),
+               'editorial_unambiguous': True, 'editor_review_url': 'https://example.org/review',
+               'start': 2, 'end': 6, 'sense_id': 's.read', 'lexeme_id': 'l.read',
+               'features': {'tense': 'present'},
+               'distractors': [{'surface': 'write', 'sense_id': ['s.write']},
+                               {'surface': 'paint', 'sense_id': 's.paint'}]}
+        senses = {'s.read': {'language': 'en', 'lexeme_id': 'l.read', 'approved': True}}
+        forms = {('en', 's.read', 'read', (('tense', 'present'),))}
+        with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+            make_cloze(sentence, ann, senses, forms)
+
+    def test_cloze_rejects_canonically_equivalent_distractor(self):
+        # Synthetic exact-form evidence: NFC-equivalent alternatives are not
+        # distinct answer choices, even if separately attested.
+        for answer, alternate, language in [
+            ('Äpfel', 'A\u0308pfel', 'de'),
+            ('Café', 'Cafe\u0301', 'fr'),
+        ]:
+            with self.subTest(language=language):
+                text = answer + '!'
+                features = {'number': 'singular'}
+                ann = {
+                    'sentence_id': '41', 'language': language,
+                    'sentence_sha256': sha(text), 'editorial_unambiguous': True,
+                    'editor_review_url': 'https://example.org/review',
+                    'start': 0, 'end': len(answer),
+                    'sense_id': 'sense.answer', 'lexeme_id': 'lex.answer',
+                    'features': features,
+                    'distractors': [
+                        {'surface': alternate, 'sense_id': 'sense.alternate'},
+                        {'surface': 'other', 'sense_id': 'sense.other'},
+                    ],
+                }
+                senses = {
+                    'sense.answer': {'language': language, 'lexeme_id': 'lex.answer', 'approved': True},
+                    'sense.alternate': {'language': language, 'lexeme_id': 'lex.alternate', 'approved': True},
+                    'sense.other': {'language': language, 'lexeme_id': 'lex.other', 'approved': True},
+                }
+                tags = tuple(sorted(features.items()))
+                forms = {
+                    (language, 'sense.answer', answer, tags),
+                    (language, 'sense.alternate', alternate, tags),
+                    (language, 'sense.other', 'other', tags),
+                }
+                sentence = {'id': '41', 'language': language, 'text': text,
+                            'admitted': True}
+                with self.assertRaisesRegex(Rejected, 'unsupported or ambiguous distractor'):
+                    make_cloze(sentence, ann, senses, forms)
+
+    def test_cloze_rejects_canonically_equivalent_second_span(self):
+        # A second visual occurrence can be canonically equivalent even when
+        # str.count(answer) sees only one byte-distinct spelling.
+        for answer, alternate, language in [
+            ('café', 'cafe\u0301', 'fr'),
+            ('Äpfel', 'A\u0308pfel', 'de'),
+            ('أ', 'ا\u0654', 'ar'),
+        ]:
+            with self.subTest(language=language):
+                text = answer + ' ' + alternate
+                tags = (('number', 'singular'),)
+                sentence = {'id': 'nfc-span', 'language': language,
+                            'text': text, 'admitted': True}
+                annotation = {
+                    'sentence_id': 'nfc-span', 'language': language,
+                    'sentence_sha256': sha(text),
+                    'editorial_unambiguous': True,
+                    'editor_review_url': 'https://example.org/review',
+                    'start': 0, 'end': len(answer),
+                    'sense_id': 's.answer', 'lexeme_id': 'l.answer',
+                    'features': dict(tags),
+                    'distractors': [
+                        {'surface': 'other1', 'sense_id': 's.other1'},
+                        {'surface': 'other2', 'sense_id': 's.other2'},
+                    ],
+                }
+                senses = {
+                    's.answer': {'language': language, 'lexeme_id': 'l.answer', 'approved': True},
+                    's.other1': {'language': language, 'lexeme_id': 'l.other1', 'approved': True},
+                    's.other2': {'language': language, 'lexeme_id': 'l.other2', 'approved': True},
+                }
+                forms = {(language, sid, surface, tags)
+                         for sid, surface in [
+                             ('s.answer', answer), ('s.other1', 'other1'),
+                             ('s.other2', 'other2')]}
+                with self.assertRaisesRegex(Rejected, 'ambiguous answer span'):
+                    make_cloze(sentence, annotation, senses, forms)
+
+    def test_cc0_import_enforces_record_budget_before_detailed_rows(self):
+        # Synthetic oversized CC0 fixture: must fail in the CC0 phase, not
+        # continue indexing until the unrelated detailed-file budget fires.
+        self.write_snapshot('cc0', '1\tdeu\tHallo\t2026\n'
+                            '2\tara\tمرحبا\t2026\n'
+                            '3\teng\tHello\t2026\n')
+        self.job['snapshots'] = self.snapshots
+        self.save_config()
+        with patch.object(example_factory, 'MAX_RECORDS', 2):
+            with self.assertRaisesRegex(Rejected, 'CC0 worker budget exhausted'):
+                self.process()
+        self.assertFalse(self.out.exists())
+
+    def test_pair_serialization_obeys_deadline_and_keeps_prior_output(self):
+        # Time expires immediately after the first reciprocal pair is written.
+        # A successful prior generation must survive the aborted retry.
+        self.process()
+        before = {p.relative_to(self.out).as_posix(): digest(p)
+                  for p in self.out.rglob('*') if p.is_file()}
+        expired = [False]
+        original = example_factory.canonical
+
+        def expire_after_first_pair(obj):
+            if isinstance(obj, dict) and obj.get('link_proof') == 'tatoeba_explicit_reciprocal':
+                expired[0] = True
+            return original(obj)
+
+        def clock():
+            return 20 if expired[0] else 0
+
+        with patch.object(example_factory, 'canonical', side_effect=expire_after_first_pair), \
+             patch.object(example_factory.time, 'monotonic', side_effect=clock):
+            with self.assertRaisesRegex(Rejected, 'pair worker budget exhausted'):
+                self.process()
+        after = {p.relative_to(self.out).as_posix(): digest(p)
+                 for p in self.out.rglob('*') if p.is_file()}
+        self.assertEqual(before, after)
 
 
 if __name__=='__main__':

@@ -24,11 +24,32 @@ def main(argv=None):
     gh=api.GitHub();now=queue.utc_now()
     if args.command=='controller':
         ctx,sha=legacy.context();seeded=engine.seed(gh,ctx,sha,legacy.ROOT)
-        jobs=engine.control(gh,run_id,attempt,now,legacy.ROOT,ctx,sha)
+        telemetry={}
+        jobs=engine.control(gh,run_id,attempt,now,legacy.ROOT,ctx,sha,telemetry=telemetry)
         with open(os.environ['GITHUB_OUTPUT'],'a') as out:
             out.write('jobs='+json.dumps({'include':jobs},separators=(',',':'))+'\n')
             out.write('has_work='+str(bool(jobs)).lower()+'\n')
-        print(json.dumps({'run_id':run_id,'run_attempt':attempt,'seeded':seeded,'claimed':len(jobs),'production_publication':False}))
+        source_admission=('BLOCKED_BY_SOURCE_ADMISSION' if not ctx['sources']
+                          else 'ADMISSION_CHECK_REQUIRED')
+        states=telemetry.get('task_states',{})
+        if jobs:
+            queue_status='CLAIMED'
+            work_status='WORK_CLAIMED'
+        else:
+            queue_status=('BROKEN_QUEUE' if telemetry.get('malformed_queue_issues',0)>0
+                          else 'EMPTY_QUEUE' if telemetry.get('queue_total',0)==0
+                          else 'ACTIVE_WORK_ONLY' if any(states.get(s,0) for s in ('CLAIMED','RUNNING'))
+                          else 'NO_ELIGIBLE_TASKS')
+            work_status=('BROKEN_QUEUE' if queue_status=='BROKEN_QUEUE'
+                         else source_admission if source_admission=='BLOCKED_BY_SOURCE_ADMISSION'
+                         else 'SUCCESS_NO_WORK')
+        print(json.dumps({'run_id':run_id,'run_attempt':attempt,'seeded':seeded,
+                          'stage':'controller','claimed':len(jobs),
+                          'queue_status':queue_status,'task_states':states,
+                          'malformed_queue_issues':telemetry.get('malformed_queue_issues',0),
+                          'source_admission':source_admission,
+                          'work_status':work_status,
+                          'production_publication':False}))
     elif args.command=='worker':
         result=engine.execute(gh,args.issue,args.task_id,run_id,attempt,args.out,legacy.ROOT,now)
         print(json.dumps(result));return int(result['status']=='FAILED')

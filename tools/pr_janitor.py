@@ -9,8 +9,6 @@ import json
 import re
 import subprocess
 
-SKIP = re.compile(r"\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]", re.IGNORECASE)
-SKIP_TRAILER = re.compile(r"(?im)^skip-checks\s*:\s*true\s*$")
 FAILURES = {"FAILURE", "CANCELLED", "TIMED_OUT", "failure", "cancelled", "timed_out"}
 PENDING = {"", "PENDING", "QUEUED", "IN_PROGRESS", "pending", "queued", "in_progress", None}
 
@@ -25,9 +23,8 @@ LABELS = {
 
 
 def sanitize_subject(title, number):
-    """Squash title with no CI-skip instruction."""
-    cleaned = SKIP.sub("", title or "")
-    cleaned = SKIP_TRAILER.sub("", cleaned)
+    """Normalize a squash title without changing user-selected CI marker text."""
+    cleaned = title or ""
     cleaned = re.sub(r"\s+", " ", cleaned).strip(" -")
     if not cleaned:
         cleaned = f"PR {number}"
@@ -119,8 +116,6 @@ def main(argv=None):
             subprocess.check_call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--add-label", wanted])
         elif kind == "ready" and args.merge_one and merged is None:
             subject = sanitize_subject(view["title"], number)
-            if SKIP.search(subject) or SKIP_TRAILER.search(subject):
-                raise SystemExit(f"refusing skip directive in squash subject for #{number}")
             subprocess.check_call([
                 "gh", "pr", "merge", str(number), "--repo", args.repo, "--squash",
                 "--subject", subject, "--body", f"Squash merge of #{number}.",

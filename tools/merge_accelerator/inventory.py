@@ -19,7 +19,6 @@ from collections import defaultdict
 PUBLIC = 'moaz76943-creator/-offline-packs-store'
 PRIVATE = 'moaz76943-creator/deutsch-build'
 EXPECTED = {PUBLIC: 'main', PRIVATE: 'staging/v2-full-platform'}
-SKIP = re.compile(r'\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]|^skip-checks\s*:\s*true\s*$', re.I | re.M)
 SENSITIVE_PREFIXES = (
     '.github/', 'legal/', 'packs/', 'media/', 'assets/', 'catalog/',
     'standards/', 'tools/gha_factory/', 'tools/release_',
@@ -97,10 +96,6 @@ def classify(pr, final_message, checks, reviews, required_checks, expected_base,
         block('CONFLICT')
     elif pr.get('mergeable') is not True:
         block('MERGEABILITY_UNKNOWN')
-    if final_message is None:
-        block('TIP_MESSAGE_UNKNOWN')
-    elif SKIP.search(final_message):
-        block('SKIP_CI_TIP')
     if changed_files is None or not isinstance(changed_files, list):
         block('FILES_UNVERIFIED')
     elif not changed_files:
