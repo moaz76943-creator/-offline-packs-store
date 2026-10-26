@@ -250,6 +250,29 @@ def _directed_pairs(sqlite_bytes, canonical_ids):
             """).fetchone()
             if dangling_sense:
                 raise AuditError('orphan sense/lexeme reference')
+            # Example records may have valid individual foreign keys but bind
+            # a sentence to the wrong sense lexeme or a different language.
+            # Legacy databases can omit FK declarations entirely. Validate
+            # every example, not only examples attached to translated senses.
+            # Minimal legacy directed-edge fixtures omit this table; canonical
+            # v2 envelopes require it via the independent pack verifier.
+            has_examples = db.execute(
+                "SELECT 1 FROM sqlite_master WHERE type='table' AND name='examples'"
+            ).fetchone()
+            if has_examples:
+                invalid_example = db.execute("""
+                    SELECT 1 FROM examples AS example
+                    LEFT JOIN senses AS sense ON sense.sense_id = example.sense_id
+                    LEFT JOIN lexicon AS lexeme ON lexeme.id = example.lexeme_id
+                    WHERE sense.sense_id IS NULL OR lexeme.id IS NULL
+                       OR example.lexeme_id IS NULL
+                       OR example.lexeme_id <> sense.lexeme_id
+                       OR example.language_code IS NULL
+                       OR example.language_code <> lexeme.language_code
+                    LIMIT 1
+                """).fetchone()
+                if invalid_example:
+                    raise AuditError('example language/sense/lexeme mismatch or orphan')
             # A valid directed edge does not validate unrelated lexicon rows.
             # Fail closed on missing/unknown language identities throughout the
             # SQLite payload, including words with no sense or translation.
