@@ -1,7 +1,10 @@
 """Original pinned Lexeme JSON -> review-only sense candidates, no network."""
 import copy
 import json
+import shutil
+import tempfile
 import unittest
+from pathlib import Path
 
 from tools.gha_factory.admission import original_lexeme_candidates as c
 
@@ -67,6 +70,38 @@ class OriginalLexemeCandidatesTests(unittest.TestCase):
         bad["source_files"].append(copy.deepcopy(bad["source_files"][0]))
         with self.assertRaisesRegex(ValueError, "duplicate source lexeme"):
             c.build(c.ROOT, bad)
+
+    def test_self_consistent_tampering_cannot_repin_source_or_license(self):
+        # A changed source and a matching receipt-controlled digest are not
+        # sufficient provenance: the independent main review pins must agree.
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = [item["path"] for item in self.receipt["source_files"]]
+            paths.append(self.receipt["license_evidence_path"])
+            for name in paths:
+                target = root / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(c.ROOT / name, target)
+
+            bad = copy.deepcopy(self.receipt)
+            source = bad["source_files"][0]
+            target = root / source["path"]
+            entity_json = c.strict_json(target.read_bytes())
+            entity_json["entities"][source["lexeme_id"]]["lemmas"]["de"]["value"] = "forged-lemma"
+            target.write_bytes(c.canonical(entity_json))
+            source["sha256"] = c.digest(target.read_bytes())
+            with self.assertRaisesRegex(ValueError, "source hash not independently pinned"):
+                c.build(root, bad)
+
+            # The original files are restored; now forge a matching receipt hash
+            # for an altered rights notice that still contains the expected words.
+            shutil.copyfile(c.ROOT / source["path"], target)
+            bad = copy.deepcopy(self.receipt)
+            notice = root / bad["license_evidence_path"]
+            notice.write_bytes(notice.read_bytes() + b"\\nForged expanded rights scope\\n")
+            bad["license_evidence_sha256"] = c.digest(notice.read_bytes())
+            with self.assertRaisesRegex(ValueError, "license notice hash not independently pinned"):
+                c.build(root, bad)
 
     def test_source_language_qid_is_not_receipt_controlled(self):
         # A self-consistent forged receipt/source must not relabel an English lexeme as German.
