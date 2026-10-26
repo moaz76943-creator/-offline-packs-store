@@ -560,8 +560,11 @@ def audit(root, *, shard=0, shards=10):
             raise AuditError(f'invalid canonical script: {code}')
         for script in declared_scripts:
             script_metadata = registered_scripts[script]
+            # Non-default scripts may use a vertical direction (e.g.
+            # Mongolian "Mong": ttb-ltr) even when the default is LTR.
             if (not isinstance(script_metadata, dict)
-                    or script_metadata.get('direction') not in ('ltr', 'rtl')):
+                    or script_metadata.get('direction') not in (
+                        'ltr', 'rtl', 'ttb-ltr', 'ttb-rtl')):
                 raise AuditError(f'script direction mismatch: {code}')
         # A secondary RTL script may coexist with an LTR default (or vice
         # versa); the manifest direction must match only the default.
