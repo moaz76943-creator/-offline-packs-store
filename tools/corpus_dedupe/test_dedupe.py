@@ -5,6 +5,10 @@ class TestCorpusDeduplicator(unittest.TestCase):
     def setUp(self):
         self.deduplicator = CorpusDeduplicator(admitted_source_licenses={'src.fixture': ('CC-BY', '1')})
 
+    def tearDown(self):
+        if hasattr(self, 'deduplicator') and self.deduplicator:
+            self.deduplicator.close()
+
     def test_normalize_strict(self):
         # NFKC casefolding
         self.assertEqual(normalize_strict('Schön'), 'schön')
