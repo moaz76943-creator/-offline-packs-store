@@ -503,8 +503,12 @@ def audit(root, *, shard=0, shards=10):
     version_packs = version.get('packs')
     if not isinstance(version_packs, dict):
         raise AuditError('invalid version pack index')
-    if not set(version_packs).issubset(indexed):
-        raise AuditError('unbacked version pack index entry')
+    # Both files describe the same published v2 inventory. A manifest
+    # entry absent from the version index is an undiscoverable public pack;
+    # an extra index entry advertises a nonexistent download. Validate
+    # the full set before language sharding, not only the selected shard.
+    if set(version_packs) != set(indexed):
+        raise AuditError('version pack index does not match published packs')
     # A matching index key alone does not prove that a public download
     # references the same archive. Check the version and canonical URL
     # globally, before sharding, so a nonselected language cannot hide
