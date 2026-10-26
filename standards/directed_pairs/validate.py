@@ -20,6 +20,21 @@ class DirectedPairContractError(ValueError):
     pass
 
 
+def _reject_duplicate_keys(pairs):
+    """Never allow ambiguous JSON identity, direction, or rights metadata."""
+    record = {}
+    for key, value in pairs:
+        if key in record:
+            raise DirectedPairContractError(f'duplicate JSON key: {key}')
+        record[key] = value
+    return record
+
+
+def load_json_strict(raw):
+    """Parse contract documents without silently overwriting repeated keys."""
+    return json.loads(raw, object_pairs_hook=_reject_duplicate_keys)
+
+
 def validate(document, *, publication=False, canonical_lexeme_languages=None):
     schema = json.loads(SCHEMA_PATH.read_text(encoding='utf-8'))
     Draft202012Validator.check_schema(schema)
@@ -126,7 +141,7 @@ def main(argv=None):
     parser.add_argument('--publication', action='store_true')
     args = parser.parse_args(argv)
     try:
-        document = json.loads(args.file.read_text(encoding='utf-8'))
+        document = load_json_strict(args.file.read_text(encoding='utf-8'))
         validate(document, publication=args.publication)
     except (OSError, ValueError) as exc:
         print(f'INVALID: {exc}', file=sys.stderr)
