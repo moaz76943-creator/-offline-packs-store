@@ -733,5 +733,21 @@ class CoverageAuditTests(unittest.TestCase):
                                'verified_count': 1}])
 
 
+    def test_unselected_shard_rejects_global_unbacked_language_claims(self):
+        # Synthetic manifest metadata only: a per-shard PASS must not mask
+        # another language advertising an unbacked v2 pack or activation.
+        # 'aa' is in shard 0, whereas shard 1 inspects 'ab'.
+        lang = self.values['manifest.json']['languages'][0]
+        for flag in ('pack_verified', 'production_ready', 'is_active'):
+            with self.subTest(flag=flag):
+                lang[flag] = True
+                self.write_all()
+                with self.assertRaisesRegex(
+                        checker.AuditError,
+                        'unbacked pack_verified|false production activation'):
+                    checker.audit(self.root, shard=1, shards=100)
+                lang[flag] = False
+
+
 if __name__ == '__main__':
     unittest.main()
