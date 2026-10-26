@@ -56,6 +56,7 @@ class TestReviewStateMachine(unittest.TestCase):
         self.metadata = {
             "source_id": "src1",
             "language": "eng",
+            "translation_direction": "eng-fra",
             "sense_id": "sense1",
             "license_id": "CC-BY-4.0",
             "dataset_version": "1.0",
@@ -70,13 +71,15 @@ class TestReviewStateMachine(unittest.TestCase):
     def tearDown(self):
         self.tmp_dir.cleanup()
 
-    def _sign(self, action, actor, sub_id, rev, key):
+    def _sign(self, action, actor, sub_id, rev, key, metadata=None):
+        if metadata is None:
+            metadata = self.metadata
         payload = {
             "action": action,
             "actor": actor,
             "submission_id": sub_id,
             "sha256": self.test_hash,
-            "metadata_sha256": hashlib.sha256(canonical(self.metadata)).hexdigest(),
+            "metadata_sha256": hashlib.sha256(canonical(metadata)).hexdigest(),
             "revision": rev
         }
         return sign(key, payload)
@@ -174,6 +177,33 @@ class TestReviewStateMachine(unittest.TestCase):
         token = self._sign("APPROVE", "val1", "sub7", 1, self.validator_key)
         with self.assertRaises(PermissionError):
             self.machine.complete_validation("sub7", "val1", token)
+
+    def test_stale_approval(self):
+        self.machine.submit("sub_stale", self.test_hash, self.metadata, self.test_artifact)
+        self.machine.start_validation("sub_stale")
+        token = self._sign("VALIDATE", "val1", "sub_stale", 1, self.validator_key)
+        self.machine.complete_validation("sub_stale", "val1", token)
+
+        # New revision
+        metadata_v2 = self.metadata.copy()
+        metadata_v2["dataset_version"] = "2.0"
+        self.machine.submit("sub_stale", self.test_hash, metadata_v2, self.test_artifact)
+        self.machine.start_validation("sub_stale")
+        token_v2 = self._sign("VALIDATE", "val1", "sub_stale", 2, self.validator_key, metadata=metadata_v2)
+        self.machine.complete_validation("sub_stale", "val1", token_v2)
+
+        # Try to approve with stale token for rev 1
+        stale_token = self._sign("APPROVE", "rev1", "sub_stale", 1, self.reviewer_key)
+        with self.assertRaises(PermissionError):
+            self.machine.review("sub_stale", "rev1", True, stale_token)
+
+    def test_reviewer_state_conflicts(self):
+        self.machine.submit("sub_conf", self.test_hash, self.metadata, self.test_artifact)
+        # Try to approve before validation (state is SUBMITTED)
+        token = self._sign("APPROVE", "rev1", "sub_conf", 1, self.reviewer_key)
+        with self.assertRaises(ValueError):
+            self.machine.review("sub_conf", "rev1", True, token)
+
 
 if __name__ == '__main__':
     unittest.main()
