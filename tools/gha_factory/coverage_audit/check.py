@@ -1,6 +1,6 @@
 """Read-only fail-closed 100-language coverage and SQLite v2 audit."""
 import argparse
-import gzip
+import zlib
 import hashlib
 import importlib.util
 import json
@@ -434,10 +434,19 @@ def _verify_pack(root, pack, language):
     if actual != expected or length != pack.get('archiveSizeBytes'):
         raise AuditError('package bytes/length do not match manifest')
     try:
-        with gzip.open(path, 'rb') as fh:
-            blob = fh.read(MAX_ENVELOPE_BYTES + 1)
-        if len(blob) > MAX_ENVELOPE_BYTES:
-            raise AuditError('inflated package exceeds maximum envelope size')
+        # gzip.open transparently concatenates members. A second empty
+        # member leaves the decoded JSON unchanged and can pass SHA256 when
+        # the manifest advertises the concatenated bytes. Require exactly
+        # one complete gzip member, matching the release candidate reader.
+        compressed = path.read_bytes()  # already bounded by _sha_file
+        try:
+            decoder = zlib.decompressobj(16 + zlib.MAX_WBITS)
+            blob = decoder.decompress(compressed, MAX_ENVELOPE_BYTES + 1)
+        except zlib.error as error:
+            raise AuditError('corrupt gzip envelope') from error
+        if (len(blob) > MAX_ENVELOPE_BYTES or not decoder.eof
+                or decoder.unused_data or decoder.unconsumed_tail):
+            raise AuditError('trailing gzip member, truncation or expansion limit')
         # The canonical v2 envelope reader uses permissive json.loads for the
         # outer envelope. Reject duplicate keys, nonfinite numbers and invalid
         # Unicode before passing bytes to that verifier, just as we already do
