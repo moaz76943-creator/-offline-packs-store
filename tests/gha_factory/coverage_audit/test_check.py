@@ -872,6 +872,41 @@ class CoverageAuditTests(unittest.TestCase):
                 lang[flag] = False
 
 
+    def test_unselected_shard_rejects_unattested_production_evidence(self):
+        # Fixture-only metadata: the declared pack belongs to shard 0.
+        # Shard 1 must not PASS when shard 0 falsely advertises activation.
+        language = self.values['manifest.json']['languages'][0]
+        language['pack_verified'] = True
+        language['content_available'] = True
+        self.values['legal/ledger/sources.json']['sources'] = [
+            {'source_id': 'pending', 'status': 'REVIEW_REQUIRED'}]
+        self.values['manifest.json']['packs'] = [
+            {'id': 'aa', 'version': '1.0.0'}]
+        self.values['version.json']['packs'] = {
+            'aa': {
+                'version': '1.0.0',
+                'file_url': (
+                    'https://cdn.jsdelivr.net/gh/'
+                    'moaz76943-creator/-offline-packs-store@main/'
+                    'packs/aa-1.0.0.pack.gz')}}
+        for flags in (
+                {'production_ready': True, 'is_active': False},
+                {'production_ready': False, 'is_active': True},
+                {'production_ready': True, 'is_active': True}):
+            with self.subTest(flags=flags):
+                language.update(flags)
+                self.write_all()
+                with self.assertRaisesRegex(
+                        checker.AuditError, 'false production readiness evidence'):
+                    checker.audit(self.root, shard=1, shards=100)
+        # No activation: the unselected synthetic pack does not need to
+        # exist on disk and is never promoted to production.
+        language.update(production_ready=False, is_active=False)
+        self.write_all()
+        self.assertEqual(
+            checker.audit(self.root, shard=1, shards=100)['production_ready_languages'], 0)
+
+
     def test_publication_flags_reject_truthy_nonbooleans_globally(self):
         # Synthetic metadata only. Strings and integer 1 must never be
         # treated as verified publication evidence, including in another shard.
