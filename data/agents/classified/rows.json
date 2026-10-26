@@ -3315,6 +3315,36 @@
       "wikidata": "Q104776264"
     },
     {
+      "concept_id": "concept.q19358081",
+      "forms": [
+        "scorn",
+        "scorns"
+      ],
+      "language": "en",
+      "lemma": "scorn",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L25439",
+      "pos": "",
+      "qids": [
+        "Q19358081"
+      ],
+      "record_id": "L25439",
+      "retrieval_date": "2026-10-25",
+      "revision": "2306565507",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L25439-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q19358081"
+    },
+    {
       "concept_id": "concept.q2941309",
       "forms": [
         "blackcurrant",
@@ -3524,6 +3554,36 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q268594"
+    },
+    {
+      "concept_id": "concept.q14786282",
+      "forms": [
+        "snatch",
+        "snatches"
+      ],
+      "language": "en",
+      "lemma": "snatch",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L328017",
+      "pos": "",
+      "qids": [
+        "Q14786282"
+      ],
+      "record_id": "L328017",
+      "retrieval_date": "2026-10-26",
+      "revision": "2347600397",
+      "schema_version": "1.0.0",
+      "section": "sports",
+      "sense_id": "L328017-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "sports.q349",
+      "wikidata": "Q14786282"
     },
     {
       "concept_id": "concept.q11756",
@@ -6377,6 +6437,36 @@
       "wikidata": "Q1423009"
     },
     {
+      "concept_id": "concept.q14786282",
+      "forms": [
+        "strappo",
+        "strappi"
+      ],
+      "language": "it",
+      "lemma": "strappo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L705506",
+      "pos": "",
+      "qids": [
+        "Q14786282"
+      ],
+      "record_id": "L705506",
+      "retrieval_date": "2026-10-26",
+      "revision": "2230614219",
+      "schema_version": "1.0.0",
+      "section": "sports",
+      "sense_id": "L705506-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "sports.q349",
+      "wikidata": "Q14786282"
+    },
+    {
       "concept_id": "concept.q116007",
       "forms": [
         "anammox",
@@ -7874,6 +7964,46 @@
       "wikidata": "Q16868715"
     },
     {
+      "concept_id": "concept.q104776501",
+      "forms": [
+        "اندھار",
+        "ਅੰਧਾਰ",
+        "اندھار",
+        "ਅੰਧਾਰ",
+        "اندھار",
+        "ਅੰਧਾਰ",
+        "اندھاراں",
+        "ਅੰਧਾਰਾਂ"
+      ],
+      "language": "pa",
+      "lemma": "اندھار",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1034602",
+      "pos": "",
+      "qids": [
+        "Q104776501",
+        "Q815577",
+        "Q204170",
+        "Q22082330",
+        "Q182878"
+      ],
+      "record_id": "L1034602",
+      "retrieval_date": "2026-10-25",
+      "revision": "2008283340",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1034602-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q104776501"
+    },
+    {
       "concept_id": "concept.q1780",
       "forms": [
         "Bratysława",
@@ -8685,6 +8815,43 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q268594"
+    },
+    {
+      "concept_id": "concept.q14786282",
+      "forms": [
+        "рывок",
+        "рывка",
+        "рывку",
+        "рывок",
+        "рывком",
+        "рывке",
+        "рывки",
+        "рывков"
+      ],
+      "language": "ru",
+      "lemma": "рывок",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L159364",
+      "pos": "",
+      "qids": [
+        "Q14786282",
+        "Q497332"
+      ],
+      "record_id": "L159364",
+      "retrieval_date": "2026-10-26",
+      "revision": "2236687081",
+      "schema_version": "1.0.0",
+      "section": "sports",
+      "sense_id": "L159364-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "sports.q349",
+      "wikidata": "Q14786282"
     },
     {
       "concept_id": "concept.q130788",
