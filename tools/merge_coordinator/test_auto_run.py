@@ -117,10 +117,20 @@ class FlowTests(unittest.TestCase):
     f=FakeGH(files=[{'filename':'legal/ledger/sources.json','status':'modified'}]);self.assertEqual(run_auto(f,MAIN),0);self.assertEqual(f.merges,[])
 
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
-  def test_stale_base_short_circuits_before_expensive_api_calls(self):
-    f=FakeGH(base_sha='d'*40)
+  def test_stale_list_base_is_rechecked_instead_of_silently_discarded(self):
+    import sys, types
+    m=types.ModuleType('protection_gate');m.allowed=lambda branch,rules:True
+    with patch.dict(sys.modules,{'protection_gate':m}):
+      f=FakeGH(base_sha='d'*40)
+      self.assertEqual(run_auto(f, MAIN), 0)
+      self.assertEqual(f.q, 2)
+      self.assertEqual(f.merges, [(1,SHA)])
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_stale_base_with_fresh_nonmergeable_pr_never_merges(self):
+    f=FakeGH(pr={**PR, 'mergeable_state':'behind'},base_sha='d'*40)
     self.assertEqual(run_auto(f, MAIN), 0)
-    self.assertEqual(f.q, 0)
+    self.assertEqual(f.q, 1)
     self.assertEqual(f.merges, [])
 
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
