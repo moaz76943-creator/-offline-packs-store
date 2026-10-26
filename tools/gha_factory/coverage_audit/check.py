@@ -546,6 +546,13 @@ def audit(root, *, shard=0, shards=10):
     # verification remains sharded to bound the heavy work.
     for code, item in metadata.items():
         lang = aliases[code]
+        # JSON booleans are public verification claims, not truthy values.
+        # Reject numeric/string stand-ins globally before shard selection:
+        # otherwise an unselected language can silently advertise status.
+        for flag in ('registered', 'is_active', 'content_available',
+                     'pack_verified', 'production_ready'):
+            if type(item.get(flag)) is not bool:
+                raise AuditError(f'invalid publication flag: {code}.{flag}')
         if not item.get('registered') or not isinstance(lang.get('scripts'), list):
             raise AuditError(f'invalid registered metadata: {code}')
         # All declared scripts are part of the public language contract,
