@@ -803,6 +803,14 @@ class CoverageAuditTests(unittest.TestCase):
         with self.assertRaisesRegex(checker.AuditError, 'duplicate.*script'):
             checker.audit(self.root, shard=1, shards=100)
 
+    def test_vertical_secondary_script_preserves_mongolian_registry(self):
+        # Actual catalog includes Mongolian Cyrillic default + vertical Mong.
+        registry = self.values['catalog/language_registry.v1.json']
+        registry['scripts']['Mong'] = {'direction': 'ttb-ltr'}
+        registry['languages'][0]['scripts'].append('Mong')
+        self.write_all()
+        self.assertEqual(checker.audit(self.root, shard=1, shards=100)['status'], 'PASS')
+
     def test_valid_multiscript_registry_preserves_default_direction(self):
         # A secondary RTL writing system does not change the LTR default.
         registry = self.values['catalog/language_registry.v1.json']
