@@ -22,6 +22,32 @@ class TestGate(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.test_dir)
 
+    def test_workspace_preflight_checks_staging_root_not_cwd(self):
+        missing = Path(self.test_dir) / "absent.json"
+        with patch("tools.community_automation.gate.os.access",
+                   side_effect=lambda path, mode:
+                       Path(path) == self.staging_root and mode == (os.W_OK | os.X_OK)) as access:
+            with self.assertRaisesRegex(ValueError, "symlink or missing submission"):
+                process_bundle(missing, self.staging_root)
+        access.assert_called_once_with(self.staging_root, os.W_OK | os.X_OK)
+
+    def test_workspace_preflight_rejects_unwritable_destination(self):
+        missing = Path(self.test_dir) / "absent.json"
+        with patch("tools.community_automation.gate.os.access", return_value=False) as access:
+            with self.assertRaisesRegex(RuntimeError, "workspace access not authorized"):
+                process_bundle(missing, self.staging_root)
+        access.assert_called_once_with(self.staging_root, os.W_OK | os.X_OK)
+
+    def test_workspace_preflight_checks_existing_parent_for_new_staging(self):
+        missing = Path(self.test_dir) / "absent.json"
+        future = self.staging_root / "new" / "subdir"
+        with patch("tools.community_automation.gate.os.access",
+                   side_effect=lambda path, mode:
+                       Path(path) == self.staging_root and mode == (os.W_OK | os.X_OK)) as access:
+            with self.assertRaisesRegex(ValueError, "symlink or missing submission"):
+                process_bundle(missing, future)
+        access.assert_called_once_with(self.staging_root, os.W_OK | os.X_OK)
+
     def test_zip_bomb_rejected_before_svg_is_decompressed(self):
         path = Path(self.test_dir) / 'bomb.zip'
         with zipfile.ZipFile(path, 'w', compression=zipfile.ZIP_DEFLATED) as archive:

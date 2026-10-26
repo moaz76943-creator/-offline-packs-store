@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Mandatory preflight CLI for source ingestion."""
 import argparse
+import os
 import hashlib
 import json
 import shutil
@@ -60,6 +61,13 @@ def quarantine_files(args, manifest_dict, errors):
                     shutil.copy2(artifact_path, q_dir / f"{uid}_{artifact_path.name}")
 
 def process(args):
+    # Preflight the selected workspace, not the process working directory.
+    # This is an availability check; actual writes must still handle OS errors.
+    workspace = args.repo_root.resolve()
+    if not workspace.is_dir() or not os.access(workspace, os.W_OK | os.X_OK):
+        print("WORKSPACE_ACCESS_DENIED: workspace is not writable/traversable", file=sys.stderr)
+        return 1, ["WORKSPACE_ACCESS_DENIED"]
+
     try:
         manifest_data = args.manifest.read_text(encoding='utf-8')
         manifest_dict = json.loads(manifest_data)

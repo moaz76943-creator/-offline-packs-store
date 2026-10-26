@@ -5,15 +5,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '07 4 * * *'
-  pull_request:
-    paths:
-      - '.github/workflows/gha_factory_regressions.yml'
-      - 'tools/gha_factory/**'
-      - 'tests/gha_factory/**'
-      - 'legal/ledger/sources.json'
-      - 'catalog/language_registry.v1.json'
-      - 'standards/**'
-      - 'tools/pack_v2/**'
+  # PRs use the required path-scoped Public PR Merge Gate.
+  # Keep this broad factory matrix for scheduled/manual verification only.
 
 permissions:
   contents: read
