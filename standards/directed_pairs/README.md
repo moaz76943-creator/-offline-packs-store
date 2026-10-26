@@ -29,3 +29,7 @@ python3 -m unittest discover -s standards/directed_pairs -p 'test_*.py' -v
 ```
 
 The fixtures are illustrative synthetic test subsets and do not pass real-world publication validation requirements.
+
+### Lexeme-language integrity
+
+Every sense references a lexeme owner record carrying a language and source. A directed pair's source and target labels must match those owners; language is never inferred from the spelling of a stable ID. This in-document check prevents accidental direction swaps but is not independent evidence of canonical ownership. Production validation must supply `canonical_lexeme_languages` from an independently admitted lexical registry, or it fails closed. The existing factory adapter uses a different input shape and requires a separate owner-coordinated compatibility fix; a valid standards fixture is **not** automatically an admitted production candidate.

@@ -20,7 +20,7 @@ class DirectedPairContractError(ValueError):
     pass
 
 
-def validate(document, *, publication=False):
+def validate(document, *, publication=False, canonical_lexeme_languages=None):
     schema = json.loads(SCHEMA_PATH.read_text(encoding='utf-8'))
     Draft202012Validator.check_schema(schema)
     failures = sorted(Draft202012Validator(schema).iter_errors(document),
@@ -29,8 +29,11 @@ def validate(document, *, publication=False):
         error = failures[0]
         raise DirectedPairContractError(f'JSON Schema violation at {list(error.absolute_path)}: {error.message}')
 
+    if publication and canonical_lexeme_languages is None:
+        raise DirectedPairContractError('publication requires independent canonical lexeme language evidence')
+
     index = {}
-    for collection, key in (('senses', 'sense_id'), ('directed_translations', 'pair_id')):
+    for collection, key in (('lexemes', 'lexeme_id'), ('senses', 'sense_id'), ('directed_translations', 'pair_id')):
         entries = {}
         for record in document[collection]:
             rid = record[key]
@@ -44,7 +47,17 @@ def validate(document, *, publication=False):
                 raise DirectedPairContractError(f'publication requires approved non-fixture source hash: {rid}')
         index[collection] = entries
 
+    lexemes = index['lexemes']
     senses = index['senses']
+    for sense in senses.values():
+        if sense['lexeme_id'] not in lexemes:
+            raise DirectedPairContractError(f'orphan canonical lexeme: {sense["lexeme_id"]}')
+    if canonical_lexeme_languages is not None:
+        if not isinstance(canonical_lexeme_languages, dict):
+            raise DirectedPairContractError('canonical lexeme languages must be an independent ID-to-language mapping')
+        for lid, lexeme in lexemes.items():
+            if canonical_lexeme_languages.get(lid) != lexeme['language']:
+                raise DirectedPairContractError(f'canonical lexeme language mismatch: {lid}')
 
     # Track directed pairs to prevent reversing assumption without explicit attribution
     pair_directions = set()
@@ -63,6 +76,11 @@ def validate(document, *, publication=False):
 
         if src_lang == tgt_lang:
             raise DirectedPairContractError(f'source and target languages must be different: {translation["pair_id"]}')
+
+        if src_lang != lexemes[senses[src_id]['lexeme_id']]['language']:
+            raise DirectedPairContractError(f'source language disagrees with lexeme owner: {translation["pair_id"]}')
+        if tgt_lang != lexemes[senses[tgt_id]['lexeme_id']]['language']:
+            raise DirectedPairContractError(f'target language disagrees with lexeme owner: {translation["pair_id"]}')
 
         # Exact equivalence is only valid for the same verified concept.
         # Approximate/contextual mappings may legitimately cross concepts.
@@ -84,14 +102,19 @@ def verify_compatible(previous, updated):
     validate(updated)
     if previous['document_id'] != updated['document_id']:
         raise DirectedPairContractError('document_id changed')
-    for collection, id_key in (('senses', 'sense_id'), ('directed_translations', 'pair_id')):
+    for collection, id_key in (('lexemes', 'lexeme_id'), ('senses', 'sense_id'), ('directed_translations', 'pair_id')):
         before = {row[id_key]: row for row in previous[collection]}
         after = {row[id_key]: row for row in updated[collection]}
         for rid, old in before.items():
             if rid not in after:
                 raise DirectedPairContractError(f'breaking removal of {rid}')
             new = after[rid]
-            pinned = ('lexeme_id', 'concept_id') if collection == 'senses' else ('source_sense_id', 'target_sense_id', 'source_language', 'target_language')
+            if collection == 'lexemes':
+                pinned = ('language',)
+            elif collection == 'senses':
+                pinned = ('lexeme_id', 'concept_id')
+            else:
+                pinned = ('source_sense_id', 'target_sense_id', 'source_language', 'target_language')
             if any(old[key] != new[key] for key in pinned):
                 raise DirectedPairContractError(f'stable identity reassignment: {rid}')
     return True

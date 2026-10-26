@@ -4,10 +4,11 @@
   "title": "Public multilingual directed translation pair contract 1.0.0",
   "type": "object",
   "additionalProperties": false,
-  "required": ["contract_version", "document_id", "senses", "directed_translations"],
+  "required": ["contract_version", "document_id", "lexemes", "senses", "directed_translations"],
   "properties": {
     "contract_version": {"const": "1.0.0"},
     "document_id": {"$ref": "#/$defs/id"},
+    "lexemes": {"type": "array", "items": {"$ref": "#/$defs/lexeme"}},
     "senses": {"type": "array", "items": {"$ref": "#/$defs/sense"}},
     "directed_translations": {"type": "array", "items": {"$ref": "#/$defs/directed_translation"}}
   },
@@ -36,6 +37,11 @@
       "type": "object", "additionalProperties": false,
       "required": ["framework_id", "level_id"],
       "properties": {"framework_id": {"$ref": "#/$defs/id"}, "level_id": {"$ref": "#/$defs/text"}, "evidence": {"$ref": "#/$defs/optText"}}
+    },
+    "lexeme": {
+      "type": "object", "additionalProperties": false,
+      "required": ["lexeme_id", "language", "source"],
+      "properties": {"lexeme_id": {"$ref": "#/$defs/id"}, "language": {"$ref": "#/$defs/lang"}, "source": {"$ref": "#/$defs/source"}}
     },
     "sense": {
       "type": "object", "additionalProperties": false,

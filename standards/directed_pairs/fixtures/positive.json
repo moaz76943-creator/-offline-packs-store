@@ -1,6 +1,88 @@
 {
   "contract_version": "1.0.0",
   "document_id": "doc.pairs.positive.v1",
+  "lexemes": [
+    {
+      "lexeme_id": "lex.de.gehen",
+      "language": "de",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "lex.de.gehen",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    },
+    {
+      "lexeme_id": "lex.de.bank",
+      "language": "de",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "lex.de.bank",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    },
+    {
+      "lexeme_id": "lex.en.walk",
+      "language": "en",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "lex.en.walk",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    },
+    {
+      "lexeme_id": "lex.en.bank.finance",
+      "language": "en",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "lex.en.bank.finance",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    },
+    {
+      "lexeme_id": "lex.en.bank.river",
+      "language": "en",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "lex.en.bank.river",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    }
+  ],
   "senses": [
     {
       "concept_id": "concept.walk",
@@ -163,8 +245,12 @@
       "target_language": "en",
       "text": "walk",
       "equivalence": "contextual",
-      "examples": ["Ich gehe nach Hause. -> I am walking home."],
-      "domains": ["domain.movement"],
+      "examples": [
+        "Ich gehe nach Hause. -> I am walking home."
+      ],
+      "domains": [
+        "domain.movement"
+      ],
       "source": {
         "artifact_sha256": null,
         "dataset_version": "1.0.0",

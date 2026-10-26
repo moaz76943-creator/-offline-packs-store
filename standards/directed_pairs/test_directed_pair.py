@@ -57,6 +57,37 @@ class DirectedPairSchemaTest(unittest.TestCase):
         draft['directed_translations'][0]['equivalence'] = 'contextual'
         self.assertIs(validate(draft), draft)
 
+    def test_pair_language_matches_referenced_lexeme_owners(self):
+        draft = copy.deepcopy(self.data)
+        draft['directed_translations'][0]['source_language'] = 'fr'
+        with self.assertRaisesRegex(DirectedPairContractError, 'source language disagrees with lexeme owner'):
+            validate(draft)
+        draft = copy.deepcopy(self.data)
+        draft['directed_translations'][0]['target_language'] = 'fr'
+        with self.assertRaisesRegex(DirectedPairContractError, 'target language disagrees with lexeme owner'):
+            validate(draft)
+
+    def test_missing_lexeme_owner_is_rejected(self):
+        draft = copy.deepcopy(self.data)
+        draft['lexemes'] = [lex for lex in draft['lexemes'] if lex['lexeme_id'] != 'lex.de.bank']
+        with self.assertRaisesRegex(DirectedPairContractError, 'orphan canonical lexeme'):
+            validate(draft)
+
+    def test_independent_canonical_language_mapping_must_agree(self):
+        owners = {lex['lexeme_id']: lex['language'] for lex in self.data['lexemes']}
+        self.assertIs(validate(self.data, canonical_lexeme_languages=owners), self.data)
+        owners['lex.de.bank'] = 'fr'
+        with self.assertRaisesRegex(DirectedPairContractError, 'canonical lexeme language mismatch'):
+            validate(self.data, canonical_lexeme_languages=owners)
+        with self.assertRaisesRegex(DirectedPairContractError, 'publication requires independent'):
+            validate(self.data, publication=True)
+
+    def test_lexeme_owner_identity_is_stable(self):
+        draft = copy.deepcopy(self.data)
+        draft['lexemes'][0]['language'] = 'fr'
+        with self.assertRaises(DirectedPairContractError):
+            verify_compatible(self.data, draft)
+
     def test_duplicate_pair_direction_rejected(self):
         draft = copy.deepcopy(self.data)
         dup = copy.deepcopy(draft['directed_translations'][0])
