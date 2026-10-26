@@ -125,6 +125,54 @@ class TestDigestEngine(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             validate_artifact(filepath, meta)
 
+    def test_truncated_files(self):
+        filepath = os.path.join(self.test_dir, "truncated.txt")
+        with open(filepath, 'w') as f:
+            f.write("12345") # 5 bytes
+
+        meta = {'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1', 'size_bytes': 10}
+
+        with self.assertRaises(ValueError) as ctx:
+            validate_artifact(filepath, meta)
+        self.assertIn("Size mismatch", str(ctx.exception))
+
+    def test_changed_metadata(self):
+        old_index = {
+            "file.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l1", "asset_id": "a1", "version": "v1"},
+        }
+
+        # Test changing source_id
+        new_index = {
+            "file.txt": {"sha256": "hash1", "source_id": "s2", "license_id": "l1", "asset_id": "a1", "version": "v1"},
+        }
+        events = compare_indexes(old_index, new_index)
+        self.assertIn("file.txt", events['updated'])
+        self.assertNotIn("file.txt", events['unchanged'])
+
+        # Test changing license_id
+        new_index2 = {
+            "file.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l2", "asset_id": "a1", "version": "v1"},
+        }
+        events2 = compare_indexes(old_index, new_index2)
+        self.assertIn("file.txt", events2['updated'])
+        self.assertNotIn("file.txt", events2['unchanged'])
+
+        # Test changing version
+        new_index3 = {
+            "file.txt": {"sha256": "hash1", "source_id": "s1", "license_id": "l1", "asset_id": "a1", "version": "v2"},
+        }
+        events3 = compare_indexes(old_index, new_index3)
+        self.assertIn("file.txt", events3['updated'])
+        self.assertNotIn("file.txt", events3['unchanged'])
+
+        # Test valid provenance
+        meta1 = {'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1'} # Missing version
+        filepath = os.path.join(self.test_dir, "meta.txt")
+        with open(filepath, 'w') as f: f.write("meta")
+        with self.assertRaises(ValueError) as ctx:
+            validate_artifact(filepath, meta1)
+        self.assertIn("Invalid provenance", str(ctx.exception))
+
     def test_valid_provenance(self):
         filepath = os.path.join(self.test_dir, "prov.txt")
         with open(filepath, 'w') as f: f.write("prov")
