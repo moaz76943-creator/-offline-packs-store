@@ -536,11 +536,22 @@ def audit(root, *, shard=0, shards=10):
             raise AuditError(f'version pack descriptor mismatch: {pack_id}')
     metadata = {item['code']: item for item in manifest['languages']}
     aliases = {item['id']: item for item in registry['languages']}
-    # Release claims are global metadata. A single language shard must not
-    # report PASS while another, unselected language falsely advertises a
-    # verified pack or production activation. This check reads no pack bytes;
-    # full pack integrity verification remains scoped to selected shards.
+    # Canonical script and publication metadata are global assertions.
+    # Every shard must reject a wrong default script or writing direction,
+    # even when the affected language belongs to another shard. Pack byte
+    # verification remains sharded to bound the heavy work.
     for code, item in metadata.items():
+        lang = aliases[code]
+        if not item.get('registered') or not isinstance(lang.get('scripts'), list):
+            raise AuditError(f'invalid registered metadata: {code}')
+        default_script = lang.get('default_script')
+        if default_script not in lang['scripts'] or default_script not in registry.get('scripts', {}):
+            raise AuditError(f'invalid canonical script: {code}')
+        script_metadata = registry['scripts'][default_script]
+        if (not isinstance(script_metadata, dict)
+                or script_metadata.get('direction') not in ('ltr', 'rtl')
+                or item.get('direction') != script_metadata['direction']):
+            raise AuditError(f'script direction mismatch: {code}')
         if item.get('pack_verified') is True and code not in indexed:
             raise AuditError(f'unbacked pack_verified metadata: {code}')
         if (item.get('production_ready') is True or item.get('is_active') is True) and not (
@@ -555,17 +566,7 @@ def audit(root, *, shard=0, shards=10):
     all_pairs = []
     manufacturing_candidates = []
     for code in selected:
-        item, lang = metadata[code], aliases[code]
-        if not item.get('registered') or not isinstance(lang.get('scripts'), list):
-            raise AuditError(f'invalid registered metadata: {code}')
-        default_script = lang.get('default_script')
-        if default_script not in lang['scripts'] or default_script not in registry.get('scripts', {}):
-            raise AuditError(f'invalid canonical script: {code}')
-        script_metadata = registry['scripts'][default_script]
-        if (not isinstance(script_metadata, dict)
-                or script_metadata.get('direction') not in ('ltr', 'rtl')
-                or item.get('direction') != script_metadata['direction']):
-            raise AuditError(f'script direction mismatch: {code}')
+        item = metadata[code]
         active = item.get('production_ready') is True or item.get('is_active') is True
         pack_status = 'NOT_PUBLISHED'
         source_status = 'NOT_ATTESTED'
