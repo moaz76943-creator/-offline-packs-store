@@ -39,6 +39,19 @@ def has_unresolved_threads(gh, number):
             raise ValueError('incomplete review thread evidence') from exc
     raise ValueError('review thread pagination exceeded bounded limit')
 
+def query_bounded_candidate(gh, num, head):
+    """An oversized PR is ineligible for auto-merge, not fatal to its peers."""
+    try:
+        return gh.query_pr(num, head)
+    except ValueError as exc:
+        # Fail this candidate closed; keep unexpected/coordinator-wide faults visible.
+        if not any(reason in str(exc) for reason in
+                   ('pagination limit exceeded', 'check runs pagination incomplete')):
+            raise
+        print(f'AUTO_SKIP #{num}: candidate evidence unavailable ({exc})')
+        return None
+
+
 def run_auto(gh, main_sha):
     """Merge up to eight independent, low-risk and freshly checked PRs.
 
@@ -76,7 +89,10 @@ def run_auto(gh, main_sha):
             if gh.main_sha() != main_sha:
                 print('HALT: main moved during discovery')
                 return 0
-            pr, checks, reviews, files, msg = gh.query_pr(num, head)
+            candidate = query_bounded_candidate(gh, num, head)
+            if candidate is None:
+                continue
+            pr, checks, reviews, files, msg = candidate
             ok, why = auto_eligible(pr, checks, reviews, files, msg, main_sha)
             if not ok or head != (pr.get('head') or {}).get('sha'):
                 print(f'AUTO_SKIP #{num}: {why}')
@@ -94,7 +110,10 @@ def run_auto(gh, main_sha):
             if not allowed(gh.get('/branches/main'), gh.get('/rules/branches/main?per_page=100')):
                 print('HALT: protected main rules unverified')
                 return 0
-            fresh, fc, fr, ff, fm = gh.query_pr(num, head)
+            candidate = query_bounded_candidate(gh, num, head)
+            if candidate is None:
+                continue
+            fresh, fc, fr, ff, fm = candidate
             qualified, reason = auto_eligible(fresh, fc, fr, ff, fm, main_sha)
             if not qualified or has_unresolved_threads(gh, num):
                 print(f'AUTO_SKIP #{num}: stale evidence: {reason}')

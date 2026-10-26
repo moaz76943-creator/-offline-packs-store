@@ -113,6 +113,36 @@ class FlowTests(unittest.TestCase):
       self.assertEqual(len(f.merges),1)
 
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_oversized_candidate_does_not_starve_independent_ready_pr(self):
+    import sys, types
+    m=types.ModuleType('protection_gate');m.allowed=lambda branch,rules:True
+    class MixedQueue(FakeGH):
+      def page(self,path,limit=300):
+        if path.startswith('/pulls?'):
+          return [{'number':n,'head':{'sha':SHA},'base':{'ref':'main','sha':self.main},
+                   'state':'open','draft':False} for n in (2,1)]
+        return []
+      def query_pr(self,num,head):
+        self.q+=1
+        if num == 2:
+          raise ValueError('pagination limit exceeded; fail closed')
+        return self.pr,CHECKS,[],self.files,'feat: docs'
+    with patch.dict(sys.modules,{'protection_gate':m}):
+      f=MixedQueue()
+      self.assertEqual(run_auto(f, MAIN), 0)
+      self.assertEqual(f.merges, [(1,SHA)])
+      self.assertGreaterEqual(f.q, 3)
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_pagination_failure_never_merges_unverified_candidate(self):
+    class OnlyOversized(FakeGH):
+      def query_pr(self,num,head):
+        raise ValueError('pagination limit exceeded; fail closed')
+    f=OnlyOversized()
+    self.assertEqual(run_auto(f, MAIN), 0)
+    self.assertEqual(f.merges, [])
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
   def test_sensitive_paths_block(self):
     f=FakeGH(files=[{'filename':'legal/ledger/sources.json','status':'modified'}]);self.assertEqual(run_auto(f,MAIN),0);self.assertEqual(f.merges,[])
 
