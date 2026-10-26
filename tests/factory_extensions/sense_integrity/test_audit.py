@@ -140,7 +140,7 @@ class SenseIntegrityTests(unittest.TestCase):
         ledger.write_text(json.dumps({"sources": [{
             "source_id": "fixture.synthetic.v1", "dataset_version": "v1",
             "retrieval": {"sha256": "a" * 64},
-            "license": {"id": "LicenseRef-Test"}, "status": "approved"
+            "license": {"id": "LicenseRef-Test"}, "status": "APPROVED_FOR_REDISTRIBUTION"
         }]}), encoding="utf-8")
         out = self.run_audit(row, ledger=ledger)
         lang = json.loads((out / "per-language.json").read_text())["languages"]["de"]
@@ -149,7 +149,7 @@ class SenseIntegrityTests(unittest.TestCase):
         ledger.write_text(json.dumps({"sources": [{
             "source_id": "fixture.synthetic.v1", "dataset_version": "v2",
             "retrieval": {"sha256": "a" * 64},
-            "license": {"id": "LicenseRef-Test"}, "status": "approved"
+            "license": {"id": "LicenseRef-Test"}, "status": "APPROVED_FOR_REDISTRIBUTION"
         }]}), encoding="utf-8")
         out2 = self.run_audit(row, "changed-approval", ledger=ledger)
         codes = {x["code"] for x in read_jsonl(out2 / "conflicts.jsonl")}
@@ -166,7 +166,7 @@ class SenseIntegrityTests(unittest.TestCase):
         ledger.write_text(json.dumps({"sources": [{
             "source_id": "fixture.synthetic.v1", "dataset_version": "v1",
             "retrieval": {"sha256": "a" * 64},
-            "license": {"id": "LicenseRef-Test"}, "status": "approved"
+            "license": {"id": "LicenseRef-Test"}, "status": "APPROVED_FOR_REDISTRIBUTION"
         }]}), encoding="utf-8")
         out = self.run_audit(row, name="unapproved-parent", ledger=ledger)
         actions = {x["id"]: x["action"] for x in read_jsonl(out / "merge-plan.jsonl")}
@@ -193,6 +193,69 @@ class SenseIntegrityTests(unittest.TestCase):
         out = self.run_audit(row, name="cross-kind")
         codes = {x["code"] for x in read_jsonl(out / "conflicts.jsonl")}
         self.assertIn("cross_kind_identity_collision", codes)
+
+    def test_schema_approved_status_is_required_for_real_ledger_evidence(self):
+        records = {kind: [] for kind in KINDS}
+        records["lexemes"] = [lex("lex.canonical", source=source(approved=True))]
+        records["senses"] = [sense("sense.canonical", "lex.canonical", "concept.canonical",
+                                     "attested", source=source(approved=True))]
+        ledger = self.base / "canonical-ledger.json"
+        approval = {"source_id": "fixture.synthetic.v1", "dataset_version": "v1",
+                    "retrieval": {"sha256": "a" * 64},
+                    "license": {"id": "LicenseRef-Test"},
+                    "status": "APPROVED_FOR_REDISTRIBUTION"}
+        ledger.write_text(json.dumps({"sources": [approval]}), encoding="utf-8")
+        report = self.run_audit(records, name="canonical-approved", ledger=ledger)
+        stats = json.loads((report / "per-language.json").read_text())["languages"]["de"]
+        self.assertEqual(stats["accepted_senses"], 1)
+        approval["status"] = "approved"
+        ledger.write_text(json.dumps({"sources": [approval]}), encoding="utf-8")
+        rejected = self.run_audit(records, name="unrecognized-approval", ledger=ledger)
+        stats = json.loads((rejected / "per-language.json").read_text())["languages"]["de"]
+        self.assertEqual(stats["accepted_senses"], 0)
+
+    def test_checkpoint_missing_manifest_report_is_rejected(self):
+        output = self.run_audit(name="checkpoint-corpus")
+        input_dir = self.base / "inputcheckpoint-corpus"
+        checkpoint_path = output / "checkpoint.json"
+        original = json.loads(checkpoint_path.read_text())
+        for changed in ({**original, "outputs": {}},
+                        {**original, "outputs": {"conflicts.jsonl": original["outputs"]["conflicts.jsonl"]}}):
+            with self.subTest(outputs=changed["outputs"]):
+                checkpoint_path.write_text(json.dumps(changed), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "corrupted checkpoint"):
+                    audit(input_dir, output, registry=REGISTRY, resume=True)
+
+    def test_cross_kind_collision_blocks_both_merge_plan_members(self):
+        rows = {kind: [] for kind in KINDS}
+        rows["lexemes"] = [lex("same.id", source=source(approved=True))]
+        rows["senses"] = [sense("same.id", "same.id", "concept.separate",
+                                 "attested", source=source(approved=True))]
+        ledger = self.base / "identity-ledger.json"
+        ledger.write_text(json.dumps({"sources": [{
+            "source_id": "fixture.synthetic.v1", "dataset_version": "v1",
+            "retrieval": {"sha256": "a" * 64},
+            "license": {"id": "LicenseRef-Test"},
+            "status": "APPROVED_FOR_REDISTRIBUTION"
+        }]}), encoding="utf-8")
+        result = self.run_audit(rows, name="collision-approved", ledger=ledger)
+        plan = read_jsonl(result / "merge-plan.jsonl")
+        self.assertEqual({p["action"] for p in plan}, {"review_new"})
+        stats = json.loads((result / "per-language.json").read_text())["languages"]["de"]
+        self.assertEqual(stats["accepted_senses"], 0)
+
+    def test_concept_collision_with_translation_id_is_blocked(self):
+        rows = copy.deepcopy(self.records)
+        rows["senses"][0]["concept_id"] = "tr.same"
+        rows["translations"].append({
+            "translation_id": "tr.same", "from_sense_id": "sense.de.money",
+            "to_sense_id": "sense.de.river", "language": "de",
+            "text": "Bank", "source": source()})
+        out = self.run_audit(rows, name="concept-translation")
+        codes = {x["code"] for x in read_jsonl(out / "conflicts.jsonl")}
+        self.assertIn("concept_identity_collision", codes)
+        plan = {x["id"]: x["action"] for x in read_jsonl(out / "merge-plan.jsonl")}
+        self.assertEqual(plan["sense.de.money"], "review_new")
 
     def test_checkpoint_replay_and_tamper_detection(self):
         output = self.run_audit()
