@@ -146,5 +146,9 @@ class SqliteMappingTest(unittest.TestCase):
         with self.assertRaises(FileExistsError):
             build(self.data, self.db)
 
+# The required public gate pins test_directed_pair.py; include the separate
+# factory-interop regressions without modifying the shared CI policy owner.
+from test_factory_adapter import FactoryAdapterTest
+
 if __name__ == '__main__':
     unittest.main()
