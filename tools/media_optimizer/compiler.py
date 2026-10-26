@@ -50,13 +50,14 @@ class MediaCompiler:
 
     def _load_canonical_ledger(self):
         path = self.repo_root / 'legal' / 'ledger' / 'sources.json'
+        if path.is_symlink():
+            raise TokenValidationError("Provenance ledger unavailable")
         try:
-            if path.is_symlink() or not path.is_file():
-                raise TokenValidationError("Provenance ledger unavailable")
-            ledger = json.loads(path.read_text(encoding='utf-8'))
+            with open(path, 'r', encoding='utf-8') as f:
+                ledger = json.loads(f.read())
         except TokenValidationError:
             raise
-        except (OSError, ValueError) as exc:
+        except (FileNotFoundError, OSError, ValueError) as exc:
             raise TokenValidationError("Provenance ledger unavailable") from exc
         if (not isinstance(ledger, dict) or ledger.get('schema_version') != SCHEMA
                 or not isinstance(ledger.get('sources'), list)):
@@ -240,22 +241,32 @@ class MediaCompiler:
         }
 
         delta_plan = {}
-        change_events = []
+        change_events = {
+            "unchanged": [],
+            "updated": [],
+            "deleted": [],
+            "invalid": []
+        }
         if prior_pack_meta:
             prior_concepts = prior_pack_meta.get('concepts', {})
             for cid, current_data in pack_data['concepts'].items():
                 if cid not in prior_concepts:
-                    change_events.append({"type": "added", "concept_id": cid})
+                    change_events["updated"].append(cid)
                 elif prior_concepts[cid]['source_hash'] != current_data['source_hash']:
-                    change_events.append({"type": "updated", "concept_id": cid})
+                    change_events["updated"].append(cid)
                 else:
-                    change_events.append({"type": "unchanged", "concept_id": cid})
+                    change_events["unchanged"].append(cid)
 
             for cid in prior_concepts:
                 if cid not in pack_data['concepts']:
-                    change_events.append({"type": "deleted", "concept_id": cid})
+                    change_events["deleted"].append(cid)
+
+            for key in change_events:
+                change_events[key].sort()
 
             delta_plan = {"changes": change_events}
+        else:
+            change_events = []
 
         self._publish_atomic(pack_bytes)
 
