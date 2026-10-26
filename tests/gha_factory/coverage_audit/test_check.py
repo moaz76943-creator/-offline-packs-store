@@ -376,7 +376,13 @@ class CoverageAuditTests(unittest.TestCase):
     def test_unverified_release_claim_rejected_even_if_flags_set(self):
         self.values['legal/ledger/sources.json']['sources'] = [
             {'source_id': 'forged', 'status': 'APPROVED_FOR_REDISTRIBUTION'}]
-        self.values['manifest.json']['packs'] = [{'id': 'aa', 'sha256': '0'*64}]
+        self.values['manifest.json']['packs'] = [
+            {'id': 'aa', 'version': '1.0.0', 'sha256': '0'*64}]
+        self.values['version.json']['packs'] = {
+            'aa': {'version': '1.0.0',
+                   'file_url': ('https://cdn.jsdelivr.net/gh/'
+                                'moaz76943-creator/-offline-packs-store@main/'
+                                'packs/aa-1.0.0.pack.gz')}}
         lang = self.values['manifest.json']['languages'][0]
         lang.update(content_available=True, pack_verified=True, production_ready=True)
         self.write_all()
