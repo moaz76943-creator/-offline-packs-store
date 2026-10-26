@@ -52,6 +52,40 @@ class TestSVGOptimizer(unittest.TestCase):
         with self.assertRaises(SVGSecurityError):
             self.opt.optimize(svg, self.cid, self.lic)
 
+    def test_utf16_without_bom_cannot_bypass_entity_scan(self):
+        for encoding in ("utf-16le", "utf-16be"):
+            with self.subTest(encoding=encoding):
+                text = '<!DOCTYPE svg [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><svg/>'
+                with self.assertRaises(SVGSecurityError):
+                    self.opt.optimize(text.encode(encoding), self.cid, self.lic)
+
+    def test_css_url_function_is_case_insensitive(self):
+        for name in ("URL", "Url", "uRl"):
+            svg = f'<svg><path d="M1 1" fill="{name}(https://example.com/x)"/></svg>'.encode()
+            with self.subTest(name=name), self.assertRaises(SVGSecurityError):
+                self.opt.optimize(svg, self.cid, self.lic)
+
+    def test_defs_use_not_silently_converted_to_wrong_geometry(self):
+        sprite = b'<svg><defs><path id="p" d="M1 1"/></defs><use href="#p" x="10"/></svg>'
+        with self.assertRaises(SVGUnsupportedError):
+            self.opt.optimize(sprite, self.cid, self.lic)
+
+    def test_outline_strokes_are_not_silently_discarded(self):
+        source = b'<svg><path d="M1 1 L2 2" fill="none" stroke="#000" stroke-width="2"/></svg>'
+        with self.assertRaises(SVGUnsupportedError):
+            self.opt.optimize(source, self.cid, self.lic)
+
+    def test_roundtrip_rejects_changed_encoded_geometry_even_with_original_source_hash(self):
+        svg = b'<svg viewBox="0 0 24 24"><path d="M1 1 L2 2" fill="#fff"/></svg>'
+        packed = self.opt.optimize(svg, self.cid, self.lic)
+        for field, wrong in (("e", []), ("pd", ["M4 4"])):
+            with self.subTest(field=field):
+                token = self.opt.decode(packed)
+                token[field] = wrong
+                tampered = zlib.compress(json.dumps(token, separators=(',', ':'), sort_keys=True).encode())
+                with self.assertRaises(ValueError):
+                    self.opt.verify_roundtrip(svg, tampered)
+
     def test_unsupported_elements(self):
         svg = b'<svg><text>Hello</text></svg>'
         with self.assertRaises(SVGUnsupportedError):
