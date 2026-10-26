@@ -628,5 +628,64 @@ class CoverageAuditTests(unittest.TestCase):
                              [{'source_language': 'aa', 'target_language': 'ab', 'verified_count': 1}])
 
 
+    def test_example_language_and_sense_lexeme_binding_fails_closed(self):
+        # Synthetic SQLite v2-style examples: all referenced rows exist, but
+        # example language and lexeme must agree with the linked sense.
+        # Also reject orphans in legacy SQLite without declared foreign keys.
+        for broken in ('wrong_language', 'wrong_lexeme', 'missing_sense',
+                       'missing_lexeme', 'null_language'):
+            with self.subTest(broken=broken), tempfile.TemporaryDirectory() as temp:
+                database = Path(temp) / 'example.sqlite'
+                with closing(sqlite3.connect(database)) as db:
+                    db.executescript("""
+                        CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                        CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                        CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT,
+                                                  language_code TEXT);
+                        CREATE TABLE examples(example_id TEXT PRIMARY KEY,
+                                              sense_id TEXT, lexeme_id TEXT,
+                                              language_code TEXT);
+                        INSERT INTO lexicon VALUES('l1','aa'),('l2','ab');
+                        INSERT INTO senses VALUES('s1','l1'),('s2','l2');
+                        INSERT INTO translations VALUES('s1','s2','ab');
+                        INSERT INTO examples VALUES('e1','s1','l1','aa');
+                    """)
+                    if broken == 'wrong_language':
+                        db.execute("UPDATE examples SET language_code='ab'")
+                    elif broken == 'wrong_lexeme':
+                        db.execute("UPDATE examples SET lexeme_id='l2'")
+                    elif broken == 'missing_sense':
+                        db.execute("UPDATE examples SET sense_id='missing'")
+                    elif broken == 'missing_lexeme':
+                        db.execute("UPDATE examples SET lexeme_id='missing'")
+                    else:
+                        db.execute("UPDATE examples SET language_code=NULL")
+                    db.commit()
+                with self.assertRaisesRegex(checker.AuditError, 'example'):
+                    checker._directed_pairs(database.read_bytes(), {'aa', 'ab'})
+
+    def test_consistent_example_preserves_directed_count(self):
+        with tempfile.TemporaryDirectory() as temp:
+            database = Path(temp) / 'example.sqlite'
+            with closing(sqlite3.connect(database)) as db:
+                db.executescript("""
+                    CREATE TABLE lexicon(id TEXT PRIMARY KEY, language_code TEXT);
+                    CREATE TABLE senses(sense_id TEXT PRIMARY KEY, lexeme_id TEXT);
+                    CREATE TABLE translations(from_sense_id TEXT, to_sense_id TEXT,
+                                              language_code TEXT);
+                    CREATE TABLE examples(example_id TEXT PRIMARY KEY,
+                                          sense_id TEXT, lexeme_id TEXT,
+                                          language_code TEXT);
+                    INSERT INTO lexicon VALUES('l1','aa'),('l2','ab');
+                    INSERT INTO senses VALUES('s1','l1'),('s2','l2');
+                    INSERT INTO translations VALUES('s1','s2','ab');
+                    INSERT INTO examples VALUES('e1','s1','l1','aa');
+                """)
+                db.commit()
+            self.assertEqual(checker._directed_pairs(database.read_bytes(), {'aa', 'ab'}),
+                             [{'source_language': 'aa', 'target_language': 'ab',
+                               'verified_count': 1}])
+
+
 if __name__ == '__main__':
     unittest.main()
