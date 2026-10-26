@@ -7,6 +7,8 @@ on:
     paths:
       - 'tools/gha_factory/pack_conformance/**'
       - 'tests/gha_factory/pack_conformance/**'
+      - 'tools/pack_conformance/**'
+      - 'standards/lexical/**'
       - '.github/workflows/gha_pack_conformance.yml'
 permissions:
   contents: read
@@ -32,6 +34,8 @@ jobs:
           ulimit -t 240
           export PYTHONDONTWRITEBYTECODE=1
           timeout 120s python3 -m unittest discover -s tests/gha_factory/pack_conformance -v
+          timeout 120s python3 -m unittest discover -s standards/lexical -p 'test_*.py' -v
+          timeout 120s python3 -m unittest discover -s tools/pack_conformance -p 'test_*.py' -v
           timeout 45s python3 -m tools.gha_factory.pack_conformance.check --root . > "$RUNNER_TEMP/conformance-status.json"
           cat "$RUNNER_TEMP/conformance-status.json"
           python3 - <<'PY'

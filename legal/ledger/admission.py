@@ -12,15 +12,45 @@ from urllib.parse import parse_qs, urlsplit
 SCHEMA = '1.0.0'
 KINDS = {'dictionary', 'morphology', 'examples', 'font', 'pronunciation',
          'vector_art', 'visual_asset'}
-LICENSES = {'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN'}
+LICENSES = {'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN', 'CC-BY-2.0-FR'}
 OBLIGATIONS = {
     'CC-BY-SA-4.0': ('attribution', 'license_link', 'changes_disclosed',
                      'sharealike', 'no_additional_restrictions'),
     'GFDL-1.3-only': ('license_copy', 'copyright_notices', 'history',
                       'invariant_sections_checked', 'cover_texts_checked',
                       'transparent_copy_checked'),
+    # CC BY 2.0 France requires attribution and the license link. It is not share-alike.
+    'CC-BY-2.0-FR': ('attribution', 'license_link'),
 }
 HASH = re.compile(r'^[0-9a-f]{64}$')
+
+def _load_license_notice():
+    """Bind the sibling scanner for package, path, and top-level imports.
+
+    runpy.run_path and spec_from_file_location load this file with no package
+    parent and do not put legal/ledger on sys.path, so both the relative import
+    and `import license_notice` fail. The file next to this module is the scanner.
+    """
+    try:
+        from .license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+        return MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+    except ImportError:
+        pass
+    try:
+        from license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+        return MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+    except ImportError:
+        import importlib.util
+        path = Path(__file__).resolve().parent / 'license_notice.py'
+        spec = importlib.util.spec_from_file_location('_ledger_license_notice', path)
+        if spec is None or spec.loader is None:
+            raise ImportError(f'cannot load license notice scanner from {path}')
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return module.MAX_LICENSE_NOTICE_BYTES, module.license_notice_conflicts
+
+
+MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts = _load_license_notice()
 
 
 def sha256_file(path):
@@ -68,7 +98,17 @@ def artifact(root, relative, expected, out, label):
         issue(out, 'EVIDENCE', f'{label}: path outside approved repository')
         return False
     resolved_root = Path(root).resolve()
-    resolved = (resolved_root / path).resolve()
+    candidate = resolved_root
+    for part in path.parts:
+        candidate = candidate / part
+        if candidate.is_symlink():
+            issue(out, 'EVIDENCE', f'{label}: symlink in evidence path is forbidden')
+            return False
+    try:
+        resolved = candidate.resolve()
+    except (OSError, RuntimeError):
+        issue(out, 'EVIDENCE', f'{label}: unresolvable evidence path')
+        return False
     if not resolved.is_relative_to(resolved_root) or not resolved.is_file():
         issue(out, 'EVIDENCE', f'{label}: missing or escaping local proof file')
         return False
@@ -83,6 +123,35 @@ def manual_review(value, out, label):
         issue(out, 'MANUAL_REVIEW', f'{label}: reviewer and public decision evidence required')
         return False
     return True
+
+
+def metadata_only_source_artifact(source):
+    """Reject index/license/statistics files masquerading as original corpus bytes.
+
+    A SHA256 of a directory listing or stats file attests only that document;
+    it cannot serve as the original dataset hash for lexical source_refs.
+    Actual bounded corpus excerpts (such as a JSONL prefix) remain eligible
+    for technical validation; independent rights review is still required.
+    """
+    if not isinstance(source, dict) or source.get('kind') not in (
+            'dictionary', 'morphology', 'examples'):
+        return False
+    retrieval = source.get('retrieval')
+    if not isinstance(retrieval, dict):
+        return False
+    from_url = retrieval.get('url')
+    artifact_path = retrieval.get('artifact_path')
+    identity = retrieval.get('identity')
+    if not all(isinstance(s, str) for s in (from_url, artifact_path, identity)):
+        return False
+    name = Path(artifact_path).name.lower()
+    role = identity.lower()
+    return (
+        urlsplit(from_url).path.endswith('/')
+        or name.endswith(('.html', '.htm'))
+        or name in ('stats.xml', 'index.xml', 'license.txt')
+        or any(tag in role for tag in ('dump-index', 'export-index', 'treebank-stats'))
+    )
 
 
 def evaluate(ledger, manifest, dailies, root):
@@ -112,12 +181,17 @@ def evaluate(ledger, manifest, dailies, root):
                 issue(out, 'EVIDENCE', f'{label}: exact HTTPS {key} required')
         if not text(source.get('publisher')) or not text(source.get('dataset_version')):
             issue(out, 'EVIDENCE', f'{label}: publisher and exact dataset version required')
+        if not text(source.get('author')):
+            issue(out, 'EVIDENCE', f'{label}: author required')
         retrieval = source.get('retrieval') or {}
         if not isinstance(retrieval, dict):
             retrieval = {}
         if not text(retrieval.get('identity')) or not url_ok(retrieval.get('url')) or not valid_date(retrieval.get('date')):
             issue(out, 'EVIDENCE', f'{label}: retrieval identity, HTTPS URL and date required')
         artifact(root, retrieval.get('artifact_path'), retrieval.get('sha256'), out, f'{label} source')
+        if source.get('status') == 'APPROVED_FOR_REDISTRIBUTION' and metadata_only_source_artifact(source):
+            issue(out, 'SOURCE_ARTIFACT',
+                  f'{label}: index/statistics metadata is not original corpus bytes')
         license_info = source.get('license') or {}
         if not isinstance(license_info, dict):
             license_info = {}
@@ -132,7 +206,13 @@ def evaluate(ledger, manifest, dailies, root):
                 'creativecommons.org/publicdomain/zero/' in url or
                 'gnu.org/licenses/fdl-' in url):
                 issue(out, 'EVIDENCE', f'{label}: generic license terms are not source-specific proof')
-        artifact(root, license_info.get('evidence_path'), license_info.get('evidence_sha256'), out, f'{label} license proof')
+        proof_ok = artifact(root, license_info.get('evidence_path'),
+                            license_info.get('evidence_sha256'), out, f'{label} license proof')
+        if proof_ok and license_notice_conflicts(
+                (Path(root).resolve() / license_info['evidence_path']).resolve(), lid,
+                license_info.get('co_offered_licenses', ())):
+            issue(out, 'LICENSE_CONFLICT',
+                  f'{label}: license notice conflicts with metadata or cannot be safely checked')
         if lid == 'PUBLIC-DOMAIN':
             pd = license_info.get('public_domain_proof') or {}
             if not isinstance(pd, dict) or not all(text(pd.get(k)) for k in ('jurisdiction', 'legal_basis', 'work_date')):
