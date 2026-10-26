@@ -15,6 +15,8 @@ QID = re.compile(r"Q[1-9][0-9]*\Z")
 LEXEME = re.compile(r"L[1-9][0-9]*\Z")
 SENSE = re.compile(r"L[1-9][0-9]*-S[1-9][0-9]*\Z")
 FORM = re.compile(r"L[1-9][0-9]*-F[1-9][0-9]*\Z")
+SOURCE_LANGUAGE_QIDS = {"de": "Q188", "en": "Q1860", "ar": "Q13955"}
+LICENSE_NOTICE_PATH = "legal/ledger/evidence/wikidata-20261023/copyright-1523614187.txt"
 
 
 def digest(data):
@@ -91,6 +93,8 @@ def build(root, receipt):
             or receipt.get("source_admission_approved") is not False
             or receipt.get("original_lexeme_json_pinned") is not True):
         raise ValueError("review-only source gate")
+    if receipt.get("license_evidence_path") != LICENSE_NOTICE_PATH:
+        raise ValueError("untrusted license evidence path")
     notice = pinned(root, receipt["license_evidence_path"], receipt["license_evidence_sha256"])
     if b"Lexeme" not in notice or b"Creative Commons CC0 License" not in notice:
         raise ValueError("scoped Wikidata license evidence missing")
@@ -101,6 +105,8 @@ def build(root, receipt):
         if (language, lexeme_id) in source_identities:
             raise ValueError("duplicate source lexeme")
         source_identities.add((language, lexeme_id))
+        if source.get("language_qid") != SOURCE_LANGUAGE_QIDS.get(language):
+            raise ValueError("untrusted source language QID")
         if (language not in ("de", "en", "ar") or not LEXEME.fullmatch(lexeme_id)
                 or source["path"] != "legal/ledger/evidence/wikidata-20261023/%s-%s.json" %
                 (lexeme_id, source["revision"])):
