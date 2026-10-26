@@ -32,8 +32,11 @@ SUITES = {
     "registry_unit": ("catalog", "test_registry.py"),
     "utils": ("tests", "test_utils.py"),
     "inventory": ("tests/merge_accelerator", "test_inventory.py"),
+    "factory_dispatcher": ("tests/gha_factory/dispatcher", "test_*.py"),
+    "factory_orchestration": ("tests/gha_factory/orchestration", "test_*.py"),
+    "factory_queue_autoseed": ("tests/gha_factory/queue_autoseed", "test_*.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "licensing", "ledger", "utils", "registry_unit", "inventory")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "licensing", "ledger", "utils", "registry_unit", "inventory", "factory_dispatcher", "factory_orchestration", "factory_queue_autoseed")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -60,6 +63,16 @@ JSON_SECURITY_PATHS = ("tests/ci_security/",)
 JSON_WORKFLOW = ".github/workflows/validate_json.yml"
 JANITOR_PATHS = ("tools/pr_janitor.py", "tools/test_pr_janitor.py",
                  ".github/workflows/pr_janitor.yml")
+# Factory-only PRs run affected suites in one required check. Unrelated global
+# registry and SQLite fixtures remain mandatory for mixed or unknown changes.
+FACTORY_CODE_PREFIXES = (
+    "tools/gha_factory/dispatcher/",
+    "tools/gha_factory/orchestration/",
+    "tools/gha_factory/queue_autoseed/",
+)
+FACTORY_DISPATCH_WORKFLOW = ".github/workflows/gha_dispatcher.yml"
+FACTORY_QUEUE_WORKFLOW = ".github/workflows/gha_queue_autoseed.yml"
+FACTORY_REGRESSION_WORKFLOW = ".github/workflows/gha_factory_regressions.yml"
 SENSITIVE_DOCS = ("docs/governance/", "docs/merge_coordinator/",
                   "docs/security/", "docs/release/", "docs/CI_")
 ROOT_PROSE_DOCS = frozenset(("README.md", "CHANGELOG.md", "CONTRIBUTING.md"))
@@ -104,6 +117,10 @@ def select_baseline_checks(changed_paths):
         return tuple(selected)
 
     def low_risk(path):
+        if path.startswith(FACTORY_CODE_PREFIXES) or path in (
+                FACTORY_DISPATCH_WORKFLOW, FACTORY_QUEUE_WORKFLOW,
+                FACTORY_REGRESSION_WORKFLOW):
+            return True
         # New licensing logic must retain the full global safety baseline.
         if path.startswith("legal/licensing/"):
             return False
@@ -117,7 +134,8 @@ def select_baseline_checks(changed_paths):
 
     if not all(low_risk(path) for path in changed_paths):
         return BASELINE_ORDER
-    if any(path.startswith(POLICY_PATHS) or path == POLICY_WORKFLOW
+    if any(path.startswith(POLICY_PATHS) or path in (
+            POLICY_WORKFLOW, FACTORY_REGRESSION_WORKFLOW)
            for path in changed_paths):
         return ("policy",)
     return ()
@@ -137,6 +155,12 @@ def select_suites(changed_paths):
     for path in changed_paths:
         if not isinstance(path, str) or not path or "\\" in path or ".." in path.split("/"):
             continue
+        if path.startswith(("tools/gha_factory/dispatcher/", "tests/gha_factory/dispatcher/")) or path == FACTORY_DISPATCH_WORKFLOW:
+            selected.add("factory_dispatcher")
+        if path.startswith(("tools/gha_factory/orchestration/", "tests/gha_factory/orchestration/")) or path == FACTORY_DISPATCH_WORKFLOW:
+            selected.add("factory_orchestration")
+        if path.startswith(("tools/gha_factory/queue_autoseed/", "tests/gha_factory/queue_autoseed/")) or path == FACTORY_QUEUE_WORKFLOW:
+            selected.add("factory_queue_autoseed")
         if path.startswith("tools/media_optimizer/"):
             selected.add("media")
         if path.startswith("tools/pronunciation_metadata/"):
@@ -178,7 +202,10 @@ def select_suites(changed_paths):
         if path.startswith("catalog/"):
             selected.add("registry_unit")
         if path.startswith("legal/ledger/"):
-            selected.update(name for name in ORDER if name not in ("utils", "inventory", "licensing"))
+            # Factory infrastructure is not a consumer of the legal ledger.
+            selected.update(name for name in ORDER if name not in (
+                "utils", "inventory", "licensing", "factory_dispatcher",
+                "factory_orchestration", "factory_queue_autoseed"))
         if path.startswith("tools/contribution_gate/"):
             selected.update(("pronunciation", "audio"))
     return tuple(name for name in ORDER if name in selected)

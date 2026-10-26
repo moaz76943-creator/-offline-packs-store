@@ -132,8 +132,81 @@ class FactoryTests(unittest.TestCase):
         with self.assertRaisesRegex(Rejected,'remapped'):
             verified_catalog(self.catalog, {'deu':'ar'})
 
+    def test_catalog_rejects_malformed_language_manifest(self):
+        # Synthetic catalog corruption must fail closed, not crash or accept
+        # non-string language identities as canonical production IDs.
+        original = self.catalog.read_text(encoding='utf-8')
+        baseline = json.loads(original)['languages']
+        invalid = [
+            None,
+            {'code': 'de'},
+            [None] + baseline[1:],
+            [{'code': ['de']}] + baseline[1:],
+            [{'code': None}] + baseline[1:],
+        ]
+        try:
+            for languages in invalid:
+                with self.subTest(languages=repr(languages)[:80]):
+                    self.catalog.write_text(json.dumps({'languages': languages}),
+                                            encoding='utf-8')
+                    with self.assertRaisesRegex(Rejected, 'canonical 100-language manifest'):
+                        verified_catalog(self.catalog, {})
+        finally:
+            self.catalog.write_text(original, encoding='utf-8')
+
+    def test_catalog_rejects_malformed_explicit_language_mappings(self):
+        for mappings in [None, [], {'zzz': ['zz005']},
+                         {7: 'zz005'}, {'zzz': None}]:
+            with self.subTest(mappings=mappings):
+                with self.assertRaisesRegex(Rejected, 'invalid explicit language mapping'):
+                    verified_catalog(self.catalog, mappings)
+
     def test_empty_route05_ledger_blocks_approval(self):
         self.assertFalse(source_approval(self.ledger,'tatoeba',self.snapshots['cc0']['sha256']))
+
+    def test_route05_approval_requires_well_formed_evidence_and_rows(self):
+        approved = {
+            'source_id': 'tatoeba', 'kind': 'examples',
+            'status': 'APPROVED_FOR_REDISTRIBUTION',
+            'license': {'id': 'CC0-1.0', 'evidence_sha256': 'b' * 64,
+                        'evidence_url': 'https://example.org/license'},
+            'retrieval': {'sha256': self.snapshots['cc0']['sha256'],
+                          'identity': 'pinned-cc0-export',
+                          'url': 'https://example.org/export'},
+            'review': {'reviewer': 'test-reviewer',
+                       'decision_url': 'https://example.org/review'},
+        }
+
+        def write_sources(rows):
+            self.ledger.write_text(json.dumps(
+                {'schema_version': '1.0.0', 'sources': rows}), encoding='utf-8')
+
+        write_sources([approved])
+        self.assertTrue(source_approval(
+            self.ledger, 'tatoeba', self.snapshots['cc0']['sha256']))
+
+        # An arbitrary nonempty string is not an evidence SHA-256.
+        bad_digest = dict(approved, license=dict(approved['license'], evidence_sha256='bogus'))
+        write_sources([bad_digest])
+        self.assertFalse(source_approval(
+            self.ledger, 'tatoeba', self.snapshots['cc0']['sha256']))
+
+        # Malformed ledger records and nested evidence must fail closed with
+        # a classified error, never an uncaught AttributeError/TypeError.
+        malformed = [
+            [None],
+            [dict(approved, license=['CC0-1.0'])],
+            [dict(approved, retrieval=dict(approved['retrieval'],
+                                            url=['https://example.org/export']))],
+            [dict(approved, review=dict(approved['review'],
+                                         decision_url=['https://example.org/review']))],
+        ]
+        for rows in malformed:
+            with self.subTest(rows=rows):
+                write_sources(rows)
+                with self.assertRaisesRegex(Rejected, 'malformed Route 05 ledger'):
+                    source_approval(self.ledger, 'tatoeba',
+                                    self.snapshots['cc0']['sha256'])
 
     def test_malformed_and_oversized_tsv_lines(self):
         p = self.source/'malformed.tsv'
@@ -242,6 +315,38 @@ class FactoryTests(unittest.TestCase):
         after = [(x.name,digest(x)) for x in sorted((self.out/'verified_candidates').glob('*.jsonl'))]
         self.assertEqual(before,after)
         self.assertEqual(a['checkpoint'],b['checkpoint'])
+
+    def test_locale_specific_choice_equivalence(self):
+        # Synthetic-only attestation: default casefold conflates Turkish I/i
+        # and German ß/ss, while missing Turkish I/ı and İ/i duplicates.
+        for language, answer, other in (('tr', 'I', 'i'),
+                                         ('de', 'Maße', 'Masse'),
+                                         ('tr', 'I', 'ı'),
+                                         ('tr', 'İ', 'i')):
+            text = answer + ' fixture.'
+            sentence = {'id': 'fixture', 'language': language, 'text': text,
+                        'admitted': True}
+            annotation = {
+                'sentence_id': 'fixture', 'language': language,
+                'sentence_sha256': sha(text), 'editorial_unambiguous': True,
+                'editor_review_url': 'https://example.org/review',
+                'start': 0, 'end': len(answer), 'sense_id': 's1',
+                'lexeme_id': 'l1', 'features': {'number': 'singular'},
+                'distractors': [{'surface': other, 'sense_id': 's2'},
+                                {'surface': 'fixtureword', 'sense_id': 's3'}]}
+            senses = {sid: {'language': language, 'lexeme_id': 'l' + sid[1:],
+                            'approved': True} for sid in ('s1', 's2', 's3')}
+            tags = (('number', 'singular'),)
+            forms = {(language, sid, surface, tags)
+                     for sid, surface in (('s1', answer), ('s2', other),
+                                          ('s3', 'fixtureword'))}
+            with self.subTest(language=language, answer=answer, other=other):
+                if (answer, other) in (('I', 'ı'), ('İ', 'i')):
+                    with self.assertRaisesRegex(Rejected, 'ambiguous distractor'):
+                        make_cloze(sentence, annotation, senses, forms)
+                else:
+                    result = make_cloze(sentence, annotation, senses, forms)
+                    self.assertEqual([answer, other, 'fixtureword'], result['options'])
 
     def test_cloze_requires_attested_morphology_and_editorial_review(self):
         text = 'I read books.'

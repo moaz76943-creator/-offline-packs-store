@@ -6,7 +6,7 @@ import json
 import unicodedata
 
 import regex  # Full Unicode extended grapheme clusters (UAX #29, pinned in QA workflow).
-from tools.gha_factory.examples.factory import MAX_TEXT, Rejected, make_cloze
+from tools.gha_factory.examples.factory import MAX_TEXT, Rejected, make_cloze, _choice_key
 
 
 class ExerciseError(ValueError):
@@ -71,7 +71,7 @@ def verify_cloze(exercise, sentence, annotation, senses, forms, languages):
         raise ExerciseError('CANDIDATE_TAMPERED_OR_STALE')
     if exercise.get('status') != 'VERIFIED_CANDIDATE_NOT_PUBLISHED':
         raise ExerciseError('INVALID_CANDIDATE_STATUS')
-    if len(exercise['options']) != len(set(_nfc(x).casefold() for x in exercise['options'])):
+    if len(exercise['options']) != len(set(_choice_key(x, language) for x in exercise['options'])):
         raise ExerciseError('DUPLICATE_CHOICES')
     return {'exercise_id': rebuilt['exercise_id'], 'language': sentence['language'],
             'source_sha256': sentence['source_sha256'],

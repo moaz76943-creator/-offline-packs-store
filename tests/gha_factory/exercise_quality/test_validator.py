@@ -126,6 +126,28 @@ class ExerciseQualityTests(unittest.TestCase):
                 verify_cloze(exercise, self.sentence, self.annotation,
                              self.senses, self.forms, {'de'})
 
+    def test_locale_specific_choice_replay(self):
+        # Synthetic replay fixture: no claim of source or publication approval.
+        for language, options in (('tr', ['I', 'i', 'kitap']),
+                                  ('de', ['Maße', 'Masse', 'Buch'])):
+            with self.subTest(language=language):
+                sentence = dict(self.sentence, language=language)
+                exercise = dict(self.exercise, language=language, options=options)
+                with patch('tools.gha_factory.exercise_quality.validator.make_cloze',
+                           return_value=exercise):
+                    receipt = verify_cloze(exercise, sentence, self.annotation,
+                                           self.senses, self.forms, {'tr', 'de'})
+                self.assertEqual('REVIEW_REQUIRED', receipt['quality_status'])
+        for options in (['I', 'ı', 'kitap'], ['İ', 'i', 'kitap']):
+            sentence = dict(self.sentence, language='tr')
+            exercise = dict(self.exercise, language='tr', options=options)
+            with self.subTest(options=options), patch(
+                    'tools.gha_factory.exercise_quality.validator.make_cloze',
+                    return_value=exercise):
+                with self.assertRaisesRegex(ExerciseError, 'DUPLICATE_CHOICES'):
+                    verify_cloze(exercise, sentence, self.annotation,
+                                 self.senses, self.forms, {'tr'})
+
     def test_nfc_equivalent_attested_alternate_is_ambiguous(self):
         self.assertEqual('AMBIGUOUS', evaluate_response('e\u0301', {'other'}, {'é'}))
 
