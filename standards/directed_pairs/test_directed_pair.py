@@ -1,12 +1,14 @@
 import copy
+import io
 import hashlib
 import json
 import sqlite3
 import tempfile
 import unittest
 from pathlib import Path
+from contextlib import redirect_stderr
 
-from validate import DirectedPairContractError, validate, verify_compatible
+from validate import DirectedPairContractError, validate, verify_compatible, main as validate_cli_main
 from sqlite_v2 import build, check_mapping_version
 
 HERE = Path(__file__).parent
@@ -19,6 +21,29 @@ def fixture(name='positive'):
 class DirectedPairSchemaTest(unittest.TestCase):
     def setUp(self):
         self.data = fixture()
+
+    def test_cli_rejects_duplicate_direction_and_rights_keys(self):
+        """CLI must not silently accept last-key-wins direction or approval."""
+        raw = json.dumps(self.data)
+        cases = (
+            ('"source_language": "de"',
+             '"source_language": "fr", "source_language": "de"',
+             'source_language'),
+            ('"publication_approved": false',
+             '"publication_approved": true, "publication_approved": false',
+             'publication_approved'),
+        )
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'ambiguous.json'
+            for original, duplicate, field in cases:
+                self.assertIn(original, raw)
+                path.write_text(raw.replace(original, duplicate, 1),
+                                encoding='utf-8')
+                errors = io.StringIO()
+                with redirect_stderr(errors):
+                    self.assertEqual(validate_cli_main([str(path)]), 1)
+                self.assertIn('duplicate JSON key: ' + field,
+                              errors.getvalue())
 
     def test_positive_fixture(self):
         self.assertIs(validate(self.data), self.data)
