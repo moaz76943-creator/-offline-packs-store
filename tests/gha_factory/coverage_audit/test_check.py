@@ -780,6 +780,38 @@ class CoverageAuditTests(unittest.TestCase):
                                'verified_count': 1}])
 
 
+    def test_unselected_shard_rejects_unknown_secondary_script(self):
+        # Sharding cannot hide an unregistered non-default writing system.
+        self.values['catalog/language_registry.v1.json']['languages'][0]['scripts'].append('Fake')
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'invalid canonical script'):
+            checker.audit(self.root, shard=1, shards=100)
+
+    def test_unselected_shard_rejects_malformed_secondary_direction(self):
+        # Secondary scripts must also carry a valid direction, even though
+        # the manifest's default direction belongs to the default script.
+        registry = self.values['catalog/language_registry.v1.json']
+        registry['scripts']['Cyrl'] = {'direction': 'sideways'}
+        registry['languages'][0]['scripts'].append('Cyrl')
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'script direction'):
+            checker.audit(self.root, shard=1, shards=100)
+
+    def test_unselected_shard_rejects_duplicate_script_declaration(self):
+        self.values['catalog/language_registry.v1.json']['languages'][0]['scripts'].append('Latn')
+        self.write_all()
+        with self.assertRaisesRegex(checker.AuditError, 'duplicate.*script'):
+            checker.audit(self.root, shard=1, shards=100)
+
+    def test_valid_multiscript_registry_preserves_default_direction(self):
+        # A secondary RTL writing system does not change the LTR default.
+        registry = self.values['catalog/language_registry.v1.json']
+        registry['scripts']['Arab'] = {'direction': 'rtl'}
+        registry['languages'][0]['scripts'].append('Arab')
+        self.write_all()
+        self.assertEqual(checker.audit(self.root, shard=1, shards=100)['status'], 'PASS')
+
+
     def test_unselected_shard_rejects_invalid_default_script(self):
         # An audit of 'ab' must not PASS while unselected 'aa' references
         # a script that is absent from the canonical registry.
