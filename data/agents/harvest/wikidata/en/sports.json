@@ -1,0 +1,35 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-26",
+  "rows": [
+    {
+      "concept_id": "concept.q14786282",
+      "forms": [
+        "snatch",
+        "snatches"
+      ],
+      "language": "en",
+      "lemma": "snatch",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L328017",
+      "pos": "",
+      "qids": [
+        "Q14786282"
+      ],
+      "record_id": "L328017",
+      "retrieval_date": "2026-10-26",
+      "revision": "2347600397",
+      "schema_version": "1.0.0",
+      "section": "sports",
+      "sense_id": "L328017-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "sports.q349",
+      "wikidata": "Q14786282"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "sports",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}
