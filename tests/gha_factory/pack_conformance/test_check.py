@@ -61,15 +61,17 @@ class ConformanceTests(unittest.TestCase):
     def test_duplicate_key_bypass_rejected(self):
         raw = gzip.decompress(self.archive)
         bad = gzip.compress(b'{"packId":"wrong",'+raw[1:], mtime=0)
-        # Prove the old canonical inspector accepts this ambiguous representation.
-        candidate.inspect_archive(bad, 'de', allow_fixture=True)
+        # Both candidate and stricter conformance paths must now fail closed.
+        with self.assertRaisesRegex(candidate.ReleaseError, 'invalid envelope'):
+            candidate.inspect_archive(bad, 'de', allow_fixture=True)
         with self.assertRaisesRegex(ValueError, 'duplicate'):
             self.inspect(bad)
 
     def test_nonfinite_unknown_metadata_rejected(self):
         raw = gzip.decompress(self.archive)
         bad = gzip.compress(b'{"unused":NaN,'+raw[1:], mtime=0)
-        candidate.inspect_archive(bad, 'de', allow_fixture=True)
+        with self.assertRaisesRegex(candidate.ReleaseError, 'invalid envelope'):
+            candidate.inspect_archive(bad, 'de', allow_fixture=True)
         with self.assertRaises(ValueError):
             self.inspect(bad)
 

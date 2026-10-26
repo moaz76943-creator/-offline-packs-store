@@ -140,11 +140,15 @@ def command_packs(_args):
     for language, group in sorted(by_language.items()):
         result = build_pack(group, _out(f'data/agents/packs/{language}.sqlite'))
         wrote += int(bool(result.get('wrote')))
-    warning = '' if wrote or not rows else 'rows were not traceable'
+    warning = ('LEGACY_CANDIDATE_ONLY: entries-only SQLite is not v2 or production'
+               if wrote else 'no new legacy candidate; no production packs')
     if not rows:
         warning = 'no harvested rows; root manifest was not modified'
-    write_heartbeat(_out('state/agents'), 'packs', 'ok', warning)
-    print(json.dumps({'packs': wrote, 'warning': warning}))
+    # An operationally completed agent is not a successful pack release.
+    write_heartbeat(_out('state/agents'), 'packs', 'degraded', warning)
+    print(json.dumps({'packs': wrote, 'candidate_packs': wrote,
+                      'production_packs': 0, 'production_status': 'LEGACY_CANDIDATE_ONLY',
+                      'warning': warning}))
     return 0
 
 
@@ -328,7 +332,7 @@ def command_harvest(args):
     if _halt(name):
         return 0
     from datetime import date
-    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexemes
+    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexeme_page
     languages = load_languages()['languages']
     by_qid = {row['wikidata']: row['id'] for row in languages if row.get('wikidata') and row.get('id')}
     profiles = {row['id']: row for row in load_profiles().get('languages') or []}
@@ -369,52 +373,105 @@ def command_harvest(args):
     retrieved = date.today().isoformat()
     grouped = {}
     skipped = []
+    source_errors = 0
+    outcomes = []
+    kaikki_byte_offset = None
     if name == 'harvest-wikidata':
+        offsets = cursor.get('search_offsets', {})
+        valid_qids = {row.get('wikidata') for row in concept_rows(graph)}
+        if not isinstance(offsets, dict):
+            offsets = {}
+            cursor_warning = 'malformed Wikidata pagination checkpoint; restarted'
+        else:
+            cleaned = {qid: offset for qid, offset in offsets.items()
+                       if qid in valid_qids and type(offset) is int and 0 < offset <= 10000}
+            if len(cleaned) != len(offsets):
+                cursor_warning = 'stale or malformed Wikidata pagination entries; dropped'
+            offsets = cleaned
         for concept in concepts:
+            qid = concept['wikidata']
+            offset = offsets.get(qid, 0)
+            outcome = {'wikidata': concept.get('wikidata'), 'fetched_entities': 0,
+                       'accepted_rows': 0, 'rejected_entities': 0, 'search_offset': offset}
+            outcomes.append(outcome)
             try:
-                ids = search_lexemes(concept['wikidata'])
+                ids, next_offset = search_lexeme_page(qid, offset=offset)
                 entities = load_lexemes(ids)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
-                skipped.append({'wikidata': concept.get('wikidata'), 'reason': exc.__class__.__name__})
+                source_errors += 1
+                outcome['status'] = 'SOURCE_ERROR'
+                code = getattr(exc, 'code', None)
+                reason = exc.__class__.__name__
+                if isinstance(code, int):
+                    reason = f'{reason}:{code}'
+                outcome['reason'] = reason
+                skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                 continue
+            outcome['fetched_entities'] = len(entities)
+            outcome['status'] = 'FETCHED' if entities else 'EMPTY_SEARCH'
             for entity in entities.values():
                 rows, reason = rows_from_lexeme(entity, concept, by_qid, profiles, retrieved)
                 if reason != 'keep':
-                    if reason in ('exclude', 'quarantine', 'placeholder'):
-                        skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
+                    outcome['rejected_entities'] += 1
+                    skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                     continue
+                outcome['accepted_rows'] += len(rows)
                 for row in rows:
                     grouped.setdefault((row['language'], row['section']), []).append(row)
+            # Commit the page cursor only after fetch and parsing succeed.
+            # A source error preserves its offset for the next concept rotation.
+            if next_offset:
+                offsets[qid] = next_offset
+            else:
+                offsets.pop(qid, None)
     elif name == 'harvest-kaikki':
+        from tools.agents.harvest import (
+            KAIKKI_MAX_ROWS, SourceAPIError, kaikki_window, rows_from_kaikki_record,
+        )
         notice = (ROOT / 'legal' / 'source_evidence' / 'wiktionary-copyrights.txt').read_text(encoding='utf-8')
+        concepts_by_qid = {}
+        for concept in concept_rows(graph):
+            qid = concept.get('wikidata')
+            if isinstance(qid, str) and qid:
+                concepts_by_qid.setdefault(qid, []).append(concept)
+        offset = cursor.get('byte_offset', 0)
+        if type(offset) is not int or offset < 0 or offset > 2_000_000_000:
+            offset = 0
+            cursor_warning = 'malformed Kaikki byte cursor; restarted'
+        next_byte = offset
         try:
             accept_notice(notice, 'CC-BY-SA-4.0', ('GFDL-1.3-only',))
-            from tools.agents.harvest import fetch_bytes
-            raw = fetch_bytes(
-                'https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl',
-                max_bytes=120000,
-            )
-        except (OSError, SourceSkip, UnicodeError) as exc:
+            raw, next_byte, _eof = kaikki_window(offset)
+        except (OSError, SourceSkip, UnicodeError, SourceAPIError, ValueError) as exc:
+            source_errors += 1
             skipped.append({'reason': exc.__class__.__name__})
             raw = b''
-        wanted = {row['wikidata'] for row in concepts}
-        for line in raw.splitlines():
+            next_byte = offset
+        kept = 0
+        consumed = 0
+        capped = False
+        for raw_line in raw.splitlines(keepends=True):
+            if kept >= KAIKKI_MAX_ROWS:
+                capped = True
+                break
+            consumed += len(raw_line)
+            line = raw_line.rstrip(b'\r\n')
             if not line.startswith(b'{') or not line.endswith(b'}'):
                 continue
             try:
                 obj = json.loads(line)
             except json.JSONDecodeError:
+                skipped.append({'reason': 'malformed_json'})
                 continue
-            qids = []
-            for sense in obj.get('senses') or []:
-                for qid in sense.get('wikidata') or []:
-                    if isinstance(qid, str):
-                        qids.append(qid)
-            if not set(qids) & wanted:
+            rows = rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved)
+            if not rows:
                 continue
-            # Kaikki lines in the sampled window have not carried a Wiktionary revision.
-            # Without a page revision the row is not traceable, so it is not stored.
-            skipped.append({'reason': 'missing_wiktionary_revision', 'word': obj.get('word')})
+            kept += len(rows)
+            for row in rows:
+                grouped.setdefault((row['language'], row['section']), []).append(row)
+        # A full slice advances past its last complete line. A row cap stops
+        # on the first unstored line so the next run does not skip it.
+        kaikki_byte_offset = offset + consumed if capped else next_byte
     elif name == 'harvest-tatoeba':
         from tools.agents.harvest import TATOEBA_CODES, tatoeba_sample
         notice = (ROOT / 'legal' / 'source_evidence' / 'tatoeba-terms.txt').read_text(encoding='utf-8')
@@ -542,22 +599,43 @@ def command_harvest(args):
             'rows': [],
             'skipped': skipped,
             'concepts_attempted': [row.get('wikidata') or row.get('language') for row in concepts],
+            'outcomes': outcomes,
+        })
+    if name == 'harvest-wikidata':
+        write_json(_out(f'state/agents/{name}-report.json'), {
+            'schema_version': '1.0.0', 'source': name, 'retrieval_date': retrieved,
+            'outcomes': outcomes, 'source_errors': source_errors,
+            'accepted_rows': sum(item['accepted_rows'] for item in outcomes),
+            'production_publication': False,
         })
     # Advance only after bounded source processing finishes. The existing
     # checkpoint publisher writes the cursor to agents/data on each run.
-    write_json(_out(cursor_path), {
+    cursor_payload = {
         'schema_version': '1.0.0',
         'next_index': next_index,
-    })
+    }
+    if name == 'harvest-wikidata':
+        cursor_payload['search_offsets'] = offsets
+    if kaikki_byte_offset is not None:
+        cursor_payload['byte_offset'] = kaikki_byte_offset
+    write_json(_out(cursor_path), cursor_payload)
     warning_text = f'skipped {len(skipped)}' if skipped else ''
     if not wrote:
         warning_text = warning_text or 'no candidate rows; not production throughput'
-    write_heartbeat(_out('state/agents'), name,
-                    'ok' if wrote else 'degraded', warning_text)
+    # A concept that raises after sibling concepts already wrote rows is a
+    # degraded run, not a failed one. A run that wrote nothing stays failed.
+    incomplete = bool(source_errors) and not wrote
+    if source_errors and wrote:
+        extra = f'{source_errors} concept source errors after rows were written'
+        warning_text = f'{warning_text}; {extra}' if warning_text else extra
+    heartbeat_status = (
+        'failed' if incomplete else ('degraded' if source_errors or not wrote else 'ok')
+    )
+    write_heartbeat(_out('state/agents'), name, heartbeat_status, warning_text)
     warnings = [item for item in (warning, cursor_warning, window_warning) if item]
     print(json.dumps({'files': wrote, 'skipped': len(skipped),
                       'attempted_concepts': len(concepts), 'warning': '; '.join(warnings)}))
-    return 0
+    return 1 if incomplete else 0
 
 
 def command_watchdog(_args):

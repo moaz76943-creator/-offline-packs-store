@@ -4,7 +4,10 @@ Every function tolerates missing input. None of them invent words.
 """
 
 import hashlib
+import os
+import shutil
 import sqlite3
+import tempfile
 from collections import defaultdict
 from pathlib import Path
 
@@ -376,36 +379,83 @@ def attribution_text(source_id, license_id, origin, count):
 
 
 def build_pack(rows, output):
-    """Write a candidate sqlite of traceable rows. Refuses an empty pack."""
+    """Stage a non-production legacy candidate before replacing earlier bytes.
+
+    These entries-only databases are NOT canonical SQLite v2, source approved or
+    publishable. Failures must leave the prior database and receipt intact.
+    """
     kept = [row for row in rows or [] if row_traceable(row)]
     output = Path(output)
     if not kept:
-        return {'wrote': False, 'reason': 'no traceable rows', 'sha256': None}
+        return {'wrote': False, 'reason': 'no traceable rows', 'sha256': None,
+                'production_ready': False}
     output.parent.mkdir(parents=True, exist_ok=True)
-    if output.exists():
-        output.unlink()
-    connection = sqlite3.connect(output)
-    try:
-        connection.execute(
-            'CREATE TABLE entries (language TEXT, concept_id TEXT, lemma TEXT, '
-            'source_id TEXT, record_id TEXT, license_id TEXT, retrieval_date TEXT)'
-        )
-        connection.executemany(
-            'INSERT INTO entries VALUES (?,?,?,?,?,?,?)',
-            [(
-                row.get('language'), row.get('concept_id'), row.get('lemma') or row.get('text'),
-                row.get('source_id'), row.get('record_id'), row.get('license_id'),
-                row.get('retrieval_date'),
-            ) for row in kept],
-        )
-        connection.commit()
-    finally:
-        connection.close()
-    digest = hashlib.sha256(output.read_bytes()).hexdigest()
-    write_json(output.with_suffix('.sha256.json'), {
-        'schema_version': SCHEMA_VERSION,
-        'path': str(output),
-        'sha256': digest,
-        'rows': len(kept),
-    })
-    return {'wrote': True, 'reason': '', 'sha256': digest, 'rows': len(kept)}
+    receipt_path = output.with_suffix('.sha256.json')
+
+    with tempfile.TemporaryDirectory(prefix=f'.{output.name}.', dir=output.parent) as tmp:
+        staging = Path(tmp)
+        candidate = staging / 'candidate.sqlite'
+        with sqlite3.connect(candidate) as connection:
+            connection.execute(
+                'CREATE TABLE entries (language TEXT, concept_id TEXT, lemma TEXT, '
+                'source_id TEXT, record_id TEXT, license_id TEXT, retrieval_date TEXT)'
+            )
+            connection.executemany(
+                'INSERT INTO entries VALUES (?,?,?,?,?,?,?)',
+                [(
+                    row.get('language'), row.get('concept_id'),
+                    row.get('lemma') or row.get('text'), row.get('source_id'),
+                    row.get('record_id'), row.get('license_id'),
+                    row.get('retrieval_date'),
+                ) for row in kept],
+            )
+            connection.commit()
+
+        with sqlite3.connect(candidate) as connection:
+            if connection.execute('PRAGMA integrity_check').fetchone() != ('ok',):
+                raise ValueError('Legacy candidate failed SQLite integrity_check')
+            if connection.execute('SELECT count(*) FROM entries').fetchone()[0] != len(kept):
+                raise ValueError('Legacy candidate count mismatch')
+        digest_state = hashlib.sha256()
+        with candidate.open('rb') as source:
+            for chunk in iter(lambda: source.read(65536), b''):
+                digest_state.update(chunk)
+        digest = digest_state.hexdigest()
+        receipt = staging / 'candidate.sha256.json'
+        write_json(receipt, {
+            'schema_version': SCHEMA_VERSION,
+            'path': str(output),
+            'sha256': digest,
+            'rows': len(kept),
+            'format': 'legacy-entry-candidate',
+            'production_ready': False,
+        })
+        # Idempotent reruns must not churn the shared agents/data checkpoint.
+        # Compare on-disk bytes and metadata, not old, potentially stale flags.
+        if (output.is_file() and receipt_path.is_file()
+                and output.stat().st_size == candidate.stat().st_size):
+            with output.open('rb') as old, candidate.open('rb') as new:
+                if all(a == b for a, b in zip(iter(lambda: old.read(65536), b''),
+                                               iter(lambda: new.read(65536), b''))):
+                    if receipt_path.read_bytes() == receipt.read_bytes():
+                        return {'wrote': False, 'reason': 'unchanged candidate',
+                                'sha256': digest, 'rows': len(kept),
+                                'production_ready': False}
+
+        previous = staging / 'previous.sqlite'
+        existed = output.exists()
+        if existed:
+            # Disk-to-disk backup, never loading the previous pack into memory.
+            shutil.copy2(output, previous)
+        try:
+            os.replace(candidate, output)
+            os.replace(receipt, receipt_path)
+        except OSError:
+            if existed:
+                os.replace(previous, output)
+            else:
+                output.unlink(missing_ok=True)
+            raise
+
+    return {'wrote': True, 'reason': '', 'sha256': digest,
+            'rows': len(kept), 'production_ready': False}

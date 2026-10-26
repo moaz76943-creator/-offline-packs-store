@@ -1,10 +1,14 @@
 """Bounded source adapters. A failed source is skipped; it does not invent a row."""
 
 import json
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
-from tools.agents.common import BLOCKED_CONCEPTS, SCHEMA_VERSION, is_placeholder, script_matches
+from tools.agents.common import (
+    BLOCKED_CONCEPTS, SCHEMA_VERSION, is_placeholder, policy_qids, script_matches,
+)
 from tools.open_sources.assess import positive_match
 
 USER_AGENT = 'offline-packs-store/1.0 (language-production)'
@@ -18,10 +22,41 @@ class SourceSkip(Exception):
     pass
 
 
-def fetch_bytes(url, timeout=30, max_bytes=200000):
-    request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return response.read(max_bytes + 1)[:max_bytes]
+class SourceAPIError(ValueError):
+    """A failed or malformed upstream response, never evidence of an empty source."""
+
+
+def _wikidata_payload(payload):
+    if not isinstance(payload, dict):
+        raise SourceAPIError('malformed Wikidata response')
+    if 'error' in payload:
+        error = payload['error']
+        code = error.get('code', 'unknown') if isinstance(error, dict) else 'unknown'
+        raise SourceAPIError(f'Wikidata API error: {code}')
+    return payload
+
+
+_TRANSIENT_HTTP = frozenset({429, 500, 502, 503, 504})
+
+
+def fetch_bytes(url, timeout=30, max_bytes=200000, attempts=3, pause=None):
+    """Read a bounded body. Retry only transient HTTP statuses, at most twice."""
+    if type(attempts) is not int or not 1 <= attempts <= 3:
+        raise SourceAPIError('invalid fetch attempt bound')
+    if pause is None:
+        pause = time.sleep
+    last = None
+    for attempt in range(attempts):
+        request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT})
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.read(max_bytes + 1)[:max_bytes]
+        except urllib.error.HTTPError as exc:
+            last = exc
+            if exc.code not in _TRANSIENT_HTTP or attempt + 1 == attempts:
+                raise
+            pause(attempt + 1)
+    raise last
 
 
 def fetch_json(url, timeout=30):
@@ -100,23 +135,48 @@ def rows_from_lexeme(entity, concept, language_by_qid, profiles, retrieved):
     }], 'keep'
 
 
-def search_lexemes(qid, fetch=fetch_json, limit=8):
+def search_lexeme_page(qid, fetch=fetch_json, limit=8, offset=0):
+    """Fetch one bounded page and return the upstream continuation, or zero at EOF."""
+    if type(offset) is not int or not 0 <= offset <= 10000:
+        raise SourceAPIError('invalid Wikidata search offset')
     query = urllib.parse.urlencode({
         'action': 'query',
         'list': 'search',
         'srsearch': f'haswbstatement:P5137={qid}',
         'srnamespace': '146',
         'srlimit': str(limit),
+        'sroffset': str(offset),
+        # Relevance changes when an existing lexeme is edited. Creation order
+        # keeps new lexemes at the tail across bounded scheduled pages.
+        'srsort': 'create_timestamp_asc',
         'format': 'json',
     })
-    payload = fetch('https://www.wikidata.org/w/api.php?' + query)
-    hits = ((payload.get('query') or {}).get('search') or [])
+    payload = _wikidata_payload(fetch('https://www.wikidata.org/w/api.php?' + query))
+    result = payload.get('query')
+    if not isinstance(result, dict) or not isinstance(result.get('search'), list):
+        raise SourceAPIError('missing Wikidata search results')
+    hits = result['search']
     ids = []
     for hit in hits:
-        title = hit.get('title') or ''
-        if title.startswith('Lexeme:'):
-            ids.append(title.split(':', 1)[1])
-    return ids
+        title = hit.get('title') if isinstance(hit, dict) else None
+        if (not isinstance(title, str) or not title.startswith('Lexeme:L')
+                or not title[8:].isascii() or not title[8:].isdigit()):
+            raise SourceAPIError('malformed Wikidata lexeme search hit')
+        ids.append(title.split(':', 1)[1])
+    continuation = payload.get('continue', {})
+    if (not isinstance(continuation, dict)
+            or ('continue' in payload and 'sroffset' not in continuation)):
+        raise SourceAPIError('malformed Wikidata search continuation')
+    next_offset = continuation.get('sroffset', 0)
+    if (type(next_offset) is not int or not 0 <= next_offset <= 10000
+            or ('continue' in payload and next_offset <= offset)):
+        raise SourceAPIError('nonadvancing Wikidata search continuation')
+    return ids, next_offset
+
+
+def search_lexemes(qid, fetch=fetch_json, limit=8):
+    """Compatibility adapter for callers requesting only the first bounded page."""
+    return search_lexeme_page(qid, fetch=fetch, limit=limit)[0]
 
 
 def load_lexemes(ids, fetch=fetch_json):
@@ -128,8 +188,13 @@ def load_lexemes(ids, fetch=fetch_json):
         'format': 'json',
         'formatversion': '2',
     })
-    payload = fetch('https://www.wikidata.org/w/api.php?' + query)
-    return payload.get('entities') or {}
+    payload = _wikidata_payload(fetch('https://www.wikidata.org/w/api.php?' + query))
+    entities = payload.get('entities')
+    if not isinstance(entities, dict) or not entities:
+        raise SourceAPIError('missing Wikidata entities')
+    if any(not isinstance(entity, dict) for entity in entities.values()):
+        raise SourceAPIError('malformed Wikidata entity')
+    return entities
 
 
 def tatoeba_sample(code, limit=12):
@@ -140,10 +205,14 @@ def tatoeba_sample(code, limit=12):
         f'{code}/{code}_sentences_detailed.tsv.bz2'
     )
     raw = fetch_bytes(url, timeout=40, max_bytes=1_500_000)
-    try:
-        text = bz2.decompress(raw).decode('utf-8', 'replace')
-    except OSError:
-        text = bz2.BZ2Decompressor().decompress(raw).decode('utf-8', 'replace')
+    # The download is intentionally capped: its BZip2 end marker may be
+    # outside the prefix. Incremental decompression accepts those prefixes
+    # without treating a normal bounded sample as corrupt.
+    decoder = bz2.BZ2Decompressor()
+    text = decoder.decompress(raw, max_length=2_000_000).decode('utf-8', 'replace')
+    # A non-final prefix can end mid-row; never publish that truncated row.
+    if not decoder.eof and not text.endswith('\n'):
+        text = text.rsplit('\n', 1)[0] if '\n' in text else ''
     rows = []
     for line in text.splitlines():
         parts = line.split('\t')
@@ -198,3 +267,145 @@ def accept_notice(notice, declared, co_offered=()):
     if not ok:
         raise SourceSkip(','.join(reasons) or 'license_rejected')
     return True
+
+
+KAIKKI_GERMAN_URL = (
+    'https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl'
+)
+KAIKKI_SLICE_BYTES = 1_500_000
+KAIKKI_MAX_ROWS = 200
+_QID = __import__('re').compile(r'^Q[1-9][0-9]*$')
+
+
+def fetch_range(url, start, length, timeout=40):
+    """Read one bounded HTTP range. A full-file download is never requested."""
+    if type(start) is not int or not 0 <= start <= 2_000_000_000:
+        raise SourceAPIError('invalid range offset')
+    if type(length) is not int or not 1 <= length <= 2_000_000:
+        raise SourceAPIError('invalid range length')
+    request = urllib.request.Request(
+        url,
+        headers={
+            'User-Agent': USER_AGENT,
+            'Range': f'bytes={start}-{start + length - 1}',
+        },
+    )
+    try:
+        response = urllib.request.urlopen(request, timeout=timeout)
+    except urllib.error.HTTPError as exc:
+        # urlopen raises 416 instead of returning a response. A persisted
+        # offset past a replaced shorter extract must restart, not fail forever.
+        if exc.code == 416:
+            return 416, None, b''
+        raise
+    with response:
+        status = response.getcode()
+        header = response.headers.get('Content-Range')
+        payload = response.read(length + 1)[:length]
+    return status, header, payload
+
+
+def kaikki_window(offset, url=KAIKKI_GERMAN_URL, size=KAIKKI_SLICE_BYTES, fetch=fetch_range):
+    """Return complete JSONL bytes and the next line-aligned offset.
+
+    The German extract is about a gigabyte. Re-reading its first 120KB never
+    reaches later Wikidata anchors. A server that ignores Range is a source
+    error, not an empty harvest of that same prefix.
+    """
+    if type(offset) is not int or offset < 0:
+        raise SourceAPIError('invalid kaikki offset')
+    status, header, payload = fetch(url, offset, size)
+    if status == 416 or payload == b'':
+        return b'', 0, True
+    if offset and (status != 206 or not isinstance(header, str)
+                   or not header.startswith(f'bytes {offset}-')):
+        raise SourceAPIError('kaikki range was not honored')
+    if status not in (200, 206):
+        raise SourceAPIError(f'unexpected kaikki status {status}')
+    newline = payload.rfind(b'\n')
+    if newline < 0:
+        # The whole window sits inside one line. Skip the fragment.
+        return b'', offset + len(payload), False
+    complete = payload[:newline + 1]
+    next_offset = offset + len(complete)
+    total = None
+    if isinstance(header, str) and '/' in header:
+        raw_total = header.rsplit('/', 1)[-1]
+        if raw_total.isdigit():
+            total = int(raw_total)
+    if total is not None and next_offset >= total:
+        return complete, 0, True
+    return complete, next_offset, False
+
+
+def rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved, url=KAIKKI_GERMAN_URL):
+    """Keep senses that carry a catalog Wikidata anchor and a real sense id.
+
+    A missing Wiktionary revision is not a reason to drop the row: the
+    Wiktextract sense id is the traceable record. Senses without that id,
+    without a catalog anchor, or tied to a blocked concept are not stored.
+    """
+    if not isinstance(obj, dict):
+        return []
+    word = obj.get('word')
+    language = obj.get('lang_code')
+    if (not isinstance(word, str) or not isinstance(language, str)
+            or language != 'de'):
+        return []
+    profile = (profiles or {}).get(language) or {}
+    if is_placeholder(word) or not script_matches(word, profile.get('script')):
+        return []
+    pos = obj.get('pos') if isinstance(obj.get('pos'), str) else ''
+    rows = []
+    for sense in obj.get('senses') or []:
+        if not isinstance(sense, dict):
+            continue
+        raw_qids = sense.get('wikidata')
+        if not isinstance(raw_qids, list):
+            continue
+        qids = [qid for qid in raw_qids if isinstance(qid, str) and _QID.fullmatch(qid)]
+        if policy_qids(qids)[0] != 'keep':
+            continue
+        sense_id = sense.get('id')
+        if (not isinstance(sense_id, str) or not sense_id.strip()
+                or any(character.isspace() for character in sense_id)
+                or len(sense_id) > 200):
+            continue
+        glosses = sense.get('glosses') or []
+        gloss = glosses[0] if glosses and isinstance(glosses[0], str) else ''
+        seen = set()
+        for qid in qids:
+            for concept in concepts_by_qid.get(qid) or []:
+                if not isinstance(concept, dict):
+                    continue
+                concept_id = concept.get('concept_id')
+                section = concept.get('section')
+                if not isinstance(concept_id, str) or not concept_id:
+                    continue
+                if not isinstance(section, str) or not section:
+                    continue
+                identity = (sense_id, concept_id)
+                if identity in seen:
+                    continue
+                seen.add(identity)
+                rows.append({
+                    'schema_version': SCHEMA_VERSION,
+                    'language': language,
+                    'section': section,
+                    'subsection': concept.get('subsection') or '',
+                    'concept_id': concept_id,
+                    'wikidata': qid,
+                    'qids': qids,
+                    'lemma': word,
+                    'gloss': gloss,
+                    'pos': pos,
+                    'source_id': 'kaikki.wiktextract',
+                    'record_id': sense_id,
+                    'sense_id': sense_id,
+                    'license_id': 'CC-BY-SA-4.0',
+                    'co_offered': ['GFDL-1.3-only'],
+                    'retrieval_date': retrieved,
+                    'origin_url': url,
+                    'status': 'keep',
+                })
+    return rows

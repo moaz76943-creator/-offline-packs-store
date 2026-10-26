@@ -5,7 +5,9 @@ before they enter production pack builds.
 """
 import json
 import re
+import sqlite3
 import sys
+import tempfile
 from pathlib import Path
 
 # Constraints
@@ -17,8 +19,49 @@ POS_ALLOWED = frozenset(json.loads(_CANONICAL_SCHEMA.read_text(encoding='utf-8')
                         ['$defs']['lexeme']['properties']['pos']['enum'])
 
 class LexicalValidator:
-    def __init__(self):
+    def __init__(self, max_history=100000):
+        if type(max_history) is not int or max_history < 1:
+            raise ValueError('max_history must be a positive integer')
         self.seen_ids = set()
+        self.max_history = max_history
+        self._history_dir = None
+        self._history_db = None
+        self._closed = False
+
+    def close(self):
+        self._closed = True
+        if self._history_db is not None:
+            self._history_db.close()
+            self._history_db = None
+        if self._history_dir is not None:
+            self._history_dir.cleanup()
+            self._history_dir = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_):
+        self.close()
+
+    def _seen(self, lexical_id):
+        if self._history_db is None:
+            return lexical_id in self.seen_ids
+        return self._history_db.execute(
+            'SELECT 1 FROM seen WHERE id=?', (lexical_id,)).fetchone() is not None
+
+    def _remember(self, lexical_id):
+        if self._history_db is None and len(self.seen_ids) < self.max_history:
+            self.seen_ids.add(lexical_id)
+            return
+        if self._history_db is None:
+            self._history_dir = tempfile.TemporaryDirectory(prefix='lexical-id-history-')
+            self._history_db = sqlite3.connect(str(Path(self._history_dir.name) / 'ids.sqlite'))
+            self._history_db.execute('PRAGMA cache_size=-2048')
+            self._history_db.execute('CREATE TABLE seen(id TEXT PRIMARY KEY) WITHOUT ROWID')
+            self._history_db.executemany('INSERT INTO seen VALUES (?)',
+                                         ((item,) for item in self.seen_ids))
+            self.seen_ids.clear()
+        self._history_db.execute('INSERT INTO seen VALUES (?)', (lexical_id,))
 
     def _check_string_field(self, entry, field_name, required=True):
         val = entry.get(field_name)
@@ -48,6 +91,8 @@ class LexicalValidator:
         Returns:
             {"status": "accepted" | "rejected" | "reviewRequired", "entry": entry, "errors": list, "warnings": list}
         """
+        if self._closed:
+            raise ValueError('validator is closed')
         errors = []
         warnings = []
         if not isinstance(entry, dict):
@@ -75,7 +120,7 @@ class LexicalValidator:
         id_err = self._check_string_field(entry, "id")
         if id_err:
             errors.append(id_err)
-        elif entry["id"] in self.seen_ids:
+        elif self._seen(entry["id"]):
             errors.append(f"Duplicate lexical ID: {entry['id']}")
 
         surf_err = self._check_string_field(entry, "surface")
@@ -156,7 +201,7 @@ class LexicalValidator:
             status = "accepted"
 
         if status != "rejected" and not id_err:
-            self.seen_ids.add(entry["id"])
+            self._remember(entry["id"])
 
         return {
             "status": status,
