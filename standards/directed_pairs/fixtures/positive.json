@@ -1,0 +1,128 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.directed.pairs.test",
+  "directed_pairs": [
+    {
+      "pair_id": "pair.test.en.es.1",
+      "source_sense_id": "sense.en.bank.1",
+      "target_sense_id": "sense.es.banco.1",
+      "source_language": "en",
+      "target_language": "es",
+      "source_script": "Latn",
+      "target_script": "Latn",
+      "source_text": "bank",
+      "target_text": "banco",
+      "equivalence": "exact",
+      "context": "financial institution",
+      "domain": "finance",
+      "examples": ["I need to go to the bank.", "Necesito ir al banco."],
+      "confidence": 0.95,
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r1",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "rec1",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.test.en.es.2",
+      "source_sense_id": "sense.en.bank.2",
+      "target_sense_id": "sense.es.orilla.1",
+      "source_language": "en",
+      "target_language": "es",
+      "source_script": "Latn",
+      "target_script": "Latn",
+      "source_text": "bank",
+      "target_text": "orilla",
+      "equivalence": "exact",
+      "context": "edge of a river",
+      "domain": "geography",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r1",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "rec1",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.test.es.en.1",
+      "source_sense_id": "sense.es.banco.1",
+      "target_sense_id": "sense.en.bank.1",
+      "source_language": "es",
+      "target_language": "en",
+      "source_script": "Latn",
+      "target_script": "Latn",
+      "source_text": "banco",
+      "target_text": "bank",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r1",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "rec1",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.test.es.en.2",
+      "source_sense_id": "sense.es.banco.2",
+      "target_sense_id": "sense.en.bench.1",
+      "source_language": "es",
+      "target_language": "en",
+      "source_script": "Latn",
+      "target_script": "Latn",
+      "source_text": "banco",
+      "target_text": "bench",
+      "equivalence": "exact",
+      "context": "furniture for sitting",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r1",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "rec1",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.test.ar.en.1",
+      "source_sense_id": "sense.ar.test.1",
+      "target_sense_id": "sense.en.test.1",
+      "source_language": "ar",
+      "target_language": "en",
+      "source_script": "Arab",
+      "target_script": "Latn",
+      "source_text": "بَيْت",
+      "target_text": "house",
+      "equivalence": "approximate",
+      "source": {
+        "source_id": "src.test.2",
+        "origin_url": "https://example.com/data2",
+        "publisher": "Test Publisher 2",
+        "dataset_version": "1.0",
+        "retrieval_id": "r2",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "rec2",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    }
+  ]
+}
