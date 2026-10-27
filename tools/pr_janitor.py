@@ -15,6 +15,7 @@ import time
 # classification shard die on one flaky API call.
 GH_RETRY_ATTEMPTS = 3
 GH_RETRY_DELAY_SECONDS = 5.0
+GH_CALL_TIMEOUT_SECONDS = 60.0
 
 FAILURES = {"FAILURE", "CANCELLED", "TIMED_OUT", "failure", "cancelled", "timed_out"}
 PENDING = {"", "PENDING", "QUEUED", "IN_PROGRESS", "pending", "queued", "in_progress", None}
@@ -60,7 +61,10 @@ def classify(pr):
     gate = next((c for c in checks if _check_name(c) == "public-pr-merge-gate"), None)
     gate_state = _conclusion(gate) if gate else None
     failing = [c for c in checks if _conclusion(c) in FAILURES]
-    pending = [c for c in checks if _conclusion(c) in PENDING or (c.get("status") in PENDING)]
+    # A missing "status" key is normal for successful StatusContext items; only
+    # an explicit queued/in-progress status counts as pending.
+    pending = [c for c in checks if _conclusion(c) in PENDING
+               or ("status" in c and c["status"] in PENDING)]
     if gate_state in FAILURES:
         return "gate"
     if failing:
@@ -79,15 +83,29 @@ def label_for(kind):
 
 
 def gh_output(argv):
-    """Run a gh CLI command, retrying transient GitHub API failures."""
+    """Run a gh CLI read command, retrying transient failures and hangs."""
     command = list(argv)
     for attempt in range(1, GH_RETRY_ATTEMPTS + 1):
         try:
-            return subprocess.check_output(command, text=True)
-        except subprocess.CalledProcessError as error:
+            return subprocess.check_output(command, text=True,
+                                           timeout=GH_CALL_TIMEOUT_SECONDS)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
             if attempt >= GH_RETRY_ATTEMPTS:
                 raise
-            print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error.returncode}; retrying")
+            print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error}; retrying")
+            time.sleep(GH_RETRY_DELAY_SECONDS)
+
+
+def gh_call(argv):
+    """Run a mutating gh CLI command with the same transient-failure retry."""
+    command = list(argv)
+    for attempt in range(1, GH_RETRY_ATTEMPTS + 1):
+        try:
+            return subprocess.check_call(command, timeout=GH_CALL_TIMEOUT_SECONDS)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+            if attempt >= GH_RETRY_ATTEMPTS:
+                raise
+            print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error}; retrying")
             time.sleep(GH_RETRY_DELAY_SECONDS)
 
 
@@ -126,15 +144,15 @@ def main(argv=None):
                    if isinstance(row, dict) and isinstance(row.get("name"), str)}
         for label in LABELS.values():
             if label != wanted and label in present:
-                subprocess.check_call(["gh", "pr", "edit", str(number),
-                                       "--repo", args.repo, "--remove-label", label])
+                gh_call(["gh", "pr", "edit", str(number),
+                         "--repo", args.repo, "--remove-label", label])
         if wanted and wanted not in present:
             subprocess.call(["gh", "label", "create", wanted, "--repo", args.repo, "--color", "B60205",
                              "--description", wanted], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            subprocess.check_call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--add-label", wanted])
+            gh_call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--add-label", wanted])
         elif kind == "ready" and args.merge_one and merged is None:
             subject = sanitize_subject(view["title"], number)
-            subprocess.check_call([
+            gh_call([
                 "gh", "pr", "merge", str(number), "--repo", args.repo, "--squash",
                 "--subject", subject, "--body", f"Squash merge of #{number}.",
             ])
