@@ -229,5 +229,102 @@ class ContributionTests(unittest.TestCase):
         save_ledger(self.root, self.ledger)
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_malformed_manifest(self):
+        self.assertEqual(validate_contribution([], self.root)["status"], "REJECT")
+
+    def test_fixture_asset_id_rejected(self):
+        self.manifest["asset_id"] = "test-123"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_invalid_kind(self):
+        self.manifest["kind"] = "not_a_valid_kind"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_public_domain_contradicts_original(self):
+        self._switch_license("CC-BY-SA-4.0", "PUBLIC-DOMAIN")
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_missing_obligation_compliance(self):
+        self._switch_license("CC-BY-SA-4.0", "CC-BY-SA-4.0")
+        self.manifest["compliance"] = {"attribution": True} # Missing share_alike
+        self.assertEqual(self.check()["status"], "REJECT")
+
+        self.manifest["compliance"] = {"attribution": True, "share_alike": False} # False obligation
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_contradictory_source_identity(self):
+        self.manifest["source_identity"] = "contradictory-source"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_contradictory_origin_url(self):
+        self.manifest["origin_url"] = "https://example.org/different"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_contribution_exceeds_size(self):
+        import tools.contribution_gate.gate as gate
+        old_max = gate.MAX_BYTES
+        gate.MAX_BYTES = 1 # 1 byte limit
+        try:
+            self.assertEqual(self.check()["status"], "REJECT")
+        finally:
+            gate.MAX_BYTES = old_max
+
+    def test_unstructured_authorization_json_error(self):
+        put(self.root, "evidence/auth.txt", b"{invalid json")
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_missing_attribution_notice_dict(self):
+        self.manifest["attribution_notice"] = "just a string"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_source_verification_not_verified(self):
+        self.manifest["source_verification"] = "unverified"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_vector_art_requires_artwork_evidence(self):
+        self.manifest["kind"] = "vector_art"
+        self.source["kind"] = "vector_art"
+        save_ledger(self.root, self.ledger)
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_vector_art_with_artwork_evidence(self):
+        self.manifest["kind"] = "vector_art"
+        self.source["kind"] = "vector_art"
+        self.source["license"]["artwork_evidence_url"] = "https://example.org/art_rights"
+        self.source["license"]["artwork_evidence_path"] = "evidence/art_rights.txt"
+
+        art_rights_sha = put(self.root, "evidence/art_rights.txt", b"Artwork rights")
+        self.source["license"]["artwork_evidence_sha256"] = art_rights_sha
+        save_ledger(self.root, self.ledger)
+
+        # We also need an artwork asset that is small enough.
+        # But wait, wait: the manifest itself doesn't need additional stuff for artwork,
+        # but check() will run validate_contribution which checks source["license"] fields.
+        result = self.check()
+        self.assertEqual(result["status"], "ACCEPT", result)
+
+
+    def test_cli_success(self):
+        import tools.contribution_gate.gate as gate
+        import json
+        manifest_path = self.root / "manifest.json"
+        manifest_path.write_text(json.dumps(self.manifest), encoding="utf-8")
+        self.assertEqual(gate.main([str(manifest_path), "--repo-root", str(self.root)]), 0)
+
+    def test_cli_rejection(self):
+        import tools.contribution_gate.gate as gate
+        import json
+        self.manifest["kind"] = "invalid"
+        manifest_path = self.root / "manifest.json"
+        manifest_path.write_text(json.dumps(self.manifest), encoding="utf-8")
+        self.assertEqual(gate.main([str(manifest_path), "--repo-root", str(self.root)]), 1)
+
+    def test_cli_invalid_file(self):
+        import tools.contribution_gate.gate as gate
+        with self.assertRaises(SystemExit) as cm:
+            gate.main(["missing.json", "--repo-root", str(self.root)])
+        self.assertEqual(cm.exception.code, 2)
+
+
 if __name__ == "__main__":
     unittest.main()
