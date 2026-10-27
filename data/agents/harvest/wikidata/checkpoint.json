@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q511082",
-    "Q6823072",
-    "Q13442166",
-    "Q1536955",
-    "Q112285016",
-    "Q25400867",
-    "Q5161678",
-    "Q1469602"
+    "Q3407707",
+    "Q112304762",
+    "Q3825611",
+    "Q664517",
+    "Q2600100",
+    "Q1982636",
+    "Q4370503",
+    "Q58841533"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q511082"
+      "wikidata": "Q3407707"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q6823072"
+      "wikidata": "Q112304762"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q13442166"
+      "wikidata": "Q3825611"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1536955"
+      "wikidata": "Q664517"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q112285016"
+      "wikidata": "Q2600100"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q25400867"
+      "wikidata": "Q1982636"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q5161678"
+      "wikidata": "Q4370503"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1469602"
+      "wikidata": "Q58841533"
     }
   ],
   "retrieval_date": "2026-10-27",
