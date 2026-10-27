@@ -1,0 +1,27 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.translation.test",
+  "senses": [
+    {
+      "sense_id": "sense.en.house",
+      "language": "en",
+      "definition": "A building for human habitation"
+    }
+  ],
+  "directed_pairs": [
+    {
+      "pair_id": "pair.en_es.house_casa",
+      "source_sense_id": "sense.en.house",
+      "target_sense_id": "sense.es.casa",
+      "target_language": "es",
+      "translation_text": "casa",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.wiktionary",
+        "publisher": "Wikimedia Foundation",
+        "dataset_version": "2023.10",
+        "license_id": "CC-BY-SA-4.0"
+      }
+    }
+  ]
+}
