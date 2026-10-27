@@ -74,6 +74,26 @@ class TestGlyphCoverageValidator(unittest.TestCase):
             except FileNotFoundError:
                 pass
 
+
+    def test_validate_script_valid(self):
+        res = self.validator.validate_script("Latn")
+        self.assertEqual(res["status"], "ACCEPT")
+
+    def test_validate_script_hani(self):
+        res = self.validator.validate_script("Hani")
+        self.assertEqual(res["status"], "ACCEPT")
+
+    def test_validate_script_invalid(self):
+        res = self.validator.validate_script("Fake")
+        self.assertEqual(res["status"], "REJECT")
+        self.assertIn("Unsupported script", res["issues"][0])
+
+    def test_generate_fallback_mapping_invalid_script(self):
+        asset = self.build_asset("f1", "LatinTest", ["Fake"], self.latin_font_path, self.latin_hash)
+        mapping = self.validator.generate_fallback_mapping("Fake", [asset])
+        self.assertFalse(mapping.cmap_coverage)
+        self.assertEqual(len(mapping.valid_fallback_families), 0)
+
     def test_extract_cmap(self):
         cmap = self.validator.get_font_cmap(os.path.join(self.repo_root, self.latin_font_path))
         self.assertIn(ord('a'), cmap)
