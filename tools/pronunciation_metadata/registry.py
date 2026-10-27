@@ -134,10 +134,16 @@ class PronunciationRegistry:
 
     def _validate_schema(self, record: Dict[str, Any]) -> None:
         try:
-            inner_schema = self.schema["$defs"]["pronunciation_record"]
-            resolver = jsonschema.validators.RefResolver.from_schema(self.schema)
+            from referencing import Registry, Resource
+
+            schema_uri = self.schema.get("$id", "")
+            resource = Resource.from_contents(self.schema)
+            registry = Registry().with_resource(uri=schema_uri, resource=resource)
+
+            reference = {"$ref": f"{schema_uri}#/$defs/pronunciation_record"}
+
             inner_validator = jsonschema.Draft202012Validator(
-                inner_schema, resolver=resolver, format_checker=jsonschema.FormatChecker()
+                reference, registry=registry, format_checker=jsonschema.FormatChecker()
             )
             inner_validator.validate(record)
         except jsonschema.ValidationError as e:
