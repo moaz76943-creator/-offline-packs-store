@@ -1,0 +1,27 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "test-doc.1",
+  "source_language": "eng-US",
+  "target_language": "spa-ES",
+  "pairs": [
+    {
+      "pair_id": "pair.1",
+      "source_lexeme_id": "lex.eng.apple",
+      "target_lexeme_id": "lex.spa.manzana",
+      "target_text": "manzana",
+      "equivalence": "exact",
+      "confidence": 0.95,
+      "source": {
+        "source_id": "src.1",
+        "origin_url": "https://example.com/test",
+        "publisher": "Test",
+        "dataset_version": "1.0",
+        "retrieval_id": "20230101T000000Z",
+        "license_id": "CC0-1.0",
+        "record_locator": "loc.1",
+        "publication_approved": true,
+        "fixture_only": true
+      }
+    }
+  ]
+}
