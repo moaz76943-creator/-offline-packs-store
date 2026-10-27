@@ -74,6 +74,19 @@ class AdmissionTests(unittest.TestCase):
         self.source['status'] = 'REVIEW_REQUIRED'
         self.assertIn('REVIEW_REQUIRED', str(self.issues()))
 
+    def test_malformed_license_metadata_blocks_instead_of_crashing(self):
+        self.source['license'] = 'CC0-1.0'
+        issues = self.issues()
+        self.assertIn('BLOCKED_LICENSE', str(issues))
+        self.assertIn('EVIDENCE', str(issues))
+
+    def test_malformed_retrieval_and_origin_fail_closed(self):
+        self.source['retrieval'] = 'snapshot'
+        self.source.pop('origin_url')
+        issues = self.issues()
+        self.assertIn('EVIDENCE', str(issues))
+        self.assertIn('HASH_MISMATCH', str(issues))
+
     def test_mismatched_source_version(self):
         self.candidate['source_refs'][0]['dataset_version'] = '2025.01'
         self.assertIn('VERSION_MISMATCH', str(self.issues()))
