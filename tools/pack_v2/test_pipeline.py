@@ -62,6 +62,24 @@ class NeutralConsumerFixtureTests(unittest.TestCase):
         with self.assertRaises(sqlite3.OperationalError):
             check_sqlite(self.db,'de')
 
+    def test_damaged_fts_row_beyond_first_lexeme_is_rejected(self):
+        base=self.doc['lexemes'][0]
+        sense=self.doc['senses'][0]
+        for key,word in (('three','Drittwort'),('two','Zweitwort')):
+            self.doc['lexemes'].append({**base,'lexeme_id':'lex.de.'+key,
+                                        'lemma':word,'surface':word})
+            self.doc['senses'].append({**sense,'sense_id':'sense.de.'+key,
+                                       'lexeme_id':'lex.de.'+key,'definition':word})
+        db=self.root/'multi.sqlite'
+        self.assertEqual(make_database(self.doc,'de',[],db)['lexicon'],3)
+        check_sqlite(db,'de')
+        with sqlite3.connect(db) as con:
+            rowid=con.execute(
+                "SELECT rowid FROM lexicon_fts WHERE surface='Drittwort'").fetchone()[0]
+            con.execute('UPDATE lexicon_fts SET surface=? WHERE rowid=?',('erased',rowid))
+        with self.assertRaisesRegex(ValueError,'FTS5'):
+            check_sqlite(db,'de')
+
     def test_wrong_or_oversized_record_fails(self):
         self.doc['lexemes'][0]['lemma']='x'*70000
         with self.assertRaisesRegex(ValueError,'row size'):
