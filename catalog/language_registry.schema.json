@@ -1,6 +1,5 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/catalog/language_registry.schema.json",
   "title": "Public canonical 100-language taxonomy registry",
   "type": "object",
   "additionalProperties": false,
@@ -28,7 +27,7 @@
       ],
       "properties": {
         "repository": {
-          "const": "moaz76943-creator/-offline-packs-store"
+          "const": "offline-packs-store"
         },
         "manifest_path": {
           "const": "manifest.json"
