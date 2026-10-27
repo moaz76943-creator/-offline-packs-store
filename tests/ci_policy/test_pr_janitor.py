@@ -41,6 +41,15 @@ class JanitorContractTest(unittest.TestCase):
         ]
         self.assertEqual(classify(_pr(statusCheckRollup=checks, mergeStateStatus="UNSTABLE")), "unstable")
 
+    def test_successful_status_context_is_ready(self):
+        checks = [
+            {"name": "public-pr-merge-gate", "status": "COMPLETED", "conclusion": "SUCCESS"},
+            {"context": "legacy/commit-status", "state": "SUCCESS"},
+        ]
+        self.assertEqual(classify(_pr(statusCheckRollup=checks)), "ready")
+        gate_only = [{"context": "public-pr-merge-gate", "state": "SUCCESS"}]
+        self.assertEqual(classify(_pr(statusCheckRollup=gate_only)), "ready")
+
     def test_squash_subject_keeps_explicit_skip_directives(self):
         subject = sanitize_subject("feat: builder [skip ci]", 342)
         self.assertIn("[skip ci]", subject)

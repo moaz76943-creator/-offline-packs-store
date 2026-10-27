@@ -58,6 +58,33 @@ class TestPRJanitor(unittest.TestCase):
         self.assertEqual(mock_check_output.call_args.args[0],
                          ["gh", "pr", "list", "--limit", "250"])
 
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_output_retries_hung_calls(self, mock_sleep, mock_check_output):
+        hung = subprocess.TimeoutExpired(["gh", "pr", "list"], 60)
+        mock_check_output.side_effect = [hung, "[]"]
+        self.assertEqual(pr_janitor.gh_output(["gh", "pr", "list"]), "[]")
+        self.assertEqual(mock_check_output.call_count, 2)
+        self.assertEqual(mock_sleep.call_count, 1)
+
+    @patch("tools.pr_janitor.subprocess.check_call")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_call_retries_transient_then_succeeds(self, mock_sleep, mock_check_call):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "edit"])
+        mock_check_call.side_effect = [transient, 0]
+        pr_janitor.gh_call(["gh", "pr", "edit", "42", "--add-label", "blocked:draft"])
+        self.assertEqual(mock_check_call.call_count, 2)
+        self.assertEqual(mock_sleep.call_count, 1)
+
+    @patch("tools.pr_janitor.subprocess.check_call")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_call_raises_after_exhausted_retries(self, mock_sleep, mock_check_call):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "merge"])
+        mock_check_call.side_effect = transient
+        with self.assertRaises(subprocess.CalledProcessError):
+            pr_janitor.gh_call(["gh", "pr", "merge", "42", "--squash"])
+        self.assertEqual(mock_check_call.call_count, pr_janitor.GH_RETRY_ATTEMPTS)
+
     def test_classify(self):
         # Draft
         self.assertEqual(pr_janitor.classify({"isDraft": True}), "draft")
@@ -119,6 +146,39 @@ class TestPRJanitor(unittest.TestCase):
 
         # Unknown fallback
         self.assertEqual(pr_janitor.classify({}), "unknown")
+
+    def test_successful_status_context_is_not_pending(self):
+        # StatusContext rollup items carry "state" but no "status" key; a
+        # successful one must not trap the PR in pending forever.
+        self.assertEqual(
+            pr_janitor.classify({
+                "mergeStateStatus": "CLEAN",
+                "statusCheckRollup": [
+                    {"name": "public-pr-merge-gate", "conclusion": "SUCCESS", "status": "COMPLETED"},
+                    {"context": "legacy/commit-status", "state": "SUCCESS"},
+                ]
+            }),
+            "ready"
+        )
+        self.assertEqual(
+            pr_janitor.classify({
+                "mergeStateStatus": "CLEAN",
+                "statusCheckRollup": [
+                    {"context": "public-pr-merge-gate", "state": "SUCCESS"},
+                ]
+            }),
+            "ready"
+        )
+        self.assertEqual(
+            pr_janitor.classify({
+                "mergeStateStatus": "CLEAN",
+                "statusCheckRollup": [
+                    {"name": "public-pr-merge-gate", "conclusion": "SUCCESS", "status": "COMPLETED"},
+                    {"context": "legacy/commit-status", "state": "PENDING"},
+                ]
+            }),
+            "unknown"
+        )
 
     def test_label_for(self):
         self.assertEqual(pr_janitor.label_for("behind"), "blocked:behind")
@@ -210,6 +270,22 @@ class TestPRJanitor(unittest.TestCase):
             if "edit" in args[0] and "--add-label" in args[0] and "blocked:behind" in args[0]:
                 added = True
         self.assertTrue(added, "Should have added blocked:behind label")
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.subprocess.call")
+    @patch("tools.pr_janitor.subprocess.check_call")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_label_edit_survives_transient_api_failure(self, mock_sleep, mock_check_call,
+                                                       mock_call, mock_check_output):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "edit"])
+        mock_check_output.side_effect = [
+            json.dumps([{"number": 42}]),
+            json.dumps({"mergeStateStatus": "BEHIND"})
+        ]
+        mock_check_call.side_effect = [transient, 0]
+        self.assertEqual(pr_janitor.main([]), 0)
+        self.assertEqual(mock_check_call.call_count, 2)
+        self.assertEqual(mock_sleep.call_count, 1)
 
     @patch("tools.pr_janitor.subprocess.check_output")
     @patch("tools.pr_janitor.subprocess.call")
