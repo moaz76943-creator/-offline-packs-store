@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q1783821",
-    "Q110087120",
-    "Q17166199",
-    "Q20202655",
-    "Q17775059",
-    "Q18046676",
-    "Q110780840",
-    "Q5894647"
+    "Q511082",
+    "Q6823072",
+    "Q13442166",
+    "Q1536955",
+    "Q112285016",
+    "Q25400867",
+    "Q5161678",
+    "Q1469602"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1783821"
+      "wikidata": "Q511082"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q110087120"
+      "wikidata": "Q6823072"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q17166199"
+      "wikidata": "Q13442166"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q20202655"
+      "wikidata": "Q1536955"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q17775059"
+      "wikidata": "Q112285016"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q18046676"
+      "wikidata": "Q25400867"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q110780840"
+      "wikidata": "Q5161678"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q5894647"
+      "wikidata": "Q1469602"
     }
   ],
   "retrieval_date": "2026-10-27",
