@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/translation.schema.json",
+  "title": "Directed-Pair Translation Data Standard 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source_language",
+    "target_language",
+    "translations"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "source_language": { "$ref": "#/$defs/lang_code" },
+    "target_language": { "$ref": "#/$defs/lang_code" },
+    "translations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/directed_translation" }
+    }
+  },
+  "$defs": {
+    "lang_code": {
+      "type": "string",
+      "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+    },
+    "id_string": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9._:-]{2,127}$"
+    },
+    "directed_translation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_sense_id",
+        "target_sense_id",
+        "translation_text",
+        "equivalence",
+        "provenance"
+      ],
+      "properties": {
+        "source_sense_id": { "$ref": "#/$defs/id_string" },
+        "target_sense_id": { "$ref": "#/$defs/id_string" },
+        "translation_text": { "type": "string", "minLength": 1 },
+        "context": { "type": "string" },
+        "domain": { "type": "string" },
+        "examples": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "equivalence": {
+          "enum": ["literal", "contextual", "approximate"]
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "provenance_id",
+            "source_version",
+            "confidence"
+          ],
+          "properties": {
+            "provenance_id": { "$ref": "#/$defs/id_string" },
+            "source_version": { "type": "string" },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
