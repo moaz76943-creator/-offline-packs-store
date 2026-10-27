@@ -5387,6 +5387,36 @@
       "wikidata": "Q12199"
     },
     {
+      "concept_id": "concept.q18054140",
+      "forms": [
+        "effondrement",
+        "effondrements"
+      ],
+      "language": "fr",
+      "lemma": "effondrement",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L28085",
+      "pos": "",
+      "qids": [
+        "Q18054140"
+      ],
+      "record_id": "L28085",
+      "retrieval_date": "2026-10-26",
+      "revision": "1767843872",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L28085-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q18054140"
+    },
+    {
       "concept_id": "concept.q12916",
       "forms": [
         "nombre réel",
