@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Licensing and Provenance Ledger Schema",
+  "type": "object",
+  "required": ["records"],
+  "properties": {
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source_record"
+      }
+    }
+  },
+  "$defs": {
+    "source_record": {
+      "type": "object",
+      "required": ["source_id", "url", "author", "version", "license", "modification_status", "redistribution_eligibility"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "author": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "license": {
+          "type": "object",
+          "required": ["declaration", "verified_evidence"],
+          "properties": {
+            "declaration": { "type": "string", "minLength": 1 },
+            "verified_evidence": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string", "enum": ["CC-BY-SA-4.0", "GFDL-1.3-only", "CC0-1.0", "PUBLIC-DOMAIN", "CC-BY-2.0-FR"] },
+                "obligations_met": { "type": "boolean" },
+                "attribution_provided": { "type": "boolean" },
+                "share_alike_preserved": { "type": "boolean" },
+                "history_preserved": { "type": "boolean" },
+                "public_domain_evidence": { "type": "string" }
+              },
+              "required": ["id", "obligations_met"]
+            }
+          }
+        },
+        "modification_status": { "type": "string" },
+        "redistribution_eligibility": { "type": "string", "enum": ["verified", "blocked", "reviewRequired"] },
+        "artifact_hash": { "type": "string" },
+        "mixed_sources": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}
