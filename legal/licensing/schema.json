@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open Lexical Source Licensing Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source_id", "url", "author", "version", "license", "modification_status"],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "enum": ["CC-BY-SA-4.0", "GFDL-1.3-only", "CC0-1.0", "PUBLIC-DOMAIN", "CC-BY-2.0-FR", "OFL-1.1", "Apache-2.0", "MIT", "UNVERIFIED"]
+        },
+        "evidence_url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        "evidence_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "public_domain_proof": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["jurisdiction", "legal_basis", "work_date"],
+          "properties": {
+            "jurisdiction": {
+              "type": "string",
+              "minLength": 1
+            },
+            "legal_basis": {
+              "type": "string",
+              "minLength": 1
+            },
+            "work_date": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "gfdl_copy_path": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "modification_status": {
+      "type": "string",
+      "enum": ["unmodified", "modified"]
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}
