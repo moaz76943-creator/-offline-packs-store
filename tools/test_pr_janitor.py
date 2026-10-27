@@ -58,6 +58,13 @@ class TestPRJanitor(unittest.TestCase):
         self.assertEqual(mock_check_output.call_args.args[0],
                          ["gh", "pr", "list", "--limit", "250"])
 
+    def test_retry_delay_is_bounded_exponential(self):
+        widths = [pr_janitor.retry_delay(attempt)
+                  for attempt in range(1, pr_janitor.GH_RETRY_ATTEMPTS + 1)]
+        self.assertEqual(widths, [5.0, 10.0, 20.0, 40.0, 45.0])
+        for value in widths:
+            self.assertLessEqual(value, pr_janitor.GH_RETRY_BACKOFF_CAP_SECONDS)
+
     @patch("tools.pr_janitor.subprocess.check_output")
     @patch("tools.pr_janitor.time.sleep")
     def test_gh_output_retries_hung_calls(self, mock_sleep, mock_check_output):

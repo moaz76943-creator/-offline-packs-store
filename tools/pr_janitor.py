@@ -12,9 +12,13 @@ import time
 
 # Transient GitHub API outages (GraphQL 504, HTTP 502, rate limits) killed a
 # scheduled scout run mid-flight; retry instead of letting the whole
-# classification shard die on one flaky API call.
-GH_RETRY_ATTEMPTS = 3
+# classification shard die on one flaky API call. The 2026-10-27 12:51 run
+# still raised after three immediate retries because each attempt fell back
+# to back into the same outage window; bounded exponential backoff spreads
+# the attempts out so one burnt window can end before the last attempt.
+GH_RETRY_ATTEMPTS = 5
 GH_RETRY_DELAY_SECONDS = 5.0
+GH_RETRY_BACKOFF_CAP_SECONDS = 45.0
 GH_CALL_TIMEOUT_SECONDS = 60.0
 
 FAILURES = {"FAILURE", "CANCELLED", "TIMED_OUT", "failure", "cancelled", "timed_out"}
@@ -82,6 +86,11 @@ def label_for(kind):
     return LABELS.get(kind)
 
 
+def retry_delay(attempt):
+    """Bounded exponential backoff: 5, 10, 20, 40, capped at 45 seconds."""
+    return min(GH_RETRY_DELAY_SECONDS * (2 ** (attempt - 1)), GH_RETRY_BACKOFF_CAP_SECONDS)
+
+
 def gh_output(argv):
     """Run a gh CLI read command, retrying transient failures and hangs."""
     command = list(argv)
@@ -93,7 +102,7 @@ def gh_output(argv):
             if attempt >= GH_RETRY_ATTEMPTS:
                 raise
             print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error}; retrying")
-            time.sleep(GH_RETRY_DELAY_SECONDS)
+            time.sleep(retry_delay(attempt))
 
 
 def gh_call(argv):
@@ -106,7 +115,7 @@ def gh_call(argv):
             if attempt >= GH_RETRY_ATTEMPTS:
                 raise
             print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error}; retrying")
-            time.sleep(GH_RETRY_DELAY_SECONDS)
+            time.sleep(retry_delay(attempt))
 
 
 def main(argv=None):
