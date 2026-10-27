@@ -1,0 +1,18 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.pairs.en-es.v1",
+  "source_language": "en",
+  "target_language": "es",
+  "translations": [
+    {
+      "translation_id": "tr.missing_senses",
+      "text": "banco",
+      "equivalence": "exact",
+      "source": {
+        "provenance_id": "prov.cc0.1",
+        "source_version": "1.0",
+        "confidence": 0.98
+      }
+    }
+  ]
+}

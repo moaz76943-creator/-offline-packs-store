@@ -1,0 +1,72 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.pairs.en-es.v1",
+  "source_language": "en",
+  "target_language": "es",
+  "translations": [
+    {
+      "translation_id": "tr.bank_river.es",
+      "from_sense_id": "sense.en.bank.1",
+      "to_sense_id": "sense.es.orilla.1",
+      "text": "orilla",
+      "equivalence": "exact",
+      "context": "edge of a river",
+      "source": {
+        "provenance_id": "prov.cc0.1",
+        "source_version": "1.0",
+        "confidence": 0.95
+      }
+    },
+    {
+      "translation_id": "tr.bank_financial.es",
+      "from_sense_id": "sense.en.bank.2",
+      "to_sense_id": "sense.es.banco.1",
+      "text": "banco",
+      "equivalence": "exact",
+      "context": "financial institution",
+      "source": {
+        "provenance_id": "prov.cc0.1",
+        "source_version": "1.0",
+        "confidence": 0.98
+      }
+    },
+    {
+      "translation_id": "tr.bank_financial.reverse",
+      "from_sense_id": "sense.es.banco.1",
+      "to_sense_id": "sense.en.bank.2",
+      "text": "bank",
+      "equivalence": "exact",
+      "context": "institución financiera",
+      "source": {
+        "provenance_id": "prov.cc0.1",
+        "source_version": "1.0",
+        "confidence": 0.95
+      }
+    },
+    {
+      "translation_id": "tr.banco_seat.en",
+      "from_sense_id": "sense.es.banco.2",
+      "to_sense_id": "sense.en.bench.1",
+      "text": "bench",
+      "equivalence": "literal",
+      "context": "seat for multiple people",
+      "source": {
+        "provenance_id": "prov.cc0.1",
+        "source_version": "1.0",
+        "confidence": 0.90
+      },
+      "examples": [
+        {
+          "example_id": "ex.1",
+          "text": "Me senté en el banco del parque.",
+          "translations": [
+            {
+              "language": "en",
+              "text": "I sat on the park bench."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
