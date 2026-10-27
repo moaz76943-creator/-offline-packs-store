@@ -33,6 +33,31 @@ class TestPRJanitor(unittest.TestCase):
         self.assertEqual(len(result), 240)
         self.assertTrue(result.startswith("A" * 200))
 
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_output_retries_transient_then_succeeds(self, mock_sleep, mock_check_output):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "list"])
+        mock_check_output.side_effect = [transient, transient, json.dumps([{"number": 42}])]
+        self.assertEqual(json.loads(pr_janitor.gh_output(["gh", "pr", "list"])), [{"number": 42}])
+        self.assertEqual(mock_check_output.call_count, 3)
+        self.assertEqual(mock_sleep.call_count, 2)
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_output_raises_after_exhausted_retries(self, mock_sleep, mock_check_output):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "list"])
+        mock_check_output.side_effect = transient
+        with self.assertRaises(subprocess.CalledProcessError):
+            pr_janitor.gh_output(["gh", "pr", "list"])
+        self.assertEqual(mock_check_output.call_count, pr_janitor.GH_RETRY_ATTEMPTS)
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    def test_gh_output_passes_command_through(self, mock_check_output):
+        mock_check_output.return_value = "[]"
+        pr_janitor.gh_output(["gh", "pr", "list", "--limit", "250"])
+        self.assertEqual(mock_check_output.call_args.args[0],
+                         ["gh", "pr", "list", "--limit", "250"])
+
     def test_classify(self):
         # Draft
         self.assertEqual(pr_janitor.classify({"isDraft": True}), "draft")
