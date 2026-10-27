@@ -172,9 +172,16 @@ class EvidenceCompiler:
             reasons.append('No pack for this language in manifest.packs.')
         if lang_code not in admitted:
             reasons.append('No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs.')
+
+        status = BLOCKED_STATUS
+        if lang_code not in published and lang_code not in admitted:
+            status = 'metadataOnly'
+        elif lang_code not in admitted:
+            status = 'licenseBlocked'
+
         return {
             'lang_code': lang_code,
-            'status': BLOCKED_STATUS,
+            'status': status,
             'packs': [],
             'reasons': reasons,
         }
