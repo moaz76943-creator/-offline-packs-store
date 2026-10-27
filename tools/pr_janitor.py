@@ -8,6 +8,13 @@ import argparse
 import json
 import re
 import subprocess
+import time
+
+# Transient GitHub API outages (GraphQL 504, HTTP 502, rate limits) killed a
+# scheduled scout run mid-flight; retry instead of letting the whole
+# classification shard die on one flaky API call.
+GH_RETRY_ATTEMPTS = 3
+GH_RETRY_DELAY_SECONDS = 5.0
 
 FAILURES = {"FAILURE", "CANCELLED", "TIMED_OUT", "failure", "cancelled", "timed_out"}
 PENDING = {"", "PENDING", "QUEUED", "IN_PROGRESS", "pending", "queued", "in_progress", None}
@@ -71,6 +78,19 @@ def label_for(kind):
     return LABELS.get(kind)
 
 
+def gh_output(argv):
+    """Run a gh CLI command, retrying transient GitHub API failures."""
+    command = list(argv)
+    for attempt in range(1, GH_RETRY_ATTEMPTS + 1):
+        try:
+            return subprocess.check_output(command, text=True)
+        except subprocess.CalledProcessError as error:
+            if attempt >= GH_RETRY_ATTEMPTS:
+                raise
+            print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error.returncode}; retrying")
+            time.sleep(GH_RETRY_DELAY_SECONDS)
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Label blocked PRs and squash-merge one ready PR")
     parser.add_argument("--repo", default="moaz76943-creator/-offline-packs-store")
@@ -83,10 +103,9 @@ def main(argv=None):
         parser.error("invalid PR scout partition")
     if args.merge_one and args.shard_count != 1:
         parser.error("parallel scouts cannot become competing merge authorities")
-    listed = subprocess.check_output(
+    listed = gh_output(
         ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "250",
-         "--json", "number,title,isDraft,mergeStateStatus,headRefName"],
-        text=True,
+         "--json", "number,title,isDraft,mergeStateStatus,headRefName"]
     )
     numbers = sorted(item["number"] for item in json.loads(listed)
                      if isinstance(item, dict) and type(item.get("number")) is int
@@ -94,10 +113,9 @@ def main(argv=None):
                      and item["number"] % args.shard_count == args.shard_index)
     merged = None
     for number in numbers:
-        view = json.loads(subprocess.check_output(
+        view = json.loads(gh_output(
             ["gh", "pr", "view", str(number), "--repo", args.repo,
-             "--json", "number,title,isDraft,state,mergeStateStatus,mergeable,statusCheckRollup,labels"],
-            text=True,
+             "--json", "number,title,isDraft,state,mergeStateStatus,mergeable,statusCheckRollup,labels"]
         ))
         kind = classify(view)
         print(f"#{number} {kind}")
