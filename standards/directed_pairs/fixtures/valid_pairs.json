@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "document_id": "fixture.valid_pairs",
+  "senses": [
+    {
+      "sense_id": "sense.en.bank.finance",
+      "language": "en"
+    },
+    {
+      "sense_id": "sense.es.banco.finance",
+      "language": "es"
+    },
+    {
+      "sense_id": "sense.de.bank.finance",
+      "language": "de"
+    }
+  ],
+  "directed_translations": [
+    {
+      "translation_id": "tr.en.es.bank.finance",
+      "source_sense_id": "sense.en.bank.finance",
+      "target_sense_id": "sense.es.banco.finance",
+      "source_language": "en",
+      "target_language": "es",
+      "text": "banco",
+      "equivalence": "exact",
+      "context": "financial institution",
+      "domain": "domain.finance",
+      "examples": [
+        "I need to go to the bank to deposit this check."
+      ],
+      "source": {
+        "provenance_id": "fixture.provenance.1",
+        "source_version": "1.0",
+        "confidence": 0.95
+      }
+    },
+    {
+      "translation_id": "tr.es.en.banco.finance",
+      "source_sense_id": "sense.es.banco.finance",
+      "target_sense_id": "sense.en.bank.finance",
+      "source_language": "es",
+      "target_language": "en",
+      "text": "bank",
+      "equivalence": "exact",
+      "source": {
+        "provenance_id": "fixture.provenance.2",
+        "source_version": "1.0"
+      }
+    }
+  ]
+}
