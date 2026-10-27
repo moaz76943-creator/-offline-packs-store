@@ -14,10 +14,10 @@ TAG = re.compile(r"^[a-z]{2,3}(?:-[A-Z][a-z]{3})?(?:-(?:[A-Z]{2}|[0-9]{3}))?(?:-
 SCRIPT = re.compile(r"^[A-Z][a-z]{3}$")
 RIGHT_TO_LEFT = {"Arab", "Hebr", "Thaa", "Nkoo", "Adlm", "Syrc"}
 FEATURES = {"gender", "noun_classes", "case", "number", "root_pattern", "inflection", "agglutination", "aspect", "classifiers", "tones", "honorifics", "analytic"}
-STATES = {"unverified", "not_started", "in_progress", "validated", "blocked", "deprecated"}
+STATES = {"unverified", "not_started", "in_progress", "metadataOnly", "sourceAvailable", "verifiedPack", "installedCapable", "releaseReady", "blocked", "deprecated"}
 
 
-def validate(registry, readiness, manifest=None, required_count=100):
+def validate(registry, readiness, manifest=None, required_count=100, source_ledger=None):
     """Return deterministic human-readable problems without mutating inputs."""
     errors = []
     def problem(message):
@@ -132,13 +132,44 @@ def validate(registry, readiness, manifest=None, required_count=100):
         problem("invalid content readiness state")
     else:
         for code, state in statuses.items():
-            if state != "validated":
+            if state != "releaseReady":
                 continue
             evidence = readiness.get("validation_evidence", {}).get(code, {})
             if (not isinstance(evidence, dict)
+                    or not isinstance(evidence.get("pack_sha256"), str)
                     or not re.fullmatch(r"[0-9a-f]{64}", evidence.get("pack_sha256", ""))
                     or evidence.get("validation_method") not in {"automated_quality_gate", "manual_review"}):
-                problem(f"validated content requires independent evidence: {code}")
+                problem(f"releaseReady content requires independent evidence: {code}")
+                continue
+            # A well-formed digest alone is not proof that the pack exists or passed QA.
+            if evidence.get("validation_method") != "automated_quality_gate":
+                problem(f"releaseReady requires an automated quality gate: {code}")
+            current_manifest = {x.get("code"): x for x in (manifest or {}).get("languages", [])
+                                if isinstance(x, dict)}.get(code)
+            if not current_manifest or not all(current_manifest.get(flag) is True
+                    for flag in ("content_available", "pack_verified", "production_ready", "is_active")):
+                problem(f"releaseReady lacks verified published pack state: {code}")
+            elif (current_manifest.get("sha256") != evidence.get("pack_sha256")
+                  or current_manifest.get("schemaVersion") in (None, "legacy")
+                  or current_manifest.get("format") == "legacy-json-gzip"):
+                problem(f"releaseReady pack hash/schema does not match publication: {code}")
+            if not manifest or manifest.get("release_status") in (None, "BLOCKED_DEPENDENCY"):
+                problem(f"releaseReady is blocked by global release state: {code}")
+            admitted = {item.get("source_id"): item for item in (source_ledger or {}).get("sources", [])
+                        if isinstance(item, dict) and item.get("status") == "APPROVED_FOR_REDISTRIBUTION"
+                        and isinstance(item.get("review"), dict) and item["review"].get("reviewer")
+                        and item["review"].get("decision_url")
+                        and isinstance(item.get("license"), dict)
+                        and item["license"].get("id")
+                        and re.fullmatch(r"[0-9a-f]{64}", item["license"].get("evidence_sha256", ""))
+                        and isinstance(item.get("retrieval"), dict)
+                        and re.fullmatch(r"[0-9a-f]{64}", item["retrieval"].get("sha256", ""))}
+            source_ids = evidence.get("source_ids")
+            if (not isinstance(source_ids, list) or not source_ids
+                    or any(not isinstance(s, str) or not s for s in source_ids)
+                    or len(source_ids) != len(set(source_ids))
+                    or any(source_id not in admitted for source_id in source_ids)):
+                problem(f"releaseReady requires independently admitted sources: {code}")
     if manifest is not None:
         published = manifest.get("languages", [])
         current = {x.get("code"): x for x in published if isinstance(x, dict)}
@@ -161,16 +192,43 @@ def main(argv=None):
     parser.add_argument("--readiness", type=Path, default=HERE / "content_readiness.v1.json")
     parser.add_argument("--manifest", type=Path, default=HERE.parent / "manifest.json")
     args = parser.parse_args(argv)
-    registry = json.loads(args.registry.read_text(encoding="utf-8"))
-    readiness = json.loads(args.readiness.read_text(encoding="utf-8"))
-    manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
-    failures = validate(registry, readiness, manifest)
+
+    failures = []
+    registry = {}
+    try:
+        registry = json.loads(args.registry.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        failures.append(f"registry file not found: {args.registry}")
+
+    readiness = {}
+    try:
+        readiness = json.loads(args.readiness.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        failures.append(f"readiness file not found: {args.readiness}")
+
+    manifest = {}
+    try:
+        manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        failures.append(f"manifest file not found: {args.manifest}")
+
+    ledger = {}
+    try:
+        ledger = json.loads((HERE.parent / "legal" / "ledger" / "sources.json").read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        failures.append(f"ledger file not found: {(HERE.parent / 'legal' / 'ledger' / 'sources.json')}")
+
+    if not failures:
+        failures = validate(registry, readiness, manifest, source_ledger=ledger)
+
     for failure in failures:
         print("ERROR:", failure)
+
     if failures:
         return 1
-    print(f"OK: {len(registry['languages'])} canonical languages; {len(registry['aliases'])} compatibility aliases; "
-          f"{len(registry['locale_variants'])} locale variants; all readiness states unverified unless evidenced")
+
+    print(f"OK: {len(registry.get('languages', []))} canonical languages; {len(registry.get('aliases', []))} compatibility aliases; "
+          f"{len(registry.get('locale_variants', []))} locale variants; readiness promotion guarded by published pack and admitted source evidence")
     return 0
 
 if __name__ == "__main__":

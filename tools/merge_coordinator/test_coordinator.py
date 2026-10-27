@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 import unittest
 from coordinator import evaluate, policy_error, order_entries
 
@@ -39,15 +40,39 @@ def checks(**changes):
 
 
 class ContractTests(unittest.TestCase):
-    def decide(self, e=None, p=None, c=None, rv=None, fs=None, title='feat: ready', deps=None):
+    def decide(self, e=None, p=None, c=None, rv=None, fs=None, title='feat: ready', deps=None, now=None):
         return evaluate(e or entry(), p or pr(), c or checks(),
                         rv if rv is not None else [{'user': {'login': 'trusted-reviewer'},
                             'state': 'APPROVED', 'commit_id': SHA_A}],
                         fs if fs is not None else [{'filename': 'tools/merge_coordinator/a.py'}],
-                        SHA_B, title, deps if deps is not None else {})
+                        SHA_B, title, deps if deps is not None else {},
+                        now=now)
 
     def test_accepted_exact_sha_with_real_check_and_review(self):
         self.assertEqual(self.decide(), ('VERIFIED_READY', 'exact-head validated'))
+
+    def test_one_actual_required_gate_is_sufficient_for_scoped_contract(self):
+        # public-pr-merge-gate already executes affected subsystem regression
+        # suites. Requiring a separately named status duplicates verification.
+        minimal = entry(checks=['public-pr-merge-gate'])
+        self.assertIsNone(policy_error(minimal))
+        self.assertEqual(self.decide(e=minimal), ('VERIFIED_READY', 'exact-head validated'))
+
+    def test_single_required_gate_cannot_be_missing_failed_or_skipped(self):
+        minimal = entry(checks=['public-pr-merge-gate'])
+        for runs in (
+            [],
+            [dict(checks()['check_runs'][0], conclusion='skipped')],
+            [dict(checks()['check_runs'][0], conclusion='failure')],
+            [dict(checks()['check_runs'][0], head_sha=SHA_B)],
+        ):
+            with self.subTest(runs=runs):
+                self.assertEqual(self.decide(e=minimal, c={'check_runs': runs})[0], 'NOT_RUN')
+
+    def test_optional_named_extra_scope_check_remains_binding(self):
+        self.assertEqual(self.decide(c={'check_runs': [checks()['check_runs'][0]]})[0], 'NOT_RUN')
+        self.assertIsNotNone(policy_error(entry(checks=[])))
+        self.assertIsNotNone(policy_error(entry(checks=['scoped-qa'])))
 
     def test_no_implicit_authorization(self):
         self.assertEqual(evaluate({}, pr(), checks(), [], [], SHA_B, 'no skip', {})[0], 'BLOCKED_POLICY')
@@ -71,8 +96,9 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(evaluate(record, current, checks(), [], [], new_main, 'safe', {},
             authorization_parent=SHA_B, authorization_only=False)[0], 'STALE_MAIN')
 
-    def test_skip_ci_and_stale_base_block(self):
-        self.assertEqual(self.decide(title='feat: candidate [skip ci]')[0], 'BLOCKED_SKIP_CI')
+    def test_skip_ci_text_is_not_independent_blocker(self):
+        self.assertEqual(self.decide(title='feat: candidate [skip ci]')[0], 'VERIFIED_READY')
+        self.assertEqual(self.decide(title='feat: candidate [skip ci]', c={'check_runs': []})[0], 'NOT_RUN')
         self.assertEqual(self.decide(p=pr(base={'ref':'main', 'sha':SHA_A}))[0], 'STALE_MAIN')
 
     def test_unverified_review_blocks(self):
@@ -106,6 +132,102 @@ class ContractTests(unittest.TestCase):
         self.assertEqual([x['number'] for x in order_entries([entry(number=2,dependencies=[1]),entry(number=1)])], [1,2])
         with self.assertRaises(ValueError):
             order_entries([entry(number=1,dependencies=[2]),entry(number=2,dependencies=[1])])
+
+    def test_solo_maintainer_authorization_success(self):
+        solo = entry(
+            authorization_mode='solo_maintainer',
+            expiry='2026-10-16T00:00:00Z',
+            reviewers=[],
+        )
+        # In solo maintainer mode without independent reviewer, review list can be empty
+        status, reason = self.decide(e=solo, rv=[], now=datetime(2026, 10, 15, 12, 0, 0, tzinfo=timezone.utc))
+        self.assertEqual(status, 'VERIFIED_READY')
+
+    def test_solo_maintainer_missing_or_invalid_expiry_fails(self):
+        no_expiry = entry(authorization_mode='solo_maintainer', reviewers=[])
+        self.assertIn('missing expiry', policy_error(no_expiry))
+
+        bad_format = entry(authorization_mode='solo_maintainer', expiry='invalid-date', reviewers=[])
+        self.assertIn('invalid expiry', policy_error(bad_format))
+
+        no_tz = entry(authorization_mode='solo_maintainer', expiry='2026-10-15 12:00:00', reviewers=[])
+        self.assertIn('timezone', policy_error(no_tz))
+
+    def test_solo_maintainer_expired_timestamp_blocks(self):
+        from datetime import datetime, timezone
+        expired = entry(
+            authorization_mode='solo_maintainer',
+            expiry='2026-10-13T00:00:00Z',
+            reviewers=[],
+        )
+        status, reason = evaluate(
+            expired, pr(), checks(), [], [{'filename': 'tools/merge_coordinator/a.py'}],
+            SHA_B, 'feat: update', {}, now=datetime(2026, 10, 14, 12, 0, tzinfo=timezone.utc),
+        )
+        self.assertEqual(status, 'EXPIRED_AUTHORIZATION')
+
+    def test_expired_draft_authorization_never_promotes(self):
+        now = datetime(2026, 10, 16, tzinfo=timezone.utc)
+        for field in ('expiry', 'expires_at'):
+            with self.subTest(field=field):
+                record = entry(authorization_mode='solo_maintainer', reviewers=[],
+                               **{field: '2026-10-15T00:00:00Z'})
+                self.assertEqual(self.decide(e=record, p=pr(draft=True), rv=[], now=now)[0],
+                                 'EXPIRED_AUTHORIZATION')
+
+    def test_unexpired_draft_authorization_remains_promotable(self):
+        record = entry(authorization_mode='solo_maintainer', reviewers=[],
+                       expiry='2026-10-17T00:00:00Z')
+        now = datetime(2026, 10, 16, tzinfo=timezone.utc)
+        self.assertEqual(self.decide(e=record, p=pr(draft=True), rv=[], now=now)[0],
+                         'PROMOTE_ONLY')
+
+    def test_solo_maintainer_prohibited_paths_remain_strictly_blocked(self):
+        sensitive_entry = entry(
+            authorization_mode='solo_maintainer',
+            expiry='2026-10-16T00:00:00Z',
+            paths=['legal/'],
+            reviewers=[],
+        )
+        self.assertEqual(policy_error(sensitive_entry), 'prohibited owned path')
+
+    def test_vetted_dispatcher_exemption_allows_exact_subpath(self):
+        dispatcher_entry = entry(
+            paths=['tools/gha_factory/dispatcher/'],
+        )
+        self.assertIsNone(policy_error(dispatcher_entry))
+        status, reason = self.decide(
+            e=dispatcher_entry,
+            fs=[{'filename': 'tools/gha_factory/dispatcher/queue.py'}],
+        )
+        self.assertEqual(status, 'VERIFIED_READY')
+
+    def test_unvetted_gha_factory_subpaths_remain_strictly_blocked(self):
+        broad_entry = entry(paths=['tools/gha_factory/'])
+        self.assertEqual(policy_error(broad_entry), 'prohibited owned path')
+
+        release_entry = entry(paths=['tools/gha_factory/release/'])
+        self.assertEqual(policy_error(release_entry), 'prohibited owned path')
+
+    def test_unapproved_extra_file_in_dispatcher_pr_blocks(self):
+        dispatcher_entry = entry(paths=['tools/gha_factory/dispatcher/'])
+        status, reason = self.decide(
+            e=dispatcher_entry,
+            fs=[
+                {'filename': 'tools/gha_factory/dispatcher/queue.py'},
+                {'filename': 'tools/gha_factory/release/candidate.py'},
+            ],
+        )
+        self.assertEqual(status, 'SCOPE_VIOLATION')
+
+    def test_head_sha_tampering_after_authorization_blocks(self):
+        dispatcher_entry = entry(
+            paths=['tools/gha_factory/dispatcher/'],
+            head_sha=SHA_A,
+        )
+        tampered_pr = pr(head={'sha': SHA_B})
+        status, reason = self.decide(e=dispatcher_entry, p=tampered_pr)
+        self.assertEqual(status, 'STALE_HEAD')
 
 
 if __name__ == '__main__':

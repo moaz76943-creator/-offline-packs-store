@@ -31,16 +31,23 @@ class ConformanceTests(unittest.TestCase):
     def inspect(self, blob=None):
         return check.inspect(blob or self.archive, 'de', root=ROOT, allow_fixture=True)
 
-    def mutate_db(self, sql, args=()):
+    def mutate_db(self, sql, args=(), recount=False):
         env = copy.deepcopy(self.env)
         files = {r['path']:base64.b64decode(r['contentBase64']) for r in env['files']}
         path = self.root/'mutant.sqlite'
         path.write_bytes(files['content/content.sqlite'])
+        refreshed_counts = None
         with sqlite3.connect(path) as db:
             db.execute(sql, args)
+            if recount:
+                refreshed_counts = {table: db.execute('SELECT COUNT(*) FROM ' + table).fetchone()[0]
+                    for table in ('concepts', 'lexicon', 'senses', 'translations',
+                                  'examples', 'lexical_relations', 'grammar')}
         data = path.read_bytes()
         info = json.loads(files['content/content.json'])
         meta = json.loads(files['metadata/pack.json'])
+        if refreshed_counts is not None:
+            info['tableCounts'] = refreshed_counts
         info['sqliteSha256'] = pipeline.sha(data)
         info_bytes = (pipeline.compact(info)+'\n').encode()
         meta['contentSha256'] = pipeline.sha(data)
@@ -54,15 +61,17 @@ class ConformanceTests(unittest.TestCase):
     def test_duplicate_key_bypass_rejected(self):
         raw = gzip.decompress(self.archive)
         bad = gzip.compress(b'{"packId":"wrong",'+raw[1:], mtime=0)
-        # Prove the old canonical inspector accepts this ambiguous representation.
-        candidate.inspect_archive(bad, 'de', allow_fixture=True)
+        # Both candidate and stricter conformance paths must now fail closed.
+        with self.assertRaisesRegex(candidate.ReleaseError, 'invalid envelope'):
+            candidate.inspect_archive(bad, 'de', allow_fixture=True)
         with self.assertRaisesRegex(ValueError, 'duplicate'):
             self.inspect(bad)
 
     def test_nonfinite_unknown_metadata_rejected(self):
         raw = gzip.decompress(self.archive)
         bad = gzip.compress(b'{"unused":NaN,'+raw[1:], mtime=0)
-        candidate.inspect_archive(bad, 'de', allow_fixture=True)
+        with self.assertRaisesRegex(candidate.ReleaseError, 'invalid envelope'):
+            candidate.inspect_archive(bad, 'de', allow_fixture=True)
         with self.assertRaises(ValueError):
             self.inspect(bad)
 
@@ -251,3 +260,30 @@ class ConformanceTests(unittest.TestCase):
         member['contentBase64'] = base64.b64encode(b'{"packId":"wrong",'+raw[1:]).decode()
         with self.assertRaisesRegex(ValueError,'duplicate'):
             self.inspect(self.pack(env))
+
+    def test_rejects_unreferenced_concepts_with_reconciled_counts(self):
+        bad = self.mutate_db("INSERT INTO concepts VALUES (?)", ('concept.unreferenced',),
+                             recount=True)
+        # PRAGMA and declared counts pass; canonical conformance must still reject it.
+        candidate.inspect_archive(bad, 'de', allow_fixture=True)
+        with self.assertRaisesRegex(ValueError, 'unreferenced concept'):
+            self.inspect(bad)
+
+    def test_rejects_concept_global_id_collision(self):
+        bad = self.mutate_db("INSERT INTO concepts VALUES (?)", ('lex.de.haus',),
+                             recount=True)
+        candidate.inspect_archive(bad, 'de', allow_fixture=True)
+        with self.assertRaisesRegex(ValueError, 'duplicate global stable ID'):
+            self.inspect(bad)
+
+    def test_rejects_grammar_global_id_collision(self):
+        source = self.doc['lexemes'][0]['source']
+        rule = {'grammar_id': 'lex.de.haus', 'category': 'noun',
+                'title': 'Synthetic collision', 'source': source}
+        bad = self.mutate_db(
+            'INSERT INTO grammar VALUES (?,?,?,?,?,?)',
+            ('lex.de.haus', 'de', 'noun', 'Synthetic collision',
+             pipeline.compact(rule), pipeline.compact(source)), recount=True)
+        candidate.inspect_archive(bad, 'de', allow_fixture=True)
+        with self.assertRaisesRegex(ValueError, 'duplicate global stable ID'):
+            self.inspect(bad)

@@ -17,6 +17,8 @@ from datetime import date
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from legal.ledger.license_notice import MAX_LICENSE_NOTICE_BYTES, license_notice_conflicts
+
 SOURCE_SCHEMA = '1.0.0'
 ROUTE05_LICENSES = frozenset({'CC0-1.0','CC-BY-SA-4.0','GFDL-1.3-only','PUBLIC-DOMAIN'})
 SHA = re.compile(r'^[0-9a-f]{64}$')
@@ -48,7 +50,15 @@ def checked_file(root, relative, expected, label):
     if p.is_absolute() or '..' in p.parts or '.git' in p.parts:
         raise AdmissionError(f'BLOCKED_SOURCE: {label} unsafe path')
     root = root.resolve()
-    resolved=(root/p).resolve()
+    candidate = root
+    for part in p.parts:
+        candidate = candidate / part
+        if candidate.is_symlink():
+            raise AdmissionError(f'BLOCKED_SOURCE: {label} symlink evidence path is forbidden')
+    try:
+        resolved = candidate.resolve()
+    except (OSError, RuntimeError) as exc:
+        raise AdmissionError(f'BLOCKED_SOURCE: {label} unresolvable evidence path') from exc
     if not resolved.is_relative_to(root) or not resolved.is_file():
         raise AdmissionError(f'BLOCKED_SOURCE: {label} missing/escaping evidence file')
     if digest_file(resolved)!=expected:
@@ -99,6 +109,9 @@ def route05_source(repo_root, source_id, dataset_version, input_path, fmt):
     s=sources[0]
     if s.get('status')!='APPROVED_FOR_REDISTRIBUTION':
         raise AdmissionError('BLOCKED_SOURCE: Route 05 reviewer approval absent')
+    from legal.ledger.admission import metadata_only_source_artifact
+    if metadata_only_source_artifact(s):
+        raise AdmissionError('BLOCKED_SOURCE: index/statistics bytes are not the corpus')
     if s.get('kind')!='dictionary' or fmt!='wiktextract-jsonl':
         raise AdmissionError('BLOCKED_SOURCE: unsupported kind/format; sentences and human audio require separate adapters and rights')
     if s.get('dataset_version')!=dataset_version:
@@ -134,7 +147,12 @@ def route05_source(repo_root, source_id, dataset_version, input_path, fmt):
     source=checked_file(repo_root,retrieval.get('artifact_path'),retrieval.get('sha256'),'source')
     if source!=input_path.resolve():
         raise AdmissionError('BLOCKED_SOURCE: source path differs from reviewed Route 05 artifact')
-    checked_file(repo_root,license_info.get('evidence_path'),license_info.get('evidence_sha256'),'license evidence')
+    license_proof = checked_file(
+        repo_root, license_info.get('evidence_path'),
+        license_info.get('evidence_sha256'), 'license evidence')
+    if license_notice_conflicts(
+            license_proof, lid, license_info.get('co_offered_licenses', ())):
+        raise AdmissionError('BLOCKED_SOURCE: license notice conflicts with metadata or cannot be safely checked')
     return s
 
 
@@ -211,7 +229,7 @@ def admit(*,repo_root,source_id,input_path,out_dir,language,dataset_version,
     try:
         h=None;file_handle=None;part_records=0;part_file=None
         with input_path.open('rb') as stream:
-            for line,raw in enumerate(stream,start=1):
+            for line,raw in enumerate(iter(lambda: stream.readline(MAX_LINE + 1), b''), start=1):
                 if not raw or len(raw)>MAX_LINE or not raw.endswith(b'\n') or raw.startswith(b'\xef\xbb\xbf'):
                     raise AdmissionError(f'REJECTED_RECORD: line {line}: invalid JSONL framing/encoding')
                 try:

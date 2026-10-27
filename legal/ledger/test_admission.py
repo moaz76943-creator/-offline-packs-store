@@ -1,6 +1,9 @@
 import copy
 import hashlib
+import importlib.util
 import json
+import runpy
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -20,6 +23,7 @@ class AdmissionTests(unittest.TestCase):
         self.source = {
             'source_id': 'fixture-source', 'kind': 'dictionary',
             'origin_url': 'https://example.org/data', 'publisher': 'Fixture Publisher',
+            'author': 'Fixture Author',
             'dataset_version': '2026.10',
             'retrieval': {'identity': 'fixture-snapshot-v1', 'url': 'https://example.org/data',
                           'date': '2026-10-12', 'artifact_path': 'evidence/upstream.json',
@@ -58,6 +62,10 @@ class AdmissionTests(unittest.TestCase):
     def test_valid_evidence_does_not_auto_approve_but_accepts_documented_review(self):
         self.assertEqual([], self.issues())
 
+    def test_missing_author_is_rejected(self):
+        self.source.pop('author')
+        self.assertTrue(any('author' in item for item in self.issues()))
+
     def test_unknown_rights_are_blocked(self):
         self.source['license']['id'] = 'PUBLIC_DOMAIN_ZERO_COPYRIGHT'
         self.assertIn('BLOCKED_LICENSE', str(self.issues()))
@@ -65,6 +73,19 @@ class AdmissionTests(unittest.TestCase):
     def test_review_required_is_not_approved(self):
         self.source['status'] = 'REVIEW_REQUIRED'
         self.assertIn('REVIEW_REQUIRED', str(self.issues()))
+
+    def test_malformed_license_metadata_blocks_instead_of_crashing(self):
+        self.source['license'] = 'CC0-1.0'
+        issues = self.issues()
+        self.assertIn('BLOCKED_LICENSE', str(issues))
+        self.assertIn('EVIDENCE', str(issues))
+
+    def test_malformed_retrieval_and_origin_fail_closed(self):
+        self.source['retrieval'] = 'snapshot'
+        self.source.pop('origin_url')
+        issues = self.issues()
+        self.assertIn('EVIDENCE', str(issues))
+        self.assertIn('HASH_MISMATCH', str(issues))
 
     def test_mismatched_source_version(self):
         self.candidate['source_refs'][0]['dataset_version'] = '2025.01'
@@ -142,6 +163,98 @@ class AdmissionTests(unittest.TestCase):
     def test_duplicate_source_id_rejected(self):
         self.ledger['sources'].append(copy.deepcopy(self.source))
         self.assertIn('DUPLICATE', str(self.issues()))
+
+
+    def test_internal_symlink_license_proof_rejected_even_with_matching_sha(self):
+        (self.root / 'evidence/license-link.txt').symlink_to('upstream-license.txt')
+        self.source['license']['evidence_path'] = 'evidence/license-link.txt'
+        self.assertIn('EVIDENCE', str(self.issues()))
+
+    def test_cc0_metadata_conflicts_with_noncommercial_license_notice(self):
+        self.put('evidence/upstream-license.txt', b'Official license: CC BY-NC-SA 4.0\n')
+        self.source['license']['evidence_sha256'] = sha256_file(
+            self.root / 'evidence/upstream-license.txt')
+        self.assertIn('LICENSE_CONFLICT', str(self.issues()))
+
+    def test_cc_by_sa_and_gfdl_needs_an_explicit_co_offer(self):
+        notice = b'made available under CC-BY-SA and GFDL\n'
+        self.put('evidence/upstream-license.txt', notice)
+        self.source['license']['id'] = 'CC-BY-SA-4.0'
+        self.source['license']['evidence_sha256'] = sha256_file(
+            self.root / 'evidence/upstream-license.txt')
+        self.assertIn('license notice conflicts', str(self.issues()))
+        self.source['license']['co_offered_licenses'] = ['GFDL-1.3-only']
+        self.assertNotIn('license notice conflicts', str(self.issues()))
+        self.put('evidence/upstream-license.txt', b'CC-BY-SA and GFDL and CC BY-NC 4.0\n')
+        self.source['license']['evidence_sha256'] = sha256_file(
+            self.root / 'evidence/upstream-license.txt')
+        self.assertIn('license notice conflicts', str(self.issues()))
+
+
+    def test_metadata_index_cannot_be_approved_as_original_corpus(self):
+        content = self.put('evidence/index.html', b'<html>download links</html>')
+        self.source['origin_url'] = 'https://example.org/lexemes.json.bz2'
+        self.source['retrieval'].update({
+            'identity': 'dump-index', 'url': 'https://example.org/dumps/',
+            'artifact_path': content, 'sha256': sha256_file(self.root / content)})
+        self.assertIn('SOURCE_ARTIFACT', str(self.issues()))
+
+    def test_stats_xml_cannot_be_approved_as_example_corpus(self):
+        content = self.put('evidence/stats.xml', b'<stats/>')
+        self.source['kind'] = 'examples'
+        self.candidate['kind'] = 'examples'
+        self.source['retrieval'].update({
+            'identity': 'treebank-stats', 'url': 'https://example.org/treebank/stats.xml',
+            'artifact_path': content, 'sha256': sha256_file(self.root / content)})
+        self.assertIn('SOURCE_ARTIFACT', str(self.issues()))
+
+class AdmissionPathImportTests(unittest.TestCase):
+    def test_admission_loads_by_file_path_without_ledger_on_sys_path(self):
+        ledger = Path(__file__).resolve().parent
+        admission_path = ledger / 'admission.py'
+        saved_path = list(sys.path)
+        hidden = ('admission', 'license_notice', 'legal.ledger.admission',
+                  'legal.ledger.license_notice')
+        saved_modules = {name: sys.modules.pop(name) for name in hidden if name in sys.modules}
+
+        def on_ledger(entry):
+            try:
+                candidate = Path.cwd() if entry in ('', '.') else Path(entry)
+                return candidate.resolve() == ledger
+            except OSError:
+                return False
+
+        try:
+            sys.path[:] = [entry for entry in sys.path if not on_ledger(entry)]
+            spec = importlib.util.spec_from_file_location('admission_by_path', admission_path)
+            self.assertIsNotNone(spec)
+            self.assertIsNotNone(spec.loader)
+            module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(module)
+            self.assertTrue(callable(module.evaluate))
+            self.assertTrue(callable(module.license_notice_conflicts))
+            notice_nc = self._notice_file('CC BY-NC 3.0\n')
+            self.assertTrue(module.license_notice_conflicts(notice_nc, 'CC0-1.0'))
+
+            namespace = runpy.run_path(str(admission_path), run_name='admission_via_runpy')
+            self.assertTrue(callable(namespace['evaluate']))
+            notice_sa = self._notice_file('CC BY-SA 3.0\n')
+            self.assertTrue(namespace['license_notice_conflicts'](notice_sa, 'CC-BY-SA-4.0'))
+            self.assertIsInstance(namespace['evaluate']({}, {}, [], ledger), list)
+        finally:
+            sys.path[:] = saved_path
+            sys.modules.update(saved_modules)
+            sys.modules.pop('admission_by_path', None)
+            sys.modules.pop('admission_via_runpy', None)
+            sys.modules.pop('_ledger_license_notice', None)
+
+    def _notice_file(self, text):
+        handle = tempfile.NamedTemporaryFile(delete=False)
+        handle.write(text.encode('utf-8'))
+        handle.close()
+        path = Path(handle.name)
+        self.addCleanup(path.unlink)
+        return path
 
 
 if __name__ == '__main__':

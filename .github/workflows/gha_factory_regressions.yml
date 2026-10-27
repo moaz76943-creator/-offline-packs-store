@@ -5,15 +5,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '07 4 * * *'
-  pull_request:
-    paths:
-      - '.github/workflows/gha_factory_regressions.yml'
-      - 'tools/gha_factory/**'
-      - 'tests/gha_factory/**'
-      - 'legal/ledger/sources.json'
-      - 'catalog/language_registry.v1.json'
-      - 'standards/**'
-      - 'tools/pack_v2/**'
+  # PRs use the required path-scoped Public PR Merge Gate.
+  # Keep this broad factory matrix for scheduled/manual verification only.
 
 permissions:
   contents: read
@@ -29,13 +22,18 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
-      max-parallel: 3
+      max-parallel: 10
       matrix:
-        suite: [admission, dispatcher, linguistics, examples, release]
+        # Ten independent, existing public QA tracks. Heavy production stays
+        # inside gha_dispatcher with its separate max-parallel: 3 limit.
+        suite: [admission, dispatcher, queue_autoseed, linguistics, examples, release, source_snapshots, pack_conformance, search_qa, coverage_audit]
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Install pack conformance compiler dependency
+        if: matrix.suite == 'pack_conformance'
+        run: timeout 90s python3 -m pip install --disable-pip-version-check --no-cache-dir jsonschema==4.26.0
       - name: Execute the actual merged source suite
         shell: bash
         env:
@@ -43,7 +41,7 @@ jobs:
         run: |
           set -euo pipefail
           case "$SUITE" in
-            admission|dispatcher|linguistics|examples|release) ;;
+            admission|dispatcher|queue_autoseed|linguistics|examples|release|source_snapshots|pack_conformance|search_qa|coverage_audit) ;;
             *) echo "Unknown suite"; exit 2;;
           esac
           python3 -m unittest discover \

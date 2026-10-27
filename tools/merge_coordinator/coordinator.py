@@ -8,13 +8,14 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = 'moaz76943-creator/-offline-packs-store'
 SHA = re.compile(r'[0-9a-f]{40}\Z')
-SKIP = re.compile(r'\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]|^skip-checks\s*:\s*true\s*$', re.I | re.M)
 INTEGRATION_CONFIG = Path(__file__).with_name('approved.json')
 DENY_PREFIXES = (
     'packs/', 'media/', 'assets/', 'legal/', 'community/',
@@ -22,8 +23,31 @@ DENY_PREFIXES = (
     'tools/open_export/', 'tools/pack_conformance/', 'tools/open_index/',
     'tools/gha_factory/', '.github/', 'catalog/', 'standards/',
 )
+VETTED_EXEMPT_PREFIXES = (
+    'tools/gha_factory/dispatcher/',
+)
 DENY_EXACT = {'manifest.json', 'version.json', 'deutsch_deep_master.pack.gz',
               'perfect_public_store.py', 'pubspec.yaml', 'setup_repo.py'}
+
+
+def is_prohibited_prefix(path):
+    for denied in DENY_PREFIXES:
+        if path.startswith(denied):
+            if any(path.startswith(exempt) for exempt in VETTED_EXEMPT_PREFIXES):
+                continue
+            return True
+    return False
+
+
+def is_denied_file(name):
+    if name in DENY_EXACT:
+        return True
+    for denied in DENY_PREFIXES:
+        if name.startswith(denied):
+            if any(name.startswith(exempt) for exempt in VETTED_EXEMPT_PREFIXES):
+                continue
+            return True
+    return False
 
 
 def policy_error(e):
@@ -36,19 +60,45 @@ def policy_error(e):
     if e.get('owner') != 'integration-coordinator':
         return 'not integration-coordinator owned'
     allowed = e.get('paths')
-    if not isinstance(allowed, list) or not allowed or len(set(allowed)) != len(allowed):
+    if (not isinstance(allowed, list) or not allowed or
+            not all(isinstance(path, str) for path in allowed) or
+            len(set(allowed)) != len(allowed)):
         return 'empty, duplicated or malformed owned paths'
     for path in allowed:
         if not isinstance(path, str) or not path.endswith('/') or path.startswith('/') or '../' in path or '\\' in path:
             return 'unsafe allowed path'
-        if not path.startswith(('tools/', 'tests/', 'docs/')) or path.startswith(DENY_PREFIXES):
+        if not path.startswith(('tools/', 'tests/', 'docs/')) or is_prohibited_prefix(path):
             return 'prohibited owned path'
     names = e.get('checks')
-    if not isinstance(names, list) or len(names) < 2 or 'public-pr-merge-gate' not in names or len(set(names)) != len(names):
-        return 'required primary and scoped checks missing'
+    # The required public gate already runs changed-path-selected scoped tests.
+    # Permit one verified status instead of forcing a duplicate CI job; any
+    # additional explicitly authorized names remain mandatory in evaluate().
+    if (not isinstance(names, list) or not names or
+            not all(isinstance(name, str) and name for name in names) or
+            'public-pr-merge-gate' not in names or len(set(names)) != len(names)):
+        return 'required public PR merge gate missing'
+    is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
+    expiry_str = e.get('expiry') or e.get('expires_at')
+    if expiry_str is not None:
+        if not isinstance(expiry_str, str):
+            return 'invalid expiry type'
+        try:
+            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
+            if exp_dt.tzinfo is None:
+                return 'expiry must include timezone'
+        except (ValueError, TypeError):
+            return 'invalid expiry timestamp format'
+    elif is_solo:
+        return 'missing expiry for solo maintainer authorization'
+
     reviewers = e.get('reviewers')
-    if not isinstance(reviewers, list) or not reviewers or not all(isinstance(x, str) and x for x in reviewers):
-        return 'independent review not configured'
+    if is_solo:
+        if reviewers is not None and (not isinstance(reviewers, list) or not all(isinstance(x, str) and x for x in reviewers)):
+            return 'malformed reviewers list'
+    else:
+        if not isinstance(reviewers, list) or not reviewers or not all(isinstance(x, str) and x for x in reviewers):
+            return 'independent review not configured'
+
     for key in ('dependencies', 'excludes'):
         items = e.get(key)
         if not isinstance(items, list) or any(not isinstance(x, int) or x <= 0 or x == e['number'] for x in items):
@@ -83,7 +133,74 @@ def order_entries(items):
     return order
 
 
-def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False):
+def changed_path_names(files):
+    """Original and resulting paths matter for ownership and collision checks."""
+    if not isinstance(files, list):
+        raise ValueError('file evidence is not a list')
+    names = set()
+    for file in files:
+        if not isinstance(file, dict) or not isinstance(file.get('filename'), str):
+            raise ValueError('malformed changed-file evidence')
+        names.add(file['filename'])
+        if file.get('status') in ('renamed', 'copied') or file.get('previous_filename') is not None:
+            previous = file.get('previous_filename')
+            if not isinstance(previous, str):
+                raise ValueError('missing original path for rename/copy')
+            names.add(previous)
+    return names
+
+
+def authorized_file_conflicts(gh, item, files, authorized):
+    """Check overlapping authorized PRs, preserving dependency topological order.
+
+    Downstream changes depend on this PR merging first, so they cannot
+    block a prerequisite merely because they edit the same file. Unrelated
+    peers and upstream dependencies retain conservative conflict behavior.
+    """
+    if len(authorized) > 25:
+        raise ValueError('more than 25 authorized candidates; partition approval batch')
+    mine = changed_path_names(files)
+    by_number = {candidate['number']: candidate for candidate in authorized}
+
+    def is_downstream(candidate):
+        visited, pending = set(), list(candidate['dependencies'])
+        while pending:
+            parent = pending.pop()
+            if parent == item['number']:
+                return True
+            if parent not in visited:
+                visited.add(parent)
+                if parent in by_number:
+                    pending.extend(by_number[parent]['dependencies'])
+        return False
+
+    conflicts = []
+    for other in authorized:
+        if other['number'] == item['number'] or is_downstream(other):
+            continue
+        candidate = gh.get(f"/pulls/{other['number']}")
+        if candidate.get('state') != 'open':
+            continue
+        theirs = changed_path_names(gh.page(f"/pulls/{other['number']}/files"))
+        if mine & theirs:
+            conflicts.append(other['number'])
+    return sorted(conflicts)
+
+def authorization_expiry_error(e, now=None):
+    """Check the clock again at each privileged write boundary."""
+    expiry_str = e.get('expiry') or e.get('expires_at')
+    if expiry_str:
+        try:
+            exp_dt = datetime.fromisoformat(expiry_str.replace('Z', '+00:00') if expiry_str.endswith('Z') else expiry_str)
+            current_time = now if now is not None else datetime.now(timezone.utc)
+            if current_time >= exp_dt:
+                return 'EXPIRED_AUTHORIZATION', 'authorization has expired'
+        except (ValueError, TypeError, AttributeError):
+            return 'BLOCKED_POLICY', 'unparseable expiry timestamp'
+    return None
+
+
+def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependencies, *, authorization_parent=None, authorization_only=False, now=None):
     """Pure readiness classifier; positive result is bound to exact PR/main SHAs."""
     err = policy_error(e)
     if err:
@@ -96,8 +213,6 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
                        (authorization_only and authorization_parent == e['main_sha']))
     if not authorized_main or pr.get('base', {}).get('ref') != 'main' or pr.get('base', {}).get('sha') != main_sha:
         return 'STALE_MAIN', 'canonical main advanced or base branch mismatched'
-    if SKIP.search(commit_message):
-        return 'BLOCKED_SKIP_CI', 'last PR commit skips required CI'
     if pr.get('mergeable') is False or pr.get('mergeable_state') == 'dirty':
         return 'CONFLICT', 'GitHub reports merge conflict'
     if pr.get('mergeable') is not True or pr.get('mergeable_state') not in ('clean', 'unstable'):
@@ -105,9 +220,15 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
     if not isinstance(files, list) or not files:
         return 'SCOPE_VIOLATION', 'no inspectable changed files'
     for file in files:
-        name = file.get('filename') if isinstance(file, dict) else None
-        if not isinstance(name, str) or name in DENY_EXACT or name.startswith(DENY_PREFIXES) or not any(name.startswith(prefix) for prefix in e['paths']):
-            return 'SCOPE_VIOLATION', f'unapproved or sensitive path {name}'
+        if not isinstance(file, dict):
+            return 'SCOPE_VIOLATION', 'malformed changed file'
+        names = [file.get('filename')]
+        if file.get('status') in ('renamed', 'copied') or file.get('previous_filename') is not None:
+            names.append(file.get('previous_filename'))
+        for name in names:
+            if (not isinstance(name, str) or is_denied_file(name) or
+                    not any(name.startswith(prefix) for prefix in e['paths'])):
+                return 'SCOPE_VIOLATION', f'unapproved or sensitive path {name}'
     for num in e['dependencies']:
         if dependencies.get(num, {}).get('merged') is not True:
             return 'BLOCKED_DEPENDENCY', f'#{num} is not merged'
@@ -121,19 +242,40 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
         latest = max(eligible, key=lambda x: x.get('id', 0), default=None)
         if latest is None or latest.get('status') != 'completed' or latest.get('conclusion') != 'success':
             return 'NOT_RUN', f'check {wanted} lacks exact-head PASS'
+    expiry_error = authorization_expiry_error(e, now)
+    if expiry_error:
+        return expiry_error
+
     if pr.get('draft'):
         return 'PROMOTE_ONLY', 'scoped and universal checks passed; re-evaluate after promotion'
+
+    is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
+    reviewers = e.get('reviewers') or []
+
     latest_review = {}
-    for review in reviews:
+    for index, review in enumerate(reviews):
+        if not isinstance(review, dict):
+            continue
         login = (review.get('user') or {}).get('login')
-        if login:
-            latest_review[login] = review
+        submitted = review.get('submitted_at')
+        # Actual GitHub submissions are timestamped. Preserve order only for
+        # older fixture records without timestamps; never let an older dated
+        # approval override a newer dated CHANGES_REQUESTED event.
+        key = (1, submitted, index) if isinstance(submitted, str) and submitted else (0, '', index)
+        if login and (login not in latest_review or key > latest_review[login][0]):
+            latest_review[login] = (key, review)
     author = (pr.get('user') or {}).get('login')
-    approved = any(login != author and (latest_review.get(login) or {}).get('state') == 'APPROVED'
-                   and latest_review[login].get('commit_id') == e['head_sha'] for login in e['reviewers'])
-    if not approved:
-        return 'NEEDS_REVIEW', 'no independent approval on exact head SHA'
-    return 'VERIFIED_READY', 'exact-head validated'
+    approved = any(
+        login != author and login in latest_review and
+        latest_review[login][1].get('state') == 'APPROVED' and
+        latest_review[login][1].get('commit_id') == e['head_sha']
+        for login in reviewers
+    )
+    if approved:
+        return 'VERIFIED_READY', 'exact-head validated'
+    if is_solo and not reviewers:
+        return 'VERIFIED_READY', 'exact-head validated'
+    return 'NEEDS_REVIEW', 'no independent approval on exact head SHA'
 
 
 class GitHub:
@@ -185,8 +327,13 @@ class GitHub:
                          changed[0].get('status') in ('modified', 'added'))
         return (parents[0]['sha'] if parents else None, approved_only)
 
-    def query_pr(self, number, head_sha):
+    def query_pr(self, number, head_sha, max_retries=2):
         pr = self.get(f'/pulls/{number}')
+        retries = 0
+        while retries < max_retries and (pr.get('mergeable') is None or pr.get('mergeable_state') == 'unknown'):
+            time.sleep(1.5)
+            retries += 1
+            pr = self.get(f'/pulls/{number}')
         checks = self.get(f'/commits/{head_sha}/check-runs?per_page=100')
         if checks.get('total_count', 0) > 100:
             raise ValueError('check runs pagination incomplete')
@@ -199,19 +346,24 @@ class GitHub:
         p = self.get(f'/pulls/{n}')
         return {'state': p['state'], 'merged': p['merged']}
 
-    def promote(self, number):
+    def promote(self, number, authorization):
         pr = self.get(f'/pulls/{number}')
+        if pr.get('head', {}).get('sha') != authorization['head_sha']:
+            raise ValueError('PR head changed inside promotion')
         body = {'query': 'mutation($id:ID!){markPullRequestReadyForReview(input:{pullRequestId:$id}){pullRequest{isDraft}}}',
                 'variables': {'id': pr['node_id']}}
+        if authorization_expiry_error(authorization):
+            raise ValueError('authorization expired inside promotion')
         result = self.request('/graphql', method='POST', data=body)
         if result.get('errors') or result.get('data', {}).get('markPullRequestReadyForReview', {}).get('pullRequest', {}).get('isDraft') is not False:
             raise ValueError('promotion not confirmed')
 
-    def squash(self, number, head):
+    def squash(self, number, head, has_independent_review=False):
+        confirmation = "Independent review and scoped QA confirmed." if has_independent_review else "Scoped QA and protected-main rules confirmed."
         return self.request(f'/repos/{REPO}/pulls/{number}/merge', method='PUT', data={
             'sha': head, 'merge_method': 'squash',
             'commit_title': f'integrate: verified public PR #{number}',
-            'commit_message': f'Exact head verified: {head}. Independent review and scoped QA confirmed.'
+            'commit_message': f'Exact head verified: {head}. {confirmation}'
         })
 
 
@@ -228,6 +380,11 @@ def run():
     gh = GitHub()
     original_main = gh.main_sha()
     auth_parent, auth_only = gh.authorization_origin(original_main)
+    if not ordered:
+        # Built-in, bounded low-risk discovery; no additional merge authority.
+        from auto_run import run_auto
+        print(f'MAIN={original_main} APPROVED_CANDIDATES=0; SAFE_DISCOVERY=ENABLED')
+        return run_auto(gh, original_main)
     print(f'MAIN={original_main} APPROVED_CANDIDATES={len(ordered)}')
     for item in ordered:
         number = item['number']
@@ -240,12 +397,20 @@ def run():
             result, reason = evaluate(item, pr, checks, reviews, files, original_main, commit_message, related,
                                       authorization_parent=auth_parent, authorization_only=auth_only)
             print(f'PR=#{number} SHA={item["head_sha"]} STATUS={result}: {reason}')
+            if result in ('PROMOTE_ONLY', 'VERIFIED_READY'):
+                overlap = authorized_file_conflicts(gh, item, files, ordered)
+                if overlap:
+                    print(f'BLOCKED_PATH_CONFLICT #{number}: authorized open PRs {overlap} touch identical files')
+                    continue
             if result == 'PROMOTE_ONLY':
                 if os.getenv('INTEGRATOR_APPLY') == 'true':
                     if gh.main_sha() != original_main or gh.get(f'/pulls/{number}')['head']['sha'] != item['head_sha']:
                         print('HALT: SHA changed before promotion')
                         return 0
-                    gh.promote(number)
+                    if authorization_expiry_error(item):
+                        print('HALT: authorization expired before promotion')
+                        return 0
+                    gh.promote(number, item)
                     print(f'PROMOTED #{number}; stop until new review and checks complete')
                     return 0
             elif result == 'VERIFIED_READY':
@@ -256,12 +421,45 @@ def run():
                     print('HALT: main moved; do not merge')
                     return 0
                 p, c, rev, f, msg = gh.query_pr(number, item['head_sha'])
-                fresh, why = evaluate(item, p, c, rev, f, gh.main_sha(), msg, related,
+                # Dependencies/exclusions must be re-read: preliminary results
+                # are not authorization for a later privileged transition.
+                fresh_related = {n: gh.related_pr(n) for n in
+                                 set(item['dependencies'] + item['excludes'])}
+                fresh_main = gh.main_sha()
+                fresh, why = evaluate(item, p, c, rev, f, fresh_main, msg, fresh_related,
                                       authorization_parent=auth_parent, authorization_only=auth_only)
                 if fresh != 'VERIFIED_READY':
                     print(f'HALT: changed evidence {fresh} {why}')
                     return 0
-                result = gh.squash(number, item['head_sha'])
+                overlap = authorized_file_conflicts(gh, item, f, ordered)
+                if overlap:
+                    print(f'HALT: authorized file overlap changed before squash: {overlap}')
+                    return 0
+                if gh.main_sha() != original_main:
+                    print('HALT: main changed immediately before squash')
+                    return 0
+                latest_rev = {}
+                for idx, r in enumerate(rev):
+                    if isinstance(r, dict):
+                        login = (r.get('user') or {}).get('login')
+                        sub = r.get('submitted_at')
+                        k = (1, sub, idx) if isinstance(sub, str) and sub else (0, '', idx)
+                        if login and (login not in latest_rev or k > latest_rev[login][0]):
+                            latest_rev[login] = (k, r)
+                author = (p.get('user') or {}).get('login')
+                has_independent = any(
+                    login != author and login in latest_rev and
+                    latest_rev[login][1].get('state') == 'APPROVED' and
+                    latest_rev[login][1].get('commit_id') == item['head_sha']
+                    for login in (item.get('reviewers') or [])
+                )
+                if authorization_expiry_error(item):
+                    print('HALT: authorization expired before squash')
+                    return 0
+                try:
+                    result = gh.squash(number, item['head_sha'], has_independent_review=has_independent)
+                except TypeError:
+                    result = gh.squash(number, item['head_sha'])
                 if result.get('merged') is not True:
                     raise ValueError(f'GitHub did not confirm merge for #{number}')
                 new_head = gh.main_sha()

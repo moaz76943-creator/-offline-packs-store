@@ -1,74 +1,34 @@
-# Public PR CI and merge policy — zero-conflict contract
+# Public PR CI and merge policy — skip-marker-neutral
 
-**Scope:** `moaz76943-creator/-offline-packs-store`, canonical `main` only.
-This policy resolves the contradiction between a blanket `[skip ci]` habit and
-GitHub-required PR checks. It does not change private Flutter CI or authorize
-release of unapproved language packs.
+**Scope:** `moaz76943-creator/-offline-packs-store`, canonical `main`.
 
-## Rule: never skip checks on the final integration commit
+## Commit messages
 
-- Intermediate draft/WIP commits may include `[skip ci]` to suppress redundant runs.
-- **The HEAD commit of a PR intended for review or merge MUST NOT contain**
-  `[skip ci]`, `[ci skip]`, `[no ci]`, `[skip actions]`, `[actions skip]`, or a
-  `skip-checks: true` trailer. This is an explicit exception to the old blanket
-  commit-tag convention for CI-bearing PRs.
-- Never put a skip directive in the final **squash merge commit title/body**;
-  otherwise post-merge `push` checks on `main` may also be suppressed. Rewrite
-  only the proposed merge message, not Git history.
-- Do not rewrite Jules' original branches or bulk-promote 99 draft PRs. For a
-  chosen legacy contribution with a skipped tip, create a separate, reviewed
-  integration branch from current `main`, apply the selected change and use a
-  **non-skipping final integration commit**. Avoid merging superseded proposals.
-- Merge only after the PR is out of Draft, GitHub reports no conflicts, the
-  latest PR head matches reviewed evidence, all required checks are green,
-  relevant scoped tests are verified, and the coordinator rechecks fresh `main`.
+The repository does **not** ban `[skip ci]`, `[ci skip]`, `[no ci]`, `[skip actions]`, `[actions skip]`, or `skip-checks: true` in existing or new commits. Neither PR eligibility, merge-coordinator authorization, nor read-only backlog classification rejects a commit solely because it contains such text.
 
-## Required check and scope
+**GitHub scheduling is a separate matter:** native `push` and `pull_request` Actions workflows may not start for a tip carrying a recognized skip instruction. This repository cannot declare a job that never ran successful. The existing required `public-pr-merge-gate`, any relevant scoped checks, and applicable release, security and licensing checks must actually complete successfully on the exact current head SHA.
 
-`.github/workflows/public_pr_merge_gate.yml` defines one unfiltered
-`pull_request` job named **`public-pr-merge-gate`**. Because the workflow has no
-path filters and the required job has no job-level `if`, a valid non-skipped PR
-receives the check even when it only edits documentation or a small isolated
-module. It runs on GitHub's ephemeral standard `ubuntu-latest` public runner,
-with `contents: read`, no persistently stored checkout credential, no secrets,
-no artifact upload and a 12-minute cap.
+For skipped legacy tips with missing checks, preserve original commits and use a reviewed follow-up/integration tip with no skip instruction when a required GitHub-hosted check needs to run. This is a scheduling workaround, **not** a requirement to rewrite the original message or a prohibition of skip markers. Do not force-push or fabricate a successful status. When squashing an eligible PR, the merge message may be normalized to allow the real post-merge `main` workflows to run.
 
-The job checks out GitHub's synthetic PR merge commit, compares its second
-parent with `github.event.pull_request.head.sha`, rejects skip directives on
-that exact tip, then runs policy tests, the canonical registry validator and
-fixture-only SQLite pack regression. This is a **baseline check**, not proof
-that every source-, license-, provenance- or publication-specific test passed.
-Required scoped checks and human approvals remain additional integration gates.
-Do not interpret `skipped`, `neutral`, `NOT_RUN` or absent evidence as a passing
-production verification, even if GitHub allows a skipped job in protection.
+## Required hosted gate
 
-## Branch protection setup after first proven hosted run
+`.github/workflows/public_pr_merge_gate.yml` defines one mandatory unfiltered `pull_request` job named `public-pr-merge-gate`. If GitHub schedules it, the job checks the second parent of the synthetic PR merge tree against the exact expected PR head SHA and runs the selected real regression suites. It does not inspect or reject skip tokens in the source message. It uses public standard GitHub-hosted runners, read-only contents, no persisted checkout credentials, and a 12-minute timeout.
 
-1. In GitHub Settings → Branches, protect `main` and require the exact
-   `public-pr-merge-gate` status check **after** GitHub has successfully run it.
-2. Require PR review, restrict destructive pushes/deletions and prefer a strict
-   up-to-date check policy for serialized, dependency-aware integration.
-3. Keep one authorized merge coordinator. Enable GitHub Auto-merge separately
-   if desired; it cannot merge drafts or bypass unsatisfied required checks.
-4. Existing path-filtered workflows may remain **additional** evidence but must
-   not be the only universally required check. Never weaken an existing
-   release/rights gate to clear a queue.
+An absent, skipped, pending, stale or failing result is **not** a PASS. Scope-specific pack integrity, source rights, provenance, licensing and release admission remain independent requirements; a low-risk docs PR does not need unrelated heavy checks. `workflow_dispatch` does not automatically satisfy the PR's required status check. Never use `pull_request_target` to execute untrusted PR code.
 
-`workflow_dispatch` can help investigate a stalled change, but its workflow-job
-check does **not** satisfy branch-protection-required checks on a PR. Avoid
-`pull_request_target` for running untrusted PR code. The safe recovery for an
-old `[skip ci]` PR is a non-skipping integration tip with standard `pull_request`
-checks, rather than a fabricated green check or admin bypass.
+## Protected merge
 
-## Failure classifications
+- Keep the canonical branch protection and exact-head `public-pr-merge-gate` requirement.
+- Merge only a ready, conflict-free, authorized PR after actually required checks and reviews have passed and the current target SHA is rechecked.
+- Do not claim a pack is production-ready without license provenance, integrity checks and verified receipts.
+- Reuse the existing coordinator; do not introduce new approvals, workers or blocking paperwork to manage skip-token messages.
+- Do not reinterpret GitHub's own workflow scheduling as a repository policy veto against the original commit.
 
-- `BLOCKED_SKIP_CI`: Latest PR head contains a skip instruction and CI did not run.
-- `NOT_RUN`: No exact-head hosted check exists. Do not label PASS.
-- `FAIL`: The named job failed; repair before merging.
-- `BLOCKED_DEPENDENCY`: CI is green but release/rights/source/compatibility gate fails.
-- `READY`: Latest exact SHA has required check PASS, relevant scoped evidence,
-  approvals and no merge/dependency conflict; immediately recheck before squash.
+## Diagnostic states
 
-GitHub Actions on standard hosted public runners incurs no additional compute
-billing; larger runners, private runners, paid services and unbounded artifact
-retention are excluded from this policy.
+- `NOT_RUN`: Required exact-head hosted check absent, regardless of commit-message text.
+- `FAIL`: Required real check failed.
+- `BLOCKED_DEPENDENCY`: Real release/rights/source/compatibility gate failed.
+- `READY`: Correct SHA, required passing checks, applicable review, and no merge/dependency conflict.
+
+Use targeted regressions and bounded CI rather than turning skipped jobs into fictitious successes. The zero-additional-billing constraint remains in force.

@@ -4,6 +4,7 @@ import argparse
 import base64
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -37,6 +38,14 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def digest_file(path):
+    h = hashlib.sha256()
+    with Path(path).open('rb') as stream:
+        for chunk in iter(lambda: stream.read(65536), b''):
+            h.update(chunk)
+    return h.hexdigest()
+
+
 def json_bytes(value):
     return (json.dumps(value, ensure_ascii=False, sort_keys=True,
                        separators=(',', ':'), allow_nan=False) + '\n').encode('utf-8')
@@ -68,8 +77,29 @@ def bounded_gzip(blob):
 
 
 def _json(raw, label):
+    # All candidate, manifest and rights metadata must have one unambiguous
+    # interpretation. json.loads otherwise silently keeps the last duplicate
+    # property and accepts non-standard NaN/Infinity numeric constants.
+    def unique_object(pairs):
+        obj = {}
+        for key, value in pairs:
+            if key in obj:
+                raise ValueError('duplicate JSON property')
+            obj[key] = value
+        return obj
+
+    def finite_only(value):
+        raise ValueError('non-finite JSON constant')
+
+    def finite_float(value):
+        number = float(value)
+        if not math.isfinite(number):
+            raise ValueError('overflowed JSON number')
+        return number
+
     try:
-        item = json.loads(raw)
+        item = json.loads(raw, object_pairs_hook=unique_object,
+                          parse_constant=finite_only, parse_float=finite_float)
     except (UnicodeError, ValueError, TypeError) as exc:
         raise ReleaseError('invalid ' + label) from exc
     if not isinstance(item, dict):
@@ -183,8 +213,11 @@ def inspect_archive(archive, language, *, allow_fixture=False):
     fixture = info['fixtureOnly']
     if not isinstance(fixture, bool) or (fixture and not allow_fixture):
         raise ReleaseError('synthetic fixture forbidden for production candidate')
-    if not isinstance(info.get('sourceIds'), list) or not info['sourceIds'] or meta.get('sourceIds') != info['sourceIds']:
-        raise ReleaseError('missing or mismatched source provenance IDs')
+    sources = info.get('sourceIds')
+    if (not isinstance(sources, list) or not sources or meta.get('sourceIds') != sources
+            or any(not isinstance(s, str) or not s.strip() for s in sources)
+            or len(set(sources)) != len(sources)):
+        raise ReleaseError('missing, duplicate or mismatched source provenance IDs')
     fts_tests, target_count = _check_sqlite(contents, language, counts)
     # Reuse the canonical consumer/producer contract, without modifying Route 07.
     from tools.pack_v2.pipeline import check_envelope
@@ -193,7 +226,9 @@ def inspect_archive(archive, language, *, allow_fixture=False):
             'sqlite_sha256': sqlhash, 'actual_lexical_count': counts['lexicon'],
             'target_lexical_count': target_count, 'sqlite_integrity': 'ok', 'foreign_key_check': 'ok',
             'fts5_queries_passed': fts_tests, 'short_query_fallback': 'passed',
-            'source_ids': info['sourceIds'], 'fixture_only': fixture, 'schema_version': '2.0.0'}
+            'source_ids': sources, 'fixture_only': fixture, 'schema_version': '2.0.0',
+            'contract_version': '1.0.0', 'package_version': '1.0.0',
+            'actual_counts': counts}
 
 
 def verify_signature(archive, key_path, signature_path):
@@ -240,6 +275,98 @@ def audit(root):
             'approved_sources': len(approved), 'publication_approved': False}
 
 
+def evidence_receipts(root, source_ids):
+    """Independently bind every pack source to immutable ledger proof bytes."""
+    approved = source_gate(root)
+    receipts = []
+    for source_id in source_ids:
+        matching = [s for s in approved if s.get('source_id') == source_id]
+        if len(matching) != 1:
+            raise ReleaseError('unapproved or ambiguous candidate source ID')
+        entry = matching[0]
+        retrieval = entry.get('retrieval')
+        license_info = entry.get('license')
+        review = entry.get('review')
+        if (not isinstance(retrieval, dict) or not isinstance(license_info, dict)
+                or not isinstance(review, dict) or not review.get('reviewer')
+                or not str(review.get('decision_url', '')).startswith('https://')):
+            raise ReleaseError('source rights review evidence incomplete')
+        for evidence, label in ((retrieval, 'source'), (license_info, 'license')):
+            expected = evidence.get('sha256' if label == 'source' else 'evidence_sha256')
+            path = evidence.get('artifact_path' if label == 'source' else 'evidence_path')
+            if not isinstance(expected, str) or not HASH.fullmatch(expected):
+                raise ReleaseError(label + ' SHA-256 evidence absent')
+            if digest_file(safe_file(root, path)) != expected:
+                raise ReleaseError(label + ' SHA-256 evidence mismatch')
+        receipts.append({
+            'source_id': source_id,
+            'source_sha256': retrieval['sha256'],
+            'license_evidence_sha256': license_info['evidence_sha256'],
+            'license_id': license_info.get('id'),
+            'dataset_version': entry.get('dataset_version'),
+        })
+    return receipts
+
+
+def stage_candidate(output, language, archive, report):
+    """Stage immutable candidate + receipt, rolling back new files on failure."""
+    if (not isinstance(archive, bytes) or len(archive) > MAX_ARCHIVE
+            or report.get('language') != language
+            or report.get('archive_sha256') != digest(archive)):
+        raise ReleaseError('candidate receipt identity/hash mismatch')
+    output = Path(output).resolve()
+    output.mkdir(parents=True, exist_ok=True)
+    name = language + '-' + report['archive_sha256']
+    destination = output / (name + '.pack.gz')
+    report_file = output / (name + '.report.json')
+    receipt_bytes = json_bytes(report)
+    # Never accept links to an out-of-band candidate or a modified prior receipt.
+    if destination.is_symlink() or report_file.is_symlink():
+        raise ReleaseError('candidate/receipt symlink forbidden')
+    if destination.exists() and (not destination.is_file()
+                                  or digest_file(destination) != report['archive_sha256']):
+        raise ReleaseError('existing candidate hash collision/tampering')
+    if report_file.exists() and (not report_file.is_file()
+                                 or report_file.read_bytes() != receipt_bytes):
+        raise ReleaseError('existing candidate receipt mismatch/tampering')
+    created_archive = False
+    created_report = False
+    try:
+        if not destination.exists():
+            fd, stage = tempfile.mkstemp(prefix='.rc-', dir=output)
+            try:
+                with os.fdopen(fd, 'wb') as stream:
+                    stream.write(archive)
+                    stream.flush()
+                    os.fsync(stream.fileno())
+                os.link(stage, destination)  # atomic, no clobber
+                created_archive = True
+            finally:
+                Path(stage).unlink(missing_ok=True)
+        if not report_file.exists():
+            fd, stage = tempfile.mkstemp(prefix='.report-', dir=output)
+            try:
+                with os.fdopen(fd, 'wb') as stream:
+                    stream.write(receipt_bytes)
+                    stream.flush()
+                    os.fsync(stream.fileno())
+                os.link(stage, report_file)  # atomic, no clobber
+                created_report = True
+            finally:
+                Path(stage).unlink(missing_ok=True)
+        if (destination.is_symlink() or report_file.is_symlink()
+                or digest_file(destination) != report['archive_sha256']
+                or report_file.read_bytes() != receipt_bytes):
+            raise ReleaseError('candidate/receipt changed during staging')
+    except (OSError, ReleaseError):
+        if created_report:
+            report_file.unlink(missing_ok=True)
+        if created_archive:
+            destination.unlink(missing_ok=True)
+        raise
+    return report
+
+
 def build_candidate(root, source_relative, expected_source_sha, language, output, *, fixture_only=False):
     root = Path(root).resolve()
     if language not in audit(root)['languages']:
@@ -263,39 +390,8 @@ def build_candidate(root, source_relative, expected_source_sha, language, output
                   license_gate='FIXTURE_ONLY' if fixture_only else 'APPROVED_LEDGER',
                   status='FIXTURE_QUARANTINED' if fixture_only else 'QUARANTINED_PENDING_SIGNATURE',
                   signature_verified=False, publication_approved=False)
-    output = Path(output).resolve()
-    output.mkdir(parents=True, exist_ok=True)
-    name = language + '-' + report['archive_sha256']
-    destination = output / (name + '.pack.gz')
-    if destination.exists():
-        if not destination.is_file() or digest(destination.read_bytes()) != report['archive_sha256']:
-            raise ReleaseError('existing candidate hash collision/tampering')
-    else:
-        fd, stage = tempfile.mkstemp(prefix='.rc-', dir=output)
-        try:
-            with os.fdopen(fd, 'wb') as stream:
-                stream.write(archive)
-                stream.flush()
-                os.fsync(stream.fileno())
-            if destination.exists():
-                raise ReleaseError('concurrent candidate creation; refusing overwrite')
-            os.link(stage, destination)
-        finally:
-            Path(stage).unlink(missing_ok=True)
-    report_file = output / (name + '.report.json')
-    if not report_file.exists():
-        fd, stage = tempfile.mkstemp(prefix='.report-', dir=output)
-        try:
-            with os.fdopen(fd, 'wb') as stream:
-                stream.write(json_bytes(report))
-                stream.flush()
-                os.fsync(stream.fileno())
-            if not report_file.exists():
-                os.link(stage, report_file)
-        finally:
-            Path(stage).unlink(missing_ok=True)
-    return report
-
+    report['license_receipts'] = [] if fixture_only else evidence_receipts(root, report['source_ids'])
+    return stage_candidate(output, language, archive, report)
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)

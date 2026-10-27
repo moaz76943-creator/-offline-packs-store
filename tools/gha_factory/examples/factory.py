@@ -11,6 +11,9 @@ import hashlib
 import json
 import os
 import re
+import shutil
+import tempfile
+import uuid
 import sqlite3
 import sys
 import time
@@ -67,6 +70,13 @@ def source_path(workspace, snapshot):
     root = Path(workspace).resolve()
     if rel.is_absolute() or '..' in rel.parts or '.git' in rel.parts:
         raise Rejected('BLOCKED_SOURCE: unsafe source path')
+    # resolve() follows symlinks; checking is_symlink() on the resolved
+    # destination alone fails to catch linked files or parent directories.
+    probe = root
+    for component in rel.parts:
+        probe = probe / component
+        if probe.is_symlink():
+            raise Rejected('BLOCKED_SOURCE: symlink snapshot path')
     path = (root / rel).resolve()
     if not path.is_relative_to(root) or not path.is_file() or path.is_symlink():
         raise Rejected('BLOCKED_SOURCE: source missing or escapes workspace')
@@ -77,8 +87,17 @@ def source_path(workspace, snapshot):
 
 def bounded_tsv(path, columns):
     with open(path, 'rb') as stream:
-        for line, data in enumerate(stream, 1):
+        line = 0
+        while True:
+            data = stream.readline(MAX_LINE + 1)
+            if not data:
+                break
+            line += 1
             if len(data) > MAX_LINE:
+                # Drain one physical line in bounded chunks, retaining neither
+                # its bytes nor a decoded copy. Resume at the next real row.
+                while data and not data.endswith(b'\n'):
+                    data = stream.readline(MAX_LINE + 1)
                 yield line, None, 'oversized_line'
                 continue
             try:
@@ -92,13 +111,27 @@ def bounded_tsv(path, columns):
 
 
 def verified_catalog(manifest, mappings):
-    data = json.loads(Path(manifest).read_text(encoding='utf-8'))
-    codes = [item['code'] for item in data['languages']]
-    if len(codes) != 100 or len(set(codes)) != 100:
+    # A damaged registry must not crash the worker or introduce an unverified
+    # language identity. Keep the 100-entry contract and fail closed.
+    try:
+        data = json.loads(Path(manifest).read_text(encoding='utf-8'))
+    except (OSError, ValueError, UnicodeError) as exc:
+        raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available') from exc
+    languages = data.get('languages') if isinstance(data, dict) else None
+    if (not isinstance(languages, list) or len(languages) != 100 or
+            any(not isinstance(item, dict) or
+                not isinstance(item.get('code'), str) or
+                not item['code'] for item in languages)):
         raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available')
+    codes = [item['code'] for item in languages]
+    if len(set(codes)) != 100:
+        raise Rejected('BLOCKED_DEPENDENCY: canonical 100-language manifest not available')
+    if not isinstance(mappings, dict):
+        raise Rejected('BLOCKED_DEPENDENCY: invalid explicit language mapping')
     result = dict(PILOT_MAP)
     for src, dst in mappings.items():
-        if not re.fullmatch(r'[a-z]{3}', src) or dst not in codes:
+        if (not isinstance(src, str) or not isinstance(dst, str) or
+                not re.fullmatch(r'[a-z]{3}', src) or dst not in codes):
             raise Rejected('BLOCKED_DEPENDENCY: invalid explicit language mapping')
         if src in result and result[src] != dst:
             raise Rejected('BLOCKED_DEPENDENCY: pilot language identity cannot be remapped')
@@ -124,22 +157,46 @@ def script_check(text, language):
 def source_approval(ledger, source_id, cc0_sha):
     """Actual Route 05 approval, never inferred from a licence name or a URL."""
     data = json.loads(Path(ledger).read_text(encoding='utf-8'))
-    if data.get('schema_version') != '1.0.0' or not isinstance(data.get('sources'), list):
+    if (data.get('schema_version') != '1.0.0'
+            or not isinstance(data.get('sources'), list)
+            or any(not isinstance(s, dict) for s in data['sources'])):
         raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
     matches = [s for s in data['sources'] if s.get('source_id') == source_id]
     if len(matches) != 1:
         return False
     src = matches[0]
-    lic = src.get('license') or {}
-    retrieval = src.get('retrieval') or {}
-    review = src.get('review') or {}
+    lic = src.get('license')
+    retrieval = src.get('retrieval')
+    review = src.get('review')
+    if any(not isinstance(section, dict) for section in (lic, retrieval, review)):
+        raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
+    for section, field in ((retrieval, 'url'), (lic, 'evidence_url'),
+                           (review, 'decision_url')):
+        if not isinstance(section.get(field), str):
+            raise Rejected('BLOCKED_DEPENDENCY: malformed Route 05 ledger')
+    evidence_sha = lic.get('evidence_sha256')
     # The CC0 export (not the mixed-licence detailed corpus) must be approved.
     return (src.get('kind') == 'examples' and src.get('status') == 'APPROVED_FOR_REDISTRIBUTION'
             and lic.get('id') == 'CC0-1.0' and lic.get('id') in LICENSES
             and retrieval.get('sha256') == cc0_sha and bool(retrieval.get('identity'))
-            and bool(retrieval.get('url', '').startswith('https://'))
-            and bool(lic.get('evidence_sha256')) and bool(lic.get('evidence_url', '').startswith('https://'))
-            and bool(review.get('reviewer')) and bool(review.get('decision_url', '').startswith('https://')))
+            and retrieval['url'].startswith('https://')
+            and isinstance(evidence_sha, str) and SHA.fullmatch(evidence_sha) is not None
+            and lic['evidence_url'].startswith('https://')
+            and bool(review.get('reviewer')) and review['decision_url'].startswith('https://'))
+
+
+def _choice_key(surface, language):
+    """Canonical choice identity without conflating language-distinct letters.
+
+    Turkish/Azeri dotted and dotless I follow local casing; German ß is
+    distinct from ss. NFC keeps Arabic diacritics and source text unchanged.
+    """
+    value = unicodedata.normalize('NFC', surface)
+    if language in ('tr', 'az'):
+        return value.replace('I', 'ı').replace('İ', 'i').lower()
+    if language == 'de':
+        return value.lower()
+    return value.casefold()
 
 
 def make_cloze(sentence, annotation, senses, forms):
@@ -158,7 +215,10 @@ def make_cloze(sentence, annotation, senses, forms):
             not 0 <= start < end <= len(text)):
         raise Rejected('REJECTED_EXERCISE: invalid span')
     answer = text[start:end]
-    if not answer.strip() or text.count(answer) != 1:
+    # Count canonical-equivalent occurrences, not just byte-identical spans.
+    # Keep the original source text and editor-attested offsets unchanged.
+    if (not answer.strip() or
+            unicodedata.normalize('NFC', text).count(unicodedata.normalize('NFC', answer)) != 1):
         raise Rejected('REJECTED_EXERCISE: ambiguous answer span')
     sid = annotation.get('sense_id')
     lexeme = annotation.get('lexeme_id')
@@ -176,18 +236,26 @@ def make_cloze(sentence, annotation, senses, forms):
     if not isinstance(distractors, list) or not 2 <= len(distractors) <= 5:
         raise Rejected('REJECTED_EXERCISE: insufficient attested distractors')
     options = [answer]
+    # Distinct choices must also be distinct under canonical Unicode spelling.
+    # Locale-aware identity preserves Turkish I/ı, İ/i and German ß/ss.
+    normalized_options = {_choice_key(answer, sentence['language'])}
     for item in distractors:
         if not isinstance(item, dict) or not isinstance(item.get('surface'), str):
             raise Rejected('REJECTED_EXERCISE: bad distractor')
         surface = item['surface']
         other_sense = item.get('sense_id')
+        # Another inflected form of the answer's own sense is also correct.
+        # A non-string sense id cannot be used as a morphology key.
+        if not isinstance(other_sense, str) or other_sense == sid:
+            raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         evidence = senses.get(other_sense)
         other_key = (sentence['language'], other_sense, surface, tuple(sorted(feats.items())))
         if (not surface.strip() or other_key not in forms or not evidence or
                 evidence.get('language') != sentence['language'] or evidence.get('approved') is not True or
-                surface.casefold() in {v.casefold() for v in options}):
+                _choice_key(surface, sentence['language']) in normalized_options):
             raise Rejected('REJECTED_EXERCISE: unsupported or ambiguous distractor')
         options.append(surface)
+        normalized_options.add(_choice_key(surface, sentence['language']))
     return {'exercise_id': 'clz1_' + hashlib.sha256(canonical([sentence['id'], sid, start, end])).hexdigest()[:24],
             'sentence_id': sentence['id'], 'language': sentence['language'],
             'sense_id': sid, 'cloze': text[:start] + '____' + text[end:],
@@ -212,14 +280,19 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
     root = Path(workspace).resolve()
     if out == root or out.is_relative_to(root):
         raise Rejected('output must be outside immutable source workspace')
-    out.mkdir(parents=True, exist_ok=True)
-    con = sqlite3.connect(out / 'candidates.sqlite')
+    # Build every output in an isolated sibling directory. A failed retry must
+    # leave its last complete report, SQLite index and JSONL parts untouched.
+    out.parent.mkdir(parents=True, exist_ok=True)
+    stage = Path(tempfile.mkdtemp(prefix=f'.{out.name}.staging-', dir=out.parent))
+    con = sqlite3.connect(stage / 'candidates.sqlite')
     con.executescript(SCHEMA)
     counters = Counter()
     try:
         for table in ('sentences', 'cc0', 'edges', 'audio'):
             con.execute('DELETE FROM ' + table)
         for line, row, error in bounded_tsv(paths['cc0'], 4):
+            if time.monotonic() - start_time > deadline_seconds or line > MAX_RECORDS:
+                raise Rejected('BLOCKED_DEPENDENCY: CC0 worker budget exhausted; split snapshot upstream')
             if error or not ID.fullmatch(row[0]):
                 counters['rejected_cc0'] += 1
                 continue
@@ -299,12 +372,15 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
                FROM edges x JOIN edges y ON x.src=y.dst AND x.dst=y.src
                JOIN sentences a ON a.id=x.src JOIN sentences b ON b.id=x.dst
                WHERE x.src < x.dst AND a.language != b.language ORDER BY a.id,b.id''')
-        candidates_dir = out / 'verified_candidates'
+        candidates_dir = stage / 'verified_candidates'
         candidates_dir.mkdir(exist_ok=True)
         current = None
         index = 0
         try:
             for item in pairs:
+                if (time.monotonic() - start_time > deadline_seconds or
+                        counters['translation_pairs_verified'] >= MAX_RECORDS * 5):
+                    raise Rejected('BLOCKED_DEPENDENCY: pair worker budget exhausted; split snapshot upstream')
                 counters['translation_pairs_verified'] += 1
                 a,b,la,lb,ta,tb,au,bu,lic_a,lic_b = item
                 if la == 'ar' or lb == 'ar':
@@ -346,12 +422,30 @@ def run(workspace, config_path, catalog_path, ledger_path, output, *, partition_
                                  'sentences_processed': counters['sentences_processed'],
                                  'pairs_written': counters['translation_pairs_verified']},
                   'status': 'BLOCKED_DEPENDENCY'}
-        temp = out / 'report.json.tmp'
+        temp = stage / 'report.json.tmp'
         temp.write_bytes(canonical(report))
-        os.replace(temp, out / 'report.json')
+        os.replace(temp, stage / 'report.json')
+        con.close()
+
+        # Publish only after a fully successful import. Keep a restorable
+        # complete previous generation if the second rename fails.
+        previous = None
+        if out.exists():
+            previous = out.with_name(f'.{out.name}.previous-{uuid.uuid4().hex}')
+            os.replace(out, previous)
+        try:
+            os.replace(stage, out)
+        except OSError:
+            if previous is not None:
+                os.replace(previous, out)
+            raise
+        if previous is not None:
+            shutil.rmtree(previous)
         return report
     finally:
         con.close()
+        if stage.exists():
+            shutil.rmtree(stage)
 
 
 def main(argv=None):
