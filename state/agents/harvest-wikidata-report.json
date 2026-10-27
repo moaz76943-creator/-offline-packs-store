@@ -1,13 +1,21 @@
 {
-  "accepted_rows": 1,
+  "accepted_rows": 0,
   "outcomes": [
     {
-      "accepted_rows": 1,
-      "fetched_entities": 1,
+      "accepted_rows": 0,
+      "fetched_entities": 0,
       "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q4200763"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 2,
+      "rejected_entities": 2,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q18054140"
+      "wikidata": "Q96475732"
     },
     {
       "accepted_rows": 0,
@@ -15,7 +23,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2123838"
+      "wikidata": "Q104223904"
     },
     {
       "accepted_rows": 0,
@@ -23,7 +31,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q98844836"
+      "wikidata": "Q2918079"
     },
     {
       "accepted_rows": 0,
@@ -31,7 +39,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q107058314"
+      "wikidata": "Q1185324"
     },
     {
       "accepted_rows": 0,
@@ -39,7 +47,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q54943809"
+      "wikidata": "Q6429813"
     },
     {
       "accepted_rows": 0,
@@ -47,7 +55,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3540864"
+      "wikidata": "Q69832886"
     },
     {
       "accepted_rows": 0,
@@ -55,19 +63,11 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q268832"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q30314084"
+      "wikidata": "Q17055540"
     }
   ],
   "production_publication": false,
-  "retrieval_date": "2026-10-26",
+  "retrieval_date": "2026-10-27",
   "schema_version": "1.0.0",
   "source": "harvest-wikidata",
   "source_errors": 0
