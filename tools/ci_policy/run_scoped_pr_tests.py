@@ -27,7 +27,8 @@ SUITES = {
     "open_export": ("tools/open_export", "test_lifecycle.py"),
     "community_automation": ("tools/community_automation", "test_gate.py"),
     "community_intake": ("tests/community/contributions", "test_*.py"),
-    "licensing": ("legal/licensing", "test_ledger.py"),
+    # License-compatibility tests live here; legal/licensing never existed.
+    "licensing": ("legal/license_compatibility", "test_*.py"),
     "ledger": ("legal/ledger", "test_*.py"),
     "registry_unit": ("catalog", "test_registry.py"),
     "utils": ("tests", "test_utils.py"),
@@ -124,7 +125,7 @@ def select_baseline_checks(changed_paths):
                 FACTORY_REGRESSION_WORKFLOW):
             return True
         # New licensing logic must retain the full global safety baseline.
-        if path.startswith("legal/licensing/"):
+        if path.startswith(("legal/licensing/", "legal/license_compatibility/")):
             return False
         if path in ROOT_PROSE_DOCS:
             return True
@@ -199,7 +200,7 @@ def select_suites(changed_paths):
             selected.add("community_automation")
         if path.startswith(("community/contributions/", "tests/community/contributions/")):
             selected.add("community_intake")
-        if path.startswith("legal/licensing/"):
+        if path.startswith(("legal/licensing/", "legal/license_compatibility/")):
             selected.add("licensing")
         if path == "utils.py" or path == "tests/test_utils.py":
             selected.add("utils")

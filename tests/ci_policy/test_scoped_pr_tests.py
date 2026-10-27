@@ -2,7 +2,7 @@
 import unittest
 from unittest.mock import patch
 
-from tools.ci_policy.run_scoped_pr_tests import (select_suites, execute_suites,
+from tools.ci_policy.run_scoped_pr_tests import (SUITES, select_suites, execute_suites,
     select_baseline_checks, execute_baseline_checks)
 
 
@@ -109,6 +109,20 @@ class ScopedTestSelectionTests(unittest.TestCase):
         self.assertEqual(
             select_suites(["legal/ledger/admission.py",
                            "legal/licensing/ledger.py"]).count("licensing"), 1)
+
+    def test_licensing_suite_folder_exists_and_covers_license_compatibility(self):
+        from pathlib import Path
+        root = Path(__file__).resolve().parents[2]
+        for name, (folder, _) in SUITES.items():
+            with self.subTest(suite=name):
+                self.assertTrue((root / folder).is_dir(),
+                                f"{name}: suite folder {folder} does not exist")
+        for path in ("legal/license_compatibility/compatibility.py",
+                     "legal/license_compatibility/test_compatibility.py"):
+            with self.subTest(path=path):
+                self.assertEqual(select_suites([path]), ("licensing",))
+                self.assertEqual(select_baseline_checks([path]),
+                                 ("policy", "registry", "sqlite"))
 
     def test_unrelated_or_unsafe_path_does_not_run_incorrect_suite(self):
         self.assertEqual(select_suites(["docs/readme.md", "tools/other/module.py"]), ())
