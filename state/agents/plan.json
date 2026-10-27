@@ -1,5 +1,5 @@
 {
-  "next_index": 560,
+  "next_index": 640,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "mt",
+      "section": "clothing"
+    },
+    {
+      "language": "my",
+      "section": "clothing"
+    },
+    {
+      "language": "ne",
+      "section": "clothing"
+    },
+    {
+      "language": "nl",
+      "section": "clothing"
+    },
+    {
+      "language": "no",
+      "section": "clothing"
+    },
+    {
+      "language": "or",
+      "section": "clothing"
+    },
+    {
+      "language": "pa",
+      "section": "clothing"
+    },
+    {
+      "language": "pl",
+      "section": "clothing"
+    },
+    {
+      "language": "ps",
+      "section": "clothing"
+    },
+    {
+      "language": "pt",
+      "section": "clothing"
+    },
+    {
+      "language": "ro",
+      "section": "clothing"
+    },
+    {
+      "language": "ru",
+      "section": "clothing"
+    },
+    {
+      "language": "rw",
+      "section": "clothing"
+    },
+    {
+      "language": "sd",
+      "section": "clothing"
+    },
+    {
+      "language": "si",
+      "section": "clothing"
+    },
+    {
+      "language": "sk",
+      "section": "clothing"
+    },
+    {
+      "language": "sl",
+      "section": "clothing"
+    },
+    {
+      "language": "sn",
+      "section": "clothing"
+    },
+    {
+      "language": "so",
+      "section": "clothing"
+    },
+    {
+      "language": "sq",
+      "section": "clothing"
+    },
+    {
       "language": "sr",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "sv",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "sw",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "ta",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "te",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "tg",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "th",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "tk",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "tl",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "tr",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "tt",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "ug",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "uk",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "ur",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "uz",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "vi",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "xh",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "yo",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "zh",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "zu",
-      "section": "body"
+      "section": "clothing"
     },
     {
       "language": "af",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "am",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ar",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "as",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "az",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ba",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "be",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "bg",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "bn",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "br",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "bs",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ca",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "cs",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "cy",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "da",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "de",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "dv",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "el",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "en",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "eo",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "es",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "et",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "eu",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "fa",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "fi",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "fo",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "fr",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "fy",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ga",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "gd",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "gl",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "gu",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ha",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "hi",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "hr",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "hu",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "hy",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "id",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ig",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "is",
-      "section": "clothing"
-    },
-    {
-      "language": "it",
-      "section": "clothing"
-    },
-    {
-      "language": "ja",
-      "section": "clothing"
-    },
-    {
-      "language": "ka",
-      "section": "clothing"
-    },
-    {
-      "language": "kk",
-      "section": "clothing"
-    },
-    {
-      "language": "km",
-      "section": "clothing"
-    },
-    {
-      "language": "kn",
-      "section": "clothing"
-    },
-    {
-      "language": "ko",
-      "section": "clothing"
-    },
-    {
-      "language": "ku",
-      "section": "clothing"
-    },
-    {
-      "language": "ky",
-      "section": "clothing"
-    },
-    {
-      "language": "la",
-      "section": "clothing"
-    },
-    {
-      "language": "lb",
-      "section": "clothing"
-    },
-    {
-      "language": "lo",
-      "section": "clothing"
-    },
-    {
-      "language": "lt",
-      "section": "clothing"
-    },
-    {
-      "language": "lv",
-      "section": "clothing"
-    },
-    {
-      "language": "mg",
-      "section": "clothing"
-    },
-    {
-      "language": "mk",
-      "section": "clothing"
-    },
-    {
-      "language": "ml",
-      "section": "clothing"
-    },
-    {
-      "language": "mn",
-      "section": "clothing"
-    },
-    {
-      "language": "mr",
-      "section": "clothing"
-    },
-    {
-      "language": "ms",
-      "section": "clothing"
+      "section": "school"
     }
   ]
 }
