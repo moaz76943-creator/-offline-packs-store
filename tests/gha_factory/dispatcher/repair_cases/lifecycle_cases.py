@@ -94,8 +94,12 @@ class Lifecycle(Tests):
         pidfile=self.root/'child.pid'
         self.assertTrue(pidfile.is_file(),'actual frozen subprocess must have started')
         status=Path('/proc')/pidfile.read_text()/'stat'
-        if status.exists():
-            self.assertIn(status.read_text().split()[2],('Z','X'))
+        try:
+            state=status.read_text().split()[2]
+        except (FileNotFoundError, ProcessLookupError, OSError):
+            pass
+        else:
+            self.assertIn(state,('Z','X'))
     def test_attempt_limit_after_interruption(self):
         a=self.active();a['attempts']=3
         api=FakeGitHub([self.issue(1,a)])
