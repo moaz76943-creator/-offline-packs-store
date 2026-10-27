@@ -1,0 +1,28 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "directed.doc.test1",
+  "pairs": [
+    {
+      "pair_id": "pair.bad.identical",
+      "source_sense_id": "sense.same.1",
+      "target_sense_id": "sense.same.1",
+      "source_language": "en",
+      "target_language": "en",
+      "source_script": "Latn",
+      "target_script": "Latn",
+      "text": "same",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r1",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "loc1",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    }
+  ]
+}

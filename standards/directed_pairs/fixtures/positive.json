@@ -1,0 +1,153 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "directed.doc.test1",
+  "pairs": [
+    {
+      "pair_id": "pair.en.ar.bank.financial",
+      "source_sense_id": "sense.en.bank.financial",
+      "target_sense_id": "sense.ar.masrif.financial",
+      "source_language": "en",
+      "target_language": "ar",
+      "source_script": "Latn",
+      "target_script": "Arab",
+      "text": "مصرف",
+      "equivalence": "exact",
+      "context": "Financial institution",
+      "domain": "finance",
+      "confidence": 1.0,
+      "examples": [
+        {
+          "source_text": "I went to the bank to deposit money.",
+          "target_text": "ذهبت إلى المصرف لإيداع المال."
+        }
+      ],
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r1",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "loc1",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.en.ar.bank.river",
+      "source_sense_id": "sense.en.bank.river",
+      "target_sense_id": "sense.ar.diffa.river",
+      "source_language": "en",
+      "target_language": "ar",
+      "source_script": "Latn",
+      "target_script": "Arab",
+      "text": "ضفة",
+      "equivalence": "contextual",
+      "context": "River bank",
+      "domain": "geography",
+      "confidence": 0.9,
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r2",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "loc2",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.es.en.coche.car",
+      "source_sense_id": "sense.es.coche.spain",
+      "target_sense_id": "sense.en.car",
+      "source_language": "es-ES",
+      "target_language": "en",
+      "source_script": "Latn",
+      "target_script": "Latn",
+      "text": "car",
+      "equivalence": "exact",
+      "context": "regional variant (Spain)",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r3",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "loc3",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.es.en.carro.car",
+      "source_sense_id": "sense.es.carro.latam",
+      "target_sense_id": "sense.en.car",
+      "source_language": "es-419",
+      "target_language": "en",
+      "source_script": "Latn",
+      "target_script": "Latn",
+      "text": "car",
+      "equivalence": "exact",
+      "context": "regional variant (Latin America)",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r4",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "loc4",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.ar.en.masrif.bank",
+      "source_sense_id": "sense.ar.masrif.financial",
+      "target_sense_id": "sense.en.bank.financial",
+      "source_language": "ar",
+      "target_language": "en",
+      "source_script": "Arab",
+      "target_script": "Latn",
+      "text": "bank",
+      "equivalence": "exact",
+      "context": "reverse translation example",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r5",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "loc5",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    },
+    {
+      "pair_id": "pair.en.fr.apple",
+      "source_sense_id": "sense.en.apple",
+      "target_sense_id": "sense.fr.pomme",
+      "source_language": "en",
+      "target_language": "fr",
+      "source_script": "Latn",
+      "target_script": "Latn",
+      "text": "pomme",
+      "equivalence": "exact",
+      "source": {
+        "source_id": "src.test.1",
+        "origin_url": "https://example.com/data",
+        "publisher": "Test Publisher",
+        "dataset_version": "1.0",
+        "retrieval_id": "r6",
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "record_locator": "loc6",
+        "publication_approved": false,
+        "fixture_only": true
+      }
+    }
+  ]
+}
