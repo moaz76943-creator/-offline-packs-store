@@ -1,6 +1,6 @@
 {
   "language": "da",
-  "retrieval_date": "2026-10-23",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q82955",
@@ -94,6 +94,37 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q970153"
+    },
+    {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "skolelærer",
+        "skolelæreen",
+        "skolelærere",
+        "skolelærerne",
+        "skolelærers",
+        "skolelæreens",
+        "skolelæreres",
+        "skolelærernes"
+      ],
+      "language": "da",
+      "lemma": "skolelærer",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1030152",
+      "pos": "",
+      "qids": [
+        "Q2251335"
+      ],
+      "record_id": "L1030152",
+      "retrieval_date": "2026-10-28",
+      "revision": "2241034129",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1030152-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
     }
   ],
   "schema_version": "1.0.0",
@@ -101,31 +132,39 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q5482740"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q9149093"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q8178443"
+      "reason": "other_language",
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q16308156"
+      "reason": "other_language",
+      "wikidata": "Q2055046"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q3303330"
+      "reason": "HTTPError:429",
+      "wikidata": "Q15978655"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q211423"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2487799"
     }
   ],
   "source": "harvest-wikidata"

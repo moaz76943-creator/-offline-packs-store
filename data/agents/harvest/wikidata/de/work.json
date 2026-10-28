@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-10-23",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q82955",
@@ -361,6 +361,99 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "Entwickler",
+        "Entwicklers",
+        "Entwickler",
+        "Entwickler",
+        "Entwickler",
+        "Entwickler",
+        "Entwicklern",
+        "Entwickler"
+      ],
+      "language": "de",
+      "lemma": "Entwickler",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L296271",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L296271",
+      "retrieval_date": "2026-10-28",
+      "revision": "2333005343",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L296271-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "Programmierer",
+        "Programmierers",
+        "Programmierer",
+        "Programmierer",
+        "Programmierer",
+        "Programmierer",
+        "Programmierern",
+        "Programmierer"
+      ],
+      "language": "de",
+      "lemma": "Programmierer",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L407320",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L407320",
+      "retrieval_date": "2026-10-28",
+      "revision": "2306711535",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L407320-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "Physiologe",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen"
+      ],
+      "language": "de",
+      "lemma": "Physiologe",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72803",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L72803",
+      "retrieval_date": "2026-10-28",
+      "revision": "2306708006",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72803-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
     }
   ],
   "schema_version": "1.0.0",
@@ -368,31 +461,39 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q5482740"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q9149093"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q8178443"
+      "reason": "other_language",
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q16308156"
+      "reason": "other_language",
+      "wikidata": "Q2055046"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q3303330"
+      "reason": "HTTPError:429",
+      "wikidata": "Q15978655"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q211423"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2487799"
     }
   ],
   "source": "harvest-wikidata"

@@ -1,6 +1,6 @@
 {
   "language": "sv",
-  "retrieval_date": "2026-10-23",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q82955",
@@ -157,6 +157,130 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q4205432"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "programmerare",
+        "programmeraren",
+        "programmerare",
+        "programmerarna",
+        "programmerares",
+        "programmerarens",
+        "programmerares",
+        "programmerarnas"
+      ],
+      "language": "sv",
+      "lemma": "programmerare",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32111",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L32111",
+      "retrieval_date": "2026-10-28",
+      "revision": "2503644995",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L32111-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "utvecklare",
+        "utvecklaren",
+        "utvecklare",
+        "utvecklarna",
+        "utvecklares",
+        "utvecklarens",
+        "utvecklares",
+        "utvecklarnas"
+      ],
+      "language": "sv",
+      "lemma": "utvecklare",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L35488",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L35488",
+      "retrieval_date": "2026-10-28",
+      "revision": "2482043950",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L35488-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q16271064",
+      "forms": [
+        "herpetolog",
+        "herpetologen",
+        "herpetologer",
+        "herpetologerna",
+        "herpetologs",
+        "herpetologens",
+        "herpetologers",
+        "herpetologernas"
+      ],
+      "language": "sv",
+      "lemma": "herpetolog",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L494231",
+      "pos": "",
+      "qids": [
+        "Q16271064"
+      ],
+      "record_id": "L494231",
+      "retrieval_date": "2026-10-28",
+      "revision": "1513924636",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L494231-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16271064"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "fysiolog",
+        "fysiologen",
+        "fysiologer",
+        "fysiologerna",
+        "fysiologs",
+        "fysiologens",
+        "fysiologers",
+        "fysiologernas"
+      ],
+      "language": "sv",
+      "lemma": "fysiolog",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L295063",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L295063",
+      "retrieval_date": "2026-10-28",
+      "revision": "2481279325",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L295063-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
     }
   ],
   "schema_version": "1.0.0",
@@ -164,31 +288,39 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q5482740"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q9149093"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q8178443"
+      "reason": "other_language",
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q16308156"
+      "reason": "other_language",
+      "wikidata": "Q2055046"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q3303330"
+      "reason": "HTTPError:429",
+      "wikidata": "Q15978655"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q211423"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2487799"
     }
   ],
   "source": "harvest-wikidata"

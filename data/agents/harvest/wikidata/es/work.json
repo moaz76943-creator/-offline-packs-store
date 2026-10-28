@@ -1,6 +1,6 @@
 {
   "language": "es",
-  "retrieval_date": "2026-10-23",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q9149093",
@@ -82,6 +82,60 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q4205432"
+    },
+    {
+      "concept_id": "concept.q16271064",
+      "forms": [
+        "herpetólogo",
+        "herpetólogos",
+        "herpetóloga",
+        "herpetólogas"
+      ],
+      "language": "es",
+      "lemma": "herpetólogo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L750403",
+      "pos": "",
+      "qids": [
+        "Q16271064"
+      ],
+      "record_id": "L750403",
+      "retrieval_date": "2026-10-28",
+      "revision": "2415720129",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L750403-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16271064"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "fisiólogo",
+        "fisiólogos",
+        "fisióloga",
+        "fisiólogas"
+      ],
+      "language": "es",
+      "lemma": "fisiólogo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L750720",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L750720",
+      "retrieval_date": "2026-10-28",
+      "revision": "2409433444",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L750720-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
     }
   ],
   "schema_version": "1.0.0",
@@ -89,31 +143,39 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q5482740"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q9149093"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q8178443"
+      "reason": "other_language",
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q16308156"
+      "reason": "other_language",
+      "wikidata": "Q2055046"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q3303330"
+      "reason": "HTTPError:429",
+      "wikidata": "Q15978655"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q211423"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2487799"
     }
   ],
   "source": "harvest-wikidata"

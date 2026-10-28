@@ -1,0 +1,72 @@
+{
+  "language": "fa",
+  "retrieval_date": "2026-10-28",
+  "rows": [
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "کاراندام‌شناس",
+        "کاراندام‌شناس‌ها"
+      ],
+      "language": "fa",
+      "lemma": "کاراندام‌شناس",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L746583",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L746583",
+      "retrieval_date": "2026-10-28",
+      "revision": "2436216742",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L746583-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q5482740"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2251335"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2251335"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2251335"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2251335"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2055046"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q15978655"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q211423"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2487799"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

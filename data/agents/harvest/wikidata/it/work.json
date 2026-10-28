@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-10-23",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q9149093",
@@ -26,6 +26,109 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q3332711",
+      "forms": [
+        "medievista",
+        "medievisti",
+        "medievista",
+        "medieviste"
+      ],
+      "language": "it",
+      "lemma": "medievista",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1231762",
+      "pos": "",
+      "qids": [
+        "Q3332711"
+      ],
+      "record_id": "L1231762",
+      "retrieval_date": "2026-10-28",
+      "revision": "2191546151",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1231762-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3332711"
+    },
+    {
+      "concept_id": "concept.q16271064",
+      "forms": [
+        "erpetologo",
+        "erpetologi"
+      ],
+      "language": "it",
+      "lemma": "erpetologo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1332889",
+      "pos": "",
+      "qids": [
+        "Q16271064"
+      ],
+      "record_id": "L1332889",
+      "retrieval_date": "2026-10-28",
+      "revision": "2204096376",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1332889-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16271064"
+    },
+    {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "maestro",
+        "maestri"
+      ],
+      "language": "it",
+      "lemma": "maestro",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L669472",
+      "pos": "",
+      "qids": [
+        "Q1836630",
+        "Q2251335"
+      ],
+      "record_id": "L669472",
+      "retrieval_date": "2026-10-28",
+      "revision": "2408385342",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L669472-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
+    },
+    {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "maestra",
+        "maestre"
+      ],
+      "language": "it",
+      "lemma": "maestra",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1181245",
+      "pos": "",
+      "qids": [
+        "Q2251335"
+      ],
+      "record_id": "L1181245",
+      "retrieval_date": "2026-10-28",
+      "revision": "2389803965",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1181245-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
     }
   ],
   "schema_version": "1.0.0",
@@ -33,31 +136,39 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q5482740"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3126128"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q9149093"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q8178443"
+      "reason": "other_language",
+      "wikidata": "Q2251335"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q16308156"
+      "reason": "other_language",
+      "wikidata": "Q2055046"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q3303330"
+      "reason": "HTTPError:429",
+      "wikidata": "Q15978655"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q211423"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2487799"
     }
   ],
   "source": "harvest-wikidata"
