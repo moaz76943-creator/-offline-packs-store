@@ -229,5 +229,17 @@ class ContributionTests(unittest.TestCase):
         save_ledger(self.root, self.ledger)
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_changed_hashes(self):
+        # test modified source bytes
+        self.source["retrieval"]["sha256"] = "f" * 64
+        save_ledger(self.root, self.ledger)
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_valid_submissions(self):
+        r = self.check()
+        self.assertEqual(r["status"], "ACCEPT")
+        self.assertIn("receipt_id", r["receipt"])
+        self.assertTrue(r["receipt"]["evidence_only"])
+
 if __name__ == "__main__":
     unittest.main()
