@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "retrieval_date": "2026-10-24",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -265,6 +265,30 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q172"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar"
+      ],
+      "language": "fr",
+      "lemma": "Gibraltar",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L24184",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L24184",
+      "retrieval_date": "2026-10-28",
+      "revision": "1398183039",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L24184-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
     }
   ],
   "schema_version": "1.0.0",
@@ -272,23 +296,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q23436"
+      "wikidata": "Q1410"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q174"
+      "wikidata": "Q628"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q62"
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1794"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1489"
+      "reason": "SourceAPIError",
+      "wikidata": "Q3018561"
     }
   ],
   "source": "harvest-wikidata"

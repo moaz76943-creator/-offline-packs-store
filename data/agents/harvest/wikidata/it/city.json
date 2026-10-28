@@ -214,18 +214,75 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q13362"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibilterra"
+      ],
+      "language": "it",
+      "lemma": "Gibilterra",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1248571",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L1248571",
+      "retrieval_date": "2026-10-28",
+      "revision": "2195738543",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1248571-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q628",
+      "forms": [
+        "Bergamo"
+      ],
+      "language": "it",
+      "lemma": "Bergamo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1235584",
+      "pos": "",
+      "qids": [
+        "Q16479937",
+        "Q628"
+      ],
+      "record_id": "L1235584",
+      "retrieval_date": "2026-10-28",
+      "revision": "2198174649",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1235584-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q628"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q3114"
+      "reason": "other_language",
+      "wikidata": "Q1410"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
       "reason": "SourceAPIError",
-      "wikidata": "Q279"
+      "wikidata": "Q3018561"
     }
   ],
   "source": "harvest-wikidata"

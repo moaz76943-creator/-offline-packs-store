@@ -1,6 +1,6 @@
 {
   "language": "cs",
-  "retrieval_date": "2026-10-24",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -150,6 +150,66 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q36600"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar",
+        "Gibraltaru",
+        "Gibraltaru",
+        "Gibraltar",
+        "Gibraltare",
+        "Gibraltaru",
+        "Gibraltarem"
+      ],
+      "language": "cs",
+      "lemma": "Gibraltar",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L349240",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L349240",
+      "retrieval_date": "2026-10-28",
+      "revision": "2458935229",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L349240-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q384544",
+      "forms": [
+        "Karlovy Vary",
+        "Karlových Varů",
+        "Karlovým Varům",
+        "Karlovy Vary",
+        "Karlových Varech",
+        "Karlovými Vary"
+      ],
+      "language": "cs",
+      "lemma": "Karlovy Vary",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1027973",
+      "pos": "",
+      "qids": [
+        "Q384544",
+        "Q56414571"
+      ],
+      "record_id": "L1027973",
+      "retrieval_date": "2026-10-28",
+      "revision": "2413775131",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1027973-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q384544"
     }
   ],
   "schema_version": "1.0.0",
@@ -157,23 +217,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q23436"
+      "wikidata": "Q1410"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q174"
+      "wikidata": "Q628"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q62"
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1794"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1489"
+      "reason": "SourceAPIError",
+      "wikidata": "Q3018561"
     }
   ],
   "source": "harvest-wikidata"

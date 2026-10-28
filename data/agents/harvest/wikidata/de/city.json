@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-10-24",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -280,6 +280,88 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q172"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar",
+        "Gibraltar",
+        "Gibraltars",
+        "Gibraltar",
+        "Gibraltar"
+      ],
+      "language": "de",
+      "lemma": "Gibraltar",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L401965",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L401965",
+      "retrieval_date": "2026-10-28",
+      "revision": "2118977900",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L401965-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q384544",
+      "forms": [
+        "Karlsbad",
+        "Karlsbad",
+        "Karlsbads",
+        "Karlsbad"
+      ],
+      "language": "de",
+      "lemma": "Karlsbad",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297378",
+      "pos": "",
+      "qids": [
+        "Q384544"
+      ],
+      "record_id": "L297378",
+      "retrieval_date": "2026-10-28",
+      "revision": "1880409871",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297378-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q384544"
+    },
+    {
+      "concept_id": "concept.q628",
+      "forms": [
+        "Bergamo",
+        "Bergamo",
+        "Bergamos",
+        "Bergamo"
+      ],
+      "language": "de",
+      "lemma": "Bergamo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297273",
+      "pos": "",
+      "qids": [
+        "Q628"
+      ],
+      "record_id": "L297273",
+      "retrieval_date": "2026-10-28",
+      "revision": "2414950578",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297273-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q628"
     }
   ],
   "schema_version": "1.0.0",
@@ -287,23 +369,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q23436"
+      "wikidata": "Q1410"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q174"
+      "wikidata": "Q628"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q62"
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1794"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1489"
+      "reason": "SourceAPIError",
+      "wikidata": "Q3018561"
     }
   ],
   "source": "harvest-wikidata"

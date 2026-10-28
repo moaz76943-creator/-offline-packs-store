@@ -440,18 +440,74 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q42448"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "ജിബ്രാൾട്ടർ"
+      ],
+      "language": "ml",
+      "lemma": "ജിബ്രാൾട്ടർ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L457415",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L457415",
+      "retrieval_date": "2026-10-28",
+      "revision": "1398182816",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L457415-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q23051",
+      "forms": [
+        "സ്വാൻസീ"
+      ],
+      "language": "ml",
+      "lemma": "സ്വാൻസീ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453895",
+      "pos": "",
+      "qids": [
+        "Q23051"
+      ],
+      "record_id": "L453895",
+      "retrieval_date": "2026-10-28",
+      "revision": "1394125246",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453895-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23051"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q3114"
+      "reason": "other_language",
+      "wikidata": "Q1410"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
       "reason": "SourceAPIError",
-      "wikidata": "Q279"
+      "wikidata": "Q3018561"
     }
   ],
   "source": "harvest-wikidata"

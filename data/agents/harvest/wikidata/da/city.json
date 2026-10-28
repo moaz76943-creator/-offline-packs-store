@@ -1,6 +1,6 @@
 {
   "language": "da",
-  "retrieval_date": "2026-10-24",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q3130",
@@ -76,6 +76,56 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar",
+        "Gibraltars"
+      ],
+      "language": "da",
+      "lemma": "Gibraltar",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1336114",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L1336114",
+      "retrieval_date": "2026-10-28",
+      "revision": "2232979133",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1336114-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q2167",
+      "forms": [
+        "Lund",
+        "Lunds"
+      ],
+      "language": "da",
+      "lemma": "Lund",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1216935",
+      "pos": "",
+      "qids": [
+        "Q2167"
+      ],
+      "record_id": "L1216935",
+      "retrieval_date": "2026-10-28",
+      "revision": "2014625761",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1216935-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2167"
     }
   ],
   "schema_version": "1.0.0",
@@ -83,23 +133,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q23436"
+      "wikidata": "Q1410"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q174"
+      "wikidata": "Q628"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q62"
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1794"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1489"
+      "reason": "SourceAPIError",
+      "wikidata": "Q3018561"
     }
   ],
   "source": "harvest-wikidata"

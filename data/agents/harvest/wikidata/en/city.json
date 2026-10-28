@@ -493,18 +493,99 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q42448"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar"
+      ],
+      "language": "en",
+      "lemma": "Gibraltar",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L254168",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L254168",
+      "retrieval_date": "2026-10-28",
+      "revision": "2435402774",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L254168-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q123709",
+      "forms": [
+        "Dundee",
+        "Dundees"
+      ],
+      "language": "en",
+      "lemma": "Dundee",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1334664",
+      "pos": "",
+      "qids": [
+        "Q123709"
+      ],
+      "record_id": "L1334664",
+      "retrieval_date": "2026-10-28",
+      "revision": "2208905450",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1334664-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q123709"
+    },
+    {
+      "concept_id": "concept.q628",
+      "forms": [
+        "Bergamo"
+      ],
+      "language": "en",
+      "lemma": "Bergamo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452737",
+      "pos": "",
+      "qids": [
+        "Q628"
+      ],
+      "record_id": "L452737",
+      "retrieval_date": "2026-10-28",
+      "revision": "2338348762",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452737-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q628"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q3114"
+      "reason": "other_language",
+      "wikidata": "Q1410"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
       "reason": "SourceAPIError",
-      "wikidata": "Q279"
+      "wikidata": "Q3018561"
     }
   ],
   "source": "harvest-wikidata"
