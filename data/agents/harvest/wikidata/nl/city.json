@@ -1,0 +1,44 @@
+{
+  "language": "nl",
+  "retrieval_date": "2026-10-28",
+  "rows": [
+    {
+      "concept_id": "concept.q83178",
+      "forms": [
+        "Almere"
+      ],
+      "language": "nl",
+      "lemma": "Almere",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1576518",
+      "pos": "",
+      "qids": [
+        "Q1552345",
+        "Q83178"
+      ],
+      "record_id": "L1576518",
+      "retrieval_date": "2026-10-28",
+      "revision": "2523431714",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1576518-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q83178"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q3114"
+    },
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q279"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

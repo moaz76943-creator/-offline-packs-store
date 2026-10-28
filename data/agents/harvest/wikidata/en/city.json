@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "retrieval_date": "2026-10-24",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q4093",
@@ -396,30 +396,115 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q172"
+    },
+    {
+      "concept_id": "concept.q1709",
+      "forms": [
+        "Schwerin"
+      ],
+      "language": "en",
+      "lemma": "Schwerin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452553",
+      "pos": "",
+      "qids": [
+        "Q1709"
+      ],
+      "record_id": "L452553",
+      "retrieval_date": "2026-10-28",
+      "revision": "1393763881",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452553-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1709"
+    },
+    {
+      "concept_id": "concept.q3183",
+      "forms": [
+        "Perth"
+      ],
+      "language": "en",
+      "lemma": "Perth",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452717",
+      "pos": "",
+      "qids": [
+        "Q3183"
+      ],
+      "record_id": "L452717",
+      "retrieval_date": "2026-10-28",
+      "revision": "2361063823",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452717-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3183"
+    },
+    {
+      "concept_id": "concept.q13362",
+      "forms": [
+        "Ferrara"
+      ],
+      "language": "en",
+      "lemma": "Ferrara",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452937",
+      "pos": "",
+      "qids": [
+        "Q13362"
+      ],
+      "record_id": "L452937",
+      "retrieval_date": "2026-10-28",
+      "revision": "2463983521",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452937-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q13362"
+    },
+    {
+      "concept_id": "concept.q42448",
+      "forms": [
+        "Sheffield",
+        "Sheffields"
+      ],
+      "language": "en",
+      "lemma": "Sheffield",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L476834",
+      "pos": "",
+      "qids": [
+        "Q42448"
+      ],
+      "record_id": "L476834",
+      "retrieval_date": "2026-10-28",
+      "revision": "1818171308",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L476834-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q42448"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q23436"
+      "reason": "SourceAPIError",
+      "wikidata": "Q3114"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q174"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q62"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1794"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1489"
+      "reason": "SourceAPIError",
+      "wikidata": "Q279"
     }
   ],
   "source": "harvest-wikidata"

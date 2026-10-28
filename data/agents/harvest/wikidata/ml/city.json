@@ -1,6 +1,6 @@
 {
   "language": "ml",
-  "retrieval_date": "2026-10-24",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q4093",
@@ -392,30 +392,66 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q36600"
+    },
+    {
+      "concept_id": "concept.q3183",
+      "forms": [
+        "പെർത്ത്"
+      ],
+      "language": "ml",
+      "lemma": "പെർത്ത്",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453410",
+      "pos": "",
+      "qids": [
+        "Q3183"
+      ],
+      "record_id": "L453410",
+      "retrieval_date": "2026-10-28",
+      "revision": "1398177789",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453410-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3183"
+    },
+    {
+      "concept_id": "concept.q42448",
+      "forms": [
+        "ഷെഫീൽഡ്"
+      ],
+      "language": "ml",
+      "lemma": "ഷെഫീൽഡ്",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L454033",
+      "pos": "",
+      "qids": [
+        "Q42448"
+      ],
+      "record_id": "L454033",
+      "retrieval_date": "2026-10-28",
+      "revision": "1394131805",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L454033-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q42448"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q23436"
+      "reason": "SourceAPIError",
+      "wikidata": "Q3114"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q174"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q62"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1794"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q1489"
+      "reason": "SourceAPIError",
+      "wikidata": "Q279"
     }
   ],
   "source": "harvest-wikidata"
