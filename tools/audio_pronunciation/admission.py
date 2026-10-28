@@ -477,21 +477,18 @@ def inspect_audio(data, format_hint):
     _malformed()
 
 
-def _verified_sources():
-    try:
-        from tools.contribution_gate.evidence import verified_sources
-        return verified_sources
-    except ImportError:
-        repo = Path(__file__).resolve().parents[2]
-        sys.path.insert(0, str(repo))
-        from tools.contribution_gate.evidence import verified_sources
-        return verified_sources
+def install_repo_import_path(repo_root):
+    root_str = str(Path(repo_root).resolve())
+    if root_str not in sys.path:
+        sys.path.insert(0, root_str)
 
 
 def source_is_approved(source_id, ledger_data, root_dir):
     """Require the canonical ledger checks, not a shallow source_id/kind/status row."""
+    install_repo_import_path(root_dir)
+    from tools.contribution_gate.evidence import verified_sources
     try:
-        sources = _verified_sources()(ledger_data, root_dir)
+        sources = verified_sources(ledger_data, root_dir)
     except ValueError:
         return False
     src = sources.get(source_id)
@@ -546,6 +543,9 @@ def _require_declaration(entry, key, measured, missing_message):
 
 
 def process_candidates(candidates, ledger, root_dir):
+    if not os.access(root_dir, os.R_OK | os.X_OK):
+        raise PermissionError("UNAUTHORIZED_WORKSPACE")
+
     accepted = []
     rejected = []
 
