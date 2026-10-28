@@ -1,5 +1,5 @@
 {
-  "accepted_rows": 0,
+  "accepted_rows": 2,
   "outcomes": [
     {
       "accepted_rows": 0,
@@ -7,7 +7,15 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q138615875"
+      "wikidata": "Q138050524"
+    },
+    {
+      "accepted_rows": 1,
+      "fetched_entities": 1,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "FETCHED",
+      "wikidata": "Q12898224"
     },
     {
       "accepted_rows": 0,
@@ -15,7 +23,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q138328386"
+      "wikidata": "Q3060077"
     },
     {
       "accepted_rows": 0,
@@ -23,7 +31,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q109423906"
+      "wikidata": "Q851273"
     },
     {
       "accepted_rows": 0,
@@ -31,7 +39,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q118123944"
+      "wikidata": "Q8043801"
     },
     {
       "accepted_rows": 0,
@@ -39,7 +47,15 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q138845365"
+      "wikidata": "Q124729032"
+    },
+    {
+      "accepted_rows": 1,
+      "fetched_entities": 1,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "FETCHED",
+      "wikidata": "Q122980870"
     },
     {
       "accepted_rows": 0,
@@ -47,23 +63,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q68754956"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q25446635"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q112965630"
+      "wikidata": "Q25523999"
     }
   ],
   "production_publication": false,

@@ -1,0 +1,35 @@
+{
+  "language": "ms",
+  "retrieval_date": "2026-10-28",
+  "rows": [
+    {
+      "concept_id": "concept.q12898224",
+      "forms": [
+        "vertebrata",
+        "ۏرتيبراتا"
+      ],
+      "language": "ms",
+      "lemma": "vertebrata",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1394825",
+      "pos": "",
+      "qids": [
+        "Q12898224"
+      ],
+      "record_id": "L1394825",
+      "retrieval_date": "2026-10-28",
+      "revision": "2296730522",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1394825-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12898224"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "animals",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}
