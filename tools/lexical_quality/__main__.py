@@ -1,4 +1,6 @@
-"""Bounded JSON Lines classifier for public lexical QA."""
+"""Bounded JSON Lines classifier for public lexical QA.
+This executable provides a streaming validator for dictionary entries.
+"""
 import sys
 import json
 from .validator import LexicalValidator, MAX_JSON_BYTES

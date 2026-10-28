@@ -10,9 +10,11 @@ import sys
 import tempfile
 from pathlib import Path
 
+__all__ = ['LexicalValidator', 'MAX_JSON_BYTES']
+
 # Constraints
 MAX_JSON_BYTES = 100 * 1024  # 100 KB max per entry to strictly limit memory
-LANGUAGE_REGEX = re.compile(r'^[a-z]{2,3}(?:-[a-z0-9]{2,8})*$')
+LANGUAGE_REGEX = re.compile(r'^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$')
 # Keep strict POS admission synchronized with the canonical public schema.
 _CANONICAL_SCHEMA = Path(__file__).resolve().parents[2] / 'standards/lexical/lexical.schema.json'
 POS_ALLOWED = frozenset(json.loads(_CANONICAL_SCHEMA.read_text(encoding='utf-8'))
@@ -149,9 +151,11 @@ class LexicalValidator:
         conjugations = entry.get("conjugations")
         lang = entry.get("language")
 
+        # Explicit logic to avoid demanding grammatical fields for isolating languages.
         if isinstance(lang, str) and lang in {"zho", "tha", "vie"} and (plural is not None or conjugations is not None):
             errors.append(f"Isolating language '{lang}' should not have plural or conjugations")
 
+        # Explicit logic to validate plural/conjugation evidence.
         if isinstance(pos, str) and pos != "verb" and conjugations is not None:
             # While theoretically some languages decline nouns, usually 'conjugation' implies verbs.
             warnings.append(f"Non-verb POS '{pos}' has 'conjugations' field")
