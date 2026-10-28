@@ -10,13 +10,16 @@ from tools.contribution_gate.test_fixture import fixture, ref, save_ledger
 class AttributionTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
-        self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
         self.ledger, self.source = fixture(self.root)
         self.source["author"] = "Test Author"
         self.ledger_file = save_ledger(self.root, self.ledger)
         self.refs_file = self.root / "refs.json"
         self.out = self.root / "out"
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
     def run_gate(self, refs=None):
         self.ledger_file.write_text(json.dumps(self.ledger), encoding="utf-8")
         self.refs_file.write_text(json.dumps(refs if refs is not None else [ref(self.source)]),
