@@ -113,14 +113,20 @@ class FontRightsRegistry:
     def generate_script_mapping(self, assets: list[FontAsset], repo_root=None):
         mapping = {}
         seen_ids = set()
+        cjk_scripts = {"Hans", "Hant", "Jpan", "Kore"}
         for asset in assets:
             if self.validate_asset(asset, repo_root=repo_root).get("status") != "EVIDENCE_PASS":
                 continue
             if asset.id in seen_ids:
-                raise ValueError("Duplicate font asset id: " + str(asset.id))
+                return {"status": "REJECT", "issues": [f"Duplicate font asset id: {asset.id}"]}
             seen_ids.add(asset.id)
             seen_scripts = set()
-            for script in asset.scripts:
+
+            scripts_to_process = list(asset.scripts)
+            if any(s in cjk_scripts for s in scripts_to_process):
+                scripts_to_process.append("Hani")
+
+            for script in scripts_to_process:
                 if script in seen_scripts:
                     continue
                 seen_scripts.add(script)
