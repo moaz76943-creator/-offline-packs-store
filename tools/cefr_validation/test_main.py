@@ -25,6 +25,50 @@ class TestCEFRValidationCLI(unittest.TestCase):
             "reviewer_id": "reviewer-1"
         }]
 
+    def test_rejects_input_output_alias(self):
+        source = '{"record_id":"preserve-me"}\\n'
+        self.input_file.write_text(source, encoding="utf-8")
+        proc = subprocess.run(
+            ["python3", "-m", "tools.cefr_validation",
+             "--input", str(self.input_file),
+             "--accepted", str(self.input_file),
+             "--rejected", str(self.rejected_file)],
+            capture_output=True, text=True,
+            env={**os.environ, "PYTHONPATH": str(Path(__file__).resolve().parents[2])},
+        )
+        self.assertNotEqual(proc.returncode, 0)
+        self.assertEqual(self.input_file.read_text(encoding="utf-8"), source)
+
+    def test_rejects_shared_output_path(self):
+        dest = self.accepted_file
+        dest.write_text("original\\n", encoding="utf-8")
+        self.input_file.write_text("{}\\n", encoding="utf-8")
+        proc = subprocess.run(
+            ["python3", "-m", "tools.cefr_validation",
+             "--input", str(self.input_file),
+             "--accepted", str(dest), "--rejected", str(dest)],
+            capture_output=True, text=True,
+            env={**os.environ, "PYTHONPATH": str(Path(__file__).resolve().parents[2])},
+        )
+        self.assertNotEqual(proc.returncode, 0)
+        self.assertEqual(dest.read_text(encoding="utf-8"), "original\\n")
+
+    def test_invalid_json_preserves_previous_outputs(self):
+        self.input_file.write_text('{"bad json"\\n', encoding="utf-8")
+        self.accepted_file.write_text("prior accepted\\n", encoding="utf-8")
+        self.rejected_file.write_text("prior rejected\\n", encoding="utf-8")
+        proc = subprocess.run(
+            ["python3", "-m", "tools.cefr_validation",
+             "--input", str(self.input_file),
+             "--accepted", str(self.accepted_file),
+             "--rejected", str(self.rejected_file)],
+            capture_output=True, text=True,
+            env={**os.environ, "PYTHONPATH": str(Path(__file__).resolve().parents[2])},
+        )
+        self.assertNotEqual(proc.returncode, 0)
+        self.assertEqual(self.accepted_file.read_text(encoding="utf-8"), "prior accepted\\n")
+        self.assertEqual(self.rejected_file.read_text(encoding="utf-8"), "prior rejected\\n")
+
     def test_cli_processing_records(self):
         records = [
             {
