@@ -2853,6 +2853,123 @@
       "wikidata": "Q172"
     },
     {
+      "concept_id": "concept.q1709",
+      "forms": [
+        "Schwerin"
+      ],
+      "language": "en",
+      "lemma": "Schwerin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452553",
+      "pos": "",
+      "qids": [
+        "Q1709"
+      ],
+      "record_id": "L452553",
+      "retrieval_date": "2026-10-28",
+      "revision": "1393763881",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452553-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1709"
+    },
+    {
+      "concept_id": "concept.q3183",
+      "forms": [
+        "Perth"
+      ],
+      "language": "en",
+      "lemma": "Perth",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452717",
+      "pos": "",
+      "qids": [
+        "Q3183"
+      ],
+      "record_id": "L452717",
+      "retrieval_date": "2026-10-28",
+      "revision": "2361063823",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452717-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3183"
+    },
+    {
+      "concept_id": "concept.q13362",
+      "forms": [
+        "Ferrara"
+      ],
+      "language": "en",
+      "lemma": "Ferrara",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452937",
+      "pos": "",
+      "qids": [
+        "Q13362"
+      ],
+      "record_id": "L452937",
+      "retrieval_date": "2026-10-28",
+      "revision": "2463983521",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452937-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q13362"
+    },
+    {
+      "concept_id": "concept.q42448",
+      "forms": [
+        "Sheffield",
+        "Sheffields"
+      ],
+      "language": "en",
+      "lemma": "Sheffield",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L476834",
+      "pos": "",
+      "qids": [
+        "Q42448"
+      ],
+      "record_id": "L476834",
+      "retrieval_date": "2026-10-28",
+      "revision": "1818171308",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L476834-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q42448"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "kimono",
@@ -6676,6 +6793,36 @@
       "wikidata": "Q172"
     },
     {
+      "concept_id": "concept.q13362",
+      "forms": [
+        "Ferrara"
+      ],
+      "language": "it",
+      "lemma": "Ferrara",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1235582",
+      "pos": "",
+      "qids": [
+        "Q16869929",
+        "Q13362"
+      ],
+      "record_id": "L1235582",
+      "retrieval_date": "2026-10-28",
+      "revision": "2198354275",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1235582-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q13362"
+    },
+    {
       "concept_id": "concept.q10940",
       "forms": [
         "sospensorio",
@@ -8357,6 +8504,64 @@
       "wikidata": "Q36600"
     },
     {
+      "concept_id": "concept.q3183",
+      "forms": [
+        "പെർത്ത്"
+      ],
+      "language": "ml",
+      "lemma": "പെർത്ത്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453410",
+      "pos": "",
+      "qids": [
+        "Q3183"
+      ],
+      "record_id": "L453410",
+      "retrieval_date": "2026-10-28",
+      "revision": "1398177789",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453410-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3183"
+    },
+    {
+      "concept_id": "concept.q42448",
+      "forms": [
+        "ഷെഫീൽഡ്"
+      ],
+      "language": "ml",
+      "lemma": "ഷെഫീൽഡ്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L454033",
+      "pos": "",
+      "qids": [
+        "Q42448"
+      ],
+      "record_id": "L454033",
+      "retrieval_date": "2026-10-28",
+      "revision": "1394131805",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L454033-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q42448"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "കിമോണോ"
@@ -8532,6 +8737,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q172"
+    },
+    {
+      "concept_id": "concept.q83178",
+      "forms": [
+        "Almere"
+      ],
+      "language": "nl",
+      "lemma": "Almere",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1576518",
+      "pos": "",
+      "qids": [
+        "Q1552345",
+        "Q83178"
+      ],
+      "record_id": "L1576518",
+      "retrieval_date": "2026-10-28",
+      "revision": "2523431714",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1576518-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q83178"
     },
     {
       "concept_id": "concept.q2941309",
