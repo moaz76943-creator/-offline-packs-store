@@ -277,6 +277,76 @@
       "wikidata": "Q36600"
     },
     {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar",
+        "Gibraltaru",
+        "Gibraltaru",
+        "Gibraltar",
+        "Gibraltare",
+        "Gibraltaru",
+        "Gibraltarem"
+      ],
+      "language": "cs",
+      "lemma": "Gibraltar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L349240",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L349240",
+      "retrieval_date": "2026-10-28",
+      "revision": "2458935229",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L349240-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q384544",
+      "forms": [
+        "Karlovy Vary",
+        "Karlových Varů",
+        "Karlovým Varům",
+        "Karlovy Vary",
+        "Karlových Varech",
+        "Karlovými Vary"
+      ],
+      "language": "cs",
+      "lemma": "Karlovy Vary",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1027973",
+      "pos": "",
+      "qids": [
+        "Q384544",
+        "Q56414571"
+      ],
+      "record_id": "L1027973",
+      "retrieval_date": "2026-10-28",
+      "revision": "2413775131",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1027973-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q384544"
+    },
+    {
       "concept_id": "concept.q16868715",
       "forms": [
         "úžas",
@@ -575,6 +645,66 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar",
+        "Gibraltars"
+      ],
+      "language": "da",
+      "lemma": "Gibraltar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1336114",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L1336114",
+      "retrieval_date": "2026-10-28",
+      "revision": "2232979133",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1336114-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q2167",
+      "forms": [
+        "Lund",
+        "Lunds"
+      ],
+      "language": "da",
+      "lemma": "Lund",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1216935",
+      "pos": "",
+      "qids": [
+        "Q2167"
+      ],
+      "record_id": "L1216935",
+      "retrieval_date": "2026-10-28",
+      "revision": "2014625761",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1216935-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2167"
     },
     {
       "concept_id": "concept.q71404162",
@@ -1213,6 +1343,103 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q172"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar",
+        "Gibraltar",
+        "Gibraltars",
+        "Gibraltar",
+        "Gibraltar"
+      ],
+      "language": "de",
+      "lemma": "Gibraltar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L401965",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L401965",
+      "retrieval_date": "2026-10-28",
+      "revision": "2118977900",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L401965-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q384544",
+      "forms": [
+        "Karlsbad",
+        "Karlsbad",
+        "Karlsbads",
+        "Karlsbad"
+      ],
+      "language": "de",
+      "lemma": "Karlsbad",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297378",
+      "pos": "",
+      "qids": [
+        "Q384544"
+      ],
+      "record_id": "L297378",
+      "retrieval_date": "2026-10-28",
+      "revision": "1880409871",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297378-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q384544"
+    },
+    {
+      "concept_id": "concept.q628",
+      "forms": [
+        "Bergamo",
+        "Bergamo",
+        "Bergamos",
+        "Bergamo"
+      ],
+      "language": "de",
+      "lemma": "Bergamo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297273",
+      "pos": "",
+      "qids": [
+        "Q628"
+      ],
+      "record_id": "L297273",
+      "retrieval_date": "2026-10-28",
+      "revision": "2414950578",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297273-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q628"
     },
     {
       "concept_id": "concept.q3354532",
@@ -2968,6 +3195,94 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q42448"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar"
+      ],
+      "language": "en",
+      "lemma": "Gibraltar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L254168",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L254168",
+      "retrieval_date": "2026-10-28",
+      "revision": "2435402774",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L254168-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q123709",
+      "forms": [
+        "Dundee",
+        "Dundees"
+      ],
+      "language": "en",
+      "lemma": "Dundee",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1334664",
+      "pos": "",
+      "qids": [
+        "Q123709"
+      ],
+      "record_id": "L1334664",
+      "retrieval_date": "2026-10-28",
+      "revision": "2208905450",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1334664-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q123709"
+    },
+    {
+      "concept_id": "concept.q628",
+      "forms": [
+        "Bergamo"
+      ],
+      "language": "en",
+      "lemma": "Bergamo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452737",
+      "pos": "",
+      "qids": [
+        "Q628"
+      ],
+      "record_id": "L452737",
+      "retrieval_date": "2026-10-28",
+      "revision": "2338348762",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452737-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q628"
     },
     {
       "concept_id": "concept.q483444",
@@ -5839,6 +6154,35 @@
       "wikidata": "Q172"
     },
     {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibraltar"
+      ],
+      "language": "fr",
+      "lemma": "Gibraltar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L24184",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L24184",
+      "retrieval_date": "2026-10-28",
+      "revision": "1398183039",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L24184-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
       "concept_id": "concept.q604079",
       "forms": [
         "mauve",
@@ -6821,6 +7165,65 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q13362"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "Gibilterra"
+      ],
+      "language": "it",
+      "lemma": "Gibilterra",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1248571",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L1248571",
+      "retrieval_date": "2026-10-28",
+      "revision": "2195738543",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1248571-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q628",
+      "forms": [
+        "Bergamo"
+      ],
+      "language": "it",
+      "lemma": "Bergamo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1235584",
+      "pos": "",
+      "qids": [
+        "Q16479937",
+        "Q628"
+      ],
+      "record_id": "L1235584",
+      "retrieval_date": "2026-10-28",
+      "revision": "2198174649",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1235584-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q628"
     },
     {
       "concept_id": "concept.q10940",
@@ -8560,6 +8963,64 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q42448"
+    },
+    {
+      "concept_id": "concept.q1410",
+      "forms": [
+        "ജിബ്രാൾട്ടർ"
+      ],
+      "language": "ml",
+      "lemma": "ജിബ്രാൾട്ടർ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L457415",
+      "pos": "",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "L457415",
+      "retrieval_date": "2026-10-28",
+      "revision": "1398182816",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L457415-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "concept_id": "concept.q23051",
+      "forms": [
+        "സ്വാൻസീ"
+      ],
+      "language": "ml",
+      "lemma": "സ്വാൻസീ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453895",
+      "pos": "",
+      "qids": [
+        "Q23051"
+      ],
+      "record_id": "L453895",
+      "retrieval_date": "2026-10-28",
+      "revision": "1394125246",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453895-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23051"
     },
     {
       "concept_id": "concept.q483444",
@@ -10394,6 +10855,67 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2079"
+    },
+    {
+      "concept_id": "concept.q384544",
+      "forms": [
+        "Karlsbad",
+        "Karlsbads"
+      ],
+      "language": "sv",
+      "lemma": "Karlsbad",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1416545",
+      "pos": "",
+      "qids": [
+        "Q384544"
+      ],
+      "record_id": "L1416545",
+      "retrieval_date": "2026-10-28",
+      "revision": "2484847957",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1416545-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q384544"
+    },
+    {
+      "concept_id": "concept.q2167",
+      "forms": [
+        "Lund",
+        "Lunds"
+      ],
+      "language": "sv",
+      "lemma": "Lund",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L475066",
+      "pos": "",
+      "qids": [
+        "Q2167",
+        "Q29599"
+      ],
+      "record_id": "L475066",
+      "retrieval_date": "2026-10-28",
+      "revision": "2484848710",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L475066-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2167"
     },
     {
       "concept_id": "concept.q483444",
