@@ -11,6 +11,7 @@
   "labels": [
     {
       "language": "en",
+      "script": "InvalidScript",
       "text": "Valid text",
       "direction": "ltr",
       "related_concept_id": "concept2",
