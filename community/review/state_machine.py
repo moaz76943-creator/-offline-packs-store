@@ -227,6 +227,27 @@ class ReviewStateMachine:
             atomic_json(self.handoff_dir / (safe_name(sid) + "_handoff.json"), data)
             return data
 
+
+    def enqueue_manifest(self, manifest_path):
+        path = existing_file(manifest_path, self.artifacts)
+        if path.stat().st_size > MAX_CHECKPOINT_BYTES * 10:
+            raise ValueError("oversized manifest")
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(data, dict):
+            raise ValueError("invalid manifest format")
+        results = []
+        for key in ("added", "updated"):
+            for item in data.get(key, []):
+                if not isinstance(item, dict):
+                    continue
+                results.append(self.submit(
+                    item.get("submission_id"),
+                    item.get("content_hash"),
+                    item.get("metadata"),
+                    item.get("artifact_path")
+                ))
+        return results
+
     def verify_handoff(self, sid):
         path = self.handoff_dir / (safe_name(sid) + "_handoff.json")
         if path.is_symlink() or path.stat().st_size > MAX_CHECKPOINT_BYTES:

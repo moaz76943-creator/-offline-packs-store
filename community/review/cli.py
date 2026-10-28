@@ -30,8 +30,8 @@ def main(argv=None):
     parser.add_argument("--storage", required=True, type=Path)
     parser.add_argument("--artifacts", required=True, type=Path)
     parser.add_argument("--operator-keys", required=True, type=Path)
-    parser.add_argument("action", choices=("submit", "start", "validate", "approve", "reject", "eligible"))
-    parser.add_argument("--id", required=True)
+    parser.add_argument("action", choices=("submit", "start", "validate", "approve", "reject", "eligible", "enqueue"))
+    parser.add_argument("--id")
     parser.add_argument("--sha256")
     parser.add_argument("--metadata", type=Path)
     parser.add_argument("--artifact", type=Path)
@@ -43,6 +43,9 @@ def main(argv=None):
         validators, reviewers = read_operator_keys(args.operator_keys, (root, args.storage, args.artifacts))
         machine = ReviewStateMachine(args.storage, args.artifacts,
                                      validator_keys=validators, reviewer_keys=reviewers)
+        if args.action != "enqueue" and args.id is None:
+            raise ValueError("action requires --id")
+
         if args.action == "submit":
             if args.metadata is None or args.sha256 is None or args.artifact is None:
                 raise ValueError("submission requires --metadata, --sha256 and --artifact")
@@ -56,6 +59,13 @@ def main(argv=None):
             outcome = machine.complete_validation(args.id, args.actor, args.token)
         elif args.action in ("approve", "reject"):
             outcome = machine.review(args.id, args.actor, args.action == "approve", args.token)
+        elif args.action == "enqueue":
+            if args.artifact is None:
+                raise ValueError("enqueue requires --artifact")
+            outcomes = machine.enqueue_manifest(args.artifact)
+            for outcome in outcomes:
+                print(json.dumps({k: outcome[k] for k in ("submission_id", "content_hash", "revision", "state")}, sort_keys=True))
+            return 0
         else:
             outcome = machine.mark_published_eligible(args.id)
         # Never print authority keys, HMAC tokens or unredacted contributor metadata.
