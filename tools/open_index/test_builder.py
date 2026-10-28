@@ -23,8 +23,6 @@ def setup_dummy_db(db_path, language_code, words):
             db.execute('INSERT INTO lexicon_fts(rowid, surface, lemma, gloss, language_code) VALUES(?, ?, ?, ?, ?)',
                        (i+1, word, word, "def", language_code))
 
-        db.execute("INSERT INTO lexicon_fts(lexicon_fts) VALUES('integrity-check')")
-
 
 class TestIndexBuilder(unittest.TestCase):
     def setUp(self):
@@ -40,7 +38,7 @@ class TestIndexBuilder(unittest.TestCase):
         build_index(self.db_path)
 
         with sqlite3.connect(self.db_path) as db:
-            count = db.execute("SELECT COUNT(*) FROM lexicon_fts WHERE lexicon_fts != 'integrity-check'").fetchone()[0]
+            count = db.execute("SELECT COUNT(*) FROM lexicon_fts").fetchone()[0]
             self.assertEqual(count, 2)
             row = db.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name='lexicon_fts'").fetchone()
             self.assertIn('unicode61', row[0] if row else "")
