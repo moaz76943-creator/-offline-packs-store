@@ -1,6 +1,6 @@
 {
   "language": "pl",
-  "retrieval_date": "2026-10-24",
+  "retrieval_date": "2026-10-28",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -221,6 +221,37 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q36600"
+    },
+    {
+      "concept_id": "concept.q1799",
+      "forms": [
+        "Wrocław",
+        "Wrocławia",
+        "Wrocławowi",
+        "Wrocław",
+        "Wrocławiem",
+        "Wrocławiu",
+        "Wrocławiu",
+        "Wrocławie"
+      ],
+      "language": "pl",
+      "lemma": "Wrocław",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1214302",
+      "pos": "",
+      "qids": [
+        "Q1799"
+      ],
+      "record_id": "L1214302",
+      "retrieval_date": "2026-10-28",
+      "revision": "2036649287",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1214302-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1799"
     }
   ],
   "schema_version": "1.0.0",
@@ -228,23 +259,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q23436"
+      "wikidata": "Q956"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q174"
+      "wikidata": "Q956"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q62"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1780"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1794"
+      "reason": "HTTPError:429",
+      "wikidata": "Q3711"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1489"
+      "reason": "HTTPError:429",
+      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"

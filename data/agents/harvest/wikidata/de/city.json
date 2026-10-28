@@ -362,6 +362,88 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q628"
+    },
+    {
+      "concept_id": "concept.q956",
+      "forms": [
+        "Peking",
+        "Peking",
+        "Pekings",
+        "Peking",
+        "Peking"
+      ],
+      "language": "de",
+      "lemma": "Peking",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L489355",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L489355",
+      "retrieval_date": "2026-10-28",
+      "revision": "1879005657",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L489355-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Kopenhagen",
+        "Kopenhagen",
+        "Kopenhagens",
+        "Kopenhagen"
+      ],
+      "language": "de",
+      "lemma": "Kopenhagen",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297265",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L297265",
+      "retrieval_date": "2026-10-28",
+      "revision": "1880451692",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297265-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q1799",
+      "forms": [
+        "Breslau",
+        "Breslau",
+        "Breslaus",
+        "Breslau"
+      ],
+      "language": "de",
+      "lemma": "Breslau",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297307",
+      "pos": "",
+      "qids": [
+        "Q1799"
+      ],
+      "record_id": "L297307",
+      "retrieval_date": "2026-10-28",
+      "revision": "2497008090",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297307-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1799"
     }
   ],
   "schema_version": "1.0.0",
@@ -369,19 +451,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1410"
+      "wikidata": "Q956"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q956"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q628"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1780"
     },
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q3018561"
+      "reason": "HTTPError:429",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"

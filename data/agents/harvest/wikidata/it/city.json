@@ -263,6 +263,56 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q628"
+    },
+    {
+      "concept_id": "concept.q34370",
+      "forms": [
+        "Rotterdam"
+      ],
+      "language": "it",
+      "lemma": "Rotterdam",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1321153",
+      "pos": "",
+      "qids": [
+        "Q105539079",
+        "Q2680952",
+        "Q34370"
+      ],
+      "record_id": "L1321153",
+      "retrieval_date": "2026-10-28",
+      "revision": "2198428418",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1321153-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q34370"
+    },
+    {
+      "concept_id": "concept.q1799",
+      "forms": [
+        "Breslavia"
+      ],
+      "language": "it",
+      "lemma": "Breslavia",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1342011",
+      "pos": "",
+      "qids": [
+        "Q1799"
+      ],
+      "record_id": "L1342011",
+      "retrieval_date": "2026-10-28",
+      "revision": "2227372846",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1342011-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1799"
     }
   ],
   "schema_version": "1.0.0",
@@ -270,19 +320,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1410"
+      "wikidata": "Q956"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q956"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q628"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1780"
     },
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q3018561"
+      "reason": "HTTPError:429",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"

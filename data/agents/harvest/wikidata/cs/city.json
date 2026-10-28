@@ -210,6 +210,66 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q384544"
+    },
+    {
+      "concept_id": "concept.q956",
+      "forms": [
+        "Peking",
+        "Pekingu",
+        "Pekingu",
+        "Peking",
+        "Pekingu",
+        "Pekingu",
+        "Pekingem"
+      ],
+      "language": "cs",
+      "lemma": "Peking",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L412495",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L412495",
+      "retrieval_date": "2026-10-28",
+      "revision": "1370726992",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L412495-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Kodaň",
+        "Kodaně",
+        "Kodani",
+        "Kodaň",
+        "Kodani",
+        "Kodani",
+        "Kodaní"
+      ],
+      "language": "cs",
+      "lemma": "Kodaň",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L42223",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L42223",
+      "retrieval_date": "2026-10-28",
+      "revision": "850265371",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L42223-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
     }
   ],
   "schema_version": "1.0.0",
@@ -217,19 +277,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1410"
+      "wikidata": "Q956"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q956"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q628"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1780"
     },
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q3018561"
+      "reason": "HTTPError:429",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"

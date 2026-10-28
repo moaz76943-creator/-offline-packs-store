@@ -126,6 +126,84 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2167"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "København",
+        "Københavns"
+      ],
+      "language": "da",
+      "lemma": "København",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L59721",
+      "pos": "",
+      "qids": [
+        "Q1748",
+        "Q1561910",
+        "Q12323367",
+        "Q1751706",
+        "Q6454061"
+      ],
+      "record_id": "L59721",
+      "retrieval_date": "2026-10-28",
+      "revision": "2466695446",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L59721-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Københavnstrup",
+        "Københavnstrups"
+      ],
+      "language": "da",
+      "lemma": "Københavnstrup",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L221020",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L221020",
+      "retrieval_date": "2026-10-28",
+      "revision": "2297570127",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L221020-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Kjøffenhavn"
+      ],
+      "language": "da",
+      "lemma": "Kjøffenhavn",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L314310",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L314310",
+      "retrieval_date": "2026-10-28",
+      "revision": "2232999020",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L314310-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
     }
   ],
   "schema_version": "1.0.0",
@@ -133,19 +211,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1410"
+      "wikidata": "Q956"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q956"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q628"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1780"
     },
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q3018561"
+      "reason": "HTTPError:429",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"

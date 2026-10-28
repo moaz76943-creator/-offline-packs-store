@@ -16,7 +16,7 @@
         "Q4093"
       ],
       "record_id": "L448759",
-      "retrieval_date": "2026-10-20",
+      "retrieval_date": "2026-10-28",
       "revision": "2432016305",
       "schema_version": "1.0.0",
       "section": "city",
@@ -566,6 +566,54 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q628"
+    },
+    {
+      "concept_id": "concept.q956",
+      "forms": [
+        "Beijing"
+      ],
+      "language": "en",
+      "lemma": "Beijing",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L450095",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L450095",
+      "retrieval_date": "2026-10-28",
+      "revision": "2330290613",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L450095-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Copenhagen"
+      ],
+      "language": "en",
+      "lemma": "Copenhagen",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L412938",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L412938",
+      "retrieval_date": "2026-10-28",
+      "revision": "2551461971",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L412938-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
     }
   ],
   "schema_version": "1.0.0",
@@ -573,19 +621,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q1410"
+      "wikidata": "Q956"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q956"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q628"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1780"
     },
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q3018561"
+      "reason": "HTTPError:429",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"
