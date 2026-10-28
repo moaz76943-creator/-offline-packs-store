@@ -2,7 +2,7 @@
   "format": "legacy-entry-candidate",
   "path": "/tmp/agent-out/data/agents/packs/da.sqlite",
   "production_ready": false,
-  "rows": 14,
+  "rows": 15,
   "schema_version": "1.0.0",
-  "sha256": "8d5831b0d88db75dda4db5e7b9ba1b7c3716925399dc28514b1d474ea01f1024"
+  "sha256": "807ffd74de82bf3f91e5dd3f4f03c234621214fe9af6e57efa58e0f1d0873c10"
 }
