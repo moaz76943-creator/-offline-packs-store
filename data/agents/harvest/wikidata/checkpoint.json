@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q120401133",
-    "Q16095125",
-    "Q138615854",
-    "Q138510220",
-    "Q111367762",
-    "Q27962348",
-    "Q66736075",
-    "Q136510225"
+    "Q138615875",
+    "Q138328386",
+    "Q109423906",
+    "Q118123944",
+    "Q138845365",
+    "Q68754956",
+    "Q25446635",
+    "Q112965630"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q120401133"
+      "wikidata": "Q138615875"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q16095125"
+      "wikidata": "Q138328386"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q138615854"
+      "wikidata": "Q109423906"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q138510220"
+      "wikidata": "Q118123944"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q111367762"
+      "wikidata": "Q138845365"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q27962348"
+      "wikidata": "Q68754956"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q66736075"
+      "wikidata": "Q25446635"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q136510225"
+      "wikidata": "Q112965630"
     }
   ],
   "retrieval_date": "2026-10-28",
