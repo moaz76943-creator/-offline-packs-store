@@ -10,14 +10,15 @@ import logging
 import sys
 from pathlib import Path
 
-# We reuse the logic from legal.ledger.admission as much as possible for validation.
-from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
+import os
 
 logger = logging.getLogger(__name__)
 
 class ProvenanceCompiler:
     def __init__(self, root: Path, ledger_path: Path, daily_dir: Path):
         self.root = root.resolve()
+        if not os.access(self.root, os.R_OK | os.X_OK):
+            raise PermissionError("UNAUTHORIZED_WORKSPACE")
         self.ledger_path = ledger_path.resolve()
         self.daily_dir = daily_dir.resolve()
 
@@ -26,6 +27,7 @@ class ProvenanceCompiler:
         Compile provenance and output release_provenance.json and NOTICE.txt.
         Returns a dictionary of statuses for tests.
         """
+        from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
         try:
             with open(self.ledger_path, 'r', encoding='utf-8') as f:
                 ledger = json.load(f)
@@ -165,7 +167,11 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        required_terms = [sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', '')]
+                        if src.get('author'):
+                            required_terms.append(src.get('author'))
+
+                        if not all(term in content for term in required_terms):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:
@@ -223,6 +229,12 @@ class ProvenanceCompiler:
 
         return statuses
 
+def install_repo_import_path(root):
+    resolved = str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo-root', type=Path, default=Path.cwd())
@@ -231,6 +243,8 @@ def main(argv=None):
     parser.add_argument('--manifest-out', type=Path, required=True)
     parser.add_argument('--notice-out', type=Path, required=True)
     args = parser.parse_args(argv)
+
+    install_repo_import_path(args.repo_root)
 
     root = args.repo_root.resolve()
     ledger_path = args.ledger or root / 'legal/ledger/sources.json'
