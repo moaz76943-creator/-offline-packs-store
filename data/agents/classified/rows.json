@@ -850,6 +850,42 @@
       "wikidata": "Q970153"
     },
     {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "skolelærer",
+        "skolelæreen",
+        "skolelærere",
+        "skolelærerne",
+        "skolelærers",
+        "skolelæreens",
+        "skolelæreres",
+        "skolelærernes"
+      ],
+      "language": "da",
+      "lemma": "skolelærer",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1030152",
+      "pos": "",
+      "qids": [
+        "Q2251335"
+      ],
+      "record_id": "L1030152",
+      "retrieval_date": "2026-10-28",
+      "revision": "2241034129",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1030152-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
+    },
+    {
       "concept_id": "concept.q1780",
       "forms": [
         "Pressburg",
@@ -2048,6 +2084,114 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "Entwickler",
+        "Entwicklers",
+        "Entwickler",
+        "Entwickler",
+        "Entwickler",
+        "Entwickler",
+        "Entwicklern",
+        "Entwickler"
+      ],
+      "language": "de",
+      "lemma": "Entwickler",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L296271",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L296271",
+      "retrieval_date": "2026-10-28",
+      "revision": "2333005343",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L296271-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "Programmierer",
+        "Programmierers",
+        "Programmierer",
+        "Programmierer",
+        "Programmierer",
+        "Programmierer",
+        "Programmierern",
+        "Programmierer"
+      ],
+      "language": "de",
+      "lemma": "Programmierer",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L407320",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L407320",
+      "retrieval_date": "2026-10-28",
+      "revision": "2306711535",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L407320-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "Physiologe",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen",
+        "Physiologen"
+      ],
+      "language": "de",
+      "lemma": "Physiologe",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72803",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L72803",
+      "retrieval_date": "2026-10-28",
+      "revision": "2306708006",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72803-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
     },
     {
       "concept_id": "concept.q726",
@@ -4018,6 +4162,128 @@
       "wikidata": "Q4205432"
     },
     {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "developer",
+        "developers"
+      ],
+      "language": "en",
+      "lemma": "developer",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L31738",
+      "pos": "",
+      "qids": [
+        "Q5482740",
+        "Q695829",
+        "Q183888"
+      ],
+      "record_id": "L31738",
+      "retrieval_date": "2026-10-28",
+      "revision": "2549838181",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L31738-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "programmer",
+        "programmers"
+      ],
+      "language": "en",
+      "lemma": "programmer",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L313294",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L313294",
+      "retrieval_date": "2026-10-28",
+      "revision": "2549932188",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L313294-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q16271064",
+      "forms": [
+        "herpetologist",
+        "herpetologists"
+      ],
+      "language": "en",
+      "lemma": "herpetologist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L35559",
+      "pos": "",
+      "qids": [
+        "Q16271064"
+      ],
+      "record_id": "L35559",
+      "retrieval_date": "2026-10-28",
+      "revision": "2549903470",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L35559-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16271064"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "physiologist",
+        "physiologists"
+      ],
+      "language": "en",
+      "lemma": "physiologist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L40950",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L40950",
+      "retrieval_date": "2026-10-28",
+      "revision": "2466192976",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L40950-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "ĉevalo",
@@ -4555,6 +4821,70 @@
       "wikidata": "Q4205432"
     },
     {
+      "concept_id": "concept.q16271064",
+      "forms": [
+        "herpetólogo",
+        "herpetólogos",
+        "herpetóloga",
+        "herpetólogas"
+      ],
+      "language": "es",
+      "lemma": "herpetólogo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L750403",
+      "pos": "",
+      "qids": [
+        "Q16271064"
+      ],
+      "record_id": "L750403",
+      "retrieval_date": "2026-10-28",
+      "revision": "2415720129",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L750403-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16271064"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "fisiólogo",
+        "fisiólogos",
+        "fisióloga",
+        "fisiólogas"
+      ],
+      "language": "es",
+      "lemma": "fisiólogo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L750720",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L750720",
+      "retrieval_date": "2026-10-28",
+      "revision": "2409433444",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L750720-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
+    },
+    {
       "concept_id": "concept.q2778382",
       "forms": [
         "pronks",
@@ -4914,6 +5244,72 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "programatzaile",
+        "programatzailea",
+        "programatzaileak",
+        "programatzailek",
+        "programatzaileak",
+        "programatzaileek",
+        "programatzaileri",
+        "programatzaileari"
+      ],
+      "language": "eu",
+      "lemma": "programatzaile",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L71636",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L71636",
+      "retrieval_date": "2026-10-28",
+      "revision": "1354660830",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L71636-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "کاراندام‌شناس",
+        "کاراندام‌شناس‌ها"
+      ],
+      "language": "fa",
+      "lemma": "کاراندام‌شناس",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L746583",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L746583",
+      "retrieval_date": "2026-10-28",
+      "revision": "2436216742",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L746583-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
     },
     {
       "concept_id": "concept.q726",
@@ -5877,6 +6273,127 @@
       "wikidata": "Q4205432"
     },
     {
+      "concept_id": "concept.q3332711",
+      "forms": [
+        "médiéviste",
+        "médiévistes"
+      ],
+      "language": "fr",
+      "lemma": "médiéviste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621494",
+      "pos": "",
+      "qids": [
+        "Q3332711",
+        "Q22929895"
+      ],
+      "record_id": "L621494",
+      "retrieval_date": "2026-10-28",
+      "revision": "2524853208",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621494-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3332711"
+    },
+    {
+      "concept_id": "concept.q16271064",
+      "forms": [
+        "herpétologiste",
+        "herpétologistes"
+      ],
+      "language": "fr",
+      "lemma": "herpétologiste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621571",
+      "pos": "",
+      "qids": [
+        "Q16271064"
+      ],
+      "record_id": "L621571",
+      "retrieval_date": "2026-10-28",
+      "revision": "2531650946",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621571-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16271064"
+    },
+    {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "instituteur",
+        "instituteurs"
+      ],
+      "language": "fr",
+      "lemma": "instituteur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621204",
+      "pos": "",
+      "qids": [
+        "Q2251335"
+      ],
+      "record_id": "L621204",
+      "retrieval_date": "2026-10-28",
+      "revision": "1767885157",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621204-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "physiologiste",
+        "physiologistes"
+      ],
+      "language": "fr",
+      "lemma": "physiologiste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621587",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L621587",
+      "retrieval_date": "2026-10-28",
+      "revision": "1700259764",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621587-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
+    },
+    {
       "concept_id": "concept.q59099",
       "forms": [
         "erbivoro",
@@ -6646,6 +7163,129 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q3332711",
+      "forms": [
+        "medievista",
+        "medievisti",
+        "medievista",
+        "medieviste"
+      ],
+      "language": "it",
+      "lemma": "medievista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1231762",
+      "pos": "",
+      "qids": [
+        "Q3332711"
+      ],
+      "record_id": "L1231762",
+      "retrieval_date": "2026-10-28",
+      "revision": "2191546151",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1231762-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3332711"
+    },
+    {
+      "concept_id": "concept.q16271064",
+      "forms": [
+        "erpetologo",
+        "erpetologi"
+      ],
+      "language": "it",
+      "lemma": "erpetologo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1332889",
+      "pos": "",
+      "qids": [
+        "Q16271064"
+      ],
+      "record_id": "L1332889",
+      "retrieval_date": "2026-10-28",
+      "revision": "2204096376",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1332889-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16271064"
+    },
+    {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "maestro",
+        "maestri"
+      ],
+      "language": "it",
+      "lemma": "maestro",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L669472",
+      "pos": "",
+      "qids": [
+        "Q1836630",
+        "Q2251335"
+      ],
+      "record_id": "L669472",
+      "retrieval_date": "2026-10-28",
+      "revision": "2408385342",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L669472-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
+    },
+    {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "maestra",
+        "maestre"
+      ],
+      "language": "it",
+      "lemma": "maestra",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1181245",
+      "pos": "",
+      "qids": [
+        "Q2251335"
+      ],
+      "record_id": "L1181245",
+      "retrieval_date": "2026-10-28",
+      "revision": "2389803965",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1181245-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
     },
     {
       "concept_id": "concept.q1754",
@@ -9162,6 +9802,78 @@
       "wikidata": "Q4205432"
     },
     {
+      "concept_id": "concept.q3332711",
+      "forms": [
+        "медиевист",
+        "медиевиста",
+        "медиевисту",
+        "медиевиста",
+        "медиевистом",
+        "медиевисте",
+        "медиевисты",
+        "медиевистов"
+      ],
+      "language": "ru",
+      "lemma": "медиевист",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L126362",
+      "pos": "",
+      "qids": [
+        "Q3332711"
+      ],
+      "record_id": "L126362",
+      "retrieval_date": "2026-10-28",
+      "revision": "2237188901",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L126362-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3332711"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "физиолог",
+        "физиолога",
+        "физиологу",
+        "физиолога",
+        "физиологом",
+        "физиологе",
+        "физиологи",
+        "физиологов"
+      ],
+      "language": "ru",
+      "lemma": "физиолог",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L174797",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L174797",
+      "retrieval_date": "2026-10-28",
+      "revision": "2237066372",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L174797-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "häst",
@@ -9840,6 +10552,150 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q4205432"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "programmerare",
+        "programmeraren",
+        "programmerare",
+        "programmerarna",
+        "programmerares",
+        "programmerarens",
+        "programmerares",
+        "programmerarnas"
+      ],
+      "language": "sv",
+      "lemma": "programmerare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32111",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L32111",
+      "retrieval_date": "2026-10-28",
+      "revision": "2503644995",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L32111-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q5482740",
+      "forms": [
+        "utvecklare",
+        "utvecklaren",
+        "utvecklare",
+        "utvecklarna",
+        "utvecklares",
+        "utvecklarens",
+        "utvecklares",
+        "utvecklarnas"
+      ],
+      "language": "sv",
+      "lemma": "utvecklare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L35488",
+      "pos": "",
+      "qids": [
+        "Q5482740"
+      ],
+      "record_id": "L35488",
+      "retrieval_date": "2026-10-28",
+      "revision": "2482043950",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L35488-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q5482740"
+    },
+    {
+      "concept_id": "concept.q16271064",
+      "forms": [
+        "herpetolog",
+        "herpetologen",
+        "herpetologer",
+        "herpetologerna",
+        "herpetologs",
+        "herpetologens",
+        "herpetologers",
+        "herpetologernas"
+      ],
+      "language": "sv",
+      "lemma": "herpetolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L494231",
+      "pos": "",
+      "qids": [
+        "Q16271064"
+      ],
+      "record_id": "L494231",
+      "retrieval_date": "2026-10-28",
+      "revision": "1513924636",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L494231-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16271064"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "fysiolog",
+        "fysiologen",
+        "fysiologer",
+        "fysiologerna",
+        "fysiologs",
+        "fysiologens",
+        "fysiologers",
+        "fysiologernas"
+      ],
+      "language": "sv",
+      "lemma": "fysiolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L295063",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L295063",
+      "retrieval_date": "2026-10-28",
+      "revision": "2481279325",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L295063-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
     },
     {
       "concept_id": "concept.q12106",
