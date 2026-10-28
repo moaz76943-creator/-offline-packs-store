@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Bounded community intake. STAGED is never a publication or rights approval."""
+"""Bounded community intake. STAGED is never a publication or rights approval.
+
+Validates, quarantines and stages approved multilingual lexical and translation submissions.
+"""
 import argparse
 import fcntl
 import gzip
