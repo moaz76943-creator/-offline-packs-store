@@ -1,38 +1,30 @@
+import io
 import json
 import os
 import tempfile
-import unittest
 import time
+import unittest
 from pathlib import Path
 from unittest.mock import patch
-import io
-import sys
-
 try:
-    from tools.ingestion_circuit_breaker.gate import process, parse_args, sha256_file
-    from tools.ingestion_circuit_breaker.pipeline import run_fixture_pipeline
+    from tools.ingestion_circuit_breaker.gate import process, parse_args
 except ImportError:
-    from gate import process, parse_args, sha256_file
-    from pipeline import run_fixture_pipeline
+    from gate import process, parse_args
 
 class TestGate(unittest.TestCase):
     def setUp(self):
-        self.tmp = tempfile.TemporaryDirectory()
-        self.root = Path(self.tmp.name)
+        self.temp_dir = tempfile.TemporaryDirectory()
+        self.root = Path(self.temp_dir.name)
+        self.q_dir = self.root / "quarantine"
+        self.manifest_file = self.root / "manifest.json"
 
-        self.ledger_dir = self.root / 'legal' / 'ledger'
+        # Create mock ledger
+        self.ledger_dir = self.root / "legal" / "ledger"
         self.ledger_dir.mkdir(parents=True)
-        self.ledger_file = self.ledger_dir / 'sources.json'
+        self.ledger_file = self.ledger_dir / "sources.json"
 
-        self.q_dir = self.root / 'quarantine'
-
-        # Valid source artifact
-        self.artifact_path = self.root / 'artifact.json'
-        self.artifact_path.write_text('{"data": "valid"}')
-        self.valid_hash = sha256_file(self.artifact_path)
-
+        self.valid_hash = "a499ad8863be5751cd3509bd8c6928df9cde248adcdc604f985fd0d2288b2462"
         self.ledger_data = {
-            "schema_version": "1.0.0",
             "sources": [
                 {
                     "source_id": "test-source-1",
@@ -56,16 +48,19 @@ class TestGate(unittest.TestCase):
         }
         self.ledger_file.write_text(json.dumps(self.ledger_data))
 
-        self.manifest_file = self.root / 'manifest.json'
+        # Create mock artifact
+        self.artifact_path = self.root / "artifact.json"
+        self.artifact_path.write_text('{"data": "test"}')
 
     def tearDown(self):
-        self.tmp.cleanup()
+        self.temp_dir.cleanup()
 
     def run_process(self, manifest_dict):
         self.manifest_file.write_text(json.dumps(manifest_dict))
-        args = parse_args(['--repo-root', str(self.root), '--manifest', str(self.manifest_file), '--quarantine', str(self.q_dir)])
+        args = parse_args(["--repo-root", str(self.root),
+                           "--manifest", str(self.manifest_file),
+                           "--quarantine", str(self.q_dir)])
 
-        # Capture stdout and stderr
         stdout = io.StringIO()
         stderr = io.StringIO()
         with patch('sys.stdout', stdout), patch('sys.stderr', stderr):
@@ -207,6 +202,7 @@ class TestGate(unittest.TestCase):
 
     def test_fixture_ingestion_pipeline_halts_on_gate_failure(self):
         import subprocess
+        import sys
         gate_script = Path(__file__).parent / 'gate.py'
         marker = self.root / 'fixture_ingestion_executed.txt'
         fixture_runner = self.root / 'fixture_pipeline.py'
@@ -249,6 +245,10 @@ class TestGate(unittest.TestCase):
 
 
     def test_direct_fixture_pipeline_uses_same_admission_gate(self):
+        try:
+            from tools.ingestion_circuit_breaker.pipeline import run_fixture_pipeline
+        except ImportError:
+            from pipeline import run_fixture_pipeline
         manifest = {
             "source_id": "test-source-1",
             "artifact_path": "artifact.json",
