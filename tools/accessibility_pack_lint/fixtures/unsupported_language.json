@@ -1,0 +1,21 @@
+{
+  "id": "asset2",
+  "concept_id": "concept2",
+  "version": "1.0",
+  "hash": "abcdef",
+  "provenance": "source1",
+  "fallback_label": "concept2",
+  "contrast": {"supported": true},
+  "vector": {"bounds": {"max_x": 100, "max_y": 100}, "complexity": 10},
+  "device_shaping_evidence": true,
+  "labels": [
+    {
+      "language": "UnsupportedLanguage",
+      "script": "Latn",
+      "text": "Valid text",
+      "direction": "ltr",
+      "related_concept_id": "concept2",
+      "verified": true
+    }
+  ]
+}
