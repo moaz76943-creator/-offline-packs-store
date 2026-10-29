@@ -1,4 +1,25 @@
 {
   "schema_version": "1.0.0",
-  "sources": []
+  "sources": [
+    {
+      "source_id": "kaikki_de_deu_core",
+      "canonical_url": "https://kaikki.org/dictionary/German/",
+      "publisher": "Tatu Ylonen (Wiktextract / Wiktionary extraction)",
+      "license_id": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "allowed_uses": [
+        "educational",
+        "commercial",
+        "derivative",
+        "offline_distribution"
+      ],
+      "attribution_required": true,
+      "attribution_text": "Derived from Wiktionary data extracted via Kaikki.org / Wiktextract by Tatu Ylonen under CC-BY-SA 4.0.",
+      "source_sha256": "9709b3ee11bfe915fd7ba56e5bbe5bb153594542b2a58fb7cdd37b63acd1f904",
+      "license_evidence_sha256": "abec7497528dfe5b5f8b985c0840279dfac66a11d67c7cf165181dad5b6bf806",
+      "review_decision": "APPROVED",
+      "retrieval_date": "2026-10-25",
+      "derivative_terms": "ShareAlike terms apply to derivative lexicon tables; pack attribution preserved in SQLite pack_metadata table."
+    }
+  ]
 }
