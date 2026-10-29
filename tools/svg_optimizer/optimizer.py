@@ -4,6 +4,8 @@ import zlib
 import re
 import hashlib
 from typing import Dict, List, Any
+from tools.visual_lexicon.core import encode_token, decode_token
+from tools.visual_lexicon.schema import HEX_COLOR
 
 class SVGSecurityError(ValueError): pass
 class SVGUnsupportedError(ValueError): pass
@@ -73,11 +75,25 @@ class SVGOptimizer:
 
         viewBox = root.attrib.get('viewBox')
         if viewBox:
-            viewBox = quantize_numbers(viewBox, self.precision)
+            vb_str = quantize_numbers(viewBox, self.precision)
+            viewBox_list = [float(x) for x in vb_str.replace(',', ' ').split()]
         else:
             w = root.attrib.get('width', '24')
             h = root.attrib.get('height', '24')
-            viewBox = f"0 0 {quantize_numbers(w, self.precision)} {quantize_numbers(h, self.precision)}"
+            vb_str = f"0 0 {quantize_numbers(w, self.precision)} {quantize_numbers(h, self.precision)}"
+            viewBox_list = [float(x) for x in vb_str.replace(',', ' ').split()]
+
+        semantic_label = concept_id[:100]
+        title_el = root.find('.//{*}title')
+        if title_el is not None and title_el.text:
+            semantic_label = title_el.text.strip()[:100]
+        else:
+            desc_el = root.find('.//{*}desc')
+            if desc_el is not None and desc_el.text:
+                semantic_label = desc_el.text.strip()[:100]
+
+        if not semantic_label:
+            semantic_label = concept_id[:100]
 
         elements = []
         palette = {}
@@ -87,6 +103,11 @@ class SVGOptimizer:
 
         def get_color_index(color: str):
             if not color: return None
+            if not HEX_COLOR.fullmatch(color):
+                if color.startswith('url(#'):
+                    # For local references, they are unsupported by J053 palette. We should probably raise SVGUnsupportedError.
+                    raise SVGUnsupportedError(f"Unsupported local reference fill: {color}")
+                raise SVGParseError(f"Invalid hex color: {color}")
             if color not in palette:
                 palette[color] = len(palette_list)
                 palette_list.append(color)
@@ -180,37 +201,38 @@ class SVGOptimizer:
         process_element(root)
 
         token = {
-            "v": 1,
-            "id": concept_id,
-            "lic": license_evidence,
-            "src": source_hash,
-            "vb": viewBox,
-            "p": palette_list,
-            "pd": path_data_list,
-            "e": elements
+            "version": 1,
+            "concept_id": concept_id,
+            "license": license_evidence,
+            "source": source_hash,
+            "viewBox": viewBox_list,
+            "palette": palette_list,
+            "paths": path_data_list,
+            "elements": elements,
+            "semantic_label": semantic_label
         }
 
-        canonical_json = json.dumps(token, separators=(',', ':'), sort_keys=True).encode('utf-8')
-        compressed = zlib.compress(canonical_json)
-
-        if len(compressed) > 2048:
-            raise SVGSizeError(f"Compressed size {len(compressed)} exceeds 2048 bytes limit")
+        try:
+            compressed, token_hash = encode_token(token)
+        except ValueError as e:
+            if "too large" in str(e).lower():
+                raise SVGSizeError(str(e))
+            raise SVGParseError(f"Token encoding failed: {e}")
 
         return compressed
 
     def decode(self, compressed_bytes: bytes) -> dict:
-        canonical_json = zlib.decompress(compressed_bytes)
-        return json.loads(canonical_json)
+        return decode_token(compressed_bytes)
 
     def verify_roundtrip(self, original_svg: bytes, compressed_bytes: bytes):
         token = self.decode(compressed_bytes)
 
         # 1. Source Hash Verification
-        if token['src'] != hashlib.sha256(original_svg).hexdigest():
+        if token.get('source') != hashlib.sha256(original_svg).hexdigest():
             raise ValueError("Source hash mismatch in roundtrip")
 
         # 2. Deterministic Encoding Verification
-        re_encoded = zlib.compress(json.dumps(token, separators=(',', ':'), sort_keys=True).encode('utf-8'))
+        re_encoded, _ = encode_token(token)
         if re_encoded != compressed_bytes:
             raise ValueError("Deterministic encoding failed in roundtrip")
 
@@ -223,24 +245,26 @@ class SVGOptimizer:
 
         orig_viewBox = root.attrib.get('viewBox')
         if orig_viewBox:
-            orig_viewBox = quantize_numbers(orig_viewBox, self.precision)
+            orig_vb_str = quantize_numbers(orig_viewBox, self.precision)
+            orig_viewBox_list = [float(x) for x in orig_vb_str.replace(',', ' ').split()]
         else:
             w = root.attrib.get('width', '24')
             h = root.attrib.get('height', '24')
-            orig_viewBox = f"0 0 {quantize_numbers(w, self.precision)} {quantize_numbers(h, self.precision)}"
+            orig_vb_str = f"0 0 {quantize_numbers(w, self.precision)} {quantize_numbers(h, self.precision)}"
+            orig_viewBox_list = [float(x) for x in orig_vb_str.replace(',', ' ').split()]
 
-        if token['vb'] != orig_viewBox:
-            raise ValueError(f"ViewBox bounds mismatch in roundtrip: {token['vb']} != {orig_viewBox}")
+        if token.get('viewBox') != orig_viewBox_list:
+            raise ValueError(f"ViewBox bounds mismatch in roundtrip: {token.get('viewBox')} != {orig_viewBox_list}")
 
-        # Rebuild the independently parsed source geometry. A matching 'src'
+        # Rebuild the independently parsed source geometry. A matching 'source'
         # hash and viewBox alone cannot prove that palette, shapes or paths
         # survived the encoding round trip intact.
         try:
-            expected = self.decode(self.optimize(original_svg, token['id'], token['lic']))
+            expected = self.decode(self.optimize(original_svg, token['concept_id'], token['license']))
         except (KeyError, TypeError, SVGParseError, SVGUnsupportedError,
-                SVGSecurityError, SVGSizeError) as exc:
+                SVGSecurityError, SVGSizeError, ValueError) as exc:
             raise ValueError("Unverifiable source geometry") from exc
-        for key in ('vb', 'p', 'pd', 'e'):
+        for key in ('viewBox', 'palette', 'paths', 'elements', 'semantic_label'):
             if token.get(key) != expected.get(key):
                 raise ValueError(f"Encoded geometry mismatch in roundtrip: {key}")
 
