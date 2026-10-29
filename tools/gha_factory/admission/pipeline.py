@@ -112,8 +112,16 @@ def route05_source(repo_root, source_id, dataset_version, input_path, fmt):
     from legal.ledger.admission import metadata_only_source_artifact
     if metadata_only_source_artifact(s):
         raise AdmissionError('BLOCKED_SOURCE: index/statistics bytes are not the corpus')
-    if s.get('kind')!='dictionary' or fmt!='wiktextract-jsonl':
+    if s.get('kind')!='dictionary' or fmt not in ('wiktextract-jsonl', 'wikidata-lexeme-json'):
         raise AdmissionError('BLOCKED_SOURCE: unsupported kind/format; sentences and human audio require separate adapters and rights')
+    if fmt == 'wikidata-lexeme-json':
+        retrieval = s.get('retrieval') or {}
+        url = retrieval.get('url', '')
+        match = re.fullmatch(r'https://www[.]wikidata[.]org/wiki/Special:EntityData/(L[1-9][0-9]*)[.]json[?]revision=([1-9][0-9]*)', url) if isinstance(url, str) else None
+        if (s.get('license', {}).get('id') != 'CC0-1.0' or not match
+                or s.get('origin_url') != url
+                or retrieval.get('identity') != 'wikidata:Lexeme:%s:revision:%s' % match.groups()):
+            raise AdmissionError('BLOCKED_SOURCE: Wikidata original revision/CC0 provenance required')
     if s.get('dataset_version')!=dataset_version:
         raise AdmissionError('BLOCKED_SOURCE: unapproved source version')
     license_info=s.get('license') or {}
@@ -218,6 +226,12 @@ def admit(*,repo_root,source_id,input_path,out_dir,language,dataset_version,
     catalog=registry_metadata(repo_root)
     if language not in catalog:
         raise AdmissionError('BLOCKED_SOURCE: language not in verified 100-language registry')
+    if format_name == 'wikidata-lexeme-json':
+        from tools.gha_factory.admission.wikidata_lexeme_adapter import admit_lexeme
+        return admit_lexeme(repo_root=repo_root, source_id=source_id,
+                            input_path=input_path, out_dir=out_dir,
+                            language=language, dataset_version=dataset_version,
+                            part_size=part_size, script=catalog[language])
     source=route05_source(repo_root,source_id,dataset_version,input_path,format_name)
     if out_dir.exists() or out_dir.is_symlink():
         raise AdmissionError('BLOCKED_SOURCE: output already exists (no overwrite)')
@@ -300,7 +314,7 @@ def main(argv=None):
     p.add_argument('--out',required=True,type=Path)
     p.add_argument('--language',required=True)
     p.add_argument('--dataset-version',required=True)
-    p.add_argument('--format',default='wiktextract-jsonl',choices=['wiktextract-jsonl'])
+    p.add_argument('--format',default='wiktextract-jsonl',choices=['wiktextract-jsonl', 'wikidata-lexeme-json'])
     p.add_argument('--part-size',type=int,default=1000)
     a=p.parse_args(argv)
     try:
