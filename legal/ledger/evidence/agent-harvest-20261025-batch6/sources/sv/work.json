@@ -1,0 +1,195 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "politiker",
+        "politikern",
+        "politiker",
+        "politikerna",
+        "politikers",
+        "politikerns",
+        "politikers",
+        "politikernas"
+      ],
+      "language": "sv",
+      "lemma": "politiker",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32108",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L32108",
+      "retrieval_date": "2026-10-19",
+      "revision": "2503884758",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L32108-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q36180",
+      "forms": [
+        "författare",
+        "författaren",
+        "författare",
+        "författarna",
+        "författares",
+        "författarens",
+        "författares",
+        "författarnas"
+      ],
+      "language": "sv",
+      "lemma": "författare",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32097",
+      "pos": "",
+      "qids": [
+        "Q482980",
+        "Q36180"
+      ],
+      "record_id": "L32097",
+      "retrieval_date": "2026-10-19",
+      "revision": "2545840811",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L32097-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q36180"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "genetiker",
+        "genetikern",
+        "genetiker",
+        "genetikerna",
+        "genetikers",
+        "genetikerns",
+        "genetikers",
+        "genetikernas"
+      ],
+      "language": "sv",
+      "lemma": "genetiker",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482414",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L482414",
+      "retrieval_date": "2026-10-23",
+      "revision": "2483339859",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L482414-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q970153",
+      "forms": [
+        "barnskådespelare",
+        "barnskådespelaren",
+        "barnskådespelare",
+        "barnskådespelarna",
+        "barnskådespelares",
+        "barnskådespelarens",
+        "barnskådespelares",
+        "barnskådespelarnas"
+      ],
+      "language": "sv",
+      "lemma": "barnskådespelare",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1402287",
+      "pos": "",
+      "qids": [
+        "Q970153"
+      ],
+      "record_id": "L1402287",
+      "retrieval_date": "2026-10-23",
+      "revision": "2484854844",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1402287-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q970153"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "iktyolog",
+        "iktyologen",
+        "iktyologer",
+        "iktyologerna",
+        "iktyologs",
+        "iktyologens",
+        "iktyologers",
+        "iktyologernas"
+      ],
+      "language": "sv",
+      "lemma": "iktyolog",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L487617",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L487617",
+      "retrieval_date": "2026-10-23",
+      "revision": "2483346490",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L487617-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q9149093"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q8178443"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q3303330"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

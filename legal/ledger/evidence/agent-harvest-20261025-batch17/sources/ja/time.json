@@ -1,0 +1,84 @@
+{
+  "language": "ja",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q55313888",
+      "forms": [
+        "午前",
+        "ごぜん"
+      ],
+      "language": "ja",
+      "lemma": "午前",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L308508",
+      "pos": "",
+      "qids": [
+        "Q55313888"
+      ],
+      "record_id": "L308508",
+      "retrieval_date": "2026-10-25",
+      "revision": "2479966838",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L308508-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q55313888"
+    },
+    {
+      "concept_id": "concept.q7124679",
+      "forms": [
+        "有給休暇",
+        "ゆうきゅうきゅうか"
+      ],
+      "language": "ja",
+      "lemma": "有給休暇",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1549380",
+      "pos": "",
+      "qids": [
+        "Q7124679"
+      ],
+      "record_id": "L1549380",
+      "retrieval_date": "2026-10-25",
+      "revision": "2445483112",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1549380-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q7124679"
+    },
+    {
+      "concept_id": "concept.q398085",
+      "forms": [
+        "アイオーン"
+      ],
+      "language": "ja",
+      "lemma": "アイオーン",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1586883",
+      "pos": "",
+      "qids": [
+        "Q398085"
+      ],
+      "record_id": "L1586883",
+      "retrieval_date": "2026-10-25",
+      "revision": "2528695238",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1586883-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q398085"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

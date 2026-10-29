@@ -1,0 +1,74 @@
+{
+  "actual_rows": 7,
+  "candidate_sha256": "f0880cc54de792c19f873012b6053fe57937cf962370dd72a245581cb8922d68",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "57f03f3fa35fef8105b9669f57a4e4c90aeaf414",
+  "source_files": [
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "b924dbe365e75ba92d33779f1dc70f2ad1bf971d",
+      "origin_path": "data/agents/harvest/wikidata/de/numbers.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch13/sources/de/numbers.json",
+      "rows": 2,
+      "sha256": "c3ebb2cdef9c0f9e06228b13b050950a76f54fed7042761c382734c7c2ebb368",
+      "topic": "numbers"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "b86cf0e1b01f432815402f49ad638fcd61fca608",
+      "origin_path": "data/agents/harvest/wikidata/fr/numbers.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch13/sources/fr/numbers.json",
+      "rows": 1,
+      "sha256": "40f3b84bf9d572b2e32adf56be4f7ebf7fd6e594832197d8c02fd946b8f67376",
+      "topic": "numbers"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "5791a5552a5dc815b2e8e065a21ad8e8a7ca0ab1",
+      "origin_path": "data/agents/harvest/wikidata/it/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch13/sources/it/clothing.json",
+      "rows": 1,
+      "sha256": "fca5c22d2301a6fb7d0e9ba94d912f4a6dbeaef9a3814c6ea29427fc6e44f445",
+      "topic": "clothing"
+    },
+    {
+      "language": "ml",
+      "origin_git_blob_sha1": "55dc00d0f7af1c7b8eea78e400fc8a4091289e81",
+      "origin_path": "data/agents/harvest/wikidata/ml/numbers.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch13/sources/ml/numbers.json",
+      "rows": 1,
+      "sha256": "5b199f84f24a81b923b8da1909defcffeb7d07ebe98c9b7e13296476791f49e2",
+      "topic": "numbers"
+    },
+    {
+      "language": "pl",
+      "origin_git_blob_sha1": "6970d3a649e9ec6177923dc81288cf8b29f3f8aa",
+      "origin_path": "data/agents/harvest/wikidata/pl/health.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch13/sources/pl/health.json",
+      "rows": 1,
+      "sha256": "eb033b31c43e9913baca9ce7bc82e06861f8adaae3ab2ccf2bf22a0003fb9368",
+      "topic": "health"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "9b813447224dc5496fbce85d21866922a8c367d2",
+      "origin_path": "data/agents/harvest/wikidata/ru/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch13/sources/ru/clothing.json",
+      "rows": 1,
+      "sha256": "18ef1d81cc98b9749cc328e33ac5b359671fcdf80b6b776f2d06f23ab0883af0",
+      "topic": "clothing"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

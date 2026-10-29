@@ -1,0 +1,41 @@
+{
+  "language": "es",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "prehistoria",
+        "prehistorias"
+      ],
+      "language": "es",
+      "lemma": "prehistoria",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L646280",
+      "pos": "",
+      "qids": [
+        "Q11756",
+        "Q2310752"
+      ],
+      "record_id": "L646280",
+      "retrieval_date": "2026-10-25",
+      "revision": "2415673094",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L646280-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

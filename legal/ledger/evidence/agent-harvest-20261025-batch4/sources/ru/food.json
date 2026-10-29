@@ -1,0 +1,67 @@
+{
+  "language": "ru",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "пшеница",
+        "пшеницы",
+        "пшенице",
+        "пшеницу",
+        "пшеницей",
+        "пшеницею",
+        "пшенице",
+        "пшеницы"
+      ],
+      "language": "ru",
+      "lemma": "пшеница",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L154347",
+      "pos": "",
+      "qids": [
+        "Q15645384",
+        "Q12106",
+        "Q161098"
+      ],
+      "record_id": "L154347",
+      "retrieval_date": "2026-10-18",
+      "revision": "2236812992",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L154347-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q12106",
+      "forms": [],
+      "language": "ru",
+      "lemma": "пшеничный",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L713530",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q161098",
+        "Q15645384"
+      ],
+      "record_id": "L713530",
+      "retrieval_date": "2026-10-23",
+      "revision": "1821620875",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L713530-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

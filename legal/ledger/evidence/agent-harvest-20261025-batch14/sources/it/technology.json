@@ -1,0 +1,35 @@
+{
+  "language": "it",
+  "retrieval_date": "2026-10-22",
+  "rows": [
+    {
+      "concept_id": "concept.q116007",
+      "forms": [
+        "anammox",
+        "anammox"
+      ],
+      "language": "it",
+      "lemma": "anammox",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1190006",
+      "pos": "",
+      "qids": [
+        "Q116007"
+      ],
+      "record_id": "L1190006",
+      "retrieval_date": "2026-10-22",
+      "revision": "2199681073",
+      "schema_version": "1.0.0",
+      "section": "technology",
+      "sense_id": "L1190006-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "technology.q11016",
+      "wikidata": "Q116007"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "technology",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

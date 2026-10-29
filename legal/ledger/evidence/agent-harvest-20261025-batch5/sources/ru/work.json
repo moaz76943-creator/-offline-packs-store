@@ -1,0 +1,133 @@
+{
+  "language": "ru",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q937857",
+      "forms": [
+        "футболист",
+        "футболиста",
+        "футболисту",
+        "футболиста",
+        "футболистом",
+        "футболисте",
+        "футболисты",
+        "футболистов"
+      ],
+      "language": "ru",
+      "lemma": "футболист",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L176435",
+      "pos": "",
+      "qids": [
+        "Q937857",
+        "Q117321337"
+      ],
+      "record_id": "L176435",
+      "retrieval_date": "2026-10-19",
+      "revision": "2012017221",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L176435-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q937857"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "генетик",
+        "генетика",
+        "генетику",
+        "генетика",
+        "генетиком",
+        "генетике",
+        "генетики",
+        "генетиков"
+      ],
+      "language": "ru",
+      "lemma": "генетик",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L100012",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L100012",
+      "retrieval_date": "2026-10-23",
+      "revision": "2237068004",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L100012-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ихтиолог",
+        "ихтиолога",
+        "ихтиологу",
+        "ихтиолога",
+        "ихтиологом",
+        "ихтиологе",
+        "ихтиологи",
+        "ихтиологов"
+      ],
+      "language": "ru",
+      "lemma": "ихтиолог",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L114021",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L114021",
+      "retrieval_date": "2026-10-23",
+      "revision": "2237086191",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L114021-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q9149093"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q8178443"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q3303330"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

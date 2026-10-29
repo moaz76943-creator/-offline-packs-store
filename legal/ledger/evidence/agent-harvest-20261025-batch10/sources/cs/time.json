@@ -1,0 +1,46 @@
+{
+  "language": "cs",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "pravěk",
+        "pravěku",
+        "pravěku",
+        "pravěk",
+        "pravěku",
+        "pravěku",
+        "pravěkem",
+        "pravěky"
+      ],
+      "language": "cs",
+      "lemma": "pravěk",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L307998",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L307998",
+      "retrieval_date": "2026-10-25",
+      "revision": "1257575754",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L307998-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

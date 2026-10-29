@@ -1,0 +1,146 @@
+{
+  "actual_rows": 18,
+  "candidate_sha256": "191d212d26018573ebedbda52529d83f26a010171dcc221f42bcc3d8bb0dd260",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "2ac92fbf1521a617db59dede784163b939c811e6",
+  "source_files": [
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "6d1f218f34044e14f97baa65fb8c22d06461906b",
+      "origin_path": "data/agents/harvest/wikidata/es/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/es/emotions.json",
+      "rows": 1,
+      "sha256": "520bc548193c0cc3fe6edab1fe52e2713a22a603bc280efbfd5ea188e98390c4",
+      "topic": "emotions"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "00c387c29b473e62bd8930fa9daafec29a22b06c",
+      "origin_path": "data/agents/harvest/wikidata/it/travel.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/it/travel.json",
+      "rows": 1,
+      "sha256": "2ba163214eb2b961a4cda59481be5889657c3522f9b79401294d0493e445e3fc",
+      "topic": "travel"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "0a106da1bcaafb58203fd6b6af31a609855e53cc",
+      "origin_path": "data/agents/harvest/wikidata/ja/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/ja/work.json",
+      "rows": 1,
+      "sha256": "490f16109de86d13edd9378a2cb5cca5ff8d974e2bfd206ec992868935c76302",
+      "topic": "work"
+    },
+    {
+      "language": "pt",
+      "origin_git_blob_sha1": "110161cb390025b09d3f7b08eb6f15b2e66923f4",
+      "origin_path": "data/agents/harvest/wikidata/pt/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/pt/colors.json",
+      "rows": 1,
+      "sha256": "32aaa1b85d295f33c76885a4671ba59820ea3019a567019ff010df482961d1b7",
+      "topic": "colors"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "bdd3eb028f0db733e66dc811751b343a1282f009",
+      "origin_path": "data/agents/harvest/wikidata/ru/travel.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/ru/travel.json",
+      "rows": 1,
+      "sha256": "0bff4456f1ed7ad2e4c4dfb59a1da71d9ac54907402b63a78d340f7d43d8f838",
+      "topic": "travel"
+    },
+    {
+      "language": "sv",
+      "origin_git_blob_sha1": "cab5b111a0211dba9ef12330d45b03815de37a8f",
+      "origin_path": "data/agents/harvest/wikidata/sv/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/sv/animals.json",
+      "rows": 3,
+      "sha256": "26ad5b33222efb36ed6f491eb87faddb103d99e3ba5a06708a38e15ec016b88e",
+      "topic": "animals"
+    },
+    {
+      "language": "nl",
+      "origin_git_blob_sha1": "342b9608f9b15f44dce1e118e978223f8ca6d43f",
+      "origin_path": "data/agents/harvest/wikidata/nl/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/nl/food.json",
+      "rows": 1,
+      "sha256": "128e137533c358aa7fd0da7cd58a08cc1c9a42f389f5e0397543011fb820e6f6",
+      "topic": "food"
+    },
+    {
+      "language": "cs",
+      "origin_git_blob_sha1": "346b774adc5b5961d7970a791c3bb100548f652d",
+      "origin_path": "data/agents/harvest/wikidata/cs/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/cs/animals.json",
+      "rows": 2,
+      "sha256": "eb885cf394b33fb024079b35632bcda397a15b82d294497e3311deff28653495",
+      "topic": "animals"
+    },
+    {
+      "language": "da",
+      "origin_git_blob_sha1": "844761f82540226e87ad6be382a0b1c29882dbd1",
+      "origin_path": "data/agents/harvest/wikidata/da/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/da/food.json",
+      "rows": 1,
+      "sha256": "bb3062782879e73e0c3bebdc9570495d4540a9faafd0012d5b00ee7bd860c964",
+      "topic": "food"
+    },
+    {
+      "language": "tr",
+      "origin_git_blob_sha1": "44a7018116d8ebc49c8f86da69cc8310521cdbf3",
+      "origin_path": "data/agents/harvest/wikidata/tr/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/tr/clothing.json",
+      "rows": 1,
+      "sha256": "2dd60de396b9efa5f345e2f800557af29443c76a74d6c817b2d37fe2a6b81b5a",
+      "topic": "clothing"
+    },
+    {
+      "language": "uk",
+      "origin_git_blob_sha1": "5319da5577d72360370418dea9782d520bd59aee",
+      "origin_path": "data/agents/harvest/wikidata/uk/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/uk/colors.json",
+      "rows": 2,
+      "sha256": "cd40305e06a28ff4a1a1ecc23153c7ad2df7425bb0813e9ecfa9ef581d3ed125",
+      "topic": "colors"
+    },
+    {
+      "language": "vi",
+      "origin_git_blob_sha1": "8879dc3df683fd388a56e17755a82271cc5bb980",
+      "origin_path": "data/agents/harvest/wikidata/vi/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/vi/food.json",
+      "rows": 1,
+      "sha256": "e09ef904d06691dfd759283db02954f893060086a0fc60d30dad14e4bf251691",
+      "topic": "food"
+    },
+    {
+      "language": "ko",
+      "origin_git_blob_sha1": "c60c0881cc98c39a06066642e5d0e9adc92107ee",
+      "origin_path": "data/agents/harvest/wikidata/ko/health.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/ko/health.json",
+      "rows": 1,
+      "sha256": "5d92c996aa818a5ade2ee37c8d5593dd1b615c1ef6ea852b7db9bee6b0ac5bc7",
+      "topic": "health"
+    },
+    {
+      "language": "ml",
+      "origin_git_blob_sha1": "2f528fe120ce385744cd60a4766e120eb63b06dc",
+      "origin_path": "data/agents/harvest/wikidata/ml/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch3/sources/ml/animals.json",
+      "rows": 1,
+      "sha256": "78f1ca8ecd23c23349fe9e1e97115facf6b64c48185e47b30b7ad6a1dfffd552",
+      "topic": "animals"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

@@ -1,0 +1,34 @@
+{
+  "language": "ml",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q12916",
+      "forms": [
+        "വാസ്തവികസംഖ്യ"
+      ],
+      "language": "ml",
+      "lemma": "വാസ്തവികസംഖ്യ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L502056",
+      "pos": "",
+      "qids": [
+        "Q12916"
+      ],
+      "record_id": "L502056",
+      "retrieval_date": "2026-10-25",
+      "revision": "1439667607",
+      "schema_version": "1.0.0",
+      "section": "numbers",
+      "sense_id": "L502056-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "numbers.q11563",
+      "wikidata": "Q12916"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "numbers",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

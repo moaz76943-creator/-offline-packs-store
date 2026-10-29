@@ -1,0 +1,83 @@
+{
+  "actual_rows": 9,
+  "candidate_sha256": "216a8da06b0a18d1fdeec53402d6b360c5d232ba4c50d4035036317cc23dd924",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "b9ee04521ba4305bc8d486392fc2f847569c6fde",
+  "source_files": [
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "504b8a31e0269cc1914b63e63a26e7e99d20f6c8",
+      "origin_path": "data/agents/harvest/wikidata/it/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch11/sources/it/colors.json",
+      "rows": 3,
+      "sha256": "ca233f773a1a35e78acb875fea8c17131e052246e7df360448abb1b53c34d03f",
+      "topic": "colors"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "b9a40ec059f075d666501093c9ab650b7f837c5e",
+      "origin_path": "data/agents/harvest/wikidata/it/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch11/sources/it/emotions.json",
+      "rows": 1,
+      "sha256": "430d8b348eae8f5b6b056c97ed4c9e726609b825ee8222df129b3fb28b98c5e7",
+      "topic": "emotions"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "98d68e20e14439d87400c09e493eb3eb8d457357",
+      "origin_path": "data/agents/harvest/wikidata/ja/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch11/sources/ja/emotions.json",
+      "rows": 1,
+      "sha256": "faf40f036597464f988d0e0ad5ada9a8c233c2364da91fe66de80a94747d5e39",
+      "topic": "emotions"
+    },
+    {
+      "language": "sv",
+      "origin_git_blob_sha1": "73f39417b56e40b43efe703d619f27260d8296d4",
+      "origin_path": "data/agents/harvest/wikidata/sv/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch11/sources/sv/clothing.json",
+      "rows": 1,
+      "sha256": "a9a1cf0ff3b6bfe90fcb712c617e0033e20485da5357aa528c43d04e51c96128",
+      "topic": "clothing"
+    },
+    {
+      "language": "pt",
+      "origin_git_blob_sha1": "a3b696a19af3094510f19ea01c03077d0a3e8ba0",
+      "origin_path": "data/agents/harvest/wikidata/pt/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch11/sources/pt/clothing.json",
+      "rows": 1,
+      "sha256": "8998d0ad7a415cbb355015f04b92c67c79412dd731e43c78583479b55b9b2f74",
+      "topic": "clothing"
+    },
+    {
+      "language": "da",
+      "origin_git_blob_sha1": "8f395912d9ac44007af2219dd4e636352c9270f9",
+      "origin_path": "data/agents/harvest/wikidata/da/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch11/sources/da/colors.json",
+      "rows": 1,
+      "sha256": "0eb67c5d07f22226b1c7dfa72ea12d7fc9a27c1a5c7675cfc6373f798cf98702",
+      "topic": "colors"
+    },
+    {
+      "language": "cs",
+      "origin_git_blob_sha1": "5ee772faae68e4ca1be47ecbce199179c939df88",
+      "origin_path": "data/agents/harvest/wikidata/cs/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch11/sources/cs/emotions.json",
+      "rows": 1,
+      "sha256": "fee7a4d6ca67dd44ee3fd64de5298aff135f90d0fcc92a344f2759ae4a3a8dca",
+      "topic": "emotions"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}
