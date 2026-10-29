@@ -121,10 +121,11 @@ class FontRightsRegistry:
             seen_ids.add(asset.id)
             seen_scripts = set()
             for script in asset.scripts:
-                if script in seen_scripts:
+                mapped_script = 'Hani' if script in {'Hans', 'Hant', 'Jpan', 'Kore'} else script
+                if mapped_script in seen_scripts:
                     continue
-                seen_scripts.add(script)
-                mapping.setdefault(script, []).append(asset.id)
+                seen_scripts.add(mapped_script)
+                mapping.setdefault(mapped_script, []).append(asset.id)
         return mapping
 
 if __name__ == "__main__":
