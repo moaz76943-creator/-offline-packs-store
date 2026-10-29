@@ -1837,7 +1837,7 @@
         "Q906936"
       ],
       "record_id": "L2938",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2529590323",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -1846,6 +1846,35 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q906936"
+    },
+    {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "apricot"
+      ],
+      "language": "de",
+      "lemma": "apricot",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1444997",
+      "pos": "",
+      "qids": [
+        "Q1324818"
+      ],
+      "record_id": "L1444997",
+      "retrieval_date": "2026-10-29",
+      "revision": "2401069447",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1444997-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
     },
     {
       "concept_id": "concept.q2941309",
@@ -3782,7 +3811,7 @@
         "Q906936"
       ],
       "record_id": "L17811",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2528892373",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -3813,7 +3842,7 @@
         "Q906936"
       ],
       "record_id": "L1587311",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2528891279",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -3844,7 +3873,7 @@
         "Q5148721"
       ],
       "record_id": "L24869",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2480642420",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -4007,6 +4036,99 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q901731"
+    },
+    {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "apricot",
+        "apricots"
+      ],
+      "language": "en",
+      "lemma": "apricot",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L43958",
+      "pos": "",
+      "qids": [
+        "Q3733836",
+        "Q1324818",
+        "Q37453"
+      ],
+      "record_id": "L43958",
+      "retrieval_date": "2026-10-29",
+      "revision": "2560947447",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L43958-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
+    },
+    {
+      "concept_id": "concept.q797446",
+      "forms": [
+        "burgundy",
+        "burgundies"
+      ],
+      "language": "en",
+      "lemma": "burgundy",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L58126",
+      "pos": "",
+      "qids": [
+        "Q797446"
+      ],
+      "record_id": "L58126",
+      "retrieval_date": "2026-10-29",
+      "revision": "2561580704",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L58126-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q797446"
+    },
+    {
+      "concept_id": "concept.q797446",
+      "forms": [
+        "burgundy",
+        "burgundier",
+        "burgundiest"
+      ],
+      "language": "en",
+      "lemma": "burgundy",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1402668",
+      "pos": "",
+      "qids": [
+        "Q797446"
+      ],
+      "record_id": "L1402668",
+      "retrieval_date": "2026-10-29",
+      "revision": "2289878840",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1402668-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q797446"
     },
     {
       "concept_id": "concept.q26132411",
@@ -7912,7 +8034,7 @@
         "Q13195"
       ],
       "record_id": "L1229371",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2528891027",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -7944,7 +8066,7 @@
         "Q14373"
       ],
       "record_id": "L482737",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2536032064",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -8670,6 +8792,64 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q901731"
+    },
+    {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "アプリコット"
+      ],
+      "language": "ja",
+      "lemma": "アプリコット",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1587137",
+      "pos": "",
+      "qids": [
+        "Q1324818"
+      ],
+      "record_id": "L1587137",
+      "retrieval_date": "2026-10-29",
+      "revision": "2528711984",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1587137-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
+    },
+    {
+      "concept_id": "concept.q797446",
+      "forms": [
+        "バーガンディ"
+      ],
+      "language": "ja",
+      "lemma": "バーガンディ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1714543",
+      "pos": "",
+      "qids": [
+        "Q797446"
+      ],
+      "record_id": "L1714543",
+      "retrieval_date": "2026-10-29",
+      "revision": "2548048692",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1714543-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q797446"
     },
     {
       "concept_id": "concept.q16868715",
@@ -9994,6 +10174,44 @@
       "wikidata": "Q34370"
     },
     {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "abrikoos",
+        "abricoos",
+        "abrikozen",
+        "abricozen",
+        "abrikoosje",
+        "abricoosje",
+        "abrikoosjes",
+        "abricoosjes"
+      ],
+      "language": "nl",
+      "lemma": "abrikoos",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L592880",
+      "pos": "",
+      "qids": [
+        "Q3733836",
+        "Q1324818",
+        "Q37453"
+      ],
+      "record_id": "L592880",
+      "retrieval_date": "2026-10-29",
+      "revision": "2515067424",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L592880-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
+    },
+    {
       "concept_id": "concept.q2941309",
       "forms": [
         "aalbes",
@@ -10541,6 +10759,44 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1799"
+    },
+    {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "morela",
+        "moreli",
+        "moreli",
+        "morelę",
+        "morelą",
+        "moreli",
+        "morelo",
+        "morele"
+      ],
+      "language": "pl",
+      "lemma": "morela",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L6951",
+      "pos": "",
+      "qids": [
+        "Q37453",
+        "Q3733836",
+        "Q1324818"
+      ],
+      "record_id": "L6951",
+      "retrieval_date": "2026-10-29",
+      "revision": "1766812719",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L6951-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
     },
     {
       "concept_id": "concept.q12199",
@@ -12465,7 +12721,7 @@
         "Q5148721"
       ],
       "record_id": "L605459",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2161103234",
       "schema_version": "1.0.0",
       "section": "colors",
