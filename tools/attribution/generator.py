@@ -4,11 +4,15 @@ import json
 import os
 import secrets
 import stat
+import sys
 from pathlib import Path
 
-from tools.contribution_gate.evidence import (
-    exact_source_reference, verified_sources
-)
+
+def install_repo_import_path(repo_root):
+    root_str = str(Path(repo_root).resolve())
+    if root_str not in sys.path:
+        sys.path.insert(0, root_str)
+
 
 def _open_directory(parent_fd, name):
     """Open one path component from parent_fd without following symlinks.
@@ -97,6 +101,10 @@ def _write_notices_safely(out_dir, files):
 def generate_attribution(ledger_path, refs_path, out_dir, *, repo_root=None):
     if repo_root is None:
         raise ValueError("repo_root required to verify original evidence bytes")
+
+    install_repo_import_path(repo_root)
+    from tools.contribution_gate.evidence import exact_source_reference, verified_sources
+
     ledger = json.loads(Path(ledger_path).read_text(encoding="utf-8"))
     sources = verified_sources(ledger, repo_root)
     refs = json.loads(Path(refs_path).read_text(encoding="utf-8"))
