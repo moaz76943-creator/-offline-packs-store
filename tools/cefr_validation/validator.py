@@ -18,6 +18,11 @@ def cefr_to_coarse(level: str) -> str:
 
 
 class CEFRValidator:
+    """
+    Executable evidence gate for lexical A1–C2 classifications.
+    Prevents unsupported difficulty assignments from entering approved
+    public multilingual learning datasets.
+    """
     def __init__(self, registry_path: Path = None):
         self.catalog = ProficiencyCatalog()
         if registry_path is None:
@@ -33,6 +38,13 @@ class CEFRValidator:
         self._history = {}
 
     def validate_stream(self, records: Iterable[Dict]) -> Generator[Tuple[str, Dict, str], None, None]:
+        """
+        Implements streaming validation for large datasets.
+        Validates allowed A1, A2, B1, B2, C1 and C2 values.
+        Checks that a classification points to actual source evidence.
+        Preserves different classifications from independent sources
+        without silently replacing one with another.
+        """
         for original_record in records:
             record = copy.deepcopy(original_record)
 
@@ -92,7 +104,7 @@ class CEFRValidator:
 
             if conflict:
                 record["_resolution"] = "conflicting"
-                yield "rejected", original_record, "Substantial source conflict requiring review"
+                yield "rejected", record, "Substantial source conflict requiring review"
                 continue
 
             history.append(level)
@@ -109,7 +121,10 @@ class CEFRValidator:
             yield "accepted", record, "Valid evidence-backed classification"
 
     def process_dataset(self, records: Iterable[Dict]) -> Tuple[List[Dict], List[Dict]]:
-        """Consumes a stream and generates accepted and rejected output records separately."""
+        """
+        Consumes a stream and generates accepted and rejected output records separately.
+        Keeps source datasets immutable in rejection output by wrapping the original.
+        """
         accepted = []
         rejected = []
         for status, rec, msg in self.validate_stream(records):
