@@ -1,0 +1,53 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Lexical Source Licensing Ledger",
+    "description": "Schema for source-specific licensing records.",
+    "type": "object",
+    "required": ["source_id", "author", "license", "modification_status"],
+    "properties": {
+        "source_id": {
+            "type": "string",
+            "description": "Unique identifier for the source."
+        },
+        "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the original source."
+        },
+        "author": {
+            "type": "string",
+            "description": "Author or rightsholder of the source."
+        },
+        "version": {
+            "type": "string",
+            "description": "Version or revision of the source."
+        },
+        "license": {
+            "type": "object",
+            "required": ["declared"],
+            "properties": {
+                "declared": {
+                    "type": "string",
+                    "description": "The license claimed or declared by the source."
+                },
+                "evidence": {
+                    "type": "string",
+                    "description": "Verified evidence supporting the declared license."
+                }
+            }
+        },
+        "modification_status": {
+            "type": "string",
+            "enum": ["original", "modified"],
+            "description": "Indicates whether the source has been modified."
+        },
+        "hash": {
+            "type": "string",
+            "description": "Hash of the original source if available."
+        },
+        "obligations_met": {
+            "type": "boolean",
+            "description": "Indicates if specific license obligations (e.g., share-alike) are met."
+        }
+    }
+}
