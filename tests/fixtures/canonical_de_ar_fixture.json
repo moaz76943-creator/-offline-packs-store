@@ -1,0 +1,26 @@
+{
+  "fixture_id": "canonical_de_ar_v1",
+  "version": "1.0.0",
+  "words": [
+    {
+      "lemma": "Buch",
+      "pos": "noun",
+      "gender": "das",
+      "cefr_level": "A1",
+      "ipa": "buːx",
+      "meaning_ar": "كتاب",
+      "example_de": "Das Buch ist gut.",
+      "example_ar": "الكتاب جيد."
+    },
+    {
+      "lemma": "lernen",
+      "pos": "verb",
+      "gender": null,
+      "cefr_level": "A1",
+      "ipa": "ˈlɛʁnən",
+      "meaning_ar": "يتعلم",
+      "example_de": "Ich lerne Deutsch.",
+      "example_ar": "أنا أتعلم الألمانية."
+    }
+  ]
+}
