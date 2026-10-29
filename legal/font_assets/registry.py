@@ -117,15 +117,20 @@ class FontRightsRegistry:
             if self.validate_asset(asset, repo_root=repo_root).get("status") != "EVIDENCE_PASS":
                 continue
             if asset.id in seen_ids:
-                raise ValueError("Duplicate font asset id: " + str(asset.id))
+                return {"status": "REJECT", "issues": ["Duplicate font asset id: " + str(asset.id)]}
             seen_ids.add(asset.id)
             seen_scripts = set()
-            for script in asset.scripts:
+
+            scripts_to_process = list(asset.scripts)
+            if any(s in scripts_to_process for s in ("Hans", "Hant", "Jpan", "Kore")) and "Hani" not in scripts_to_process:
+                scripts_to_process.append("Hani")
+
+            for script in scripts_to_process:
                 if script in seen_scripts:
                     continue
                 seen_scripts.add(script)
                 mapping.setdefault(script, []).append(asset.id)
-        return mapping
+        return {"status": "EVIDENCE_PASS", "mapping": mapping}
 
 if __name__ == "__main__":
     import sys
@@ -136,5 +141,9 @@ if __name__ == "__main__":
     assets = [FontAsset(**a) for a in raw_assets]
     repo_root = sys.argv[1] if len(sys.argv) > 1 else None
 
-    mapping = registry.generate_script_mapping(assets, repo_root=repo_root)
-    json.dump(mapping, sys.stdout, indent=2)
+    result = registry.generate_script_mapping(assets, repo_root=repo_root)
+    if result.get("status") == "REJECT":
+        print(json.dumps(result), file=sys.stderr)
+        sys.exit(1)
+
+    json.dump(result["mapping"], sys.stdout, indent=2)

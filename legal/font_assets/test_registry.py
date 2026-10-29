@@ -134,19 +134,33 @@ class FontEvidenceTests(unittest.TestCase):
             review_evidence_path="evidence/review.txt",
             review_evidence_sha256=self.review_hash)
 
-        mapping = self.gate.generate_script_mapping([self.asset, asset2, asset_rejected], repo_root=self.root)
+        result = self.gate.generate_script_mapping([self.asset, asset2, asset_rejected], repo_root=self.root)
+        self.assertEqual(result["status"], "EVIDENCE_PASS")
+        mapping = result["mapping"]
         self.assertEqual(mapping.get("Latn"), ["fixture-font", "fixture-font-2"])
         self.assertEqual(mapping.get("Cyrl"), ["fixture-font-2"])
 
     def test_repeated_script_is_mapped_once(self):
         self.asset.scripts = ["Latn", "Latn"]
-        mapping = self.gate.generate_script_mapping([self.asset], repo_root=self.root)
+        result = self.gate.generate_script_mapping([self.asset], repo_root=self.root)
+        self.assertEqual(result["status"], "EVIDENCE_PASS")
+        mapping = result["mapping"]
         self.assertEqual(mapping.get("Latn"), ["fixture-font"])
 
     def test_duplicate_asset_ids_are_rejected(self):
         twin = FontAsset(**self.asset.__dict__)
-        with self.assertRaises(ValueError):
-            self.gate.generate_script_mapping([self.asset, twin], repo_root=self.root)
+        result = self.gate.generate_script_mapping([self.asset, twin], repo_root=self.root)
+        self.assertEqual(result["status"], "REJECT")
+        self.assertIn("Duplicate font asset id: fixture-font", result["issues"])
+
+    def test_hani_script_auto_added(self):
+        self.asset.scripts = ["Hans", "Latn"]
+        result = self.gate.generate_script_mapping([self.asset], repo_root=self.root)
+        self.assertEqual(result["status"], "EVIDENCE_PASS")
+        mapping = result["mapping"]
+        self.assertEqual(mapping.get("Hans"), ["fixture-font"])
+        self.assertEqual(mapping.get("Latn"), ["fixture-font"])
+        self.assertEqual(mapping.get("Hani"), ["fixture-font"])
 
 if __name__ == "__main__":
     unittest.main()
