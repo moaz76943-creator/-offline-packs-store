@@ -22,6 +22,18 @@ def compute_sha256(filepath, chunk_size=65536):
             hasher.update(chunk)
     return hasher.hexdigest()
 
+import copy
+def compute_payload_sha256(data):
+    data_copy = copy.deepcopy(data)
+    data_copy.pop('version', None)
+    data_copy.pop('license', None)
+    if 'header' in data_copy and isinstance(data_copy['header'], dict):
+        data_copy['header'].pop('version', None)
+        data_copy['header'].pop('license', None)
+
+    payload = json.dumps(data_copy, sort_keys=True, separators=(',', ':')).encode('utf-8')
+    return hashlib.sha256(payload).hexdigest()
+
 MAX_JSON_BYTES = 100 * 1024 * 1024
 MAX_VCT_BYTES = 2048
 MAX_VCT_JSON_BYTES = 65536
@@ -65,9 +77,11 @@ def bounded_json_parse(filepath):
 
 def extract_metadata(filepath):
     data = bounded_json_parse(filepath)
+    payload_sha256 = compute_payload_sha256(data)
+    filename = os.path.basename(filepath)
 
     if str(filepath).endswith('.pack.gz'):
-        pack_id = data.get('lang_code') or data.get('header', {}).get('code')
+        pack_id = filename[:-8]
         if not pack_id:
             raise ValueError(f"Missing pack identity in {filepath}")
 
@@ -93,6 +107,9 @@ def extract_metadata(filepath):
         if not license_id:
             raise ValueError(f"Missing license identifier in {filepath}")
 
+        language = data.get('lang_code') or data.get('header', {}).get('code')
+        source = data.get('source') or data.get('header', {}).get('source')
+
         deps = data.get('dependencies', [])
 
         return {
@@ -100,17 +117,23 @@ def extract_metadata(filepath):
             'version': version,
             'entry_count': entry_count,
             'license': license_id,
+            'language': language,
+            'source': source,
+            'payload_sha256': payload_sha256,
             'dependencies': deps
         }
 
     elif str(filepath).endswith('.vct'):
-        pack_id = data.get('asset_id') or os.path.basename(filepath)
+        pack_id = filename[:-4]
         deps = data.get('dependencies', [])
         return {
             'pack_id': pack_id,
             'version': data.get('version', '1.0.0'),
             'entry_count': 1,
             'license': data.get('license', 'CC0-1.0'),
+            'language': data.get('language') or 'und',
+            'source': data.get('source'),
+            'payload_sha256': payload_sha256,
             'dependencies': deps
         }
     else:
@@ -137,15 +160,28 @@ def build_manifest(base_dir, file_paths, output_manifest_path):
         pack_id = meta['pack_id']
         if pack_id in manifest['packs']:
             raise ValueError(f"Duplicate pack identity: {pack_id}")
-        manifest['packs'][pack_id] = {
+
+        manifest_entry = {
             'path': str(rel_path),
             'version': meta['version'],
             'entry_count': meta['entry_count'],
             'size_bytes': size,
             'sha256': sha256,
+            'payload_sha256': meta['payload_sha256'],
             'license': meta['license'],
             'dependencies': meta['dependencies']
         }
+        if meta['language'] is not None:
+            manifest_entry['language'] = meta['language']
+        if meta['source'] is not None:
+            manifest_entry['source'] = meta['source']
+
+        manifest['packs'][pack_id] = manifest_entry
+
+    for pack_id, meta in manifest['packs'].items():
+        for dep in meta['dependencies']:
+            if dep not in manifest['packs']:
+                raise ValueError(f"Missing dependency: {dep} required by {pack_id}")
 
     out_dir = os.path.dirname(output_manifest_path)
     if out_dir:
@@ -187,7 +223,7 @@ def generate_update_plan(old_manifest_path, new_manifest_path):
             old_meta = old_packs[pack_id]
             if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies']:
                 plan['unchanged'].append(pack_id)
-            elif old_meta['sha256'] == new_meta['sha256']:
+            elif old_meta.get('payload_sha256') == new_meta.get('payload_sha256') and old_meta['dependencies'] == new_meta['dependencies']:
                 # Skip changed metadata with no payload delta
                 plan['unchanged'].append(pack_id)
             else:

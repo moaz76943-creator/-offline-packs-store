@@ -67,8 +67,17 @@ class TestPackManifestBuilder(unittest.TestCase):
             data = json.load(f)
         self.assertEqual(data["schema_version"], "1.0.0")
         packs = data["packs"]
-        self.assertIn("af", packs)
-        self.assertEqual(packs["af"]["dependencies"], ["pack2"])
+        self.assertIn("pack1", packs)
+        self.assertIn("pack2", packs)
+        self.assertIn("icon", packs)
+        self.assertEqual(packs["pack1"]["dependencies"], ["pack2"])
+        self.assertIn("payload_sha256", packs["pack1"])
+        self.assertIn("language", packs["pack1"])
+
+    def test_broken_dependencies(self):
+        manifest_path = self.base_dir / "manifest.json"
+        with self.assertRaisesRegex(ValueError, "Missing dependency: pack2 required by pack1"):
+            build_manifest(self.base_dir, ["pack1.pack.gz", "icon.vct"], str(manifest_path))
 
     def test_missing_files_rejected(self):
         manifest_path = self.base_dir / "manifest.json"
@@ -78,7 +87,7 @@ class TestPackManifestBuilder(unittest.TestCase):
     def test_generate_update_plan(self):
         old_manifest_path = self.base_dir / "old_manifest.json"
         new_manifest_path = self.base_dir / "new_manifest.json"
-        build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
+        build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz"], str(old_manifest_path))
 
         pack3_path = self.base_dir / "pack3.pack.gz"
         with gzip.open(pack3_path, 'wt', encoding='utf-8') as f:
@@ -95,21 +104,35 @@ class TestPackManifestBuilder(unittest.TestCase):
                 "version": "1.0.1",
                 "terms_count": 2,
                 "vocabulary": [1, 3], # changed
-                "license": "CC-BY-SA-4.0"
+                "license": "CC-BY-SA-4.0",
+                "dependencies": ["pack2"]
             }, f)
 
-        build_manifest(self.base_dir, ["pack1.pack.gz", "pack3.pack.gz"], str(new_manifest_path))
+        build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz", "pack3.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['added'], ['en'])
-        self.assertEqual(plan['updated'], ['af'])
+        self.assertEqual(plan['added'], ['pack3'])
+        self.assertEqual(plan['updated'], ['pack1'])
 
     def test_removed_packs(self):
         old_manifest_path = self.base_dir / "old_manifest.json"
         new_manifest_path = self.base_dir / "new_manifest.json"
         build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz"], str(old_manifest_path))
-        build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
+
+        pack3_path = self.base_dir / "pack3.pack.gz"
+        with gzip.open(pack3_path, 'wt', encoding='utf-8') as f:
+            import json
+            json.dump({
+                "lang_code": "en",
+                "version": "1.0.0",
+                "terms_count": 0,
+                "license": "CC0-1.0"
+            }, f)
+
+        build_manifest(self.base_dir, ["pack3.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['removed'], ['ar'])
+        self.assertIn('pack1', plan['removed'])
+        self.assertIn('pack2', plan['removed'])
+        self.assertEqual(plan['added'], ['pack3'])
 
     def test_mismatched_entry_count(self):
         bad_pack = self.base_dir / "bad.pack.gz"
@@ -128,10 +151,31 @@ class TestPackManifestBuilder(unittest.TestCase):
     def test_unchanged_packs(self):
         old_manifest_path = self.base_dir / "old_manifest.json"
         new_manifest_path = self.base_dir / "new_manifest.json"
-        build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
-        build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
+        # We need pack2 because pack1 depends on it
+        build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz"], str(old_manifest_path))
+        build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['unchanged'], ['af'])
+        self.assertIn('pack1', plan['unchanged'])
+
+    def test_unchanged_payload(self):
+        old_manifest_path = self.base_dir / "old_manifest.json"
+        new_manifest_path = self.base_dir / "new_manifest.json"
+        build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz"], str(old_manifest_path))
+
+        # Change only version, payload unchanged
+        with gzip.open(self.pack1_path, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "af",
+                "version": "1.0.1", # changed
+                "terms_count": 2,
+                "vocabulary": [1, 2],
+                "license": "CC-BY-SA-4.0",
+                "dependencies": ["pack2"]
+            }, f)
+
+        build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz"], str(new_manifest_path))
+        plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
+        self.assertIn('pack1', plan['unchanged'])
 
     def test_small_compressed_bomb_exceeding_limit_is_rejected(self):
         from unittest.mock import patch
@@ -155,21 +199,23 @@ class TestPackManifestBuilder(unittest.TestCase):
                     bounded_json_parse(bad)
 
     def test_colliding_pack_ids_abort_without_overwriting_manifest(self):
-        other = self.base_dir / "duplicate.pack.gz"
+        other_dir = self.base_dir / "other"
+        other_dir.mkdir()
+        other = other_dir / "pack2.pack.gz"
         with gzip.open(other, 'wt', encoding='utf-8') as output:
-            json.dump({"lang_code": "af", "terms_count": 1,
+            json.dump({"lang_code": "ar", "terms_count": 1,
                        "vocabulary": ["word"], "license": "CC0-1.0"}, output)
         target = self.base_dir / "manifest.json"
-        build_manifest(self.base_dir, ["pack1.pack.gz"], str(target))
+        build_manifest(self.base_dir, ["pack2.pack.gz"], str(target))
         original = target.read_bytes()
         with self.assertRaisesRegex(ValueError, 'Duplicate pack identity'):
-            build_manifest(self.base_dir, ["pack1.pack.gz", "duplicate.pack.gz"],
+            build_manifest(self.base_dir, ["pack2.pack.gz", "other/pack2.pack.gz"],
                            str(target))
         self.assertEqual(target.read_bytes(), original)
 
     def test_preserve_manifest_on_failure(self):
         manifest_path = self.base_dir / "manifest.json"
-        build_manifest(self.base_dir, ["pack1.pack.gz"], str(manifest_path))
+        build_manifest(self.base_dir, ["pack2.pack.gz"], str(manifest_path)) # pack2 has no dependencies
         invalid_path = self.base_dir / "invalid.pack.gz"
         with open(invalid_path, 'w') as f:
             f.write("not gzip")
@@ -177,7 +223,7 @@ class TestPackManifestBuilder(unittest.TestCase):
             build_manifest(self.base_dir, ["invalid.pack.gz"], str(manifest_path))
         with open(manifest_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        self.assertIn("af", data["packs"])
+        self.assertIn("pack2", data["packs"])
 
 if __name__ == '__main__':
     unittest.main()
