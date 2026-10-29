@@ -3,6 +3,7 @@ import hashlib
 import tempfile
 import unittest
 from pathlib import Path
+import json
 
 from legal.font_assets.registry import FontAsset, FontRightsRegistry
 
@@ -11,6 +12,11 @@ class FontEvidenceTests(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
         self.root = Path(self.tmp.name)
+
+        (self.root / "catalog").mkdir()
+        catalog_data = {"scripts": {"Latn": {"name": "Latin"}, "Cyrl": {"name": "Cyrillic"}}}
+        (self.root / "catalog" / "language_registry.v1.json").write_text(json.dumps(catalog_data))
+
         def put(rel, content):
             p = self.root / rel
             p.parent.mkdir(parents=True, exist_ok=True)
@@ -104,6 +110,10 @@ class FontEvidenceTests(unittest.TestCase):
         self.asset.source = "The Unknowns Collective"
         result = self.check()
         self.assertEqual(result["status"], "EVIDENCE_PASS", result)
+
+    def test_script_not_in_canonical_registry_rejected(self):
+        self.asset.scripts = ["Zzzz"]
+        self.assertEqual(self.check()["status"], "REJECT")
 
     def test_generate_script_mapping(self):
         asset2 = FontAsset(
