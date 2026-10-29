@@ -1,10 +1,25 @@
 import re
+import json
+import os
 from typing import Dict, Any, List
 from .schema import VisualAssetMetadata
 
 CONTROL_CHAR_RE = re.compile(r'[\x00-\x1F\x7F]')
 
 class AccessibilityValidator:
+    def __init__(self):
+        # Dynamically load catalog/language_registry.v1.json
+        repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+        registry_path = os.path.join(repo_root, "catalog", "language_registry.v1.json")
+        try:
+            with open(registry_path, "r", encoding="utf-8") as f:
+                registry = json.load(f)
+                self.valid_languages = {lang["id"] for lang in registry.get("languages", [])}
+                self.valid_scripts = set(registry.get("scripts", {}).keys())
+        except Exception:
+            self.valid_languages = set()
+            self.valid_scripts = set()
+
     def validate_asset(self, asset: VisualAssetMetadata) -> Dict[str, Any]:
         errors = []
         warnings = []
@@ -44,11 +59,17 @@ class AccessibilityValidator:
             return
 
         for label in labels:
-            if not label.get("language"):
+            lang = label.get("language")
+            if not lang:
                 errors.append("Missing language metadata")
+            elif self.valid_languages and lang not in self.valid_languages:
+                errors.append("Invalid or unsupported language")
 
-            if not label.get("script"):
+            script = label.get("script")
+            if not script:
                 errors.append("Missing script metadata")
+            elif self.valid_scripts and script not in self.valid_scripts:
+                errors.append("Invalid or unsupported script")
 
             text = label.get("text")
             if not text:
