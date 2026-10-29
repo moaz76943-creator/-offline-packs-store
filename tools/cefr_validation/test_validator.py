@@ -4,6 +4,10 @@ from pathlib import Path
 from tools.cefr_validation.validator import CEFRValidator
 
 class CEFRValidatorTest(unittest.TestCase):
+    """
+    Tests for the CEFRValidator. Covers all six CEFR levels, unknown cases,
+    invalid sources, mismatched language IDs and contradictory classifications.
+    """
     def setUp(self):
         self.validator = CEFRValidator()
 
@@ -47,6 +51,7 @@ class CEFRValidatorTest(unittest.TestCase):
         }]
 
     def test_all_six_levels(self):
+        """Test mapping between fine CEFR levels and coarse difficulty for all six levels."""
         levels = ["A1", "A2", "B1", "B2", "C1", "C2"]
         coarse_maps = ["beginner", "beginner", "intermediate", "intermediate", "advanced", "advanced"]
 
@@ -59,6 +64,7 @@ class CEFRValidatorTest(unittest.TestCase):
             self.assertEqual(accepted[0]["_coarse_difficulty"], coarse)
 
     def test_missing_lexical_id(self):
+        """Require an existing lexical entry identity for classification."""
         rec = self.create_record("", "en", "unknown")
         accepted, rejected = self.validator.process_dataset([rec])
         self.assertEqual(len(accepted), 0)
@@ -66,6 +72,7 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Missing lexical entry", rejected[0]["reason"])
 
     def test_mismatched_language_id(self):
+        """Test mismatched language IDs and unsupported languages."""
         rec = self.create_record("word-1", "xx", "unknown") # xx is not in registry
         accepted, rejected = self.validator.process_dataset([rec])
         self.assertEqual(len(accepted), 0)
@@ -73,6 +80,7 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Unsupported language ID", rejected[0]["reason"])
 
     def test_unknown_case(self):
+        """Test handling of unknown classifications."""
         rec = self.create_record("word-1", "en", "unknown")
         accepted, rejected = self.validator.process_dataset([rec])
         self.assertEqual(len(rejected), 0)
@@ -80,6 +88,7 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertEqual(accepted[0]["_resolution"], "unknown")
 
     def test_invalid_source_and_expired_evidence(self):
+        """Detect incompatible source versions, expired evidence, and reject fabricated or missing evidence IDs."""
         evidence = self.get_valid_evidence()
         evidence[0]["source_id"] = "FAKE-SOURCE"
         rec = self.create_record("word-1", "en", "estimated", "CEFR", "A1", evidence)
@@ -97,6 +106,7 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertIn("Validation error", rejected[0]["reason"])
 
     def test_contradictory_classifications(self):
+        """Require review when substantial source conflicts exist."""
         # A1 and C2 for the same lexical entry should conflict
         rec1 = self.create_record("word-conflict", "en", "estimated", "CEFR", "A1", self.get_valid_evidence())
         rec2 = self.create_record("word-conflict", "en", "estimated", "CEFR", "C2", self.get_valid_evidence())
