@@ -43,6 +43,18 @@ class TestReproBuilder(unittest.TestCase):
         with open(self.source_path, 'w') as f:
             json.dump(self.doc, f)
 
+        # Write dummy grammar sidecar
+        self.grammar_path = self.root / "en.grammar.json"
+        self.grammar = {
+            "languageCode": "en",
+            "contract_version": "1.0.0",
+            "rules": [
+                {"grammar_id": "g1", "category": "noun", "title": "noun", "source": {"source_id": "fixture.demo", "origin_url": "https://example.org/fixtures-only", "publisher": "Self-authored synthetic test", "dataset_version": "1", "retrieval_id": "synthetic:1", "license_id": "LicenseRef-SyntheticTestFixture", "record_locator": "illustration", "publication_approved": False, "fixture_only": True, "artifact_sha256": None}}
+            ]
+        }
+        with open(self.grammar_path, 'w') as f:
+            json.dump(self.grammar, f)
+
         # Since source_path needs to be resolved as self.repo_root / source_path,
         # we can't just pass absolute path unless repo_root is updated.
         # But our builder resolves it relative to repo_root! So we should use a custom repo_root for builder or pass relative.
@@ -110,6 +122,8 @@ class TestReproBuilder(unittest.TestCase):
         with sqlite3.connect(out_path) as db:
             counts = db.execute("SELECT COUNT(*) FROM lexicon").fetchone()[0]
             self.assertEqual(counts, 1)
+            grammar_counts = db.execute("SELECT COUNT(*) FROM grammar").fetchone()[0]
+            self.assertEqual(grammar_counts, 1)
 
     def test_invalid_hash(self):
         self.manifest["source_sha256"] = "invalidhash"
