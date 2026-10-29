@@ -1,0 +1,21 @@
+{
+  "id": "asset_unsup_lang",
+  "concept_id": "concept_unsup_lang",
+  "version": "1.0",
+  "hash": "abcdef",
+  "provenance": "source1",
+  "fallback_label": "concept_unsup_lang",
+  "contrast": {"supported": true},
+  "vector": {"bounds": {"max_x": 100, "max_y": 100}, "complexity": 10},
+  "device_shaping_evidence": true,
+  "labels": [
+    {
+      "language": "xx",
+      "script": "Latn",
+      "text": "Valid text",
+      "direction": "ltr",
+      "related_concept_id": "concept_unsup_lang",
+      "verified": true
+    }
+  ]
+}
