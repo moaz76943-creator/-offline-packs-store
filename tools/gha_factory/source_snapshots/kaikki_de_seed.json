@@ -1,0 +1,12 @@
+{
+  "source_id": "kaikki_de_deu_core",
+  "language": "de",
+  "format": "wiktextract_jsonl_subset",
+  "seed_entries": [
+    {"word": "Hallo", "pos": "noun", "senses": ["greeting", "hello"]},
+    {"word": "Buch", "pos": "noun", "gender": "neutrum", "senses": ["book"]},
+    {"word": "lernen", "pos": "verb", "senses": ["to learn", "to study"]},
+    {"word": "Sprache", "pos": "noun", "gender": "feminin", "senses": ["language", "speech"]},
+    {"word": "gut", "pos": "adj", "senses": ["good", "well"]}
+  ]
+}
