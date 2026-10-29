@@ -1035,6 +1035,42 @@
       "wikidata": "Q28130149"
     },
     {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "forhistorie",
+        "forhistorien",
+        "forhistorier",
+        "forhistorierne",
+        "forhistories",
+        "forhistoriens",
+        "forhistoriers",
+        "forhistoriernes"
+      ],
+      "language": "da",
+      "lemma": "forhistorie",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012206",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012206",
+      "retrieval_date": "2026-10-29",
+      "revision": "2241033352",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012206-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
       "concept_id": "concept.q82955",
       "forms": [
         "politiker",
@@ -2156,6 +2192,38 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q7124679"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "Vorgeschichte",
+        "Vorgeschichte",
+        "Vorgeschichte",
+        "Vorgeschichte"
+      ],
+      "language": "de",
+      "lemma": "Vorgeschichte",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L811400",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L811400",
+      "retrieval_date": "2026-10-29",
+      "revision": "2306771653",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L811400-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
     },
     {
       "concept_id": "concept.q82955",
@@ -4558,7 +4626,7 @@
         "Q55313888"
       ],
       "record_id": "L44235",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-10-29",
       "revision": "2538824159",
       "schema_version": "1.0.0",
       "section": "time",
@@ -7289,6 +7357,78 @@
       "wikidata": "Q2055046"
     },
     {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "prapovijest",
+        "prapovijesti",
+        "prapovijesti",
+        "prapovijestprapovijest",
+        "prapovijesti",
+        "prapovijesti",
+        "prapoviješću",
+        "prapovijesti"
+      ],
+      "language": "hr",
+      "lemma": "prapovijest",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012610",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012610",
+      "retrieval_date": "2026-10-29",
+      "revision": "1828975130",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012610-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "prethistorija",
+        "prethistorije",
+        "prethistoriji",
+        "prethistoriju",
+        "prethistorijo",
+        "prethistoriji",
+        "prethistorijom",
+        "prethistorije"
+      ],
+      "language": "hr",
+      "lemma": "prethistorija",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012612",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012612",
+      "retrieval_date": "2026-10-29",
+      "revision": "1828975087",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012612-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
       "concept_id": "concept.q59099",
       "forms": [
         "erbivoro",
@@ -8669,7 +8809,7 @@
         "Q55313888"
       ],
       "record_id": "L308508",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-10-29",
       "revision": "2479966838",
       "schema_version": "1.0.0",
       "section": "time",
@@ -8898,6 +9038,42 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q34370"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "aizvēsture",
+        "aizvēstures",
+        "aizvēstures",
+        "aizvēsturu",
+        "aizvēsturei",
+        "aizvēsturēm",
+        "aizvēsturi",
+        "aizvēstures"
+      ],
+      "language": "lv",
+      "lemma": "aizvēsture",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012421",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012421",
+      "retrieval_date": "2026-10-29",
+      "revision": "1828528047",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012421-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
     },
     {
       "concept_id": "concept.q7367",
