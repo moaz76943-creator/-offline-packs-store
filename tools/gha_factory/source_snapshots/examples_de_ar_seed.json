@@ -1,0 +1,25 @@
+{
+  "source_id": "tatoeba_cc0_sample",
+  "source_lang": "de",
+  "target_lang": "ar",
+  "sentence_pairs": [
+    {
+      "term": "Hallo",
+      "sense_hint": "greeting",
+      "source_text": "Hallo, wie geht es dir heute?",
+      "target_text": "مرحباً، كيف حالك اليوم؟"
+    },
+    {
+      "term": "Buch",
+      "sense_hint": "book",
+      "source_text": "Ich lese jeden Tag ein interessantes Buch.",
+      "target_text": "أنا أقرأ كتاباً ممتعاً كل يوم."
+    },
+    {
+      "term": "lernen",
+      "sense_hint": "to learn",
+      "source_text": "Wir lernen Deutsch mit Freude.",
+      "target_text": "نحن نتعلم الألمانية بكل سرور."
+    }
+  ]
+}
