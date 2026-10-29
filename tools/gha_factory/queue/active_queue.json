@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "queued_tasks_count": 1,
+  "tasks": [
+    {
+      "task_id": "build_kaikki_de_deu_core",
+      "source_id": "kaikki_de_deu_core",
+      "canonical_url": "https://kaikki.org/dictionary/German/",
+      "license_id": "CC-BY-SA-4.0",
+      "status": "QUEUED",
+      "target_db": "kaikki_de_deu_core.db"
+    }
+  ]
+}
