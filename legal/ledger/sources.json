@@ -1,4 +1,18 @@
 {
-  "schema_version": "1.0.0",
-  "sources": []
+  "version": "1.0.0",
+  "approved_sources": [
+    {
+      "source_id": "kaikki_de_deu_core",
+      "license": "CC-BY-SA-4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "upstream_url": "https://kaikki.org/dictionary/German/index.html",
+      "snapshot_date": "2026-01-15",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "attribution_text": "Wiktionary data extracted and parsed by Kaikki.org under CC-BY-SA 4.0",
+      "commercial_use_allowed": true,
+      "share_alike_required": true,
+      "modification_allowed": true,
+      "legal_review_status": "APPROVED"
+    }
+  ]
 }
