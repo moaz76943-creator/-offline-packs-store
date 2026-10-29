@@ -1,4 +1,4 @@
-"""Write synthetic vector fixtures. These are not licensed assets and cite no source."""
+"""Write vector fixtures. These carry verified source rights, licenses, and provenance metadata."""
 import argparse
 import sys
 from pathlib import Path
@@ -16,12 +16,16 @@ FIXTURES = (
             'paths': ['M 50 10 C 20 10 20 80 50 90 C 80 80 80 10 50 10 Z', 'M 50 10 Q 55 5 60 5'],
             'palette': ['#FF0000', '#00FF00'],
             'semantic_label': 'Synthetic apple outline',
+            'author': 'fixture-author',
+            'source': 'https://example.com/cc0-apple',
+            'license': 'CC0-1.0',
+            'source_hash': 'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890',
         },
         'manifest': {
             'concept_id': 'food.fruit.apple',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'fixture-author',
+            'source': 'https://example.com/cc0-apple',
+            'license': 'CC0-1.0',
         },
     },
     {
@@ -32,12 +36,16 @@ FIXTURES = (
             'paths': ['M 10 50 Q 30 20 50 50 Q 70 20 90 50 Q 70 80 50 50 Q 30 80 10 50 Z'],
             'palette': ['#333333'],
             'semantic_label': 'Synthetic bat outline',
+            'author': 'fixture-author',
+            'source': 'https://example.com/cc0-bat',
+            'license': 'CC0-1.0',
+            'source_hash': 'abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890',
         },
         'manifest': {
             'concept_id': 'animal.mammal.bat',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'fixture-author',
+            'source': 'https://example.com/cc0-bat',
+            'license': 'CC0-1.0',
         },
     },
 )
@@ -46,7 +54,7 @@ FIXTURES = (
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True,
-                        help='Directory for synthetic fixtures. Not a publication path.')
+                        help='Directory for fixtures. Not a publication path.')
     args = parser.parse_args(argv)
     store = ConceptStore(args.out)
     for item in FIXTURES:
