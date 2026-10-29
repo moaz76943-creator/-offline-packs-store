@@ -229,5 +229,91 @@ class ContributionTests(unittest.TestCase):
         save_ledger(self.root, self.ledger)
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_fixture_asset_id(self):
+        self.manifest["asset_id"] = "test-asset-id"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_invalid_kind(self):
+        self.manifest["kind"] = "unsupported_kind"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_public_domain_contradiction(self):
+        self.manifest["output_license_id"] = "PUBLIC-DOMAIN"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_missing_obligation(self):
+        self._switch_license("CC-BY-SA-4.0", "CC-BY-SA-4.0")
+        self.manifest["compliance"] = {"attribution": True} # Missing share_alike
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_missing_source_identity(self):
+        self.manifest["source_identity"] = "wrong-source-identity"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_missing_source_origin(self):
+        self.manifest["origin_url"] = "https://wrong.example.org"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_exceeds_size_limit(self):
+        import os
+        big_path = self.root / self.manifest["artifact_path"]
+        big_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(big_path, "wb") as f:
+            f.seek(50 * 1024 * 1024 + 1)
+            f.write(b"x")
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_malformed_json_authorization(self):
+        self.manifest["contributor_authorization"]["sha256"] = put(self.root, "evidence/auth.txt", b"{invalid-json}")
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_missing_attribution_notice_dict(self):
+        self.manifest["attribution_notice"] = "Not a dict"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_source_verification_missing(self):
+        self.manifest["source_verification"] = "unverified"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_vector_art_missing_artwork_evidence(self):
+        self.source["kind"] = "vector_art"
+        self.manifest["kind"] = "vector_art"
+        save_ledger(self.root, self.ledger)
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_receipt_id_changes_with_evidence(self):
+        r1 = self.check()
+        self.assertEqual(r1["status"], "ACCEPT")
+
+        self.manifest["attribution_notice"]["sha256"] = put(self.root, "notices/notice_new.txt", b"new notice content")
+
+        # Manually suppress rejection for invalid evidence in this exact context to test hash behavior
+        # But wait, validate_contribution will just reject it now because evidence is bad.
+        # So let's provide *valid* new evidence instead.
+        notice = ("case-source Example Test Publisher https://example.org/fixture-source CC0-1.0 new_version")
+        new_notice_sha = put(self.root, "notices/notice.txt", notice.encode())
+        self.manifest["attribution_notice"]["sha256"] = new_notice_sha
+
+        r2 = self.check()
+        self.assertEqual(r2["status"], "ACCEPT")
+        self.assertNotEqual(r1["receipt"]["receipt_id"], r2["receipt"]["receipt_id"])
+
+    def test_main_cli(self):
+        import json
+        from tools.contribution_gate.gate import main
+        manifest_path = self.root / "manifest.json"
+        manifest_path.write_text(json.dumps(self.manifest))
+        # Ensure it works when accepted
+        self.assertEqual(main([str(manifest_path), "--repo-root", str(self.root)]), 0)
+
+        # Ensure it exits properly on failure
+        self.manifest["asset_id"] = "test-fail"
+        manifest_path.write_text(json.dumps(self.manifest))
+        self.assertEqual(main([str(manifest_path), "--repo-root", str(self.root)]), 1)
+
+        # Ensure it handles missing manifest gracefully
+        with self.assertRaises(SystemExit):
+            main(["missing.json", "--repo-root", str(self.root)])
+
 if __name__ == "__main__":
     unittest.main()

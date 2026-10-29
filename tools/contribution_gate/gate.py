@@ -102,13 +102,22 @@ def validate_contribution(manifest_dict, repo_root):
             raise ValueError("Source verification missing or revoked")
         if manifest_dict.get("permission_revoked") is not False:
             raise ValueError("Contributor permission not affirmatively current")
+        receipt_components = [
+            asset_id,
+            manifest_dict["sha256"],
+            source["retrieval"]["sha256"],
+            source["dataset_version"],
+            manifest_dict["contributor_authorization"]["sha256"],
+            manifest_dict["attribution_notice"]["sha256"],
+        ]
+
         if kind == "vector_art":
             rights_info = source["license"]
             for key in ("artwork_evidence_url", "artwork_evidence_path", "artwork_evidence_sha256"):
                 required(rights_info.get(key), "separate artwork rights evidence")
-        receipt_id = hashlib.sha256(
-            (asset_id + "|" + manifest_dict["sha256"] + "|" +
-             source["retrieval"]["sha256"]).encode("utf-8")).hexdigest()
+            receipt_components.append(rights_info["artwork_evidence_sha256"])
+
+        receipt_id = hashlib.sha256("|".join(receipt_components).encode("utf-8")).hexdigest()
         return {"status": "ACCEPT", "reasons": [],
                 "publication_approved": False,
                 "receipt": {"receipt_id": receipt_id, "source_id": source["source_id"],
@@ -124,10 +133,13 @@ def validate_contribution(manifest_dict, repo_root):
         return block(str(exc))
 
 def main(argv=None):
+    import os
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("manifest")
     p.add_argument("--repo-root", required=True)
     a = p.parse_args(argv)
+    if not os.access(os.getcwd(), os.R_OK):
+        p.exit(2, "BLOCKED: Workspace not readable\n")
     try:
         manifest = json.loads(Path(a.manifest).read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
