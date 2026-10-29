@@ -1,5 +1,5 @@
 {
-  "next_index": 1360,
+  "next_index": 1440,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "mt",
+      "section": "time"
+    },
+    {
+      "language": "my",
+      "section": "time"
+    },
+    {
+      "language": "ne",
+      "section": "time"
+    },
+    {
+      "language": "nl",
+      "section": "time"
+    },
+    {
+      "language": "no",
+      "section": "time"
+    },
+    {
+      "language": "or",
+      "section": "time"
+    },
+    {
+      "language": "pa",
+      "section": "time"
+    },
+    {
+      "language": "pl",
+      "section": "time"
+    },
+    {
+      "language": "ps",
+      "section": "time"
+    },
+    {
+      "language": "pt",
+      "section": "time"
+    },
+    {
+      "language": "ro",
+      "section": "time"
+    },
+    {
+      "language": "ru",
+      "section": "time"
+    },
+    {
+      "language": "rw",
+      "section": "time"
+    },
+    {
+      "language": "sd",
+      "section": "time"
+    },
+    {
+      "language": "si",
+      "section": "time"
+    },
+    {
+      "language": "sk",
+      "section": "time"
+    },
+    {
+      "language": "sl",
+      "section": "time"
+    },
+    {
+      "language": "sn",
+      "section": "time"
+    },
+    {
+      "language": "so",
+      "section": "time"
+    },
+    {
+      "language": "sq",
+      "section": "time"
+    },
+    {
       "language": "sr",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "sv",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "sw",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ta",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "te",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "tg",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "th",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "tk",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "tl",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "tr",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "tt",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ug",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "uk",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ur",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "uz",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "vi",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "xh",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "yo",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "zh",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "zu",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "af",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "am",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "ar",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "as",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "az",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "ba",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "be",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "bg",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "bn",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "br",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "bs",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "ca",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "cs",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "cy",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "da",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "de",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "dv",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "el",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "en",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "eo",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "es",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "et",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "eu",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "fa",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "fi",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "fo",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "fr",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "fy",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "ga",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "gd",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "gl",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "gu",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "ha",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "hi",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "hr",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "hu",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "hy",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "id",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "ig",
-      "section": "time"
+      "section": "numbers"
     },
     {
       "language": "is",
-      "section": "time"
-    },
-    {
-      "language": "it",
-      "section": "time"
-    },
-    {
-      "language": "ja",
-      "section": "time"
-    },
-    {
-      "language": "ka",
-      "section": "time"
-    },
-    {
-      "language": "kk",
-      "section": "time"
-    },
-    {
-      "language": "km",
-      "section": "time"
-    },
-    {
-      "language": "kn",
-      "section": "time"
-    },
-    {
-      "language": "ko",
-      "section": "time"
-    },
-    {
-      "language": "ku",
-      "section": "time"
-    },
-    {
-      "language": "ky",
-      "section": "time"
-    },
-    {
-      "language": "la",
-      "section": "time"
-    },
-    {
-      "language": "lb",
-      "section": "time"
-    },
-    {
-      "language": "lo",
-      "section": "time"
-    },
-    {
-      "language": "lt",
-      "section": "time"
-    },
-    {
-      "language": "lv",
-      "section": "time"
-    },
-    {
-      "language": "mg",
-      "section": "time"
-    },
-    {
-      "language": "mk",
-      "section": "time"
-    },
-    {
-      "language": "ml",
-      "section": "time"
-    },
-    {
-      "language": "mn",
-      "section": "time"
-    },
-    {
-      "language": "mr",
-      "section": "time"
-    },
-    {
-      "language": "ms",
-      "section": "time"
+      "section": "numbers"
     }
   ]
 }
