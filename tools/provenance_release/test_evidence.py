@@ -30,7 +30,7 @@ class ProvenanceTests(unittest.TestCase):
 
     def fixture(self):
         self.ledger['sources']=[{'source_id':'s1','dataset_version':'v1','status':'APPROVED_FOR_REDISTRIBUTION',
-            'publisher':'Test-only','origin_url':'https://example.org/test',
+            'author':'Test Author','publisher':'Test-only','origin_url':'https://example.org/test',
             'retrieval':{'sha256':'b'*64},'license':{'id':'CC0-1.0'}}]
         self.candidates=[{'asset_id':'pack.ar','artifact_path':'packs/fixture.pack.gz','sha256':self.sha,
             'output_license_id':'CC0-1.0','source_refs':[{'source_id':'s1','dataset_version':'v1','artifact_sha256':'b'*64}]}]

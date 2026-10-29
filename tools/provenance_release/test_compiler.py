@@ -35,6 +35,7 @@ class TestProvenanceCompiler(unittest.TestCase):
             "source_id": "src_id",
             "kind": "dictionary",
             "origin_url": "https://origin",
+            "author": "author_name",
             "publisher": "publisher",
             "dataset_version": "v1",
             "retrieval": {
@@ -111,6 +112,16 @@ class TestProvenanceCompiler(unittest.TestCase):
         self.assertEqual(len(manifest['release_provenance']), 1)
         self.assertEqual(manifest['release_provenance'][0]['asset_id'], 'asset_1')
         self.assertEqual(manifest['release_provenance'][0]['sources'][0]['publisher'], 'publisher')
+
+
+    def test_missing_author(self):
+        src = self.base_source.copy()
+        if 'author' in src:
+            del src['author']
+        self.write_ledger([src])
+        self.write_daily([self.base_candidate])
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], ['asset_1'])
 
     def test_missing_publisher_in_notice(self):
         self.notice_path.write_text("src_id CC-BY-SA-4.0 https://origin") # missing publisher
