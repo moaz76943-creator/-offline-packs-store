@@ -10,6 +10,16 @@ import logging
 import sys
 from pathlib import Path
 
+def install_repo_import_path():
+    """Put the checkout on sys.path so a direct script run can import legal.*."""
+    root = Path(__file__).resolve().parent.parent.parent
+    resolved = str(root)
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
+
+install_repo_import_path()
+
 # We reuse the logic from legal.ledger.admission as much as possible for validation.
 from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
 
@@ -165,7 +175,15 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        required_terms = [
+                            sid,
+                            src.get('publisher', ''),
+                            src.get('license', {}).get('id', ''),
+                            src.get('origin_url', ''),
+                        ]
+                        if src.get('author'):
+                            required_terms.append(src['author'])
+                        if not all(term in content for term in required_terms):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:
