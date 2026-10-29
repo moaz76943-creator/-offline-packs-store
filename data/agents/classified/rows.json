@@ -347,6 +347,76 @@
       "wikidata": "Q384544"
     },
     {
+      "concept_id": "concept.q956",
+      "forms": [
+        "Peking",
+        "Pekingu",
+        "Pekingu",
+        "Peking",
+        "Pekingu",
+        "Pekingu",
+        "Pekingem"
+      ],
+      "language": "cs",
+      "lemma": "Peking",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L412495",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L412495",
+      "retrieval_date": "2026-10-28",
+      "revision": "1370726992",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L412495-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Kodaň",
+        "Kodaně",
+        "Kodani",
+        "Kodaň",
+        "Kodani",
+        "Kodani",
+        "Kodaní"
+      ],
+      "language": "cs",
+      "lemma": "Kodaň",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L42223",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L42223",
+      "retrieval_date": "2026-10-28",
+      "revision": "850265371",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L42223-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
       "concept_id": "concept.q16868715",
       "forms": [
         "úžas",
@@ -705,6 +775,99 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2167"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "København",
+        "Københavns"
+      ],
+      "language": "da",
+      "lemma": "København",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L59721",
+      "pos": "",
+      "qids": [
+        "Q1748",
+        "Q1561910",
+        "Q12323367",
+        "Q1751706",
+        "Q6454061"
+      ],
+      "record_id": "L59721",
+      "retrieval_date": "2026-10-28",
+      "revision": "2466695446",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L59721-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Københavnstrup",
+        "Københavnstrups"
+      ],
+      "language": "da",
+      "lemma": "Københavnstrup",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L221020",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L221020",
+      "retrieval_date": "2026-10-28",
+      "revision": "2297570127",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L221020-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Kjøffenhavn"
+      ],
+      "language": "da",
+      "lemma": "Kjøffenhavn",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L314310",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L314310",
+      "retrieval_date": "2026-10-28",
+      "revision": "2232999020",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L314310-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
     },
     {
       "concept_id": "concept.q71404162",
@@ -1440,6 +1603,103 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q628"
+    },
+    {
+      "concept_id": "concept.q956",
+      "forms": [
+        "Peking",
+        "Peking",
+        "Pekings",
+        "Peking",
+        "Peking"
+      ],
+      "language": "de",
+      "lemma": "Peking",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L489355",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L489355",
+      "retrieval_date": "2026-10-28",
+      "revision": "1879005657",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L489355-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Kopenhagen",
+        "Kopenhagen",
+        "Kopenhagens",
+        "Kopenhagen"
+      ],
+      "language": "de",
+      "lemma": "Kopenhagen",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297265",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L297265",
+      "retrieval_date": "2026-10-28",
+      "revision": "1880451692",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297265-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q1799",
+      "forms": [
+        "Breslau",
+        "Breslau",
+        "Breslaus",
+        "Breslau"
+      ],
+      "language": "de",
+      "lemma": "Breslau",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297307",
+      "pos": "",
+      "qids": [
+        "Q1799"
+      ],
+      "record_id": "L297307",
+      "retrieval_date": "2026-10-28",
+      "revision": "2497008090",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297307-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1799"
     },
     {
       "concept_id": "concept.q3354532",
@@ -2623,7 +2883,7 @@
         "Q4093"
       ],
       "record_id": "L448759",
-      "retrieval_date": "2026-10-20",
+      "retrieval_date": "2026-10-28",
       "revision": "2432016305",
       "schema_version": "1.0.0",
       "section": "city",
@@ -3283,6 +3543,64 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q628"
+    },
+    {
+      "concept_id": "concept.q956",
+      "forms": [
+        "Beijing"
+      ],
+      "language": "en",
+      "lemma": "Beijing",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L450095",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L450095",
+      "retrieval_date": "2026-10-28",
+      "revision": "2330290613",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L450095-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Copenhagen"
+      ],
+      "language": "en",
+      "lemma": "Copenhagen",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L412938",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L412938",
+      "retrieval_date": "2026-10-28",
+      "revision": "2551461971",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L412938-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
     },
     {
       "concept_id": "concept.q483444",
@@ -5001,6 +5319,35 @@
       "wikidata": "Q1492"
     },
     {
+      "concept_id": "concept.q34370",
+      "forms": [
+        "Róterdam"
+      ],
+      "language": "es",
+      "lemma": "Róterdam",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1328499",
+      "pos": "",
+      "qids": [
+        "Q34370"
+      ],
+      "record_id": "L1328499",
+      "retrieval_date": "2026-10-28",
+      "revision": "2173833101",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1328499-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q34370"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "kimono",
@@ -6183,6 +6530,64 @@
       "wikidata": "Q1410"
     },
     {
+      "concept_id": "concept.q956",
+      "forms": [
+        "Pékin"
+      ],
+      "language": "fr",
+      "lemma": "Pékin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578399",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L578399",
+      "retrieval_date": "2026-10-28",
+      "revision": "2449948013",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578399-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "Copenhague"
+      ],
+      "language": "fr",
+      "lemma": "Copenhague",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L26574",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L26574",
+      "retrieval_date": "2026-10-28",
+      "revision": "2449976646",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L26574-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
       "concept_id": "concept.q604079",
       "forms": [
         "mauve",
@@ -7224,6 +7629,66 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q628"
+    },
+    {
+      "concept_id": "concept.q34370",
+      "forms": [
+        "Rotterdam"
+      ],
+      "language": "it",
+      "lemma": "Rotterdam",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1321153",
+      "pos": "",
+      "qids": [
+        "Q105539079",
+        "Q2680952",
+        "Q34370"
+      ],
+      "record_id": "L1321153",
+      "retrieval_date": "2026-10-28",
+      "revision": "2198428418",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1321153-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q34370"
+    },
+    {
+      "concept_id": "concept.q1799",
+      "forms": [
+        "Breslavia"
+      ],
+      "language": "it",
+      "lemma": "Breslavia",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1342011",
+      "pos": "",
+      "qids": [
+        "Q1799"
+      ],
+      "record_id": "L1342011",
+      "retrieval_date": "2026-10-28",
+      "revision": "2227372846",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1342011-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1799"
     },
     {
       "concept_id": "concept.q10940",
@@ -8400,6 +8865,41 @@
       "wikidata": "Q1780"
     },
     {
+      "concept_id": "concept.q34370",
+      "forms": [
+        "Roterodamum",
+        "Roterodami",
+        "Roterodamo",
+        "Roterodamum",
+        "Roterodamo",
+        "Roterodamum",
+        "Roterodami"
+      ],
+      "language": "la",
+      "lemma": "Roterodamum",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1558820",
+      "pos": "",
+      "qids": [
+        "Q34370"
+      ],
+      "record_id": "L1558820",
+      "retrieval_date": "2026-10-28",
+      "revision": "2471705954",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1558820-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q34370"
+    },
+    {
       "concept_id": "concept.q7367",
       "forms": [
         "കൊതുക്",
@@ -8454,7 +8954,7 @@
         "Q4093"
       ],
       "record_id": "L453339",
-      "retrieval_date": "2026-10-20",
+      "retrieval_date": "2026-10-28",
       "revision": "1398171511",
       "schema_version": "1.0.0",
       "section": "city",
@@ -9023,6 +9523,64 @@
       "wikidata": "Q23051"
     },
     {
+      "concept_id": "concept.q956",
+      "forms": [
+        "ബെയ്ജിങ്ങ്"
+      ],
+      "language": "ml",
+      "lemma": "ബെയ്ജിങ്ങ്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453498",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L453498",
+      "retrieval_date": "2026-10-28",
+      "revision": "2522370090",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453498-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1748",
+      "forms": [
+        "കോപ്പൻഹേഗൻ"
+      ],
+      "language": "ml",
+      "lemma": "കോപ്പൻഹേഗൻ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453357",
+      "pos": "",
+      "qids": [
+        "Q1748"
+      ],
+      "record_id": "L453357",
+      "retrieval_date": "2026-10-28",
+      "revision": "2522372020",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453357-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1748"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "കിമോണോ"
@@ -9228,6 +9786,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q83178"
+    },
+    {
+      "concept_id": "concept.q34370",
+      "forms": [
+        "Rotjeknor"
+      ],
+      "language": "nl",
+      "lemma": "Rotjeknor",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1581091",
+      "pos": "",
+      "qids": [
+        "Q34370",
+        "Q2680952"
+      ],
+      "record_id": "L1581091",
+      "retrieval_date": "2026-10-28",
+      "revision": "2526353696",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1581091-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q34370"
     },
     {
       "concept_id": "concept.q2941309",
@@ -9741,6 +10329,42 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q36600"
+    },
+    {
+      "concept_id": "concept.q1799",
+      "forms": [
+        "Wrocław",
+        "Wrocławia",
+        "Wrocławowi",
+        "Wrocław",
+        "Wrocławiem",
+        "Wrocławiu",
+        "Wrocławiu",
+        "Wrocławie"
+      ],
+      "language": "pl",
+      "lemma": "Wrocław",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1214302",
+      "pos": "",
+      "qids": [
+        "Q1799"
+      ],
+      "record_id": "L1214302",
+      "retrieval_date": "2026-10-28",
+      "revision": "2036649287",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1214302-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1799"
     },
     {
       "concept_id": "concept.q12199",
@@ -10916,6 +11540,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2167"
+    },
+    {
+      "concept_id": "concept.q956",
+      "forms": [
+        "Peking",
+        "Pekings"
+      ],
+      "language": "sv",
+      "lemma": "Peking",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L476473",
+      "pos": "",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "L476473",
+      "retrieval_date": "2026-10-28",
+      "revision": "2317253761",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L476473-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
     },
     {
       "concept_id": "concept.q483444",
