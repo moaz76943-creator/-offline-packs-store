@@ -1,0 +1,23 @@
+{
+  "pack_id": "de_ar_core_fixture",
+  "version": 2,
+  "source_id": "kaikki_de_deu_core",
+  "vocabulary": [
+    {
+      "id": 1,
+      "lemma": "Haus",
+      "pos": "noun",
+      "gender": "neutrum",
+      "senses": ["house", "building"],
+      "translations": ["بيت", "منزل"]
+    },
+    {
+      "id": 2,
+      "lemma": "lernen",
+      "pos": "verb",
+      "gender": null,
+      "senses": ["to learn", "to study"],
+      "translations": ["يتعلم", "يدرس"]
+    }
+  ]
+}
