@@ -41,7 +41,7 @@ BANNED_METADATA_KEYS = frozenset({
     "speaker_profile",
 })
 
-LOCALE_RE = re.compile(r"^[a-z]{2,3}(-[a-zA-Z0-9]{2,8})*$")
+LOCALE_RE = re.compile(r"^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$")
 LEXEME_ID_RE = re.compile(r"^[a-z][a-z0-9._:-]{2,127}$")
 
 _MPEG1_L3 = (0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 0)
