@@ -74,6 +74,24 @@ class TestGlyphCoverageValidator(unittest.TestCase):
             except FileNotFoundError:
                 pass
 
+    def test_validate_script_metadata(self):
+        import json
+
+        res = self.validator.validate_script_metadata()
+        self.assertEqual(res["status"], "ACCEPT")
+        self.assertIn("Latn", res["canonical_scripts"])
+        self.assertIn("Hani", res["canonical_scripts"])
+
+        # Test missing file gracefully failing
+        old_root = self.validator.repo_root
+        try:
+            self.validator.repo_root = "/nonexistent/path/that/will/fail"
+            res_fail = self.validator.validate_script_metadata()
+            self.assertEqual(res_fail["status"], "REJECT")
+            self.assertIn("Missing registry file", res_fail["issues"])
+        finally:
+            self.validator.repo_root = old_root
+
     def test_extract_cmap(self):
         cmap = self.validator.get_font_cmap(os.path.join(self.repo_root, self.latin_font_path))
         self.assertIn(ord('a'), cmap)
