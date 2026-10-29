@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stdlib-only structural and cross-file validation of the public language registry.
+"""Stdlib-only structural and cross-file validation of the public 100-language registry.
 
 JSON Schema 2020-12 is supplied separately for consumers with schema tooling.
 This validator additionally enforces cross-record invariants absent from JSON Schema.
