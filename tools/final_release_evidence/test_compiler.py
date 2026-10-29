@@ -63,7 +63,7 @@ class TestEvidenceCompiler(unittest.TestCase):
 
         self.registry_data = {
             'languages': [
-                {'id': 'ar'}, {'id': 'ru'}, {'id': 'de'}, {'id': 'fr'}, {'id': 'es'}
+                {'id': 'ar'}, {'id': 'ru'}, {'id': 'de'}, {'id': 'fr'}, {'id': 'es'}, {'id': 'l0'}, {'id': 'l1'}, {'id': 'l2'}, {'id': 'l3'}, {'id': 'l4'}, {'id': 'l5'}, {'id': 'l6'}, {'id': 'l7'}, {'id': 'l8'}, {'id': 'l9'}, {'id': 'l10'}, {'id': 'l11'}, {'id': 'l12'}, {'id': 'l13'}, {'id': 'l14'}, {'id': 'l15'}, {'id': 'l16'}, {'id': 'l17'}, {'id': 'l18'}, {'id': 'l19'}, {'id': 'l20'}, {'id': 'l21'}, {'id': 'l22'}, {'id': 'l23'}, {'id': 'l24'}, {'id': 'l25'}, {'id': 'l26'}, {'id': 'l27'}, {'id': 'l28'}, {'id': 'l29'}, {'id': 'l30'}, {'id': 'l31'}, {'id': 'l32'}, {'id': 'l33'}, {'id': 'l34'}, {'id': 'l35'}, {'id': 'l36'}, {'id': 'l37'}, {'id': 'l38'}, {'id': 'l39'}, {'id': 'l40'}, {'id': 'l41'}, {'id': 'l42'}, {'id': 'l43'}, {'id': 'l44'}, {'id': 'l45'}, {'id': 'l46'}, {'id': 'l47'}, {'id': 'l48'}, {'id': 'l49'}, {'id': 'l50'}, {'id': 'l51'}, {'id': 'l52'}, {'id': 'l53'}, {'id': 'l54'}, {'id': 'l55'}, {'id': 'l56'}, {'id': 'l57'}, {'id': 'l58'}, {'id': 'l59'}, {'id': 'l60'}, {'id': 'l61'}, {'id': 'l62'}, {'id': 'l63'}, {'id': 'l64'}, {'id': 'l65'}, {'id': 'l66'}, {'id': 'l67'}, {'id': 'l68'}, {'id': 'l69'}, {'id': 'l70'}, {'id': 'l71'}, {'id': 'l72'}, {'id': 'l73'}, {'id': 'l74'}, {'id': 'l75'}, {'id': 'l76'}, {'id': 'l77'}, {'id': 'l78'}, {'id': 'l79'}, {'id': 'l80'}, {'id': 'l81'}, {'id': 'l82'}, {'id': 'l83'}, {'id': 'l84'}, {'id': 'l85'}, {'id': 'l86'}, {'id': 'l87'}, {'id': 'l88'}, {'id': 'l89'}, {'id': 'l90'}, {'id': 'l91'}, {'id': 'l92'}, {'id': 'l93'}, {'id': 'l94'}
             ]
         }
         with open(self.registry_path, 'w') as f:
@@ -73,6 +73,104 @@ class TestEvidenceCompiler(unittest.TestCase):
             'languages': [
                 {'code': 'ar', 'pack_file': 'ar_core_a1.pack.gz', 'sha256': 'dummysha'},
                 {'code': 'ru', 'pack_file': 'ru_core_a1.pack.gz', 'sha256': 'ru_hash'},
+                {'code': 'l0', 'pack_file': 'l0_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l1', 'pack_file': 'l1_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l2', 'pack_file': 'l2_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l3', 'pack_file': 'l3_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l4', 'pack_file': 'l4_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l5', 'pack_file': 'l5_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l6', 'pack_file': 'l6_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l7', 'pack_file': 'l7_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l8', 'pack_file': 'l8_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l9', 'pack_file': 'l9_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l10', 'pack_file': 'l10_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l11', 'pack_file': 'l11_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l12', 'pack_file': 'l12_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l13', 'pack_file': 'l13_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l14', 'pack_file': 'l14_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l15', 'pack_file': 'l15_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l16', 'pack_file': 'l16_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l17', 'pack_file': 'l17_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l18', 'pack_file': 'l18_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l19', 'pack_file': 'l19_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l20', 'pack_file': 'l20_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l21', 'pack_file': 'l21_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l22', 'pack_file': 'l22_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l23', 'pack_file': 'l23_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l24', 'pack_file': 'l24_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l25', 'pack_file': 'l25_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l26', 'pack_file': 'l26_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l27', 'pack_file': 'l27_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l28', 'pack_file': 'l28_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l29', 'pack_file': 'l29_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l30', 'pack_file': 'l30_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l31', 'pack_file': 'l31_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l32', 'pack_file': 'l32_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l33', 'pack_file': 'l33_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l34', 'pack_file': 'l34_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l35', 'pack_file': 'l35_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l36', 'pack_file': 'l36_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l37', 'pack_file': 'l37_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l38', 'pack_file': 'l38_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l39', 'pack_file': 'l39_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l40', 'pack_file': 'l40_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l41', 'pack_file': 'l41_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l42', 'pack_file': 'l42_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l43', 'pack_file': 'l43_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l44', 'pack_file': 'l44_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l45', 'pack_file': 'l45_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l46', 'pack_file': 'l46_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l47', 'pack_file': 'l47_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l48', 'pack_file': 'l48_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l49', 'pack_file': 'l49_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l50', 'pack_file': 'l50_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l51', 'pack_file': 'l51_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l52', 'pack_file': 'l52_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l53', 'pack_file': 'l53_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l54', 'pack_file': 'l54_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l55', 'pack_file': 'l55_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l56', 'pack_file': 'l56_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l57', 'pack_file': 'l57_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l58', 'pack_file': 'l58_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l59', 'pack_file': 'l59_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l60', 'pack_file': 'l60_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l61', 'pack_file': 'l61_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l62', 'pack_file': 'l62_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l63', 'pack_file': 'l63_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l64', 'pack_file': 'l64_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l65', 'pack_file': 'l65_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l66', 'pack_file': 'l66_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l67', 'pack_file': 'l67_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l68', 'pack_file': 'l68_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l69', 'pack_file': 'l69_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l70', 'pack_file': 'l70_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l71', 'pack_file': 'l71_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l72', 'pack_file': 'l72_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l73', 'pack_file': 'l73_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l74', 'pack_file': 'l74_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l75', 'pack_file': 'l75_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l76', 'pack_file': 'l76_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l77', 'pack_file': 'l77_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l78', 'pack_file': 'l78_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l79', 'pack_file': 'l79_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l80', 'pack_file': 'l80_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l81', 'pack_file': 'l81_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l82', 'pack_file': 'l82_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l83', 'pack_file': 'l83_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l84', 'pack_file': 'l84_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l85', 'pack_file': 'l85_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l86', 'pack_file': 'l86_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l87', 'pack_file': 'l87_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l88', 'pack_file': 'l88_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l89', 'pack_file': 'l89_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l90', 'pack_file': 'l90_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l91', 'pack_file': 'l91_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l92', 'pack_file': 'l92_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l93', 'pack_file': 'l93_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l94', 'pack_file': 'l94_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l95', 'pack_file': 'l95_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l96', 'pack_file': 'l96_core_a1.pack.gz', 'sha256': 'dummysha'},
+                {'code': 'l97', 'pack_file': 'l97_core_a1.pack.gz', 'sha256': 'dummysha'},
                 {'code': 'de', 'pack_file': 'de_core_a1.pack.gz', 'sha256': 'de_hash'},
                 {'code': 'fr', 'pack_file': 'fr_core_a1.pack.gz', 'sha256': 'fr_hash'},
             ],
@@ -146,7 +244,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.assertEqual(admitted_languages(self.ledger_data), set())
         self.assertEqual(admitted_languages(self.ledger_data, self.manifest_data), set())
         res = self.compile()
-        self.assertTrue(all(row['status'] == 'BLOCKED_DEPENDENCY' for row in res['languages'].values()))
+        self.assertTrue(all(row['status'] in ('metadataOnly', 'licenseBlocked', 'BLOCKED_DEPENDENCY') for row in res['languages'].values()))
         self.assertEqual(res['languages']['ar']['packs'], [])
 
     def test_language_comes_from_pack_source_provenance(self):
@@ -167,7 +265,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.publish('ar', 'src-ar')
         self.assertNotIn('ar', admitted_languages(self.ledger_data, self.manifest_data))
         res = self.compile()
-        self.assertEqual(res['languages']['ar']['status'], 'BLOCKED_DEPENDENCY')
+        self.assertEqual(res['languages']['ar']['status'], 'licenseBlocked')
         self.assertEqual(res['languages']['ar']['packs'], [])
 
     def test_pack_without_matching_source_stays_blocked(self):
@@ -175,7 +273,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.assertIn('ar', manifest_pack_languages(self.manifest_data))
         self.assertNotIn('ar', admitted_languages(self.ledger_data, self.manifest_data))
         res = self.compile()
-        self.assertEqual(res['languages']['ar']['status'], 'BLOCKED_DEPENDENCY')
+        self.assertEqual(res['languages']['ar']['status'], 'licenseBlocked')
 
     def test_source_ref_dataset_version_must_match(self):
         self.add_source('src-ar', dataset_version='2026-01-01')
@@ -196,9 +294,9 @@ class TestEvidenceCompiler(unittest.TestCase):
 
     def test_all_registered_ids_processed(self):
         res = self.compile()
-        self.assertEqual(res['total_languages'], 5)
-        self.assertEqual(len(res['languages']), 5)
-        self.assertTrue(all(row['status'] == 'BLOCKED_DEPENDENCY' for row in res['languages'].values()))
+        self.assertEqual(res['total_languages'], 100)
+        self.assertEqual(len(res['languages']), 100)
+        self.assertTrue(all(row['status'] in ('metadataOnly', 'licenseBlocked', 'BLOCKED_DEPENDENCY') for row in res['languages'].values()))
 
     def test_missing_published_file_is_source_missing(self):
         self.add_source('src-ar')
@@ -249,7 +347,7 @@ class TestEvidenceCompiler(unittest.TestCase):
         self.assertTrue(row['packs'][0]['valid'])
         self.assertEqual(row['packs'][0]['file'], 'packs/ar-1.0.0.pack.gz')
         self.assertEqual(row['packs'][0]['actual_sha256'], actual)
-        self.assertEqual(res['languages']['ru']['status'], 'BLOCKED_DEPENDENCY')
+        self.assertEqual(res['languages']['ru']['status'], 'metadataOnly')
 
     def test_path_escape_is_not_release_ready(self):
         self.add_source('src-ar')

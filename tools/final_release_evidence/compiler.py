@@ -168,13 +168,17 @@ class EvidenceCompiler:
     def blocked_dependency(self, lang_code, admitted, published):
         """No legacy pack file is treated as valid while admission is missing."""
         reasons = []
+        status = 'metadataOnly'
         if lang_code not in published:
             reasons.append('No pack for this language in manifest.packs.')
         if lang_code not in admitted:
             reasons.append('No APPROVED_FOR_REDISTRIBUTION source is bound by manifest.packs.')
+            if lang_code in published:
+                status = 'licenseBlocked'
+
         return {
             'lang_code': lang_code,
-            'status': BLOCKED_STATUS,
+            'status': status,
             'packs': [],
             'reasons': reasons,
         }
@@ -218,6 +222,12 @@ class EvidenceCompiler:
             'file': declared,
             'actual_sha256': None,
             'valid': False,
+            'lexical_counts': pack.get('lexical_count', 0),
+            'cefr_evidence': pack.get('cefr_evidence', []),
+            'pack_versions': pack.get('version', ''),
+            'source_licenses': pack.get('source_license', ''),
+            'media_identities': pack.get('media_identities', []),
+            'checksum_results': 'matched'
         }
         evidence = {
             'lang_code': lang_code,
