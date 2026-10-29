@@ -3,6 +3,23 @@ import os
 import urllib.error
 from auto_policy import auto_eligible
 
+
+def candidate_evidence_unavailable(number, error):
+    """Contain candidate-local read failures without hiding account-wide faults."""
+    if isinstance(error, urllib.error.HTTPError):
+        # Authentication, rate limiting and unexpected protocol failures remain
+        # visible to the job; retrying every peer would amplify those failures.
+        if error.code not in (404, 410, 500, 502, 503, 504):
+            raise error
+        reason = f'GitHub HTTP {error.code}'
+    elif isinstance(error, urllib.error.URLError):
+        reason = 'GitHub transport unavailable'
+    else:
+        raise error
+    # Never print response bodies or URLs from an upstream transport exception.
+    print(f'AUTO_SKIP #{number}: candidate evidence unavailable ({reason})')
+    return None
+
 REVIEW_THREADS_QUERY = '''query($cursor:String, $number:Int!) {
  repository(owner:"moaz76943-creator",name:"-offline-packs-store") {
   pullRequest(number:$number) {
@@ -40,9 +57,11 @@ def has_unresolved_threads(gh, number):
     raise ValueError('review thread pagination exceeded bounded limit')
 
 def query_bounded_candidate(gh, num, head):
-    """An oversized PR is ineligible for auto-merge, not fatal to its peers."""
+    """Incomplete candidate evidence blocks this PR without starving its peers."""
     try:
         return gh.query_pr(num, head)
+    except urllib.error.URLError as exc:
+        return candidate_evidence_unavailable(num, exc)
     except ValueError as exc:
         # Fail this candidate closed; keep unexpected/coordinator-wide faults visible.
         if not any(reason in str(exc) for reason in
@@ -50,6 +69,18 @@ def query_bounded_candidate(gh, num, head):
             raise
         print(f'AUTO_SKIP #{num}: candidate evidence unavailable ({exc})')
         return None
+
+
+def candidate_threads_resolved(gh, number):
+    """Missing thread evidence blocks this PR, while independent PRs proceed."""
+    try:
+        return not has_unresolved_threads(gh, number)
+    except urllib.error.URLError as exc:
+        candidate_evidence_unavailable(number, exc)
+        return False
+    except ValueError:
+        print(f'AUTO_SKIP #{number}: review thread evidence incomplete')
+        return False
 
 
 def run_auto(gh, main_sha):
@@ -97,7 +128,7 @@ def run_auto(gh, main_sha):
             if not ok or head != (pr.get('head') or {}).get('sha'):
                 print(f'AUTO_SKIP #{num}: {why}')
                 continue
-            if has_unresolved_threads(gh, num):
+            if not candidate_threads_resolved(gh, num):
                 print(f'AUTO_SKIP #{num}: unresolved review thread')
                 continue
             if os.getenv('INTEGRATOR_APPLY') != 'true':
@@ -115,7 +146,7 @@ def run_auto(gh, main_sha):
                 continue
             fresh, fc, fr, ff, fm = candidate
             qualified, reason = auto_eligible(fresh, fc, fr, ff, fm, main_sha)
-            if not qualified or has_unresolved_threads(gh, num):
+            if not qualified or not candidate_threads_resolved(gh, num):
                 print(f'AUTO_SKIP #{num}: stale evidence: {reason}')
                 continue
             if gh.main_sha() != main_sha:
@@ -147,3 +178,4 @@ def run_auto(gh, main_sha):
             return 0
     print(f'AUTO_BATCH_LIMIT={merged_count}; next event resumes discovery')
     return 0
+

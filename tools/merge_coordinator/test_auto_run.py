@@ -1,4 +1,5 @@
 import unittest
+import urllib.error
 from unittest.mock import patch
 from auto_run import run_auto
 from test_auto_policy import SHA, MAIN, PR, CHECKS, DOC
@@ -23,6 +24,60 @@ class FakeGH:
     self.merges.append((num,head));self.main='c'*40
     return {'merged':True,'sha':self.main}
 class FlowTests(unittest.TestCase):
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_candidate_read_failure_does_not_starve_verified_peer(self):
+    import sys, types
+    m=types.ModuleType('protection_gate');m.allowed=lambda branch,rules:True
+    for stage in ('query', 'threads', 'fresh_query', 'fresh_threads'):
+      for error in (urllib.error.HTTPError('https://api.github.com',404,'gone',{},None),
+                    urllib.error.HTTPError('https://api.github.com',503,'unavailable',{},None),
+                    urllib.error.URLError('transport unavailable')):
+        with self.subTest(stage=stage,error=type(error).__name__), patch.dict(sys.modules,{'protection_gate':m}):
+          class MixedQueue(FakeGH):
+            def __init__(self):
+              super().__init__();self.reads={};self.threads={}
+            def page(self,path,limit=300):
+              if path.startswith('/pulls?'):
+                return [{'number':n,'head':{'sha':SHA},'base':{'ref':'main','sha':self.main},
+                         'state':'open','draft':False} for n in (2,1)]
+              return []
+            def query_pr(self,num,head):
+              self.reads[num]=self.reads.get(num,0)+1
+              if num==2 and ((stage=='query') or (stage=='fresh_query' and self.reads[num]%2==0)):
+                raise error
+              return super().query_pr(num,head)
+            def request(self,path,method='GET',data=None):
+              num=data['variables']['number'];self.threads[num]=self.threads.get(num,0)+1
+              if num==2 and ((stage=='threads') or (stage=='fresh_threads' and self.threads[num]%2==0)):
+                raise error
+              return super().request(path,method,data)
+          f=MixedQueue()
+          self.assertEqual(run_auto(f,MAIN),0)
+          self.assertEqual(f.merges,[(1,SHA)])
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_account_authorization_and_rate_limit_errors_stop_batch(self):
+    for code in (401,403,429):
+      for stage in ('query','threads'):
+        with self.subTest(code=code,stage=stage):
+          class AccountFailure(FakeGH):
+            def query_pr(self,num,head):
+              if stage=='query':raise urllib.error.HTTPError('https://api.github.com',code,'blocked',{},None)
+              return super().query_pr(num,head)
+            def request(self,path,method='GET',data=None):
+              raise urllib.error.HTTPError('https://api.github.com',code,'blocked',{},None)
+          f=AccountFailure()
+          with self.assertRaises(urllib.error.HTTPError):run_auto(f,MAIN)
+          self.assertEqual(f.merges,[])
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_missing_thread_evidence_never_authorizes_merge(self):
+    class MissingThreads(FakeGH):
+      def request(self,path,method='GET',data=None):return {'errors':[{'message':'unavailable'}]}
+    f=MissingThreads()
+    self.assertEqual(run_auto(f,MAIN),0)
+    self.assertEqual(f.merges,[])
+
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'false'})
   def test_dry_run_does_not_merge(self):
     f=FakeGH();self.assertEqual(run_auto(f,MAIN),0);self.assertEqual(f.merges,[])
@@ -169,3 +224,4 @@ class FlowTests(unittest.TestCase):
     f.main='e'*40
     self.assertEqual(run_auto(f, MAIN), 0)
     self.assertEqual(f.merges, [])
+
