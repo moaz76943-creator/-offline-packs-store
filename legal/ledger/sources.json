@@ -1,4 +1,11 @@
 {
-  "schema_version": "1.0.0",
-  "sources": []
+  "schema_version": 1,
+  "sources": [
+    {
+      "source_id": "kaikki_de_deu_core",
+      "canonical_url": "https://kaikki.org/dictionary/German/",
+      "license_id": "CC-BY-SA-4.0",
+      "review_decision": "APPROVED"
+    }
+  ]
 }
