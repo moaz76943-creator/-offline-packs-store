@@ -439,6 +439,56 @@ class SecurityRegression(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.export()
 
+    def test_semantic_asset_packaging(self):
+        from tools.visual_lexicon.core import encode_token
+        # Create a valid minimal semantic token
+        token = {
+            "concept_id": "concept1",
+            "version": 1,
+            "viewBox": [0, 0, 24, 24],
+            "paths": ["M10 10 H 90 V 90 H 10 L 10 10"],
+            "palette": ["#000", "#FFF"],
+            "semantic_label": "A semantic token"
+        }
+        compressed, sha = encode_token(token)
+        # Update meta for the semantic source before staging
+        self.meta["source_id"] = "src-semantic"
+        self.meta["record_locator"] = "row-2"
+        self.meta["source_artifact_sha256"] = "a" * 64
+        name, sha256_actual = self.stage(sid="item_semantic", content=compressed)
+
+        # Update the legal ledger directly as json file to let it pass _admitted
+        self.ledger["sources"].append({
+            "source_id": "src-semantic",
+            "status": "APPROVED_FOR_REDISTRIBUTION",
+            "dataset_version": "1.0",
+            "publisher": "Fixture publisher",
+            "origin_url": "https://example.org/data",
+            "kind": "vector_art",
+            "retrieval": {"sha256": "a" * 64},
+            "license": {"id": "CC0-1.0", "evidence_url": "https://example.org/rights"}
+        })
+        ledgerpath = self.root / "legal/ledger/sources.json"
+        ledgerpath.write_text(json.dumps(self.ledger))
+
+        self.certify(sid="item_semantic")
+
+        # Manually create the manifest for the semantic asset
+        (self.src / "manifest.json").write_text(json.dumps({"items": [{
+            "id": "item_semantic", "type": "semantic", "filename": name, "sha256": sha256_actual,
+            "submission_id": "item_semantic", "source_id": "src-semantic", "license": "CC0-1.0",
+            "source_version": "1.0"
+        }]}))
+
+        # Run the export and expect success
+        receipt = self.export()
+        self.assertEqual(receipt["items"], 1)
+
+        # Ensure it got exported as .vct in the zip file
+        with zipfile.ZipFile(self.out / "releases" / receipt["release"]) as archive:
+            self.assertIn("data/item_semantic.vct", archive.namelist())
+            self.assertNotIn("data/item_semantic.bin", archive.namelist())
+
     def test_operator_cli_requires_signed_decisions(self):
         keyfile = self.root / "operator.json"
         keyfile.write_text(json.dumps({
