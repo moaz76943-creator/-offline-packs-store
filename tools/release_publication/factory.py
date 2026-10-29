@@ -7,6 +7,8 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
+import gzip
 from pathlib import Path
 
 MAX_FILE_SIZE = 100 * 1024 * 1024
@@ -18,30 +20,33 @@ def file_hash(path):
             h.update(chunk)
     return h.hexdigest()
 
-def verify_publication_eligibility(repo_root):
-    """Ensure artifacts are ready for publication by calling release gate."""
-    # Reuse release gate
-    gate_script = repo_root / "tools/release_gate/gate.py"
-    if not gate_script.is_file():
-        raise ValueError("Release gate missing")
+def verify_publication_eligibility(repo_root, artifacts):
+    """Ensure artifacts are ready for publication by calling release eligibility gate."""
+    validator_script = repo_root / "tools/release_validation/validator.py"
+    if not validator_script.is_file():
+        raise ValueError("Release eligibility validator missing")
 
-    result = subprocess.run(
-        [sys.executable, str(gate_script), "--repo-root", str(repo_root)],
-        capture_output=True,
-        text=True
-    )
-    if result.returncode != 0:
-        raise ValueError(f"Release gate blocked publication: {result.stdout.strip()}")
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        tmp_path = Path(tmp_dir)
+        candidates_json = tmp_path / "candidates.json"
+        candidates_json.write_text(json.dumps({"artifacts": artifacts}))
+        output_json = tmp_path / "approved.json"
 
-    try:
-        evidence = json.loads(result.stdout)
-    except Exception:
-        raise ValueError("Release gate output is not valid json")
+        result = subprocess.run(
+            [sys.executable, str(validator_script), "--repo-root", str(repo_root),
+             "--candidates", str(candidates_json), "--output", str(output_json)],
+            capture_output=True,
+            text=True
+        )
+        if result.returncode != 0:
+            raise ValueError(f"Release gate blocked publication: {result.stdout.strip()}")
 
-    if evidence.get("status") != "VERIFIED_CANDIDATE":
-        raise ValueError(f"Not a verified candidate: {evidence.get('blockers', [])}")
-
-    return evidence
+        try:
+            approved = json.loads(output_json.read_text())
+            if not isinstance(approved.get('approved_artifacts'), list) or len(approved['approved_artifacts']) != len(artifacts):
+                raise ValueError("Not all artifacts were approved")
+        except Exception as e:
+            raise ValueError(f"Failed to read approved artifacts: {e}")
 
 def verify_publication_authorization(repo_root):
     """Prevent remote publication without valid credentials and previously approved policy."""
@@ -50,21 +55,79 @@ def verify_publication_authorization(repo_root):
         raise ValueError("Unauthorized: Missing credentials")
 
 def verify_pack_conformance(repo_root, path, sha, language):
-    check_script = repo_root / "tools/gha_factory/pack_conformance/check.py"
+    check_script = repo_root / "tools/pack_conformance/validator.py"
     if not check_script.is_file():
         raise ValueError("Conformance check missing")
 
     env = os.environ.copy()
-    env["PYTHONPATH"] = str(repo_root)
+    if "PYTHONPATH" not in env:
+        env["PYTHONPATH"] = str(repo_root)
 
-    result = subprocess.run(
-        [sys.executable, str(check_script), "--root", str(repo_root), "--archive", str(path), "--language", language, "--sha256", sha],
-        capture_output=True,
-        text=True,
-        env=env
-    )
-    if result.returncode != 0:
-        raise ValueError(f"Pack conformance check failed: {result.stdout.strip()}")
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        tmp_path = Path(tmp_dir)
+        db_path = tmp_path / "content.db"
+
+        # Decompress .pack.gz to .db
+        try:
+            with gzip.open(path, 'rb') as f_in:
+                with open(db_path, 'wb') as f_out:
+                    shutil.copyfileobj(f_in, f_out)
+        except Exception as e:
+            raise ValueError(f"Failed to decompress {path}: {e}")
+
+        result = subprocess.run(
+            [sys.executable, str(check_script), str(db_path), "--structural-only"],
+            capture_output=True,
+            text=True,
+            env=env
+        )
+        if result.returncode != 0:
+            raise ValueError(f"Pack conformance check failed: {result.stderr.strip()}")
+
+def write_attribution(repo_root, artifacts, target_dir):
+    compiler_script = repo_root / "tools/provenance_release/compiler.py"
+    if not compiler_script.is_file():
+        raise ValueError("Provenance compiler missing")
+
+    env = os.environ.copy()
+    if "PYTHONPATH" not in env:
+        env["PYTHONPATH"] = str(repo_root)
+
+    with tempfile.TemporaryDirectory() as tmp_dir:
+        tmp_path = Path(tmp_dir)
+        daily_dir = tmp_path / "daily"
+        daily_dir.mkdir()
+
+        # convert artifacts format to daily release candidates format
+        candidates = []
+        for entry in artifacts:
+             candidates.append({
+                  "asset_id": entry.get("id", entry.get("path")),
+                  "kind": "lexical_pack" if entry["path"].endswith(".pack.gz") else "vector_art",
+                  "artifact_path": entry["path"],
+                  "sha256": entry["sha256"],
+                  "output_license_id": entry.get("license", "CC-BY-SA-4.0"),
+                  "source_refs": entry.get("source_refs", [])
+             })
+
+        daily_file = daily_dir / "daily.json"
+        daily_file.write_text(json.dumps({
+             "schema_version": "1.0.0",
+             "release_candidates": candidates
+        }))
+
+        manifest_out = target_dir / "release_provenance.json"
+        notice_out = target_dir / "NOTICE.txt"
+
+        result = subprocess.run(
+            [sys.executable, str(compiler_script), "--repo-root", str(repo_root),
+             "--daily-dir", str(daily_dir), "--manifest-out", str(manifest_out), "--notice-out", str(notice_out)],
+            capture_output=True,
+            text=True,
+            env=env
+        )
+        if result.returncode != 0:
+            raise ValueError(f"Provenance compilation failed: {result.stderr.strip()}")
 
 def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_auth=True):
     repo_root = Path(repo_root).resolve()
@@ -77,7 +140,7 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
             raise ValueError("Target directory must be within repository") from None
 
     if check_auth:
-        verify_publication_eligibility(repo_root)
+        verify_publication_eligibility(repo_root, artifacts)
         verify_publication_authorization(repo_root)
 
     # verify all gates and files
@@ -109,7 +172,6 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
 
     if not dry_run:
         # Atomic staging using a temporary directory, replacing target on success
-        import tempfile
         target.parent.mkdir(parents=True, exist_ok=True)
         tmp_dir = tempfile.mkdtemp(dir=target.parent)
         tmp_path = Path(tmp_dir)
@@ -119,7 +181,7 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
                 dst = tmp_path / src.name
                 shutil.copy2(src, dst)
 
-                # Write attribution/provenance manifest preserving versions
+                # Write individual manifest preserving versions and schema
                 manifest = tmp_path / f"{src.name}.manifest.json"
                 manifest.write_text(json.dumps({
                     "source": str(entry['path']),
@@ -131,6 +193,9 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
                     "attribution": entry.get('attribution', 'No attribution provided'),
                     "published": True
                 }, indent=2) + "\n")
+
+            # Write global attribution if applicable
+            write_attribution(repo_root, artifacts, tmp_path)
 
             # preserve last verified if exists
             if target.exists():

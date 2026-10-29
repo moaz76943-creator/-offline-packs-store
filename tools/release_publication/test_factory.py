@@ -18,6 +18,23 @@ class TestPublicationFactory(unittest.TestCase):
         self.valid_hash = file_hash(self.valid_artifact)
         self.target = self.root / "published"
 
+        # Mock the tools used by check_auth=False or write_attribution
+        self.compiler_script = self.root / "tools/provenance_release/compiler.py"
+        self.compiler_script.parent.mkdir(parents=True, exist_ok=True)
+        self.compiler_script.write_text("""
+import sys, argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--repo-root')
+parser.add_argument('--daily-dir')
+parser.add_argument('--manifest-out')
+parser.add_argument('--notice-out')
+args = parser.parse_args()
+with open(args.manifest_out, 'w') as f:
+    f.write('{"schema_version": "1.0.0"}')
+with open(args.notice_out, 'w') as f:
+    f.write('NOTICE')
+""")
+
     def tearDown(self):
         self.temp_dir.cleanup()
 
@@ -88,4 +105,62 @@ class TestPublicationFactory(unittest.TestCase):
     def test_auth_check_fails_without_creds(self):
         artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "de"}]
         with self.assertRaises(ValueError):
+            publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+
+    def test_auth_pack_conformance_failure(self):
+        # Create mock creds to bypass auth error, so we fail on pack conformance
+        creds = self.root / ".credentials/publisher"
+        creds.parent.mkdir(parents=True, exist_ok=True)
+        creds.write_text("dummy")
+
+        # Give valid hash but an invalid pack (not a real db)
+        invalid_pack = self.root / "invalid.pack.gz"
+        import gzip
+        with gzip.open(invalid_pack, 'wb') as f:
+            f.write(b"not a database")
+
+        # also mock validator script to just pass
+        validator_script = self.root / "tools/release_validation/validator.py"
+        validator_script.parent.mkdir(parents=True, exist_ok=True)
+        validator_script.write_text("""
+import sys, json, argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--repo-root')
+parser.add_argument('--candidates')
+parser.add_argument('--output')
+args = parser.parse_args()
+with open(args.candidates) as f:
+    c = json.load(f)
+with open(args.output, 'w') as f:
+    json.dump({"approved_artifacts": c["artifacts"]}, f)
+""")
+        # Create fake conformance check that will fail
+        conformance_script = self.root / "tools/pack_conformance/validator.py"
+        conformance_script.parent.mkdir(parents=True, exist_ok=True)
+        conformance_script.write_text("""
+import sys
+sys.stderr.write("conformance check failed\\n")
+sys.exit(1)
+""")
+
+        artifacts = [{"path": "invalid.pack.gz", "sha256": file_hash(invalid_pack), "language": "de"}]
+        with self.assertRaisesRegex(ValueError, "Pack conformance check failed"):
+            publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+
+    def test_auth_publication_eligibility_failure(self):
+        creds = self.root / ".credentials/publisher"
+        creds.parent.mkdir(parents=True, exist_ok=True)
+        creds.write_text("dummy")
+
+        # mock validator script to fail
+        validator_script = self.root / "tools/release_validation/validator.py"
+        validator_script.parent.mkdir(parents=True, exist_ok=True)
+        validator_script.write_text("""
+import sys
+sys.stdout.write("blocked publication\\n")
+sys.exit(1)
+""")
+
+        artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "de"}]
+        with self.assertRaisesRegex(ValueError, "Release gate blocked publication"):
             publish_artifacts(self.root, self.target, artifacts, check_auth=True)
