@@ -1,6 +1,6 @@
 {
   "language": "da",
-  "retrieval_date": "2026-10-25",
+  "retrieval_date": "2026-10-29",
   "rows": [
     {
       "concept_id": "concept.q28130149",
@@ -32,6 +32,37 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q28130149"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "forhistorie",
+        "forhistorien",
+        "forhistorier",
+        "forhistorierne",
+        "forhistories",
+        "forhistoriens",
+        "forhistoriers",
+        "forhistoriernes"
+      ],
+      "language": "da",
+      "lemma": "forhistorie",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012206",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012206",
+      "retrieval_date": "2026-10-29",
+      "revision": "2241033352",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012206-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
     }
   ],
   "schema_version": "1.0.0",
@@ -39,19 +70,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q347066"
+      "wikidata": "Q11756"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q186566"
+      "reason": "other_language",
+      "wikidata": "Q11756"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5447288"
+      "reason": "other_language",
+      "wikidata": "Q11756"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q7806612"
+      "reason": "other_language",
+      "wikidata": "Q55313888"
     }
   ],
   "source": "harvest-wikidata"

@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-10-25",
+  "retrieval_date": "2026-10-29",
   "rows": [
     {
       "concept_id": "concept.q11756",
@@ -144,6 +144,33 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q7124679"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "Vorgeschichte",
+        "Vorgeschichte",
+        "Vorgeschichte",
+        "Vorgeschichte"
+      ],
+      "language": "de",
+      "lemma": "Vorgeschichte",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L811400",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L811400",
+      "retrieval_date": "2026-10-29",
+      "revision": "2306771653",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L811400-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
     }
   ],
   "schema_version": "1.0.0",
@@ -151,19 +178,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q347066"
+      "wikidata": "Q11756"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q186566"
+      "reason": "other_language",
+      "wikidata": "Q11756"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5447288"
+      "reason": "other_language",
+      "wikidata": "Q11756"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q7806612"
+      "reason": "other_language",
+      "wikidata": "Q55313888"
     }
   ],
   "source": "harvest-wikidata"

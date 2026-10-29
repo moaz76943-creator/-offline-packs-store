@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "retrieval_date": "2026-10-25",
+  "retrieval_date": "2026-10-29",
   "rows": [
     {
       "concept_id": "concept.q11756",
@@ -41,7 +41,7 @@
         "Q55313888"
       ],
       "record_id": "L44235",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-10-29",
       "revision": "2538824159",
       "schema_version": "1.0.0",
       "section": "time",
@@ -159,6 +159,23 @@
   ],
   "schema_version": "1.0.0",
   "section": "time",
-  "skipped": [],
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
   "source": "harvest-wikidata"
 }

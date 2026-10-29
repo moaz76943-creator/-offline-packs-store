@@ -1,0 +1,58 @@
+{
+  "language": "lv",
+  "retrieval_date": "2026-10-29",
+  "rows": [
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "aizvēsture",
+        "aizvēstures",
+        "aizvēstures",
+        "aizvēsturu",
+        "aizvēsturei",
+        "aizvēsturēm",
+        "aizvēsturi",
+        "aizvēstures"
+      ],
+      "language": "lv",
+      "lemma": "aizvēsture",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012421",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012421",
+      "retrieval_date": "2026-10-29",
+      "revision": "1828528047",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012421-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

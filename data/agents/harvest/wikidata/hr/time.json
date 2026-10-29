@@ -1,0 +1,89 @@
+{
+  "language": "hr",
+  "retrieval_date": "2026-10-29",
+  "rows": [
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "prapovijest",
+        "prapovijesti",
+        "prapovijesti",
+        "prapovijestprapovijest",
+        "prapovijesti",
+        "prapovijesti",
+        "prapoviješću",
+        "prapovijesti"
+      ],
+      "language": "hr",
+      "lemma": "prapovijest",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012610",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012610",
+      "retrieval_date": "2026-10-29",
+      "revision": "1828975130",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012610-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "prethistorija",
+        "prethistorije",
+        "prethistoriji",
+        "prethistoriju",
+        "prethistorijo",
+        "prethistoriji",
+        "prethistorijom",
+        "prethistorije"
+      ],
+      "language": "hr",
+      "lemma": "prethistorija",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012612",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012612",
+      "retrieval_date": "2026-10-29",
+      "revision": "1828975087",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012612-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
