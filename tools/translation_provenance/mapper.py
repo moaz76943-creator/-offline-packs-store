@@ -6,13 +6,19 @@ is a traceability preflight, not a publication or factual translation approval.
 import argparse
 import hashlib
 import json
+import os
 import sys
+from pathlib import Path
 
-from tools.contribution_gate.evidence import (
-    exact_source_reference, required, verified_artifact, verified_sources
-)
+def install_repo_import_path(repo_root):
+    if repo_root is None:
+        raise ValueError("Missing repo_root")
+    sys.path.insert(0, str(Path(repo_root).resolve()))
 
 def map_provenance(stream, sources_manifest, *, repo_root=None):
+    from tools.contribution_gate.evidence import (
+        exact_source_reference, required, verified_artifact, verified_sources
+    )
     sources = verified_sources(sources_manifest, repo_root)
     senses = {}
     seen = set()
@@ -102,6 +108,7 @@ def main(argv=None):
     p.add_argument("--repo-root", required=True)
     a = p.parse_args(argv)
     try:
+        install_repo_import_path(a.repo_root)
         with open(a.sources, encoding="utf-8") as f:
             ledger = json.load(f)
         if a.translations == "-":
