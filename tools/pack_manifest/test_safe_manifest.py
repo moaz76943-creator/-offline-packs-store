@@ -90,9 +90,18 @@ class ManifestTests(unittest.TestCase):
 
     def test_safe_diff_requires_manual_id_review(self):
         old=self.generate();new=json.loads(json.dumps(old));new['packs'][0]['archive_sha256']='d'*64
+        new['packs'][0]['sqlite_sha256']='e'*64
         diff=m.diff(old,new)
         self.assertEqual(diff['changed_pending_stable_id_review'],['ar'])
         self.assertFalse(diff['safe_to_apply'])
+
+    def test_safe_diff_skips_metadata_only_changes(self):
+        old=self.generate();new=json.loads(json.dumps(old))
+        new['packs'][0]['archive_sha256']='d'*64
+        new['packs'][0]['artifact_path']='packs/renamed.pack.gz'
+        diff=m.diff(old,new)
+        self.assertEqual(diff['unchanged'],['ar'])
+        self.assertEqual(diff['changed_pending_stable_id_review'],[])
 
     def test_repeat_immutable_and_collision(self):
         val=self.generate();p=m.persist(self.root,val)
