@@ -221,5 +221,45 @@ class TestReviewStateMachine(unittest.TestCase):
         with self.assertRaises(PermissionError):
             self.machine.complete_validation("sub_conflict", "val2", token_wrong)
 
+    def test_enqueue_manifest(self):
+        manifest_path = self.root / "manifest.json"
+
+        test_artifact2 = self.artifact_dir / "test2.json"
+        test_artifact2.write_bytes(b'{"hello": "world2"}')
+        test_hash2 = sha256(test_artifact2)
+
+        manifest_data = {
+            "added": [
+                {
+                    "submission_id": "sub_enqueue_1",
+                    "content_hash": self.test_hash,
+                    "metadata": self.metadata,
+                    "artifact": str(self.test_artifact)
+                }
+            ],
+            "updated": [
+                {
+                    "submission_id": "sub_enqueue_2",
+                    "content_hash": test_hash2,
+                    "metadata": self.metadata,
+                    "artifact": str(test_artifact2)
+                }
+            ]
+        }
+        manifest_path.write_text(json.dumps(manifest_data), encoding="utf-8")
+
+        results = self.machine.enqueue_manifest(manifest_path)
+        self.assertEqual(len(results), 2)
+
+        res1 = self.machine._read("sub_enqueue_1")
+        self.assertIsNotNone(res1)
+        self.assertEqual(res1["state"], ReviewState.SUBMITTED.value)
+        self.assertEqual(res1["content_hash"], self.test_hash)
+
+        res2 = self.machine._read("sub_enqueue_2")
+        self.assertIsNotNone(res2)
+        self.assertEqual(res2["state"], ReviewState.SUBMITTED.value)
+        self.assertEqual(res2["content_hash"], test_hash2)
+
 if __name__ == '__main__':
     unittest.main()

@@ -242,3 +242,27 @@ class ReviewStateMachine:
             self.verify(data, "VALIDATE", val["id"], val["token"], self.validator_keys)
             self.verify(data, "APPROVE", rev["id"], rev["token"], self.reviewer_keys)
             return data
+
+    def enqueue_manifest(self, manifest_path):
+        path = Path(manifest_path).resolve()
+        if path.is_symlink() or not path.is_file() or path.stat().st_size > 10 * 1024 * 1024:
+            raise ValueError("unsafe or oversized manifest")
+
+        try:
+            manifest = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            raise ValueError("invalid manifest JSON")
+
+        results = []
+        for key in ("added", "updated"):
+            for item in manifest.get(key, []):
+                sub_id = item.get("submission_id") or item.get("id")
+                hsh = item.get("content_hash") or item.get("sha256")
+                meta = item.get("metadata")
+                artifact = item.get("artifact") or item.get("path")
+
+                if not sub_id or not hsh or not meta or not artifact:
+                    raise ValueError("incomplete manifest item")
+
+                results.append(self.submit(sub_id, hsh, meta, artifact))
+        return results
