@@ -63,10 +63,83 @@ class LexicalSchemaTest(unittest.TestCase):
 
     def test_stable_identity_compatibility(self):
         changed=copy.deepcopy(self.data)
+        # 1. Modifying unpinned lexeme field is valid
         changed['lexemes'][0]['surface']='Häuschen'
         self.assertTrue(verify_compatible(self.data,changed))
+
+        # 2. Modifying unpinned sense field is valid
+        changed_sense = copy.deepcopy(self.data)
+        changed_sense['senses'][0]['definition'] = 'A new definition'
+        self.assertTrue(verify_compatible(self.data, changed_sense))
+
+        # 3. document_id mismatch raises LexicalContractError
+        changed_doc = copy.deepcopy(self.data)
+        changed_doc['document_id'] = 'doc.other'
+        with self.assertRaisesRegex(LexicalContractError, 'document_id changed'):
+            verify_compatible(self.data, changed_doc)
+
+        # 4. Lexeme removal raises LexicalContractError
+        removed_lexeme = copy.deepcopy(self.data)
+        # we need to remove the first lexeme, but it's lex.de.haus.
+        # it is used in sense.de.haus, which is used in translations and examples.
+        # To avoid schema validation errors during `verify_compatible`, we can remove everything using it,
+        # or we just let it fail on "orphan sense", but `verify_compatible` calls `validate(updated)`.
+        # To strictly test verify_compatible's logic for removal, we should remove it, and all its references,
+        # BUT verify_compatible expects validate(updated) to pass.
+        # wait, if we remove all its references, validate(updated) will pass!
+        removed_lexeme['lexemes'].pop(0)
+        removed_lexeme['senses'] = [s for s in removed_lexeme['senses'] if s['lexeme_id'] != 'lex.de.haus']
+        removed_lexeme['translations'] = [t for t in removed_lexeme['translations'] if 'sense.de.haus' not in (t['from_sense_id'], t['to_sense_id'])]
+        removed_lexeme['examples'] = [e for e in removed_lexeme['examples'] if e['sense_id'] != 'sense.de.haus']
+        with self.assertRaisesRegex(LexicalContractError, 'breaking removal'):
+            verify_compatible(self.data, removed_lexeme)
+
+        # 5. Sense removal raises LexicalContractError
+        removed_sense = copy.deepcopy(self.data)
+        removed_sense['senses'].pop(0)
+        removed_sense['translations'] = [t for t in removed_sense['translations'] if 'sense.de.haus' not in (t['from_sense_id'], t['to_sense_id'])]
+        removed_sense['examples'] = [e for e in removed_sense['examples'] if e['sense_id'] != 'sense.de.haus']
+        with self.assertRaisesRegex(LexicalContractError, 'breaking removal'):
+            verify_compatible(self.data, removed_sense)
+
+        # Modifying pinned lexeme fields raises LexicalContractError ('language', 'script', 'lemma', 'pos')
+        # lemma (existing)
         changed['lexemes'][0]['lemma']='Häuschen'
         with self.assertRaises(LexicalContractError):verify_compatible(self.data,changed)
+
+        # language
+        changed_lang = copy.deepcopy(self.data)
+        changed_lang['lexemes'][0]['language'] = 'fr'
+        # To bypass example language mismatch and test `verify_compatible`, we remove the example
+        changed_lang['examples'] = [e for e in changed_lang['examples'] if e['example_id'] != 'ex.de.haus']
+        with self.assertRaisesRegex(LexicalContractError, 'stable identity reassignment'):
+            verify_compatible(self.data, changed_lang)
+
+        # script
+        changed_script = copy.deepcopy(self.data)
+        changed_script['lexemes'][0]['script'] = 'Arab'
+        with self.assertRaisesRegex(LexicalContractError, 'stable identity reassignment'):
+            verify_compatible(self.data, changed_script)
+
+        # pos
+        changed_pos = copy.deepcopy(self.data)
+        changed_pos['lexemes'][0]['pos'] = 'noun' if changed_pos['lexemes'][0]['pos'] != 'noun' else 'verb'
+        with self.assertRaisesRegex(LexicalContractError, 'stable identity reassignment'):
+            verify_compatible(self.data, changed_pos)
+
+        # Modifying pinned sense fields raises LexicalContractError ('lexeme_id', 'concept_id')
+        # lexeme_id
+        changed_sense_lex = copy.deepcopy(self.data)
+        changed_sense_lex['senses'][0]['lexeme_id'] = changed_sense_lex['senses'][1]['lexeme_id']
+        with self.assertRaisesRegex(LexicalContractError, 'stable identity reassignment'):
+            verify_compatible(self.data, changed_sense_lex)
+
+        # concept_id
+        changed_concept = copy.deepcopy(self.data)
+        changed_concept['senses'][0]['concept_id'] = 'concept.other'
+        with self.assertRaisesRegex(LexicalContractError, 'stable identity reassignment'):
+            verify_compatible(self.data, changed_concept)
+
         with self.assertRaises(LexicalContractError):verify_compatible(self.data,{'contract_version':'9.0.0'})
 
 
