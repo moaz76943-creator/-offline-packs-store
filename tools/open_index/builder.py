@@ -34,6 +34,9 @@ def is_tokenizer_supported(tokenizer_name):
 
 
 def build_index(db_path):
+    if not os.access(os.getcwd(), os.W_OK):
+        raise IndexBuilderError('UNAUTHORIZED_WORKSPACE')
+
     path = Path(db_path).resolve()
     if not path.is_file():
         raise IndexBuilderError(f'Input database not found: {path}')
@@ -126,6 +129,10 @@ def build_index(db_path):
                     'SELECT 1 FROM lexicon_fts WHERE rowid=?', (first_rowid,)
                 ).fetchone():
                     raise IndexBuilderError('FTS5 short-token row missing')
+
+            integrity = db.execute('PRAGMA integrity_check(lexicon_fts)').fetchone()
+            if not integrity or integrity[0] != 'ok':
+                raise IndexBuilderError('FTS5 integrity check failed')
 
             db.commit()
 

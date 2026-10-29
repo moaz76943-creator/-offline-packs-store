@@ -134,6 +134,42 @@ class TestIndexBuilder(unittest.TestCase):
         self.assertFalse(staged_path.exists())
         self.assertTrue(self.db_path.exists())
 
+    @patch('os.access')
+    def test_unauthorized_workspace(self, mock_access):
+        mock_access.return_value = False
+        with self.assertRaisesRegex(IndexBuilderError, 'UNAUTHORIZED_WORKSPACE'):
+            build_index(self.db_path)
+
+    def test_integrity_check_failure(self):
+        setup_dummy_db(self.db_path, 'eng', ['test'])
+        # Since sqlite3.Connection is immutable, we patch sqlite3.connect to return a proxy object
+        original_connect = sqlite3.connect
+
+        class ProxyConnection:
+            def __init__(self, conn):
+                self._conn = conn
+            def __getattr__(self, name):
+                return getattr(self._conn, name)
+            def execute(self, sql, *args, **kwargs):
+                if sql.startswith('PRAGMA integrity_check'):
+                    class MockCursor:
+                        def fetchone(self): return ('error',)
+                        def fetchall(self): return [('error',)]
+                    return MockCursor()
+                return self._conn.execute(sql, *args, **kwargs)
+            def close(self):
+                self._conn.close()
+
+        def mock_connect_proxy(*args, **kwargs):
+            # Check if it's the memory DB used for capability check
+            if len(args) > 0 and args[0] == ':memory:':
+                return original_connect(*args, **kwargs)
+            return ProxyConnection(original_connect(*args, **kwargs))
+
+        with patch('sqlite3.connect', new=mock_connect_proxy):
+            with self.assertRaisesRegex(IndexBuilderError, 'FTS5 integrity check failed'):
+                build_index(self.db_path)
+
 
 if __name__ == '__main__':
     unittest.main()
