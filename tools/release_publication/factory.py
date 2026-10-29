@@ -9,6 +9,19 @@ import subprocess
 import sys
 from pathlib import Path
 
+
+try:
+    from tools.release_validation.validator import validate_artifact
+    from tools.provenance_release.compiler import ProvenanceCompiler
+    from tools.visual_lexicon.core import decode_token
+except ImportError:
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+    from tools.release_validation.validator import validate_artifact
+    from tools.provenance_release.compiler import ProvenanceCompiler
+    from tools.visual_lexicon.core import decode_token
+
 MAX_FILE_SIZE = 100 * 1024 * 1024
 
 def file_hash(path):
@@ -80,32 +93,58 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
         verify_publication_eligibility(repo_root)
         verify_publication_authorization(repo_root)
 
+    registry_path = repo_root / "catalog" / "language_registry.v1.json"
+    valid_languages = set()
+    if registry_path.is_file():
+        try:
+            reg = json.loads(registry_path.read_text())
+            valid_languages = {l['code'] for l in reg.get('languages', [])}
+        except Exception:
+            pass
+
     # verify all gates and files
     for entry in artifacts:
-        path = (repo_root / entry['path']).resolve()
+        if check_auth:
+            reasons = validate_artifact(entry, repo_root)
+            if reasons:
+                raise ValueError(f"Artifact {entry.get('id', 'unknown')} failed validation: {reasons}")
+
+        path_str = entry.get('path')
+        if not path_str:
+            raise ValueError("Missing path")
+
+        path = (repo_root / path_str).resolve()
         try:
              path.relative_to(repo_root)
         except ValueError:
              raise ValueError("Path traversal detected")
 
         if not path.is_file():
-            raise ValueError(f"Artifact {entry['path']} does not exist")
+            raise ValueError(f"Artifact {path_str} does not exist")
         if path.is_symlink():
             raise ValueError("Artifacts cannot be symlinks")
         if path.stat().st_size > MAX_FILE_SIZE:
             raise ValueError("Artifact exceeds size limit")
         actual_hash = file_hash(path)
-        if actual_hash != entry['sha256']:
-            raise ValueError(f"Hash mismatch for {entry['path']}")
+        if actual_hash != entry.get('sha256'):
+            raise ValueError(f"Hash mismatch for {path_str}")
 
-        if not (entry['path'].endswith('.pack.gz') or entry['path'].endswith('.vct')):
+        if not (path_str.endswith('.pack.gz') or path_str.endswith('.vct')):
              raise ValueError("Unsupported format")
 
-        if check_auth and entry['path'].endswith('.pack.gz'):
+        if path_str.endswith('.pack.gz'):
              lang = entry.get('language')
              if not lang:
                  raise ValueError("Language required for pack conformance check")
-             verify_pack_conformance(repo_root, path, entry['sha256'], lang)
+             if check_auth and valid_languages and lang not in valid_languages:
+                 raise ValueError(f"Unapproved language: {lang}")
+             if check_auth:
+                 verify_pack_conformance(repo_root, path, entry['sha256'], lang)
+        elif path_str.endswith('.vct'):
+             try:
+                 decode_token(path.read_bytes())
+             except ValueError as e:
+                 raise ValueError(f"Invalid compact semantic asset: {e}")
 
     if not dry_run:
         # Atomic staging using a temporary directory, replacing target on success
@@ -115,15 +154,16 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
         tmp_path = Path(tmp_dir)
         try:
             for entry in artifacts:
-                src = (repo_root / entry['path']).resolve()
+                path_str = entry['path']
+                src = (repo_root / path_str).resolve()
                 dst = tmp_path / src.name
                 shutil.copy2(src, dst)
 
                 # Write attribution/provenance manifest preserving versions
                 manifest = tmp_path / f"{src.name}.manifest.json"
                 manifest.write_text(json.dumps({
-                    "source": str(entry['path']),
-                    "sha256": entry['sha256'],
+                    "source": path_str,
+                    "sha256": entry.get('sha256'),
                     "language": entry.get('language', 'unknown'),
                     "version": entry.get('version', '0.0.0'),
                     "schema": entry.get('schema', 'v2'),
@@ -131,6 +171,17 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
                     "attribution": entry.get('attribution', 'No attribution provided'),
                     "published": True
                 }, indent=2) + "\n")
+
+            if check_auth:
+                ledger = repo_root / 'legal/ledger/sources.json'
+                daily = repo_root / 'legal/ledger/daily'
+                if ledger.is_file() and daily.is_dir():
+                    compiler = ProvenanceCompiler(repo_root, ledger, daily)
+                    manifest_out = tmp_path / 'release_provenance.json'
+                    notice_out = tmp_path / 'NOTICE.txt'
+                    statuses = compiler.compile(manifest_out, notice_out)
+                    if statuses.get('invalid') or statuses.get('blocked'):
+                        raise ValueError("Provenance compilation failed with invalid or blocked candidates")
 
             # preserve last verified if exists
             if target.exists():
