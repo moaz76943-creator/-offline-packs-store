@@ -14,6 +14,16 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+def is_candidate_qualified(pr_record):
+    title = str(pr_record.get('title', ''))
+    body = str(pr_record.get('body', ''))
+    if '[skip ci]' in title.lower() or '[skip ci]' in body.lower():
+        return False, 'SKIP_CI_FLAG'
+    if pr_record.get('isDraft', False) or pr_record.get('draft', False):
+        return False, 'DRAFT_STATUS'
+    return True, 'QUALIFIED'
+
+
 REPO = 'moaz76943-creator/-offline-packs-store'
 SHA = re.compile(r'[0-9a-f]{40}\Z')
 INTEGRATION_CONFIG = Path(__file__).with_name('approved.json')
