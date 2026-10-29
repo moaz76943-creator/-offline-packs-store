@@ -5,11 +5,11 @@ import json
 from io import StringIO
 
 from tools.lexicon_sanitizer.cli import process_stream
-from tools.lexicon_sanitizer.engine import SanitizerEngine
+from tools.lexicon_sanitizer.engine import SanitizerEngine, DEFAULT_REGISTRY_PATH
 
 class TestCLI(unittest.TestCase):
     def setUp(self):
-        self.engine = SanitizerEngine(registry_path="catalog/language_registry.v1.json")
+        self.engine = SanitizerEngine(registry_path=DEFAULT_REGISTRY_PATH)
         # Ensure en is allowed
         self.engine.valid_languages.add("en")
 
