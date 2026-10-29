@@ -1,29 +1,21 @@
 {
-  "accepted_rows": 11,
+  "accepted_rows": 3,
   "outcomes": [
-    {
-      "accepted_rows": 1,
-      "fetched_entities": 3,
-      "rejected_entities": 2,
-      "search_offset": 0,
-      "status": "FETCHED",
-      "wikidata": "Q425278"
-    },
     {
       "accepted_rows": 2,
       "fetched_entities": 2,
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q3014419"
+      "wikidata": "Q2826051"
     },
     {
-      "accepted_rows": 6,
-      "fetched_entities": 6,
+      "accepted_rows": 0,
+      "fetched_entities": 0,
       "rejected_entities": 0,
       "search_offset": 0,
-      "status": "FETCHED",
-      "wikidata": "Q604079"
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q56297455"
     },
     {
       "accepted_rows": 1,
@@ -31,15 +23,39 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q1520693"
+      "wikidata": "Q104776527"
     },
     {
-      "accepted_rows": 1,
-      "fetched_entities": 1,
+      "accepted_rows": 0,
+      "fetched_entities": 0,
       "rejected_entities": 0,
       "search_offset": 0,
-      "status": "FETCHED",
-      "wikidata": "Q7622361"
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q16572092"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q1681455"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q1392899"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q107538166"
     },
     {
       "accepted_rows": 0,
@@ -48,30 +64,12 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "SOURCE_ERROR",
-      "wikidata": "Q901731"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "reason": "HTTPError:429",
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "SOURCE_ERROR",
-      "wikidata": "Q1970335"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "reason": "HTTPError:429",
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "SOURCE_ERROR",
-      "wikidata": "Q947638"
+      "wikidata": "Q104776285"
     }
   ],
   "production_publication": false,
   "retrieval_date": "2026-10-29",
   "schema_version": "1.0.0",
   "source": "harvest-wikidata",
-  "source_errors": 3
+  "source_errors": 1
 }
