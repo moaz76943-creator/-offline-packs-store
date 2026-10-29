@@ -4,80 +4,287 @@
   "title": "Public multilingual directed translation pair contract 1.0.0",
   "type": "object",
   "additionalProperties": false,
-  "required": ["contract_version", "document_id", "lexemes", "senses", "directed_translations"],
+  "required": [
+    "contract_version",
+    "document_id",
+    "lexemes",
+    "senses",
+    "directed_translations"
+  ],
   "properties": {
-    "contract_version": {"const": "1.0.0"},
-    "document_id": {"$ref": "#/$defs/id"},
-    "lexemes": {"type": "array", "items": {"$ref": "#/$defs/lexeme"}},
-    "senses": {"type": "array", "items": {"$ref": "#/$defs/sense"}},
-    "directed_translations": {"type": "array", "items": {"$ref": "#/$defs/directed_translation"}}
+    "contract_version": {
+      "const": "1.0.0"
+    },
+    "document_id": {
+      "$ref": "#/$defs/id"
+    },
+    "lexemes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/lexeme"
+      }
+    },
+    "senses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sense"
+      }
+    },
+    "directed_translations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/directed_translation"
+      }
+    }
   },
   "$defs": {
-    "id": {"type": "string", "pattern": "^[a-z][a-z0-9._:-]{2,127}$"},
-    "text": {"type": "string", "minLength": 1},
-    "optText": {"type": ["string", "null"], "minLength": 1},
-    "lang": {"type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"},
+    "id": {
+      "type": "string",
+      "pattern": "^[a-zA-Z][a-zA-Z0-9._:-]{2,127}$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "optText": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "lang": {
+      "type": "string",
+      "pattern": "^[a-zA-Z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+    },
     "source": {
-      "type": "object", "additionalProperties": false,
-      "required": ["source_id", "origin_url", "publisher", "dataset_version", "retrieval_id", "license_id", "record_locator", "publication_approved", "fixture_only"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "origin_url",
+        "publisher",
+        "dataset_version",
+        "retrieval_id",
+        "license_id",
+        "record_locator",
+        "publication_approved",
+        "fixture_only"
+      ],
       "properties": {
-        "source_id": {"$ref": "#/$defs/id"},
-        "origin_url": {"type": "string", "pattern": "^https://[^\\s]+$"},
-        "publisher": {"$ref": "#/$defs/text"},
-        "dataset_version": {"$ref": "#/$defs/text"},
-        "retrieval_id": {"$ref": "#/$defs/text"},
-        "license_id": {"$ref": "#/$defs/text"},
-        "record_locator": {"$ref": "#/$defs/text"},
-        "artifact_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
-        "publication_approved": {"type": "boolean"},
-        "fixture_only": {"type": "boolean"}
+        "source_id": {
+          "$ref": "#/$defs/id"
+        },
+        "origin_url": {
+          "type": "string",
+          "pattern": "^https://[^\\s]+$"
+        },
+        "publisher": {
+          "$ref": "#/$defs/text"
+        },
+        "dataset_version": {
+          "$ref": "#/$defs/text"
+        },
+        "retrieval_id": {
+          "$ref": "#/$defs/text"
+        },
+        "license_id": {
+          "$ref": "#/$defs/text"
+        },
+        "record_locator": {
+          "$ref": "#/$defs/text"
+        },
+        "artifact_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "publication_approved": {
+          "type": "boolean"
+        },
+        "fixture_only": {
+          "type": "boolean"
+        }
       }
     },
     "level": {
-      "type": "object", "additionalProperties": false,
-      "required": ["framework_id", "level_id"],
-      "properties": {"framework_id": {"$ref": "#/$defs/id"}, "level_id": {"$ref": "#/$defs/text"}, "evidence": {"$ref": "#/$defs/optText"}}
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "framework_id",
+        "level_id"
+      ],
+      "properties": {
+        "framework_id": {
+          "$ref": "#/$defs/id"
+        },
+        "level_id": {
+          "$ref": "#/$defs/text"
+        },
+        "evidence": {
+          "$ref": "#/$defs/optText"
+        }
+      }
     },
     "lexeme": {
-      "type": "object", "additionalProperties": false,
-      "required": ["lexeme_id", "language", "source"],
-      "properties": {"lexeme_id": {"$ref": "#/$defs/id"}, "language": {"$ref": "#/$defs/lang"}, "source": {"$ref": "#/$defs/source"}}
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lexeme_id",
+        "language",
+        "source"
+      ],
+      "properties": {
+        "lexeme_id": {
+          "$ref": "#/$defs/id"
+        },
+        "language": {
+          "$ref": "#/$defs/lang"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        }
+      }
     },
     "sense": {
-      "type": "object", "additionalProperties": false,
-      "required": ["sense_id", "lexeme_id", "concept_id", "definition", "source"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sense_id",
+        "lexeme_id",
+        "concept_id",
+        "definition",
+        "source"
+      ],
       "properties": {
-        "sense_id": {"$ref": "#/$defs/id"},
-        "lexeme_id": {"$ref": "#/$defs/id"},
-        "concept_id": {"$ref": "#/$defs/id"},
-        "definition": {"$ref": "#/$defs/text"},
-        "usage_context": {"$ref": "#/$defs/optText"},
-        "domains": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
-        "subdomains": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
-        "semantic_tags": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
-        "register": {"$ref": "#/$defs/optText"},
-        "frequency": {"type": ["number", "null"], "minimum": 0},
-        "difficulty": {"type": ["number", "null"], "minimum": 0},
-        "levels": {"type": "array", "items": {"$ref": "#/$defs/level"}},
-        "source": {"$ref": "#/$defs/source"}
+        "sense_id": {
+          "$ref": "#/$defs/id"
+        },
+        "lexeme_id": {
+          "$ref": "#/$defs/id"
+        },
+        "concept_id": {
+          "$ref": "#/$defs/id"
+        },
+        "definition": {
+          "$ref": "#/$defs/text"
+        },
+        "usage_context": {
+          "$ref": "#/$defs/optText"
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "subdomains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "semantic_tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "register": {
+          "$ref": "#/$defs/optText"
+        },
+        "frequency": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "difficulty": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "levels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/level"
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        }
       }
     },
     "directed_translation": {
-      "type": "object", "additionalProperties": false,
-      "required": ["pair_id", "source_sense_id", "target_sense_id", "source_language", "target_language", "text", "equivalence", "source"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pair_id",
+        "source_sense_id",
+        "target_sense_id",
+        "source_language",
+        "target_language",
+        "text",
+        "equivalence",
+        "source"
+      ],
       "properties": {
-        "pair_id": {"$ref": "#/$defs/id"},
-        "source_sense_id": {"$ref": "#/$defs/id"},
-        "target_sense_id": {"$ref": "#/$defs/id"},
-        "source_language": {"$ref": "#/$defs/lang"},
-        "target_language": {"$ref": "#/$defs/lang"},
-        "text": {"$ref": "#/$defs/text"},
-        "equivalence": {"enum": ["exact", "approximate", "contextual"]},
-        "context": {"$ref": "#/$defs/optText"},
-        "examples": {"type": "array", "items": {"$ref": "#/$defs/text"}, "uniqueItems": true},
-        "domains": {"type": "array", "items": {"$ref": "#/$defs/id"}, "uniqueItems": true},
-        "confidence_evidence": {"$ref": "#/$defs/optText"},
-        "source": {"$ref": "#/$defs/source"}
+        "pair_id": {
+          "$ref": "#/$defs/id"
+        },
+        "source_sense_id": {
+          "$ref": "#/$defs/id"
+        },
+        "target_sense_id": {
+          "$ref": "#/$defs/id"
+        },
+        "source_language": {
+          "$ref": "#/$defs/lang"
+        },
+        "target_language": {
+          "$ref": "#/$defs/lang"
+        },
+        "text": {
+          "$ref": "#/$defs/text"
+        },
+        "equivalence": {
+          "enum": [
+            "exact",
+            "approximate",
+            "contextual"
+          ]
+        },
+        "context": {
+          "$ref": "#/$defs/optText"
+        },
+        "examples": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text"
+          },
+          "uniqueItems": true
+        },
+        "domains": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        },
+        "confidence_evidence": {
+          "$ref": "#/$defs/optText"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        }
       }
     }
   }

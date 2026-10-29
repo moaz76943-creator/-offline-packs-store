@@ -81,12 +81,44 @@
         "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
         "source_id": "fixture.synthetic.v1"
       }
+    },
+    {
+      "lexeme_id": "lex.en-US.truck",
+      "language": "en-US",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "lex.en-US.truck",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    },
+    {
+      "lexeme_id": "lex.en-GB.lorry",
+      "language": "en-GB",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "lex.en-GB.lorry",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
     }
   ],
   "senses": [
     {
       "concept_id": "concept.walk",
-      "definition": "sich zu Fuß bewegen",
+      "definition": "sich zu Fu\u00df bewegen",
       "lexeme_id": "lex.de.gehen",
       "sense_id": "sense.de.gehen",
       "source": {
@@ -104,7 +136,7 @@
     },
     {
       "concept_id": "concept.bench",
-      "definition": "Sitzmöbel für mehrere Personen",
+      "definition": "Sitzm\u00f6bel f\u00fcr mehrere Personen",
       "lexeme_id": "lex.de.bank",
       "sense_id": "sense.de.bank.seat",
       "source": {
@@ -191,6 +223,42 @@
         "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
         "source_id": "fixture.synthetic.v1"
       }
+    },
+    {
+      "concept_id": "concept.large_motor_vehicle",
+      "definition": "a large, heavy motor vehicle for transporting goods, materials, or troops",
+      "lexeme_id": "lex.en-US.truck",
+      "sense_id": "sense.en-US.truck",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "sense.en-US.truck",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    },
+    {
+      "concept_id": "concept.large_motor_vehicle",
+      "definition": "a large, heavy motor vehicle for transporting goods or troops; a truck",
+      "lexeme_id": "lex.en-GB.lorry",
+      "sense_id": "sense.en-GB.lorry",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "sense.en-GB.lorry",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
     }
   ],
   "directed_translations": [
@@ -260,6 +328,48 @@
         "publication_approved": false,
         "publisher": "Directed pair self-authored tests",
         "record_locator": "pair.de.en.gehen",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    },
+    {
+      "pair_id": "pair.en-US.en-GB.truck",
+      "source_sense_id": "sense.en-US.truck",
+      "target_sense_id": "sense.en-GB.lorry",
+      "source_language": "en-US",
+      "target_language": "en-GB",
+      "text": "lorry",
+      "equivalence": "exact",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "pair.en-US.en-GB.truck",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    },
+    {
+      "pair_id": "pair.en-GB.en-US.lorry",
+      "source_sense_id": "sense.en-GB.lorry",
+      "target_sense_id": "sense.en-US.truck",
+      "source_language": "en-GB",
+      "target_language": "en-US",
+      "text": "truck",
+      "equivalence": "exact",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/positive.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "pair.en-GB.en-US.lorry",
         "retrieval_id": "repository:standards/directed_pairs/fixtures/positive.json",
         "source_id": "fixture.synthetic.v1"
       }
