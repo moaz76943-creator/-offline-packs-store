@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-10-21",
+  "retrieval_date": "2026-10-29",
   "rows": [
     {
       "concept_id": "concept.q906936",
@@ -24,7 +24,7 @@
         "Q906936"
       ],
       "record_id": "L2938",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2529590323",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -33,18 +33,54 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q906936"
+    },
+    {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "apricot"
+      ],
+      "language": "de",
+      "lemma": "apricot",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1444997",
+      "pos": "",
+      "qids": [
+        "Q1324818"
+      ],
+      "record_id": "L1444997",
+      "retrieval_date": "2026-10-29",
+      "revision": "2401069447",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1444997-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
     }
   ],
   "schema_version": "1.0.0",
   "section": "colors",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1324818"
+      "reason": "SourceAPIError",
+      "wikidata": "Q218218"
     },
     {
-      "reason": "HTTPError",
+      "reason": "other_language",
       "wikidata": "Q797446"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q797446"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q43213808"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q533047"
     }
   ],
   "source": "harvest-wikidata"

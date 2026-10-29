@@ -1,0 +1,64 @@
+{
+  "language": "pl",
+  "retrieval_date": "2026-10-29",
+  "rows": [
+    {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "morela",
+        "moreli",
+        "moreli",
+        "morelę",
+        "morelą",
+        "moreli",
+        "morelo",
+        "morele"
+      ],
+      "language": "pl",
+      "lemma": "morela",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L6951",
+      "pos": "",
+      "qids": [
+        "Q37453",
+        "Q3733836",
+        "Q1324818"
+      ],
+      "record_id": "L6951",
+      "retrieval_date": "2026-10-29",
+      "revision": "1766812719",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L6951-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "colors",
+  "skipped": [
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q218218"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q797446"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q797446"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q43213808"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q533047"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,64 @@
+{
+  "language": "nl",
+  "retrieval_date": "2026-10-29",
+  "rows": [
+    {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "abrikoos",
+        "abricoos",
+        "abrikozen",
+        "abricozen",
+        "abrikoosje",
+        "abricoosje",
+        "abrikoosjes",
+        "abricoosjes"
+      ],
+      "language": "nl",
+      "lemma": "abrikoos",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L592880",
+      "pos": "",
+      "qids": [
+        "Q3733836",
+        "Q1324818",
+        "Q37453"
+      ],
+      "record_id": "L592880",
+      "retrieval_date": "2026-10-29",
+      "revision": "2515067424",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L592880-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "colors",
+  "skipped": [
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q218218"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q797446"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q797446"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q43213808"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q533047"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

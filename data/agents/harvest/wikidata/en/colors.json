@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "retrieval_date": "2026-10-25",
+  "retrieval_date": "2026-10-29",
   "rows": [
     {
       "concept_id": "concept.q2778382",
@@ -44,7 +44,7 @@
         "Q906936"
       ],
       "record_id": "L17811",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2528892373",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -70,7 +70,7 @@
         "Q906936"
       ],
       "record_id": "L1587311",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2528891279",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -96,7 +96,7 @@
         "Q5148721"
       ],
       "record_id": "L24869",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-10-29",
       "revision": "2480642420",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -234,26 +234,108 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q901731"
+    },
+    {
+      "concept_id": "concept.q1324818",
+      "forms": [
+        "apricot",
+        "apricots"
+      ],
+      "language": "en",
+      "lemma": "apricot",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L43958",
+      "pos": "",
+      "qids": [
+        "Q3733836",
+        "Q1324818",
+        "Q37453"
+      ],
+      "record_id": "L43958",
+      "retrieval_date": "2026-10-29",
+      "revision": "2560947447",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L43958-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q1324818"
+    },
+    {
+      "concept_id": "concept.q797446",
+      "forms": [
+        "burgundy",
+        "burgundies"
+      ],
+      "language": "en",
+      "lemma": "burgundy",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L58126",
+      "pos": "",
+      "qids": [
+        "Q797446"
+      ],
+      "record_id": "L58126",
+      "retrieval_date": "2026-10-29",
+      "revision": "2561580704",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L58126-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q797446"
+    },
+    {
+      "concept_id": "concept.q797446",
+      "forms": [
+        "burgundy",
+        "burgundier",
+        "burgundiest"
+      ],
+      "language": "en",
+      "lemma": "burgundy",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1402668",
+      "pos": "",
+      "qids": [
+        "Q797446"
+      ],
+      "record_id": "L1402668",
+      "retrieval_date": "2026-10-29",
+      "revision": "2289878840",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L1402668-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q797446"
     }
   ],
   "schema_version": "1.0.0",
   "section": "colors",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q425278"
+      "reason": "SourceAPIError",
+      "wikidata": "Q218218"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q425278"
+      "wikidata": "Q797446"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q797446"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1520693"
+      "wikidata": "Q43213808"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q7622361"
+      "wikidata": "Q533047"
     }
   ],
   "source": "harvest-wikidata"
