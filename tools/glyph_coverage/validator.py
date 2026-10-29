@@ -30,10 +30,25 @@ class FallbackMapping:
     device_rendering_guaranteed: bool
     valid_fallback_families: List[str]
 
+import json
+
 class GlyphCoverageValidator:
     def __init__(self, repo_root: str):
         self.repo_root = repo_root
         self.registry = FontRightsRegistry()
+        self.canonical_scripts = set()
+
+        registry_path = os.path.join(self.repo_root, "catalog", "language_registry.v1.json")
+        try:
+            with open(registry_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if "scripts" in data:
+                    self.canonical_scripts = set(data["scripts"].keys())
+        except Exception:
+            pass
+
+        if self.canonical_scripts.intersection({"Hans", "Hant", "Jpan", "Kore"}):
+            self.canonical_scripts.add("Hani")
 
     def get_font_cmap(self, font_path: str) -> Set[int]:
         try:
@@ -46,7 +61,10 @@ class GlyphCoverageValidator:
         except Exception:
             return set()
 
-    def validate_coverage(self, script: str, font_path: str) -> Dict[str, List[int]]:
+    def validate_coverage(self, script: str, font_path: str) -> dict:
+        if self.canonical_scripts and script not in self.canonical_scripts:
+            return {"status": "REJECT", "supported": [], "unsupported": []}
+
         samples = SCRIPT_SAMPLES.get(script, [])
         samples = samples.copy()
 
@@ -56,7 +74,7 @@ class GlyphCoverageValidator:
         cmap = self.get_font_cmap(font_path)
         supported = [cp for cp in samples if cp in cmap]
         unsupported = [cp for cp in samples if cp not in cmap]
-        return {"supported": supported, "unsupported": unsupported}
+        return {"status": "PASS", "supported": supported, "unsupported": unsupported}
 
     def generate_fallback_mapping(self, script: str, assets: List[FontAsset]) -> FallbackMapping:
         samples = SCRIPT_SAMPLES.get(script, [])
@@ -84,6 +102,9 @@ class GlyphCoverageValidator:
                 continue
 
             coverage = self.validate_coverage(script, full_path)
+
+            if coverage.get("status") == "REJECT":
+                continue
 
             if not coverage["unsupported"]:
                 valid_families.append(asset.family)

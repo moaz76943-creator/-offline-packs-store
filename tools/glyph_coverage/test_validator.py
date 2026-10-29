@@ -1,4 +1,5 @@
 import unittest
+"""Tests for glyph coverage validation and font fallback."""
 import os
 import hashlib
 from typing import List
