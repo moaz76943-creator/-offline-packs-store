@@ -205,5 +205,23 @@ class TestSanitizerEngine(unittest.TestCase):
         status, _, _ = self.engine.validate_and_repair(record)
         self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
 
+    def test_empty_lexeme_id(self):
+        record = self.create_valid_record()
+        record["lexemes"][0]["lexeme_id"] = "   "
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+    def test_empty_sense_id(self):
+        record = self.create_valid_record()
+        record["senses"][0]["sense_id"] = "   "
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
+    def test_empty_translation_id(self):
+        record = self.create_valid_record()
+        record["translations"][0]["translation_id"] = "   "
+        status, _, _ = self.engine.validate_and_repair(record)
+        self.assertEqual(status, SanitizerEngine.STATUS_QUARANTINE)
+
 if __name__ == '__main__':
     unittest.main()
