@@ -10,10 +10,16 @@ import logging
 import sys
 from pathlib import Path
 
-# We reuse the logic from legal.ledger.admission as much as possible for validation.
-from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
+import os
 
 logger = logging.getLogger(__name__)
+
+def install_repo_import_path(root):
+    """Put the checkout on sys.path so a direct script run can import legal.*."""
+    resolved = str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
 
 class ProvenanceCompiler:
     def __init__(self, root: Path, ledger_path: Path, daily_dir: Path):
@@ -26,6 +32,8 @@ class ProvenanceCompiler:
         Compile provenance and output release_provenance.json and NOTICE.txt.
         Returns a dictionary of statuses for tests.
         """
+        from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
+
         try:
             with open(self.ledger_path, 'r', encoding='utf-8') as f:
                 ledger = json.load(f)
@@ -165,7 +173,11 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        required_terms = [sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', '')]
+                        if src.get('author'):
+                            required_terms.append(src.get('author'))
+
+                        if not all(term in content for term in required_terms):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:
@@ -233,6 +245,11 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     root = args.repo_root.resolve()
+
+    if not os.access(root, os.R_OK | os.X_OK):
+        raise PermissionError("Repository root requires read and execute access.")
+
+    install_repo_import_path(root)
     ledger_path = args.ledger or root / 'legal/ledger/sources.json'
     daily_dir = args.daily_dir or root / 'legal/ledger/daily'
 
