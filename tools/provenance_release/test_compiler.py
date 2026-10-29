@@ -255,5 +255,31 @@ class TestProvenanceCompiler(unittest.TestCase):
         self.assertEqual(statuses['approved'], [])
         self.assertEqual(self._compile_exit(), 1)
 
+    def test_unauthorized_workspace_blocks(self):
+        import os
+        from unittest.mock import patch
+        with patch('os.access', return_value=False):
+            with self.assertRaisesRegex(PermissionError, "UNAUTHORIZED_WORKSPACE"):
+                ProvenanceCompiler(self.root, self.ledger_path, self.daily_dir)
+
+    def test_direct_cli_imports_without_pythonpath(self):
+        import subprocess, sys, os
+        script = Path(__file__).resolve().parent / 'compiler.py'
+        env = os.environ.copy()
+        env.pop('PYTHONPATH', None)
+        env['PYTHONDONTWRITEBYTECODE'] = '1'
+
+        # We need a proper manifest and ledger setup for the CLI to run without failing setup
+        self.write_ledger([self.base_source])
+        self.write_daily([self.base_candidate])
+
+        result = subprocess.run(
+            [sys.executable, str(script), '--repo-root', str(self.root),
+             '--ledger', str(self.ledger_path), '--daily-dir', str(self.daily_dir),
+             '--manifest-out', str(self.manifest_out), '--notice-out', str(self.notice_out)],
+            cwd='/tmp', env=env, capture_output=True, text=True, check=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn('No module named', result.stdout + result.stderr)
+
 if __name__ == '__main__':
     unittest.main()
