@@ -139,16 +139,28 @@ class ProvenanceCompiler:
                     is_valid = False
                     block_reason = "unsupported output license"
 
-                copyleft = {s['license']['id'] for s in resolved_sources if s.get('license', {}).get('id') in OBLIGATIONS}
+                strict_copyleft_licenses = {
+                    lic for lic, obs in OBLIGATIONS.items()
+                    if 'sharealike' in obs or 'history' in obs
+                }
+
+                copyleft = {
+                    s['license']['id'] for s in resolved_sources
+                    if s.get('license', {}).get('id') in strict_copyleft_licenses
+                }
                 if len(copyleft) > 1:
                     is_valid = False
                     block_reason = "mixed licensing conflict"
 
                 for src in resolved_sources:
                     lid = src.get('license', {}).get('id')
-                    if lid in OBLIGATIONS and out_lic != lid:
+                    if lid in strict_copyleft_licenses and out_lic != lid:
                         is_valid = False
                         block_reason = "relicensing conflict"
+                    elif lid in OBLIGATIONS and lid not in strict_copyleft_licenses:
+                        if out_lic in ('PUBLIC-DOMAIN', 'CC0-1.0'):
+                            is_valid = False
+                            block_reason = "relicensing conflict: dropping obligations"
 
                 entry_notices = entry.get('notices', {})
                 for src in resolved_sources:
