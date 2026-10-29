@@ -1,3 +1,24 @@
+
+def verify_required_gate_check(check_runs, required_name='public-pr-merge-gate'):
+    """Strictly validates that required gate check is present and successful (no absent/skipped pass)."""
+    if not check_runs:
+        return False, 'ABSENT_CHECK_RUNS: Zero checks recorded on HEAD commit'
+    
+    found = False
+    for r in check_runs:
+        name = r.get('name', '')
+        if required_name in name:
+            found = True
+            conclusion = r.get('conclusion', '')
+            status = r.get('status', '')
+            if status != 'completed':
+                return False, f'INCOMPLETE_REQUIRED_CHECK: status={status}'
+            if conclusion != 'success':
+                return False, f'NON_SUCCESS_REQUIRED_CHECK: conclusion={conclusion}'
+            return True, 'REQUIRED_CHECK_PASSED'
+            
+    return False, f'MISSING_REQUIRED_CHECK: {required_name} not found in check runs'
+
 """Read-only, fail-closed proof of active main rules before automatic writes."""
 import json
 import os
