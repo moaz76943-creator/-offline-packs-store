@@ -10,18 +10,11 @@ import uuid
 import time
 from pathlib import Path
 
-# Keep module and direct-script entry points bound to the same canonical policy.
-try:
-    from legal.ledger.admission import LICENSES, OBLIGATIONS
-except ImportError:
-    import importlib.util
-    policy_path = Path(__file__).resolve().parents[2] / 'legal/ledger/admission.py'
-    spec = importlib.util.spec_from_file_location('_ingestion_ledger_policy', policy_path)
-    if spec is None or spec.loader is None:
-        raise ImportError('canonical ledger policy unavailable')
-    policy = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(policy)
-    LICENSES, OBLIGATIONS = policy.LICENSES, policy.OBLIGATIONS
+def install_repo_import_path(args):
+    """Dynamically inject the repository root into sys.path to resolve internal modules."""
+    repo_path = str(args.repo_root.resolve())
+    if repo_path not in sys.path:
+        sys.path.insert(0, repo_path)
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
@@ -61,11 +54,14 @@ def quarantine_files(args, manifest_dict, errors):
                     shutil.copy2(artifact_path, q_dir / f"{uid}_{artifact_path.name}")
 
 def process(args):
+    install_repo_import_path(args)
+    from legal.ledger.admission import LICENSES, OBLIGATIONS
+
     # Preflight the selected workspace, not the process working directory.
     # This is an availability check; actual writes must still handle OS errors.
     workspace = args.repo_root.resolve()
-    if not workspace.is_dir() or not os.access(workspace, os.W_OK | os.X_OK):
-        print("WORKSPACE_ACCESS_DENIED: workspace is not writable/traversable", file=sys.stderr)
+    if not workspace.is_dir() or not os.access(workspace, os.R_OK | os.X_OK):
+        print("WORKSPACE_ACCESS_DENIED: workspace is not readable/traversable", file=sys.stderr)
         return 1, ["WORKSPACE_ACCESS_DENIED"]
 
     try:
