@@ -212,6 +212,16 @@ class ContributionTests(unittest.TestCase):
         self.manifest["compliance"] = None
         self.assertEqual(self.check()["status"], "REJECT")
 
+
+    def test_permissive_to_copyleft_sublicensing(self):
+        self._switch_license("CC-BY-2.0-FR", "CC-BY-SA-4.0")
+        result = self.check()
+        self.assertEqual(result["status"], "ACCEPT", result)
+
+    def test_permissive_cannot_relicense_to_public_domain(self):
+        self._switch_license("CC-BY-2.0-FR", "PUBLIC-DOMAIN")
+        self.assertEqual(self.check()["status"], "REJECT")
+
     def test_list_compliance_is_rejected(self):
         self._switch_license("GFDL-1.3-only", "GFDL-1.3-only")
         self.manifest["compliance"] = ["license_copy"]
