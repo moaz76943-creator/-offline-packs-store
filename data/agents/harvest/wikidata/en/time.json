@@ -91,7 +91,7 @@
         "Q7124679"
       ],
       "record_id": "L726560",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-10-29",
       "revision": "2434292531",
       "schema_version": "1.0.0",
       "section": "time",
@@ -116,7 +116,7 @@
         "Q7124679"
       ],
       "record_id": "L1553876",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-10-29",
       "revision": "2459308218",
       "schema_version": "1.0.0",
       "section": "time",
@@ -162,19 +162,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q11756"
+      "wikidata": "Q347066"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q11756"
+      "wikidata": "Q186566"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q11756"
+      "wikidata": "Q5447288"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q55313888"
+      "reason": "HTTPError:429",
+      "wikidata": "Q398085"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2675808"
     }
   ],
   "source": "harvest-wikidata"
