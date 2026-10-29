@@ -25,7 +25,7 @@ class SchemaFixtures(unittest.TestCase):
 
     def test_capabilities_and_unknown_status_are_explicit(self):
         rules = json.loads((BASE / 'feature_overrides.json').read_text(encoding='utf-8'))
-        self.assertEqual(25, len(rules['features']))
+        self.assertEqual(26, len(rules['features']))
         self.assertIn('unknown', rules['status_values'])
         self.assertIn('noun_classes', rules['features'])
         self.assertIn('grammatical_gender', rules['features'])
