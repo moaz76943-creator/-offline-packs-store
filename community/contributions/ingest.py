@@ -10,6 +10,7 @@ import json
 import os
 import re
 import stat
+import sys
 import tarfile
 import tempfile
 import zipfile
@@ -285,6 +286,9 @@ def main(argv=None):
     parser.add_argument("submission", type=Path)
     parser.add_argument("--staging-root", required=True, type=Path)
     args = parser.parse_args(argv)
+    if not os.access(os.getcwd(), os.W_OK):
+        print("REJECTED: unauthorized workspace", file=sys.stderr)
+        return 1
     try:
         print(json.dumps(ingest(args.submission, args.staging_root), sort_keys=True))
         return 0
