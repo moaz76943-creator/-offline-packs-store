@@ -1,14 +1,51 @@
 import re
+import json
+from pathlib import Path
 from typing import Dict, Any, List
 from .schema import VisualAssetMetadata
 
 CONTROL_CHAR_RE = re.compile(r'[\x00-\x1F\x7F]')
 
 class AccessibilityValidator:
+    def __init__(self):
+        self.registry_loaded = False
+        self.registry_error = None
+        self.language_scripts = {}
+
+        try:
+            registry_path = Path(__file__).resolve().parent.parent.parent / "catalog" / "language_registry.v1.json"
+            with open(registry_path, "r", encoding="utf-8") as f:
+                registry_data = json.load(f)
+
+            for lang in registry_data.get("languages", []):
+                lang_id = lang.get("id")
+                scripts = set(lang.get("scripts", []))
+
+                # Add Hani explicitly if Hans, Hant, Jpan, or Kore are present
+                if any(s in scripts for s in ["Hans", "Hant", "Jpan", "Kore"]):
+                    scripts.add("Hani")
+
+                self.language_scripts[lang_id] = scripts
+
+            self.registry_loaded = True
+        except FileNotFoundError:
+            self.registry_error = "Missing language registry file"
+        except Exception as e:
+            self.registry_error = f"Failed to parse language registry: {str(e)}"
+
     def validate_asset(self, asset: VisualAssetMetadata) -> Dict[str, Any]:
         errors = []
         warnings = []
         status = "accepted"
+
+        if not self.registry_loaded:
+            if self.registry_error:
+                errors.append(self.registry_error)
+            return {
+                "status": "rejected",
+                "errors": errors,
+                "warnings": warnings
+            }
 
         concept_id = asset.get("concept_id")
         if not concept_id:
@@ -44,11 +81,17 @@ class AccessibilityValidator:
             return
 
         for label in labels:
-            if not label.get("language"):
+            lang = label.get("language")
+            if not lang:
                 errors.append("Missing language metadata")
+            elif lang not in self.language_scripts:
+                errors.append(f"Unsupported language: {lang}")
 
-            if not label.get("script"):
+            script = label.get("script")
+            if not script:
                 errors.append("Missing script metadata")
+            elif lang in self.language_scripts and script not in self.language_scripts[lang]:
+                errors.append(f"Unsupported script '{script}' for language '{lang}'")
 
             text = label.get("text")
             if not text:

@@ -28,7 +28,7 @@ class TestAccessibilityValidator(unittest.TestCase):
         asset = self.load_fixture("unsupported_scripts.json")
         result = self.validator.validate_asset(asset)
         self.assertEqual(result["status"], "rejected")
-        self.assertIn("Missing script metadata", result["errors"])
+        self.assertIn("Unsupported script 'InvalidScript' for language 'en'", result["errors"])
 
     def test_mismatched_concept(self):
         asset = self.load_fixture("mismatched_concept.json")
