@@ -229,5 +229,71 @@ class ContributionTests(unittest.TestCase):
         save_ledger(self.root, self.ledger)
         self.assertEqual(self.check()["status"], "REJECT")
 
+
+    def test_malformed_contribution(self):
+        self.assertEqual(validate_contribution("not_a_dict", self.root)["status"], "REJECT")
+
+    def test_fixture_asset_identity(self):
+        self.manifest["asset_id"] = "fixture-asset"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_invalid_kind(self):
+        self.manifest["kind"] = "unsupported_kind"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_contradictory_source_identity(self):
+        self.manifest["source_identity"] = "unrelated-source"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_contradictory_source_origin(self):
+        self.manifest["origin_url"] = "https://example.org/other"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_contribution_size_limit(self):
+        import tools.contribution_gate.gate as gate
+        old_max = gate.MAX_BYTES
+        gate.MAX_BYTES = 1
+        try:
+            self.assertEqual(self.check()["status"], "REJECT")
+        finally:
+            gate.MAX_BYTES = old_max
+
+    def test_authorization_not_json(self):
+        self.manifest["contributor_authorization"]["sha256"] = put(self.root, "evidence/auth.txt", b"{not json}")
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_attribution_notice_not_dict(self):
+        self.manifest["attribution_notice"] = "just a string"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_vector_art_artwork_rights_missing(self):
+        self.source["kind"] = "vector_art"
+        save_ledger(self.root, self.ledger)
+        self.manifest["kind"] = "vector_art"
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_main_cli_accept(self):
+        from tools.contribution_gate.gate import main
+        manifest_path = self.root / "manifest.json"
+        import json
+        manifest_path.write_text(json.dumps(self.manifest), encoding="utf-8")
+        self.assertEqual(main([str(manifest_path), "--repo-root", str(self.root)]), 0)
+
+    def test_main_cli_reject(self):
+        from tools.contribution_gate.gate import main
+        manifest_path = self.root / "manifest.json"
+        import json
+        self.manifest["license_id"] = "UNVERIFIED_RIGHTS"
+        manifest_path.write_text(json.dumps(self.manifest), encoding="utf-8")
+        self.assertEqual(main([str(manifest_path), "--repo-root", str(self.root)]), 1)
+
+    def test_main_cli_invalid_manifest(self):
+        from tools.contribution_gate.gate import main
+        manifest_path = self.root / "manifest.json"
+        manifest_path.write_text("{not json}", encoding="utf-8")
+        with self.assertRaises(SystemExit) as cm:
+            main([str(manifest_path), "--repo-root", str(self.root)])
+        self.assertEqual(cm.exception.code, 2)
+
 if __name__ == "__main__":
     unittest.main()
