@@ -63,13 +63,29 @@ def bounded_json_parse(filepath):
         raise ValueError('Pack metadata must be a JSON object')
     return data
 
+
+import copy
+
+def compute_payload_sha256(data):
+    data_copy = copy.deepcopy(data)
+    data_copy.pop('version', None)
+    data_copy.pop('license', None)
+    if isinstance(data_copy.get('header'), dict):
+        data_copy['header'].pop('version', None)
+        data_copy['header'].pop('license', None)
+    serialized = json.dumps(data_copy, sort_keys=True, separators=(',', ':'))
+    return hashlib.sha256(serialized.encode('utf-8')).hexdigest()
+
 def extract_metadata(filepath):
     data = bounded_json_parse(filepath)
+    filename = os.path.basename(filepath)
+    payload_sha256 = compute_payload_sha256(data)
 
     if str(filepath).endswith('.pack.gz'):
-        pack_id = data.get('lang_code') or data.get('header', {}).get('code')
-        if not pack_id:
-            raise ValueError(f"Missing pack identity in {filepath}")
+        pack_id = filename.replace('.pack.gz', '')
+
+        language = data.get('lang_code') or data.get('header', {}).get('code') or ''
+        source = data.get('source') or data.get('header', {}).get('source') or ''
 
         version = data.get('version') or '1.0.0'
 
@@ -82,9 +98,8 @@ def extract_metadata(filepath):
             actual_count = len(data['domains'])
 
         if declared_count is not None and declared_count != actual_count and actual_count > 0:
-            # But what if there is no vocabulary/domains? We just trust terms_count.
-            pass
-        entry_count = declared_count if declared_count is not None else actual_count
+            raise ValueError(f"Mismatched entry counts in {filepath}")
+        entry_count = actual_count if actual_count > 0 else (declared_count if declared_count is not None else 0)
 
         if 'terms_count' in data and 'vocabulary' in data and data['terms_count'] != len(data['vocabulary']):
             raise ValueError(f"Mismatched entry counts in {filepath}")
@@ -100,18 +115,26 @@ def extract_metadata(filepath):
             'version': version,
             'entry_count': entry_count,
             'license': license_id,
-            'dependencies': deps
+            'dependencies': deps,
+            'payload_sha256': payload_sha256,
+            'language': language,
+            'source': source
         }
 
     elif str(filepath).endswith('.vct'):
-        pack_id = data.get('asset_id') or os.path.basename(filepath)
+        pack_id = filename.replace('.vct', '')
         deps = data.get('dependencies', [])
+        language = data.get('lang_code') or data.get('header', {}).get('code') or ''
+        source = data.get('source') or data.get('header', {}).get('source') or ''
         return {
             'pack_id': pack_id,
             'version': data.get('version', '1.0.0'),
             'entry_count': 1,
             'license': data.get('license', 'CC0-1.0'),
-            'dependencies': deps
+            'dependencies': deps,
+            'payload_sha256': payload_sha256,
+            'language': language,
+            'source': source
         }
     else:
         raise ValueError(f"Unsupported file type: {filepath}")
@@ -144,8 +167,16 @@ def build_manifest(base_dir, file_paths, output_manifest_path):
             'size_bytes': size,
             'sha256': sha256,
             'license': meta['license'],
-            'dependencies': meta['dependencies']
+            'dependencies': meta['dependencies'],
+            'payload_sha256': meta['payload_sha256'],
+            'language': meta['language'],
+            'source': meta['source']
         }
+
+    for pack_id, pack_info in manifest['packs'].items():
+        for dep in pack_info.get('dependencies', []):
+            if dep not in manifest['packs']:
+                raise ValueError(f"Missing dependency: {dep} required by {pack_id}")
 
     out_dir = os.path.dirname(output_manifest_path)
     if out_dir:
@@ -185,10 +216,7 @@ def generate_update_plan(old_manifest_path, new_manifest_path):
             plan['added'].append(pack_id)
         else:
             old_meta = old_packs[pack_id]
-            if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies']:
-                plan['unchanged'].append(pack_id)
-            elif old_meta['sha256'] == new_meta['sha256']:
-                # Skip changed metadata with no payload delta
+            if old_meta.get('payload_sha256') == new_meta.get('payload_sha256'):
                 plan['unchanged'].append(pack_id)
             else:
                 plan['updated'].append(pack_id)
