@@ -1,3 +1,46 @@
+
+class CoordinatorPrState:
+    READY = 'READY'
+    SKIPPED = 'SKIPPED'
+    BLOCKED = 'BLOCKED'
+
+def compute_pr_lifecycle_state(pr_record, check_runs=None):
+    """Strictly computes whether a candidate PR is READY, SKIPPED, or BLOCKED."""
+    title = str(pr_record.get('title', ''))
+    body = str(pr_record.get('body', ''))
+    is_draft = pr_record.get('isDraft', False) or pr_record.get('draft', False)
+    mergeable = pr_record.get('mergeable', '')
+    
+    # 1. SKIPPED: Drafts, [skip ci] flags, or zero modified files
+    if is_draft:
+        return CoordinatorPrState.SKIPPED, 'DRAFT_STATUS'
+    if '[skip ci]' in title.lower() or '[skip ci]' in body.lower():
+        return CoordinatorPrState.SKIPPED, 'SKIP_CI_REQUESTED'
+    if pr_record.get('changedFiles', 1) == 0:
+        return CoordinatorPrState.SKIPPED, 'ZERO_CHANGES'
+        
+    # 2. BLOCKED: Merge conflicts or failed checks
+    if mergeable == 'CONFLICTING':
+        return CoordinatorPrState.BLOCKED, 'MERGE_CONFLICT'
+        
+    if check_runs:
+        has_failure = any(r.get('conclusion') == 'failure' for r in check_runs)
+        if has_failure:
+            return CoordinatorPrState.BLOCKED, 'CI_CHECK_FAILURE'
+        
+        # Verify required merge gate presence
+        has_passed_gate = any('public-pr-merge-gate' in r.get('name', '') and r.get('conclusion') == 'success' for r in check_runs)
+        if not has_passed_gate:
+            return CoordinatorPrState.BLOCKED, 'REQUIRED_GATE_NOT_PASSED'
+    else:
+        return CoordinatorPrState.BLOCKED, 'NO_CHECK_RUNS_EVALUATED'
+        
+    # 3. READY: All safety conditions verified
+    if mergeable == 'MERGEABLE':
+        return CoordinatorPrState.READY, 'QUALIFIED_FOR_MERGE'
+        
+    return CoordinatorPrState.BLOCKED, f'UNHANDLED_MERGEABLE_STATE_{mergeable}'
+
 """Fail-closed, exact-SHA public PR integration controller.
 
 No unapproved PR is promoted or merged. Changes are intentionally limited to
