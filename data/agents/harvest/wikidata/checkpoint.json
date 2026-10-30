@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q1088670",
-    "Q902552",
-    "Q4476379",
-    "Q28849258",
-    "Q7696161",
-    "Q82470990",
-    "Q178127",
-    "Q49715516"
+    "Q6052374",
+    "Q19750498",
+    "Q1323511",
+    "Q3303092",
+    "Q892785",
+    "Q2347558",
+    "Q3191950",
+    "Q6673892"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1088670"
+      "wikidata": "Q6052374"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q902552"
+      "wikidata": "Q19750498"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q4476379"
+      "wikidata": "Q1323511"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q28849258"
+      "wikidata": "Q3303092"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7696161"
+      "wikidata": "Q892785"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q82470990"
+      "wikidata": "Q2347558"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q178127"
+      "wikidata": "Q3191950"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q49715516"
+      "wikidata": "Q6673892"
     }
   ],
   "retrieval_date": "2026-10-30",
