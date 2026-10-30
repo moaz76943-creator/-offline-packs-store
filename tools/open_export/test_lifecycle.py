@@ -375,6 +375,64 @@ class SecurityRegression(unittest.TestCase):
         receipt = self.export()
         self.assertFalse(receipt['published'])
 
+    def test_export_semantic_assets(self):
+        from tools.visual_lexicon.core import encode_token
+        token = {
+            "concept_id": "sem1",
+            "version": 1,
+            "viewBox": [0, 0, 100, 100],
+            "paths": ["M0,0 L10,10 Z"],
+            "palette": ["#000", "#FFF"],
+            "semantic_label": "test",
+        }
+        compressed, h = encode_token(token)
+        name, sha = self.stage(content=compressed)
+        self.certify()
+
+        # update metadata
+        self.meta["language"] = "de"
+        self.meta["publisher"] = "P"
+        self.meta["origin_url"] = "http://example.com"
+
+        manifest_item = {
+            "id": "item1",
+            "type": "semantic",
+            "filename": name,
+            "sha256": sha,
+            "submission_id": "item1",
+            "source_id": "src-test",
+            "license": "CC0-1.0",
+            "source_version": "1.0"
+        }
+
+        (self.src / "manifest.json").write_text(json.dumps({"items": [manifest_item]}))
+
+        self.ledger["sources"][0]["kind"] = "vector_art"
+        self.ledger["sources"][0]["publisher"] = "P"
+        self.ledger["sources"][0]["origin_url"] = "http://example.com"
+        (self.root / "legal/ledger/sources.json").write_text(json.dumps(self.ledger))
+
+        # We must resubmit and approve with the new hash and metadata
+        self.machine.submit("item1", sha, self.meta, self.src / name)
+        self.machine.start_validation("item1")
+        data = self.machine._read("item1")
+        self.machine.complete_validation("item1", "validator",
+            sign(self.auth["validator"], self.machine.payload(data, "VALIDATE", "validator")))
+        data = self.machine._read("item1")
+        self.machine.review("item1", "reviewer", True,
+            sign(self.auth["reviewer"], self.machine.payload(data, "APPROVE", "reviewer")))
+        self.machine.mark_published_eligible("item1")
+
+        receipt = self.export()
+        self.assertFalse(receipt["published"])
+
+        release_zip = self.out / "releases" / receipt['release']
+        self.assertTrue(release_zip.exists())
+
+        with zipfile.ZipFile(release_zip) as z:
+            self.assertIn("data/item1.vct", z.namelist())
+            self.assertNotIn("data/item1.bin", z.namelist())
+
     def test_cached_release_revalidates_reversed_translation(self):
         document = {
             'document_id': 'doc.bad',
