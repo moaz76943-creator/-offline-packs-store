@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q5311539",
-    "Q1468073",
-    "Q31836660",
-    "Q7628773",
-    "Q28035229",
-    "Q767942",
-    "Q2395810",
-    "Q111103641"
+    "Q1088670",
+    "Q902552",
+    "Q4476379",
+    "Q28849258",
+    "Q7696161",
+    "Q82470990",
+    "Q178127",
+    "Q49715516"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q5311539"
+      "wikidata": "Q1088670"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1468073"
+      "wikidata": "Q902552"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q31836660"
+      "wikidata": "Q4476379"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7628773"
+      "wikidata": "Q28849258"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q28035229"
+      "wikidata": "Q7696161"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q767942"
+      "wikidata": "Q82470990"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2395810"
+      "wikidata": "Q178127"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q111103641"
+      "wikidata": "Q49715516"
     }
   ],
   "retrieval_date": "2026-10-30",
