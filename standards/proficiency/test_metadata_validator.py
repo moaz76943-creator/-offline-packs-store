@@ -200,6 +200,27 @@ class TestProficiencyValidator(unittest.TestCase):
         }
         self.validator.validate(metadata)
 
+    def test_b2_level(self):
+        metadata = {
+            "schema_version": "1.0.0",
+            "language": "en",
+            "classification_target": "entry",
+            "target_id": "lex.demo",
+            "label_status": "verified",
+            "cefr_level": "B2",
+            "coarse_difficulty": {
+                "beginner": False,
+                "intermediate": True,
+                "advanced": False
+            },
+            "evaluation_method": "published_content_assignment",
+            "source_evidence": {
+                "source_id": "TEST_SOURCE_01",
+                "source_version": "1.0"
+            }
+        }
+        self.validator.validate(metadata)
+
     def test_c1_level(self):
         metadata = {
             "schema_version": "1.0.0",
