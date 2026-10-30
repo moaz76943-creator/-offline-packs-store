@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q1170352",
-    "Q645853",
-    "Q4293688",
-    "Q4008001",
-    "Q101417722",
-    "Q597063",
-    "Q19869544",
-    "Q49469082"
+    "Q108714875",
+    "Q818276",
+    "Q3704871",
+    "Q110095787",
+    "Q16504175",
+    "Q56175545",
+    "Q2554220",
+    "Q59694879"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1170352"
+      "wikidata": "Q108714875"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q645853"
+      "wikidata": "Q818276"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q4293688"
+      "wikidata": "Q3704871"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q4008001"
+      "wikidata": "Q110095787"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q101417722"
+      "wikidata": "Q16504175"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q597063"
+      "wikidata": "Q56175545"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q19869544"
+      "wikidata": "Q2554220"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q49469082"
+      "wikidata": "Q59694879"
     }
   ],
   "retrieval_date": "2026-10-30",
