@@ -1,5 +1,5 @@
 {
-  "next_index": 160,
+  "next_index": 240,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "mt",
+      "section": "health"
+    },
+    {
+      "language": "my",
+      "section": "health"
+    },
+    {
+      "language": "ne",
+      "section": "health"
+    },
+    {
+      "language": "nl",
+      "section": "health"
+    },
+    {
+      "language": "no",
+      "section": "health"
+    },
+    {
+      "language": "or",
+      "section": "health"
+    },
+    {
+      "language": "pa",
+      "section": "health"
+    },
+    {
+      "language": "pl",
+      "section": "health"
+    },
+    {
+      "language": "ps",
+      "section": "health"
+    },
+    {
+      "language": "pt",
+      "section": "health"
+    },
+    {
+      "language": "ro",
+      "section": "health"
+    },
+    {
+      "language": "ru",
+      "section": "health"
+    },
+    {
+      "language": "rw",
+      "section": "health"
+    },
+    {
+      "language": "sd",
+      "section": "health"
+    },
+    {
+      "language": "si",
+      "section": "health"
+    },
+    {
+      "language": "sk",
+      "section": "health"
+    },
+    {
+      "language": "sl",
+      "section": "health"
+    },
+    {
+      "language": "sn",
+      "section": "health"
+    },
+    {
+      "language": "so",
+      "section": "health"
+    },
+    {
+      "language": "sq",
+      "section": "health"
+    },
+    {
       "language": "sr",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "sv",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "sw",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ta",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "te",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "tg",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "th",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "tk",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "tl",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "tr",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "tt",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ug",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "uk",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ur",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "uz",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "vi",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "xh",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "yo",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "zh",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "zu",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "af",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "am",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ar",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "as",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "az",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ba",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "be",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "bg",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "bn",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "br",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "bs",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ca",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "cs",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "cy",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "da",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "de",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "dv",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "el",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "en",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "eo",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "es",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "et",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "eu",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "fa",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "fi",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "fo",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "fr",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "fy",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ga",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "gd",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "gl",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "gu",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ha",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "hi",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "hr",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "hu",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "hy",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "id",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "ig",
-      "section": "health"
+      "section": "food"
     },
     {
       "language": "is",
-      "section": "health"
-    },
-    {
-      "language": "it",
-      "section": "health"
-    },
-    {
-      "language": "ja",
-      "section": "health"
-    },
-    {
-      "language": "ka",
-      "section": "health"
-    },
-    {
-      "language": "kk",
-      "section": "health"
-    },
-    {
-      "language": "km",
-      "section": "health"
-    },
-    {
-      "language": "kn",
-      "section": "health"
-    },
-    {
-      "language": "ko",
-      "section": "health"
-    },
-    {
-      "language": "ku",
-      "section": "health"
-    },
-    {
-      "language": "ky",
-      "section": "health"
-    },
-    {
-      "language": "la",
-      "section": "health"
-    },
-    {
-      "language": "lb",
-      "section": "health"
-    },
-    {
-      "language": "lo",
-      "section": "health"
-    },
-    {
-      "language": "lt",
-      "section": "health"
-    },
-    {
-      "language": "lv",
-      "section": "health"
-    },
-    {
-      "language": "mg",
-      "section": "health"
-    },
-    {
-      "language": "mk",
-      "section": "health"
-    },
-    {
-      "language": "ml",
-      "section": "health"
-    },
-    {
-      "language": "mn",
-      "section": "health"
-    },
-    {
-      "language": "mr",
-      "section": "health"
-    },
-    {
-      "language": "ms",
-      "section": "health"
+      "section": "food"
     }
   ]
 }
