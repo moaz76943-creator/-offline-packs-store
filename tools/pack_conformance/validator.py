@@ -216,6 +216,16 @@ class PackConformanceValidator:
             actual = db.execute('SELECT surface,lemma,gloss,language_code FROM lexicon_fts WHERE rowid=?', (row['rowid'],)).fetchone()
             if actual is None or tuple(actual) != expected:
                 raise PackConformanceError('FTS5 payload projection mismatch')
+
+        # Test FTS5 MATCH functionality
+        first_row = db.execute('SELECT surface FROM lexicon LIMIT 1').fetchone()
+        if first_row:
+            escaped_surface = first_row[0].replace('"', '""')
+            query = 'SELECT rowid FROM lexicon_fts WHERE lexicon_fts MATCH \'"\' || ? || \'"\''
+            fts_match = db.execute(query, (escaped_surface,)).fetchall()
+            if not fts_match:
+                raise PackConformanceError('FTS5 MATCH search failed to find existing surface')
+
         for table, kind in (('senses','sense'), ('translations','translation'), ('examples','example'), ('lexical_relations','relation')):
             for row in db.execute('SELECT * FROM ' + table):
                 payload = self._record(row['payload_json'], kind, sources)
