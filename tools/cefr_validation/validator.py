@@ -92,7 +92,7 @@ class CEFRValidator:
 
             if conflict:
                 record["_resolution"] = "conflicting"
-                yield "rejected", original_record, "Substantial source conflict requiring review"
+                yield "rejected", record, "Substantial source conflict requiring review"
                 continue
 
             history.append(level)
