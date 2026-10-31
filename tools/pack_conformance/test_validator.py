@@ -96,6 +96,16 @@ class TestPackConformanceValidator(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             validator.validate()
 
+    def test_unnormalized_unicode_pack(self):
+        validator = PackConformanceValidator(self.fixtures / "unnormalized.db")
+        with self.assertRaisesRegex(PackConformanceError, "NFC"):
+            validator.validate()
+
+    def test_misconfigured_fts_pack(self):
+        validator = PackConformanceValidator(self.fixtures / "misconfigured_fts.db")
+        with self.assertRaisesRegex(PackConformanceError, "SQLite integrity check failed"):
+            validator.validate()
+
     def test_manifest_valid(self):
         validator = PackConformanceValidator(self.fixtures / "valid.db", self.manifest_path)
         self.assertFalse(validator.validate())

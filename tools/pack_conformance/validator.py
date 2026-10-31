@@ -10,7 +10,9 @@ from pathlib import Path
 import sqlite3
 import sys
 import tempfile
+import unicodedata
 import time
+import os
 
 from jsonschema import Draft202012Validator
 from standards.lexical.sqlite_v2 import DDL, MAPPING_VERSION, SQLITE_USER_VERSION, sort_key
@@ -42,6 +44,8 @@ class PackConformanceValidator:
         self.db_path = Path(db_path)
         self.manifest_path = Path(manifest_path) if manifest_path is not None else None
         self.repo_root = Path(repo_root)
+        if not os.access(self.repo_root, os.R_OK | os.X_OK):
+            raise PackConformanceError('Repository permissions are unavailable')
         self.publication_approved = False
         self.is_verified = False
         self.language_code = None
@@ -180,6 +184,23 @@ class PackConformanceValidator:
         if db.execute('SELECT count(*) FROM lexicon_fts').fetchone()[0] != count:
             raise PackConformanceError('FTS5 count mismatch')
         db.execute("INSERT INTO lexicon_fts(lexicon_fts,rank) VALUES('integrity-check',1)")
+
+        # Run actual representative lexical search queries to ensure FTS5 index functionality.
+        # Limit to 10 queries to avoid performance bottlenecks on large dictionaries.
+        # Tokenizer punctuation stripping should be accounted for (e.g. escaping quotes).
+        representative_rows = db.execute('SELECT rowid, surface FROM lexicon LIMIT 10').fetchall()
+        for r_row in representative_rows:
+            surface = r_row['surface']
+            # Only test terms that have word characters to avoid empty tokens after FTS5 stripping punctuation.
+            if not any(c.isalnum() for c in surface):
+                continue
+            term = surface.replace('"', '""')
+            match_results = db.execute(
+                'SELECT rowid FROM lexicon_fts WHERE lexicon_fts MATCH \'"\' || ? || \'"\'',
+                (term,)
+            ).fetchall()
+            if r_row['rowid'] not in [r[0] for r in match_results]:
+                raise PackConformanceError('FTS5 index functionality missing or misconfigured')
         # The reference producer derives CEFR from attested sense levels.
         # Index these once rather than issuing a query for each lexeme.
         cefr_by_lexeme = {}
@@ -208,6 +229,8 @@ class PackConformanceValidator:
                     or row['cefr_level'] != expected_cefr
                     or row['frequency_rank'] is not None):
                 raise PackConformanceError('Lexicon dialect/CEFR/rank projection mismatch')
+            if row['surface'] != unicodedata.normalize('NFC', row['surface']):
+                raise PackConformanceError('Surface text is not NFC normalized')
             if row['sort_key'] != sort_key(row['surface']):
                 raise PackConformanceError('Invalid sort_key')
             glosses = {r[0] for r in db.execute('SELECT definition FROM senses WHERE lexeme_id=?', (row['id'],))}
