@@ -1,10 +1,14 @@
 import argparse
 import json
 import os
+import sys
 import hashlib
-from typing import TextIO
+from typing import TextIO, Any
 
-from tools.lexicon_sanitizer.engine import SanitizerEngine
+def install_repo_import_path(repo_root: str):
+    if not os.access(repo_root, os.R_OK | os.X_OK):
+        raise RuntimeError(f"Repository root '{repo_root}' is inaccessible.")
+    sys.path.insert(0, os.path.abspath(repo_root))
 
 def get_record_hash(record_str: str) -> str:
     """Returns the SHA-256 hash of the record string."""
@@ -18,7 +22,7 @@ def process_stream(
     quarantine_stream: TextIO,
     review_stream: TextIO,
     quarantine_dir: str,
-    engine: SanitizerEngine
+    engine: 'Any'
 ):
     """Processes a JSONL stream line by line, writing to appropriate output streams."""
     os.makedirs(quarantine_dir, exist_ok=True)
@@ -59,17 +63,17 @@ def process_stream(
 
         status, processed_record, reason = engine.validate_and_repair(record)
 
-        if status == SanitizerEngine.STATUS_ACCEPT:
+        if status == "ACCEPT":
             stats["accept"] += 1
             accept_stream.write(json.dumps(processed_record, ensure_ascii=False) + "\n")
 
-        elif status == SanitizerEngine.STATUS_REPAIRABLE:
+        elif status == "REPAIRABLE":
             stats["repairable"] += 1
             repair_stream.write(json.dumps(processed_record, ensure_ascii=False) + "\n")
             # Also output repaired to accept stream per typical pipeline
             accept_stream.write(json.dumps(processed_record, ensure_ascii=False) + "\n")
 
-        elif status == SanitizerEngine.STATUS_QUARANTINE:
+        elif status == "QUARANTINE":
             stats["quarantine"] += 1
             quarantine_stream.write(line + "\n")
 
@@ -78,7 +82,7 @@ def process_stream(
             with open(reason_path, 'w', encoding='utf-8') as rf:
                 rf.write(f"Hash: {record_hash}\nReason: {reason}\n")
 
-        elif status == SanitizerEngine.STATUS_REVIEW_REQUIRED:
+        elif status == "REVIEW_REQUIRED":
             stats["review_required"] += 1
             review_stream.write(line + "\n")
 
@@ -89,8 +93,12 @@ def main():
     parser.add_argument("--input", required=True, help="Input JSONL file")
     parser.add_argument("--output-dir", required=True, help="Output directory for processed files")
     parser.add_argument("--registry", default="catalog/language_registry.v1.json", help="Path to language registry JSON")
+    parser.add_argument("--repo-root", default=".", help="Path to the repository root directory")
 
     args = parser.parse_args()
+
+    install_repo_import_path(args.repo_root)
+    from tools.lexicon_sanitizer.engine import SanitizerEngine
 
     os.makedirs(args.output_dir, exist_ok=True)
     quarantine_dir = os.path.join(args.output_dir, "quarantined")
