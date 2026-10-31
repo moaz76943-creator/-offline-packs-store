@@ -1,5 +1,5 @@
 {
-  "next_index": 640,
+  "next_index": 720,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "it",
+      "section": "school"
+    },
+    {
+      "language": "ja",
+      "section": "school"
+    },
+    {
+      "language": "ka",
+      "section": "school"
+    },
+    {
+      "language": "kk",
+      "section": "school"
+    },
+    {
+      "language": "km",
+      "section": "school"
+    },
+    {
+      "language": "kn",
+      "section": "school"
+    },
+    {
+      "language": "ko",
+      "section": "school"
+    },
+    {
+      "language": "ku",
+      "section": "school"
+    },
+    {
+      "language": "ky",
+      "section": "school"
+    },
+    {
+      "language": "la",
+      "section": "school"
+    },
+    {
+      "language": "lb",
+      "section": "school"
+    },
+    {
+      "language": "lo",
+      "section": "school"
+    },
+    {
+      "language": "lt",
+      "section": "school"
+    },
+    {
+      "language": "lv",
+      "section": "school"
+    },
+    {
+      "language": "mg",
+      "section": "school"
+    },
+    {
+      "language": "mk",
+      "section": "school"
+    },
+    {
+      "language": "ml",
+      "section": "school"
+    },
+    {
+      "language": "mn",
+      "section": "school"
+    },
+    {
+      "language": "mr",
+      "section": "school"
+    },
+    {
+      "language": "ms",
+      "section": "school"
+    },
+    {
       "language": "mt",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "my",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ne",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "nl",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "no",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "or",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "pa",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "pl",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ps",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "pt",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ro",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ru",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "rw",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "sd",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "si",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "sk",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "sl",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "sn",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "so",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "sq",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "sr",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "sv",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "sw",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ta",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "te",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "tg",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "th",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "tk",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "tl",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "tr",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "tt",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ug",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "uk",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "ur",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "uz",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "vi",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "xh",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "yo",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "zh",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "zu",
-      "section": "clothing"
+      "section": "school"
     },
     {
       "language": "af",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "am",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ar",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "as",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "az",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ba",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "be",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "bg",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "bn",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "br",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "bs",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ca",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "cs",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "cy",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "da",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "de",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "dv",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "el",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "en",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "eo",
-      "section": "school"
-    },
-    {
-      "language": "es",
-      "section": "school"
-    },
-    {
-      "language": "et",
-      "section": "school"
-    },
-    {
-      "language": "eu",
-      "section": "school"
-    },
-    {
-      "language": "fa",
-      "section": "school"
-    },
-    {
-      "language": "fi",
-      "section": "school"
-    },
-    {
-      "language": "fo",
-      "section": "school"
-    },
-    {
-      "language": "fr",
-      "section": "school"
-    },
-    {
-      "language": "fy",
-      "section": "school"
-    },
-    {
-      "language": "ga",
-      "section": "school"
-    },
-    {
-      "language": "gd",
-      "section": "school"
-    },
-    {
-      "language": "gl",
-      "section": "school"
-    },
-    {
-      "language": "gu",
-      "section": "school"
-    },
-    {
-      "language": "ha",
-      "section": "school"
-    },
-    {
-      "language": "hi",
-      "section": "school"
-    },
-    {
-      "language": "hr",
-      "section": "school"
-    },
-    {
-      "language": "hu",
-      "section": "school"
-    },
-    {
-      "language": "hy",
-      "section": "school"
-    },
-    {
-      "language": "id",
-      "section": "school"
-    },
-    {
-      "language": "ig",
-      "section": "school"
-    },
-    {
-      "language": "is",
-      "section": "school"
+      "section": "work"
     }
   ]
 }
