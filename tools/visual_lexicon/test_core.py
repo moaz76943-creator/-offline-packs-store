@@ -22,9 +22,9 @@ class TestVisualLexicon(unittest.TestCase):
         }
         self.valid_manifest = {
             'concept_id': 'test.concept.1',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Jules',
+            'license': 'CC0-1.0',
+            'source': 'Original creation',
         }
 
     def tearDown(self):
@@ -54,12 +54,13 @@ class TestVisualLexicon(unittest.TestCase):
 
     def test_schema_invalid_manifest(self):
         invalid_manifests = [
-            (dict(self.valid_manifest, license='CC0-1.0'), "license claim"),
-            (dict(self.valid_manifest, license='CC-BY-4.0'), "another license claim"),
-            (dict(self.valid_manifest, source='https://example.com/cc0-apple'), "external source"),
-            (dict(self.valid_manifest, fixture_status='approved'), "non-synthetic status"),
+            (dict(self.valid_manifest, license='CC-BY-4.0'), "incorrect license claim"),
             (dict(self.valid_manifest, author=''), "empty author"),
-            ({k: v for k, v in self.valid_manifest.items() if k != 'fixture_status'}, "missing fixture status"),
+            (dict(self.valid_manifest, source=''), "empty source"),
+            ({k: v for k, v in self.valid_manifest.items() if k != 'license'}, "missing license"),
+            ({k: v for k, v in self.valid_manifest.items() if k != 'author'}, "missing author"),
+            ({k: v for k, v in self.valid_manifest.items() if k != 'source'}, "missing source"),
+            ({k: v for k, v in self.valid_manifest.items() if k != 'concept_id'}, "missing concept_id"),
         ]
 
         for manifest, reason in invalid_manifests:
@@ -96,8 +97,8 @@ class TestVisualLexicon(unittest.TestCase):
         import copy
         manifest_copy = copy.deepcopy(manifest)
         self.assertIn('test.concept.1', manifest)
-        self.assertEqual(manifest['test.concept.1']['fixture_status'], 'synthetic')
-        self.assertNotIn('license', manifest['test.concept.1'])
+        self.assertEqual(manifest['test.concept.1']['license'], 'CC0-1.0')
+        self.assertNotIn('fixture_status', manifest['test.concept.1'])
         self.assertIn('hash', manifest['test.concept.1'])
 
         # Update token (new version)
