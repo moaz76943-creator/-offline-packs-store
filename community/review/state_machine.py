@@ -242,3 +242,25 @@ class ReviewStateMachine:
             self.verify(data, "VALIDATE", val["id"], val["token"], self.validator_keys)
             self.verify(data, "APPROVE", rev["id"], rev["token"], self.reviewer_keys)
             return data
+
+    def enqueue_manifest(self, manifest_path):
+        manifest_path = existing_file(manifest_path, self.artifacts)
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            manifest = json.load(f)
+
+        results = []
+        paths = manifest.get("added", []) + manifest.get("updated", [])
+        index = manifest.get("index", {})
+
+        for file_path in paths:
+            metadata = index[file_path].copy()
+            submission_id = Path(file_path).stem
+            content_hash = metadata["sha256"]
+
+            # The submit method takes (submission_id, content_hash, metadata, artifact_path)
+            # metadata in _claimed_metadata has keys like source_id, language, etc.
+            artifact_path = Path(manifest_path).parent / file_path
+            result = self.submit(submission_id, content_hash, metadata, artifact_path)
+            results.append(result)
+
+        return results
