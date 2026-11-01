@@ -6,6 +6,7 @@ adapter never approves publication and never modifies the inspected database.
 import argparse
 from contextlib import closing
 import json
+import os
 from pathlib import Path
 import sqlite3
 import sys
@@ -51,6 +52,8 @@ class PackConformanceValidator:
         self.is_verified = False
         self.language_code = None
         self.language_codes = set()
+        if not os.access(self.repo_root, os.R_OK):
+            raise PackConformanceError('UNAUTHORIZED_WORKSPACE')
         if not self.db_path.is_file():
             raise FileNotFoundError(f'Pack not found: {self.db_path}')
         if self.db_path.stat().st_size > MAX_DATABASE:
@@ -179,7 +182,8 @@ class PackConformanceValidator:
             raise PackConformanceError('Mismatched declared count in metadata')
         if db.execute('SELECT count(*) FROM lexicon_fts').fetchone()[0] != count:
             raise PackConformanceError('FTS5 count mismatch')
-        db.execute("INSERT INTO lexicon_fts(lexicon_fts,rank) VALUES('integrity-check',1)")
+        if [tuple(r) for r in db.execute("PRAGMA integrity_check('lexicon_fts')")] != [('ok',)]:
+            raise PackConformanceError('FTS integrity check failed')
         # The reference producer derives CEFR from attested sense levels.
         # Index these once rather than issuing a query for each lexeme.
         cefr_by_lexeme = {}
