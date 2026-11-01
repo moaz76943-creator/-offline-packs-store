@@ -158,5 +158,13 @@ class MapperTests(unittest.TestCase):
         self.assertEqual(out, "")
         self.assertIn("BLOCKED:", err)
 
+    def test_conflicting_translations(self):
+        # Add a test for conflicting translations
+        conflicting_record = self.records[-1].copy()
+        conflicting_record["translation_id"] = "edge-conflict"
+        conflicting_record["from_language"] = "fr" # Contradicts sense
+        with self.assertRaises(ValueError):
+            self.run_gate(self.records + [conflicting_record])
+
 if __name__ == "__main__":
     unittest.main()
