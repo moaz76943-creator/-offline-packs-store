@@ -35,6 +35,10 @@ def is_tokenizer_supported(tokenizer_name):
 
 def build_index(db_path):
     path = Path(db_path).resolve()
+
+    if not os.access(path.parent, os.W_OK | os.X_OK):
+        raise IndexBuilderError(f'Workspace is inaccessible: {path.parent}')
+
     if not path.is_file():
         raise IndexBuilderError(f'Input database not found: {path}')
 
