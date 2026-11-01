@@ -60,7 +60,7 @@
     },
     "total": 685
   },
-  "generated_by": "classifier",
+  "generated_by": "packs",
   "pack_bytes": 299008,
   "packs": [
     {
@@ -107,12 +107,13 @@
     },
     {
       "bytes": 28672,
-      "entries": 139,
+      "entries": 141,
       "language": "en",
       "sources": {
+        "kaikki.wiktextract": 1,
         "tatoeba.sentences": 12,
         "universal-dependencies": 40,
-        "wikidata.lexemes": 87
+        "wikidata.lexemes": 88
       }
     },
     {
@@ -183,11 +184,11 @@
     },
     {
       "bytes": 8192,
-      "entries": 30,
+      "entries": 31,
       "language": "ja",
       "sources": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 18
+        "wikidata.lexemes": 19
       }
     },
     {
@@ -216,10 +217,10 @@
     },
     {
       "bytes": 8192,
-      "entries": 26,
+      "entries": 27,
       "language": "ml",
       "sources": {
-        "wikidata.lexemes": 26
+        "wikidata.lexemes": 27
       }
     },
     {
@@ -316,10 +317,10 @@
     },
     {
       "bytes": 8192,
-      "entries": 12,
+      "entries": 40,
       "language": "zh",
       "sources": {
-        "tatoeba.sentences": 12
+        "tatoeba.sentences": 40
       }
     }
   ],
@@ -330,7 +331,7 @@
       "cs": 14,
       "da": 21,
       "de": 72,
-      "en": 140,
+      "en": 141,
       "eo": 2,
       "es": 34,
       "et": 5,
@@ -339,11 +340,11 @@
       "fr": 61,
       "hr": 2,
       "it": 42,
-      "ja": 30,
+      "ja": 31,
       "ko": 2,
       "la": 3,
       "lv": 1,
-      "ml": 26,
+      "ml": 27,
       "ms": 3,
       "nl": 16,
       "pa": 6,
@@ -393,7 +394,7 @@
       "en": {
         "animals": 5,
         "body": 1,
-        "city": 25,
+        "city": 26,
         "clothing": 2,
         "colors": 12,
         "emotions": 10,
@@ -465,7 +466,7 @@
         "work": 12
       },
       "ja": {
-        "city": 4,
+        "city": 5,
         "clothing": 2,
         "colors": 3,
         "emotions": 1,
@@ -488,7 +489,7 @@
       },
       "ml": {
         "animals": 1,
-        "city": 22,
+        "city": 23,
         "clothing": 1,
         "numbers": 1,
         "time": 1
@@ -584,7 +585,7 @@
         "kaikki.wiktextract": 1,
         "tatoeba.sentences": 12,
         "universal-dependencies": 40,
-        "wikidata.lexemes": 87
+        "wikidata.lexemes": 88
       },
       "eo": {
         "wikidata.lexemes": 2
@@ -614,7 +615,7 @@
       },
       "ja": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 18
+        "wikidata.lexemes": 19
       },
       "ko": {
         "wikidata.lexemes": 2
@@ -626,7 +627,7 @@
         "wikidata.lexemes": 1
       },
       "ml": {
-        "wikidata.lexemes": 26
+        "wikidata.lexemes": 27
       },
       "ms": {
         "wikidata.lexemes": 3
@@ -672,7 +673,7 @@
     "by_section": {
       "animals": 24,
       "body": 2,
-      "city": 150,
+      "city": 153,
       "clothing": 15,
       "colors": 39,
       "emotions": 20,
@@ -692,9 +693,9 @@
       "kaikki.wiktextract": 11,
       "tatoeba.sentences": 188,
       "universal-dependencies": 40,
-      "wikidata.lexemes": 446
+      "wikidata.lexemes": 449
     },
-    "total": 685
+    "total": 688
   },
   "schema_version": "1.0.0"
 }
