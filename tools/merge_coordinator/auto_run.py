@@ -7,6 +7,10 @@ from auto_policy import auto_eligible
 # One pass reads this many exact-SHA candidates. The hourly rotation moves
 # the window, so a long queue cannot stall the five-minute job or hide the tail.
 EVIDENCE_BUDGET = 40
+# Public open PRs exceeded 400 in Nov 2026; limiting the index to 300
+# stranded otherwise-eligible older PRs behind hundreds of drafts.
+# Discovery is cheap metadata; expensive exact-SHA evidence stays at 40.
+DISCOVERY_LIST_LIMIT = 1000
 
 
 def candidate_evidence_unavailable(number, error):
@@ -116,7 +120,7 @@ def run_auto(gh, main_sha):
         if gh.main_sha() != main_sha:
             print('HALT: main changed outside this batch')
             return 0
-        queue = gh.page('/pulls?state=open&base=main', limit=300)
+        queue = gh.page('/pulls?state=open&base=main', limit=DISCOVERY_LIST_LIMIT)
         if not isinstance(queue, list):
             raise ValueError('invalid live pull-request listing')
         pool = [p for p in queue if isinstance(p, dict) and

@@ -219,6 +219,29 @@ class FlowTests(unittest.TestCase):
     self.assertNotEqual([item['number'] for item in first], [item['number'] for item in second])
 
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_ready_pr_beyond_three_hundred_drafts_is_not_starved(self):
+    """The discovery index must cover the live backlog, not only its first 300 drafts."""
+    import sys, types
+    m = types.ModuleType('protection_gate')
+    m.allowed = lambda branch, rules: True
+    class DraftHeavyQueue(FakeGH):
+      def page(self, path, limit=300):
+        if path.startswith('/pulls?'):
+          drafts = [{'number': n, 'head': {'sha': SHA},
+                     'base': {'ref': 'main', 'sha': self.main},
+                     'state': 'open', 'draft': True}
+                    for n in range(500, 100, -1)]
+          ready = {'number': 1, 'head': {'sha': SHA},
+                   'base': {'ref': 'main', 'sha': self.main},
+                   'state': 'open', 'draft': False}
+          return (drafts + [ready])[:limit]
+        return []
+    with patch.dict(sys.modules, {'protection_gate': m}):
+      queue = DraftHeavyQueue()
+      self.assertEqual(run_auto(queue, MAIN), 0)
+      self.assertEqual(queue.merges, [(1, SHA)])
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
   def test_more_open_prs_than_the_evidence_budget_does_not_fail_the_run(self):
     class WideQueue(FakeGH):
       def page(self, path, limit=300):
