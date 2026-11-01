@@ -42,6 +42,10 @@ class MapperTests(unittest.TestCase):
         self.assertEqual(data[0]["to_language"], "de")
         self.assertTrue(data[0]["evidence_only"])
 
+    def test_author_mapping(self):
+        data = self.run_gate()
+        self.assertEqual(data[0]["author"], "Test Author")
+
     def test_missing_all_senses_is_orphan_not_success(self):
         with self.assertRaises(ValueError):
             self.run_gate([self.records[-1]])
