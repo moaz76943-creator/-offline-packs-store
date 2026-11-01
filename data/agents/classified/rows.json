@@ -1,6 +1,296 @@
 {
   "rows": [
     {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q172",
+      "gloss": "Toronto (the capital city of Ontario, Canada and the largest city in Canada)",
+      "language": "de",
+      "lemma": "Toronto",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "en-Toronto-de-name-UPG6jrnu",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Toronto-de-name-UPG6jrnu",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1865",
+      "gloss": "Kuala Lumpur (a federal territory, the capital and largest city of Malaysia, located in the western part of the country)",
+      "language": "de",
+      "lemma": "Kuala Lumpur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1865"
+      ],
+      "record_id": "en-Kuala_Lumpur-de-name-YECvoVCk",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Kuala_Lumpur-de-name-YECvoVCk",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1865"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q84",
+      "gloss": "London (the capital city of the United Kingdom; the capital city of England, within Greater London)",
+      "language": "de",
+      "lemma": "London",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q84"
+      ],
+      "record_id": "en-London-de-name-DUFN5D4f",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-London-de-name-DUFN5D4f",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q84"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1754",
+      "gloss": "Stockholm (a municipality, the capital and largest city of Sweden; the county seat of Stockholm County, Sweden)",
+      "language": "de",
+      "lemma": "Stockholm",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "en-Stockholm-de-name-sjPM8nh3",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Stockholm-de-name-sjPM8nh3",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3640",
+      "gloss": "Ankara (the capital city of Turkey and the capital of Ankara Province)",
+      "language": "de",
+      "lemma": "Ankara",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3640"
+      ],
+      "record_id": "en-Ankara-de-name-~YFP-UAD",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Ankara-de-name-~YFP-UAD",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3640"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q10686",
+      "gloss": "Belfast (the capital and largest city of Northern Ireland)",
+      "language": "de",
+      "lemma": "Belfast",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q10686"
+      ],
+      "record_id": "en-Belfast-de-name-yUAqa6LH",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Belfast-de-name-yUAqa6LH",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q10686"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1757",
+      "gloss": "Helsinki (the capital city of Finland; a municipality, the capital of the region of Uusimaa, Finland)",
+      "language": "de",
+      "lemma": "Helsinki",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1757"
+      ],
+      "record_id": "en-Helsinki-de-name-lvdF7oDB",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Helsinki-de-name-lvdF7oDB",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1757"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q19689",
+      "gloss": "Tirana (a municipality, the capital and largest city of Albania, located in the center of the country west of the mountain of Dajti on the plain of Tirana; it is the seat of its eponymous county and municipality)",
+      "language": "de",
+      "lemma": "Tirana",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q19689"
+      ],
+      "record_id": "en-Tirana-de-name-FYI7MqH9",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Tirana-de-name-FYI7MqH9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q19689"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q38511",
+      "gloss": "Turku (a municipality, the capital city of the region of Southwest Finland)",
+      "language": "de",
+      "lemma": "Turku",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q38511"
+      ],
+      "record_id": "en-Turku-de-name-dYYnxYHT",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Turku-de-name-dYYnxYHT",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q38511"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1780",
+      "gloss": "Bratislava (the capital city of Slovakia)",
+      "language": "de",
+      "lemma": "Bratislava",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "en-Bratislava-de-name-TXoGHhtI",
+      "retrieval_date": "2026-11-01",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bratislava-de-name-TXoGHhtI",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
       "author": "hashimi",
       "language": "ar",
       "level": {
@@ -1955,7 +2245,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:170564",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1973,7 +2263,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:338316",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1991,7 +2281,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:349063",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2009,7 +2299,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:349066",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2027,7 +2317,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:349067",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2045,7 +2335,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:349068",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2063,7 +2353,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:351764",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2081,7 +2371,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:355656",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2099,7 +2389,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:355657",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2117,7 +2407,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:355658",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2135,7 +2425,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:355659",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2153,12 +2443,516 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:355660",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Bu kitap."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355661",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hemen yolculuğa hazırlan."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355662",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Masanın üstündeki hesap makinesi benim."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355663",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Şimşek çaktı."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355664",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Aşk onu rüyalarında görmektir."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355666",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Kimse benim fikirlerimi dinlemek istemiyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355672",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sana satranç oynamayı öğreteceğim."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355676",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Satranç oynamayı biliyor musun?"
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355682",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bunlar çok eski kitaplar."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355683",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bunlar benim kitaplarım."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355684",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bunlar bizim kitaplarımız."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355685",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bunlar benim kalemlerim."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355686",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bunlar her yerde satılıyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355690",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bu kitap okul kütüphanesinin."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355692",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Köpekleri severim."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=56; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355694",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bulaşık makinesinin nasıl çalıştığını anlatabilir misin?"
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355698",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Zor durumlarla başa çıkamıyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355700",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Günde en az yedi saat uyumak zorundayız."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355707",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sporu rekabet için değil zevk için yapıyorum."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355711",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Japonca konuşamıyorum."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355786",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Yalnızca birkaç kişi vaktinde geldi."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355883",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sadece birkaç kişi beni anladı."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355890",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Koşucuyum."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=56; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355912",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Geçen sene kurulan lunapark sağolsun şehir popüler oldu."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355916",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Onunla beraber olduğun sürece mutlu olamazsın."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355918",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Çocuklar yerde uyumak zorunda kalacaklar gibi."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355919",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Şarkıları gençler arasında iyi biliniyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355932",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bir davetiye aldım."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355934",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Matsuyama'da doğup büyüdüm."
     },
     {
       "author": "sysko",
@@ -2579,6 +3373,482 @@
       "source_id": "universal-dependencies",
       "status": "keep",
       "text": "In Fallujah, hundreds of demonstrators came out against US troops when they briefly arrested a yound newlywed bride."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=136; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0004",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "(I hope that the US army got an enormous amount of information from her relatives, because otherwise this move was a bad, bad tradeoff)."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=54; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0005",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The US troops fired into the hostile crowd, killing 4."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=174; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0006",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It seems clear to me that the manhunt for high Baath officials in the Sunni heartland is being done wrong, or at least in ways that are bad for US standing with local Iraqis."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=138; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0001",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Google has finally had an analyst day -- a chance to present the company's story to the (miniscule number of) people who haven't heard it."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=131; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0002",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Usually, these are just a chance for the suckups to suck up, but this time people are actually concerned about the company's plans."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=187; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0003",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "They work on Wall Street, after all, so when they hear a company who's stated goals include \"Don't be evil,\" they imagine a company who's eventually history will be \"Don't be profitable.\""
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=274; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0004",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It's not quite as freewheeling an environment as you'd imagine: Sergey Brin has actually created a mathematical 'proof' that the company's self-driven research strategy, which gives employees one day a week to do research projects on their own, is a good, respectable idea ."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=50; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0005",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Read the entire article; there's a punchline, too."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=94; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0001",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "My opinion piece on the implications of Arafat's passing for al-Qaeda has appeared at Newsday."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0002",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Excerpt:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=159; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0003",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"Arafat's secular nationalism was supple enough to compromise with Israel and to imagine a two-state solution, even if the road of negotiations remained rocky."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=223; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0004",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The continued Israeli colonization of the occupied Palestinian territories during the 1990s helped, along with terrorist attacks by radical groups such as Hamas, to derail the peace process, which Sharon had always opposed."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=87; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0005",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Arafat's death creates a vacuum in Palestinian leadership that will not soon be filled."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=99; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0006",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Sharon's assassination of major Hamas leaders has also weakened authority structures in that party."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=186; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0007",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If the Israelis and the Palestinian leadership cannot find a way to reinvigorate the peace process, cells of radical young Palestinians may grow up that look to bin Laden for their cues."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=197; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0008",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Even if local Palestinian leaders remain strong enough to keep al-Qaida out, the festering Israeli-Palestinian struggle remains among the best recruiting posters for al-Qaida with young Muslim men."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=112; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0009",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Resolving this conflict would be the most effective weapon the United States could deploy in its war on terror.\""
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=164; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0001",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Xinhua reports that a wide range of Iraqi political forces on Tuesday condemned Sharon's murder of Sheikh Ahmed Yassin, a religious leader of Hamas, the day before."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=164; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0002",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The Board of Muslim clerics in Fallujah, 50 km west of Baghdad, \"condemned the assassination and promised immediate revenge against the coalition soldiers in Iraq.\""
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=80; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0003",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Ash-Sharq al-Awsat reports that Fallujah was closed Tuesday in a general strike."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=76; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0004",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "US troops there clashed with guerrillas in a fight that left one Iraqi dead."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0005",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In Ramadi, there was a big demonstration."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=161; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0006",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Radical Shiite cleric Muqtada al-Sadr said the attack was \"criminal\" and that \"the Zionists have left only one choice for the Arabs, that of fighting and jihad\"."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=175; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0007",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The interim Governing Council issued a communique saying, \"It is a proof of the emptiness of the Israeli authority and a destruction of the peace endeavors in the region . . ."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=132; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0008",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "This operation would only consolidate the terrorist acts in the world and would not bring peace to the region,\" the message claimed."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=170; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0009",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Xinhua alleged that \"Many of the Iraqis, who suffer the American occupation of Iraq, relate their case with that of the Palestinian people, under the Israeli occupation.\""
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=174; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0010",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In an apparently unrelated incidents, some eleven Iraqis were killed by snipers on Tuesday, including a group of police trainees in a bus near Hilla and two police in Kirkuk."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=302; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20040611132900_ENG_20040611_132900-0001",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Ever since the first whispers about Google's IPO, most investors have feared that the stock would come public at such a ridiculously high price that, even with a spectacularly profitable business model and some nearly flawless execution, the price would be too high for investors to make a real profit."
     },
     {
       "concept_id": "concept.q3354532",
@@ -13762,7 +15032,7 @@
         "Q12898224"
       ],
       "record_id": "L1394825",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2296730522",
       "schema_version": "1.0.0",
       "section": "animals",
