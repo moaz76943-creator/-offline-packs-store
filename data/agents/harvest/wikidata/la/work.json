@@ -1,0 +1,70 @@
+{
+  "language": "la",
+  "retrieval_date": "2026-11-01",
+  "rows": [
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "aurufex",
+        "aurufex",
+        "aurufice",
+        "aurufice",
+        "aurufice",
+        "auruficem",
+        "aurufices",
+        "aurufices"
+      ],
+      "language": "la",
+      "lemma": "aurufex",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L259890",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L259890",
+      "retrieval_date": "2026-11-01",
+      "revision": "1931005035",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L259890-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q2251335"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2055046"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q15978655"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q211423"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2487799"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2487799"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2468727"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

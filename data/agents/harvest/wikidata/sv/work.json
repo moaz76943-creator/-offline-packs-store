@@ -241,7 +241,7 @@
         "Q16271064"
       ],
       "record_id": "L494231",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "1513924636",
       "schema_version": "1.0.0",
       "section": "work",
@@ -312,6 +312,192 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q16308156"
+    },
+    {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "skollärare",
+        "skolläraren",
+        "skollärare",
+        "skollärarna",
+        "skollärares",
+        "skollärarens",
+        "skollärares",
+        "skollärarnas"
+      ],
+      "language": "sv",
+      "lemma": "skollärare",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1380692",
+      "pos": "",
+      "qids": [
+        "Q2251335"
+      ],
+      "record_id": "L1380692",
+      "retrieval_date": "2026-11-01",
+      "revision": "2478830286",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1380692-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "konsult",
+        "konsulten",
+        "konsulter",
+        "konsulterna",
+        "konsults",
+        "konsultens",
+        "konsulters",
+        "konsulternas"
+      ],
+      "language": "sv",
+      "lemma": "konsult",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L54935",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L54935",
+      "retrieval_date": "2026-11-01",
+      "revision": "2483599776",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L54935-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "guldsmed",
+        "guldsmedens",
+        "guldsmeder",
+        "guldsmederna",
+        "guldsmeds",
+        "guldsmedens",
+        "guldsmeders",
+        "guldsmedernas"
+      ],
+      "language": "sv",
+      "lemma": "guldsmed",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32083",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L32083",
+      "retrieval_date": "2026-11-01",
+      "revision": "2503058625",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L32083-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "mykolog",
+        "mykologen",
+        "mykologer",
+        "mykologerna",
+        "mykologs",
+        "mykologens",
+        "mykologers",
+        "mykologernas"
+      ],
+      "language": "sv",
+      "lemma": "mykolog",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L487597",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L487597",
+      "retrieval_date": "2026-11-01",
+      "revision": "2483346430",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L487597-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "karikatyrtecknare",
+        "karikatyrtecknaren",
+        "karikatyrtecknare",
+        "karikatyrtecknarna",
+        "karikatyrtecknares",
+        "karikatyrtecknarens",
+        "karikatyrtecknares",
+        "karikatyrtecknarnas"
+      ],
+      "language": "sv",
+      "lemma": "karikatyrtecknare",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482876",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L482876",
+      "retrieval_date": "2026-11-01",
+      "revision": "2476644494",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L482876-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q2468727",
+      "forms": [
+        "antikvetare",
+        "antikvetaren",
+        "antikvetare",
+        "antikvetarna",
+        "antikvetares",
+        "antikvetarens",
+        "antikvetares",
+        "antikvetarnas"
+      ],
+      "language": "sv",
+      "lemma": "antikvetare",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L483619",
+      "pos": "",
+      "qids": [
+        "Q2468727"
+      ],
+      "record_id": "L483619",
+      "retrieval_date": "2026-11-01",
+      "revision": "2316629706",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L483619-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2468727"
     }
   ],
   "schema_version": "1.0.0",
@@ -319,43 +505,31 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3779582"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3332711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "wikidata": "Q2468727"
     }
   ],
   "source": "harvest-wikidata"

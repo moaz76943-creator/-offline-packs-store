@@ -69,7 +69,7 @@
         "Q16271064"
       ],
       "record_id": "L1332889",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2204096376",
       "schema_version": "1.0.0",
       "section": "work",
@@ -208,6 +208,110 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3303330"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "fisiologo",
+        "fisiologi"
+      ],
+      "language": "it",
+      "lemma": "fisiologo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1181476",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L1181476",
+      "retrieval_date": "2026-11-01",
+      "revision": "2230282335",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1181476-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "micologo",
+        "micologi"
+      ],
+      "language": "it",
+      "lemma": "micologo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1190776",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L1190776",
+      "retrieval_date": "2026-11-01",
+      "revision": "2195979170",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1190776-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "caricaturista",
+        "caricaturista",
+        "caricaturisti",
+        "caricaturiste"
+      ],
+      "language": "it",
+      "lemma": "caricaturista",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1375892",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L1375892",
+      "retrieval_date": "2026-11-01",
+      "revision": "2390819798",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1375892-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q2468727",
+      "forms": [
+        "classicista",
+        "classicisti",
+        "classicista",
+        "classiciste"
+      ],
+      "language": "it",
+      "lemma": "classicista",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1231576",
+      "pos": "",
+      "qids": [
+        "Q2468727"
+      ],
+      "record_id": "L1231576",
+      "retrieval_date": "2026-11-01",
+      "revision": "2230330997",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1231576-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2468727"
     }
   ],
   "schema_version": "1.0.0",
@@ -215,43 +319,31 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3779582"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3332711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "wikidata": "Q2468727"
     }
   ],
   "source": "harvest-wikidata"

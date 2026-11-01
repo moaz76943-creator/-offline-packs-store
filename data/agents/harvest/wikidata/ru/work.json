@@ -188,6 +188,101 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q8178443"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "консультант",
+        "консультанта",
+        "консультанту",
+        "консультанта",
+        "консультантом",
+        "консультанте",
+        "консультанты",
+        "консультантов"
+      ],
+      "language": "ru",
+      "lemma": "консультант",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L119257",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L119257",
+      "retrieval_date": "2026-11-01",
+      "revision": "2237432951",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L119257-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "ювелир",
+        "ювелира",
+        "ювелиру",
+        "ювелира",
+        "ювелиром",
+        "ювелире",
+        "ювелиры",
+        "ювелиров"
+      ],
+      "language": "ru",
+      "lemma": "ювелир",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L183261",
+      "pos": "",
+      "qids": [
+        "Q211423",
+        "Q2216340",
+        "Q336221"
+      ],
+      "record_id": "L183261",
+      "retrieval_date": "2026-11-01",
+      "revision": "2237099973",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L183261-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "миколог",
+        "миколога",
+        "микологу",
+        "миколога",
+        "микологом",
+        "микологе",
+        "микологи",
+        "микологов"
+      ],
+      "language": "ru",
+      "lemma": "миколог",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L127507",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L127507",
+      "retrieval_date": "2026-11-01",
+      "revision": "2237206351",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L127507-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
     }
   ],
   "schema_version": "1.0.0",
@@ -195,43 +290,31 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3779582"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3332711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "wikidata": "Q2468727"
     }
   ],
   "source": "harvest-wikidata"

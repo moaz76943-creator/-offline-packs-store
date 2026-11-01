@@ -252,8 +252,8 @@
         "Q16271064"
       ],
       "record_id": "L35559",
-      "retrieval_date": "2026-10-28",
-      "revision": "2549903470",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561946273",
       "schema_version": "1.0.0",
       "section": "work",
       "sense_id": "L35559-S1",
@@ -336,6 +336,106 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3303330"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "consultant",
+        "consultants"
+      ],
+      "language": "en",
+      "lemma": "consultant",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12295",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L12295",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561585545",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12295-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "goldsmith",
+        "goldsmiths"
+      ],
+      "language": "en",
+      "lemma": "goldsmith",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L34875",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L34875",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561959506",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L34875-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "mycologist",
+        "mycologists"
+      ],
+      "language": "en",
+      "lemma": "mycologist",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L324307",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L324307",
+      "retrieval_date": "2026-11-01",
+      "revision": "2562175437",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L324307-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "caricaturist",
+        "caricaturists"
+      ],
+      "language": "en",
+      "lemma": "caricaturist",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L317732",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L317732",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561202030",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L317732-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
     }
   ],
   "schema_version": "1.0.0",
@@ -343,43 +443,31 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3779582"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3332711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "wikidata": "Q2468727"
     }
   ],
   "source": "harvest-wikidata"

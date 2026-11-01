@@ -352,7 +352,7 @@
         "Q16271064"
       ],
       "record_id": "L621571",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2531650946",
       "schema_version": "1.0.0",
       "section": "work",
@@ -486,6 +486,159 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3303330"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "conseil",
+        "conseils"
+      ],
+      "language": "fr",
+      "lemma": "conseil",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12378",
+      "pos": "",
+      "qids": [
+        "Q2132873",
+        "Q15978655"
+      ],
+      "record_id": "L12378",
+      "retrieval_date": "2026-11-01",
+      "revision": "2528489992",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12378-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "consultant",
+        "consultants",
+        "consultante",
+        "consultantes"
+      ],
+      "language": "fr",
+      "lemma": "consultant",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L28097",
+      "pos": "",
+      "qids": [
+        "Q5164591",
+        "Q15978655"
+      ],
+      "record_id": "L28097",
+      "retrieval_date": "2026-11-01",
+      "revision": "2543665328",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L28097-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "orfèvre",
+        "orfèvres"
+      ],
+      "language": "fr",
+      "lemma": "orfèvre",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L25680",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L25680",
+      "retrieval_date": "2026-11-01",
+      "revision": "2457450128",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L25680-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "mycologue",
+        "mycologues"
+      ],
+      "language": "fr",
+      "lemma": "mycologue",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621691",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L621691",
+      "retrieval_date": "2026-11-01",
+      "revision": "2450041246",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621691-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "caricaturiste",
+        "caricaturistes"
+      ],
+      "language": "fr",
+      "lemma": "caricaturiste",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L26594",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L26594",
+      "retrieval_date": "2026-11-01",
+      "revision": "1700257429",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L26594-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q2468727",
+      "forms": [
+        "érudit classique"
+      ],
+      "language": "fr",
+      "lemma": "érudit classique",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1590157",
+      "pos": "",
+      "qids": [
+        "Q2468727"
+      ],
+      "record_id": "L1590157",
+      "retrieval_date": "2026-11-01",
+      "revision": "2529993427",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1590157-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2468727"
     }
   ],
   "schema_version": "1.0.0",
@@ -493,43 +646,31 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2251335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3779582"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3332711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "wikidata": "Q2468727"
     }
   ],
   "source": "harvest-wikidata"
