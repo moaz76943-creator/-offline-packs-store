@@ -1,6 +1,6 @@
 {
   "language": "ru",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-01",
   "rows": [
     {
       "concept_id": "concept.q937857",
@@ -157,6 +157,37 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2055046"
+    },
+    {
+      "concept_id": "concept.q8178443",
+      "forms": [
+        "либреттист",
+        "либреттиста",
+        "либреттисту",
+        "либреттиста",
+        "либреттистом",
+        "либреттисте",
+        "либреттисты",
+        "либреттистов"
+      ],
+      "language": "ru",
+      "lemma": "либреттист",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L123291",
+      "pos": "",
+      "qids": [
+        "Q8178443"
+      ],
+      "record_id": "L123291",
+      "retrieval_date": "2026-11-01",
+      "revision": "2237170032",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L123291-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q8178443"
     }
   ],
   "schema_version": "1.0.0",
@@ -164,39 +195,43 @@
   "skipped": [
     {
       "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3332711"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q5482740"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2055046"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q15978655"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q211423"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2487799"
     }
   ],
   "source": "harvest-wikidata"

@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-01",
   "rows": [
     {
       "concept_id": "concept.q9149093",
@@ -129,6 +129,85 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2251335"
+    },
+    {
+      "concept_id": "concept.q8178443",
+      "forms": [
+        "librettista",
+        "librettisti",
+        "librettista",
+        "librettiste"
+      ],
+      "language": "it",
+      "lemma": "librettista",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1231742",
+      "pos": "",
+      "qids": [
+        "Q8178443"
+      ],
+      "record_id": "L1231742",
+      "retrieval_date": "2026-11-01",
+      "revision": "2181655809",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1231742-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q8178443"
+    },
+    {
+      "concept_id": "concept.q16308156",
+      "forms": [
+        "anglista",
+        "anglista",
+        "anglisti",
+        "angliste"
+      ],
+      "language": "it",
+      "lemma": "anglista",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1375969",
+      "pos": "",
+      "qids": [
+        "Q16308156"
+      ],
+      "record_id": "L1375969",
+      "retrieval_date": "2026-11-01",
+      "revision": "2390682867",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1375969-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16308156"
+    },
+    {
+      "concept_id": "concept.q3303330",
+      "forms": [
+        "calligrafo",
+        "calligrafi"
+      ],
+      "language": "it",
+      "lemma": "calligrafo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1209392",
+      "pos": "",
+      "qids": [
+        "Q3303330"
+      ],
+      "record_id": "L1209392",
+      "retrieval_date": "2026-11-01",
+      "revision": "2390818348",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1209392-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3303330"
     }
   ],
   "schema_version": "1.0.0",
@@ -136,39 +215,43 @@
   "skipped": [
     {
       "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3332711"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q5482740"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2055046"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q15978655"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q211423"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2487799"
     }
   ],
   "source": "harvest-wikidata"

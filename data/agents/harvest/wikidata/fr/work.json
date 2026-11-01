@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-01",
   "rows": [
     {
       "concept_id": "concept.q82955",
@@ -251,7 +251,7 @@
         "Q18535215"
       ],
       "record_id": "L1577753",
-      "retrieval_date": "2026-10-23",
+      "retrieval_date": "2026-11-01",
       "revision": "2532048104",
       "schema_version": "1.0.0",
       "section": "work",
@@ -276,7 +276,7 @@
         "Q18535215"
       ],
       "record_id": "L1578832",
-      "retrieval_date": "2026-10-23",
+      "retrieval_date": "2026-11-01",
       "revision": "2532048311",
       "schema_version": "1.0.0",
       "section": "work",
@@ -411,6 +411,81 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2055046"
+    },
+    {
+      "concept_id": "concept.q8178443",
+      "forms": [
+        "librettiste",
+        "librettistes"
+      ],
+      "language": "fr",
+      "lemma": "librettiste",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621500",
+      "pos": "",
+      "qids": [
+        "Q8178443"
+      ],
+      "record_id": "L621500",
+      "retrieval_date": "2026-11-01",
+      "revision": "1700258889",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621500-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q8178443"
+    },
+    {
+      "concept_id": "concept.q16308156",
+      "forms": [
+        "angliciste",
+        "anglicistes"
+      ],
+      "language": "fr",
+      "lemma": "angliciste",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621608",
+      "pos": "",
+      "qids": [
+        "Q16308156"
+      ],
+      "record_id": "L621608",
+      "retrieval_date": "2026-11-01",
+      "revision": "2155193124",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621608-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16308156"
+    },
+    {
+      "concept_id": "concept.q3303330",
+      "forms": [
+        "calligraphe",
+        "calligraphes"
+      ],
+      "language": "fr",
+      "lemma": "calligraphe",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1576832",
+      "pos": "",
+      "qids": [
+        "Q3303330"
+      ],
+      "record_id": "L1576832",
+      "retrieval_date": "2026-11-01",
+      "revision": "2524839915",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1576832-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3303330"
     }
   ],
   "schema_version": "1.0.0",
@@ -418,39 +493,43 @@
   "skipped": [
     {
       "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q3332711"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q5482740"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2055046"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q15978655"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q211423"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2487799"
     }
   ],
   "source": "harvest-wikidata"
