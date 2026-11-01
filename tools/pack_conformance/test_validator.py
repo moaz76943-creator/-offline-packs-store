@@ -5,6 +5,7 @@ import sqlite3
 from pathlib import Path
 from tools.pack_conformance.validator import PackConformanceValidator, PackConformanceError
 from tools.pack_conformance.fixture_builder import build_all
+from unittest.mock import patch
 from tools.pack_manifest.builder import compute_sha256
 
 class TestPackConformanceValidator(unittest.TestCase):
@@ -89,6 +90,13 @@ class TestPackConformanceValidator(unittest.TestCase):
     def test_missing_metadata_pack(self):
         validator = PackConformanceValidator(self.fixtures / "missing_metadata.db")
         with self.assertRaisesRegex(PackConformanceError, "Missing mandatory metadata fields"):
+            validator.validate()
+
+    @patch('os.access')
+    def test_unauthorized_workspace(self, mock_access):
+        mock_access.return_value = False
+        validator = PackConformanceValidator(self.fixtures / "valid.db")
+        with self.assertRaisesRegex(PackConformanceError, 'UNAUTHORIZED_WORKSPACE'):
             validator.validate()
 
     def test_missing_file(self):
