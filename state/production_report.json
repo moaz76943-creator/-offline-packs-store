@@ -59,7 +59,7 @@
     },
     "total": 590
   },
-  "generated_by": "classifier",
+  "generated_by": "packs",
   "pack_bytes": 282624,
   "packs": [
     {
@@ -96,21 +96,21 @@
     },
     {
       "bytes": 16384,
-      "entries": 59,
+      "entries": 62,
       "language": "de",
       "sources": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 47
+        "wikidata.lexemes": 50
       }
     },
     {
       "bytes": 20480,
-      "entries": 107,
+      "entries": 111,
       "language": "en",
       "sources": {
         "tatoeba.sentences": 12,
         "universal-dependencies": 12,
-        "wikidata.lexemes": 83
+        "wikidata.lexemes": 87
       }
     },
     {
@@ -123,19 +123,19 @@
     },
     {
       "bytes": 8192,
-      "entries": 33,
+      "entries": 34,
       "language": "es",
       "sources": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 21
+        "wikidata.lexemes": 22
       }
     },
     {
       "bytes": 8192,
-      "entries": 4,
+      "entries": 5,
       "language": "et",
       "sources": {
-        "wikidata.lexemes": 4
+        "wikidata.lexemes": 5
       }
     },
     {
@@ -156,11 +156,11 @@
     },
     {
       "bytes": 16384,
-      "entries": 55,
+      "entries": 61,
       "language": "fr",
       "sources": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 43
+        "wikidata.lexemes": 49
       }
     },
     {
@@ -173,19 +173,19 @@
     },
     {
       "bytes": 8192,
-      "entries": 38,
+      "entries": 42,
       "language": "it",
       "sources": {
-        "wikidata.lexemes": 38
+        "wikidata.lexemes": 42
       }
     },
     {
       "bytes": 8192,
-      "entries": 29,
+      "entries": 30,
       "language": "ja",
       "sources": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 17
+        "wikidata.lexemes": 18
       }
     },
     {
@@ -198,10 +198,10 @@
     },
     {
       "bytes": 8192,
-      "entries": 2,
+      "entries": 3,
       "language": "la",
       "sources": {
-        "wikidata.lexemes": 2
+        "wikidata.lexemes": 3
       }
     },
     {
@@ -255,28 +255,28 @@
     },
     {
       "bytes": 8192,
-      "entries": 5,
+      "entries": 6,
       "language": "pt",
       "sources": {
-        "wikidata.lexemes": 5
+        "wikidata.lexemes": 6
       }
     },
     {
       "bytes": 8192,
-      "entries": 32,
+      "entries": 35,
       "language": "ru",
       "sources": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 20
+        "wikidata.lexemes": 23
       }
     },
     {
       "bytes": 8192,
-      "entries": 40,
+      "entries": 46,
       "language": "sv",
       "sources": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 28
+        "wikidata.lexemes": 34
       }
     },
     {
