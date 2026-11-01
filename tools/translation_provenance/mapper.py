@@ -6,13 +6,20 @@ is a traceability preflight, not a publication or factual translation approval.
 import argparse
 import hashlib
 import json
+import os
 import sys
 
-from tools.contribution_gate.evidence import (
-    exact_source_reference, required, verified_artifact, verified_sources
-)
+def install_repo_import_path(repo_root):
+    if repo_root not in sys.path:
+        sys.path.insert(0, repo_root)
 
 def map_provenance(stream, sources_manifest, *, repo_root=None):
+    if repo_root:
+        install_repo_import_path(repo_root)
+    from tools.contribution_gate.evidence import (
+        exact_source_reference, required, verified_artifact, verified_sources
+    )
+
     sources = verified_sources(sources_manifest, repo_root)
     senses = {}
     seen = set()
@@ -101,6 +108,10 @@ def main(argv=None):
     p.add_argument("--translations", default="-")
     p.add_argument("--repo-root", required=True)
     a = p.parse_args(argv)
+
+    if not os.access(a.repo_root, os.R_OK | os.X_OK):
+        raise PermissionError("Unauthorized workspace")
+
     try:
         with open(a.sources, encoding="utf-8") as f:
             ledger = json.load(f)
