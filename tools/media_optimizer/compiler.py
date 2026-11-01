@@ -255,7 +255,13 @@ class MediaCompiler:
                 if cid not in pack_data['concepts']:
                     change_events.append({"type": "deleted", "concept_id": cid})
 
-            delta_plan = {"changes": change_events}
+            delta_plan = {
+                "added": [e["concept_id"] for e in change_events if e["type"] == "added"],
+                "updated": [e["concept_id"] for e in change_events if e["type"] == "updated"],
+                "deleted": [e["concept_id"] for e in change_events if e["type"] == "deleted"],
+                "unchanged": [e["concept_id"] for e in change_events if e["type"] == "unchanged"],
+                "index": pack_data['concepts']
+            }
 
         self._publish_atomic(pack_bytes)
 
