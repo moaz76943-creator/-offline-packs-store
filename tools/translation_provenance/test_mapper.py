@@ -8,6 +8,7 @@ from tools.contribution_gate.test_fixture import fixture, ref, put, save_ledger
 from tools.translation_provenance.mapper import main, map_provenance
 
 class MapperTests(unittest.TestCase):
+    """Translation provenance mapper unit tests."""
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
