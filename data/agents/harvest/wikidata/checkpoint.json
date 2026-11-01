@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q5060595",
-    "Q7711540",
-    "Q10317967",
-    "Q4138556",
-    "Q7240787",
-    "Q7227302",
-    "Q881082",
-    "Q3625669"
+    "Q118583125",
+    "Q136471085",
+    "Q1024758",
+    "Q112185963",
+    "Q136489760",
+    "Q19692615",
+    "Q120401133",
+    "Q16095125"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q5060595"
+      "wikidata": "Q118583125"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7711540"
+      "wikidata": "Q136471085"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q10317967"
+      "wikidata": "Q1024758"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q4138556"
+      "wikidata": "Q112185963"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7240787"
+      "wikidata": "Q136489760"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7227302"
+      "wikidata": "Q19692615"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q881082"
+      "wikidata": "Q120401133"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3625669"
+      "wikidata": "Q16095125"
     }
   ],
   "retrieval_date": "2026-11-01",
