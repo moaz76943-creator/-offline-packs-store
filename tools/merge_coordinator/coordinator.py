@@ -334,6 +334,40 @@ class GitHub:
                 return out
         raise ValueError('pagination incomplete')
 
+    def ready_pull_requests(self, max_pages=50):
+        """Enumerate the full open PR index but retain only ready (non-draft) entries.
+
+        The old hard 300/1000-item listing could hide eligible PRs behind
+        hundreds of drafts. A 50-page API ceiling bounds work; reaching it
+        without a terminal page fails explicitly instead of silently starving
+        the tail. Exact SHA, status, reviews and branch rules are still checked
+        for each candidate at the merge boundary.
+        """
+        if not isinstance(max_pages, int) or not 1 <= max_pages <= 50:
+            raise ValueError('invalid ready PR discovery page budget')
+        ready, seen = [], set()
+        scanned = 0
+        for page in range(1, max_pages + 1):
+            records = self.get(f'/pulls?state=open&base=main&per_page=100&page={page}')
+            if not isinstance(records, list) or len(records) > 100:
+                raise ValueError('malformed open PR discovery page')
+            for item in records:
+                if (not isinstance(item, dict) or
+                        not isinstance(item.get('number'), int) or item['number'] <= 0):
+                    raise ValueError('malformed open PR discovery candidate')
+                scanned += 1
+                number = item['number']
+                if number in seen:
+                    continue
+                seen.add(number)
+                if (item.get('state') == 'open' and item.get('draft') is False and
+                        (item.get('base') or {}).get('ref') == 'main'):
+                    ready.append(item)
+            if len(records) < 100:
+                print(f'AUTO_DISCOVERY_SCANNED={scanned} READY={len(ready)} PAGES={page}')
+                return ready
+        raise ValueError('open PR discovery incomplete: page ceiling reached; fail closed')
+
     def main_sha(self):
         return self.get('/git/ref/heads/main')['object']['sha']
 
