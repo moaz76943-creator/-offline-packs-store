@@ -1,10 +1,13 @@
 import argparse
 import json
 import os
+import sys
 import hashlib
-from typing import TextIO
+from typing import TextIO, Any
 
-from tools.lexicon_sanitizer.engine import SanitizerEngine
+def install_repo_import_path(root):
+    if str(root) not in sys.path:
+        sys.path.insert(0, str(root))
 
 def get_record_hash(record_str: str) -> str:
     """Returns the SHA-256 hash of the record string."""
@@ -18,9 +21,10 @@ def process_stream(
     quarantine_stream: TextIO,
     review_stream: TextIO,
     quarantine_dir: str,
-    engine: SanitizerEngine
+    engine: Any
 ):
     """Processes a JSONL stream line by line, writing to appropriate output streams."""
+    from tools.lexicon_sanitizer.engine import SanitizerEngine
     os.makedirs(quarantine_dir, exist_ok=True)
 
     stats = {
@@ -85,6 +89,13 @@ def process_stream(
     return stats
 
 def main():
+    repo_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    if not os.access(repo_root, os.R_OK | os.X_OK):
+        print("Error: Public workspace is inaccessible.", file=sys.stderr)
+        sys.exit(1)
+    install_repo_import_path(repo_root)
+    from tools.lexicon_sanitizer.engine import SanitizerEngine
+
     parser = argparse.ArgumentParser(description="Multilingual Lexicon Sanitizer & Deduplication Engine")
     parser.add_argument("--input", required=True, help="Input JSONL file")
     parser.add_argument("--output-dir", required=True, help="Output directory for processed files")
