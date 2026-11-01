@@ -1,6 +1,6 @@
 {
   "language": "ms",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-01",
   "rows": [
     {
       "concept_id": "concept.q12898224",
@@ -17,7 +17,7 @@
         "Q12898224"
       ],
       "record_id": "L1394825",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2296730522",
       "schema_version": "1.0.0",
       "section": "animals",
@@ -30,6 +30,19 @@
   ],
   "schema_version": "1.0.0",
   "section": "animals",
-  "skipped": [],
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q120360527"
+    },
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q1167690"
+    },
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q138050524"
+    }
+  ],
   "source": "harvest-wikidata"
 }
