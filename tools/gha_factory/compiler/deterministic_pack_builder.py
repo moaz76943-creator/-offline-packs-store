@@ -54,7 +54,18 @@ def build_deterministic_pack(input_records: list, output_db_path: str, pack_id: 
     cur.execute("INSERT INTO pack_metadata VALUES ('schema_version', '2');")
 
     # 3. Deterministic sorted insertion
-    sorted_records = sorted(input_records, key=lambda x: (x.get('lemma', ''), x.get('pos', '')))
+    def stable_record_key(record):
+        # Include every persisted field so equivalent unordered source records
+        # always receive the same lexicon/sense IDs and cryptographic receipt.
+        gender = record.get('gender')
+        return (
+            record.get('lemma', '').strip(),
+            record.get('pos', 'unknown').strip(),
+            (gender is not None, gender or ''),
+            tuple(sorted(gloss.strip() for gloss in record.get('senses', []))),
+        )
+
+    sorted_records = sorted(input_records, key=stable_record_key)
     
     sense_counter = 1
     for lex_id, rec in enumerate(sorted_records, start=1):

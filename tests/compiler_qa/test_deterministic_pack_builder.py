@@ -33,5 +33,30 @@ class TestDeterministicPackBuilder(unittest.TestCase):
         self.assertEqual(receipt_a['lexicon_count'], 3)
         self.assertTrue(receipt_a['reproducible'])
 
+    def test_shuffled_colliding_lemma_pos_records_have_same_sha(self):
+        rows = [
+            {"lemma": "Bank", "pos": "noun", "gender": "feminine", "senses": ["financial institution", "bank"]},
+            {"lemma": "Bank", "pos": "noun", "gender": "feminine", "senses": ["bench"]},
+            {"lemma": "Bank", "pos": "noun", "gender": None, "senses": ["shore"]},
+            {"lemma": "Bank", "pos": "noun", "gender": "", "senses": ["savings"]},
+        ]
+        path_a = os.path.join(self.temp_dir.name, "colliding_a.db")
+        path_b = os.path.join(self.temp_dir.name, "colliding_b.db")
+        receipt_a = build_deterministic_pack(rows, path_a, "de_core", "src")
+        receipt_b = build_deterministic_pack(list(reversed(rows)), path_b, "de_core", "src")
+        self.assertEqual(receipt_a["sha256"], receipt_b["sha256"])
+
+    def test_sense_order_is_canonical_across_shuffles(self):
+        rows = [
+            {"lemma": "Bank", "pos": "noun", "gender": "feminine", "senses": ["bench", "seat"]},
+            {"lemma": "Bank", "pos": "noun", "gender": "feminine", "senses": ["finance", "institution"]},
+        ]
+        path_a = os.path.join(self.temp_dir.name, "senses_a.db")
+        path_b = os.path.join(self.temp_dir.name, "senses_b.db")
+        receipt_a = build_deterministic_pack(rows, path_a, "de_core", "src")
+        shuffled = [{**item, "senses": list(reversed(item["senses"]))} for item in reversed(rows)]
+        receipt_b = build_deterministic_pack(shuffled, path_b, "de_core", "src")
+        self.assertEqual(receipt_a["sha256"], receipt_b["sha256"])
+
 if __name__ == "__main__":
     unittest.main()
