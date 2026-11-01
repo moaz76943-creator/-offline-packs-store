@@ -1,6 +1,2586 @@
 {
   "rows": [
     {
+      "author": "hashimi",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:331919",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "ويل للكافرين"
+    },
+    {
+      "author": "awael58",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332182",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "متى أنشئت هذه الجامعة؟"
+    },
+    {
+      "author": "awael58",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332186",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "أراها نادراً"
+    },
+    {
+      "author": "awael58",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332187",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "يعزف على البيانو بشكل جيد جداً"
+    },
+    {
+      "author": "awael58",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332191",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "مع كل احترامي."
+    },
+    {
+      "author": "awael58",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332192",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "نظف أسنانك"
+    },
+    {
+      "author": "Samer",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332222",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "أتمنى لك نومًا هادئًا يا تِمِي.‏‏"
+    },
+    {
+      "author": "Samer",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332223",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "ما اسمُك؟"
+    },
+    {
+      "author": "Samer",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332224",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "لو سمحت، أضعت طريقي.‏‏"
+    },
+    {
+      "author": "Samer",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332226",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "عفوًا."
+    },
+    {
+      "author": "Samer",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332229",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "عيد ميلاد سعيد!‏‏"
+    },
+    {
+      "author": "MOHAMMAD",
+      "language": "ar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:332368",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "ذهبت اليوم إلى الطبيب"
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:77",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Lass uns etwas versuchen!"
+    },
+    {
+      "author": "cburgmer",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:78",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich muss schlafen gehen."
+    },
+    {
+      "author": "TRANG",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:80",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Was ist das?"
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:81",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Heute ist der 18. Juni und das ist der Geburtstag von Muiriel!"
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=47; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:82",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Herzlichen Glückwunsch zum Geburtstag, Muiriel!"
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:83",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Muiriel ist jetzt 20."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:84",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das Passwort ist \"Muiriel\"."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:85",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich werde bald zurück sein."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:87",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich finde keine Worte."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:88",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das wird nie enden."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:89",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich weiß einfach nicht, was ich sagen soll."
+    },
+    {
+      "author": "cburgmer",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:90",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das war ein böses Kaninchen."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1276",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Let's try something."
+    },
+    {
+      "author": "vinhan",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1277",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I have to go to sleep."
+    },
+    {
+      "author": "wuiwie",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1280",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Today is June 18th and it is Muiriel's birthday!"
+    },
+    {
+      "author": "LeeSooHa",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1282",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Muiriel is 20 now."
+    },
+    {
+      "author": "wuiwie",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1283",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "The password is \"Muiriel\"."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1284",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I will be back soon."
+    },
+    {
+      "author": "wakaran",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1286",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'm at a loss for words."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1287",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "This is never going to end."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1288",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I just don't know what to say."
+    },
+    {
+      "author": "djinni74",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1289",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "That was an evil bunny."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1290",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I was in the mountains."
+    },
+    {
+      "author": "Swift",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1291",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Is it a recent picture?"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2481",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¡Intentemos algo!"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2482",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Tengo que irme a dormir."
+    },
+    {
+      "author": "hayastan",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2483",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Qué estás haciendo?"
+    },
+    {
+      "author": "TRANG",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2484",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Qué es eso?"
+    },
+    {
+      "author": "cueyayotl",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=50; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2485",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¡Hoy es 18 de junio y es el cumpleaños de Muiriel!"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2486",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¡Feliz cumpleaños, Muiriel!"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2487",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ahora, Muiriel tiene 20 años."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2488",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "La contraseña es \"Muiriel\"."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2489",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Volveré pronto."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2491",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No tengo palabras."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2492",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Esto no acabará nunca."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2493",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Simplemente no sé qué decir..."
+    },
+    {
+      "author": "TRANG",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=90; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1115",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Lorsqu'il a demandé qui avait cassé la fenêtre, tous les garçons ont pris un air innocent."
+    },
+    {
+      "author": "hortusdei",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1279",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je ne supporte pas ce type."
+    },
+    {
+      "author": "TRANG",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=71; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1441",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Pour une fois dans ma vie je fais un bon geste... Et ça ne sert à rien."
+    },
+    {
+      "author": "hortusdei",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1593",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ne tenez aucun compte de ce qu'il dit."
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3091",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Essayons quelque chose !"
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3093",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Qu'est-ce que tu fais ?"
+    },
+    {
+      "author": "TRANG",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3094",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Qu'est-ce que c'est ?"
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=71; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3095",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Aujourd'hui nous sommes le 18 juin et c'est l'anniversaire de Muiriel !"
+    },
+    {
+      "author": "sysko",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3096",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Joyeux anniversaire Muiriel !"
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3097",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Muiriel a 20 ans maintenant."
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3098",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Le mot de passe est « Muiriel »."
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3099",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je serai bientôt de retour."
+    },
+    {
+      "author": "xtofu80",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1297",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "きみにちょっとしたものをもってきたよ。"
+    },
+    {
+      "author": "mookeee",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4702",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "何かしてみましょう。"
+    },
+    {
+      "author": "Swift",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4703",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "私は眠らなければなりません。"
+    },
+    {
+      "author": "Swift",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4704",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "何してるの？"
+    },
+    {
+      "author": "pergpau",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4705",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "今日は６月１８日で、ムーリエルの誕生日です！"
+    },
+    {
+      "author": "bunbuku",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4706",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "お誕生日おめでとうムーリエル！"
+    },
+    {
+      "author": "fabioedri",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4707",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "ムーリエルは２０歳になりました。"
+    },
+    {
+      "author": "bunbuku",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4708",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "パスワードは「Muiriel」です。"
+    },
+    {
+      "author": "bunbuku",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4709",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "すぐに戻ります。"
+    },
+    {
+      "author": "e4zh1nmcz",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4710",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "知らない。"
+    },
+    {
+      "author": "bunbuku",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4711",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "何と言ったら良いか分かりません。"
+    },
+    {
+      "author": "bunbuku",
+      "language": "ja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4712",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "きりがない。"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5946",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wilt u een kopje koffie?"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5947",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hoe oud bent u?"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5949",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "We houden niet van regen."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5953",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hoe is het weer?"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=50; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5955",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "In Parijs heb ik voor een maand een kamer gehuurd."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=55; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5957",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik koop briefpapier, postzegels en papieren zakdoekjes."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5959",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Goedenavond, hoe maakt u het?"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5961",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Goedemorgen, hoe maakt u het?"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5962",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Muiriel is nu 20 jaar oud."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5963",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik weet het niet."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5964",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Gerechtigheid is duur."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5965",
+      "retrieval_date": "2026-10-31",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "De meeste mensen denken dat ik gek ben."
+    },
+    {
+      "author": "sugisaki",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=58; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:243",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Один раз в жизни я делаю хорошее дело... И оно бесполезно."
+    },
+    {
+      "author": "zmoo",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5409",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Давайте что-нибудь попробуем!"
+    },
+    {
+      "author": "Tonari",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5410",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Мне пора идти спать."
+    },
+    {
+      "author": "Aleksej",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5411",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Что ты делаешь?"
+    },
+    {
+      "author": "TRANG",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5412",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Что это?"
+    },
+    {
+      "author": "Olya",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5413",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Сегодня 18 июня, и это день рождения Мюриэл!"
+    },
+    {
+      "author": "Olya",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5414",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "С днём рождения, Мюриэл!"
+    },
+    {
+      "author": "Olya",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5415",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Мюриэл сейчас 20."
+    },
+    {
+      "author": "Olya",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5416",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Пароль «Muiriel»."
+    },
+    {
+      "author": "ae5s",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5419",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "У меня нет слов."
+    },
+    {
+      "author": "ae5s",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5421",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Не знаю, что и сказать."
+    },
+    {
+      "author": "papersaltserver",
+      "language": "ru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5422",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Это был злой кролик."
+    },
+    {
+      "author": "ebonheart",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:337413",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Vi trodde att det var ett flygande tefat."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:341910",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Detta är huset jag bodde i när jag var barn."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:341938",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Vi hade roligt på stranden igår."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:341939",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Jag spelade tennis hela dagen."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:341940",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "De skymtade mannen genom folkmassan."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=42; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:341941",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Han vande sig kvickt vid det kalla vädret."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:341942",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Jag blev till slut klar med arbetet."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:341943",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Jag kan inte komma på någon bra ursäkt till varför jag är sen till tandläkaren."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:341944",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Kan du simma lika snabbt som honom?"
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353815",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Han är inte läkare."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353816",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hon skulle gärna kommit men hon var på semester."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353817",
+      "retrieval_date": "2026-11-01",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Åh nej! Mitt hus brinner!"
+    },
+    {
+      "author": "Adopter",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:170564",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Devenin belini kıran son saman çöpüdür."
+    },
+    {
+      "author": "sysko",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=160; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:338316",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bütün insanlar hür, haysiyet ve haklar bakımından eşit doğarlar. Akıl ve vicdana sahiptirler ve birbirlerine karşı kardeşlik zihniyeti ile hareket etmelidirler."
+    },
+    {
+      "author": "fatih",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:349063",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bilmiyorum."
+    },
+    {
+      "author": "fatih",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:349066",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mum kendiliğinden söndü."
+    },
+    {
+      "author": "fatih",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:349067",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mum kendi kendine söndü."
+    },
+    {
+      "author": "fatih",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:349068",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Babam bana yatakta kitap okumamamı söyledi."
+    },
+    {
+      "author": "human600",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=88; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:351764",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "On, on bir, on iki, on üç, on dört, on beş, on altı, on yedi, on sekiz, on dokuz, yirmi."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=140; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355656",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ek olarak yaşlılar birbirleriyle sosyalleşebilsin ve Amerikan hayatının aktif üyeleri olarak kalabilsinler diye birçok topluluk kurulmuştur."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=50; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355657",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bazıları yalnızca zaman geçsin diye kitap okurlar."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355658",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Koyu kahverengi saçları vardı."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355659",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bu gemi okyanus yolculuğu için uygun değil."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355660",
+      "retrieval_date": "2026-10-29",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bu kitap."
+    },
+    {
+      "author": "sysko",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "我們試試看！"
+    },
+    {
+      "author": "fucongcong",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "我该去睡觉了。"
+    },
+    {
+      "author": "sysko",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "你在干什麼啊？"
+    },
+    {
+      "author": "Martha",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:4",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "這是什麼啊？"
+    },
+    {
+      "author": "Zifre",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "今天是６月１８号，也是Muiriel的生日！"
+    },
+    {
+      "author": "sysko",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:6",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "生日快乐，Muiriel！"
+    },
+    {
+      "author": "sysko",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:7",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Muiriel现在20岁了。"
+    },
+    {
+      "author": "sysko",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:8",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "密码是\"Muiriel\"。"
+    },
+    {
+      "author": "sysko",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:9",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "我很快就會回來。"
+    },
+    {
+      "author": "Sprachprofi",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:10",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "我不知道。"
+    },
+    {
+      "author": "CynthiaGAN",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:11",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "我不知道應該說什麼才好。"
+    },
+    {
+      "author": "U2FS",
+      "language": "zh",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:12",
+      "retrieval_date": "2026-10-30",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "這個永遠完不了了。"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0001",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "From the AP comes this story :"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=121; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0002",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "President Bush on Tuesday nominated two individuals to replace retiring jurists on federal courts in the Washington area."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=152; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0003",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Bush nominated Jennifer M. Anderson for a 15-year term as associate judge of the Superior Court of the District of Columbia, replacing Steffen W. Graae."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=161; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0005",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Bush also nominated A. Noel Anketell Kramer for a 15-year term as associate judge of the District of Columbia Court of Appeals, replacing John Montague Steadman."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=70; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_gettingpolitical_20030906235000_ENG_20030906_235000-0001",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The sheikh in wheel-chair has been attacked with a F-16-launched bomb."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=144; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_gettingpolitical_20030906235000_ENG_20030906_235000-0002",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "He could be killed years ago and the israelians have all the reasons, since he founded and he is the spiritual leader of Hamas, but they didn't."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=80; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_gettingpolitical_20030906235000_ENG_20030906_235000-0003",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Today's incident proves that Sharon has lost his patience and his hope in peace."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=91; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_gettingpolitical_20030906235000_ENG_20030906_235000-0004",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Nervous people make mistakes, so I suppose there will be a wave of succesfull arab attacks."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_gettingpolitical_20030906235000_ENG_20030906_235000-0005",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "A la guerre c'est comme a la guerre!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=113; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0001",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In the eastern city of Baqubah, guerrillas detonated a car bomb outside a police station, killing several people."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=123; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0002",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The US lost yet another helicopter to hostile fire near Habbaniyah in the Sunni heartland, but this time the crew was safe."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=116; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0003",
+      "retrieval_date": "2026-11-01",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In Fallujah, hundreds of demonstrators came out against US troops when they briefly arrested a yound newlywed bride."
+    },
+    {
       "concept_id": "concept.q3354532",
       "forms": [
         "шал"
@@ -2850,6 +5430,115 @@
       "wikidata": "Q16308156"
     },
     {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "Berater",
+        "Beraters",
+        "Berater",
+        "Berater",
+        "Berater",
+        "Berater",
+        "Beratern",
+        "Berater"
+      ],
+      "language": "de",
+      "lemma": "Berater",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L2956",
+      "pos": "",
+      "qids": [
+        "Q2994387",
+        "Q15978655"
+      ],
+      "record_id": "L2956",
+      "retrieval_date": "2026-11-01",
+      "revision": "2306632076",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L2956-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "Goldschmied",
+        "Goldschmiede",
+        "Goldschmiedes",
+        "Goldschmieds",
+        "Goldschmied",
+        "Goldschmied",
+        "Goldschmiede",
+        "Goldschmieden"
+      ],
+      "language": "de",
+      "lemma": "Goldschmied",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72756",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L72756",
+      "retrieval_date": "2026-11-01",
+      "revision": "2306663687",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72756-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "Karikaturist",
+        "Karikaturisten",
+        "Karikaturisten",
+        "Karikaturisten",
+        "Karikaturisten",
+        "Karikaturisten",
+        "Karikaturisten",
+        "Karikaturisten"
+      ],
+      "language": "de",
+      "lemma": "Karikaturist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72702",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L72702",
+      "retrieval_date": "2026-11-01",
+      "revision": "2382734975",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72702-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "horse",
@@ -5255,8 +7944,8 @@
         "Q16271064"
       ],
       "record_id": "L35559",
-      "retrieval_date": "2026-10-28",
-      "revision": "2549903470",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561946273",
       "schema_version": "1.0.0",
       "section": "work",
       "sense_id": "L35559-S1",
@@ -5354,6 +8043,126 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3303330"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "consultant",
+        "consultants"
+      ],
+      "language": "en",
+      "lemma": "consultant",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12295",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L12295",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561585545",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12295-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "goldsmith",
+        "goldsmiths"
+      ],
+      "language": "en",
+      "lemma": "goldsmith",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L34875",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L34875",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561959506",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L34875-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "mycologist",
+        "mycologists"
+      ],
+      "language": "en",
+      "lemma": "mycologist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L324307",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L324307",
+      "retrieval_date": "2026-11-01",
+      "revision": "2562175437",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L324307-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "caricaturist",
+        "caricaturists"
+      ],
+      "language": "en",
+      "lemma": "caricaturist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L317732",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L317732",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561202030",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L317732-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
     },
     {
       "concept_id": "concept.q726",
@@ -5973,7 +8782,7 @@
         "Q16271064"
       ],
       "record_id": "L750403",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2415720129",
       "schema_version": "1.0.0",
       "section": "work",
@@ -6078,6 +8887,38 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q16308156"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "caricaturista",
+        "caricaturistas",
+        "caricaturista",
+        "caricaturistas"
+      ],
+      "language": "es",
+      "lemma": "caricaturista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1360767",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L1360767",
+      "retrieval_date": "2026-11-01",
+      "revision": "2297577669",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1360767-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
     },
     {
       "concept_id": "concept.q2778382",
@@ -6223,6 +9064,42 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q4205432"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "nõustaja",
+        "nõustaja",
+        "nõustajat",
+        "nõustajasse",
+        "nõustajas",
+        "nõustajast",
+        "nõustajale",
+        "nõustajal"
+      ],
+      "language": "et",
+      "lemma": "nõustaja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L375910",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L375910",
+      "retrieval_date": "2026-11-01",
+      "revision": "2528493367",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L375910-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
     },
     {
       "concept_id": "concept.q430",
@@ -7664,7 +10541,7 @@
         "Q16271064"
       ],
       "record_id": "L621571",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2531650946",
       "schema_version": "1.0.0",
       "section": "work",
@@ -7823,6 +10700,189 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3303330"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "conseil",
+        "conseils"
+      ],
+      "language": "fr",
+      "lemma": "conseil",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12378",
+      "pos": "",
+      "qids": [
+        "Q2132873",
+        "Q15978655"
+      ],
+      "record_id": "L12378",
+      "retrieval_date": "2026-11-01",
+      "revision": "2528489992",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12378-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "consultant",
+        "consultants",
+        "consultante",
+        "consultantes"
+      ],
+      "language": "fr",
+      "lemma": "consultant",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L28097",
+      "pos": "",
+      "qids": [
+        "Q5164591",
+        "Q15978655"
+      ],
+      "record_id": "L28097",
+      "retrieval_date": "2026-11-01",
+      "revision": "2543665328",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L28097-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "orfèvre",
+        "orfèvres"
+      ],
+      "language": "fr",
+      "lemma": "orfèvre",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L25680",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L25680",
+      "retrieval_date": "2026-11-01",
+      "revision": "2457450128",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L25680-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "mycologue",
+        "mycologues"
+      ],
+      "language": "fr",
+      "lemma": "mycologue",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621691",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L621691",
+      "retrieval_date": "2026-11-01",
+      "revision": "2450041246",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621691-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "caricaturiste",
+        "caricaturistes"
+      ],
+      "language": "fr",
+      "lemma": "caricaturiste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L26594",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L26594",
+      "retrieval_date": "2026-11-01",
+      "revision": "1700257429",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L26594-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q2468727",
+      "forms": [
+        "érudit classique"
+      ],
+      "language": "fr",
+      "lemma": "érudit classique",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1590157",
+      "pos": "",
+      "qids": [
+        "Q2468727"
+      ],
+      "record_id": "L1590157",
+      "retrieval_date": "2026-11-01",
+      "revision": "2529993427",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1590157-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2468727"
     },
     {
       "concept_id": "concept.q11756",
@@ -8898,7 +11958,7 @@
         "Q16271064"
       ],
       "record_id": "L1332889",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2204096376",
       "schema_version": "1.0.0",
       "section": "work",
@@ -9062,6 +12122,130 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3303330"
+    },
+    {
+      "concept_id": "concept.q2055046",
+      "forms": [
+        "fisiologo",
+        "fisiologi"
+      ],
+      "language": "it",
+      "lemma": "fisiologo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1181476",
+      "pos": "",
+      "qids": [
+        "Q2055046"
+      ],
+      "record_id": "L1181476",
+      "retrieval_date": "2026-11-01",
+      "revision": "2230282335",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1181476-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2055046"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "micologo",
+        "micologi"
+      ],
+      "language": "it",
+      "lemma": "micologo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1190776",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L1190776",
+      "retrieval_date": "2026-11-01",
+      "revision": "2195979170",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1190776-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "caricaturista",
+        "caricaturista",
+        "caricaturisti",
+        "caricaturiste"
+      ],
+      "language": "it",
+      "lemma": "caricaturista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1375892",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L1375892",
+      "retrieval_date": "2026-11-01",
+      "revision": "2390819798",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1375892-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q2468727",
+      "forms": [
+        "classicista",
+        "classicisti",
+        "classicista",
+        "classiciste"
+      ],
+      "language": "it",
+      "lemma": "classicista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1231576",
+      "pos": "",
+      "qids": [
+        "Q2468727"
+      ],
+      "record_id": "L1231576",
+      "retrieval_date": "2026-11-01",
+      "revision": "2230330997",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1231576-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2468727"
     },
     {
       "concept_id": "concept.q1754",
@@ -9559,6 +12743,35 @@
       "wikidata": "Q970153"
     },
     {
+      "concept_id": "concept.q3658608",
+      "forms": [],
+      "language": "ja",
+      "lemma": "漫画家",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1096293",
+      "pos": "",
+      "qids": [
+        "Q715301",
+        "Q1114448",
+        "Q3658608"
+      ],
+      "record_id": "L1096293",
+      "retrieval_date": "2026-11-01",
+      "revision": "2381787359",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1096293-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
+    },
+    {
       "concept_id": "concept.q65",
       "forms": [
         "로스앤젤레스"
@@ -9688,6 +12901,42 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q34370"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "aurufex",
+        "aurufex",
+        "aurufice",
+        "aurufice",
+        "aurufice",
+        "auruficem",
+        "aurufices",
+        "aurufices"
+      ],
+      "language": "la",
+      "lemma": "aurufex",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L259890",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L259890",
+      "retrieval_date": "2026-11-01",
+      "revision": "1931005035",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L259890-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
     },
     {
       "concept_id": "concept.q11756",
@@ -11468,6 +14717,33 @@
       "wikidata": "Q130788"
     },
     {
+      "concept_id": "concept.q211423",
+      "forms": [],
+      "language": "pt",
+      "lemma": "ourives",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L307001",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L307001",
+      "retrieval_date": "2026-11-01",
+      "revision": "2539133735",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L307001-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
       "concept_id": "concept.q107246703",
       "forms": [
         "пятачок",
@@ -12189,6 +15465,116 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q8178443"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "консультант",
+        "консультанта",
+        "консультанту",
+        "консультанта",
+        "консультантом",
+        "консультанте",
+        "консультанты",
+        "консультантов"
+      ],
+      "language": "ru",
+      "lemma": "консультант",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L119257",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L119257",
+      "retrieval_date": "2026-11-01",
+      "revision": "2237432951",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L119257-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "ювелир",
+        "ювелира",
+        "ювелиру",
+        "ювелира",
+        "ювелиром",
+        "ювелире",
+        "ювелиры",
+        "ювелиров"
+      ],
+      "language": "ru",
+      "lemma": "ювелир",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L183261",
+      "pos": "",
+      "qids": [
+        "Q211423",
+        "Q2216340",
+        "Q336221"
+      ],
+      "record_id": "L183261",
+      "retrieval_date": "2026-11-01",
+      "revision": "2237099973",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L183261-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "миколог",
+        "миколога",
+        "микологу",
+        "миколога",
+        "микологом",
+        "микологе",
+        "микологи",
+        "микологов"
+      ],
+      "language": "ru",
+      "lemma": "миколог",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L127507",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L127507",
+      "retrieval_date": "2026-11-01",
+      "revision": "2237206351",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L127507-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
     },
     {
       "concept_id": "concept.q726",
@@ -13059,7 +16445,7 @@
         "Q16271064"
       ],
       "record_id": "L494231",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "1513924636",
       "schema_version": "1.0.0",
       "section": "work",
@@ -13140,6 +16526,222 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q16308156"
+    },
+    {
+      "concept_id": "concept.q2251335",
+      "forms": [
+        "skollärare",
+        "skolläraren",
+        "skollärare",
+        "skollärarna",
+        "skollärares",
+        "skollärarens",
+        "skollärares",
+        "skollärarnas"
+      ],
+      "language": "sv",
+      "lemma": "skollärare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1380692",
+      "pos": "",
+      "qids": [
+        "Q2251335"
+      ],
+      "record_id": "L1380692",
+      "retrieval_date": "2026-11-01",
+      "revision": "2478830286",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1380692-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2251335"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "konsult",
+        "konsulten",
+        "konsulter",
+        "konsulterna",
+        "konsults",
+        "konsultens",
+        "konsulters",
+        "konsulternas"
+      ],
+      "language": "sv",
+      "lemma": "konsult",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L54935",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L54935",
+      "retrieval_date": "2026-11-01",
+      "revision": "2483599776",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L54935-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "guldsmed",
+        "guldsmedens",
+        "guldsmeder",
+        "guldsmederna",
+        "guldsmeds",
+        "guldsmedens",
+        "guldsmeders",
+        "guldsmedernas"
+      ],
+      "language": "sv",
+      "lemma": "guldsmed",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32083",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L32083",
+      "retrieval_date": "2026-11-01",
+      "revision": "2503058625",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L32083-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q2487799",
+      "forms": [
+        "mykolog",
+        "mykologen",
+        "mykologer",
+        "mykologerna",
+        "mykologs",
+        "mykologens",
+        "mykologers",
+        "mykologernas"
+      ],
+      "language": "sv",
+      "lemma": "mykolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L487597",
+      "pos": "",
+      "qids": [
+        "Q2487799"
+      ],
+      "record_id": "L487597",
+      "retrieval_date": "2026-11-01",
+      "revision": "2483346430",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L487597-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3658608",
+      "forms": [
+        "karikatyrtecknare",
+        "karikatyrtecknaren",
+        "karikatyrtecknare",
+        "karikatyrtecknarna",
+        "karikatyrtecknares",
+        "karikatyrtecknarens",
+        "karikatyrtecknares",
+        "karikatyrtecknarnas"
+      ],
+      "language": "sv",
+      "lemma": "karikatyrtecknare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482876",
+      "pos": "",
+      "qids": [
+        "Q3658608"
+      ],
+      "record_id": "L482876",
+      "retrieval_date": "2026-11-01",
+      "revision": "2476644494",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L482876-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q2468727",
+      "forms": [
+        "antikvetare",
+        "antikvetaren",
+        "antikvetare",
+        "antikvetarna",
+        "antikvetares",
+        "antikvetarens",
+        "antikvetares",
+        "antikvetarnas"
+      ],
+      "language": "sv",
+      "lemma": "antikvetare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L483619",
+      "pos": "",
+      "qids": [
+        "Q2468727"
+      ],
+      "record_id": "L483619",
+      "retrieval_date": "2026-11-01",
+      "revision": "2316629706",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L483619-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2468727"
     },
     {
       "concept_id": "concept.q12106",

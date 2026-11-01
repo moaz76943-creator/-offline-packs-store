@@ -1,0 +1,695 @@
+{
+  "classified": {
+    "by_language": {
+      "ar": 12,
+      "bg": 1,
+      "cs": 14,
+      "da": 21,
+      "de": 62,
+      "en": 111,
+      "eo": 2,
+      "es": 34,
+      "et": 5,
+      "eu": 7,
+      "fa": 2,
+      "fr": 61,
+      "hr": 2,
+      "it": 42,
+      "ja": 30,
+      "ko": 2,
+      "la": 3,
+      "lv": 1,
+      "ml": 26,
+      "ms": 3,
+      "nl": 16,
+      "pa": 6,
+      "pl": 10,
+      "pt": 6,
+      "ru": 35,
+      "sv": 46,
+      "ta": 1,
+      "tr": 13,
+      "uk": 3,
+      "vi": 1,
+      "zh": 12
+    },
+    "by_section": {
+      "animals": 24,
+      "body": 2,
+      "city": 140,
+      "clothing": 15,
+      "colors": 39,
+      "emotions": 20,
+      "food": 20,
+      "grammar": 12,
+      "health": 18,
+      "numbers": 4,
+      "religion": 1,
+      "sentences": 132,
+      "sports": 3,
+      "technology": 3,
+      "time": 33,
+      "travel": 2,
+      "work": 122
+    },
+    "by_source": {
+      "tatoeba.sentences": 132,
+      "universal-dependencies": 12,
+      "wikidata.lexemes": 446
+    },
+    "total": 590
+  },
+  "generated_by": "classifier",
+  "pack_bytes": 282624,
+  "packs": [
+    {
+      "bytes": 8192,
+      "entries": 12,
+      "language": "ar",
+      "sources": {
+        "tatoeba.sentences": 12
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 1,
+      "language": "bg",
+      "sources": {
+        "wikidata.lexemes": 1
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 14,
+      "language": "cs",
+      "sources": {
+        "wikidata.lexemes": 14
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 21,
+      "language": "da",
+      "sources": {
+        "wikidata.lexemes": 21
+      }
+    },
+    {
+      "bytes": 16384,
+      "entries": 59,
+      "language": "de",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 47
+      }
+    },
+    {
+      "bytes": 20480,
+      "entries": 107,
+      "language": "en",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "universal-dependencies": 12,
+        "wikidata.lexemes": 83
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 2,
+      "language": "eo",
+      "sources": {
+        "wikidata.lexemes": 2
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 33,
+      "language": "es",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 21
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 4,
+      "language": "et",
+      "sources": {
+        "wikidata.lexemes": 4
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 7,
+      "language": "eu",
+      "sources": {
+        "wikidata.lexemes": 7
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 2,
+      "language": "fa",
+      "sources": {
+        "wikidata.lexemes": 2
+      }
+    },
+    {
+      "bytes": 16384,
+      "entries": 55,
+      "language": "fr",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 43
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 2,
+      "language": "hr",
+      "sources": {
+        "wikidata.lexemes": 2
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 38,
+      "language": "it",
+      "sources": {
+        "wikidata.lexemes": 38
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 29,
+      "language": "ja",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 17
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 2,
+      "language": "ko",
+      "sources": {
+        "wikidata.lexemes": 2
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 2,
+      "language": "la",
+      "sources": {
+        "wikidata.lexemes": 2
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 1,
+      "language": "lv",
+      "sources": {
+        "wikidata.lexemes": 1
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 26,
+      "language": "ml",
+      "sources": {
+        "wikidata.lexemes": 26
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 3,
+      "language": "ms",
+      "sources": {
+        "wikidata.lexemes": 3
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 16,
+      "language": "nl",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 4
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 6,
+      "language": "pa",
+      "sources": {
+        "wikidata.lexemes": 6
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 10,
+      "language": "pl",
+      "sources": {
+        "wikidata.lexemes": 10
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 5,
+      "language": "pt",
+      "sources": {
+        "wikidata.lexemes": 5
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 32,
+      "language": "ru",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 20
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 40,
+      "language": "sv",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 28
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 1,
+      "language": "ta",
+      "sources": {
+        "wikidata.lexemes": 1
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 13,
+      "language": "tr",
+      "sources": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 1
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 3,
+      "language": "uk",
+      "sources": {
+        "wikidata.lexemes": 3
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 1,
+      "language": "vi",
+      "sources": {
+        "wikidata.lexemes": 1
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 12,
+      "language": "zh",
+      "sources": {
+        "tatoeba.sentences": 12
+      }
+    }
+  ],
+  "rows": {
+    "by_language": {
+      "ar": 12,
+      "bg": 1,
+      "cs": 14,
+      "da": 21,
+      "de": 62,
+      "en": 111,
+      "eo": 2,
+      "es": 34,
+      "et": 5,
+      "eu": 7,
+      "fa": 2,
+      "fr": 61,
+      "hr": 2,
+      "it": 42,
+      "ja": 30,
+      "ko": 2,
+      "la": 3,
+      "lv": 1,
+      "ml": 26,
+      "ms": 3,
+      "nl": 16,
+      "pa": 6,
+      "pl": 10,
+      "pt": 6,
+      "ru": 35,
+      "sv": 46,
+      "ta": 1,
+      "tr": 13,
+      "uk": 3,
+      "vi": 1,
+      "zh": 12
+    },
+    "by_language_section": {
+      "ar": {
+        "sentences": 12
+      },
+      "bg": {
+        "clothing": 1
+      },
+      "cs": {
+        "animals": 2,
+        "city": 9,
+        "emotions": 1,
+        "time": 1,
+        "work": 1
+      },
+      "da": {
+        "animals": 3,
+        "city": 8,
+        "colors": 2,
+        "food": 1,
+        "health": 1,
+        "time": 2,
+        "work": 4
+      },
+      "de": {
+        "city": 16,
+        "clothing": 2,
+        "colors": 2,
+        "food": 3,
+        "numbers": 2,
+        "sentences": 12,
+        "time": 6,
+        "work": 19
+      },
+      "en": {
+        "animals": 5,
+        "body": 1,
+        "city": 25,
+        "clothing": 2,
+        "colors": 12,
+        "emotions": 10,
+        "food": 3,
+        "grammar": 12,
+        "health": 4,
+        "sentences": 12,
+        "sports": 1,
+        "technology": 1,
+        "time": 6,
+        "work": 17
+      },
+      "eo": {
+        "animals": 1,
+        "food": 1
+      },
+      "es": {
+        "animals": 1,
+        "city": 7,
+        "clothing": 1,
+        "colors": 2,
+        "emotions": 1,
+        "food": 1,
+        "sentences": 12,
+        "time": 1,
+        "work": 8
+      },
+      "et": {
+        "colors": 1,
+        "emotions": 1,
+        "work": 3
+      },
+      "eu": {
+        "animals": 1,
+        "colors": 1,
+        "emotions": 1,
+        "time": 2,
+        "work": 2
+      },
+      "fa": {
+        "work": 2
+      },
+      "fr": {
+        "animals": 3,
+        "city": 14,
+        "colors": 1,
+        "health": 3,
+        "numbers": 1,
+        "sentences": 12,
+        "time": 2,
+        "work": 25
+      },
+      "hr": {
+        "time": 2
+      },
+      "it": {
+        "animals": 1,
+        "city": 12,
+        "clothing": 1,
+        "colors": 7,
+        "emotions": 1,
+        "food": 1,
+        "health": 2,
+        "religion": 1,
+        "sports": 1,
+        "technology": 1,
+        "time": 1,
+        "travel": 1,
+        "work": 12
+      },
+      "ja": {
+        "city": 4,
+        "clothing": 2,
+        "colors": 3,
+        "emotions": 1,
+        "food": 2,
+        "sentences": 12,
+        "technology": 1,
+        "time": 3,
+        "work": 2
+      },
+      "ko": {
+        "city": 1,
+        "health": 1
+      },
+      "la": {
+        "city": 2,
+        "work": 1
+      },
+      "lv": {
+        "time": 1
+      },
+      "ml": {
+        "animals": 1,
+        "city": 22,
+        "clothing": 1,
+        "numbers": 1,
+        "time": 1
+      },
+      "ms": {
+        "animals": 1,
+        "city": 2
+      },
+      "nl": {
+        "city": 2,
+        "colors": 1,
+        "food": 1,
+        "sentences": 12
+      },
+      "pa": {
+        "animals": 1,
+        "clothing": 1,
+        "emotions": 4
+      },
+      "pl": {
+        "city": 8,
+        "colors": 1,
+        "health": 1
+      },
+      "pt": {
+        "animals": 1,
+        "city": 1,
+        "clothing": 1,
+        "colors": 1,
+        "time": 1,
+        "work": 1
+      },
+      "ru": {
+        "body": 1,
+        "clothing": 1,
+        "colors": 2,
+        "food": 2,
+        "health": 4,
+        "sentences": 12,
+        "sports": 1,
+        "time": 2,
+        "travel": 1,
+        "work": 9
+      },
+      "sv": {
+        "animals": 3,
+        "city": 7,
+        "clothing": 1,
+        "colors": 1,
+        "food": 2,
+        "health": 2,
+        "sentences": 12,
+        "time": 2,
+        "work": 16
+      },
+      "ta": {
+        "food": 1
+      },
+      "tr": {
+        "clothing": 1,
+        "sentences": 12
+      },
+      "uk": {
+        "colors": 2,
+        "food": 1
+      },
+      "vi": {
+        "food": 1
+      },
+      "zh": {
+        "sentences": 12
+      }
+    },
+    "by_language_source": {
+      "ar": {
+        "tatoeba.sentences": 12
+      },
+      "bg": {
+        "wikidata.lexemes": 1
+      },
+      "cs": {
+        "wikidata.lexemes": 14
+      },
+      "da": {
+        "wikidata.lexemes": 21
+      },
+      "de": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 50
+      },
+      "en": {
+        "tatoeba.sentences": 12,
+        "universal-dependencies": 12,
+        "wikidata.lexemes": 87
+      },
+      "eo": {
+        "wikidata.lexemes": 2
+      },
+      "es": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 22
+      },
+      "et": {
+        "wikidata.lexemes": 5
+      },
+      "eu": {
+        "wikidata.lexemes": 7
+      },
+      "fa": {
+        "wikidata.lexemes": 2
+      },
+      "fr": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 49
+      },
+      "hr": {
+        "wikidata.lexemes": 2
+      },
+      "it": {
+        "wikidata.lexemes": 42
+      },
+      "ja": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 18
+      },
+      "ko": {
+        "wikidata.lexemes": 2
+      },
+      "la": {
+        "wikidata.lexemes": 3
+      },
+      "lv": {
+        "wikidata.lexemes": 1
+      },
+      "ml": {
+        "wikidata.lexemes": 26
+      },
+      "ms": {
+        "wikidata.lexemes": 3
+      },
+      "nl": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 4
+      },
+      "pa": {
+        "wikidata.lexemes": 6
+      },
+      "pl": {
+        "wikidata.lexemes": 10
+      },
+      "pt": {
+        "wikidata.lexemes": 6
+      },
+      "ru": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 23
+      },
+      "sv": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 34
+      },
+      "ta": {
+        "wikidata.lexemes": 1
+      },
+      "tr": {
+        "tatoeba.sentences": 12,
+        "wikidata.lexemes": 1
+      },
+      "uk": {
+        "wikidata.lexemes": 3
+      },
+      "vi": {
+        "wikidata.lexemes": 1
+      },
+      "zh": {
+        "tatoeba.sentences": 12
+      }
+    },
+    "by_section": {
+      "animals": 24,
+      "body": 2,
+      "city": 140,
+      "clothing": 15,
+      "colors": 39,
+      "emotions": 20,
+      "food": 20,
+      "grammar": 12,
+      "health": 18,
+      "numbers": 4,
+      "religion": 1,
+      "sentences": 132,
+      "sports": 3,
+      "technology": 3,
+      "time": 33,
+      "travel": 2,
+      "work": 122
+    },
+    "by_source": {
+      "tatoeba.sentences": 132,
+      "universal-dependencies": 12,
+      "wikidata.lexemes": 446
+    },
+    "total": 590
+  },
+  "schema_version": "1.0.0"
+}
