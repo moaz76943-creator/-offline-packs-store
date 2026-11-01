@@ -263,6 +263,286 @@
       "value": "In Fallujah, hundreds of demonstrators came out against US troops when they briefly arrested a yound newlywed bride."
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0004",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "(I hope that the US army got an enormous amount of information from her relatives, because otherwise this move was a bad, bad tradeoff)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0005",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "The US troops fired into the hostile crowd, killing 4."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0006",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "It seems clear to me that the manhunt for high Baath officials in the Sunni heartland is being done wrong, or at least in ways that are bad for US standing with local Iraqis."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0001",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Google has finally had an analyst day -- a chance to present the company's story to the (miniscule number of) people who haven't heard it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0002",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Usually, these are just a chance for the suckups to suck up, but this time people are actually concerned about the company's plans."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0003",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "They work on Wall Street, after all, so when they hear a company who's stated goals include \"Don't be evil,\" they imagine a company who's eventually history will be \"Don't be profitable.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0004",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "It's not quite as freewheeling an environment as you'd imagine: Sergey Brin has actually created a mathematical 'proof' that the company's self-driven research strategy, which gives employees one day a week to do research projects on their own, is a good, respectable idea ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0005",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Read the entire article; there's a punchline, too."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0001",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "My opinion piece on the implications of Arafat's passing for al-Qaeda has appeared at Newsday."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0002",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Excerpt:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0003",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "\"Arafat's secular nationalism was supple enough to compromise with Israel and to imagine a two-state solution, even if the road of negotiations remained rocky."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0004",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "The continued Israeli colonization of the occupied Palestinian territories during the 1990s helped, along with terrorist attacks by radical groups such as Hamas, to derail the peace process, which Sharon had always opposed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0005",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Arafat's death creates a vacuum in Palestinian leadership that will not soon be filled."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0006",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Sharon's assassination of major Hamas leaders has also weakened authority structures in that party."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0007",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "If the Israelis and the Palestinian leadership cannot find a way to reinvigorate the peace process, cells of radical young Palestinians may grow up that look to bin Laden for their cues."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0008",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Even if local Palestinian leaders remain strong enough to keep al-Qaida out, the festering Israeli-Palestinian struggle remains among the best recruiting posters for al-Qaida with young Muslim men."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0009",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Resolving this conflict would be the most effective weapon the United States could deploy in its war on terror.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0001",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Xinhua reports that a wide range of Iraqi political forces on Tuesday condemned Sharon's murder of Sheikh Ahmed Yassin, a religious leader of Hamas, the day before."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0002",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "The Board of Muslim clerics in Fallujah, 50 km west of Baghdad, \"condemned the assassination and promised immediate revenge against the coalition soldiers in Iraq.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0003",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Ash-Sharq al-Awsat reports that Fallujah was closed Tuesday in a general strike."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0004",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "US troops there clashed with guerrillas in a fight that left one Iraqi dead."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0005",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "In Ramadi, there was a big demonstration."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0006",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Radical Shiite cleric Muqtada al-Sadr said the attack was \"criminal\" and that \"the Zionists have left only one choice for the Arabs, that of fighting and jihad\"."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0007",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "The interim Governing Council issued a communique saying, \"It is a proof of the emptiness of the Israeli authority and a destruction of the peace endeavors in the region . . ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0008",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "This operation would only consolidate the terrorist acts in the world and would not bring peace to the region,\" the message claimed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0009",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Xinhua alleged that \"Many of the Iraqis, who suffer the American occupation of Iraq, relate their case with that of the Palestinian people, under the Israeli occupation.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0010",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "In an apparently unrelated incidents, some eleven Iraqis were killed by snipers on Tuesday, including a group of police trainees in a bus near Hilla and two police in Kirkuk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20040611132900_ENG_20040611_132900-0001",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Ever since the first whispers about Google's IPO, most investors have feared that the stock would come public at such a ridiculously high price that, even with a spectacularly profitable business model and some nearly flawless execution, the price would be too high for investors to make a real profit."
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -517,6 +797,286 @@
       "retrieval_date": "2026-11-01",
       "source_id": "universal-dependencies",
       "value": "In Fallujah, hundreds of demonstrators came out against US troops when they briefly arrested a yound newlywed bride."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0004",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "(I hope that the US army got an enormous amount of information from her relatives, because otherwise this move was a bad, bad tradeoff)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0005",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "The US troops fired into the hostile crowd, killing 4."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040114085100_ENG_20040114_085100-0006",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "It seems clear to me that the manhunt for high Baath officials in the Sunni heartland is being done wrong, or at least in ways that are bad for US standing with local Iraqis."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0001",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Google has finally had an analyst day -- a chance to present the company's story to the (miniscule number of) people who haven't heard it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0002",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Usually, these are just a chance for the suckups to suck up, but this time people are actually concerned about the company's plans."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0003",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "They work on Wall Street, after all, so when they hear a company who's stated goals include \"Don't be evil,\" they imagine a company who's eventually history will be \"Don't be profitable.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0004",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "It's not quite as freewheeling an environment as you'd imagine: Sergey Brin has actually created a mathematical 'proof' that the company's self-driven research strategy, which gives employees one day a week to do research projects on their own, is a good, respectable idea ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20050210075500_ENG_20050210_075500-0005",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Read the entire article; there's a punchline, too."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0001",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "My opinion piece on the implications of Arafat's passing for al-Qaeda has appeared at Newsday."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0002",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Excerpt:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0003",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "\"Arafat's secular nationalism was supple enough to compromise with Israel and to imagine a two-state solution, even if the road of negotiations remained rocky."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0004",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "The continued Israeli colonization of the occupied Palestinian territories during the 1990s helped, along with terrorist attacks by radical groups such as Hamas, to derail the peace process, which Sharon had always opposed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0005",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Arafat's death creates a vacuum in Palestinian leadership that will not soon be filled."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0006",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Sharon's assassination of major Hamas leaders has also weakened authority structures in that party."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0007",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "If the Israelis and the Palestinian leadership cannot find a way to reinvigorate the peace process, cells of radical young Palestinians may grow up that look to bin Laden for their cues."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0008",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Even if local Palestinian leaders remain strong enough to keep al-Qaida out, the festering Israeli-Palestinian struggle remains among the best recruiting posters for al-Qaida with young Muslim men."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041120060600_ENG_20041120_060600-0009",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Resolving this conflict would be the most effective weapon the United States could deploy in its war on terror.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0001",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Xinhua reports that a wide range of Iraqi political forces on Tuesday condemned Sharon's murder of Sheikh Ahmed Yassin, a religious leader of Hamas, the day before."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0002",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "The Board of Muslim clerics in Fallujah, 50 km west of Baghdad, \"condemned the assassination and promised immediate revenge against the coalition soldiers in Iraq.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0003",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Ash-Sharq al-Awsat reports that Fallujah was closed Tuesday in a general strike."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0004",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "US troops there clashed with guerrillas in a fight that left one Iraqi dead."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0005",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "In Ramadi, there was a big demonstration."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0006",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Radical Shiite cleric Muqtada al-Sadr said the attack was \"criminal\" and that \"the Zionists have left only one choice for the Arabs, that of fighting and jihad\"."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0007",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "The interim Governing Council issued a communique saying, \"It is a proof of the emptiness of the Israeli authority and a destruction of the peace endeavors in the region . . ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0008",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "This operation would only consolidate the terrorist acts in the world and would not bring peace to the region,\" the message claimed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0009",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Xinhua alleged that \"Many of the Iraqis, who suffer the American occupation of Iraq, relate their case with that of the Palestinian people, under the Israeli occupation.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040324065800_ENG_20040324_065800-0010",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "In an apparently unrelated incidents, some eleven Iraqis were killed by snipers on Tuesday, including a group of police trainees in a bus near Hilla and two police in Kirkuk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_marketview_20040611132900_ENG_20040611_132900-0001",
+      "retrieval_date": "2026-11-01",
+      "source_id": "universal-dependencies",
+      "value": "Ever since the first whispers about Google's IPO, most investors have feared that the stock would come public at such a ridiculously high price that, even with a spectacularly profitable business model and some nearly flawless execution, the price would be too high for investors to make a real profit."
     },
     {
       "id": "verb.forms",

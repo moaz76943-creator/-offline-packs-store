@@ -28,7 +28,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:170564",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Devenin belini kıran son saman çöpüdür."
     },
@@ -38,7 +38,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:338316",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bütün insanlar hür, haysiyet ve haklar bakımından eşit doğarlar. Akıl ve vicdana sahiptirler ve birbirlerine karşı kardeşlik zihniyeti ile hareket etmelidirler."
     },
@@ -48,7 +48,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:349063",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bilmiyorum."
     },
@@ -58,7 +58,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:349066",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Mum kendiliğinden söndü."
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:349067",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Mum kendi kendine söndü."
     },
@@ -78,7 +78,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:349068",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Babam bana yatakta kitap okumamamı söyledi."
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:351764",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "On, on bir, on iki, on üç, on dört, on beş, on altı, on yedi, on sekiz, on dokuz, yirmi."
     },
@@ -98,7 +98,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355656",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Ek olarak yaşlılar birbirleriyle sosyalleşebilsin ve Amerikan hayatının aktif üyeleri olarak kalabilsinler diye birçok topluluk kurulmuştur."
     },
@@ -108,7 +108,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355657",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bazıları yalnızca zaman geçsin diye kitap okurlar."
     },
@@ -118,7 +118,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355658",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Koyu kahverengi saçları vardı."
     },
@@ -128,7 +128,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355659",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bu gemi okyanus yolculuğu için uygun değil."
     },
@@ -138,9 +138,289 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355660",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bu kitap."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355661",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Hemen yolculuğa hazırlan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355662",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Masanın üstündeki hesap makinesi benim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355663",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Şimşek çaktı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355664",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Aşk onu rüyalarında görmektir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355666",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Kimse benim fikirlerimi dinlemek istemiyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355672",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Sana satranç oynamayı öğreteceğim."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355676",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Satranç oynamayı biliyor musun?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355682",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar çok eski kitaplar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355683",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar benim kitaplarım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355684",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar bizim kitaplarımız."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355685",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar benim kalemlerim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355686",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar her yerde satılıyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355690",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu kitap okul kütüphanesinin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355692",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Köpekleri severim."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355694",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bulaşık makinesinin nasıl çalıştığını anlatabilir misin?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355698",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Zor durumlarla başa çıkamıyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355700",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Günde en az yedi saat uyumak zorundayız."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355707",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Sporu rekabet için değil zevk için yapıyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355711",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Japonca konuşamıyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355786",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Yalnızca birkaç kişi vaktinde geldi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355883",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Sadece birkaç kişi beni anladı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355890",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Koşucuyum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355912",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Geçen sene kurulan lunapark sağolsun şehir popüler oldu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355916",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Onunla beraber olduğun sürece mutlu olamazsın."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355918",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Çocuklar yerde uyumak zorunda kalacaklar gibi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355919",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Şarkıları gençler arasında iyi biliniyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355932",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bir davetiye aldım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355934",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Matsuyama'da doğup büyüdüm."
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:170564",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Devenin belini kıran son saman çöpüdür."
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:338316",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bütün insanlar hür, haysiyet ve haklar bakımından eşit doğarlar. Akıl ve vicdana sahiptirler ve birbirlerine karşı kardeşlik zihniyeti ile hareket etmelidirler."
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:349063",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bilmiyorum."
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:349066",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Mum kendiliğinden söndü."
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:349067",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Mum kendi kendine söndü."
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:349068",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Babam bana yatakta kitap okumamamı söyledi."
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:351764",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "On, on bir, on iki, on üç, on dört, on beş, on altı, on yedi, on sekiz, on dokuz, yirmi."
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355656",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Ek olarak yaşlılar birbirleriyle sosyalleşebilsin ve Amerikan hayatının aktif üyeleri olarak kalabilsinler diye birçok topluluk kurulmuştur."
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355657",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bazıları yalnızca zaman geçsin diye kitap okurlar."
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355658",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Koyu kahverengi saçları vardı."
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355659",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bu gemi okyanus yolculuğu için uygun değil."
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:355660",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Bu kitap."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355661",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Hemen yolculuğa hazırlan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355662",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Masanın üstündeki hesap makinesi benim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355663",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Şimşek çaktı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355664",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Aşk onu rüyalarında görmektir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355666",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Kimse benim fikirlerimi dinlemek istemiyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355672",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Sana satranç oynamayı öğreteceğim."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355676",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Satranç oynamayı biliyor musun?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355682",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar çok eski kitaplar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355683",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar benim kitaplarım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355684",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar bizim kitaplarımız."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355685",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar benim kalemlerim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355686",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bunlar her yerde satılıyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355690",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu kitap okul kütüphanesinin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355692",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Köpekleri severim."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355694",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bulaşık makinesinin nasıl çalıştığını anlatabilir misin?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355698",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Zor durumlarla başa çıkamıyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355700",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Günde en az yedi saat uyumak zorundayız."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355707",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Sporu rekabet için değil zevk için yapıyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355711",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Japonca konuşamıyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355786",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Yalnızca birkaç kişi vaktinde geldi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355883",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Sadece birkaç kişi beni anladı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355890",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Koşucuyum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355912",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Geçen sene kurulan lunapark sağolsun şehir popüler oldu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355916",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Onunla beraber olduğun sürece mutlu olamazsın."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355918",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Çocuklar yerde uyumak zorunda kalacaklar gibi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355919",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Şarkıları gençler arasında iyi biliniyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355932",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Bir davetiye aldım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355934",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "Matsuyama'da doğup büyüdüm."
     }
   ]
 }
