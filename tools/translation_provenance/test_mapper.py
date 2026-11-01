@@ -41,6 +41,28 @@ class MapperTests(unittest.TestCase):
         self.assertEqual(data[0]["from_sense_id"], "sense-en")
         self.assertEqual(data[0]["to_language"], "de")
         self.assertTrue(data[0]["evidence_only"])
+        self.assertEqual(data[0]["author"], "Test Author")
+
+    def test_invalid_language_direction(self):
+        # Create a new sense that is in "en", so translating en -> en will raise Invalid language direction
+        self.records.extend([
+            {"type": "sense", "sense_id": "sense-en-2", "lexeme_id": "lex-en-2",
+             "language": "en", "source_locator": "row 4", "source": ref(self.source)},
+            {"type": "translation", "translation_id": "edge-2",
+             "from_sense_id": "sense-en", "to_sense_id": "sense-en-2",
+             "from_language": "en", "to_language": "en", "source": ref(self.source),
+             "translation_evidence": {"source_locator": "row 5",
+                                      "artifact_path": "evidence/translation.txt",
+                                      "sha256": self.translation_sha}}
+        ])
+        with self.assertRaisesRegex(ValueError, "Invalid language direction"):
+            self.run_gate()
+
+    def test_conflicting_translations(self):
+        # The translation record claims from_language is "fr" but from_sense is "en"
+        self.records[-1]["from_language"] = "fr"
+        with self.assertRaisesRegex(ValueError, "Translation direction contradicts sense ownership"):
+            self.run_gate()
 
     def test_missing_all_senses_is_orphan_not_success(self):
         with self.assertRaises(ValueError):

@@ -72,7 +72,7 @@ def map_provenance(stream, sources_manifest, *, repo_root=None):
                 "from_sense_source_id": from_sense["_verified_source_id"],
                 "to_sense_source_id": to_sense["_verified_source_id"],
                 "source_id": source["source_id"], "dataset_version": source["dataset_version"],
-                "publisher": source["publisher"], "origin_url": source["origin_url"],
+                "publisher": source["publisher"], "author": source.get("author"), "origin_url": source["origin_url"],
                 "license_id": source["license"]["id"],
                 "license_evidence_url": source["license"]["evidence_url"],
                 "artifact_sha256": source["retrieval"]["sha256"],
