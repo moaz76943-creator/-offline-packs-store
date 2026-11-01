@@ -1,7 +1,6 @@
 {
   "degraded": [
     "harvest-kaikki",
-    "harvest-wikidata",
     "packs",
     "watchdog"
   ],
