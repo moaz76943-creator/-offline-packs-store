@@ -2778,6 +2778,78 @@
       "wikidata": "Q2055046"
     },
     {
+      "concept_id": "concept.q8178443",
+      "forms": [
+        "Librettist",
+        "Librettisten",
+        "Librettisten",
+        "Librettisten",
+        "Librettisten",
+        "Librettisten",
+        "Librettisten",
+        "Librettisten"
+      ],
+      "language": "de",
+      "lemma": "Librettist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348813",
+      "pos": "",
+      "qids": [
+        "Q8178443"
+      ],
+      "record_id": "L348813",
+      "retrieval_date": "2026-11-01",
+      "revision": "2306688298",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348813-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q8178443"
+    },
+    {
+      "concept_id": "concept.q16308156",
+      "forms": [
+        "Anglist",
+        "Anglisten",
+        "Anglisten",
+        "Anglisten",
+        "Anglisten",
+        "Anglisten",
+        "Anglisten",
+        "Anglisten"
+      ],
+      "language": "de",
+      "lemma": "Anglist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L616434",
+      "pos": "",
+      "qids": [
+        "Q16308156"
+      ],
+      "record_id": "L616434",
+      "retrieval_date": "2026-11-01",
+      "revision": "1884129210",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L616434-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16308156"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "horse",
@@ -5224,6 +5296,66 @@
       "wikidata": "Q2055046"
     },
     {
+      "concept_id": "concept.q8178443",
+      "forms": [
+        "librettist",
+        "librettists"
+      ],
+      "language": "en",
+      "lemma": "librettist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L323237",
+      "pos": "",
+      "qids": [
+        "Q8178443"
+      ],
+      "record_id": "L323237",
+      "retrieval_date": "2026-11-01",
+      "revision": "2562095822",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L323237-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q8178443"
+    },
+    {
+      "concept_id": "concept.q3303330",
+      "forms": [
+        "calligrapher",
+        "calligraphers"
+      ],
+      "language": "en",
+      "lemma": "calligrapher",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L317618",
+      "pos": "",
+      "qids": [
+        "Q3303330"
+      ],
+      "record_id": "L317618",
+      "retrieval_date": "2026-11-01",
+      "revision": "2561123060",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L317618-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3303330"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "ĉevalo",
@@ -5884,6 +6016,70 @@
       "wikidata": "Q2055046"
     },
     {
+      "concept_id": "concept.q16308156",
+      "forms": [
+        "anglicista",
+        "anglicistas",
+        "anglicista",
+        "anglicistas"
+      ],
+      "language": "es",
+      "lemma": "anglicista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1334309",
+      "pos": "",
+      "qids": [
+        "Q16308156"
+      ],
+      "record_id": "L1334309",
+      "retrieval_date": "2026-11-01",
+      "revision": "2206931817",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1334309-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16308156"
+    },
+    {
+      "concept_id": "concept.q16308156",
+      "forms": [
+        "anglista",
+        "anglistas",
+        "anglista",
+        "anglistas"
+      ],
+      "language": "es",
+      "lemma": "anglista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1334310",
+      "pos": "",
+      "qids": [
+        "Q16308156"
+      ],
+      "record_id": "L1334310",
+      "retrieval_date": "2026-11-01",
+      "revision": "2206931917",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1334310-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16308156"
+    },
+    {
       "concept_id": "concept.q2778382",
       "forms": [
         "pronks",
@@ -6309,6 +6505,36 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2055046"
+    },
+    {
+      "concept_id": "concept.q3303330",
+      "forms": [
+        "خوشنویس",
+        "خوشنویس‌ها"
+      ],
+      "language": "fa",
+      "lemma": "خوشنویس",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1003979",
+      "pos": "",
+      "qids": [
+        "Q3303330"
+      ],
+      "record_id": "L1003979",
+      "retrieval_date": "2026-11-01",
+      "revision": "2162522932",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1003979-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3303330"
     },
     {
       "concept_id": "concept.q726",
@@ -7317,7 +7543,7 @@
         "Q18535215"
       ],
       "record_id": "L1577753",
-      "retrieval_date": "2026-10-23",
+      "retrieval_date": "2026-11-01",
       "revision": "2532048104",
       "schema_version": "1.0.0",
       "section": "work",
@@ -7347,7 +7573,7 @@
         "Q18535215"
       ],
       "record_id": "L1578832",
-      "retrieval_date": "2026-10-23",
+      "retrieval_date": "2026-11-01",
       "revision": "2532048311",
       "schema_version": "1.0.0",
       "section": "work",
@@ -7507,6 +7733,96 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2055046"
+    },
+    {
+      "concept_id": "concept.q8178443",
+      "forms": [
+        "librettiste",
+        "librettistes"
+      ],
+      "language": "fr",
+      "lemma": "librettiste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621500",
+      "pos": "",
+      "qids": [
+        "Q8178443"
+      ],
+      "record_id": "L621500",
+      "retrieval_date": "2026-11-01",
+      "revision": "1700258889",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621500-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q8178443"
+    },
+    {
+      "concept_id": "concept.q16308156",
+      "forms": [
+        "angliciste",
+        "anglicistes"
+      ],
+      "language": "fr",
+      "lemma": "angliciste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621608",
+      "pos": "",
+      "qids": [
+        "Q16308156"
+      ],
+      "record_id": "L621608",
+      "retrieval_date": "2026-11-01",
+      "revision": "2155193124",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621608-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16308156"
+    },
+    {
+      "concept_id": "concept.q3303330",
+      "forms": [
+        "calligraphe",
+        "calligraphes"
+      ],
+      "language": "fr",
+      "lemma": "calligraphe",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1576832",
+      "pos": "",
+      "qids": [
+        "Q3303330"
+      ],
+      "record_id": "L1576832",
+      "retrieval_date": "2026-11-01",
+      "revision": "2524839915",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1576832-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3303330"
     },
     {
       "concept_id": "concept.q11756",
@@ -8652,6 +8968,100 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2251335"
+    },
+    {
+      "concept_id": "concept.q8178443",
+      "forms": [
+        "librettista",
+        "librettisti",
+        "librettista",
+        "librettiste"
+      ],
+      "language": "it",
+      "lemma": "librettista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1231742",
+      "pos": "",
+      "qids": [
+        "Q8178443"
+      ],
+      "record_id": "L1231742",
+      "retrieval_date": "2026-11-01",
+      "revision": "2181655809",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1231742-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q8178443"
+    },
+    {
+      "concept_id": "concept.q16308156",
+      "forms": [
+        "anglista",
+        "anglista",
+        "anglisti",
+        "angliste"
+      ],
+      "language": "it",
+      "lemma": "anglista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1375969",
+      "pos": "",
+      "qids": [
+        "Q16308156"
+      ],
+      "record_id": "L1375969",
+      "retrieval_date": "2026-11-01",
+      "revision": "2390682867",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1375969-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16308156"
+    },
+    {
+      "concept_id": "concept.q3303330",
+      "forms": [
+        "calligrafo",
+        "calligrafi"
+      ],
+      "language": "it",
+      "lemma": "calligrafo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1209392",
+      "pos": "",
+      "qids": [
+        "Q3303330"
+      ],
+      "record_id": "L1209392",
+      "retrieval_date": "2026-11-01",
+      "revision": "2390818348",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1209392-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3303330"
     },
     {
       "concept_id": "concept.q1754",
@@ -11745,6 +12155,42 @@
       "wikidata": "Q2055046"
     },
     {
+      "concept_id": "concept.q8178443",
+      "forms": [
+        "либреттист",
+        "либреттиста",
+        "либреттисту",
+        "либреттиста",
+        "либреттистом",
+        "либреттисте",
+        "либреттисты",
+        "либреттистов"
+      ],
+      "language": "ru",
+      "lemma": "либреттист",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L123291",
+      "pos": "",
+      "qids": [
+        "Q8178443"
+      ],
+      "record_id": "L123291",
+      "retrieval_date": "2026-11-01",
+      "revision": "2237170032",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L123291-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q8178443"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "häst",
@@ -12658,6 +13104,42 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2055046"
+    },
+    {
+      "concept_id": "concept.q16308156",
+      "forms": [
+        "anglist",
+        "anglisten",
+        "anglister",
+        "anglisterna",
+        "anglists",
+        "anglistens",
+        "anglisters",
+        "anglisternas"
+      ],
+      "language": "sv",
+      "lemma": "anglist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1403572",
+      "pos": "",
+      "qids": [
+        "Q16308156"
+      ],
+      "record_id": "L1403572",
+      "retrieval_date": "2026-11-01",
+      "revision": "2478522177",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1403572-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16308156"
     },
     {
       "concept_id": "concept.q12106",
