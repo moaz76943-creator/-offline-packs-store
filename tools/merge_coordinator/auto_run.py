@@ -1,7 +1,12 @@
 """Single-writer low-risk PR discovery, called only by the incumbent coordinator."""
 import os
+import time
 import urllib.error
 from auto_policy import auto_eligible
+
+# One pass reads this many exact-SHA candidates. The hourly rotation moves
+# the window, so a long queue cannot stall the five-minute job or hide the tail.
+EVIDENCE_BUDGET = 40
 
 
 def candidate_evidence_unavailable(number, error):
@@ -83,6 +88,21 @@ def candidate_threads_resolved(gh, number):
         return False
 
 
+def discovery_order(candidates, now, budget=EVIDENCE_BUDGET):
+    """Newest ready PRs first. Queues longer than the budget rotate by hour."""
+    if not isinstance(candidates, list):
+        raise ValueError('invalid discovery candidates')
+    ordered = [item for item in sorted(
+        (item for item in candidates if isinstance(item, dict) and isinstance(item.get('number'), int)),
+        key=lambda item: item['number'], reverse=True,
+    ) if not item.get('draft')]
+    if len(ordered) > budget:
+        shift = int(now // 3600) % len(ordered)
+        ordered = ordered[shift:] + ordered[:shift]
+        return ordered[:budget], len(ordered) - budget
+    return ordered, 0
+
+
 def run_auto(gh, main_sha):
     """Merge up to eight independent, low-risk and freshly checked PRs.
 
@@ -111,8 +131,11 @@ def run_auto(gh, main_sha):
         print(f'AUTO_DISCOVERY_READY={len(pool)}')
         print(f'AUTO_STALE_BASE_HINTS={stale}')
         print(f'AUTO_CURRENT_BASE_CANDIDATES={len(current)}')
+        window, deferred = discovery_order(current, time.time())
+        if deferred:
+            print(f'AUTO_EVIDENCE_DEFERRED={deferred}')
         merged_this_step = False
-        for brief in sorted(current, key=lambda p: p['number'], reverse=True):
+        for brief in window:
             num = brief['number']
             head = (brief.get('head') or {}).get('sha')
             if not isinstance(head, str) or len(head) != 40:
