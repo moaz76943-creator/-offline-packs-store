@@ -33,6 +33,16 @@ class FallbackMapping:
 class GlyphCoverageValidator:
     def __init__(self, repo_root: str):
         self.repo_root = repo_root
+        if not os.access(self.repo_root, os.R_OK | os.X_OK):
+            raise PermissionError(f"Cannot access repository root: {self.repo_root}")
+
+        catalog_dir = os.path.join(self.repo_root, "catalog")
+        if not os.access(catalog_dir, os.R_OK | os.X_OK):
+            raise PermissionError(f"Cannot access catalog directory: {catalog_dir}")
+
+        legal_dir = os.path.join(self.repo_root, "legal")
+        if not os.access(legal_dir, os.R_OK | os.X_OK):
+            raise PermissionError(f"Cannot access legal directory: {legal_dir}")
         self.registry = FontRightsRegistry()
 
     def get_font_cmap(self, font_path: str) -> Set[int]:
@@ -77,7 +87,7 @@ class GlyphCoverageValidator:
                 continue
 
             full_path = os.path.join(self.repo_root, asset.asset_path)
-            if not os.path.isfile(full_path):
+            if not os.path.isfile(full_path) or not os.access(full_path, os.R_OK):
                 continue
 
             if script not in asset.scripts:
