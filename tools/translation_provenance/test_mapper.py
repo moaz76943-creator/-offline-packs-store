@@ -46,6 +46,32 @@ class MapperTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate([self.records[-1]])
 
+
+    def test_invalid_language_direction(self):
+        # A->A translation should fail
+        records = [
+            {"type": "sense", "sense_id": "sense-en", "lexeme_id": "lex-en",
+             "language": "en", "source_locator": "row 1", "source": ref(self.source)},
+            {"type": "sense", "sense_id": "sense-en2", "lexeme_id": "lex-en2",
+             "language": "en", "source_locator": "row 2", "source": ref(self.source)},
+            {"type": "translation", "translation_id": "edge-fail",
+             "from_sense_id": "sense-en", "to_sense_id": "sense-en2",
+             "from_language": "en", "to_language": "en", "source": ref(self.source),
+             "translation_evidence": {"source_locator": "row 3",
+                                      "artifact_path": "evidence/translation.txt",
+                                      "sha256": self.translation_sha}}
+        ]
+        with self.assertRaisesRegex(ValueError, "Invalid language direction"):
+            self.run_gate(records)
+
+    def test_conflicting_translations(self):
+        # Duplicated translation for the same sense pair should fail
+        records = list(self.records)
+        dup_translation = dict(records[-1])
+        dup_translation["translation_id"] = "edge-dup"
+        records.append(dup_translation)
+        with self.assertRaisesRegex(ValueError, "Conflicting translations"):
+            self.run_gate(records)
     def test_missing_target_sense(self):
         with self.assertRaisesRegex(ValueError, "Orphan"):
             self.run_gate([self.records[0], self.records[-1]])

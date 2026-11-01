@@ -7,6 +7,8 @@ import argparse
 import hashlib
 import json
 import sys
+import tempfile
+
 
 from tools.contribution_gate.evidence import (
     exact_source_reference, required, verified_artifact, verified_sources
@@ -16,84 +18,100 @@ def map_provenance(stream, sources_manifest, *, repo_root=None):
     sources = verified_sources(sources_manifest, repo_root)
     senses = {}
     seen = set()
-    records = []
+    seen_pairs = set()
     has_sense = False
     has_translation = False
+    tmp_file = tempfile.TemporaryFile("w+", encoding="utf-8")
 
-    for line_num, line in enumerate(stream, 1):
-        if not line.strip():
-            continue
-        try:
-            entry = json.loads(line)
-        except (ValueError, TypeError) as exc:
-            raise ValueError("Malformed translation JSONL line " + str(line_num)) from exc
-        if not isinstance(entry, dict):
-            raise ValueError("Non-object translation stream record")
-        kind = entry.get("type")
-        if kind == "sense":
-            has_sense = True
-            sid = required(entry.get("sense_id"), "sense_id")
-            if sid in senses:
-                raise ValueError("Duplicate sense_id " + sid)
-            for name in ("lexeme_id", "language", "source_locator"):
-                required(entry.get(name), "sense " + name)
-            source = exact_source_reference(entry.get("source"), sources)
-            senses[sid] = {**entry, "_verified_source_id": source["source_id"]}
-        elif kind == "translation":
-            has_translation = True
-            tid = required(entry.get("translation_id"), "translation_id")
-            if tid in seen:
-                raise ValueError("Duplicate translation_id " + tid)
-            seen.add(tid)
-            source_id = required(entry.get("from_sense_id"), "from_sense_id")
-            target_id = required(entry.get("to_sense_id"), "to_sense_id")
-            if source_id not in senses or target_id not in senses:
-                raise ValueError("Orphan translation " + tid)
-            source = exact_source_reference(entry.get("source"), sources)
-            from_sense, to_sense = senses[source_id], senses[target_id]
-            from_language = from_sense["language"]
-            to_language = to_sense["language"]
-            if from_language == to_language:
-                raise ValueError("Invalid language direction")
-            if (entry.get("from_language", from_language) != from_language or
-                    entry.get("to_language", to_language) != to_language):
-                raise ValueError("Translation direction contradicts sense ownership")
-            evidence = entry.get("translation_evidence")
-            if not isinstance(evidence, dict):
-                raise ValueError("Missing translation evidence " + tid)
-            required(evidence.get("source_locator"), "translation source locator")
-            verified_artifact(repo_root, evidence.get("artifact_path"),
-                              evidence.get("sha256"), "attested translation " + tid)
-            record = {
-                "translation_id": tid,
-                "from_sense_id": source_id, "to_sense_id": target_id,
-                "from_lexeme_id": from_sense["lexeme_id"], "to_lexeme_id": to_sense["lexeme_id"],
-                "from_language": from_language, "to_language": to_language,
-                "from_sense_source_id": from_sense["_verified_source_id"],
-                "to_sense_source_id": to_sense["_verified_source_id"],
-                "source_id": source["source_id"], "dataset_version": source["dataset_version"],
-                "publisher": source["publisher"], "origin_url": source["origin_url"],
-                "license_id": source["license"]["id"],
-                "license_evidence_url": source["license"]["evidence_url"],
-                "artifact_sha256": source["retrieval"]["sha256"],
-                "translation_source_locator": evidence["source_locator"],
-                "translation_evidence_sha256": evidence["sha256"],
-                "evidence_only": True
-            }
-            if "regional_variant" in entry:
-                record["regional_variant"] = entry["regional_variant"]
-            if "contextual_label" in entry:
-                record["contextual_label"] = entry["contextual_label"]
-            record["provenance_hash"] = hashlib.sha256(
-                json.dumps(record, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
-            ).hexdigest()
-            records.append(record)
-        else:
-            raise ValueError("Unknown record type")
+    try:
+        for line_num, line in enumerate(stream, 1):
+            if not line.strip():
+                continue
+            try:
+                entry = json.loads(line)
+            except (ValueError, TypeError) as exc:
+                raise ValueError("Malformed translation JSONL line " + str(line_num)) from exc
+            if not isinstance(entry, dict):
+                raise ValueError("Non-object translation stream record")
+            kind = entry.get("type")
+            if kind == "sense":
+                has_sense = True
+                sid = required(entry.get("sense_id"), "sense_id")
+                if sid in senses:
+                    raise ValueError("Duplicate sense_id " + sid)
+                for name in ("lexeme_id", "language", "source_locator"):
+                    required(entry.get(name), "sense " + name)
+                source = exact_source_reference(entry.get("source"), sources)
+                senses[sid] = {**entry, "_verified_source_id": source["source_id"]}
+            elif kind == "translation":
+                has_translation = True
+                tid = required(entry.get("translation_id"), "translation_id")
+                if tid in seen:
+                    raise ValueError("Duplicate translation_id " + tid)
+                seen.add(tid)
 
-    if not has_sense or not has_translation:
-        raise ValueError("Independent source-linked sense and translation records required")
-    return records
+                source_id = required(entry.get("from_sense_id"), "from_sense_id")
+                target_id = required(entry.get("to_sense_id"), "to_sense_id")
+                pair = (source_id, target_id)
+                if pair in seen_pairs:
+                    raise ValueError("Conflicting translations for pair")
+                seen_pairs.add(pair)
+                if source_id not in senses or target_id not in senses:
+                    raise ValueError("Orphan translation " + tid)
+                source = exact_source_reference(entry.get("source"), sources)
+                from_sense, to_sense = senses[source_id], senses[target_id]
+                from_language = from_sense["language"]
+                to_language = to_sense["language"]
+                if from_language == to_language:
+                    raise ValueError("Invalid language direction")
+                if (entry.get("from_language", from_language) != from_language or
+                        entry.get("to_language", to_language) != to_language):
+                    raise ValueError("Translation direction contradicts sense ownership")
+                evidence = entry.get("translation_evidence")
+                if not isinstance(evidence, dict):
+                    raise ValueError("Missing translation evidence " + tid)
+                required(evidence.get("source_locator"), "translation source locator")
+                verified_artifact(repo_root, evidence.get("artifact_path"),
+                                  evidence.get("sha256"), "attested translation " + tid)
+                record = {
+                    "translation_id": tid,
+                    "from_sense_id": source_id, "to_sense_id": target_id,
+                    "from_lexeme_id": from_sense["lexeme_id"], "to_lexeme_id": to_sense["lexeme_id"],
+                    "from_language": from_language, "to_language": to_language,
+                    "from_sense_source_id": from_sense["_verified_source_id"],
+                    "to_sense_source_id": to_sense["_verified_source_id"],
+                    "source_id": source["source_id"], "dataset_version": source["dataset_version"],
+                    "publisher": source["publisher"], "origin_url": source["origin_url"],
+                    "license_id": source["license"]["id"],
+                    "license_evidence_url": source["license"]["evidence_url"],
+                    "artifact_sha256": source["retrieval"]["sha256"],
+                    "translation_source_locator": evidence["source_locator"],
+                    "translation_evidence_sha256": evidence["sha256"],
+                    "evidence_only": True
+                }
+                if "regional_variant" in entry:
+                    record["regional_variant"] = entry["regional_variant"]
+                if "contextual_label" in entry:
+                    record["contextual_label"] = entry["contextual_label"]
+                record["provenance_hash"] = hashlib.sha256(
+                    json.dumps(record, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+                ).hexdigest()
+                tmp_file.write(json.dumps(record, ensure_ascii=False) + "\n")
+            else:
+                raise ValueError("Unknown record type")
+
+        if not has_sense or not has_translation:
+            raise ValueError("Independent source-linked sense and translation records required")
+
+        def generate():
+            with tmp_file:
+                tmp_file.seek(0)
+                for l in tmp_file:
+                    yield json.loads(l)
+        return generate()
+    except Exception:
+        tmp_file.close()
+        raise
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__)
