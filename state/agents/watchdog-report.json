@@ -1,6 +1,5 @@
 {
   "degraded": [
-    "harvest-wikidata",
     "packs"
   ],
   "dispatch": [],
