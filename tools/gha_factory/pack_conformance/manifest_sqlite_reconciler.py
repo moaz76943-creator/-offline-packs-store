@@ -9,6 +9,7 @@ import json
 import os
 import sqlite3
 import sys
+import tempfile
 
 def get_actual_sqlite_counts(db_path: str) -> dict:
     if not os.path.isfile(db_path):
@@ -41,35 +42,43 @@ def reconcile_pack_in_manifest(manifest_path: str, pack_id: str, db_path: str) -
     with open(manifest_path, 'r', encoding='utf-8') as f:
         manifest = json.load(f)
 
+    # Canonical manifests index metadata by pack_id (not a list).
+    if not isinstance(manifest, dict) or not isinstance(manifest.get('packs'), dict):
+        return False, "INVALID_MANIFEST: packs must be a keyed object"
+    packs = manifest['packs']
+    target_pack = packs.get(pack_id)
+    if not isinstance(target_pack, dict):
+        return False, f"PACK_NOT_FOUND: {pack_id} has no authorized manifest entry"
+
     actual = get_actual_sqlite_counts(db_path)
-
-    packs = manifest.get('packs', [])
-    target_pack = None
-    for p in packs:
-        if p.get('pack_id') == pack_id:
-            target_pack = p
-            break
-
-    if not target_pack:
-        # Create pack entry in manifest if missing
-        target_pack = {'pack_id': pack_id, 'status': 'production'}
-        packs.append(target_pack)
-
-    # Reconcile claims with ground-truth SQLite reality
     discrepancies = []
-    for key in ['lexicon_count', 'senses_count', 'translations_count']:
-        claimed = target_pack.get(key, 0)
-        truth = actual.get(key, 0)
+    for key, actual_key in (
+        ('entry_count', 'lexicon_count'),
+        ('lexicon_count', 'lexicon_count'),
+        ('senses_count', 'senses_count'),
+        ('translations_count', 'translations_count'),
+    ):
+        claimed = target_pack.get(key)
+        truth = actual[actual_key]
         if claimed != truth:
             discrepancies.append(f"{key}: claimed {claimed} -> updated to {truth}")
             target_pack[key] = truth
-
-    target_pack['size_bytes'] = actual['size_bytes']
+    # A manifest may point to a compressed artifact, not this SQLite file.
+    # Never substitute SQLite size for the published artifact size/hash.
     target_pack['schema_version'] = actual['schema_version']
 
-    manifest['packs'] = packs
-    with open(manifest_path, 'w', encoding='utf-8') as f:
-        json.dump(manifest, f, indent=2, ensure_ascii=False)
+    # Persist atomically: interrupted serialization must not truncate the manifest.
+    directory = os.path.dirname(os.path.abspath(manifest_path))
+    fd, temporary = tempfile.mkstemp(prefix='.manifest-reconcile-', dir=directory)
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8') as f:
+            json.dump(manifest, f, indent=2, ensure_ascii=False)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(temporary, manifest_path)
+    finally:
+        if os.path.exists(temporary):
+            os.unlink(temporary)
 
     if discrepancies:
         return True, f"RECONCILED: Discrepancies resolved ({'; '.join(discrepancies)})"
