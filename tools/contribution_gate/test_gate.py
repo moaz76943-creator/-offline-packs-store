@@ -229,5 +229,79 @@ class ContributionTests(unittest.TestCase):
         save_ledger(self.root, self.ledger)
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_receipt_binds_to_source_version(self):
+        res1 = self.check()
+        self.assertEqual(res1["status"], "ACCEPT", res1)
+        receipt1 = res1["receipt"]["receipt_id"]
+
+        self.source["dataset_version"] = "2.0"
+        self.manifest["source_ref"]["dataset_version"] = "2.0"
+
+        import json
+        grant = json.loads((Path(self.root) / "evidence/auth.txt").read_text())
+        grant["source_version"] = "2.0"
+        self.auth_sha = put(self.root, "evidence/auth.txt", json.dumps(grant, sort_keys=True).encode("utf-8"))
+        self.manifest["contributor_authorization"]["sha256"] = self.auth_sha
+
+        save_ledger(self.root, self.ledger)
+
+        res2 = self.check()
+        self.assertEqual(res2["status"], "ACCEPT", res2)
+        receipt2 = res2["receipt"]["receipt_id"]
+
+        self.assertNotEqual(receipt1, receipt2)
+
+    def test_receipt_binds_to_license_evidence(self):
+        res1 = self.check()
+        self.assertEqual(res1["status"], "ACCEPT", res1)
+        receipt1 = res1["receipt"]["receipt_id"]
+
+        new_rights_sha = put(self.root, "evidence/rights.txt", b"New license text")
+        self.source["license"]["evidence_sha256"] = new_rights_sha
+        save_ledger(self.root, self.ledger)
+
+        res2 = self.check()
+        self.assertEqual(res2["status"], "ACCEPT", res2)
+        receipt2 = res2["receipt"]["receipt_id"]
+
+        self.assertNotEqual(receipt1, receipt2)
+
+    def _setup_vector_art(self):
+        self.source["kind"] = "vector_art"
+        self.source["license"]["artwork_evidence_url"] = "https://example.org/artwork"
+        self.artwork_sha = put(self.root, "evidence/artwork.txt", b"artwork rights")
+        self.source["license"]["artwork_evidence_path"] = "evidence/artwork.txt"
+        self.source["license"]["artwork_evidence_sha256"] = self.artwork_sha
+        save_ledger(self.root, self.ledger)
+        self.manifest["kind"] = "vector_art"
+        self.manifest["artifact_path"] = "staging/entry.vct"
+        self.asset_sha = put(self.root, "staging/entry.vct", b'{"a":1}')
+        self.manifest["sha256"] = self.asset_sha
+        import json
+        grant = json.loads((Path(self.root) / "evidence/auth.txt").read_text())
+        grant["artifact_sha256"] = self.asset_sha
+        self.auth_sha = put(self.root, "evidence/auth.txt", json.dumps(grant, sort_keys=True).encode("utf-8"))
+        self.manifest["contributor_authorization"]["sha256"] = self.auth_sha
+
+    def test_vector_art_accepted(self):
+        self._setup_vector_art()
+        res = self.check()
+        self.assertEqual(res["status"], "ACCEPT", res)
+
+    def test_vector_art_missing_evidence(self):
+        self._setup_vector_art()
+        self.source["license"].pop("artwork_evidence_path")
+        save_ledger(self.root, self.ledger)
+        res = self.check()
+        self.assertEqual(res["status"], "REJECT", res)
+
+    def test_vector_art_invalid_evidence_artifact(self):
+        self._setup_vector_art()
+        self.source["license"]["artwork_evidence_sha256"] = "f" * 64
+        save_ledger(self.root, self.ledger)
+        res = self.check()
+        self.assertEqual(res["status"], "REJECT", res)
+
+
 if __name__ == "__main__":
     unittest.main()

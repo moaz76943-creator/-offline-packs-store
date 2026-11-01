@@ -106,9 +106,17 @@ def validate_contribution(manifest_dict, repo_root):
             rights_info = source["license"]
             for key in ("artwork_evidence_url", "artwork_evidence_path", "artwork_evidence_sha256"):
                 required(rights_info.get(key), "separate artwork rights evidence")
+        receipt_parts = [
+            asset_id,
+            manifest_dict["sha256"],
+            source["retrieval"]["sha256"],
+            source["dataset_version"],
+            source["license"]["evidence_sha256"],
+        ]
+        if kind == "vector_art":
+            receipt_parts.append(source["license"]["artwork_evidence_sha256"])
         receipt_id = hashlib.sha256(
-            (asset_id + "|" + manifest_dict["sha256"] + "|" +
-             source["retrieval"]["sha256"]).encode("utf-8")).hexdigest()
+            "|".join(receipt_parts).encode("utf-8")).hexdigest()
         return {"status": "ACCEPT", "reasons": [],
                 "publication_approved": False,
                 "receipt": {"receipt_id": receipt_id, "source_id": source["source_id"],
