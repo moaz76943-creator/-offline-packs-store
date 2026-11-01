@@ -190,6 +190,9 @@ class TestDigestEngine(unittest.TestCase):
         self.assertIn("added.txt", events['updated'])
         self.assertIn("deleted.txt", events['deleted'])
 
+        self.assertIn("added.txt", events['index'])
+        self.assertEqual(events['index']["added.txt"]['sha256'], "hash5")
+
     def test_bounded_memory(self):
         # We can't easily test that it truly uses bounded memory without memory profiler,
         # but we can verify it can hash a decently sized file correctly by reading in chunks.

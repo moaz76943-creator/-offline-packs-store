@@ -124,7 +124,8 @@ def compare_indexes(old_index, new_index):
         'unchanged': [],
         'updated': [],
         'deleted': [],
-        'invalid': []
+        'invalid': [],
+        'index': {}
     }
 
     # We define invalid as missing provenance or size mismatch, but
@@ -135,6 +136,7 @@ def compare_indexes(old_index, new_index):
     # Let's adjust to allow returning invalid items if they are passed in.
 
     for path, new_meta in new_index.items():
+        events['index'][path] = new_meta
         if new_meta.get('invalid'):
             events['invalid'].append(path)
             continue
@@ -161,5 +163,6 @@ def compare_indexes(old_index, new_index):
     for path, old_meta in old_index.items():
         if path not in new_index:
             events['deleted'].append(path)
+            events['index'][path] = old_meta
 
     return events
