@@ -6,13 +6,20 @@ is a traceability preflight, not a publication or factual translation approval.
 import argparse
 import hashlib
 import json
+import os
+from pathlib import Path
 import sys
 
-from tools.contribution_gate.evidence import (
-    exact_source_reference, required, verified_artifact, verified_sources
-)
+def install_repo_import_path(root):
+    resolved = str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
 
 def map_provenance(stream, sources_manifest, *, repo_root=None):
+    from tools.contribution_gate.evidence import (
+        exact_source_reference, required, verified_artifact, verified_sources
+    )
     sources = verified_sources(sources_manifest, repo_root)
     senses = {}
     seen = set()
@@ -101,6 +108,12 @@ def main(argv=None):
     p.add_argument("--translations", default="-")
     p.add_argument("--repo-root", required=True)
     a = p.parse_args(argv)
+    install_repo_import_path(a.repo_root)
+
+    if not os.access(a.repo_root, os.R_OK | os.X_OK):
+        print("BLOCKED: Missing repository read/traverse permissions", file=sys.stderr)
+        return 1
+
     try:
         with open(a.sources, encoding="utf-8") as f:
             ledger = json.load(f)
