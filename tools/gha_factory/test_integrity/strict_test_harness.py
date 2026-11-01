@@ -21,14 +21,23 @@ def validate_test_fixture(fixture_path: str) -> tuple:
         with open(fixture_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
 
-        # Enforce non-empty structure and real entries
+        # Reject truthy-but-malformed JSON before reporting a valid fixture.
+        if not isinstance(data, dict):
+            return False, "FALSE_FIXTURE: Fixture root must be an object"
         vocab = data.get('vocabulary', data.get('entries', []))
-        if not vocab:
-            return False, "FALSE_FIXTURE: Fixture contains 0 vocabulary entries (false-pass risk)"
+        if not isinstance(vocab, list) or not vocab:
+            return False, "FALSE_FIXTURE: Fixture must contain a nonempty vocabulary list"
 
-        for entry in vocab:
-            if not entry.get('lemma') or not entry.get('translations'):
-                return False, f"MALFORMED_ENTRY: Entry {entry} lacks required lemma or translations"
+        for index, entry in enumerate(vocab):
+            if not isinstance(entry, dict):
+                return False, f"MALFORMED_ENTRY: Entry {index} must be an object"
+            lemma = entry.get('lemma')
+            translations = entry.get('translations')
+            if not isinstance(lemma, str) or not lemma.strip():
+                return False, f"MALFORMED_ENTRY: Entry {index} requires a nonblank string lemma"
+            if (not isinstance(translations, list) or not translations or
+                    any(not isinstance(item, str) or not item.strip() for item in translations)):
+                return False, f"MALFORMED_ENTRY: Entry {index} requires nonblank string translations"
 
         return True, f"FIXTURE_VALID: {len(vocab)} genuine entries verified."
     except Exception as e:
