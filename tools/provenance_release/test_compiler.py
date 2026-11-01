@@ -129,6 +129,28 @@ class TestProvenanceCompiler(unittest.TestCase):
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['invalid'], ['asset_1'])
 
+    def test_missing_author_in_notice(self):
+        src = self.base_source.copy()
+        src['author'] = 'Test Author'
+        self.notice_path.write_text("src_id publisher CC-BY-SA-4.0 https://origin") # Missing author
+        self.write_ledger([src])
+        self.write_daily([self.base_candidate])
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], ['asset_1'])
+
+    def test_author_in_notice_and_manifest(self):
+        src = self.base_source.copy()
+        src['author'] = 'Test Author'
+        self.notice_path.write_text("src_id publisher Test Author CC-BY-SA-4.0 https://origin")
+        self.write_ledger([src])
+        self.write_daily([self.base_candidate])
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['approved'], ['asset_1'])
+        import json
+        with open(self.manifest_out, 'r') as f:
+            manifest = json.load(f)
+        self.assertEqual(manifest['release_provenance'][0]['sources'][0]['author'], 'Test Author')
+
     def test_altered_file_invalid_hash(self):
         self.artifact_path.write_text("altered content") # Changes hash
         self.write_ledger([self.base_source])
