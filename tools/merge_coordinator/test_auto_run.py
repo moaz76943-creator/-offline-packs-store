@@ -1,7 +1,8 @@
 import unittest
 import urllib.error
 from unittest.mock import patch
-from auto_run import run_auto
+from auto_run import discovery_order, run_auto
+from coordinator import append_page
 from test_auto_policy import SHA, MAIN, PR, CHECKS, DOC
 class FakeGH:
   def __init__(self,pr=PR,files=DOC,comments=None,base_sha=MAIN):
@@ -196,6 +197,43 @@ class FlowTests(unittest.TestCase):
     f=OnlyOversized()
     self.assertEqual(run_auto(f, MAIN), 0)
     self.assertEqual(f.merges, [])
+
+  def test_open_pr_index_truncates_and_evidence_pages_stay_fail_closed(self):
+    listing = []
+    self.assertEqual(append_page(listing, [{'n': i} for i in range(100)], 300, listing=True), 'continue')
+    self.assertEqual(append_page(listing, [{'n': i} for i in range(100)], 300, listing=True), 'continue')
+    self.assertEqual(append_page(listing, [{'n': i} for i in range(100)], 300, listing=True), 'continue')
+    self.assertEqual(append_page(listing, [{'n': i} for i in range(79)], 300, listing=True), 'truncated')
+    self.assertEqual(len(listing), 300)
+    evidence = []
+    with self.assertRaises(ValueError):
+      append_page(evidence, [{'n': i} for i in range(301)], 300, listing=False)
+
+  def test_long_queue_rotates_and_drops_drafts(self):
+    rows = [{'number': n, 'draft': n % 17 == 0} for n in range(1, 61)]
+    first, deferred = discovery_order(rows, now=0, budget=40)
+    second, _deferred = discovery_order(rows, now=3600, budget=40)
+    self.assertEqual(deferred, len([n for n in range(1, 61) if n % 17 != 0]) - 40)
+    self.assertEqual(len(first), 40)
+    self.assertTrue(all(not item.get('draft') for item in first))
+    self.assertNotEqual([item['number'] for item in first], [item['number'] for item in second])
+
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_more_open_prs_than_the_evidence_budget_does_not_fail_the_run(self):
+    class WideQueue(FakeGH):
+      def page(self, path, limit=300):
+        if path.startswith('/pulls?'):
+          return [{'number': n, 'head': {'sha': SHA}, 'base': {'ref': 'main', 'sha': self.main},
+                   'state': 'open', 'draft': False} for n in range(1, 55)]
+        return []
+      def query_pr(self, num, head):
+        self.q += 1
+        return ({**self.pr, 'mergeable': False, 'mergeable_state': 'dirty'},
+                CHECKS, [], self.files, 'feat: docs')
+    queue = WideQueue()
+    self.assertEqual(run_auto(queue, MAIN), 0)
+    self.assertEqual(queue.merges, [])
+    self.assertEqual(queue.q, 40)
 
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
   def test_sensitive_paths_block(self):

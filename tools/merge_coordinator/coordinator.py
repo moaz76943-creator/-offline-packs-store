@@ -133,6 +133,23 @@ def order_entries(items):
     return order
 
 
+def append_page(out, records, limit, *, listing):
+    """Add one API page. A candidate index truncates; evidence pages fail closed."""
+    if not isinstance(records, list):
+        raise ValueError('unexpected paginated response')
+    if not isinstance(limit, int) or limit < 1:
+        raise ValueError('invalid page limit')
+    if listing and len(out) + len(records) > limit:
+        out.extend(records[:limit - len(out)])
+        return 'truncated'
+    out.extend(records)
+    if len(out) > limit:
+        raise ValueError('pagination limit exceeded; fail closed')
+    if len(records) < 100:
+        return 'done'
+    return 'continue'
+
+
 def changed_path_names(files):
     """Original and resulting paths matter for ownership and collision checks."""
     if not isinstance(files, list):
@@ -303,15 +320,17 @@ class GitHub:
         return self.request(f'/repos/{REPO}{path}')
 
     def page(self, path, limit=300):
+        # Open-PR discovery is a window: a long queue must not abort the job.
+        # File and review evidence stays fail-closed when a page runs past the bound.
+        listing = path.startswith('/pulls?')
         out = []
         for n in range(1, limit // 100 + 2):
             records = self.get(f'{path}{"&" if "?" in path else "?"}per_page=100&page={n}')
-            if not isinstance(records, list):
-                raise ValueError('unexpected paginated response')
-            out.extend(records)
-            if len(out) > limit:
-                raise ValueError('pagination limit exceeded; fail closed')
-            if len(records) < 100:
+            action = append_page(out, records, limit, listing=listing)
+            if action == 'truncated':
+                print(f'AUTO_DISCOVERY_TRUNCATED={limit}')
+                return out
+            if action == 'done':
                 return out
         raise ValueError('pagination incomplete')
 
