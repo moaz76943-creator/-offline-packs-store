@@ -2,16 +2,22 @@
 import argparse
 import hashlib
 import json
+import sys
 from pathlib import Path
 
-from legal.ledger.admission import KINDS, LICENSES, OBLIGATIONS, manual_review, text, url_ok
-from tools.contribution_gate.evidence import (
-    EvidenceError, exact_source_reference, load_verified_ledger, required, verified_artifact
-)
+def install_repo_import_path(root):
+    resolved = str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
 
 MAX_BYTES = 50 * 1024 * 1024
 
 def validate_contribution(manifest_dict, repo_root):
+    from legal.ledger.admission import KINDS, LICENSES, OBLIGATIONS, manual_review, text, url_ok
+    from tools.contribution_gate.evidence import (
+        EvidenceError, exact_source_reference, load_verified_ledger, required, verified_artifact
+    )
     def block(message, status="REJECT"):
         return {"status": status, "reasons": [message], "publication_approved": False}
     if not isinstance(manifest_dict, dict):
@@ -128,6 +134,7 @@ def main(argv=None):
     p.add_argument("manifest")
     p.add_argument("--repo-root", required=True)
     a = p.parse_args(argv)
+    install_repo_import_path(a.repo_root)
     try:
         manifest = json.loads(Path(a.manifest).read_text(encoding="utf-8"))
     except (OSError, ValueError) as exc:
