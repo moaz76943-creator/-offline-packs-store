@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-01",
   "rows": [
     {
       "concept_id": "concept.q4093",
@@ -459,7 +459,7 @@
         "Q13362"
       ],
       "record_id": "L452937",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2463983521",
       "schema_version": "1.0.0",
       "section": "city",
@@ -484,7 +484,7 @@
         "Q42448"
       ],
       "record_id": "L476834",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "1818171308",
       "schema_version": "1.0.0",
       "section": "city",
@@ -614,30 +614,47 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q3114",
+      "forms": [
+        "Canberra",
+        "Canberras"
+      ],
+      "language": "en",
+      "lemma": "Canberra",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452643",
+      "pos": "",
+      "qids": [
+        "Q3114"
+      ],
+      "record_id": "L452643",
+      "retrieval_date": "2026-11-01",
+      "revision": "2551461843",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452643-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3114"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q956"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q956"
+      "reason": "HTTPError:429",
+      "wikidata": "Q279"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1780"
+      "wikidata": "Q1410"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q3711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3130"
+      "wikidata": "Q23051"
     }
   ],
   "source": "harvest-wikidata"

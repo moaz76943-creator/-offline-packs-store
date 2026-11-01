@@ -1,6 +1,6 @@
 {
   "language": "ja",
-  "retrieval_date": "2026-10-24",
+  "retrieval_date": "2026-11-01",
   "rows": [
     {
       "concept_id": "concept.q1754",
@@ -93,26 +93,46 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q727"
+    },
+    {
+      "concept_id": "concept.q3114",
+      "forms": [
+        "キャンベラ"
+      ],
+      "language": "ja",
+      "lemma": "キャンベラ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1560491",
+      "pos": "",
+      "qids": [
+        "Q3114"
+      ],
+      "record_id": "L1560491",
+      "retrieval_date": "2026-11-01",
+      "revision": "2475177955",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1560491-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3114"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q1492"
+      "reason": "HTTPError:429",
+      "wikidata": "Q279"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q1757"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1410"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q10690"
-    },
-    {
-      "reason": "HTTPError",
-      "wikidata": "Q490"
+      "reason": "HTTPError:429",
+      "wikidata": "Q23051"
     }
   ],
   "source": "harvest-wikidata"
