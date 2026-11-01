@@ -229,5 +229,20 @@ class ContributionTests(unittest.TestCase):
         save_ledger(self.root, self.ledger)
         self.assertEqual(self.check()["status"], "REJECT")
 
+
+
+    def test_permissive_can_be_sublicensed_to_copyleft(self):
+        self._switch_license("CC-BY-2.0-FR", "CC-BY-SA-4.0")
+        result = self.check()
+        self.assertEqual(result["status"], "ACCEPT", result)
+
+    def test_permissive_cannot_be_downgraded_to_cc0(self):
+        self._switch_license("CC-BY-2.0-FR", "CC0-1.0")
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    def test_permissive_cannot_be_downgraded_to_public_domain(self):
+        self._switch_license("CC-BY-2.0-FR", "PUBLIC-DOMAIN")
+        self.assertEqual(self.check()["status"], "REJECT")
+
 if __name__ == "__main__":
     unittest.main()
