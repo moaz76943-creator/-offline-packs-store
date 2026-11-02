@@ -1,0 +1,178 @@
+{
+  "language": "nl",
+  "retrieval_date": "2026-11-02",
+  "rows": [
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3640",
+      "gloss": "Ankara (the capital city of Turkey and the capital of Ankara Province)",
+      "language": "nl",
+      "lemma": "Ankara",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3640"
+      ],
+      "record_id": "en-Ankara-nl-name-~YFP-UAD",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Ankara-nl-name-~YFP-UAD",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3640"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3561",
+      "gloss": "Algiers (the capital and largest city of Algeria)",
+      "language": "nl",
+      "lemma": "Algiers",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3561"
+      ],
+      "record_id": "en-Algiers-nl-name-Zdc0RQhd",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Algiers-nl-name-Zdc0RQhd",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3561"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1757",
+      "gloss": "Helsinki (the capital city of Finland; a municipality, the capital of the region of Uusimaa, Finland)",
+      "language": "nl",
+      "lemma": "Helsinki",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1757"
+      ],
+      "record_id": "en-Helsinki-nl-name-lvdF7oDB",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Helsinki-nl-name-lvdF7oDB",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1757"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2656",
+      "gloss": "Palermo (a port city and comune, the capital of the Metropolitan City of Palermo and the region of Sicily, Italy)",
+      "language": "nl",
+      "lemma": "Palermo",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2656"
+      ],
+      "record_id": "en-Palermo-nl-name-xOYjWXyp",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Palermo-nl-name-xOYjWXyp",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2656"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1780",
+      "gloss": "Bratislava (the capital city of Slovakia)",
+      "language": "nl",
+      "lemma": "Bratislava",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "en-Bratislava-nl-name-TXoGHhtI",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bratislava-nl-name-TXoGHhtI",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1410",
+      "gloss": "Gibraltar (a peninsula, city, and overseas territory of the United Kingdom, at the southern end of Iberia)",
+      "language": "nl",
+      "lemma": "Gibraltar",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "en-Gibraltar-nl-name-ZcvZyDDJ",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Gibraltar-nl-name-ZcvZyDDJ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3766",
+      "gloss": "Damascus (the capital city of Syria; an ancient settlement, the ancient capital of various polities, most notably the Umayyad Caliphate from 661 to 744 CE and Aram-Damascus, existing from the 12th to 8th centuries BCE)",
+      "language": "nl",
+      "lemma": "Damascus",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Dutch/kaikki.org-dictionary-Dutch.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3766"
+      ],
+      "record_id": "en-Damascus-nl-name-xhBIyjej",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Damascus-nl-name-xhBIyjej",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3766"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [],
+  "source": "harvest-kaikki"
+}
