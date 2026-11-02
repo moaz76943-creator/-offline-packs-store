@@ -13,19 +13,19 @@
       "eu": 7,
       "fa": 2,
       "fr": 78,
-      "hr": 2,
-      "it": 42,
-      "ja": 31,
+      "hr": 3,
+      "it": 43,
+      "ja": 32,
       "ko": 3,
       "la": 3,
       "lv": 1,
       "ml": 30,
-      "ms": 3,
-      "nl": 16,
+      "ms": 4,
+      "nl": 17,
       "pa": 6,
       "pl": 10,
       "pt": 6,
-      "ru": 35,
+      "ru": 37,
       "sv": 47,
       "ta": 1,
       "tr": 41,
@@ -48,7 +48,7 @@
       "sentences": 244,
       "sports": 3,
       "technology": 3,
-      "time": 34,
+      "time": 41,
       "travel": 2,
       "work": 122
     },
@@ -56,11 +56,11 @@
       "kaikki.wiktextract": 44,
       "tatoeba.sentences": 244,
       "universal-dependencies": 80,
-      "wikidata.lexemes": 464
+      "wikidata.lexemes": 471
     },
-    "total": 832
+    "total": 839
   },
-  "generated_by": "packs",
+  "generated_by": "classifier",
   "pack_bytes": 331776,
   "packs": [
     {
@@ -347,8 +347,8 @@
       "la": 3,
       "lv": 1,
       "ml": 30,
-      "ms": 3,
-      "nl": 16,
+      "ms": 4,
+      "nl": 17,
       "pa": 6,
       "pl": 10,
       "pt": 6,
@@ -498,13 +498,15 @@
       },
       "ms": {
         "animals": 1,
-        "city": 2
+        "city": 2,
+        "time": 1
       },
       "nl": {
         "city": 2,
         "colors": 1,
         "food": 1,
-        "sentences": 12
+        "sentences": 12,
+        "time": 1
       },
       "pa": {
         "animals": 1,
@@ -634,11 +636,11 @@
         "wikidata.lexemes": 30
       },
       "ms": {
-        "wikidata.lexemes": 3
+        "wikidata.lexemes": 4
       },
       "nl": {
         "tatoeba.sentences": 12,
-        "wikidata.lexemes": 4
+        "wikidata.lexemes": 5
       },
       "pa": {
         "wikidata.lexemes": 6
@@ -689,7 +691,7 @@
       "sentences": 244,
       "sports": 3,
       "technology": 3,
-      "time": 39,
+      "time": 41,
       "travel": 2,
       "work": 122
     },
@@ -697,9 +699,9 @@
       "kaikki.wiktextract": 44,
       "tatoeba.sentences": 244,
       "universal-dependencies": 80,
-      "wikidata.lexemes": 469
+      "wikidata.lexemes": 471
     },
-    "total": 837
+    "total": 839
   },
   "schema_version": "1.0.0"
 }

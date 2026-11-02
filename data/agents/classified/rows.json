@@ -8052,7 +8052,7 @@
         "Q28130149"
       ],
       "record_id": "L1187944",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-02",
       "revision": "1987189566",
       "schema_version": "1.0.0",
       "section": "time",
@@ -15744,6 +15744,42 @@
       "wikidata": "Q11756"
     },
     {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "pretpovijest",
+        "pretpovijesti",
+        "pretpovijesti",
+        "pretpovijest",
+        "pretpovijesti",
+        "pretpovijesti",
+        "pretpoviješću",
+        "pretpovijesti"
+      ],
+      "language": "hr",
+      "lemma": "pretpovijest",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012613",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012613",
+      "retrieval_date": "2026-11-02",
+      "revision": "1828975201",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012613-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
       "concept_id": "concept.q59099",
       "forms": [
         "erbivoro",
@@ -16632,6 +16668,36 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "preistoria",
+        "preistorie"
+      ],
+      "language": "it",
+      "lemma": "preistoria",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1169350",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1169350",
+      "retrieval_date": "2026-11-02",
+      "revision": "2196148934",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1169350-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
     },
     {
       "concept_id": "concept.q131482",
@@ -17527,6 +17593,36 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q398085"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "先史時代",
+        "せんしじだい"
+      ],
+      "language": "ja",
+      "lemma": "先史時代",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1566557",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1566557",
+      "retrieval_date": "2026-11-02",
+      "revision": "2496584322",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1566557-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
     },
     {
       "concept_id": "concept.q970153",
@@ -18794,6 +18890,36 @@
       "wikidata": "Q172"
     },
     {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "kronologi",
+        "کرونولوݢي"
+      ],
+      "language": "ms",
+      "lemma": "kronologi",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1415650",
+      "pos": "",
+      "qids": [
+        "Q130788"
+      ],
+      "record_id": "L1415650",
+      "retrieval_date": "2026-11-02",
+      "revision": "2354652468",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1415650-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    },
+    {
       "concept_id": "concept.q83178",
       "forms": [
         "Almere"
@@ -18926,6 +19052,36 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q2941309"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "chronologie",
+        "chronologieën"
+      ],
+      "language": "nl",
+      "lemma": "chronologie",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1415676",
+      "pos": "",
+      "qids": [
+        "Q130788"
+      ],
+      "record_id": "L1415676",
+      "retrieval_date": "2026-11-02",
+      "revision": "2456985395",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1415676-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
     },
     {
       "concept_id": "concept.q7367",
@@ -20175,6 +20331,60 @@
       "wikidata": "Q398085"
     },
     {
+      "concept_id": "concept.q11756",
+      "forms": [],
+      "language": "ru",
+      "lemma": "доисторическое время",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012666",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012666",
+      "retrieval_date": "2026-11-02",
+      "revision": "2236649765",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012666-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [],
+      "language": "ru",
+      "lemma": "преистория",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012667",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012667",
+      "retrieval_date": "2026-11-02",
+      "revision": "1829291520",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012667-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
       "concept_id": "concept.q131482",
       "forms": [
         "хиджра",
@@ -21111,7 +21321,7 @@
         "Q28130149"
       ],
       "record_id": "L584851",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-02",
       "revision": "2484843026",
       "schema_version": "1.0.0",
       "section": "time",
