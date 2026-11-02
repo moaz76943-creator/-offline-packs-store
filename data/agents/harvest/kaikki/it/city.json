@@ -1,0 +1,370 @@
+{
+  "language": "it",
+  "retrieval_date": "2026-11-02",
+  "rows": [
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3114",
+      "gloss": "Canberra (the capital city of Australia; located in the Australian Capital Territory)",
+      "language": "it",
+      "lemma": "Canberra",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3114"
+      ],
+      "record_id": "en-Canberra-it-name-hY2RV9Dd",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Canberra-it-name-hY2RV9Dd",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3114"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3130",
+      "gloss": "Sydney (a major port city, the state capital of New South Wales, Australia, and the most populous city in Australia)",
+      "language": "it",
+      "lemma": "Sydney",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "en-Sydney-it-name-FkVs0yR4",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Sydney-it-name-FkVs0yR4",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1865",
+      "gloss": "Kuala Lumpur (a federal territory, the capital and largest city of Malaysia, located in the western part of the country)",
+      "language": "it",
+      "lemma": "Kuala Lumpur",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1865"
+      ],
+      "record_id": "en-Kuala_Lumpur-it-name-YECvoVCk",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Kuala_Lumpur-it-name-YECvoVCk",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1865"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1757",
+      "gloss": "Helsinki (the capital city of Finland; a municipality, the capital of the region of Uusimaa, Finland)",
+      "language": "it",
+      "lemma": "Helsinki",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1757"
+      ],
+      "record_id": "en-Helsinki-it-name-lvdF7oDB",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Helsinki-it-name-lvdF7oDB",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1757"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2656",
+      "gloss": "Palermo (a port city and comune, the capital of the Metropolitan City of Palermo and the region of Sicily, Italy)",
+      "language": "it",
+      "lemma": "Palermo",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2656"
+      ],
+      "record_id": "en-Palermo-it-name-xOYjWXyp",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Palermo-it-name-xOYjWXyp",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2656"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q19689",
+      "gloss": "Tirana (a municipality, the capital and largest city of Albania, located in the center of the country west of the mountain of Dajti on the plain of Tirana; it is the seat of its eponymous county and municipality)",
+      "language": "it",
+      "lemma": "Tirana",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q19689"
+      ],
+      "record_id": "en-Tirana-it-name-FYI7MqH9",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Tirana-it-name-FYI7MqH9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q19689"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2028",
+      "gloss": "Verona (a city, the capital of the province of Verona, straddling the river Adige in Veneto, northern Italy)",
+      "language": "it",
+      "lemma": "Verona",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2028"
+      ],
+      "record_id": "en-Verona-it-name-xTOkPvvF",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Verona-it-name-xTOkPvvF",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2028"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q628",
+      "gloss": "Bergamo (a city and comune, the capital of the province of Bergamo, Lombardy, Italy)",
+      "language": "it",
+      "lemma": "Bergamo",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q628"
+      ],
+      "record_id": "en-Bergamo-it-name-HUJHUwpx",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bergamo-it-name-HUJHUwpx",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q628"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1897",
+      "gloss": "Cagliari (a port city and comune, the capital of the province of Cagliari and of Sardinia as a whole)",
+      "language": "it",
+      "lemma": "Cagliari",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1897"
+      ],
+      "record_id": "en-Cagliari-it-name-rXiogL~T",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Cagliari-it-name-rXiogL~T",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1897"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1308",
+      "gloss": "Como (a city and comune, the capital of the province of Como, Lombardy)",
+      "language": "it",
+      "lemma": "Como",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1308"
+      ],
+      "record_id": "en-Como-it-name-6GmGPyEa",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Como-it-name-6GmGPyEa",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1308"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q13329",
+      "gloss": "Piacenza (a city, the capital of the province of Piacenza, Emilia-Romagna)",
+      "language": "it",
+      "lemma": "Piacenza",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q13329"
+      ],
+      "record_id": "en-Piacenza-it-name-o4gdqyLs",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Piacenza-it-name-o4gdqyLs",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q13329"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2751",
+      "gloss": "Siena (a city and comune, the capital of the province of Siena, Tuscany, Italy)",
+      "language": "it",
+      "lemma": "Siena",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2751"
+      ],
+      "record_id": "en-Siena-it-name-8lVJVl-e",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Siena-it-name-8lVJVl-e",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2751"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2634",
+      "gloss": "Naples (a port city and comune, the capital of the Metropolitan City of Naples and the region of Campania, Italy)",
+      "language": "it",
+      "lemma": "Napoli",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2634"
+      ],
+      "record_id": "en-Napoli-it-name-aqgv9LZc",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Napoli-it-name-aqgv9LZc",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2634"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1780",
+      "gloss": "Bratislava (the capital city of Slovakia)",
+      "language": "it",
+      "lemma": "Bratislava",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "en-Bratislava-it-name-TXoGHhtI",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bratislava-it-name-TXoGHhtI",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q490",
+      "gloss": "Milan (a city and comune, the capital of the Metropolitan City of Milan and the region of Lombardy, Italy)",
+      "language": "it",
+      "lemma": "Milano",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q490"
+      ],
+      "record_id": "en-Milano-it-name-a5fUK4hw",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Milano-it-name-a5fUK4hw",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q490"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [],
+  "source": "harvest-kaikki"
+}
