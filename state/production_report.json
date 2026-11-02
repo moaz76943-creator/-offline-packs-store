@@ -60,7 +60,7 @@
     },
     "total": 957
   },
-  "generated_by": "classifier",
+  "generated_by": "packs",
   "pack_bytes": 352256,
   "packs": [
     {
@@ -126,11 +126,11 @@
     },
     {
       "bytes": 16384,
-      "entries": 53,
+      "entries": 81,
       "language": "es",
       "sources": {
         "kaikki.wiktextract": 18,
-        "tatoeba.sentences": 12,
+        "tatoeba.sentences": 40,
         "wikidata.lexemes": 23
       }
     },
@@ -236,9 +236,10 @@
     },
     {
       "bytes": 8192,
-      "entries": 17,
+      "entries": 24,
       "language": "nl",
       "sources": {
+        "kaikki.wiktextract": 7,
         "tatoeba.sentences": 12,
         "wikidata.lexemes": 5
       }
