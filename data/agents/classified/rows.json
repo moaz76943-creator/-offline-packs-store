@@ -1277,6 +1277,441 @@
       "wikidata": "Q40840"
     },
     {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3114",
+      "gloss": "Canberra (the capital city of Australia; located in the Australian Capital Territory)",
+      "language": "it",
+      "lemma": "Canberra",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3114"
+      ],
+      "record_id": "en-Canberra-it-name-hY2RV9Dd",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Canberra-it-name-hY2RV9Dd",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3114"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3130",
+      "gloss": "Sydney (a major port city, the state capital of New South Wales, Australia, and the most populous city in Australia)",
+      "language": "it",
+      "lemma": "Sydney",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "en-Sydney-it-name-FkVs0yR4",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Sydney-it-name-FkVs0yR4",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1865",
+      "gloss": "Kuala Lumpur (a federal territory, the capital and largest city of Malaysia, located in the western part of the country)",
+      "language": "it",
+      "lemma": "Kuala Lumpur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1865"
+      ],
+      "record_id": "en-Kuala_Lumpur-it-name-YECvoVCk",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Kuala_Lumpur-it-name-YECvoVCk",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1865"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1757",
+      "gloss": "Helsinki (the capital city of Finland; a municipality, the capital of the region of Uusimaa, Finland)",
+      "language": "it",
+      "lemma": "Helsinki",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1757"
+      ],
+      "record_id": "en-Helsinki-it-name-lvdF7oDB",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Helsinki-it-name-lvdF7oDB",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1757"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2656",
+      "gloss": "Palermo (a port city and comune, the capital of the Metropolitan City of Palermo and the region of Sicily, Italy)",
+      "language": "it",
+      "lemma": "Palermo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2656"
+      ],
+      "record_id": "en-Palermo-it-name-xOYjWXyp",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Palermo-it-name-xOYjWXyp",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2656"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q19689",
+      "gloss": "Tirana (a municipality, the capital and largest city of Albania, located in the center of the country west of the mountain of Dajti on the plain of Tirana; it is the seat of its eponymous county and municipality)",
+      "language": "it",
+      "lemma": "Tirana",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q19689"
+      ],
+      "record_id": "en-Tirana-it-name-FYI7MqH9",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Tirana-it-name-FYI7MqH9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q19689"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2028",
+      "gloss": "Verona (a city, the capital of the province of Verona, straddling the river Adige in Veneto, northern Italy)",
+      "language": "it",
+      "lemma": "Verona",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2028"
+      ],
+      "record_id": "en-Verona-it-name-xTOkPvvF",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Verona-it-name-xTOkPvvF",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2028"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q628",
+      "gloss": "Bergamo (a city and comune, the capital of the province of Bergamo, Lombardy, Italy)",
+      "language": "it",
+      "lemma": "Bergamo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q628"
+      ],
+      "record_id": "en-Bergamo-it-name-HUJHUwpx",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bergamo-it-name-HUJHUwpx",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q628"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1897",
+      "gloss": "Cagliari (a port city and comune, the capital of the province of Cagliari and of Sardinia as a whole)",
+      "language": "it",
+      "lemma": "Cagliari",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1897"
+      ],
+      "record_id": "en-Cagliari-it-name-rXiogL~T",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Cagliari-it-name-rXiogL~T",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1897"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1308",
+      "gloss": "Como (a city and comune, the capital of the province of Como, Lombardy)",
+      "language": "it",
+      "lemma": "Como",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1308"
+      ],
+      "record_id": "en-Como-it-name-6GmGPyEa",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Como-it-name-6GmGPyEa",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1308"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q13329",
+      "gloss": "Piacenza (a city, the capital of the province of Piacenza, Emilia-Romagna)",
+      "language": "it",
+      "lemma": "Piacenza",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q13329"
+      ],
+      "record_id": "en-Piacenza-it-name-o4gdqyLs",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Piacenza-it-name-o4gdqyLs",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q13329"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2751",
+      "gloss": "Siena (a city and comune, the capital of the province of Siena, Tuscany, Italy)",
+      "language": "it",
+      "lemma": "Siena",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2751"
+      ],
+      "record_id": "en-Siena-it-name-8lVJVl-e",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Siena-it-name-8lVJVl-e",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2751"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2634",
+      "gloss": "Naples (a port city and comune, the capital of the Metropolitan City of Naples and the region of Campania, Italy)",
+      "language": "it",
+      "lemma": "Napoli",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2634"
+      ],
+      "record_id": "en-Napoli-it-name-aqgv9LZc",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Napoli-it-name-aqgv9LZc",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2634"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1780",
+      "gloss": "Bratislava (the capital city of Slovakia)",
+      "language": "it",
+      "lemma": "Bratislava",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "en-Bratislava-it-name-TXoGHhtI",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bratislava-it-name-TXoGHhtI",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q490",
+      "gloss": "Milan (a city and comune, the capital of the Metropolitan City of Milan and the region of Lombardy, Italy)",
+      "language": "it",
+      "lemma": "Milano",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q490"
+      ],
+      "record_id": "en-Milano-it-name-a5fUK4hw",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Milano-it-name-a5fUK4hw",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q490"
+    },
+    {
       "author": "hashimi",
       "language": "ar",
       "level": {
@@ -2727,7 +3162,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1276",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2745,7 +3180,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1277",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2763,7 +3198,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1280",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2781,7 +3216,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1282",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2799,7 +3234,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1283",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2817,7 +3252,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1284",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2835,7 +3270,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1286",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2853,7 +3288,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1287",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2871,7 +3306,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1288",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2889,7 +3324,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1289",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2907,7 +3342,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1290",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -2925,12 +3360,516 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:1291",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.question",
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Is it a recent picture?"
+    },
+    {
+      "author": "Ramses",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1292",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't know if I have the time."
+    },
+    {
+      "author": "wuiwie",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1294",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Education in this world disappoints me."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1295",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "You're in better shape than I am."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1296",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "You are in my way."
+    },
+    {
+      "author": "djinni74",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1298",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "This will cost €30."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1299",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I make €100 a day."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1300",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I may give up soon and just nap instead."
+    },
+    {
+      "author": "djinni74",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1301",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It's because you don't want to be alone."
+    },
+    {
+      "author": "human600",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1302",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "That won't happen."
+    },
+    {
+      "author": "djinni74",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1303",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sometimes he can be a strange guy."
+    },
+    {
+      "author": "djinni74",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1304",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'll do my best not to disturb your studying."
+    },
+    {
+      "author": "YVasev",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=56; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1305",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I can only wonder if this is the same for everyone else."
+    },
+    {
+      "author": "wakaran",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=68; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1306",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I suppose it's different when you think about it over the long term."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1308",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I miss you."
+    },
+    {
+      "author": "papabear",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1309",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'll call them tomorrow when I come back."
+    },
+    {
+      "author": "human600",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=42; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1310",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I always liked mysterious characters more."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1311",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "You should sleep."
+    },
+    {
+      "author": "axcutul",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1312",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'm going to go."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1313",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I told them to send me another ticket."
+    },
+    {
+      "author": "CM",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1314",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "You're so impatient with me."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1315",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I can't live that kind of life."
+    },
+    {
+      "author": "papabear",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1316",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I once wanted to be an astrophysicist."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1317",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I never liked biology."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=53; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1318",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "The last person I told my idea to thought I was nuts."
+    },
+    {
+      "author": "Ricardo14",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=66; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1319",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "If the world weren't in the shape it is now, I could trust anyone."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1320",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It is unfortunately true."
+    },
+    {
+      "author": "human600",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=72; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1321",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "They are too busy fighting against each other to care for common ideals."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1322",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Most people think I'm crazy."
     },
     {
       "author": "Shishir",
@@ -7027,6 +7966,686 @@
       "source_id": "universal-dependencies",
       "status": "keep",
       "text": "For some black satire on Fallujah, see Unconfirmed Sources which has some fun with my Weblog."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=100; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041111060900_ENG_20041111_060900-0016",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "[Am at a conference and can't blog much right now but will try to catch up the next couple of days.]"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=70; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0001",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The hottest item on Christmas wish lists this year is nuclear weapons."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=125; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0002",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Al-Qaeda wants them, Iran wants them, Russia wants the better ones, and all the US wants is to give them all a piece of coal."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=225; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0003",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "For the last few years there have been tensions with Iran’s nuclear program with word coming this week that a deal was reached through the European Union that meets with the approval of the International Atomic Energy Agency."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=112; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0004",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "At the same time, an Iranian Opposition Group released what they call proof of a covert nuclear weapons program."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=99; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0005",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Arial photos, loose connections to AQ Kahn and Libya make up the evidence that the group presented."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=92; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0006",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Russia also announced that it was seeking and building the best nukes the world’s ever seen."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=116; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0007",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "President Vladimir Putin said Russia is will have new nuclear weapons that other countries do not and will not have."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=117; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0008",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "With the demand so high, the question arises on to who should be or has the right to be the Santa of nuclear weapons."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0009",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Right now that seems to be the US, EU, and IAEA."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=78; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0010",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "But not always do those three agree, and not always are their decisions equal."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=192; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0011",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The US has strongly opposed a nuclear weapons program of Iran, yet Israel, which to this day has never officially said that they posses nuclear weapons, ranks around fifth in nuclear strength."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=130; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0012",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It is estimated that Israel has over 200 nuclear weapons yet neither the US nor any of her allies expresses the slightest concern."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=121; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0013",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "North Korea’s Kim Jong Ill also has the bomb at the top of his list and Santa seems to have already come a few years ago."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=69; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0014",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It is rumored that North Korea has at least a couple nuclear weapons."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0015",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "But getting past who should get them, is who has them, and who is really close."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=47; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0016",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The case against Iran has a feeling of Déjà vu."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=115; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0017",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Arial photos of the lab were uranium is being enriched, somewhat like those of chemical weapons stockpiles in Iraq."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=101; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0018",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "America cried wolf in Iraq, and what’s scary is that sooner or later, that wolf will probably get us."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0001",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I ran across this item on the Internet."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0002",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Sooooo."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=114; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0003",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The United States goes into a war zone and evacuates a bunch of U.S. citizens (most of whom were \"dual-citizens\")."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=119; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0004",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Then, eschewing normal procedure, the Department of State waived the fees that they charge for evacuating U.S. citizen."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0005",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Why?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=51; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0006",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "To pander to the mythical \"Arab street\", of course."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=238; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0007",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Now, I would argue that one could have reasonably predicted that some form of military violence was likely to occur in Lebanon (considering that the country has been experiencing some form of conflict for approximately the last 32 years)."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=114; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0008",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In other words, those Americans were there by their own choice, mired in a situation that was totally predictable."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0009",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Yet we didn't charge them for the evacuation."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=232; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0010",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "This is unlike the situation last year in Asia when we evacuated U.S. citizens from areas that were hit by the tsunami - a phenomenon that is much less predictable than the Hezbollah-provoked destruction that rained down on Lebanon."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0011",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "And what do we get for this effort?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0012",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "A lawsuit."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0013",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "That's right, folks."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=142; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0014",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The American-Arab Discrimination Committee is suing Condoleeza Rice and Donald Rumsfeld, charging that they mismanaged the evacuation efforts."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0015",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Here's an excerpt from the article:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=151; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0016",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Nina Chahine, 19, who with her family was among the named plaintiffs in the lawsuit, said her wedding in the southern city of Tyre was set for July 13."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=89; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0017",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The wedding had to be postponed as family members fled the outbreak of the war, she said."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=218; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0018",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"We were on the road and the first bridge was bombed and we drove home and all the other bridges were bombed and there was absolutely no way for us to get home,\" Chahine told reporters outside federal court in Detroit."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=75; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0019",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"We were all American citizens and there was no way that anybody helped us."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0020",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "No communications nothing."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=56; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0021",
+      "retrieval_date": "2026-11-02",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I was on my way to my wedding fearing death, basically.\""
     },
     {
       "concept_id": "concept.q3354532",
