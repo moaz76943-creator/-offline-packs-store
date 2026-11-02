@@ -4649,7 +4649,7 @@
         "Q36600"
       ],
       "record_id": "L222269",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "2458376839",
       "schema_version": "1.0.0",
       "section": "city",
@@ -5916,7 +5916,7 @@
         "Q172"
       ],
       "record_id": "L494981",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "1880960473",
       "schema_version": "1.0.0",
       "section": "city",
@@ -6119,6 +6119,106 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1799"
+    },
+    {
+      "concept_id": "concept.q62",
+      "forms": [
+        "San Francisco",
+        "San Francisco",
+        "San Franciscos",
+        "San Francisco",
+        "San Francisco"
+      ],
+      "language": "de",
+      "lemma": "San Francisco",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L489523",
+      "pos": "",
+      "qids": [
+        "Q62"
+      ],
+      "record_id": "L489523",
+      "retrieval_date": "2026-11-02",
+      "revision": "1818500677",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L489523-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q62"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "Frankfurt am Main",
+        "Frankfurt a. M.",
+        "Frankfurt am Main",
+        "Frankfurts am Main",
+        "Frankfurt am Main",
+        "Frankfurt am Main"
+      ],
+      "language": "de",
+      "lemma": "Frankfurt am Main",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297295",
+      "pos": "",
+      "qids": [
+        "Q1794"
+      ],
+      "record_id": "L297295",
+      "retrieval_date": "2026-11-02",
+      "revision": "2326818290",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297295-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q1489",
+      "forms": [
+        "Mexiko-Stadt",
+        "Mexiko-Stadt",
+        "Mexiko-Stadts",
+        "Mexiko-Stadt",
+        "Mexiko-Stadt"
+      ],
+      "language": "de",
+      "lemma": "Mexiko-Stadt",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L489361",
+      "pos": "",
+      "qids": [
+        "Q1489"
+      ],
+      "record_id": "L489361",
+      "retrieval_date": "2026-11-02",
+      "revision": "2344137166",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L489361-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
     },
     {
       "concept_id": "concept.q3354532",
@@ -7990,7 +8090,7 @@
         "Q172"
       ],
       "record_id": "L414191",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "2551479562",
       "schema_version": "1.0.0",
       "section": "city",
@@ -8077,7 +8177,7 @@
         "Q13362"
       ],
       "record_id": "L452937",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2463983521",
       "schema_version": "1.0.0",
       "section": "city",
@@ -8107,7 +8207,7 @@
         "Q42448"
       ],
       "record_id": "L476834",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "1818171308",
       "schema_version": "1.0.0",
       "section": "city",
@@ -8262,6 +8362,155 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q3114",
+      "forms": [
+        "Canberra",
+        "Canberras"
+      ],
+      "language": "en",
+      "lemma": "Canberra",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452643",
+      "pos": "",
+      "qids": [
+        "Q3114"
+      ],
+      "record_id": "L452643",
+      "retrieval_date": "2026-11-01",
+      "revision": "2551461843",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452643-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3114"
+    },
+    {
+      "concept_id": "concept.q62",
+      "forms": [
+        "San Francisco",
+        "San Franciscos"
+      ],
+      "language": "en",
+      "lemma": "San Francisco",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L414196",
+      "pos": "",
+      "qids": [
+        "Q62"
+      ],
+      "record_id": "L414196",
+      "retrieval_date": "2026-11-02",
+      "revision": "2431320455",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L414196-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q62"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "Frankfurt am Main"
+      ],
+      "language": "en",
+      "lemma": "Frankfurt am Main",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452666",
+      "pos": "",
+      "qids": [
+        "Q1794"
+      ],
+      "record_id": "L452666",
+      "retrieval_date": "2026-11-02",
+      "revision": "2289968794",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452666-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "Frankfurt",
+        "Frankfurts"
+      ],
+      "language": "en",
+      "lemma": "Frankfurt",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482182",
+      "pos": "",
+      "qids": [
+        "Q1794",
+        "Q36966484"
+      ],
+      "record_id": "L482182",
+      "retrieval_date": "2026-11-02",
+      "revision": "2414025962",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L482182-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q1489",
+      "forms": [
+        "Mexico City"
+      ],
+      "language": "en",
+      "lemma": "Mexico City",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453093",
+      "pos": "",
+      "qids": [
+        "Q1489"
+      ],
+      "record_id": "L453093",
+      "retrieval_date": "2026-11-02",
+      "revision": "2426912358",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453093-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
     },
     {
       "concept_id": "concept.q483444",
@@ -10282,6 +10531,38 @@
       "wikidata": "Q34370"
     },
     {
+      "concept_id": "concept.q1489",
+      "forms": [
+        "Méjico",
+        "México"
+      ],
+      "language": "es",
+      "lemma": "Méjico",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L640035",
+      "pos": "",
+      "qids": [
+        "Q96",
+        "Q82112",
+        "Q1489"
+      ],
+      "record_id": "L640035",
+      "retrieval_date": "2026-11-02",
+      "revision": "2465764853",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L640035-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "kimono",
@@ -11616,7 +11897,7 @@
         "Q172"
       ],
       "record_id": "L578441",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "1458285048",
       "schema_version": "1.0.0",
       "section": "city",
@@ -11712,6 +11993,64 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q62",
+      "forms": [
+        "San Francisco"
+      ],
+      "language": "fr",
+      "lemma": "San Francisco",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578423",
+      "pos": "",
+      "qids": [
+        "Q62"
+      ],
+      "record_id": "L578423",
+      "retrieval_date": "2026-11-02",
+      "revision": "1458255134",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578423-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q62"
+    },
+    {
+      "concept_id": "concept.q1489",
+      "forms": [
+        "Mexico"
+      ],
+      "language": "fr",
+      "lemma": "Mexico",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578415",
+      "pos": "",
+      "qids": [
+        "Q1489"
+      ],
+      "record_id": "L578415",
+      "retrieval_date": "2026-11-02",
+      "revision": "2449979362",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578415-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
     },
     {
       "concept_id": "concept.q604079",
@@ -13002,7 +13341,7 @@
         "Q37510260"
       ],
       "record_id": "L1235605",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "2198699894",
       "schema_version": "1.0.0",
       "section": "city",
@@ -13032,7 +13371,7 @@
         "Q13362"
       ],
       "record_id": "L1235582",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2198354275",
       "schema_version": "1.0.0",
       "section": "city",
@@ -14163,6 +14502,35 @@
       "wikidata": "Q727"
     },
     {
+      "concept_id": "concept.q3114",
+      "forms": [
+        "キャンベラ"
+      ],
+      "language": "ja",
+      "lemma": "キャンベラ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1560491",
+      "pos": "",
+      "qids": [
+        "Q3114"
+      ],
+      "record_id": "L1560491",
+      "retrieval_date": "2026-11-01",
+      "revision": "2475177955",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1560491-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3114"
+    },
+    {
       "concept_id": "concept.q483444",
       "forms": [
         "着物",
@@ -14602,6 +14970,35 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q65"
+    },
+    {
+      "concept_id": "concept.q62",
+      "forms": [
+        "샌프란시스코"
+      ],
+      "language": "ko",
+      "lemma": "샌프란시스코",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1474917",
+      "pos": "",
+      "qids": [
+        "Q62"
+      ],
+      "record_id": "L1474917",
+      "retrieval_date": "2026-11-02",
+      "revision": "2530387730",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1474917-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q62"
     },
     {
       "concept_id": "concept.q319763",
@@ -15245,7 +15642,7 @@
         "Q172"
       ],
       "record_id": "L453350",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "1398171248",
       "schema_version": "1.0.0",
       "section": "city",
@@ -15274,7 +15671,7 @@
         "Q36600"
       ],
       "record_id": "L457452",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "1395386048",
       "schema_version": "1.0.0",
       "section": "city",
@@ -15332,7 +15729,7 @@
         "Q42448"
       ],
       "record_id": "L454033",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "1394131805",
       "schema_version": "1.0.0",
       "section": "city",
@@ -15457,6 +15854,122 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q3114",
+      "forms": [
+        "കാൻബറ"
+      ],
+      "language": "ml",
+      "lemma": "കാൻബറ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453378",
+      "pos": "",
+      "qids": [
+        "Q3114"
+      ],
+      "record_id": "L453378",
+      "retrieval_date": "2026-11-01",
+      "revision": "1398172026",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453378-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3114"
+    },
+    {
+      "concept_id": "concept.q62",
+      "forms": [
+        "സാൻ ഫ്രാൻസിസ്കോ"
+      ],
+      "language": "ml",
+      "lemma": "സാൻ ഫ്രാൻസിസ്കോ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453309",
+      "pos": "",
+      "qids": [
+        "Q62"
+      ],
+      "record_id": "L453309",
+      "retrieval_date": "2026-11-02",
+      "revision": "1398172333",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453309-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q62"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "ഫ്രാൻഫർട്ട്"
+      ],
+      "language": "ml",
+      "lemma": "ഫ്രാൻഫർട്ട്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453396",
+      "pos": "",
+      "qids": [
+        "Q1794"
+      ],
+      "record_id": "L453396",
+      "retrieval_date": "2026-11-02",
+      "revision": "2522370632",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453396-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q1489",
+      "forms": [
+        "മെക്സിക്കോ സിറ്റി"
+      ],
+      "language": "ml",
+      "lemma": "മെക്സിക്കോ സിറ്റി",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453857",
+      "pos": "",
+      "qids": [
+        "Q1489"
+      ],
+      "record_id": "L453857",
+      "retrieval_date": "2026-11-02",
+      "revision": "1398175016",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453857-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
     },
     {
       "concept_id": "concept.q483444",
@@ -15625,7 +16138,7 @@
         "Q172"
       ],
       "record_id": "L1568644",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "2521601272",
       "schema_version": "1.0.0",
       "section": "city",
@@ -15655,7 +16168,7 @@
         "Q83178"
       ],
       "record_id": "L1576518",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-01",
       "revision": "2523431714",
       "schema_version": "1.0.0",
       "section": "city",
@@ -16236,7 +16749,7 @@
         "Q36600"
       ],
       "record_id": "L728170",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "2337974401",
       "schema_version": "1.0.0",
       "section": "city",
@@ -17697,6 +18210,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "Frankfurt",
+        "Frankfurts"
+      ],
+      "language": "sv",
+      "lemma": "Frankfurt",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482670",
+      "pos": "",
+      "qids": [
+        "Q1794"
+      ],
+      "record_id": "L482670",
+      "retrieval_date": "2026-11-02",
+      "revision": "2318890867",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L482670-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
     },
     {
       "concept_id": "concept.q483444",
