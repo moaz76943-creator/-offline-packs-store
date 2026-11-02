@@ -28,7 +28,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我們試試看！"
     },
@@ -38,7 +38,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我该去睡觉了。"
     },
@@ -48,7 +48,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "你在干什麼啊？"
     },
@@ -58,7 +58,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "這是什麼啊？"
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "今天是６月１８号，也是Muiriel的生日！"
     },
@@ -78,7 +78,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:6",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "生日快乐，Muiriel！"
     },
@@ -88,7 +88,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:7",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel现在20岁了。"
     },
@@ -98,7 +98,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:8",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "密码是\"Muiriel\"。"
     },
@@ -108,7 +108,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:9",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我很快就會回來。"
     },
@@ -118,7 +118,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:10",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我不知道。"
     },
@@ -128,7 +128,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:11",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我不知道應該說什麼才好。"
     },
@@ -138,9 +138,289 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:12",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "這個永遠完不了了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:13",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我只是不知道應該說什麼而已……"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:14",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "那是一隻有惡意的兔子。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:15",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我以前在山里。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:16",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "那是一张近照吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:17",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我不知道我有沒有時間。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:18",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "剛才我的麥克風沒起作用，不知道為什麼。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:19",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "到了最後，大家一定要靠自己學習。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:20",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "世界上的教育都讓我失望。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:21",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "选择什么是“对”或“错”是一项艰难的任务，我们却必须要完成它。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:22",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "這樣做的話什麼都不會改變的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:23",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "這個要三十歐元。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:24",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我一天賺一百歐元。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:25",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "也许我会马上放弃然后去打盹。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:26",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "那是不會發生的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:27",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我会尽量不打扰你复习。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:28",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "不要擔心。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:29",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我很想你。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:30",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我明天回來的時候會跟他們聯絡。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:31",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我一直都比較喜歡神秘一點的人物。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:32",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "你應該去睡覺了吧。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:33",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我要走了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:34",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我請他們再寄給我一張票。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:35",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我不能这样活着。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:36",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我曾經想過當個太空物理學家。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:37",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我從來沒喜歡過生物學。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:38",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "可惜这是真的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:39",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "大部份的人覺得我瘋了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:40",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "不，我不是！你才是！"
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我們試試看！"
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我该去睡觉了。"
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "你在干什麼啊？"
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "這是什麼啊？"
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "今天是６月１８号，也是Muiriel的生日！"
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:6",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "生日快乐，Muiriel！"
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:7",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel现在20岁了。"
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:8",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "密码是\"Muiriel\"。"
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:9",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我很快就會回來。"
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:10",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我不知道。"
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:11",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "我不知道應該說什麼才好。"
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:12",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "這個永遠完不了了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:13",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我只是不知道應該說什麼而已……"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:14",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "那是一隻有惡意的兔子。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:15",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我以前在山里。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:16",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "那是一张近照吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:17",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我不知道我有沒有時間。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:18",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "剛才我的麥克風沒起作用，不知道為什麼。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:19",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "到了最後，大家一定要靠自己學習。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:20",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "世界上的教育都讓我失望。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:21",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "选择什么是“对”或“错”是一项艰难的任务，我们却必须要完成它。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:22",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "這樣做的話什麼都不會改變的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:23",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "這個要三十歐元。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:24",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我一天賺一百歐元。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:25",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "也许我会马上放弃然后去打盹。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:26",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "那是不會發生的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:27",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我会尽量不打扰你复习。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:28",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "不要擔心。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:29",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我很想你。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:30",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我明天回來的時候會跟他們聯絡。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:31",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我一直都比較喜歡神秘一點的人物。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:32",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "你應該去睡覺了吧。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:33",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我要走了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:34",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我請他們再寄給我一張票。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:35",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我不能这样活着。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:36",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我曾經想過當個太空物理學家。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:37",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "我從來沒喜歡過生物學。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:38",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "可惜这是真的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:39",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "大部份的人覺得我瘋了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:40",
+      "retrieval_date": "2026-11-01",
+      "source_id": "tatoeba.sentences",
+      "value": "不，我不是！你才是！"
     }
   ]
 }
