@@ -28,7 +28,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:77",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Lass uns etwas versuchen!"
     },
@@ -38,7 +38,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:78",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ich muss schlafen gehen."
     },
@@ -48,7 +48,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:80",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Was ist das?"
     },
@@ -58,7 +58,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:81",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Heute ist der 18. Juni und das ist der Geburtstag von Muiriel!"
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:82",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Herzlichen Glückwunsch zum Geburtstag, Muiriel!"
     },
@@ -78,7 +78,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:83",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel ist jetzt 20."
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:84",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Das Passwort ist \"Muiriel\"."
     },
@@ -98,7 +98,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:85",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ich werde bald zurück sein."
     },
@@ -108,7 +108,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:87",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ich finde keine Worte."
     },
@@ -118,7 +118,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:88",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Das wird nie enden."
     },
@@ -128,7 +128,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:89",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ich weiß einfach nicht, was ich sagen soll."
     },
@@ -138,9 +138,289 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:90",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Das war ein böses Kaninchen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:91",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich war in den Bergen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:93",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich weiß nicht, ob ich Zeit dazu habe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:94",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Aus irgendeinem Grund hat das Mikrofon gerade nicht funktioniert."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:95",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Letztendlich muss jeder selbst lernen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:96",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Die Ausbildung in dieser Welt enttäuscht mich."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:97",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Zum Lernen sollte man nicht gezwungen werden. Zum Lernen sollte man ermutigt werden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:98",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Es ist eine schwere Aufgabe, zwischen \"richtig\" und \"falsch\" zu unterscheiden, aber man muss es tun."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:99",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Das wird nichts ändern."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:100",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Das wird 30 € kosten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:101",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich verdiene 100 Euro pro Tag."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:102",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Es kann sein, dass ich bald aufgebe und stattdessen ein Nickerchen mache."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:103",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Das liegt daran, dass du nicht allein sein willst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:104",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Das wird nicht passieren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:105",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Manchmal kann er ein seltsamer Junge sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:106",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde mir Mühe geben, dich nicht beim Lernen zu stören."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:107",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich kann mich nur fragen, ob es für alle anderen dasselbe ist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:108",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich vermute, das ist anders, wenn du darüber längerfristig nachdenkst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:109",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Mach dir keine Sorgen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:110",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich vermisse dich."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:111",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde sie morgen anrufen, wenn ich zurückkomme."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:112",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mochte mysteriöse Charaktere schon immer mehr."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:113",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Du solltest schlafen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:115",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich sagte ihnen, sie sollen mir ein neues Ticket schicken."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:116",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Du bist so ungeduldig mit mir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:117",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich kann so ein Leben nicht leben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:118",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich wollte mal Astrophysiker werden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:119",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mochte Biologie noch nie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:120",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Die letzte Person, der ich meine Idee erzählt habe, dachte, ich wäre bekloppt."
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:77",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Lass uns etwas versuchen!"
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:78",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ich muss schlafen gehen."
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:80",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Was ist das?"
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:81",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Heute ist der 18. Juni und das ist der Geburtstag von Muiriel!"
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:82",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Herzlichen Glückwunsch zum Geburtstag, Muiriel!"
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:83",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel ist jetzt 20."
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:84",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Das Passwort ist \"Muiriel\"."
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:85",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ich werde bald zurück sein."
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:87",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ich finde keine Worte."
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:88",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Das wird nie enden."
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:89",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ich weiß einfach nicht, was ich sagen soll."
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:90",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Das war ein böses Kaninchen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:91",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich war in den Bergen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:93",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich weiß nicht, ob ich Zeit dazu habe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:94",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Aus irgendeinem Grund hat das Mikrofon gerade nicht funktioniert."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:95",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Letztendlich muss jeder selbst lernen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:96",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Die Ausbildung in dieser Welt enttäuscht mich."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:97",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Zum Lernen sollte man nicht gezwungen werden. Zum Lernen sollte man ermutigt werden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:98",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Es ist eine schwere Aufgabe, zwischen \"richtig\" und \"falsch\" zu unterscheiden, aber man muss es tun."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:99",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Das wird nichts ändern."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:100",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Das wird 30 € kosten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:101",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich verdiene 100 Euro pro Tag."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:102",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Es kann sein, dass ich bald aufgebe und stattdessen ein Nickerchen mache."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:103",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Das liegt daran, dass du nicht allein sein willst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:104",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Das wird nicht passieren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:105",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Manchmal kann er ein seltsamer Junge sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:106",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde mir Mühe geben, dich nicht beim Lernen zu stören."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:107",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich kann mich nur fragen, ob es für alle anderen dasselbe ist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:108",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich vermute, das ist anders, wenn du darüber längerfristig nachdenkst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:109",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Mach dir keine Sorgen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:110",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich vermisse dich."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:111",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde sie morgen anrufen, wenn ich zurückkomme."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:112",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mochte mysteriöse Charaktere schon immer mehr."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:113",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Du solltest schlafen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:115",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich sagte ihnen, sie sollen mir ein neues Ticket schicken."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:116",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Du bist so ungeduldig mit mir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:117",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich kann so ein Leben nicht leben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:118",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich wollte mal Astrophysiker werden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:119",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mochte Biologie noch nie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:120",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Die letzte Person, der ich meine Idee erzählt habe, dachte, ich wäre bekloppt."
     }
   ]
 }
