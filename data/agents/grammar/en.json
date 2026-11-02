@@ -28,7 +28,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1276",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Let's try something."
     },
@@ -38,7 +38,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1277",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I have to go to sleep."
     },
@@ -48,7 +48,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1280",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Today is June 18th and it is Muiriel's birthday!"
     },
@@ -58,7 +58,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1282",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel is 20 now."
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1283",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "The password is \"Muiriel\"."
     },
@@ -78,7 +78,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1284",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I will be back soon."
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1286",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I'm at a loss for words."
     },
@@ -98,7 +98,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1287",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "This is never going to end."
     },
@@ -108,7 +108,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1288",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I just don't know what to say."
     },
@@ -118,7 +118,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1289",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "That was an evil bunny."
     },
@@ -128,7 +128,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1290",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I was in the mountains."
     },
@@ -138,9 +138,289 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1291",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Is it a recent picture?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1292",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I don't know if I have the time."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1294",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Education in this world disappoints me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1295",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "You're in better shape than I am."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1296",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "You are in my way."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1298",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "This will cost €30."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1299",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I make €100 a day."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1300",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I may give up soon and just nap instead."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1301",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "It's because you don't want to be alone."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1302",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "That won't happen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1303",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Sometimes he can be a strange guy."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1304",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I'll do my best not to disturb your studying."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1305",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I can only wonder if this is the same for everyone else."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1306",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I suppose it's different when you think about it over the long term."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1308",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I miss you."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1309",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I'll call them tomorrow when I come back."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1310",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I always liked mysterious characters more."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1311",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "You should sleep."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1312",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm going to go."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1313",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I told them to send me another ticket."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1314",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "You're so impatient with me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1315",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I can't live that kind of life."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1316",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I once wanted to be an astrophysicist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1317",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I never liked biology."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1318",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "The last person I told my idea to thought I was nuts."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1319",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "If the world weren't in the shape it is now, I could trust anyone."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1320",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "It is unfortunately true."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1321",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "They are too busy fighting against each other to care for common ideals."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1322",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Most people think I'm crazy."
     },
     {
       "id": "sentence.statement",
@@ -941,6 +1221,406 @@
       "retrieval_date": "2026-11-02",
       "source_id": "universal-dependencies",
       "value": "For some black satire on Fallujah, see Unconfirmed Sources which has some fun with my Weblog."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041111060900_ENG_20041111_060900-0016",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "[Am at a conference and can't blog much right now but will try to catch up the next couple of days.]"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0001",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The hottest item on Christmas wish lists this year is nuclear weapons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0002",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Al-Qaeda wants them, Iran wants them, Russia wants the better ones, and all the US wants is to give them all a piece of coal."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0003",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "For the last few years there have been tensions with Iran’s nuclear program with word coming this week that a deal was reached through the European Union that meets with the approval of the International Atomic Energy Agency."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0004",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "At the same time, an Iranian Opposition Group released what they call proof of a covert nuclear weapons program."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0005",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Arial photos, loose connections to AQ Kahn and Libya make up the evidence that the group presented."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0006",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Russia also announced that it was seeking and building the best nukes the world’s ever seen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0007",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "President Vladimir Putin said Russia is will have new nuclear weapons that other countries do not and will not have."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0008",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "With the demand so high, the question arises on to who should be or has the right to be the Santa of nuclear weapons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0009",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Right now that seems to be the US, EU, and IAEA."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0010",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "But not always do those three agree, and not always are their decisions equal."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0011",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The US has strongly opposed a nuclear weapons program of Iran, yet Israel, which to this day has never officially said that they posses nuclear weapons, ranks around fifth in nuclear strength."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0012",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "It is estimated that Israel has over 200 nuclear weapons yet neither the US nor any of her allies expresses the slightest concern."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0013",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "North Korea’s Kim Jong Ill also has the bomb at the top of his list and Santa seems to have already come a few years ago."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0014",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "It is rumored that North Korea has at least a couple nuclear weapons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0015",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "But getting past who should get them, is who has them, and who is really close."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0016",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The case against Iran has a feeling of Déjà vu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0017",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Arial photos of the lab were uranium is being enriched, somewhat like those of chemical weapons stockpiles in Iraq."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0018",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "America cried wolf in Iraq, and what’s scary is that sooner or later, that wolf will probably get us."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0001",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "I ran across this item on the Internet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0002",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Sooooo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0003",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The United States goes into a war zone and evacuates a bunch of U.S. citizens (most of whom were \"dual-citizens\")."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0004",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Then, eschewing normal procedure, the Department of State waived the fees that they charge for evacuating U.S. citizen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0005",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Why?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0006",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "To pander to the mythical \"Arab street\", of course."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0007",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Now, I would argue that one could have reasonably predicted that some form of military violence was likely to occur in Lebanon (considering that the country has been experiencing some form of conflict for approximately the last 32 years)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0008",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "In other words, those Americans were there by their own choice, mired in a situation that was totally predictable."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0009",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Yet we didn't charge them for the evacuation."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0010",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "This is unlike the situation last year in Asia when we evacuated U.S. citizens from areas that were hit by the tsunami - a phenomenon that is much less predictable than the Hezbollah-provoked destruction that rained down on Lebanon."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0011",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "And what do we get for this effort?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0012",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "A lawsuit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0013",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "That's right, folks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0014",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The American-Arab Discrimination Committee is suing Condoleeza Rice and Donald Rumsfeld, charging that they mismanaged the evacuation efforts."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0015",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Here's an excerpt from the article:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0016",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Nina Chahine, 19, who with her family was among the named plaintiffs in the lawsuit, said her wedding in the southern city of Tyre was set for July 13."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0017",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The wedding had to be postponed as family members fled the outbreak of the war, she said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0018",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "\"We were on the road and the first bridge was bombed and we drove home and all the other bridges were bombed and there was absolutely no way for us to get home,\" Chahine told reporters outside federal court in Detroit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0019",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "\"We were all American citizens and there was no way that anybody helped us."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0020",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "No communications nothing."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0021",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "I was on my way to my wedding fearing death, basically.\""
     },
     {
       "id": "verb.forms",
@@ -964,7 +1644,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1276",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Let's try something."
     },
@@ -974,7 +1654,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1277",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I have to go to sleep."
     },
@@ -984,7 +1664,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1280",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Today is June 18th and it is Muiriel's birthday!"
     },
@@ -994,7 +1674,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1282",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel is 20 now."
     },
@@ -1004,7 +1684,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1283",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "The password is \"Muiriel\"."
     },
@@ -1014,7 +1694,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1284",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I will be back soon."
     },
@@ -1024,7 +1704,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1286",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I'm at a loss for words."
     },
@@ -1034,7 +1714,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1287",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "This is never going to end."
     },
@@ -1044,7 +1724,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1288",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I just don't know what to say."
     },
@@ -1054,7 +1734,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1289",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "That was an evil bunny."
     },
@@ -1064,7 +1744,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1290",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "I was in the mountains."
     },
@@ -1074,9 +1754,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1291",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Is it a recent picture?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1292",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I don't know if I have the time."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1294",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Education in this world disappoints me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1295",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "You're in better shape than I am."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1296",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "You are in my way."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1298",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "This will cost €30."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1299",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I make €100 a day."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1300",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I may give up soon and just nap instead."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1301",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "It's because you don't want to be alone."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1302",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "That won't happen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1303",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Sometimes he can be a strange guy."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1304",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I'll do my best not to disturb your studying."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1305",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I can only wonder if this is the same for everyone else."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1306",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I suppose it's different when you think about it over the long term."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1308",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I miss you."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1309",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I'll call them tomorrow when I come back."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1310",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I always liked mysterious characters more."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1311",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "You should sleep."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1312",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm going to go."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1313",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I told them to send me another ticket."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1314",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "You're so impatient with me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1315",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I can't live that kind of life."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1316",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I once wanted to be an astrophysicist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1317",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "I never liked biology."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1318",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "The last person I told my idea to thought I was nuts."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1319",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "If the world weren't in the shape it is now, I could trust anyone."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1320",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "It is unfortunately true."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1321",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "They are too busy fighting against each other to care for common ideals."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1322",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Most people think I'm crazy."
     },
     {
       "id": "sentence.statement",
@@ -1877,6 +2837,406 @@
       "retrieval_date": "2026-11-02",
       "source_id": "universal-dependencies",
       "value": "For some black satire on Fallujah, see Unconfirmed Sources which has some fun with my Weblog."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20041111060900_ENG_20041111_060900-0016",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "[Am at a conference and can't blog much right now but will try to catch up the next couple of days.]"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0001",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The hottest item on Christmas wish lists this year is nuclear weapons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0002",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Al-Qaeda wants them, Iran wants them, Russia wants the better ones, and all the US wants is to give them all a piece of coal."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0003",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "For the last few years there have been tensions with Iran’s nuclear program with word coming this week that a deal was reached through the European Union that meets with the approval of the International Atomic Energy Agency."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0004",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "At the same time, an Iranian Opposition Group released what they call proof of a covert nuclear weapons program."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0005",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Arial photos, loose connections to AQ Kahn and Libya make up the evidence that the group presented."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0006",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Russia also announced that it was seeking and building the best nukes the world’s ever seen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0007",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "President Vladimir Putin said Russia is will have new nuclear weapons that other countries do not and will not have."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0008",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "With the demand so high, the question arises on to who should be or has the right to be the Santa of nuclear weapons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0009",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Right now that seems to be the US, EU, and IAEA."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0010",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "But not always do those three agree, and not always are their decisions equal."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0011",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The US has strongly opposed a nuclear weapons program of Iran, yet Israel, which to this day has never officially said that they posses nuclear weapons, ranks around fifth in nuclear strength."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0012",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "It is estimated that Israel has over 200 nuclear weapons yet neither the US nor any of her allies expresses the slightest concern."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0013",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "North Korea’s Kim Jong Ill also has the bomb at the top of his list and Santa seems to have already come a few years ago."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0014",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "It is rumored that North Korea has at least a couple nuclear weapons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0015",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "But getting past who should get them, is who has them, and who is really close."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0016",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The case against Iran has a feeling of Déjà vu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0017",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Arial photos of the lab were uranium is being enriched, somewhat like those of chemical weapons stockpiles in Iraq."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_thelameduck_20041119192207_ENG_20041119_192207-0018",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "America cried wolf in Iraq, and what’s scary is that sooner or later, that wolf will probably get us."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0001",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "I ran across this item on the Internet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0002",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Sooooo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0003",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The United States goes into a war zone and evacuates a bunch of U.S. citizens (most of whom were \"dual-citizens\")."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0004",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Then, eschewing normal procedure, the Department of State waived the fees that they charge for evacuating U.S. citizen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0005",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Why?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0006",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "To pander to the mythical \"Arab street\", of course."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0007",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Now, I would argue that one could have reasonably predicted that some form of military violence was likely to occur in Lebanon (considering that the country has been experiencing some form of conflict for approximately the last 32 years)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0008",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "In other words, those Americans were there by their own choice, mired in a situation that was totally predictable."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0009",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Yet we didn't charge them for the evacuation."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0010",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "This is unlike the situation last year in Asia when we evacuated U.S. citizens from areas that were hit by the tsunami - a phenomenon that is much less predictable than the Hezbollah-provoked destruction that rained down on Lebanon."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0011",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "And what do we get for this effort?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0012",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "A lawsuit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0013",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "That's right, folks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0014",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The American-Arab Discrimination Committee is suing Condoleeza Rice and Donald Rumsfeld, charging that they mismanaged the evacuation efforts."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0015",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Here's an excerpt from the article:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0016",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "Nina Chahine, 19, who with her family was among the named plaintiffs in the lawsuit, said her wedding in the southern city of Tyre was set for July 13."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0017",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "The wedding had to be postponed as family members fled the outbreak of the war, she said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0018",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "\"We were on the road and the first bridge was bombed and we drove home and all the other bridges were bombed and there was absolutely no way for us to get home,\" Chahine told reporters outside federal court in Detroit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0019",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "\"We were all American citizens and there was no way that anybody helped us."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0020",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "No communications nothing."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_alaindewitt_20060827093500_ENG_20060827_093500-0021",
+      "retrieval_date": "2026-11-02",
+      "source_id": "universal-dependencies",
+      "value": "I was on my way to my wedding fearing death, basically.\""
     },
     {
       "id": "verb.forms",
