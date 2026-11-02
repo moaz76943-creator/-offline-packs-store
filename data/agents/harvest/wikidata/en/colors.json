@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "retrieval_date": "2026-10-29",
+  "retrieval_date": "2026-11-02",
   "rows": [
     {
       "concept_id": "concept.q2778382",
@@ -123,8 +123,8 @@
         "Q34687"
       ],
       "record_id": "L18379",
-      "retrieval_date": "2026-10-25",
-      "revision": "2549975946",
+      "retrieval_date": "2026-11-02",
+      "revision": "2561686739",
       "schema_version": "1.0.0",
       "section": "colors",
       "sense_id": "L18379-S1",
@@ -252,7 +252,7 @@
         "Q37453"
       ],
       "record_id": "L43958",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-02",
       "revision": "2560947447",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -277,7 +277,7 @@
         "Q797446"
       ],
       "record_id": "L58126",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-02",
       "revision": "2561580704",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -303,7 +303,7 @@
         "Q797446"
       ],
       "record_id": "L1402668",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-02",
       "revision": "2289878840",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -319,23 +319,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q425278"
+      "wikidata": "Q797446"
     },
     {
       "reason": "other_language",
+      "wikidata": "Q797446"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q425278"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q901731"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1970335"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q947638"
+      "wikidata": "Q3014419"
     }
   ],
   "source": "harvest-wikidata"
