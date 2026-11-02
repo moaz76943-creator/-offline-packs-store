@@ -1,6 +1,6 @@
 {
   "language": "ru",
-  "retrieval_date": "2026-10-25",
+  "retrieval_date": "2026-11-02",
   "rows": [
     {
       "concept_id": "concept.q130788",
@@ -65,10 +65,67 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q398085"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [],
+      "language": "ru",
+      "lemma": "доисторическое время",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012666",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012666",
+      "retrieval_date": "2026-11-02",
+      "revision": "2236649765",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012666-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [],
+      "language": "ru",
+      "lemma": "преистория",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1012667",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1012667",
+      "retrieval_date": "2026-11-02",
+      "revision": "1829291520",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1012667-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
     }
   ],
   "schema_version": "1.0.0",
   "section": "time",
-  "skipped": [],
+  "skipped": [
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q115779640"
+    },
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q7501240"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    }
+  ],
   "source": "harvest-wikidata"
 }

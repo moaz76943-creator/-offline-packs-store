@@ -1,6 +1,6 @@
 {
   "language": "ja",
-  "retrieval_date": "2026-10-29",
+  "retrieval_date": "2026-11-02",
   "rows": [
     {
       "concept_id": "concept.q55313888",
@@ -75,30 +75,47 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q398085"
+    },
+    {
+      "concept_id": "concept.q11756",
+      "forms": [
+        "先史時代",
+        "せんしじだい"
+      ],
+      "language": "ja",
+      "lemma": "先史時代",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1566557",
+      "pos": "",
+      "qids": [
+        "Q11756"
+      ],
+      "record_id": "L1566557",
+      "retrieval_date": "2026-11-02",
+      "revision": "2496584322",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1566557-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q11756"
     }
   ],
   "schema_version": "1.0.0",
   "section": "time",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q347066"
+      "reason": "SourceAPIError",
+      "wikidata": "Q115779640"
+    },
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q7501240"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q186566"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q5447288"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q398085"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2675808"
+      "wikidata": "Q11756"
     }
   ],
   "source": "harvest-wikidata"
