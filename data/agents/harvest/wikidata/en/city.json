@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "retrieval_date": "2026-11-01",
+  "retrieval_date": "2026-11-02",
   "rows": [
     {
       "concept_id": "concept.q4093",
@@ -387,7 +387,7 @@
         "Q172"
       ],
       "record_id": "L414191",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "2551479562",
       "schema_version": "1.0.0",
       "section": "city",
@@ -639,6 +639,105 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3114"
+    },
+    {
+      "concept_id": "concept.q62",
+      "forms": [
+        "San Francisco",
+        "San Franciscos"
+      ],
+      "language": "en",
+      "lemma": "San Francisco",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L414196",
+      "pos": "",
+      "qids": [
+        "Q62"
+      ],
+      "record_id": "L414196",
+      "retrieval_date": "2026-11-02",
+      "revision": "2431320455",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L414196-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q62"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "Frankfurt am Main"
+      ],
+      "language": "en",
+      "lemma": "Frankfurt am Main",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452666",
+      "pos": "",
+      "qids": [
+        "Q1794"
+      ],
+      "record_id": "L452666",
+      "retrieval_date": "2026-11-02",
+      "revision": "2289968794",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452666-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "Frankfurt",
+        "Frankfurts"
+      ],
+      "language": "en",
+      "lemma": "Frankfurt",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482182",
+      "pos": "",
+      "qids": [
+        "Q1794",
+        "Q36966484"
+      ],
+      "record_id": "L482182",
+      "retrieval_date": "2026-11-02",
+      "revision": "2414025962",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L482182-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q1489",
+      "forms": [
+        "Mexico City"
+      ],
+      "language": "en",
+      "lemma": "Mexico City",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453093",
+      "pos": "",
+      "qids": [
+        "Q1489"
+      ],
+      "record_id": "L453093",
+      "retrieval_date": "2026-11-02",
+      "revision": "2426912358",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453093-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
     }
   ],
   "schema_version": "1.0.0",
@@ -646,15 +745,15 @@
   "skipped": [
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q279"
+      "wikidata": "Q2634"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1410"
+      "wikidata": "Q34370"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q23051"
+      "wikidata": "Q956"
     }
   ],
   "source": "harvest-wikidata"

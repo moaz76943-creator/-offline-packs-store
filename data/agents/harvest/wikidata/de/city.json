@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-02",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -271,7 +271,7 @@
         "Q172"
       ],
       "record_id": "L494981",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "1880960473",
       "schema_version": "1.0.0",
       "section": "city",
@@ -444,30 +444,107 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1799"
+    },
+    {
+      "concept_id": "concept.q62",
+      "forms": [
+        "San Francisco",
+        "San Francisco",
+        "San Franciscos",
+        "San Francisco",
+        "San Francisco"
+      ],
+      "language": "de",
+      "lemma": "San Francisco",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L489523",
+      "pos": "",
+      "qids": [
+        "Q62"
+      ],
+      "record_id": "L489523",
+      "retrieval_date": "2026-11-02",
+      "revision": "1818500677",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L489523-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q62"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "Frankfurt am Main",
+        "Frankfurt a. M.",
+        "Frankfurt am Main",
+        "Frankfurts am Main",
+        "Frankfurt am Main",
+        "Frankfurt am Main"
+      ],
+      "language": "de",
+      "lemma": "Frankfurt am Main",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L297295",
+      "pos": "",
+      "qids": [
+        "Q1794"
+      ],
+      "record_id": "L297295",
+      "retrieval_date": "2026-11-02",
+      "revision": "2326818290",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L297295-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q1489",
+      "forms": [
+        "Mexiko-Stadt",
+        "Mexiko-Stadt",
+        "Mexiko-Stadts",
+        "Mexiko-Stadt",
+        "Mexiko-Stadt"
+      ],
+      "language": "de",
+      "lemma": "Mexiko-Stadt",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L489361",
+      "pos": "",
+      "qids": [
+        "Q1489"
+      ],
+      "record_id": "L489361",
+      "retrieval_date": "2026-11-02",
+      "revision": "2344137166",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L489361-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "other_language",
+      "reason": "HTTPError:429",
+      "wikidata": "Q2634"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q34370"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q956"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q956"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1780"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"

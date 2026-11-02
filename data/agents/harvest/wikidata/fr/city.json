@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-02",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -256,7 +256,7 @@
         "Q172"
       ],
       "record_id": "L578441",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "1458285048",
       "schema_version": "1.0.0",
       "section": "city",
@@ -337,30 +337,70 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1748"
+    },
+    {
+      "concept_id": "concept.q62",
+      "forms": [
+        "San Francisco"
+      ],
+      "language": "fr",
+      "lemma": "San Francisco",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578423",
+      "pos": "",
+      "qids": [
+        "Q62"
+      ],
+      "record_id": "L578423",
+      "retrieval_date": "2026-11-02",
+      "revision": "1458255134",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578423-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q62"
+    },
+    {
+      "concept_id": "concept.q1489",
+      "forms": [
+        "Mexico"
+      ],
+      "language": "fr",
+      "lemma": "Mexico",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L578415",
+      "pos": "",
+      "qids": [
+        "Q1489"
+      ],
+      "record_id": "L578415",
+      "retrieval_date": "2026-11-02",
+      "revision": "2449979362",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L578415-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "other_language",
+      "reason": "HTTPError:429",
+      "wikidata": "Q2634"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q34370"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q956"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q956"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1780"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"

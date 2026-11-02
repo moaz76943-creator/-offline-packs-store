@@ -1,6 +1,6 @@
 {
   "language": "sv",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-02",
   "rows": [
     {
       "concept_id": "concept.q1754",
@@ -177,30 +177,47 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q956"
+    },
+    {
+      "concept_id": "concept.q1794",
+      "forms": [
+        "Frankfurt",
+        "Frankfurts"
+      ],
+      "language": "sv",
+      "lemma": "Frankfurt",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L482670",
+      "pos": "",
+      "qids": [
+        "Q1794"
+      ],
+      "record_id": "L482670",
+      "retrieval_date": "2026-11-02",
+      "revision": "2318890867",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L482670-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1794"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "other_language",
+      "reason": "HTTPError:429",
+      "wikidata": "Q2634"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q34370"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q956"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q956"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1780"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3130"
     }
   ],
   "source": "harvest-wikidata"

@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-11-01",
+  "retrieval_date": "2026-11-02",
   "rows": [
     {
       "concept_id": "concept.q3711",
@@ -180,7 +180,7 @@
         "Q37510260"
       ],
       "record_id": "L1235605",
-      "retrieval_date": "2026-10-24",
+      "retrieval_date": "2026-11-02",
       "revision": "2198699894",
       "schema_version": "1.0.0",
       "section": "city",
@@ -320,15 +320,15 @@
   "skipped": [
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q279"
+      "wikidata": "Q2634"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1410"
+      "wikidata": "Q34370"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q23051"
+      "wikidata": "Q956"
     }
   ],
   "source": "harvest-wikidata"
