@@ -28,7 +28,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:331919",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "ويل للكافرين"
     },
@@ -38,7 +38,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332182",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "متى أنشئت هذه الجامعة؟"
     },
@@ -48,7 +48,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332186",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "أراها نادراً"
     },
@@ -58,7 +58,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332187",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "يعزف على البيانو بشكل جيد جداً"
     },
@@ -68,7 +68,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332191",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "مع كل احترامي."
     },
@@ -78,7 +78,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332192",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "نظف أسنانك"
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332222",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "أتمنى لك نومًا هادئًا يا تِمِي.‏‏"
     },
@@ -98,7 +98,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332223",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "ما اسمُك؟"
     },
@@ -108,7 +108,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332224",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "لو سمحت، أضعت طريقي.‏‏"
     },
@@ -118,7 +118,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332226",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "عفوًا."
     },
@@ -128,7 +128,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332229",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "عيد ميلاد سعيد!‏‏"
     },
@@ -138,9 +138,289 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332368",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "ذهبت اليوم إلى الطبيب"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336064",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "يتكلم بسرعة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336151",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه وسيم."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336152",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه وسيم و ذكي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336153",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه وسيم جدا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336154",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "هذه القلعة جميلة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336155",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إيطاليا بلد جميل جدا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336156",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "طقس اليوم جميل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336157",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "تعال إلى منزلي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336158",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "منزلي كبير."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336159",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "أنظر إلى هذا المنزل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336160",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "منزلك رائع."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336161",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "مرحباً بك في المنزل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336162",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إني في المنزل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336163",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أحب المدرسة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336164",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "أنا طالب في هذه المدرسة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336165",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "هذه مدرستنا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:337468",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "تستطيع معالجة السرطان اذا أكتشف في المراحل الأولى."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:337469",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "مرض السرطان هو عدو البشريه الأكبر"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:340399",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "هل تتكلم اللغة الإنجليزية؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:340400",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "أنا لا أتكلم اللغة اليابانية.‏‏"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:340401",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "لا تقلق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:340402",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أعرف‏.‏‏"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341949",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "الدوق يمتلك الكثير من الأراضي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341950",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "الشهر القمري أقصر من الشهر الشمسي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341951",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "اليوم أقمارنا الصناعية تدور حول الأرض."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341952",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "فكرة جيدة أن نلعب الشوقي بعد الغداء."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341953",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "استيقظت في السابعة هذا الصباح."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341965",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "تركوا المشكلة بدون حل."
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:331919",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "ويل للكافرين"
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332182",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "متى أنشئت هذه الجامعة؟"
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332186",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "أراها نادراً"
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332187",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "يعزف على البيانو بشكل جيد جداً"
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332191",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "مع كل احترامي."
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332192",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "نظف أسنانك"
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332222",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "أتمنى لك نومًا هادئًا يا تِمِي.‏‏"
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332223",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "ما اسمُك؟"
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332224",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "لو سمحت، أضعت طريقي.‏‏"
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332226",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "عفوًا."
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332229",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "عيد ميلاد سعيد!‏‏"
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:332368",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "ذهبت اليوم إلى الطبيب"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336064",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "يتكلم بسرعة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336151",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه وسيم."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336152",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه وسيم و ذكي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336153",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه وسيم جدا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336154",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "هذه القلعة جميلة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336155",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إيطاليا بلد جميل جدا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336156",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "طقس اليوم جميل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336157",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "تعال إلى منزلي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336158",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "منزلي كبير."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336159",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "أنظر إلى هذا المنزل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336160",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "منزلك رائع."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336161",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "مرحباً بك في المنزل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336162",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "إني في المنزل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336163",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أحب المدرسة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336164",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "أنا طالب في هذه المدرسة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:336165",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "هذه مدرستنا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:337468",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "تستطيع معالجة السرطان اذا أكتشف في المراحل الأولى."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:337469",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "مرض السرطان هو عدو البشريه الأكبر"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:340399",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "هل تتكلم اللغة الإنجليزية؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:340400",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "أنا لا أتكلم اللغة اليابانية.‏‏"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:340401",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "لا تقلق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:340402",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أعرف‏.‏‏"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341949",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "الدوق يمتلك الكثير من الأراضي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341950",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "الشهر القمري أقصر من الشهر الشمسي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341951",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "اليوم أقمارنا الصناعية تدور حول الأرض."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341952",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "فكرة جيدة أن نلعب الشوقي بعد الغداء."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341953",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "استيقظت في السابعة هذا الصباح."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:341965",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "تركوا المشكلة بدون حل."
     }
   ]
 }
