@@ -842,6 +842,441 @@
       "wikidata": "Q1780"
     },
     {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1489",
+      "gloss": "Mexico City (the capital city of Mexico)",
+      "language": "fr",
+      "lemma": "Mexico",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1489"
+      ],
+      "record_id": "en-Mexico-fr-name-fr:Q1489",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Mexico-fr-name-fr:Q1489",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1489"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3114",
+      "gloss": "Canberra (the capital city of Australia; located in the Australian Capital Territory)",
+      "language": "fr",
+      "lemma": "Canberra",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3114"
+      ],
+      "record_id": "en-Canberra-fr-name-hY2RV9Dd",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Canberra-fr-name-hY2RV9Dd",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3114"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3130",
+      "gloss": "Sydney (a major port city, the state capital of New South Wales, Australia, and the most populous city in Australia)",
+      "language": "fr",
+      "lemma": "Sydney",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "en-Sydney-fr-name-FkVs0yR4",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Sydney-fr-name-FkVs0yR4",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2096",
+      "gloss": "Edmonton (the capital city of Alberta, Canada)",
+      "language": "fr",
+      "lemma": "Edmonton",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2096"
+      ],
+      "record_id": "en-Edmonton-fr-name-YzHKhCm2",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Edmonton-fr-name-YzHKhCm2",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2096"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q172",
+      "gloss": "Toronto (the capital city of Ontario, Canada and the largest city in Canada)",
+      "language": "fr",
+      "lemma": "Toronto",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "en-Toronto-fr-name-UPG6jrnu",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Toronto-fr-name-UPG6jrnu",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1865",
+      "gloss": "Kuala Lumpur (a federal territory, the capital and largest city of Malaysia, located in the western part of the country)",
+      "language": "fr",
+      "lemma": "Kuala Lumpur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1865"
+      ],
+      "record_id": "en-Kuala_Lumpur-fr-name-YECvoVCk",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Kuala_Lumpur-fr-name-YECvoVCk",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1865"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q8646",
+      "gloss": "Hong Kong (a city, island and special administrative region in southeastern China)",
+      "language": "fr",
+      "lemma": "Hong Kong",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q8646"
+      ],
+      "record_id": "en-Hong_Kong-fr-name-aBkX2cs9",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Hong_Kong-fr-name-aBkX2cs9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8646"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3640",
+      "gloss": "Ankara (the capital city of Turkey and the capital of Ankara Province)",
+      "language": "fr",
+      "lemma": "Ankara",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3640"
+      ],
+      "record_id": "en-Ankara-fr-name-~YFP-UAD",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Ankara-fr-name-~YFP-UAD",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3640"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2634",
+      "gloss": "Naples (a port city and comune, the capital of the Metropolitan City of Naples and the region of Campania, Italy)",
+      "language": "fr",
+      "lemma": "Naples",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2634"
+      ],
+      "record_id": "en-Naples-fr-name-aqgv9LZc",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Naples-fr-name-aqgv9LZc",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2634"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1757",
+      "gloss": "Helsinki (the capital city of Finland; a municipality, the capital of the region of Uusimaa, Finland)",
+      "language": "fr",
+      "lemma": "Helsinki",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1757"
+      ],
+      "record_id": "en-Helsinki-fr-name-lvdF7oDB",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Helsinki-fr-name-lvdF7oDB",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1757"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q490",
+      "gloss": "Milan (a city and comune, the capital of the Metropolitan City of Milan and the region of Lombardy, Italy)",
+      "language": "fr",
+      "lemma": "Milan",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q490"
+      ],
+      "record_id": "en-Milan-fr-name-a5fUK4hw",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Milan-fr-name-a5fUK4hw",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q490"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q19689",
+      "gloss": "Tirana (a municipality, the capital and largest city of Albania, located in the center of the country west of the mountain of Dajti on the plain of Tirana; it is the seat of its eponymous county and municipality)",
+      "language": "fr",
+      "lemma": "Tirana",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q19689"
+      ],
+      "record_id": "en-Tirana-fr-name-FYI7MqH9",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Tirana-fr-name-FYI7MqH9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q19689"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q180233",
+      "gloss": "Pori (a municipality, the capital city of the region of Satakunta, Finland)",
+      "language": "fr",
+      "lemma": "Pori",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q180233"
+      ],
+      "record_id": "en-Pori-fr-name-9irJuspC",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Pori-fr-name-9irJuspC",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q180233"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q38511",
+      "gloss": "Turku (a municipality, the capital city of the region of Southwest Finland)",
+      "language": "fr",
+      "lemma": "Turku",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q38511"
+      ],
+      "record_id": "en-Turku-fr-name-dYYnxYHT",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Turku-fr-name-dYYnxYHT",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q38511"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q40840",
+      "gloss": "Tampere (a municipality, the capital city of the region of Pirkanmaa, Finland)",
+      "language": "fr",
+      "lemma": "Tampere",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q40840"
+      ],
+      "record_id": "en-Tampere-fr-name-kNKNBGa4",
+      "retrieval_date": "2026-11-02",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Tampere-fr-name-kNKNBGa4",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q40840"
+    },
+    {
       "author": "hashimi",
       "language": "ar",
       "level": {
@@ -1572,7 +2007,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:77",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1590,7 +2025,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:78",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1608,7 +2043,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:80",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.question",
       "source_id": "tatoeba.sentences",
@@ -1626,7 +2061,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:81",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1644,7 +2079,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:82",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1662,7 +2097,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:83",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1680,7 +2115,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:84",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1698,7 +2133,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:85",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1716,7 +2151,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:87",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1734,7 +2169,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:88",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1752,7 +2187,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:89",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -1770,12 +2205,516 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:90",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-02",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Das war ein böses Kaninchen."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:91",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich war in den Bergen."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:93",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich weiß nicht, ob ich Zeit dazu habe."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=65; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:94",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Aus irgendeinem Grund hat das Mikrofon gerade nicht funktioniert."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:95",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Letztendlich muss jeder selbst lernen."
+    },
+    {
+      "author": "cburgmer",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:96",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Die Ausbildung in dieser Welt enttäuscht mich."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=84; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:97",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Zum Lernen sollte man nicht gezwungen werden. Zum Lernen sollte man ermutigt werden."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=100; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:98",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Es ist eine schwere Aufgabe, zwischen \"richtig\" und \"falsch\" zu unterscheiden, aber man muss es tun."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:99",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das wird nichts ändern."
+    },
+    {
+      "author": "Safari",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:100",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das wird 30 € kosten."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:101",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich verdiene 100 Euro pro Tag."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=73; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:102",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Es kann sein, dass ich bald aufgebe und stattdessen ein Nickerchen mache."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=50; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:103",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das liegt daran, dass du nicht allein sein willst."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:104",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das wird nicht passieren."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=42; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:105",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Manchmal kann er ein seltsamer Junge sein."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=59; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:106",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich werde mir Mühe geben, dich nicht beim Lernen zu stören."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:107",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich kann mich nur fragen, ob es für alle anderen dasselbe ist."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=70; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:108",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich vermute, das ist anders, wenn du darüber längerfristig nachdenkst."
+    },
+    {
+      "author": "Dorenda",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:109",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mach dir keine Sorgen."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:110",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich vermisse dich."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=51; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:111",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich werde sie morgen anrufen, wenn ich zurückkomme."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=50; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:112",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich mochte mysteriöse Charaktere schon immer mehr."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:113",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Du solltest schlafen."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=58; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:115",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich sagte ihnen, sie sollen mir ein neues Ticket schicken."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:116",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Du bist so ungeduldig mit mir."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:117",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich kann so ein Leben nicht leben."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:118",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich wollte mal Astrophysiker werden."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:119",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich mochte Biologie noch nie."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=78; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:120",
+      "retrieval_date": "2026-11-02",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Die letzte Person, der ich meine Idee erzählt habe, dachte, ich wäre bekloppt."
     },
     {
       "author": "CK",
