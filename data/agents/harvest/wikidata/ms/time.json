@@ -1,0 +1,48 @@
+{
+  "language": "ms",
+  "retrieval_date": "2026-11-02",
+  "rows": [
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "kronologi",
+        "کرونولوݢي"
+      ],
+      "language": "ms",
+      "lemma": "kronologi",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1415650",
+      "pos": "",
+      "qids": [
+        "Q130788"
+      ],
+      "record_id": "L1415650",
+      "retrieval_date": "2026-11-02",
+      "revision": "2354652468",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1415650-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q130788"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q130788"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q347066"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
