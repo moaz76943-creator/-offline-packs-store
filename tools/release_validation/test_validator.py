@@ -1,4 +1,5 @@
 import unittest
+import unittest.mock
 import os
 import json
 import tempfile
@@ -149,6 +150,15 @@ class TestReleaseEligibilityGate(unittest.TestCase):
         artifact['validations']['provenance_evidence'] = 'INCOMPLETE'
         reasons = validate_artifact(artifact, self.repo_root)
         self.assertIn("PROVENANCE_EVIDENCE_INCOMPLETE", reasons)
+
+
+    def test_evaluate_candidates_workspace_unauthorized(self):
+        candidates_path = self.repo_root / "candidates.json"
+        output_path = self.repo_root / "approved.json"
+        with unittest.mock.patch('os.access', return_value=False):
+            exit_code, report = evaluate_candidates(candidates_path, self.repo_root, output_path)
+        self.assertEqual(exit_code, 1)
+        self.assertEqual(report, {"error": "UNAUTHORIZED_WORKSPACE"})
 
 if __name__ == '__main__':
     unittest.main()
