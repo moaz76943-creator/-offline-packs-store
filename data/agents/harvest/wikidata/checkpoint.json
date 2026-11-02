@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q2054456",
-    "Q7501224",
-    "Q49740414",
-    "Q64148858",
-    "Q118926681",
-    "Q65027836",
-    "Q212930",
-    "Q3415282"
+    "Q130341698",
+    "Q16331136",
+    "Q12983379",
+    "Q18192542",
+    "Q137668019",
+    "Q138581395",
+    "Q130224243",
+    "Q11394741"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2054456"
+      "wikidata": "Q130341698"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,16 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7501224"
+      "wikidata": "Q16331136"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "reason": "SourceAPIError",
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "SOURCE_ERROR",
+      "wikidata": "Q12983379"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +41,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q49740414"
+      "wikidata": "Q18192542"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +49,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q64148858"
+      "wikidata": "Q137668019"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +57,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q118926681"
+      "wikidata": "Q138581395"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +65,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q65027836"
+      "wikidata": "Q130224243"
     },
     {
       "accepted_rows": 0,
@@ -64,20 +73,17 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q212930"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q3415282"
+      "wikidata": "Q11394741"
     }
   ],
   "retrieval_date": "2026-11-02",
   "rows": [],
   "schema_version": "1.0.0",
-  "skipped": [],
+  "skipped": [
+    {
+      "reason": "SourceAPIError",
+      "wikidata": "Q12983379"
+    }
+  ],
   "source": "harvest-wikidata"
 }
