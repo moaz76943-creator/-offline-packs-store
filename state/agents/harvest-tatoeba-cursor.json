@@ -1,8 +1,12 @@
 {
-  "next_index": 1,
+  "next_index": 2,
   "schema_version": "1.0.0",
   "sentences": {
     "ar": {
+      "max_bytes": 1500000,
+      "skip": 40
+    },
+    "de": {
       "max_bytes": 1500000,
       "skip": 40
     },
