@@ -5,11 +5,18 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from coordinator import GitHub
+from coordinator import GitHub, is_candidate_qualified
 from auto_run import discovery_order, triggered_check_pr
 
 
 class ReadyDiscoveryTests(unittest.TestCase):
+    def test_qualification_ignores_skip_text_and_rejects_wrong_base(self):
+        record = self.candidate(1, False)
+        record.update(title='fix: explain [skip ci]', body='[skip ci] is documentation')
+        self.assertTrue(is_candidate_qualified(record)[0])
+        for changed in ({'draft': True}, {'state': 'closed'}, {'base': {'ref': 'other'}}):
+            self.assertFalse(is_candidate_qualified({**record, **changed})[0])
+
     @staticmethod
     def gh_with_pages(pages):
         gh = object.__new__(GitHub)
