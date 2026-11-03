@@ -4,6 +4,7 @@ from tools.corpus_dedupe.dedupe import CorpusDeduplicator, normalize_strict, nor
 class TestCorpusDeduplicator(unittest.TestCase):
     def setUp(self):
         self.deduplicator = CorpusDeduplicator(admitted_source_licenses={'src.fixture': ('CC-BY', '1')})
+        self.addCleanup(self.deduplicator.close)
 
     def test_normalize_strict(self):
         # NFKC casefolding
