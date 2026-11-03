@@ -28,7 +28,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2481",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¡Intentemos algo!"
     },
@@ -38,7 +38,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2482",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Tengo que irme a dormir."
     },
@@ -48,7 +48,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2483",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¿Qué estás haciendo?"
     },
@@ -58,7 +58,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2484",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¿Qué es eso?"
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2485",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¡Hoy es 18 de junio y es el cumpleaños de Muiriel!"
     },
@@ -78,7 +78,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2486",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¡Feliz cumpleaños, Muiriel!"
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2487",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ahora, Muiriel tiene 20 años."
     },
@@ -98,7 +98,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2488",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "La contraseña es \"Muiriel\"."
     },
@@ -108,7 +108,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2489",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Volveré pronto."
     },
@@ -118,7 +118,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2491",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "No tengo palabras."
     },
@@ -128,7 +128,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2492",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Esto no acabará nunca."
     },
@@ -138,9 +138,289 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2493",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Simplemente no sé qué decir..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2494",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Era un conejo malo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2495",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo estaba en las montañas."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2496",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Es una foto reciente?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2497",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "No sé si tengo tiempo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2498",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Por alguna razón, el micrófono no había funcionado hasta entonces."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2499",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Todo el mundo debe aprender por sí mismo al final."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2500",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "La educación en este mundo me decepciona."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2501",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "El aprendizaje no debe ser forzado, sino estimulado."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2502",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Es una tarea difícil elegir qué está \"bien\" o \"mal\", pero has de hacerlo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2503",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso no va a cambiar nada."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2504",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso va a costar 30 €."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2505",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Gano 100 € al día."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2506",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Quizás me dé pronto por vencido y en lugar de eso me eche una siesta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2507",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso es porque no quieres estar solo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2508",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso no va a pasar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2509",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "A veces él puede ser un chico raro."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2510",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Me voy a esforzar por no molestarte en tus estudios."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2511",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Sólo puedo preguntarme si acaso es lo mismo para todos los demás."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2512",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Supongo que es diferente cuando lo consideras a largo plazo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2513",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "No te preocupes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2515",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Los llamaré cuando regrese mañana."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2516",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Siempre me gustaron más los personajes misteriosos."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2517",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Deberías dormir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2519",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Les dije que me mandaran otro boleto."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2520",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eres tan impaciente conmigo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2521",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "No puedo vivir así."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2522",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Una vez quise ser astrofísico."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2523",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Nunca me gustó la biología."
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2481",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¡Intentemos algo!"
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2482",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Tengo que irme a dormir."
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2483",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¿Qué estás haciendo?"
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2484",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¿Qué es eso?"
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2485",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¡Hoy es 18 de junio y es el cumpleaños de Muiriel!"
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2486",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "¡Feliz cumpleaños, Muiriel!"
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2487",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Ahora, Muiriel tiene 20 años."
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2488",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "La contraseña es \"Muiriel\"."
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2489",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Volveré pronto."
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2491",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "No tengo palabras."
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2492",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Esto no acabará nunca."
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2493",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Simplemente no sé qué decir..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2494",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Era un conejo malo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2495",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo estaba en las montañas."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2496",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Es una foto reciente?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2497",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "No sé si tengo tiempo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2498",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Por alguna razón, el micrófono no había funcionado hasta entonces."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2499",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Todo el mundo debe aprender por sí mismo al final."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2500",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "La educación en este mundo me decepciona."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2501",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "El aprendizaje no debe ser forzado, sino estimulado."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2502",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Es una tarea difícil elegir qué está \"bien\" o \"mal\", pero has de hacerlo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2503",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso no va a cambiar nada."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2504",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso va a costar 30 €."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2505",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Gano 100 € al día."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2506",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Quizás me dé pronto por vencido y en lugar de eso me eche una siesta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2507",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso es porque no quieres estar solo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2508",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso no va a pasar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2509",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "A veces él puede ser un chico raro."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2510",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Me voy a esforzar por no molestarte en tus estudios."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2511",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Sólo puedo preguntarme si acaso es lo mismo para todos los demás."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2512",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Supongo que es diferente cuando lo consideras a largo plazo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2513",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "No te preocupes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2515",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Los llamaré cuando regrese mañana."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2516",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Siempre me gustaron más los personajes misteriosos."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2517",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Deberías dormir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2519",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Les dije que me mandaran otro boleto."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2520",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Eres tan impaciente conmigo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2521",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "No puedo vivir así."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2522",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Una vez quise ser astrofísico."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2523",
+      "retrieval_date": "2026-11-02",
+      "source_id": "tatoeba.sentences",
+      "value": "Nunca me gustó la biología."
     }
   ]
 }
