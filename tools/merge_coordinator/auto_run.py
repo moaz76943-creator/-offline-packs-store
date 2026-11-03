@@ -1,7 +1,15 @@
 """Single-writer low-risk PR discovery, called only by the incumbent coordinator."""
+import json
 import os
+import time
 import urllib.error
 from auto_policy import auto_eligible
+
+# One pass reads this many exact-SHA candidates. The hourly rotation moves
+# the window, so a long queue cannot stall the five-minute job or hide the tail.
+EVIDENCE_BUDGET = 40
+# Enumeration is handled by GitHub.ready_pull_requests; exact-SHA evidence
+# remains separately bounded to avoid exhausting the five-minute job.
 
 
 def candidate_evidence_unavailable(number, error):
@@ -83,6 +91,49 @@ def candidate_threads_resolved(gh, number):
         return False
 
 
+def triggered_check_pr():
+    """Prioritize a successful required gate event, never treat it as merge approval."""
+    if os.getenv('GITHUB_EVENT_NAME') != 'workflow_run':
+        return None
+    path = os.getenv('GITHUB_EVENT_PATH')
+    if not path:
+        return None
+    try:
+        with open(path, encoding='utf-8') as handle:
+            payload = json.load(handle)
+        run = payload.get('workflow_run') if isinstance(payload, dict) else None
+        if (not isinstance(run, dict) or
+                run.get('name') != 'Public PR Merge Gate' or
+                run.get('conclusion') != 'success'):
+            return None
+        prs = run.get('pull_requests')
+        if not isinstance(prs, list) or len(prs) != 1:
+            return None
+        number = prs[0].get('number') if isinstance(prs[0], dict) else None
+        return number if isinstance(number, int) and number > 0 else None
+    except (OSError, ValueError, TypeError):
+        return None
+
+
+def discovery_order(candidates, now, budget=EVIDENCE_BUDGET, priority=None):
+    """Rotate long ready queues; prefer the PR whose gate just finished."""
+    if not isinstance(candidates, list) or not isinstance(budget, int) or budget < 1:
+        raise ValueError('invalid discovery candidates or budget')
+    ordered = [item for item in sorted(
+        (item for item in candidates if isinstance(item, dict) and isinstance(item.get('number'), int)),
+        key=lambda item: item['number'], reverse=True,
+    ) if not item.get('draft')]
+    deferred = max(len(ordered) - budget, 0)
+    if deferred:
+        shift = int(now // 3600) % len(ordered)
+        ordered = ordered[shift:] + ordered[:shift]
+    if isinstance(priority, int):
+        for index, item in enumerate(ordered):
+            if item['number'] == priority:
+                ordered.insert(0, ordered.pop(index))
+                break
+    return ordered[:budget], deferred
+
 def run_auto(gh, main_sha):
     """Merge up to eight independent, low-risk and freshly checked PRs.
 
@@ -92,11 +143,15 @@ def run_auto(gh, main_sha):
     """
     merged_count = 0
     merged_numbers = set()  # Do not reprocess an already confirmed merge if REST lists lag.
+    event_priority = triggered_check_pr()
     for _ in range(8):
         if gh.main_sha() != main_sha:
             print('HALT: main changed outside this batch')
             return 0
-        queue = gh.page('/pulls?state=open&base=main', limit=300)
+        # Real GitHub enumerates the full paginated index, retaining only
+        # non-drafts. Test doubles without this method keep their legacy fixture.
+        queue = (gh.ready_pull_requests() if hasattr(gh, 'ready_pull_requests')
+                 else gh.page('/pulls?state=open&base=main', limit=1000))
         if not isinstance(queue, list):
             raise ValueError('invalid live pull-request listing')
         pool = [p for p in queue if isinstance(p, dict) and
@@ -111,8 +166,11 @@ def run_auto(gh, main_sha):
         print(f'AUTO_DISCOVERY_READY={len(pool)}')
         print(f'AUTO_STALE_BASE_HINTS={stale}')
         print(f'AUTO_CURRENT_BASE_CANDIDATES={len(current)}')
+        window, deferred = discovery_order(current, time.time(), priority=event_priority)
+        if deferred:
+            print(f'AUTO_EVIDENCE_DEFERRED={deferred}')
         merged_this_step = False
-        for brief in sorted(current, key=lambda p: p['number'], reverse=True):
+        for brief in window:
             num = brief['number']
             head = (brief.get('head') or {}).get('sha')
             if not isinstance(head, str) or len(head) != 40:
