@@ -28,7 +28,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1297",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "きみにちょっとしたものをもってきたよ。"
     },
@@ -38,7 +38,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4702",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "何かしてみましょう。"
     },
@@ -48,7 +48,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4703",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "私は眠らなければなりません。"
     },
@@ -58,7 +58,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4704",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "何してるの？"
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4705",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "今日は６月１８日で、ムーリエルの誕生日です！"
     },
@@ -78,7 +78,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4706",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "お誕生日おめでとうムーリエル！"
     },
@@ -88,7 +88,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4707",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "ムーリエルは２０歳になりました。"
     },
@@ -98,7 +98,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4708",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "パスワードは「Muiriel」です。"
     },
@@ -108,7 +108,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4709",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "すぐに戻ります。"
     },
@@ -118,7 +118,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4710",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "知らない。"
     },
@@ -128,7 +128,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4711",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "何と言ったら良いか分かりません。"
     },
@@ -138,9 +138,289 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4712",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "きりがない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4713",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "何と言ったらいいか・・・。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4714",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "こいつは悪いウサギだった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4715",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私は山にいました。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4716",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "それは最近の写真？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4717",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "時間があるか分かりません。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4718",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "先程、どういうわけかマイクが入りませんでした。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4720",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "この世界の教育にはがっかりしてしまう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4726",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私は一日に100ユーロ稼ぎます。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4727",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "すぐに諦めて昼寝をするかも知れない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4728",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "それはあなたが一人になりたくないからです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4729",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "そんなことは起きないでしょう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4730",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "彼は時々変です。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4731",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "あなたの勉強を邪魔しないようにします。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4732",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "みんなもそうなのかな、と思うことくらいしかできない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4733",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "長い目で見れば違ってくると思います。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4734",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "心配しないで。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4735",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "会えなくて淋しい。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4736",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "明日帰ったら電話します。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4737",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私はいつも不思議な性格の方が好きだった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4738",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "眠った方がいいよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4739",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "行くよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4740",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私は彼らにチケットをもう一枚送ってくれるように頼んだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4741",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "君は僕にとてもいらいらしている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4742",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私はそんな風には生きられない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4743",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私は一時期、天体物理学者になりたかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4744",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "生物学は好きになれません。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4745",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "僕が最後に自分の考えを伝えた人は、僕を気違いだと思ったようだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4746",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "残念ながらそれは本当なのです。"
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1297",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "きみにちょっとしたものをもってきたよ。"
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4702",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "何かしてみましょう。"
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4703",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "私は眠らなければなりません。"
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4704",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "何してるの？"
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4705",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "今日は６月１８日で、ムーリエルの誕生日です！"
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4706",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "お誕生日おめでとうムーリエル！"
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4707",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "ムーリエルは２０歳になりました。"
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4708",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "パスワードは「Muiriel」です。"
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4709",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "すぐに戻ります。"
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4710",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "知らない。"
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4711",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "何と言ったら良いか分かりません。"
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:4712",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "きりがない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4713",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "何と言ったらいいか・・・。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4714",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "こいつは悪いウサギだった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4715",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私は山にいました。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4716",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "それは最近の写真？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4717",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "時間があるか分かりません。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4718",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "先程、どういうわけかマイクが入りませんでした。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4720",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "この世界の教育にはがっかりしてしまう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4726",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私は一日に100ユーロ稼ぎます。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4727",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "すぐに諦めて昼寝をするかも知れない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4728",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "それはあなたが一人になりたくないからです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4729",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "そんなことは起きないでしょう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4730",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "彼は時々変です。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4731",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "あなたの勉強を邪魔しないようにします。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4732",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "みんなもそうなのかな、と思うことくらいしかできない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4733",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "長い目で見れば違ってくると思います。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4734",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "心配しないで。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4735",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "会えなくて淋しい。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4736",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "明日帰ったら電話します。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4737",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私はいつも不思議な性格の方が好きだった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4738",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "眠った方がいいよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4739",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "行くよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4740",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私は彼らにチケットをもう一枚送ってくれるように頼んだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4741",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "君は僕にとてもいらいらしている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4742",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私はそんな風には生きられない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4743",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "私は一時期、天体物理学者になりたかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4744",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "生物学は好きになれません。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4745",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "僕が最後に自分の考えを伝えた人は、僕を気違いだと思ったようだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4746",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "残念ながらそれは本当なのです。"
     }
   ]
 }
