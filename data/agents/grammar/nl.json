@@ -28,7 +28,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5946",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Wilt u een kopje koffie?"
     },
@@ -38,7 +38,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5947",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Hoe oud bent u?"
     },
@@ -48,7 +48,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5949",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "We houden niet van regen."
     },
@@ -58,7 +58,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5953",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Hoe is het weer?"
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5955",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "In Parijs heb ik voor een maand een kamer gehuurd."
     },
@@ -78,7 +78,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5957",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Ik koop briefpapier, postzegels en papieren zakdoekjes."
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5959",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Goedenavond, hoe maakt u het?"
     },
@@ -98,7 +98,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5961",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Goedemorgen, hoe maakt u het?"
     },
@@ -108,7 +108,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5962",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel is nu 20 jaar oud."
     },
@@ -118,7 +118,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5963",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Ik weet het niet."
     },
@@ -128,7 +128,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5964",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Gerechtigheid is duur."
     },
@@ -138,9 +138,289 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5965",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "De meeste mensen denken dat ik gek ben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5966",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik moet gaan slapen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5967",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Heb je gezegd dat ik nooit zou kunnen winnen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5968",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Gelukkige verjaardag Muiriel!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5969",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Vandaag is het 18 juni en het is de verjaardag van Muiriel!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5970",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat is dat?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5971",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat doe je?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5972",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Laten we iets proberen!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5978",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik wacht al uren lang."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5979",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik was in de bergen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5980",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Dat was een slecht konijn."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5981",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik weet niet wat te zeggen..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5982",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Hier komt nooit een eind aan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5983",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik heb er geen woorden voor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5984",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik ben zo terug."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5985",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Het wachtwoord is \"Muiriel\"."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5986",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Het onderwijs in deze wereld valt me tegen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5987",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Tenslotte moet iedereen zelf leren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5988",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Om de een of andere reden werkte de microfoon daarnet niet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5989",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik weet niet of ik tijd heb."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5990",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Is dit een recente foto?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:164914",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Op onze website, http://www.example.com, staat alle informatie die je nodig hebt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330699",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Blijf zwemmen tot je aan je grens zit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330700",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Laat het ons eerst hebben over de experimenten die uitgevoerd worden in laboratoria."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330701",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoe heet u?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330702",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Het ligt misschien niet in je aard, maar je zou tenminste een beetje beleefd kunnen zijn."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330703",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Spanjaarden hebben twee achternamen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330704",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Paco tekent stadsgezichten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330705",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Raúl kan zich zonder zijn vrienden niet vermaken."
     },
     {
       "id": "sentence.question",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5946",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Wilt u een kopje koffie?"
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5947",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Hoe oud bent u?"
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5949",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "We houden niet van regen."
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5953",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Hoe is het weer?"
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5955",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "In Parijs heb ik voor een maand een kamer gehuurd."
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5957",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Ik koop briefpapier, postzegels en papieren zakdoekjes."
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5959",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Goedenavond, hoe maakt u het?"
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5961",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Goedemorgen, hoe maakt u het?"
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5962",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel is nu 20 jaar oud."
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5963",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Ik weet het niet."
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5964",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Gerechtigheid is duur."
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5965",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "De meeste mensen denken dat ik gek ben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5966",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik moet gaan slapen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5967",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Heb je gezegd dat ik nooit zou kunnen winnen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5968",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Gelukkige verjaardag Muiriel!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5969",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Vandaag is het 18 juni en het is de verjaardag van Muiriel!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5970",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat is dat?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5971",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat doe je?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5972",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Laten we iets proberen!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5978",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik wacht al uren lang."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5979",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik was in de bergen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5980",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Dat was een slecht konijn."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5981",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik weet niet wat te zeggen..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5982",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Hier komt nooit een eind aan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5983",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik heb er geen woorden voor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5984",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik ben zo terug."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5985",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Het wachtwoord is \"Muiriel\"."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5986",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Het onderwijs in deze wereld valt me tegen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5987",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Tenslotte moet iedereen zelf leren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5988",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Om de een of andere reden werkte de microfoon daarnet niet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5989",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik weet niet of ik tijd heb."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5990",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Is dit een recente foto?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:164914",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Op onze website, http://www.example.com, staat alle informatie die je nodig hebt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330699",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Blijf zwemmen tot je aan je grens zit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330700",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Laat het ons eerst hebben over de experimenten die uitgevoerd worden in laboratoria."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330701",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoe heet u?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330702",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Het ligt misschien niet in je aard, maar je zou tenminste een beetje beleefd kunnen zijn."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330703",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Spanjaarden hebben twee achternamen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330704",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Paco tekent stadsgezichten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330705",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Raúl kan zich zonder zijn vrienden niet vermaken."
     }
   ]
 }

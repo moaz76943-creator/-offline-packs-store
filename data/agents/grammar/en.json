@@ -2023,6 +2023,406 @@
       "value": "(Applause.)\""
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0037",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Now that's a rambling response."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0038",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "And I have to wonder: Did he forget that he already has a memoir called \"A Charge to Keep\"?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0039",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "That was the name of his \"autobiography\" -- ghost-written by adviser Karen Hughes in 1999."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0001",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "There has been random speculation about Google developiong a new browser and/or acquiring Firefox."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0002",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "It is true that Google has been in acquisition mode."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0003",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "They have acquired Urchin, Zipdash, Applied Semantics, Picasa, Blogger, and satellite imaging company Keyhole, so why not Firefox?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0004",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I have no inside information, but I have been following links today that strongly indicate that Google is damn serious about securing permanent control of the leading edge browser technology in Firefox."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0005",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Ben Goodger is the lead engineer for Mozilla Firefox."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0006",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "He announced this in January:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0007",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "As of January 10, 2005, my source of income changed from The Mozilla Foundation to Google, Inc. of Mountain View, California."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0008",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "My role with Firefox and the Mozilla project will remain largely unchanged, I will continue doing much the same work as I have described above - with the new goal of successful 1.1, 1.5 and 2.0 releases."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0009",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I remain devoted full-time to the advancement of Firefox, the Mozilla platform and web browsing in general."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0010",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "He also announced this in January:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0011",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Welcome Darin!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0012",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I just want to extend a big \"Welcome!\" to Darin Darin Fisher who joined me at Google this week."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0013",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "2005 is going to rock!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0014",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Darin Fisher wrote this response on January 25, 2005:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0015",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Me and the big \"G\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0016",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Following on the heels of Ben's annoucement yesterday, I thought I'd post that I have joined Google as well."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0017",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Like Ben, I will still be very much involved with the Mozilla project and community :-)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0018",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Posted by darin"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0019",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Ben made another announcement on March 28, 2005:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0020",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I want to use this opportunity to welcome Brian Ryner to Google!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0021",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Brian has been one of the most crucial elements to the success of Mozilla software over the past few years,..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0022",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Great to have you on board!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0023",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Now, none of this has been confirmed by Google at the present time, but it's an old adage that you follow the money to see who is behind something."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0024",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "In this case, following the talent leads me to think that Google will be making an announcement this year that formalizes the Google-Mozilla/Firefox relationship."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0025",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "If you have not already seen the Flash movie Epic , you should take a few minutes and view the future history of media as conceived by Robin Sloan and Matt Thompson, with music by Aaron McLeran."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0026",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "In this movie Google and Amazon (GOOGLEZON ) create a brave new world of media in 2008."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0027",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "This is one thought-provoking film."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0028",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Every move Google makes brings this particular future closer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0029",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Just one small commment - it's not possible, as far as I know, for Google to \"Aquire\" Firefox."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0030",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "They already have rights to take it, alter it, and release those changes to the world - this is what the whole open source thing is about."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0031",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I'm inclined to say that google is doing what they can to both shape and support the growth of the most popular non-Microsoft browser out there - by taking on the leading lights in Firefox development, they're ensuring the continued life of the project, and ensuring (not that I think they need to) that their voice will be heard admidst the higher echelons of the firefox development team."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0032",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "It's this sort of enlightened self interest that keeps large open source projects alive."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0033",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Fascinating viewpoint of the future in Epic."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0034",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Thanks for the link."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0035",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Malach, What you say makes sense."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0036",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Acquiring open source talent gives a company an inexpensive way of influencing and anticipating the direction an open source project will go."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0037",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "It probably gives more bang for the buck than acquiring a private company and having to handle the inevitable culture clashes and process mis-matches."
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -4037,6 +4437,406 @@
       "retrieval_date": "2026-11-03",
       "source_id": "universal-dependencies",
       "value": "(Applause.)\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0037",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Now that's a rambling response."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0038",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "And I have to wonder: Did he forget that he already has a memoir called \"A Charge to Keep\"?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0039",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "That was the name of his \"autobiography\" -- ghost-written by adviser Karen Hughes in 1999."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0001",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "There has been random speculation about Google developiong a new browser and/or acquiring Firefox."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0002",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "It is true that Google has been in acquisition mode."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0003",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "They have acquired Urchin, Zipdash, Applied Semantics, Picasa, Blogger, and satellite imaging company Keyhole, so why not Firefox?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0004",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I have no inside information, but I have been following links today that strongly indicate that Google is damn serious about securing permanent control of the leading edge browser technology in Firefox."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0005",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Ben Goodger is the lead engineer for Mozilla Firefox."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0006",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "He announced this in January:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0007",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "As of January 10, 2005, my source of income changed from The Mozilla Foundation to Google, Inc. of Mountain View, California."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0008",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "My role with Firefox and the Mozilla project will remain largely unchanged, I will continue doing much the same work as I have described above - with the new goal of successful 1.1, 1.5 and 2.0 releases."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0009",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I remain devoted full-time to the advancement of Firefox, the Mozilla platform and web browsing in general."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0010",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "He also announced this in January:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0011",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Welcome Darin!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0012",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I just want to extend a big \"Welcome!\" to Darin Darin Fisher who joined me at Google this week."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0013",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "2005 is going to rock!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0014",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Darin Fisher wrote this response on January 25, 2005:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0015",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Me and the big \"G\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0016",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Following on the heels of Ben's annoucement yesterday, I thought I'd post that I have joined Google as well."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0017",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Like Ben, I will still be very much involved with the Mozilla project and community :-)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0018",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Posted by darin"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0019",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Ben made another announcement on March 28, 2005:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0020",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I want to use this opportunity to welcome Brian Ryner to Google!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0021",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Brian has been one of the most crucial elements to the success of Mozilla software over the past few years,..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0022",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Great to have you on board!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0023",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Now, none of this has been confirmed by Google at the present time, but it's an old adage that you follow the money to see who is behind something."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0024",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "In this case, following the talent leads me to think that Google will be making an announcement this year that formalizes the Google-Mozilla/Firefox relationship."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0025",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "If you have not already seen the Flash movie Epic , you should take a few minutes and view the future history of media as conceived by Robin Sloan and Matt Thompson, with music by Aaron McLeran."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0026",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "In this movie Google and Amazon (GOOGLEZON ) create a brave new world of media in 2008."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0027",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "This is one thought-provoking film."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0028",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Every move Google makes brings this particular future closer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0029",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Just one small commment - it's not possible, as far as I know, for Google to \"Aquire\" Firefox."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0030",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "They already have rights to take it, alter it, and release those changes to the world - this is what the whole open source thing is about."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0031",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "I'm inclined to say that google is doing what they can to both shape and support the growth of the most popular non-Microsoft browser out there - by taking on the leading lights in Firefox development, they're ensuring the continued life of the project, and ensuring (not that I think they need to) that their voice will be heard admidst the higher echelons of the firefox development team."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0032",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "It's this sort of enlightened self interest that keeps large open source projects alive."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0033",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Fascinating viewpoint of the future in Epic."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0034",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Thanks for the link."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0035",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Malach, What you say makes sense."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0036",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "Acquiring open source talent gives a company an inexpensive way of influencing and anticipating the direction an open source project will go."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0037",
+      "retrieval_date": "2026-11-03",
+      "source_id": "universal-dependencies",
+      "value": "It probably gives more bang for the buck than acquiring a private company and having to handle the inevitable culture clashes and process mis-matches."
     },
     {
       "id": "verb.forms",
