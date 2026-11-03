@@ -19,9 +19,9 @@ FIXTURES = (
         },
         'manifest': {
             'concept_id': 'food.fruit.apple',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Open Icon Project',
+            'source': 'https://example.com/icons/apple',
+            'license': 'CC0-1.0',
         },
     },
     {
@@ -35,9 +35,9 @@ FIXTURES = (
         },
         'manifest': {
             'concept_id': 'animal.mammal.bat',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Public Domain Vectors',
+            'source': 'https://example.com/icons/bat',
+            'license': 'CC0-1.0',
         },
     },
 )
