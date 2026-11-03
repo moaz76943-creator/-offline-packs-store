@@ -4,6 +4,8 @@ name: Indic and Southeast Asian Script QA
 on:
   workflow_dispatch:
   pull_request:
+    branches: [main]
+    types: [opened, reopened, synchronize, ready_for_review]
     paths:
       - 'tools/linguistic_extensions/indic_seasian/**'
       - 'tests/linguistic_extensions/indic_seasian/**'
@@ -15,15 +17,15 @@ permissions:
   contents: read
 
 concurrency:
-  group: indic-seasian-qa
-  cancel-in-progress: false
+  group: indic-seasian-qa-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   script-contracts:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
       - name: Run 18-language Unicode, safety, and morphology evidence tests

@@ -40,11 +40,22 @@ morphological fields remain evidence-required.
 
 ## Independent admission hash contract
 
+The CLI consumes the existing canonical `legal/ledger/sources.json` schema.
+Canonical inputs are checked against the repository's actual ledger and the
+existing rights verifier, including immutable source and license bytes and
+documented review. No parallel approval record is written. For bounded
+morphology/dictionary evidence in JSONL, the adapter derives languages and
+reviewed-record digests from the verified source artifact itself. Segmentation
+and relation rows in that artifact omit `source_sha256`; the adapter binds
+the verified enclosing artifact hash when constructing their record digest,
+avoiding a self-referential hash. Morphology audits may select a subset of the
+exact reviewed records; new or altered forms remain rejected.
+
 The release-approval ledger input must itself come from an authenticated,
 independent review process; accepting a caller-provided dictionary is not
 cryptographic proof of legal rights or independent linguistic review.
 
-An eligible source record must contain its unique `id`, `languages`,
+For trusted library callers, the legacy in-memory review envelope contains `id`, `languages`,
 `sha256`, `release_approved: true`, `rights_status: APPROVED`,
 non-empty `reviewed_by`, `rights_evidence_sha256`, and a
 `reviewed_records` map with exactly `morphology`, `segmentation`,

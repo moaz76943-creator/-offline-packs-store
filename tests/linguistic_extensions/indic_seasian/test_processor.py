@@ -6,6 +6,7 @@ import sys
 import tempfile
 import unittest
 import unicodedata
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT))
@@ -189,6 +190,71 @@ class ScriptAwareTests(unittest.TestCase):
         for bad in ('\u200cاردو', 'اردو\u200c', 'ا\u200c\u200cب'):
             with self.subTest(value=bad), self.assertRaises(p.ScriptContractError):
                 p.validate_text('ur', bad)
+
+    def test_joiner_neighbors_must_be_real_script_letters(self):
+        for code, samples in (
+            ('hi', ('क्\u200d।', 'क्\u200dा', 'क्\u200d१')),
+            ('ur', ('ا\u200c،', '۱\u200c۲', 'ا\u200cَ')),
+        ):
+            for text in samples:
+                with self.subTest(code=code, text=text), self.assertRaises(p.ScriptContractError):
+                    p.validate_text(code, text)
+
+    def test_canonical_ledger_verifies_actual_reviewed_source_bytes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            artifact = root / 'evidence/forms.jsonl'
+            artifact.parent.mkdir()
+            record = self._record('hi', SAMPLES['hi'], {'number': 'singular'})
+            record['source_id'] = 'reviewed-morphology'
+            segment = {'language_code': 'hi', 'source_id': record['source_id'],
+                'text_sha256': hashlib.sha256(SAMPLES['hi'].encode()).hexdigest(),
+                'tokens': [SAMPLES['hi']]}
+            relation = {'language_code': 'hi', 'source_id': record['source_id'],
+                'left_utf8_sha256': hashlib.sha256(SAMPLES['hi'].encode()).hexdigest(),
+                'right_utf8_sha256': hashlib.sha256('हिंदी'.encode()).hexdigest(),
+                'relation_kind': 'related_form', 'evidence_version': 'fixture-v1'}
+            raw = ''.join(json.dumps(row, ensure_ascii=False) + '\n'
+                          for row in (record, segment, relation)).encode()
+            artifact.write_bytes(raw)
+            notice = root / 'evidence/license.txt'
+            notice.write_text('Synthetic fixture publisher CC0-1.0 license assertion')
+            source = {
+                'source_id': record['source_id'], 'kind': 'morphology',
+                'origin_url': 'https://example.org/forms', 'publisher': 'Synthetic Fixture',
+                'author': 'synthetic-fixture', 'dataset_version': 'fixture-v1',
+                'retrieval': {'identity': 'fixture-v1', 'url': 'https://example.org/forms',
+                    'date': '2026-10-12', 'artifact_path': 'evidence/forms.jsonl',
+                    'sha256': hashlib.sha256(raw).hexdigest()},
+                'license': {'id': 'CC0-1.0', 'evidence_url': 'https://example.org/license',
+                    'evidence_path': 'evidence/license.txt',
+                    'evidence_sha256': hashlib.sha256(notice.read_bytes()).hexdigest()},
+                'status': 'APPROVED_FOR_REDISTRIBUTION', 'alterations': ['none'],
+                'review': {'reviewer': 'synthetic-reviewer', 'decision_url': 'https://example.org/review'},
+            }
+            ledger = {'schema_version': '1.0.0', 'sources': [source]}
+            path = root / 'legal/ledger/sources.json'
+            path.parent.mkdir(parents=True)
+            path.write_text(json.dumps(ledger))
+            with patch.object(p, 'REPO_ROOT', root, create=True):
+                accepted = p.validate_attestation(record, 'hi', self.registry, ledger)
+                self.assertEqual('attested_only', accepted['status'])
+                audit_input = root / 'forms-only.jsonl'
+                audit_input.write_text(json.dumps(record, ensure_ascii=False) + '\n')
+                self.assertEqual('PASS_EVIDENCE_QA', p.audit_jsonl(audit_input, 'hi', self.registry, ledger)['status'])
+                sha = source['retrieval']['sha256']
+                self.assertEqual('attested', p.words('hi', SAMPLES['hi'],
+                    attested={**segment, 'source_sha256': sha}, ledger=ledger)['status'])
+                from tools.linguistic_extensions.indic_seasian.relations import classify_relation
+                self.assertEqual('related_form', classify_relation('hi', SAMPLES['hi'], 'हिंदी',
+                    evidence={**relation, 'source_sha256': sha}, ledger=ledger)['relation_kind'])
+                with self.assertRaises(p.ScriptContractError):
+                    p.validate_attestation({**record, 'form': 'हिंदी'}, 'hi', self.registry, ledger)
+                with self.assertRaises(p.ScriptContractError):
+                    p.approved_sources({**ledger, 'sources': []})
+                artifact.write_bytes(raw + b'\n')
+                with self.assertRaises(p.ScriptContractError):
+                    p.validate_attestation(record, 'hi', self.registry, ledger)
 
     def test_empty_audit_is_not_a_production_pass(self):
         with tempfile.TemporaryDirectory() as tmp:

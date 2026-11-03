@@ -38,6 +38,13 @@ class RelationsTests(unittest.TestCase):
             classify_relation('pa', 'ਪੰਜਾਬੀ', 'پنجابی',
                               evidence={**proof, 'source_id': []}, ledger=ledger)
 
+    def test_non_string_relation_kind_is_controlled_rejection(self):
+        ledger, proof = self.proof('pa', 'ਪੰਜਾਬੀ', 'پنجابی')
+        for value in ([], {}, None, 1):
+            with self.subTest(value=value), self.assertRaises(ScriptContractError):
+                classify_relation('pa', 'ਪੰਜਾਬੀ', 'پنجابی',
+                                  evidence={**proof, 'relation_kind': value}, ledger=ledger)
+
     def test_unrelated_forms_not_silently_normalized(self):
         left, right = 'हिन्दी', 'हिंदी'
         self.assertEqual('unresolved', classify_relation('hi', left, right)['status'])

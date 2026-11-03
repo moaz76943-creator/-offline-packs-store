@@ -36,6 +36,7 @@ def classify_relation(code, left, right, *, evidence=None, ledger=None):
             evidence['source_sha256'] != source['sha256'] or
             evidence['left_utf8_sha256'] != a['original_utf8_sha256'] or
             evidence['right_utf8_sha256'] != b['original_utf8_sha256'] or
+            not isinstance(evidence['relation_kind'], str) or
             evidence['relation_kind'] not in KINDS or
             not isinstance(evidence['evidence_version'], str) or
             not evidence['evidence_version'].strip()):

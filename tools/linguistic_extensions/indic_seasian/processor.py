@@ -60,6 +60,7 @@ FIELDS = frozenset(('language_code', 'lemma_id', 'sense_id', 'lemma', 'form',
 REQUIRED = FIELDS - {'script'}
 HEX_SHA = re.compile(r'[0-9a-f]{64}\Z')
 MAX_TEXT = 2048
+REPO_ROOT = Path(__file__).resolve().parents[3]
 
 
 def profile(code, registry):
@@ -111,9 +112,11 @@ def validate_text(code, text, *, script=None):
             if before in JOINERS or after in JOINERS:
                 raise ScriptContractError('adjacent Unicode joiners')
             if (code in ('ur', 'pa') and ch == '\u200c' and
-                    _script(before) == 'Arab' and _script(after) == 'Arab'):
+                    _script(before) == 'Arab' and _script(after) == 'Arab' and
+                    ud.category(before).startswith('L') and ud.category(after).startswith('L')):
                 continue
-            if before not in VIRAMAS or _script(after) not in allowed:
+            if (before not in VIRAMAS or _script(after) not in allowed or
+                    not ud.category(after).startswith('L')):
                 raise ScriptContractError('joiner lacks adjacent virama and script base')
             continue
         if cat in ('Cc', 'Cs', 'Co', 'Cn', 'Cf'):
@@ -222,6 +225,8 @@ def approved_sources(ledger):
     signature checker. An arbitrary caller-supplied ledger is NOT proof of
     rights and must never be used as production approval authority.
     """
+    if isinstance(ledger, dict) and 'schema_version' in ledger:
+        return _canonical_sources(ledger)
     sources = ledger.get('sources') if isinstance(ledger, dict) else None
     if not isinstance(sources, list):
         raise ScriptContractError('missing public source ledger')
@@ -260,6 +265,63 @@ def approved_sources(ledger):
         accepted[source_id] = {'languages': frozenset(langs),
                                'sha256': item['sha256'], 'reviewed_records': reviewed}
     return accepted
+
+
+def _canonical_sources(ledger):
+    """Reuse canonical rights verification and index only the pinned source rows.
+
+    This is an adapter, not another approval registry. Languages and exact
+    reviewed-record digests come from the reviewed source artifact itself.
+    Segmentation/relation rows omit the enclosing artifact's SHA to avoid a
+    self-referential digest; the verified SHA is mechanically bound below.
+    """
+    from tools.contribution_gate.evidence import verified_sources
+    try:
+        canonical_path = REPO_ROOT / 'legal/ledger/sources.json'
+        if (canonical_path.is_symlink() or
+                json.loads(canonical_path.read_text(encoding='utf-8')) != ledger):
+            raise ValueError('caller ledger differs from canonical source registry')
+        if ledger == {'schema_version': '1.0.0', 'sources': []}:
+            return {}
+        sources = verified_sources(ledger, REPO_ROOT)
+        accepted = {}
+        for sid, source in sources.items():
+            if source['kind'] not in ('morphology', 'dictionary'):
+                continue
+            snapshot = REPO_ROOT / source['retrieval']['artifact_path']
+            if snapshot.stat().st_size > 4_000_000:
+                raise ValueError('source evidence exceeds bounded input size')
+            sha = source['retrieval']['sha256']
+            digests = {kind: set() for kind in REVIEW_TYPES}
+            languages, digest = set(), hashlib.sha256()
+            with snapshot.open('rb') as stream:
+                for number, raw in enumerate(stream, 1):
+                    if number > 2000 or len(raw) > 65536:
+                        raise ValueError('source evidence exceeds record budget')
+                    digest.update(raw)
+                    row = json.loads(raw.decode('utf-8'), object_pairs_hook=_unique_pairs)
+                    if (not isinstance(row, dict) or row.get('source_id') != sid or
+                            not isinstance(row.get('language_code'), str) or
+                            row['language_code'] not in LANGUAGE_SCRIPTS):
+                        raise ValueError('source record identity is not attested')
+                    kinds = [kind for kind, marker in (
+                        ('morphology', 'features'), ('segmentation', 'tokens'),
+                        ('orthographic_relation', 'relation_kind')) if marker in row]
+                    if len(kinds) != 1:
+                        raise ValueError('unrecognized or ambiguous source evidence')
+                    if kinds[0] != 'morphology':
+                        if 'source_sha256' in row:
+                            raise ValueError('source snapshot cannot contain its own hash')
+                        row = {**row, 'source_sha256': sha}
+                    digests[kinds[0]].add(evidence_digest(row))
+                    languages.add(row['language_code'])
+            if digest.hexdigest() != sha or not languages:
+                raise ValueError('source snapshot changed or contains no evidence')
+            accepted[sid] = {'languages': frozenset(languages), 'sha256': sha,
+                             'reviewed_records': {k: frozenset(v) for k, v in digests.items()}}
+        return accepted
+    except (OSError, ValueError, TypeError, KeyError, UnicodeError) as exc:
+        raise ScriptContractError('canonical source evidence unavailable or invalid') from exc
 
 
 def validate_attestation(record, code, registry, ledger):
