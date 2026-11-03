@@ -96,6 +96,17 @@ class TestPackConformanceValidator(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             validator.validate()
 
+    def test_decomposed_original_unicode_is_preserved(self):
+        validator = PackConformanceValidator(self.fixtures / "unnormalized.db")
+        self.assertFalse(validator.validate())  # Synthetic evidence is still not published.
+        with sqlite3.connect(self.fixtures / "unnormalized.db") as db:
+            self.assertEqual(db.execute('SELECT surface FROM lexicon').fetchone()[0], 'n\u0303')
+
+    def test_misconfigured_fts_pack(self):
+        validator = PackConformanceValidator(self.fixtures / "misconfigured_fts.db")
+        with self.assertRaisesRegex(PackConformanceError, "SQLite integrity check failed"):
+            validator.validate()
+
     def test_manifest_valid(self):
         validator = PackConformanceValidator(self.fixtures / "valid.db", self.manifest_path)
         self.assertFalse(validator.validate())

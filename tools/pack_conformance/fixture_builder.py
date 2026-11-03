@@ -101,6 +101,23 @@ def create_missing_metadata_pack():
     conn.commit()
     conn.close()
 
+def create_unnormalized_unicode_pack():
+    doc = get_base_document()
+    doc["lexemes"][0]["surface"] = "n\u0303"  # NFD 'n' + '~'
+    db_path = FIXTURES_DIR / "unnormalized.db"
+    build(doc, db_path)
+
+def create_misconfigured_fts_pack():
+    doc = get_base_document()
+    db_path = FIXTURES_DIR / "misconfigured_fts.db"
+    build(doc, db_path)
+
+    conn = sqlite3.connect(db_path)
+    conn.execute("PRAGMA writable_schema = 1")
+    conn.execute("UPDATE lexicon_fts_data SET block = X'00' WHERE id > 1")
+    conn.commit()
+    conn.close()
+
 def build_all(directory):
     global FIXTURES_DIR
     FIXTURES_DIR = Path(directory)
@@ -114,6 +131,8 @@ def build_all(directory):
     create_mismatched_lang_pack()
     create_missing_fts_pack()
     create_missing_metadata_pack()
+    create_unnormalized_unicode_pack()
+    create_misconfigured_fts_pack()
 
 if __name__ == "__main__":
     raise SystemExit("Use build_all with an isolated empty temporary directory")
