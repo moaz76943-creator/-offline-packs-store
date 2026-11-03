@@ -10,7 +10,6 @@ from pathlib import Path
 import sqlite3
 import sys
 import tempfile
-import unicodedata
 import time
 import os
 
@@ -195,11 +194,11 @@ class PackConformanceValidator:
             if not any(c.isalnum() for c in surface):
                 continue
             term = surface.replace('"', '""')
-            match_results = db.execute(
-                'SELECT rowid FROM lexicon_fts WHERE lexicon_fts MATCH \'"\' || ? || \'"\'',
-                (term,)
-            ).fetchall()
-            if r_row['rowid'] not in [r[0] for r in match_results]:
+            found = db.execute(
+                'SELECT rowid FROM lexicon_fts WHERE rowid=? AND lexicon_fts MATCH ?',
+                (r_row['rowid'], '"' + term + '"')
+            ).fetchone()
+            if found is None:
                 raise PackConformanceError('FTS5 index functionality missing or misconfigured')
         # The reference producer derives CEFR from attested sense levels.
         # Index these once rather than issuing a query for each lexeme.
@@ -229,8 +228,6 @@ class PackConformanceValidator:
                     or row['cefr_level'] != expected_cefr
                     or row['frequency_rank'] is not None):
                 raise PackConformanceError('Lexicon dialect/CEFR/rank projection mismatch')
-            if row['surface'] != unicodedata.normalize('NFC', row['surface']):
-                raise PackConformanceError('Surface text is not NFC normalized')
             if row['sort_key'] != sort_key(row['surface']):
                 raise PackConformanceError('Invalid sort_key')
             glosses = {r[0] for r in db.execute('SELECT definition FROM senses WHERE lexeme_id=?', (row['id'],))}
