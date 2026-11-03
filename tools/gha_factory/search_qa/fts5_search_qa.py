@@ -9,6 +9,8 @@ import re
 import sqlite3
 import sys
 import unicodedata
+from contextlib import closing
+from pathlib import Path
 
 def normalize_search_key(text: str) -> str:
     """Strips Arabic Tashkeel, normalizes Hamza, and applies NFC lowercase."""
@@ -45,26 +47,37 @@ def index_entry(conn: sqlite3.Connection, display_term: str, gloss: str):
 def search_fts5(conn: sqlite3.Connection, raw_query: str):
     cur = conn.cursor()
     norm_q = normalize_search_key(raw_query)
+    norm_q = norm_q.replace('"', '""')
+    literal_q = raw_query.replace('"', '""')
     # Query matches against both display_term and normalized_key prefix
     cur.execute("""
     SELECT display_term, gloss, rank
     FROM fts_lexicon
     WHERE fts_lexicon MATCH ?
     ORDER BY rank;
-    """, (f'"{norm_q}"* OR "{raw_query}"*',))
+    """, (f'"{norm_q}"* OR "{literal_q}"*',))
     return cur.fetchall()
 
 def verify_search_pack_qa(db_path: str):
     if not os.path.isfile(db_path):
         return False, "Database file does not exist"
     try:
-        conn = sqlite3.connect(db_path)
-        cur = conn.cursor()
-        cur.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='fts_lexicon';")
-        if not cur.fetchone():
-            conn.close()
-            return False, "MISSING_FTS_TABLE: Table fts_lexicon not present in pack"
-        conn.close()
+        with closing(sqlite3.connect(Path(db_path).resolve().as_uri() + '?mode=ro', uri=True)) as conn:
+            schema = conn.execute("SELECT sql FROM sqlite_master WHERE type='table' AND name='fts_lexicon'").fetchone()
+            if not schema or not re.search(r'\bUSING\s+fts5\s*\(', schema[0], re.IGNORECASE):
+                return False, "MISSING_FTS_TABLE: A real FTS5 virtual table is required"
+            columns = {row[1] for row in conn.execute('PRAGMA table_info(fts_lexicon)')}
+            if not {'display_term', 'normalized_key', 'gloss'} <= columns:
+                return False, "INVALID_FTS_COLUMNS: Dual projections are required"
+            count = 0
+            for display, key in conn.execute('SELECT display_term, normalized_key FROM fts_lexicon'):
+                if not isinstance(display, str) or not display.strip() or key != normalize_search_key(display):
+                    return False, "INVALID_FTS_PROJECTION: Normalized key does not match display term"
+                if count < 16 and display not in {row[0] for row in search_fts5(conn, key)}:
+                    return False, "FTS_SEARCH_FAILED: Normalized term was not retrieved"
+                count += 1
+            if count == 0:
+                return False, "EMPTY_FTS_INDEX: No search evidence to verify"
         return True, "FTS5_INDEX_VERIFIED"
     except Exception as e:
         return False, f"FTS5_QA_ERROR: {e}"
