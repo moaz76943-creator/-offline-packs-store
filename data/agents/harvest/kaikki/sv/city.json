@@ -1,0 +1,106 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-11-03",
+  "rows": [
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q84",
+      "gloss": "London (the capital city of the United Kingdom; the capital city of England, within Greater London)",
+      "language": "sv",
+      "lemma": "London",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Swedish/kaikki.org-dictionary-Swedish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q84"
+      ],
+      "record_id": "en-London-sv-name-DUFN5D4f",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-London-sv-name-DUFN5D4f",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q84"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1780",
+      "gloss": "Bratislava (the capital city of Slovakia)",
+      "language": "sv",
+      "lemma": "Bratislava",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Swedish/kaikki.org-dictionary-Swedish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "en-Bratislava-sv-name-TXoGHhtI",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bratislava-sv-name-TXoGHhtI",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q490",
+      "gloss": "Milan (a city and comune, the capital of the Metropolitan City of Milan and the region of Lombardy, Italy)",
+      "language": "sv",
+      "lemma": "Milano",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Swedish/kaikki.org-dictionary-Swedish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q490"
+      ],
+      "record_id": "en-Milano-sv-name-a5fUK4hw",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Milano-sv-name-a5fUK4hw",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q490"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1410",
+      "gloss": "Gibraltar (a peninsula, city, and overseas territory of the United Kingdom, at the southern end of Iberia)",
+      "language": "sv",
+      "lemma": "Gibraltar",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Swedish/kaikki.org-dictionary-Swedish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "en-Gibraltar-sv-name-ZcvZyDDJ",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Gibraltar-sv-name-ZcvZyDDJ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [],
+  "source": "harvest-kaikki"
+}
