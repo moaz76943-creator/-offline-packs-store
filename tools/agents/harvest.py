@@ -231,22 +231,14 @@ def load_lexemes(ids, fetch=fetch_json):
     return entities
 
 
-def tatoeba_sample(code, limit=12):
-    """Stream the start of one detailed export. Rows without an author are dropped."""
-    import bz2
-    url = (
-        'https://downloads.tatoeba.org/exports/per_language/'
-        f'{code}/{code}_sentences_detailed.tsv.bz2'
-    )
-    raw = fetch_bytes(url, timeout=40, max_bytes=1_500_000)
-    # The download is intentionally capped: its BZip2 end marker may be
-    # outside the prefix. Incremental decompression accepts those prefixes
-    # without treating a normal bounded sample as corrupt.
-    decoder = bz2.BZ2Decompressor()
-    text = decoder.decompress(raw, max_length=2_000_000).decode('utf-8', 'replace')
-    # A non-final prefix can end mid-row; never publish that truncated row.
-    if not decoder.eof and not text.endswith('\n'):
-        text = text.rsplit('\n', 1)[0] if '\n' in text else ''
+TATOEBA_MAX_BYTES = 8_000_000
+UD_TREEBANK_URL = (
+    'https://raw.githubusercontent.com/UniversalDependencies/UD_English-EWT/master/en_ewt-ud-dev.conllu'
+)
+UD_MAX_BYTES = 2_000_000
+
+
+def _tatoeba_rows(text):
     rows = []
     for line in text.splitlines():
         parts = line.split('\t')
@@ -262,25 +254,56 @@ def tatoeba_sample(code, limit=12):
             'record_id': 'tatoeba:' + parts[0],
             'sentence_slot': slot,
         })
-        if len(rows) >= limit:
-            break
     return rows
 
 
-def ud_sample(limit=12):
-    raw = fetch_bytes(
-        'https://raw.githubusercontent.com/UniversalDependencies/UD_English-EWT/master/en_ewt-ud-dev.conllu',
-        timeout=30,
-        max_bytes=80000,
+def tatoeba_window(code, limit=40, skip=0, max_bytes=1_500_000):
+    """One bounded slice of a detailed export, continuing after ``skip`` rows.
+
+    The BZip2 stream is only readable from the start, so a later page downloads
+    a longer prefix instead of inventing sentences past the bytes we fetched.
+    """
+    import bz2
+    if type(skip) is not int or skip < 0:
+        skip = 0
+    if type(limit) is not int or limit < 1:
+        limit = 1
+    if type(max_bytes) is not int or not 1 <= max_bytes <= TATOEBA_MAX_BYTES:
+        max_bytes = 1_500_000
+    url = (
+        'https://downloads.tatoeba.org/exports/per_language/'
+        f'{code}/{code}_sentences_detailed.tsv.bz2'
     )
-    text = raw.decode('utf-8', 'replace')
+    raw = fetch_bytes(url, timeout=40, max_bytes=max_bytes)
+    # The download is intentionally capped: its BZip2 end marker may be
+    # outside the prefix. Incremental decompression accepts those prefixes
+    # without treating a normal bounded sample as corrupt.
+    decoder = bz2.BZ2Decompressor()
+    decode_cap = min(8_000_000, max(2_000_000, max_bytes * 3))
+    text = decoder.decompress(raw, max_length=decode_cap).decode('utf-8', 'replace')
+    # A non-final prefix can end mid-row; never publish that truncated row.
+    if not decoder.eof and not text.endswith('\n'):
+        text = text.rsplit('\n', 1)[0] if '\n' in text else ''
+    collected = _tatoeba_rows(text)
+    window = collected[skip:skip + limit]
+    return {
+        'rows': window,
+        'next_skip': skip + len(window),
+        'exhausted': skip + len(window) >= len(collected),
+    }
+
+
+def tatoeba_sample(code, limit=12, skip=0, max_bytes=1_500_000):
+    """Stream one detailed export. Rows without an author are dropped."""
+    return tatoeba_window(code, limit=limit, skip=skip, max_bytes=max_bytes)['rows']
+
+
+def _ud_rows(text):
     rows = []
     sent_id = ''
-    tokens = []
     for line in text.splitlines():
         if line.startswith('# sent_id = '):
             sent_id = line.split('=', 1)[1].strip()
-            tokens = []
         elif line.startswith('# text = '):
             sentence = line.split('=', 1)[1].strip()
             if sent_id and sentence and not is_placeholder(sentence) and script_matches(sentence, 'Latn'):
@@ -289,11 +312,32 @@ def ud_sample(limit=12):
                     'record_id': 'ud:en_ewt:' + sent_id,
                     'sentence_slot': 'sentence.question' if '?' in sentence else 'sentence.statement',
                 })
-            if len(rows) >= limit:
-                break
-        elif line and not line.startswith('#'):
-            tokens.append(line)
     return rows
+
+
+def ud_window(limit=40, skip=0, max_bytes=400_000, url=UD_TREEBANK_URL):
+    """Continue through the licensed English EWT sample. The notice is per treebank."""
+    if type(skip) is not int or skip < 0:
+        skip = 0
+    if type(limit) is not int or limit < 1:
+        limit = 1
+    if type(max_bytes) is not int or not 1 <= max_bytes <= UD_MAX_BYTES:
+        max_bytes = 400_000
+    raw = fetch_bytes(url, timeout=30, max_bytes=max_bytes)
+    text = raw.decode('utf-8', 'replace')
+    if len(raw) >= max_bytes and not text.endswith('\n'):
+        text = text.rsplit('\n', 1)[0] if '\n' in text else ''
+    collected = _ud_rows(text)
+    window = collected[skip:skip + limit]
+    return {
+        'rows': window,
+        'next_skip': skip + len(window),
+        'exhausted': skip + len(window) >= len(collected),
+    }
+
+
+def ud_sample(limit=12, skip=0, max_bytes=80000):
+    return ud_window(limit=limit, skip=skip, max_bytes=max_bytes)['rows']
 
 
 def accept_notice(notice, declared, co_offered=()):
@@ -308,7 +352,81 @@ KAIKKI_GERMAN_URL = (
 )
 KAIKKI_SLICE_BYTES = 1_500_000
 KAIKKI_MAX_ROWS = 200
+# Eight range reads stay inside the scheduled job. One read rarely reaches a catalog anchor.
+KAIKKI_WINDOW_SLICES = 8
+# Bump when the anchor rule changes so a cursor from the old matcher is not trusted.
+KAIKKI_EXTRACTOR = 'wikidata-link-v2'
+# English Wiktionary extracts covered by the stored Wiktionary copyright notice.
+KAIKKI_DICTIONARIES = (
+    ('de', 'German'),
+    ('en', 'English'),
+    ('es', 'Spanish'),
+    ('fr', 'French'),
+    ('it', 'Italian'),
+    ('nl', 'Dutch'),
+    ('pt', 'Portuguese'),
+    ('sv', 'Swedish'),
+)
 _QID = __import__('re').compile(r'^Q[1-9][0-9]*$')
+_LINK_QID = __import__('re').compile(r'^([^#]+)#([^:#]+):_(Q[1-9][0-9]*)$')
+
+
+def kaikki_dictionary_url(name):
+    return (
+        'https://kaikki.org/dictionary/'
+        f'{name}/kaikki.org-dictionary-{name}.jsonl'
+    )
+
+
+def _normalize_label(text):
+    if not isinstance(text, str):
+        return ''
+    return ' '.join(text.replace('_', ' ').casefold().split())
+
+
+def sense_anchors(sense):
+    """Explicit Wikidata ids, plus link titles that encode one.
+
+    The English-Wiktionary Kaikki extracts often leave ``sense['wikidata']``
+    empty and store the item on the linked page as ``Title#English:_Q123``.
+    """
+    explicit = []
+    raw = sense.get('wikidata') if isinstance(sense, dict) else None
+    if isinstance(raw, list):
+        for qid in raw:
+            if isinstance(qid, str) and _QID.fullmatch(qid) and qid not in explicit:
+                explicit.append(qid)
+    linked = {}
+    for link in (sense.get('links') if isinstance(sense, dict) else None) or []:
+        if not isinstance(link, list) or len(link) < 2 or not isinstance(link[1], str):
+            continue
+        match = _LINK_QID.fullmatch(link[1])
+        if not match:
+            continue
+        qid = match.group(3)
+        if _QID.fullmatch(qid):
+            linked.setdefault(qid, match.group(1))
+    return explicit, linked
+
+
+def kaikki_resume(cursor, language):
+    """Return ``(offset, migrating)``. An older extractor restarts at byte 0.
+
+    The previous matcher skipped link-encoded anchors. Keeping its byte cursor
+    would permanently skip the rows it already passed.
+    """
+    if not isinstance(cursor, dict) or cursor.get('extractor') != KAIKKI_EXTRACTOR:
+        return 0, True
+    languages = cursor.get('languages')
+    if isinstance(languages, dict) and isinstance(languages.get(language), dict):
+        offset = languages[language].get('byte_offset', 0)
+    elif language == 'de':
+        offset = cursor.get('byte_offset', 0)
+    else:
+        offset = 0
+    if type(offset) is not int or offset < 0 or offset > 2_000_000_000:
+        return 0, True
+    return offset, False
 
 
 def fetch_range(url, start, length, timeout=40):
@@ -372,19 +490,22 @@ def kaikki_window(offset, url=KAIKKI_GERMAN_URL, size=KAIKKI_SLICE_BYTES, fetch=
     return complete, next_offset, False
 
 
-def rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved, url=KAIKKI_GERMAN_URL):
+def rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved, url=KAIKKI_GERMAN_URL,
+                            expected_language='de'):
     """Keep senses that carry a catalog Wikidata anchor and a real sense id.
 
     A missing Wiktionary revision is not a reason to drop the row: the
     Wiktextract sense id is the traceable record. Senses without that id,
     without a catalog anchor, or tied to a blocked concept are not stored.
+    A link-encoded QID is kept only when the catalog label matches that link
+    title, so a wrong ``_Q`` suffix cannot attach the lemma to another concept.
     """
     if not isinstance(obj, dict):
         return []
     word = obj.get('word')
     language = obj.get('lang_code')
     if (not isinstance(word, str) or not isinstance(language, str)
-            or language != 'de'):
+            or language != expected_language):
         return []
     profile = (profiles or {}).get(language) or {}
     if is_placeholder(word) or not script_matches(word, profile.get('script')):
@@ -394,11 +515,14 @@ def rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved, url=KAIKK
     for sense in obj.get('senses') or []:
         if not isinstance(sense, dict):
             continue
-        raw_qids = sense.get('wikidata')
-        if not isinstance(raw_qids, list):
+        explicit, linked = sense_anchors(sense)
+        if policy_qids(explicit)[0] != 'keep':
             continue
-        qids = [qid for qid in raw_qids if isinstance(qid, str) and _QID.fullmatch(qid)]
-        if policy_qids(qids)[0] != 'keep':
+        linked = {
+            qid: title for qid, title in linked.items()
+            if policy_qids([qid])[0] == 'keep'
+        }
+        if not explicit and not linked:
             continue
         sense_id = sense.get('id')
         if (not isinstance(sense_id, str) or not sense_id.strip()
@@ -407,10 +531,18 @@ def rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved, url=KAIKK
             continue
         glosses = sense.get('glosses') or []
         gloss = glosses[0] if glosses and isinstance(glosses[0], str) else ''
+        qids = list(explicit)
+        for qid in linked:
+            if qid not in qids:
+                qids.append(qid)
         seen = set()
-        for qid in qids:
+        ordered = list(explicit) + [qid for qid in linked if qid not in explicit]
+        for qid in ordered:
             for concept in concepts_by_qid.get(qid) or []:
                 if not isinstance(concept, dict):
+                    continue
+                if (qid not in explicit and _normalize_label(concept.get('anchor_label'))
+                        != _normalize_label(linked.get(qid))):
                     continue
                 concept_id = concept.get('concept_id')
                 section = concept.get('section')
