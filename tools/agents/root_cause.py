@@ -51,7 +51,7 @@ def select_active_failures(runs, cap=3):
                     and branch and len(branch) <= 180):
                 scope = (name, event, 'branch', repository, branch)
                 fingerprint = hashlib.sha256((repository + '/' + branch).encode()).hexdigest()[:10]
-                signature = f'{name[:36]} {repository[:28]}:{branch[:16]}-{fingerprint}'
+                signature = f'{name[:24]} {repository[:18]}:{branch[:12]}-{fingerprint}'
             elif isinstance(sha, str) and re.fullmatch('[0-9a-f]{40}', sha):
                 scope = (name, event, 'sha', sha)
                 signature = f'{name[:52]} sha-{sha[:12]}'
@@ -63,7 +63,11 @@ def select_active_failures(runs, cap=3):
             if not isinstance(branch, str):
                 continue
             scope = (name, event, 'branch', branch)
-            signature = name
+            if event == 'unknown':
+                signature = name
+            else:
+                fingerprint = hashlib.sha256((event + '/' + branch).encode()).hexdigest()[:8]
+                signature = f'{name[:40]} {event[:12]}:{branch[:12]}-{fingerprint}'
         if scope not in latest:
             latest[scope] = (row, signature)
 
