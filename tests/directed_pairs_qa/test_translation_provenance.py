@@ -11,6 +11,33 @@ from tools.gha_factory.directed_pairs.translation_provenance_manager import (
 )
 
 class TestDirectedTranslationProvenance(unittest.TestCase):
+    def edge(self, reverse=False, provenance=PROVENANCE_DIRECT):
+        return DirectedTranslationEdge(
+            'ar' if reverse else 'de', 'de' if reverse else 'ar',
+            'بيت' if reverse else 'Haus', 'Haus' if reverse else 'بيت',
+            'fixture_source', 'CC0-1.0', provenance,
+            0.7 if provenance == PROVENANCE_PIVOT else 1.0)
+
+    def test_reverse_requires_independent_direct_attestation(self):
+        store = DirectedTranslationStore()
+        forward = self.edge()
+        store.add_edge(self.edge(reverse=True, provenance=PROVENANCE_PIVOT))
+        self.assertFalse(store.has_reverse_edge(forward))
+        store.add_edge(self.edge(reverse=True))
+        self.assertTrue(store.has_reverse_edge(forward))
+
+    def test_caller_and_query_mutations_cannot_change_stored_provenance(self):
+        store = DirectedTranslationStore()
+        edge = self.edge()
+        store.add_edge(edge)
+        edge.source_id = ''
+        edge.target_lang = 'fr'
+        stored = store.get_translations('de', 'ar', 'Haus')[0]
+        self.assertEqual(stored.source_id, 'fixture_source')
+        self.assertEqual(stored.target_lang, 'ar')
+        stored.source_id = ''
+        self.assertEqual(store.get_translations('de', 'ar', 'Haus')[0].source_id, 'fixture_source')
+
     def test_asymmetric_direction_enforced(self):
         store = DirectedTranslationStore()
         edge = DirectedTranslationEdge(

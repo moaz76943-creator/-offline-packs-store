@@ -6,6 +6,7 @@ Guarantees directed pair asymmetry (A->B != B->A) and tracks
 immutable source provenance, license attribution, and confidence score.
 """
 import json
+from copy import deepcopy
 import sys
 
 PROVENANCE_DIRECT = "DIRECT_ATTESTED"
@@ -49,15 +50,17 @@ class DirectedTranslationStore:
         pair_key = f"{edge.source_lang}->{edge.target_lang}"
         if pair_key not in self._edges:
             self._edges[pair_key] = []
-        self._edges[pair_key].append(edge)
+        self._edges[pair_key].append(deepcopy(edge))
 
     def get_translations(self, source_lang: str, target_lang: str, source_lemma: str):
         pair_key = f"{source_lang.lower()}->{target_lang.lower()}"
         candidates = self._edges.get(pair_key, [])
-        return [e for e in candidates if e.source_lemma == source_lemma]
+        return [deepcopy(e) for e in candidates if e.source_lemma == source_lemma]
 
     def has_reverse_edge(self, edge: DirectedTranslationEdge) -> bool:
         """Verifies if the reverse direction is independently attested (A->B != B->A rule)."""
         reverse_key = f"{edge.target_lang}->{edge.source_lang}"
         reverse_candidates = self._edges.get(reverse_key, [])
-        return any(e.source_lemma == edge.target_lemma and e.target_lemma == edge.source_lemma for e in reverse_candidates)
+        return any(e.provenance_type == PROVENANCE_DIRECT and
+                   e.source_lemma == edge.target_lemma and e.target_lemma == edge.source_lemma
+                   for e in reverse_candidates)
