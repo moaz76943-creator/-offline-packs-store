@@ -5,9 +5,18 @@ import gzip
 import hashlib
 import tempfile
 import shutil
-from unittest.mock import patch
+import ast
+from pathlib import Path
 
-from perfect_public_store import create_minified_pack
+# The legacy recipe executes pack/manifest/workflow generation on import.
+# Load only its actual helper definition; exercise all file writes in setUp's
+# scratch directory without running the unrelated recipe or publishing data.
+recipe = Path(__file__).resolve().parents[1] / 'perfect_public_store.py'
+definition = next(node for node in ast.parse(recipe.read_text(encoding='utf-8')).body
+                  if isinstance(node, ast.FunctionDef) and node.name == 'create_minified_pack')
+namespace = {'os': os, 'json': json, 'gzip': gzip, 'hashlib': hashlib}
+exec(compile(ast.Module(body=[definition], type_ignores=[]), str(recipe), 'exec'), namespace)
+create_minified_pack = namespace['create_minified_pack']
 
 class TestPerfectPublicStore(unittest.TestCase):
     def setUp(self):
