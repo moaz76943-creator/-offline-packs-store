@@ -39,7 +39,16 @@ class GitHub:
         result=self.request(f'/actions/runs/{n}/jobs?per_page=100')
         if not isinstance(result.get('jobs'),list) or result.get('total_count',0)>100:raise ValueError('oversized job inventory')
         return result['jobs']
-    def update(self,n,t):return self.request(f'/issues/{n}',{'body':protocol.serialize(t)},'PATCH')
+    def update(self,n,t,close_verified=False):
+        if type(close_verified) is not bool:
+            raise ValueError('invalid close flag')
+        if close_verified and t.get('state') != 'SUCCEEDED':
+            raise ValueError('only a verified successful task may close')
+        body = {'body': protocol.serialize(t)}
+        if close_verified:
+            # One atomic Issues PATCH preserves the durable task receipt/body.
+            body['state'] = 'closed'
+        return self.request(f'/issues/{n}', body, 'PATCH')
     def create(self,t):
         if t['schema_version']!=protocol.VERSION or t['state']!='READY' or t['task_type']!='approved_snapshot_verify':raise ValueError('unsafe seed')
         body={'title':protocol.PREFIX+t['task_id'],'body':protocol.serialize(t)}
