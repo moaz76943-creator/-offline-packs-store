@@ -48,6 +48,7 @@ def concept_rows(graph):
                     'subsection': subsection.get('id'),
                     'concept_id': concept.get('id'),
                     'wikidata': qid,
+                    'anchor_label': concept.get('anchor_label') if isinstance(concept.get('anchor_label'), str) else '',
                 })
     return rows
 
@@ -221,6 +222,19 @@ def classify_row(row, index):
     qid = row.get('wikidata')
     slot = index.get(qid) if isinstance(qid, str) else None
     if not slot:
+        # Sentence corpora are attested text, not concept lexemes. They stay
+        # in the harvested section instead of being dropped for a missing QID.
+        sentence = row.get('text') if isinstance(row.get('text'), str) else ''
+        if (row.get('sentence_slot') in ('sentence.statement', 'sentence.question')
+                and sentence.strip()
+                and isinstance(row.get('section'), str) and row['section'].strip()
+                and not is_placeholder(sentence)):
+            placed = dict(row)
+            placed.update({
+                'status': 'keep',
+                'level': estimate_level(sentence, 1, 1),
+            })
+            return placed
         return {'status': 'unplaced', 'reason': 'no_concept_anchor'}
     text = row.get('lemma') or row.get('text') or ''
     level = estimate_level(text, 1, 1)
@@ -459,3 +473,88 @@ def build_pack(rows, output):
 
     return {'wrote': True, 'reason': '', 'sha256': digest,
             'rows': len(kept), 'production_ready': False}
+
+
+def _count_rows(rows):
+    by_language = defaultdict(int)
+    by_source = defaultdict(int)
+    by_section = defaultdict(int)
+    by_language_source = defaultdict(lambda: defaultdict(int))
+    by_language_section = defaultdict(lambda: defaultdict(int))
+    total = 0
+    for row in rows or []:
+        if not isinstance(row, dict):
+            continue
+        language = row.get('language') if isinstance(row.get('language'), str) and row.get('language') else 'und'
+        source = row.get('source_id') if isinstance(row.get('source_id'), str) and row.get('source_id') else 'unknown'
+        section = row.get('section') if isinstance(row.get('section'), str) and row.get('section') else 'unsectioned'
+        total += 1
+        by_language[language] += 1
+        by_source[source] += 1
+        by_section[section] += 1
+        by_language_source[language][source] += 1
+        by_language_section[language][section] += 1
+    return {
+        'total': total,
+        'by_language': dict(sorted(by_language.items())),
+        'by_source': dict(sorted(by_source.items())),
+        'by_section': dict(sorted(by_section.items())),
+        'by_language_source': {
+            language: dict(sorted(counts.items()))
+            for language, counts in sorted(by_language_source.items())
+        },
+        'by_language_section': {
+            language: dict(sorted(counts.items()))
+            for language, counts in sorted(by_language_section.items())
+        },
+    }
+
+
+def _pack_file_stats(path):
+    path = Path(path)
+    info = {
+        'language': path.stem,
+        'bytes': path.stat().st_size,
+        'entries': None,
+        'sources': {},
+    }
+    try:
+        with sqlite3.connect(path.as_uri() + '?mode=ro', uri=True) as connection:
+            names = {
+                row[0] for row in connection.execute(
+                    "SELECT name FROM sqlite_master WHERE type='table'")
+            }
+            if 'entries' not in names:
+                return info
+            info['entries'] = connection.execute('SELECT count(*) FROM entries').fetchone()[0]
+            info['sources'] = {
+                source: count for source, count in connection.execute(
+                    'SELECT source_id, count(*) FROM entries GROUP BY source_id ORDER BY source_id')
+            }
+    except sqlite3.Error:
+        return info
+    return info
+
+
+def production_report(stored_rows, pack_paths, classified_rows=None, generated_by=''):
+    """Counts and pack sizes for state/production_report.json. No invented rows."""
+    packs = []
+    for path in pack_paths or []:
+        file_path = Path(path)
+        if file_path.is_file() and file_path.suffix == '.sqlite':
+            packs.append(_pack_file_stats(file_path))
+    packs.sort(key=lambda item: item['language'])
+    classified = _count_rows(classified_rows or [])
+    return {
+        'schema_version': SCHEMA_VERSION,
+        'generated_by': generated_by,
+        'rows': _count_rows(stored_rows),
+        'classified': {
+            'total': classified['total'],
+            'by_source': classified['by_source'],
+            'by_language': classified['by_language'],
+            'by_section': classified['by_section'],
+        },
+        'packs': packs,
+        'pack_bytes': sum(item['bytes'] for item in packs),
+    }
