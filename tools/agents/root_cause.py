@@ -12,39 +12,72 @@ from tools.agents.common import SCHEMA_VERSION
 
 
 def select_active_failures(runs, cap=3):
-    """Select distinct *current* failures from newest-first GitHub runs.
+    """Select newest actionable failure per workflow and independent PR scope.
 
-    A newer success, skipped result or in-progress run supersedes an older
-    failure of the same workflow. This prevents repeatedly opening root-cause
-    work for a problem already cleared, or for the health worker itself.
-    The workflow name (not a dynamic run-name) is the stable issue signature.
+    A verified newer success or an active newer run on *that same scope*
+    supersedes the old failure. Skipped checks prove nothing and never
+    suppress an earlier failure. The inventory is newest-first (GitHub API).
     """
+    import hashlib
+
     if type(cap) is not int or not 1 <= cap <= 3:
         raise ValueError('failure-sweep cap must be 1..3')
     if not isinstance(runs, list):
         raise ValueError('GitHub run inventory must be a list')
     latest = {}
+    pr_events = {'pull_request', 'pull_request_target', 'pull_request_review'}
     for row in runs:
         if not isinstance(row, dict):
             continue
         name = row.get('workflowName') or row.get('name')
-        if not isinstance(name, str) or not name.strip():
+        if not isinstance(name, str) or not name.strip() or len(name) > 120:
             continue
-        if name not in latest:
-            latest[name] = row
-    candidates = []
-    for name, row in latest.items():
         if name.casefold() == 'agent health':
             continue
+        # A skipped run is not evidence of remediation.
+        if row.get('status') == 'completed' and row.get('conclusion') == 'skipped':
+            continue
+        event = row.get('event') or 'unknown'
+        if event in pr_events:
+            pr = row.get('pullRequest')
+            repository = row.get('headRepository')
+            branch = row.get('headBranch')
+            sha = row.get('headSha')
+            if type(pr) is int and pr > 0:
+                scope = (name, event, 'pr', pr)
+                signature = f'{name[:52]} PR #{pr}'
+            elif (isinstance(repository, str) and repository
+                    and len(repository) <= 160 and isinstance(branch, str)
+                    and branch and len(branch) <= 180):
+                scope = (name, event, 'branch', repository, branch)
+                fingerprint = hashlib.sha256((repository + '/' + branch).encode()).hexdigest()[:10]
+                signature = f'{name[:36]} {repository[:28]}:{branch[:16]}-{fingerprint}'
+            elif isinstance(sha, str) and re.fullmatch('[0-9a-f]{40}', sha):
+                scope = (name, event, 'sha', sha)
+                signature = f'{name[:52]} sha-{sha[:12]}'
+            else:
+                # Never merge two unidentifiable PRs into one health task.
+                continue
+        else:
+            branch = row.get('headBranch') or ''
+            if not isinstance(branch, str):
+                continue
+            scope = (name, event, 'branch', branch)
+            signature = name
+        if scope not in latest:
+            latest[scope] = (row, signature)
+
+    selected = []
+    for row, signature in latest.values():
         if row.get('status') != 'completed' or row.get('conclusion') != 'failure':
             continue
         run_id = row.get('databaseId')
         if type(run_id) is not int or run_id <= 0:
             continue
-        candidates.append({'databaseId': run_id, 'name': name})
-        if len(candidates) == cap:
+        selected.append({'databaseId': run_id, 'name': signature})
+        if len(selected) == cap:
             break
-    return candidates
+    return selected
 
 
 def signature_id(signature):
