@@ -118,6 +118,12 @@ def validate_text(code, text, *, script=None):
             if (before not in VIRAMAS or _script(after) not in allowed or
                     not ud.category(after).startswith('L')):
                 raise ScriptContractError('joiner lacks adjacent virama and script base')
+            base = i - 2
+            while base >= 0 and ud.category(text[base]).startswith('M') and text[base] not in VIRAMAS:
+                base -= 1
+            if (base < 0 or not ud.category(text[base]).startswith('L') or
+                    _script(text[base]) not in allowed):
+                raise ScriptContractError('virama before joiner has no script letter base')
             continue
         if cat in ('Cc', 'Cs', 'Co', 'Cn', 'Cf'):
             raise ScriptContractError('unsafe or unassigned Unicode code point')

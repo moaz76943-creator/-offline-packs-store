@@ -193,7 +193,7 @@ class ScriptAwareTests(unittest.TestCase):
 
     def test_joiner_neighbors_must_be_real_script_letters(self):
         for code, samples in (
-            ('hi', ('क्\u200d।', 'क्\u200dा', 'क्\u200d१')),
+            ('hi', ('क्\u200d।', 'क्\u200dा', 'क्\u200d१', '्\u200dक', '१्\u200dक')),
             ('ur', ('ا\u200c،', '۱\u200c۲', 'ا\u200cَ')),
         ):
             for text in samples:
