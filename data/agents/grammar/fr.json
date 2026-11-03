@@ -28,7 +28,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1115",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Lorsqu'il a demandé qui avait cassé la fenêtre, tous les garçons ont pris un air innocent."
     },
@@ -38,7 +38,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1279",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Je ne supporte pas ce type."
     },
@@ -48,7 +48,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1441",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Pour une fois dans ma vie je fais un bon geste... Et ça ne sert à rien."
     },
@@ -58,7 +58,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1593",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Ne tenez aucun compte de ce qu'il dit."
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3091",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Essayons quelque chose !"
     },
@@ -78,7 +78,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3093",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Qu'est-ce que tu fais ?"
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3094",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Qu'est-ce que c'est ?"
     },
@@ -98,7 +98,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3095",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Aujourd'hui nous sommes le 18 juin et c'est l'anniversaire de Muiriel !"
     },
@@ -108,7 +108,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3096",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Joyeux anniversaire Muiriel !"
     },
@@ -118,7 +118,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3097",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel a 20 ans maintenant."
     },
@@ -128,7 +128,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3098",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Le mot de passe est « Muiriel »."
     },
@@ -138,9 +138,289 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3099",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Je serai bientôt de retour."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3100",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3101",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "J'en perds mes mots."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3102",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça ne va jamais finir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3103",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais simplement pas quoi dire..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3104",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "C’était un méchant lapin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3105",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "J'étais dans les montagnes."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3106",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Est-ce que c'est une photo récente ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3107",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais pas si j'ai le temps."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3108",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Pour une certaine raison le microphone ne marchait pas tout à l'heure."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3109",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Tout le monde doit apprendre par soi-même en fin de compte."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3110",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "L'éducation dans ce monde me déçoit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3111",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "L'apprentissage ne devrait pas être forcé. L'apprentissage devrait être encouragé."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3112",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est une tâche difficile, choisir ce qui est « bon » ou « mauvais », mais il faut le faire."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3113",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça ne changera rien."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3114",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça coûtera 30 €."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3115",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je gagne 100 € par jour."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3116",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Il se peut que j'abandonne bientôt et fasse une sieste à la place."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3117",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est parce que tu ne veux pas être seul."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3118",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça n'arrivera pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3119",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Parfois il peut être un gars bizarre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3120",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ferai de mon mieux pour ne pas perturber tes révisions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3121",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne peux que me demander si c'est la même chose pour tous les autres."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3122",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je suppose que c'est différent quand tu y penses à long terme."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3123",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ne t'inquiète pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3124",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu me manques."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3125",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je les appellerai demain quand je reviendrai."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3126",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "J'ai toujours plus apprécié les personnages mystérieux."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3127",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu devrais dormir."
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1115",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Lorsqu'il a demandé qui avait cassé la fenêtre, tous les garçons ont pris un air innocent."
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1279",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Je ne supporte pas ce type."
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1441",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Pour une fois dans ma vie je fais un bon geste... Et ça ne sert à rien."
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1593",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Ne tenez aucun compte de ce qu'il dit."
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3091",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Essayons quelque chose !"
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3093",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Qu'est-ce que tu fais ?"
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3094",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Qu'est-ce que c'est ?"
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3095",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Aujourd'hui nous sommes le 18 juin et c'est l'anniversaire de Muiriel !"
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3096",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Joyeux anniversaire Muiriel !"
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3097",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Muiriel a 20 ans maintenant."
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3098",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Le mot de passe est « Muiriel »."
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:3099",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Je serai bientôt de retour."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3100",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3101",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "J'en perds mes mots."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3102",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça ne va jamais finir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3103",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais simplement pas quoi dire..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3104",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "C’était un méchant lapin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3105",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "J'étais dans les montagnes."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3106",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Est-ce que c'est une photo récente ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3107",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais pas si j'ai le temps."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3108",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Pour une certaine raison le microphone ne marchait pas tout à l'heure."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3109",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Tout le monde doit apprendre par soi-même en fin de compte."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3110",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "L'éducation dans ce monde me déçoit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3111",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "L'apprentissage ne devrait pas être forcé. L'apprentissage devrait être encouragé."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3112",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est une tâche difficile, choisir ce qui est « bon » ou « mauvais », mais il faut le faire."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3113",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça ne changera rien."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3114",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça coûtera 30 €."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3115",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je gagne 100 € par jour."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3116",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Il se peut que j'abandonne bientôt et fasse une sieste à la place."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3117",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est parce que tu ne veux pas être seul."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3118",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça n'arrivera pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3119",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Parfois il peut être un gars bizarre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3120",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ferai de mon mieux pour ne pas perturber tes révisions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3121",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne peux que me demander si c'est la même chose pour tous les autres."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3122",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je suppose que c'est différent quand tu y penses à long terme."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3123",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Ne t'inquiète pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3124",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu me manques."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3125",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Je les appellerai demain quand je reviendrai."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3126",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "J'ai toujours plus apprécié les personnages mystérieux."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3127",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu devrais dormir."
     }
   ]
 }
