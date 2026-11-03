@@ -320,7 +320,10 @@ def _finalize_job(api,job,folder,run_id,attempt,now):
     else:
         if t['state'] not in p.ACTIVE:raise ValueError('missing receipt for completed task')
         updated=p.fail(t,now)
-    if updated!=t:api.update(n,updated)
+    if updated!=t:
+        # Only p.verify_output + p.finish can authorize terminal success.
+        # The issue remains durable and is closed atomically with its verified state.
+        api.update(n, updated, close_verified=updated['state']=='SUCCEEDED')
     return {'issue':n,'state':updated['state'],'task_id':t['task_id'],'run_id':run_id,'run_attempt':attempt}
 
 
