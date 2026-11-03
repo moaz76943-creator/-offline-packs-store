@@ -111,22 +111,17 @@ def build(document, output, *, publication=False):
             gloss = ' '.join(sorted(set(definitions.get(rid, []) + outbound.get(rid, []))))
             conn.execute('INSERT INTO lexicon_fts(rowid,surface,lemma,gloss,language_code) VALUES (?,?,?,?,?)',
                          (rowid,row['surface'],row['lemma'],gloss,row['language']))
-        for sid in sorted(senses):
-            row = senses[sid]
-            conn.execute('INSERT INTO senses VALUES (?,?,?,?,?)',
-                         (sid,row['lexeme_id'],row['concept_id'],row['definition'],compact(row)))
-        for row in sorted(document['translations'], key=lambda r:r['translation_id']):
-            conn.execute('INSERT INTO translations VALUES (?,?,?,?,?,?)',
-                         (row['translation_id'],row['from_sense_id'],row['to_sense_id'],
-                          row['language'],row['text'],compact(row)))
-        for row in sorted(document['examples'],key=lambda r:r['example_id']):
-            conn.execute('INSERT INTO examples VALUES (?,?,?,?,?,?)',
-                         (row['example_id'],row['sense_id'],senses[row['sense_id']]['lexeme_id'],
-                          row['language'],row['text'],compact(row)))
-        for row in sorted(document['relations'],key=lambda r:r['relation_id']):
-            conn.execute('INSERT INTO lexical_relations VALUES (?,?,?,?,?)',
-                         (row['relation_id'],row['from_lexeme_id'],row['to_lexeme_id'],
-                          row['kind'],compact(row)))
+        senses_params = ((sid, row['lexeme_id'], row['concept_id'], row['definition'], compact(row)) for sid, row in sorted(senses.items()))
+        conn.executemany('INSERT INTO senses VALUES (?,?,?,?,?)', senses_params)
+
+        translations_params = ((row['translation_id'], row['from_sense_id'], row['to_sense_id'], row['language'], row['text'], compact(row)) for row in sorted(document['translations'], key=lambda r:r['translation_id']))
+        conn.executemany('INSERT INTO translations VALUES (?,?,?,?,?,?)', translations_params)
+
+        examples_params = ((row['example_id'], row['sense_id'], senses[row['sense_id']]['lexeme_id'], row['language'], row['text'], compact(row)) for row in sorted(document['examples'], key=lambda r:r['example_id']))
+        conn.executemany('INSERT INTO examples VALUES (?,?,?,?,?,?)', examples_params)
+
+        relations_params = ((row['relation_id'], row['from_lexeme_id'], row['to_lexeme_id'], row['kind'], compact(row)) for row in sorted(document['relations'], key=lambda r:r['relation_id']))
+        conn.executemany('INSERT INTO lexical_relations VALUES (?,?,?,?,?)', relations_params)
         conn.execute("INSERT INTO lexicon_fts(lexicon_fts) VALUES('integrity-check')")
         conn.execute(f'PRAGMA user_version={SQLITE_USER_VERSION}')
         conn.commit()
