@@ -33,7 +33,21 @@ jobs:
         shell: bash
         run: |
           set -Eeuo pipefail
-          gh run list --limit 100 --json databaseId,workflowName,name,conclusion,status > /tmp/agent-health-runs.json
+          # Full workflow identity, source branch and PR number avoid cross-PR
+          # success masking. Single bounded page; no untrusted query input.
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs?per_page=100" --jq '
+            .workflow_runs | map({
+              databaseId: .id,
+              workflowName: .name,
+              event: .event,
+              pullRequest: (if (.pull_requests | length) == 1 then .pull_requests[0].number else null end),
+              headRepository: .head_repository.full_name,
+              headBranch: .head_branch,
+              headSha: .head_sha,
+              conclusion: .conclusion,
+              status: .status
+            })
+          ' > /tmp/agent-health-runs.json
           python3 - <<'PY'
           import json
           import subprocess
