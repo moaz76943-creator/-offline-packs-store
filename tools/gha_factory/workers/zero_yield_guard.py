@@ -10,6 +10,8 @@ import os
 import sys
 
 def validate_worker_output(output_path: str, min_expected_entries: int = 1):
+    if type(min_expected_entries) is not int or min_expected_entries < 1:
+        return False, "ZERO_YIELD_ERROR: Minimum required entries must be a positive integer."
     if not os.path.exists(output_path):
         return False, f"ZERO_YIELD_ERROR: Output file '{output_path}' was not generated."
         
@@ -29,6 +31,8 @@ def validate_worker_output(output_path: str, min_expected_entries: int = 1):
             elif isinstance(data, dict):
                 entries = data.get('entries', data.get('records', data.get('lexicon', [])))
                 
+            if not isinstance(entries, list) or any(not isinstance(entry, dict) or not entry for entry in entries):
+                return False, "ZERO_YIELD_ERROR: Entries must be a list of nonempty record objects."
             count = len(entries)
             if count < min_expected_entries:
                 return False, f"ZERO_YIELD_ERROR: Worker produced {count} entries (minimum required: {min_expected_entries})."
@@ -37,7 +41,7 @@ def validate_worker_output(output_path: str, min_expected_entries: int = 1):
         except Exception as e:
             return False, f"ZERO_YIELD_PARSE_ERROR: {e}"
 
-    return True, f"YIELD_VERIFIED: File size {size} bytes."
+    return False, "ZERO_YIELD_ERROR: Unsupported output format; bytes alone do not prove record yield."
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

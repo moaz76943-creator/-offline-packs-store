@@ -41,5 +41,25 @@ class TestZeroYieldGuard(unittest.TestCase):
         self.assertFalse(ok)
         self.assertIn("is zero bytes", msg)
 
+    def test_malformed_truthy_entries_never_count_as_work(self):
+        for payload in ({'entries': 'words'}, {'entries': {'word': 'Haus'}},
+                        {'entries': [None]}, {'entries': [{}]}, {'entries': ['Haus']}):
+            with self.subTest(payload=payload):
+                path = os.path.join(self.temp_dir.name, 'malformed.json')
+                with open(path, 'w') as stream:
+                    json.dump(payload, stream)
+                self.assertFalse(validate_worker_output(path)[0])
+
+    def test_unknown_format_and_nonpositive_minimum_never_pass(self):
+        path = os.path.join(self.temp_dir.name, 'output.txt')
+        with open(path, 'w') as stream:
+            stream.write('worker failed without records')
+        self.assertFalse(validate_worker_output(path)[0])
+        path = os.path.join(self.temp_dir.name, 'empty.json')
+        with open(path, 'w') as stream:
+            json.dump({'entries': []}, stream)
+        for minimum in (0, -1, False):
+            self.assertFalse(validate_worker_output(path, minimum)[0])
+
 if __name__ == "__main__":
     unittest.main()
