@@ -229,5 +229,12 @@ class ContributionTests(unittest.TestCase):
         save_ledger(self.root, self.ledger)
         self.assertEqual(self.check()["status"], "REJECT")
 
+    def test_vector_art_without_artwork_evidence_is_rejected(self):
+        self.manifest["kind"] = "vector_art"
+        self.source["kind"] = "vector_art"
+        # The license dict initially lacks artwork_evidence_* keys
+        save_ledger(self.root, self.ledger)
+        self.assertEqual(self.check()["status"], "REJECT")
+
 if __name__ == "__main__":
     unittest.main()
