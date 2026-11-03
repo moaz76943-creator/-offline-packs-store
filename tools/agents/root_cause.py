@@ -11,6 +11,42 @@ import subprocess
 from tools.agents.common import SCHEMA_VERSION
 
 
+def select_active_failures(runs, cap=3):
+    """Select distinct *current* failures from newest-first GitHub runs.
+
+    A newer success, skipped result or in-progress run supersedes an older
+    failure of the same workflow. This prevents repeatedly opening root-cause
+    work for a problem already cleared, or for the health worker itself.
+    The workflow name (not a dynamic run-name) is the stable issue signature.
+    """
+    if type(cap) is not int or not 1 <= cap <= 3:
+        raise ValueError('failure-sweep cap must be 1..3')
+    if not isinstance(runs, list):
+        raise ValueError('GitHub run inventory must be a list')
+    latest = {}
+    for row in runs:
+        if not isinstance(row, dict):
+            continue
+        name = row.get('workflowName') or row.get('name')
+        if not isinstance(name, str) or not name.strip():
+            continue
+        if name not in latest:
+            latest[name] = row
+    candidates = []
+    for name, row in latest.items():
+        if name.casefold() == 'agent health':
+            continue
+        if row.get('status') != 'completed' or row.get('conclusion') != 'failure':
+            continue
+        run_id = row.get('databaseId')
+        if type(run_id) is not int or run_id <= 0:
+            continue
+        candidates.append({'databaseId': run_id, 'name': name})
+        if len(candidates) == cap:
+            break
+    return candidates
+
+
 def signature_id(signature):
     text = re.sub(r'[^a-z0-9]+', '-', (signature or 'unknown').lower()).strip('-')
     return (text or 'unknown')[:80]
