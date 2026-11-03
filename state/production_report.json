@@ -60,8 +60,8 @@
     },
     "total": 1180
   },
-  "generated_by": "classifier",
-  "pack_bytes": 397312,
+  "generated_by": "packs",
+  "pack_bytes": 405504,
   "packs": [
     {
       "bytes": 16384,
@@ -270,11 +270,11 @@
       }
     },
     {
-      "bytes": 8192,
-      "entries": 37,
+      "bytes": 16384,
+      "entries": 65,
       "language": "ru",
       "sources": {
-        "tatoeba.sentences": 12,
+        "tatoeba.sentences": 40,
         "wikidata.lexemes": 25
       }
     },
