@@ -69,6 +69,50 @@ class ActiveFailureSelectionTests(unittest.TestCase):
         self.assertEqual(select_active_failures(rows), [])
         self.assertEqual(select_active_failures([], cap=3), [])
 
+    def test_independent_pull_requests_never_supersede_each_other(self):
+        rows = [
+            {"databaseId": 105, "workflowName": "Public PR Merge Gate",
+             "event": "pull_request", "pullRequest": 202,
+             "name": "Change B", "status": "completed", "conclusion": "success"},
+            {"databaseId": 104, "workflowName": "Public PR Merge Gate",
+             "event": "pull_request", "pullRequest": 201,
+             "name": "Change A", "status": "completed", "conclusion": "failure"},
+            {"databaseId": 103, "workflowName": "Public PR Merge Gate",
+             "event": "pull_request", "pullRequest": 201,
+             "name": "Change A old", "status": "completed", "conclusion": "failure"},
+        ]
+        self.assertEqual(select_active_failures(rows), [
+            {"databaseId": 104, "name": "Public PR Merge Gate PR #201"}
+        ])
+
+    def test_fork_prs_with_same_branch_name_remain_isolated(self):
+        rows = [
+            {"databaseId": 95, "workflowName": "Gate", "event": "pull_request",
+             "headRepository": "external/fork-b", "headBranch": "fix",
+             "status": "completed", "conclusion": "success"},
+            {"databaseId": 94, "workflowName": "Gate", "event": "pull_request",
+             "headRepository": "external/fork-a", "headBranch": "fix",
+             "status": "completed", "conclusion": "failure"},
+        ]
+        selected = select_active_failures(rows)
+        self.assertEqual(len(selected), 1)
+        self.assertEqual(selected[0]["databaseId"], 94)
+        self.assertIn("external/fork-a", selected[0]["name"])
+
+    def test_skip_is_not_evidence_that_older_failure_was_fixed(self):
+        rows = [
+            run(99, "Agent legal", "skipped"),
+            run(98, "Agent legal", "failure"),
+        ]
+        self.assertEqual(select_active_failures(rows), [
+            {"databaseId": 98, "name": "Agent legal"}
+        ])
+
+    def test_unscoped_pull_request_run_does_not_make_unsafe_issue(self):
+        rows = [{"databaseId": 101, "workflowName": "Gate", "event": "pull_request",
+                 "status": "completed", "conclusion": "failure"}]
+        self.assertEqual(select_active_failures(rows), [])
+
     def test_bad_input_and_caps_fail_closed(self):
         for bad in (None, {}, "runs"):
             with self.subTest(bad=bad):
