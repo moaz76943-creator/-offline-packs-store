@@ -165,7 +165,7 @@
         "Q104776527"
       ],
       "record_id": "L321296",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-03",
       "revision": "2561956164",
       "schema_version": "1.0.0",
       "section": "emotions",
@@ -190,8 +190,8 @@
         "Q104776285"
       ],
       "record_id": "L321528",
-      "retrieval_date": "2026-10-25",
-      "revision": "2551804676",
+      "retrieval_date": "2026-11-03",
+      "revision": "2561916624",
       "schema_version": "1.0.0",
       "section": "emotions",
       "sense_id": "L321528-S1",
@@ -215,7 +215,7 @@
         "Q104776264"
       ],
       "record_id": "L326361",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-03",
       "revision": "2561600000",
       "schema_version": "1.0.0",
       "section": "emotions",
@@ -255,16 +255,8 @@
   "section": "emotions",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q988842"
-    },
-    {
       "reason": "HTTPError:429",
-      "wikidata": "Q2826051"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q56297455"
+      "wikidata": "Q123356335"
     }
   ],
   "source": "harvest-wikidata"
