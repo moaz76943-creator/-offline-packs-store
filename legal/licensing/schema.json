@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Open Lexical Source Licensing Ledger",
+  "description": "Schema for source-specific licensing records containing provenance and redistribution eligibility data.",
+  "type": "object",
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "description": "Unique identifier for the source."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Origin URL of the source."
+    },
+    "author": {
+      "type": "string",
+      "description": "Author or publisher of the source."
+    },
+    "version": {
+      "type": "string",
+      "description": "Version identifier for the source."
+    },
+    "license": {
+      "type": "object",
+      "description": "License information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "License identifier (e.g. CC-BY-SA-4.0)."
+        },
+        "evidence_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "evidence_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": ["id"]
+    },
+    "modification_status": {
+      "type": "string",
+      "enum": ["none", "modified", "translated", "derived"],
+      "description": "Modification status of the source."
+    },
+    "artifact_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Optional SHA-256 hash of the downloaded artifact."
+    },
+    "verified_evidence": {
+      "type": "boolean",
+      "description": "Whether the license evidence has been verified."
+    }
+  },
+  "required": [
+    "source_id",
+    "url",
+    "author",
+    "version",
+    "license",
+    "modification_status"
+  ]
+}
