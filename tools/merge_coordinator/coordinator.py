@@ -15,12 +15,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 def is_candidate_qualified(pr_record):
-    title = str(pr_record.get('title', ''))
-    body = str(pr_record.get('body', ''))
-    if '[skip ci]' in title.lower() or '[skip ci]' in body.lower():
-        return False, 'SKIP_CI_FLAG'
-    if pr_record.get('isDraft', False) or pr_record.get('draft', False):
+    """Listing filter only; exact-SHA checks and reviews still authorize writes."""
+    if pr_record.get('state') != 'open':
+        return False, 'NOT_OPEN'
+    if pr_record.get('draft') is not False:
         return False, 'DRAFT_STATUS'
+    if (pr_record.get('base') or {}).get('ref') != 'main':
+        return False, 'WRONG_BASE'
     return True, 'QUALIFIED'
 
 
@@ -370,8 +371,7 @@ class GitHub:
                 if number in seen:
                     continue
                 seen.add(number)
-                if (item.get('state') == 'open' and item.get('draft') is False and
-                        (item.get('base') or {}).get('ref') == 'main'):
+                if is_candidate_qualified(item)[0]:
                     ready.append(item)
             if len(records) < 100:
                 print(f'AUTO_DISCOVERY_SCANNED={scanned} READY={len(ready)} PAGES={page}')

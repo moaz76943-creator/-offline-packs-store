@@ -17,6 +17,7 @@ class FakeGH:
         'pageInfo': {'hasNextPage':False,'endCursor':None}
     }}}}}
   def main_sha(self):return self.main
+  def related_pr(self,num):return {'state':'closed','merged':any(n==num for n,_ in self.merges)}
   def query_pr(self,num,head):self.q+=1;return self.pr,CHECKS,[],self.files,'feat: docs'
   def get(self,path):
     if path=='/branches/main':return {'name':'main','protected':True}
@@ -25,6 +26,15 @@ class FakeGH:
     self.merges.append((num,head));self.main='c'*40
     return {'merged':True,'sha':self.main}
 class FlowTests(unittest.TestCase):
+  @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
+  def test_merge_response_without_actual_merged_state_cannot_complete(self):
+    class UnconfirmedMerge(FakeGH):
+      def related_pr(self,num):return {'state':'open','merged':False}
+    f=UnconfirmedMerge()
+    with self.assertRaisesRegex(ValueError, 'merged state'):
+      run_auto(f, MAIN)
+    self.assertEqual(len(f.merges), 1)
+
   @patch.dict('os.environ', {'INTEGRATOR_APPLY':'true'})
   def test_candidate_read_failure_does_not_starve_verified_peer(self):
     import sys, types

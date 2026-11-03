@@ -225,6 +225,8 @@ def run_auto(gh, main_sha):
             if gh.main_sha() != new_main:
                 print('HALT: main changed after merge; do not continue')
                 return 0
+            if gh.related_pr(num).get('merged') is not True:
+                raise ValueError('GitHub merge response not confirmed by actual PR merged state')
             main_sha = new_main
             merged_count += 1
             merged_numbers.add(num)
