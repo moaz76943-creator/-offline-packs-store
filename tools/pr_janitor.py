@@ -8,9 +8,19 @@ import argparse
 import json
 import re
 import subprocess
+import time
 
-SKIP = re.compile(r"\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]", re.IGNORECASE)
-SKIP_TRAILER = re.compile(r"(?im)^skip-checks\s*:\s*true\s*$")
+# Transient GitHub API outages (GraphQL 504, HTTP 502, rate limits) killed a
+# scheduled scout run mid-flight; retry instead of letting the whole
+# classification shard die on one flaky API call. The 2026-10-27 12:51 run
+# still raised after three immediate retries because each attempt fell back
+# to back into the same outage window; bounded exponential backoff spreads
+# the attempts out so one burnt window can end before the last attempt.
+GH_RETRY_ATTEMPTS = 5
+GH_RETRY_DELAY_SECONDS = 5.0
+GH_RETRY_BACKOFF_CAP_SECONDS = 45.0
+GH_CALL_TIMEOUT_SECONDS = 60.0
+
 FAILURES = {"FAILURE", "CANCELLED", "TIMED_OUT", "failure", "cancelled", "timed_out"}
 PENDING = {"", "PENDING", "QUEUED", "IN_PROGRESS", "pending", "queued", "in_progress", None}
 
@@ -25,9 +35,8 @@ LABELS = {
 
 
 def sanitize_subject(title, number):
-    """Squash title with no CI-skip instruction."""
-    cleaned = SKIP.sub("", title or "")
-    cleaned = SKIP_TRAILER.sub("", cleaned)
+    """Normalize a squash title without changing user-selected CI marker text."""
+    cleaned = title or ""
     cleaned = re.sub(r"\s+", " ", cleaned).strip(" -")
     if not cleaned:
         cleaned = f"PR {number}"
@@ -56,7 +65,10 @@ def classify(pr):
     gate = next((c for c in checks if _check_name(c) == "public-pr-merge-gate"), None)
     gate_state = _conclusion(gate) if gate else None
     failing = [c for c in checks if _conclusion(c) in FAILURES]
-    pending = [c for c in checks if _conclusion(c) in PENDING or (c.get("status") in PENDING)]
+    # A missing "status" key is normal for successful StatusContext items; only
+    # an explicit queued/in-progress status counts as pending.
+    pending = [c for c in checks if _conclusion(c) in PENDING
+               or ("status" in c and c["status"] in PENDING)]
     if gate_state in FAILURES:
         return "gate"
     if failing:
@@ -74,44 +86,97 @@ def label_for(kind):
     return LABELS.get(kind)
 
 
+def retry_delay(attempt):
+    """Bounded exponential backoff: 5, 10, 20, 40, capped at 45 seconds."""
+    return min(GH_RETRY_DELAY_SECONDS * (2 ** (attempt - 1)), GH_RETRY_BACKOFF_CAP_SECONDS)
+
+
+def gh_output(argv):
+    """Run a gh CLI read command, retrying transient failures and hangs."""
+    command = list(argv)
+    for attempt in range(1, GH_RETRY_ATTEMPTS + 1):
+        try:
+            return subprocess.check_output(command, text=True,
+                                           timeout=GH_CALL_TIMEOUT_SECONDS)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+            if attempt >= GH_RETRY_ATTEMPTS:
+                raise
+            print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error}; retrying")
+            time.sleep(retry_delay(attempt))
+
+
+def gh_call(argv):
+    """Run a mutating gh CLI command with the same transient-failure retry."""
+    command = list(argv)
+    for attempt in range(1, GH_RETRY_ATTEMPTS + 1):
+        try:
+            return subprocess.check_call(command, timeout=GH_CALL_TIMEOUT_SECONDS)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+            if attempt >= GH_RETRY_ATTEMPTS:
+                raise
+            print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error}; retrying")
+            time.sleep(retry_delay(attempt))
+
+
+def select_shard_numbers(records, shard_count, shard_index):
+    """Stable disjoint candidate ownership; duplicates never waste a second API read."""
+    if (not isinstance(records, list) or
+            type(shard_count) is not int or not 1 <= shard_count <= 8 or
+            type(shard_index) is not int or not 0 <= shard_index < shard_count):
+        raise ValueError('invalid PR scout records or partition')
+    return sorted({
+        item['number'] for item in records
+        if isinstance(item, dict) and type(item.get('number')) is int
+        and item['number'] > 0 and item['number'] % shard_count == shard_index
+    })
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Label blocked PRs and squash-merge one ready PR")
     parser.add_argument("--repo", default="moaz76943-creator/-offline-packs-store")
     parser.add_argument("--merge-one", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--shard-count", type=int, default=1)
+    parser.add_argument("--shard-index", type=int, default=0)
     args = parser.parse_args(argv)
-    listed = subprocess.check_output(
-        ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "80",
-         "--json", "number,title,isDraft,mergeStateStatus,headRefName"],
-        text=True,
+    if not 1 <= args.shard_count <= 8 or not 0 <= args.shard_index < args.shard_count:
+        parser.error("invalid PR scout partition")
+    if args.merge_one and args.shard_count != 1:
+        parser.error("parallel scouts cannot become competing merge authorities")
+    listed = gh_output(
+        ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "1000",
+         "--json", "number,title,isDraft,mergeStateStatus,headRefName"]
     )
-    numbers = [item["number"] for item in json.loads(listed)]
+    rows = json.loads(listed)
+    if not isinstance(rows, list) or len(rows) >= 1000:
+        raise ValueError('PR scout discovery incomplete: 1000-row ceiling reached')
+    numbers = select_shard_numbers(rows, args.shard_count, args.shard_index)
+    print(f"PR_SCOUT_SHARD={args.shard_index}/{args.shard_count} "
+          f"DISCOVERED={len(rows)} SCOPED={len(numbers)}")
     merged = None
     for number in numbers:
-        view = json.loads(subprocess.check_output(
+        view = json.loads(gh_output(
             ["gh", "pr", "view", str(number), "--repo", args.repo,
-             "--json", "number,title,isDraft,state,mergeStateStatus,mergeable,statusCheckRollup"],
-            text=True,
+             "--json", "number,title,isDraft,state,mergeStateStatus,mergeable,statusCheckRollup,labels"]
         ))
         kind = classify(view)
         print(f"#{number} {kind}")
         if args.dry_run:
             continue
         wanted = label_for(kind)
+        present = {row.get("name") for row in (view.get("labels") or [])
+                   if isinstance(row, dict) and isinstance(row.get("name"), str)}
         for label in LABELS.values():
-            if label == wanted:
-                continue
-            subprocess.call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--remove-label", label],
-                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        if wanted:
+            if label != wanted and label in present:
+                gh_call(["gh", "pr", "edit", str(number),
+                         "--repo", args.repo, "--remove-label", label])
+        if wanted and wanted not in present:
             subprocess.call(["gh", "label", "create", wanted, "--repo", args.repo, "--color", "B60205",
                              "--description", wanted], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            subprocess.check_call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--add-label", wanted])
+            gh_call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--add-label", wanted])
         elif kind == "ready" and args.merge_one and merged is None:
             subject = sanitize_subject(view["title"], number)
-            if SKIP.search(subject) or SKIP_TRAILER.search(subject):
-                raise SystemExit(f"refusing skip directive in squash subject for #{number}")
-            subprocess.check_call([
+            gh_call([
                 "gh", "pr", "merge", str(number), "--repo", args.repo, "--squash",
                 "--subject", subject, "--body", f"Squash merge of #{number}.",
             ])

@@ -4,7 +4,10 @@ Every function tolerates missing input. None of them invent words.
 """
 
 import hashlib
+import os
+import shutil
 import sqlite3
+import tempfile
 from collections import defaultdict
 from pathlib import Path
 
@@ -45,6 +48,7 @@ def concept_rows(graph):
                     'subsection': subsection.get('id'),
                     'concept_id': concept.get('id'),
                     'wikidata': qid,
+                    'anchor_label': concept.get('anchor_label') if isinstance(concept.get('anchor_label'), str) else '',
                 })
     return rows
 
@@ -218,6 +222,19 @@ def classify_row(row, index):
     qid = row.get('wikidata')
     slot = index.get(qid) if isinstance(qid, str) else None
     if not slot:
+        # Sentence corpora are attested text, not concept lexemes. They stay
+        # in the harvested section instead of being dropped for a missing QID.
+        sentence = row.get('text') if isinstance(row.get('text'), str) else ''
+        if (row.get('sentence_slot') in ('sentence.statement', 'sentence.question')
+                and sentence.strip()
+                and isinstance(row.get('section'), str) and row['section'].strip()
+                and not is_placeholder(sentence)):
+            placed = dict(row)
+            placed.update({
+                'status': 'keep',
+                'level': estimate_level(sentence, 1, 1),
+            })
+            return placed
         return {'status': 'unplaced', 'reason': 'no_concept_anchor'}
     text = row.get('lemma') or row.get('text') or ''
     level = estimate_level(text, 1, 1)
@@ -376,36 +393,168 @@ def attribution_text(source_id, license_id, origin, count):
 
 
 def build_pack(rows, output):
-    """Write a candidate sqlite of traceable rows. Refuses an empty pack."""
+    """Stage a non-production legacy candidate before replacing earlier bytes.
+
+    These entries-only databases are NOT canonical SQLite v2, source approved or
+    publishable. Failures must leave the prior database and receipt intact.
+    """
     kept = [row for row in rows or [] if row_traceable(row)]
     output = Path(output)
     if not kept:
-        return {'wrote': False, 'reason': 'no traceable rows', 'sha256': None}
+        return {'wrote': False, 'reason': 'no traceable rows', 'sha256': None,
+                'production_ready': False}
     output.parent.mkdir(parents=True, exist_ok=True)
-    if output.exists():
-        output.unlink()
-    connection = sqlite3.connect(output)
+    receipt_path = output.with_suffix('.sha256.json')
+
+    with tempfile.TemporaryDirectory(prefix=f'.{output.name}.', dir=output.parent) as tmp:
+        staging = Path(tmp)
+        candidate = staging / 'candidate.sqlite'
+        with sqlite3.connect(candidate) as connection:
+            connection.execute(
+                'CREATE TABLE entries (language TEXT, concept_id TEXT, lemma TEXT, '
+                'source_id TEXT, record_id TEXT, license_id TEXT, retrieval_date TEXT)'
+            )
+            connection.executemany(
+                'INSERT INTO entries VALUES (?,?,?,?,?,?,?)',
+                [(
+                    row.get('language'), row.get('concept_id'),
+                    row.get('lemma') or row.get('text'), row.get('source_id'),
+                    row.get('record_id'), row.get('license_id'),
+                    row.get('retrieval_date'),
+                ) for row in kept],
+            )
+            connection.commit()
+
+        with sqlite3.connect(candidate) as connection:
+            if connection.execute('PRAGMA integrity_check').fetchone() != ('ok',):
+                raise ValueError('Legacy candidate failed SQLite integrity_check')
+            if connection.execute('SELECT count(*) FROM entries').fetchone()[0] != len(kept):
+                raise ValueError('Legacy candidate count mismatch')
+        digest_state = hashlib.sha256()
+        with candidate.open('rb') as source:
+            for chunk in iter(lambda: source.read(65536), b''):
+                digest_state.update(chunk)
+        digest = digest_state.hexdigest()
+        receipt = staging / 'candidate.sha256.json'
+        write_json(receipt, {
+            'schema_version': SCHEMA_VERSION,
+            'path': str(output),
+            'sha256': digest,
+            'rows': len(kept),
+            'format': 'legacy-entry-candidate',
+            'production_ready': False,
+        })
+        # Idempotent reruns must not churn the shared agents/data checkpoint.
+        # Compare on-disk bytes and metadata, not old, potentially stale flags.
+        if (output.is_file() and receipt_path.is_file()
+                and output.stat().st_size == candidate.stat().st_size):
+            with output.open('rb') as old, candidate.open('rb') as new:
+                if all(a == b for a, b in zip(iter(lambda: old.read(65536), b''),
+                                               iter(lambda: new.read(65536), b''))):
+                    if receipt_path.read_bytes() == receipt.read_bytes():
+                        return {'wrote': False, 'reason': 'unchanged candidate',
+                                'sha256': digest, 'rows': len(kept),
+                                'production_ready': False}
+
+        previous = staging / 'previous.sqlite'
+        existed = output.exists()
+        if existed:
+            # Disk-to-disk backup, never loading the previous pack into memory.
+            shutil.copy2(output, previous)
+        try:
+            os.replace(candidate, output)
+            os.replace(receipt, receipt_path)
+        except OSError:
+            if existed:
+                os.replace(previous, output)
+            else:
+                output.unlink(missing_ok=True)
+            raise
+
+    return {'wrote': True, 'reason': '', 'sha256': digest,
+            'rows': len(kept), 'production_ready': False}
+
+
+def _count_rows(rows):
+    by_language = defaultdict(int)
+    by_source = defaultdict(int)
+    by_section = defaultdict(int)
+    by_language_source = defaultdict(lambda: defaultdict(int))
+    by_language_section = defaultdict(lambda: defaultdict(int))
+    total = 0
+    for row in rows or []:
+        if not isinstance(row, dict):
+            continue
+        language = row.get('language') if isinstance(row.get('language'), str) and row.get('language') else 'und'
+        source = row.get('source_id') if isinstance(row.get('source_id'), str) and row.get('source_id') else 'unknown'
+        section = row.get('section') if isinstance(row.get('section'), str) and row.get('section') else 'unsectioned'
+        total += 1
+        by_language[language] += 1
+        by_source[source] += 1
+        by_section[section] += 1
+        by_language_source[language][source] += 1
+        by_language_section[language][section] += 1
+    return {
+        'total': total,
+        'by_language': dict(sorted(by_language.items())),
+        'by_source': dict(sorted(by_source.items())),
+        'by_section': dict(sorted(by_section.items())),
+        'by_language_source': {
+            language: dict(sorted(counts.items()))
+            for language, counts in sorted(by_language_source.items())
+        },
+        'by_language_section': {
+            language: dict(sorted(counts.items()))
+            for language, counts in sorted(by_language_section.items())
+        },
+    }
+
+
+def _pack_file_stats(path):
+    path = Path(path)
+    info = {
+        'language': path.stem,
+        'bytes': path.stat().st_size,
+        'entries': None,
+        'sources': {},
+    }
     try:
-        connection.execute(
-            'CREATE TABLE entries (language TEXT, concept_id TEXT, lemma TEXT, '
-            'source_id TEXT, record_id TEXT, license_id TEXT, retrieval_date TEXT)'
-        )
-        connection.executemany(
-            'INSERT INTO entries VALUES (?,?,?,?,?,?,?)',
-            [(
-                row.get('language'), row.get('concept_id'), row.get('lemma') or row.get('text'),
-                row.get('source_id'), row.get('record_id'), row.get('license_id'),
-                row.get('retrieval_date'),
-            ) for row in kept],
-        )
-        connection.commit()
-    finally:
-        connection.close()
-    digest = hashlib.sha256(output.read_bytes()).hexdigest()
-    write_json(output.with_suffix('.sha256.json'), {
+        with sqlite3.connect(path.as_uri() + '?mode=ro', uri=True) as connection:
+            names = {
+                row[0] for row in connection.execute(
+                    "SELECT name FROM sqlite_master WHERE type='table'")
+            }
+            if 'entries' not in names:
+                return info
+            info['entries'] = connection.execute('SELECT count(*) FROM entries').fetchone()[0]
+            info['sources'] = {
+                source: count for source, count in connection.execute(
+                    'SELECT source_id, count(*) FROM entries GROUP BY source_id ORDER BY source_id')
+            }
+    except sqlite3.Error:
+        return info
+    return info
+
+
+def production_report(stored_rows, pack_paths, classified_rows=None, generated_by=''):
+    """Counts and pack sizes for state/production_report.json. No invented rows."""
+    packs = []
+    for path in pack_paths or []:
+        file_path = Path(path)
+        if file_path.is_file() and file_path.suffix == '.sqlite':
+            packs.append(_pack_file_stats(file_path))
+    packs.sort(key=lambda item: item['language'])
+    classified = _count_rows(classified_rows or [])
+    return {
         'schema_version': SCHEMA_VERSION,
-        'path': str(output),
-        'sha256': digest,
-        'rows': len(kept),
-    })
-    return {'wrote': True, 'reason': '', 'sha256': digest, 'rows': len(kept)}
+        'generated_by': generated_by,
+        'rows': _count_rows(stored_rows),
+        'classified': {
+            'total': classified['total'],
+            'by_source': classified['by_source'],
+            'by_language': classified['by_language'],
+            'by_section': classified['by_section'],
+        },
+        'packs': packs,
+        'pack_bytes': sum(item['bytes'] for item in packs),
+    }

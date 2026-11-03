@@ -59,6 +59,11 @@ class TestPronunciationMetadata(unittest.TestCase):
         self.source = _write_pronunciation_ledger(self.root)
         self.schema_path = os.path.join(os.path.dirname(__file__), "pronunciation.schema.json")
         self.registry = PronunciationRegistry(self.schema_path, repo_root=self.root)
+        reg_dir = self.root / "catalog"
+        reg_dir.mkdir(parents=True, exist_ok=True)
+        (reg_dir / "language_registry.v1.json").write_text(
+            json.dumps({"languages": [{"id": "en"}, {"id": "es"}, {"id": "fr"}, {"id": "zh"}]})
+        )
 
     def record(self, **overrides):
         source = {
@@ -173,6 +178,11 @@ class TestPronunciationMetadata(unittest.TestCase):
         root = Path(self.temp.name) / "dictionary"
         _write_pronunciation_ledger(root, kind="dictionary")
         registry = PronunciationRegistry(self.schema_path, repo_root=root)
+        reg_dir = root / "catalog"
+        reg_dir.mkdir(parents=True, exist_ok=True)
+        (reg_dir / "language_registry.v1.json").write_text(
+            json.dumps({"languages": [{"id": "en"}, {"id": "es"}, {"id": "fr"}, {"id": "zh"}]})
+        )
         with self.assertRaisesRegex(ValueError, "canonical legal ledger"):
             registry.add_record(self.record())
 
@@ -240,6 +250,11 @@ class TestPronunciationMetadata(unittest.TestCase):
     def test_wrong_language_format(self):
         with self.assertRaises(ValueError):
             self.registry.add_record(self.record(language="English"))
+
+    def test_non_canonical_language(self):
+        # A syntactically valid BCP-47 language tag, but not in the 100 canonical list
+        with self.assertRaisesRegex(ValueError, "not a canonical 100-language identity"):
+            self.registry.add_record(self.record(language="xx"))
 
     def test_rejected_source_is_not_exported(self):
         self.registry.add_record(self.record())

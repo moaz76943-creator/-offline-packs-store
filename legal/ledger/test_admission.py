@@ -74,6 +74,19 @@ class AdmissionTests(unittest.TestCase):
         self.source['status'] = 'REVIEW_REQUIRED'
         self.assertIn('REVIEW_REQUIRED', str(self.issues()))
 
+    def test_malformed_license_metadata_blocks_instead_of_crashing(self):
+        self.source['license'] = 'CC0-1.0'
+        issues = self.issues()
+        self.assertIn('BLOCKED_LICENSE', str(issues))
+        self.assertIn('EVIDENCE', str(issues))
+
+    def test_malformed_retrieval_and_origin_fail_closed(self):
+        self.source['retrieval'] = 'snapshot'
+        self.source.pop('origin_url')
+        issues = self.issues()
+        self.assertIn('EVIDENCE', str(issues))
+        self.assertIn('HASH_MISMATCH', str(issues))
+
     def test_mismatched_source_version(self):
         self.candidate['source_refs'][0]['dataset_version'] = '2025.01'
         self.assertIn('VERSION_MISMATCH', str(self.issues()))
@@ -177,6 +190,23 @@ class AdmissionTests(unittest.TestCase):
             self.root / 'evidence/upstream-license.txt')
         self.assertIn('license notice conflicts', str(self.issues()))
 
+
+    def test_metadata_index_cannot_be_approved_as_original_corpus(self):
+        content = self.put('evidence/index.html', b'<html>download links</html>')
+        self.source['origin_url'] = 'https://example.org/lexemes.json.bz2'
+        self.source['retrieval'].update({
+            'identity': 'dump-index', 'url': 'https://example.org/dumps/',
+            'artifact_path': content, 'sha256': sha256_file(self.root / content)})
+        self.assertIn('SOURCE_ARTIFACT', str(self.issues()))
+
+    def test_stats_xml_cannot_be_approved_as_example_corpus(self):
+        content = self.put('evidence/stats.xml', b'<stats/>')
+        self.source['kind'] = 'examples'
+        self.candidate['kind'] = 'examples'
+        self.source['retrieval'].update({
+            'identity': 'treebank-stats', 'url': 'https://example.org/treebank/stats.xml',
+            'artifact_path': content, 'sha256': sha256_file(self.root / content)})
+        self.assertIn('SOURCE_ARTIFACT', str(self.issues()))
 
 class AdmissionPathImportTests(unittest.TestCase):
     def test_admission_loads_by_file_path_without_ledger_on_sys_path(self):

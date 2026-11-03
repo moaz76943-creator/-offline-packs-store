@@ -12,7 +12,21 @@ os.makedirs('.github/workflows', exist_ok=True)
 # هذا الملف عام وآمن تماماً، وظيفته فقط فحص صحة الـ JSON عند أي رفع لضمان عدم انهيار التطبيق
 github_action_yml = """
 name: Validate JSON Files
-on: [push, pull_request]
+# Auxiliary JSON validation runs only for JSON and its own security contract.
+# The universal required public-pr-merge-gate continues on every PR.
+on:
+  pull_request:
+    paths:
+      - '**/*.json'
+      - '.github/workflows/validate_json.yml'
+      - 'tests/ci_security/**'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.json'
+      - '.github/workflows/validate_json.yml'
+      - 'tests/ci_security/**'
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:

@@ -1,6 +1,32 @@
 """Single-writer low-risk PR discovery, called only by the incumbent coordinator."""
+import json
 import os
+import time
+import urllib.error
 from auto_policy import auto_eligible
+
+# One pass reads this many exact-SHA candidates. The hourly rotation moves
+# the window, so a long queue cannot stall the five-minute job or hide the tail.
+EVIDENCE_BUDGET = 40
+# Enumeration is handled by GitHub.ready_pull_requests; exact-SHA evidence
+# remains separately bounded to avoid exhausting the five-minute job.
+
+
+def candidate_evidence_unavailable(number, error):
+    """Contain candidate-local read failures without hiding account-wide faults."""
+    if isinstance(error, urllib.error.HTTPError):
+        # Authentication, rate limiting and unexpected protocol failures remain
+        # visible to the job; retrying every peer would amplify those failures.
+        if error.code not in (404, 410, 500, 502, 503, 504):
+            raise error
+        reason = f'GitHub HTTP {error.code}'
+    elif isinstance(error, urllib.error.URLError):
+        reason = 'GitHub transport unavailable'
+    else:
+        raise error
+    # Never print response bodies or URLs from an upstream transport exception.
+    print(f'AUTO_SKIP #{number}: candidate evidence unavailable ({reason})')
+    return None
 
 REVIEW_THREADS_QUERY = '''query($cursor:String, $number:Int!) {
  repository(owner:"moaz76943-creator",name:"-offline-packs-store") {
@@ -38,62 +64,178 @@ def has_unresolved_threads(gh, number):
             raise ValueError('incomplete review thread evidence') from exc
     raise ValueError('review thread pagination exceeded bounded limit')
 
+def query_bounded_candidate(gh, num, head):
+    """Incomplete candidate evidence blocks this PR without starving its peers."""
+    try:
+        return gh.query_pr(num, head)
+    except urllib.error.URLError as exc:
+        return candidate_evidence_unavailable(num, exc)
+    except ValueError as exc:
+        # Fail this candidate closed; keep unexpected/coordinator-wide faults visible.
+        if not any(reason in str(exc) for reason in
+                   ('pagination limit exceeded', 'check runs pagination incomplete')):
+            raise
+        print(f'AUTO_SKIP #{num}: candidate evidence unavailable ({exc})')
+        return None
+
+
+def candidate_threads_resolved(gh, number):
+    """Missing thread evidence blocks this PR, while independent PRs proceed."""
+    try:
+        return not has_unresolved_threads(gh, number)
+    except urllib.error.URLError as exc:
+        candidate_evidence_unavailable(number, exc)
+        return False
+    except ValueError:
+        print(f'AUTO_SKIP #{number}: review thread evidence incomplete')
+        return False
+
+
+def triggered_check_pr():
+    """Prioritize a successful required gate event, never treat it as merge approval."""
+    if os.getenv('GITHUB_EVENT_NAME') != 'workflow_run':
+        return None
+    path = os.getenv('GITHUB_EVENT_PATH')
+    if not path:
+        return None
+    try:
+        with open(path, encoding='utf-8') as handle:
+            payload = json.load(handle)
+        run = payload.get('workflow_run') if isinstance(payload, dict) else None
+        if (not isinstance(run, dict) or
+                run.get('name') != 'Public PR Merge Gate' or
+                run.get('conclusion') != 'success'):
+            return None
+        prs = run.get('pull_requests')
+        if not isinstance(prs, list) or len(prs) != 1:
+            return None
+        number = prs[0].get('number') if isinstance(prs[0], dict) else None
+        return number if isinstance(number, int) and number > 0 else None
+    except (OSError, ValueError, TypeError):
+        return None
+
+
+def discovery_order(candidates, now, budget=EVIDENCE_BUDGET, priority=None):
+    """Rotate long ready queues; prefer the PR whose gate just finished."""
+    if not isinstance(candidates, list) or not isinstance(budget, int) or budget < 1:
+        raise ValueError('invalid discovery candidates or budget')
+    ordered = [item for item in sorted(
+        (item for item in candidates if isinstance(item, dict) and isinstance(item.get('number'), int)),
+        key=lambda item: item['number'], reverse=True,
+    ) if not item.get('draft')]
+    deferred = max(len(ordered) - budget, 0)
+    if deferred:
+        shift = int(now // 3600) % len(ordered)
+        ordered = ordered[shift:] + ordered[:shift]
+    if isinstance(priority, int):
+        for index, item in enumerate(ordered):
+            if item['number'] == priority:
+                ordered.insert(0, ordered.pop(index))
+                break
+    return ordered[:budget], deferred
+
 def run_auto(gh, main_sha):
-    """One bounded low-risk automatic squash, with fresh evidence at write time."""
-    queue = gh.page('/pulls?state=open&base=main', limit=300)
-    if not isinstance(queue, list):
-        raise ValueError('invalid live pull-request listing')
-    pool = [p for p in queue if isinstance(p, dict) and p.get('state') == 'open'
-            and not p.get('draft') and isinstance(p.get('number'), int)]
-    # The list endpoint already exposes the PR's pinned base SHA. Avoid
-    # expensive per-PR check/review/commit calls for provably stale bases.
-    # Never rewrite branches with GITHUB_TOKEN: that could suppress PR CI.
-    current = [p for p in pool if (p.get('base') or {}).get('ref') == 'main'
-               and (p.get('base') or {}).get('sha') == main_sha]
-    print('AUTO_DISCOVERY_READY=' + str(len(pool)))
-    print('AUTO_STALE_OR_UNVERIFIED_BASE=' + str(len(pool) - len(current)))
-    print('AUTO_CURRENT_BASE_CANDIDATES=' + str(len(current)))
-    # Prefer recently opened independent fixes; exact-head policy still owns
-    # the final decision and GitHub main is re-read immediately before writes.
-    for brief in sorted(current, key=lambda p: p['number'], reverse=True):
-        num = brief['number']
-        head = (brief.get('head') or {}).get('sha')
-        if not isinstance(head, str) or len(head) != 40:
-            continue
+    """Merge up to eight independent, low-risk and freshly checked PRs.
+
+    Refresh the canonical main, pull list, and all exact-SHA evidence after
+    each successful integration. All other changes stay with the existing
+    explicit authorization path.
+    """
+    merged_count = 0
+    merged_numbers = set()  # Do not reprocess an already confirmed merge if REST lists lag.
+    event_priority = triggered_check_pr()
+    for _ in range(8):
         if gh.main_sha() != main_sha:
-            print('HALT: main changed during discovery')
+            print('HALT: main changed outside this batch')
             return 0
-        pr, checks, reviews, files, msg = gh.query_pr(num, head)
-        ok, why = auto_eligible(pr, checks, reviews, files, msg, main_sha)
-        if not ok or head != (pr.get('head') or {}).get('sha'):
-            print(f'AUTO_SKIP #{num}: {why}')
-            continue
-        if has_unresolved_threads(gh, num):
-            print(f'AUTO_SKIP #{num}: inline review comments require human resolution')
-            continue
-        if os.getenv('INTEGRATOR_APPLY') != 'true':
-            print(f'AUTO_DRY_RUN #{num} SHA={head}')
-            continue
-        if gh.main_sha() != main_sha:
-            print('HALT: main moved before automatic squash')
+        # Real GitHub enumerates the full paginated index, retaining only
+        # non-drafts. Test doubles without this method keep their legacy fixture.
+        queue = (gh.ready_pull_requests() if hasattr(gh, 'ready_pull_requests')
+                 else gh.page('/pulls?state=open&base=main', limit=1000))
+        if not isinstance(queue, list):
+            raise ValueError('invalid live pull-request listing')
+        pool = [p for p in queue if isinstance(p, dict) and
+                p.get('state') == 'open' and not p.get('draft') and
+                isinstance(p.get('number'), int) and
+                p['number'] not in merged_numbers]
+        # GitHub may report a historical base.sha on an otherwise current PR.
+        # Treat it as a hint, not a veto: the fresh PR, exact-head checks and
+        # protected-main rules are verified again before any squash.
+        current = [p for p in pool if (p.get('base') or {}).get('ref') == 'main']
+        stale = sum((p.get('base') or {}).get('sha') != main_sha for p in current)
+        print(f'AUTO_DISCOVERY_READY={len(pool)}')
+        print(f'AUTO_STALE_BASE_HINTS={stale}')
+        print(f'AUTO_CURRENT_BASE_CANDIDATES={len(current)}')
+        window, deferred = discovery_order(current, time.time(), priority=event_priority)
+        if deferred:
+            print(f'AUTO_EVIDENCE_DEFERRED={deferred}')
+        merged_this_step = False
+        for brief in window:
+            num = brief['number']
+            head = (brief.get('head') or {}).get('sha')
+            if not isinstance(head, str) or len(head) != 40:
+                continue
+            if gh.main_sha() != main_sha:
+                print('HALT: main moved during discovery')
+                return 0
+            candidate = query_bounded_candidate(gh, num, head)
+            if candidate is None:
+                continue
+            pr, checks, reviews, files, msg = candidate
+            ok, why = auto_eligible(pr, checks, reviews, files, msg, main_sha)
+            if not ok or head != (pr.get('head') or {}).get('sha'):
+                print(f'AUTO_SKIP #{num}: {why}')
+                continue
+            if not candidate_threads_resolved(gh, num):
+                print(f'AUTO_SKIP #{num}: unresolved review thread')
+                continue
+            if os.getenv('INTEGRATOR_APPLY') != 'true':
+                print(f'AUTO_DRY_RUN #{num} SHA={head}')
+                continue
+            if gh.main_sha() != main_sha:
+                print('HALT: main changed before automatic squash')
+                return 0
+            from protection_gate import allowed
+            if not allowed(gh.get('/branches/main'), gh.get('/rules/branches/main?per_page=100')):
+                print('HALT: protected main rules unverified')
+                return 0
+            candidate = query_bounded_candidate(gh, num, head)
+            if candidate is None:
+                continue
+            fresh, fc, fr, ff, fm = candidate
+            qualified, reason = auto_eligible(fresh, fc, fr, ff, fm, main_sha)
+            if not qualified or not candidate_threads_resolved(gh, num):
+                print(f'AUTO_SKIP #{num}: stale evidence: {reason}')
+                continue
+            if gh.main_sha() != main_sha:
+                print('HALT: main moved immediately before squash')
+                return 0
+            try:
+                result = gh.squash(num, head)
+            except urllib.error.HTTPError as error:
+                if error.code in (405, 409, 422):
+                    print(f'AUTO_SKIP #{num}: GitHub merge policy rejected ({error.code})')
+                    continue
+                raise
+            if result.get('merged') is not True:
+                raise ValueError('GitHub did not confirm automatic squash')
+            new_main = result.get('sha')
+            if not isinstance(new_main, str) or len(new_main) != 40:
+                raise ValueError('GitHub did not supply complete merge SHA')
+            if gh.main_sha() != new_main:
+                print('HALT: main changed after merge; do not continue')
+                return 0
+            if gh.related_pr(num).get('merged') is not True:
+                raise ValueError('GitHub merge response not confirmed by actual PR merged state')
+            main_sha = new_main
+            merged_count += 1
+            merged_numbers.add(num)
+            merged_this_step = True
+            print(f'AUTO_MERGED #{num} SHA={new_main}')
+            break
+        if not merged_this_step:
+            print(f'AUTO_BATCH_COMPLETE={merged_count}; no other verified candidates')
             return 0
-        # Check current protection again, in addition to the incumbent workflow preflight.
-        from protection_gate import allowed
-        if not allowed(gh.get('/branches/main'), gh.get('/rules/branches/main?per_page=100')):
-            print('HALT: strict main protection no longer verified')
-            return 0
-        fresh, fc, fr, ff, fm = gh.query_pr(num, head)
-        qualified, reason = auto_eligible(fresh, fc, fr, ff, fm, main_sha)
-        if not qualified or has_unresolved_threads(gh, num):
-            print(f'HALT: candidate changed or review started #{num}: {reason}')
-            return 0
-        if gh.main_sha() != main_sha:
-            print('HALT: main moved immediately before squash')
-            return 0
-        result = gh.squash(num, head)
-        if result.get('merged') is not True:
-            raise ValueError('GitHub did not confirm automatic squash')
-        print(f'AUTO_MERGED #{num} SHA={result.get("sha")}')
-        return 0
-    print('AUTO_NO_QUALIFIED_MERGE: no safe code or review bypass')
+    print(f'AUTO_BATCH_LIMIT={merged_count}; next event resumes discovery')
     return 0
+

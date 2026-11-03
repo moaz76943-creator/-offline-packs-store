@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "sources": [
+    {
+      "alterations": [
+        "Original revision-pinned Special:EntityData JSON retained byte-for-byte. No media or other-namespace text included."
+      ],
+      "author": "Wikidata contributors",
+      "dataset_version": "l1026-r2457144138",
+      "kind": "dictionary",
+      "license": {
+        "evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+        "evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+        "evidence_url": "https://www.wikidata.org/w/index.php?title=Wikidata:Copyright&oldid=1523614187",
+        "id": "CC0-1.0"
+      },
+      "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138",
+      "publisher": "Wikimedia Foundation",
+      "retrieval": {
+        "artifact_path": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json",
+        "date": "2026-10-23",
+        "identity": "wikidata:Lexeme:L1026:revision:2457144138",
+        "sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/L1026.json?revision=2457144138"
+      },
+      "source_id": "wikidata-lexeme-l1026-r2457144138",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "alterations": [
+        "Original revision-pinned Special:EntityData JSON retained byte-for-byte. No media or other-namespace text included."
+      ],
+      "author": "Wikidata contributors",
+      "dataset_version": "l3006-r2549891188",
+      "kind": "dictionary",
+      "license": {
+        "evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+        "evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+        "evidence_url": "https://www.wikidata.org/w/index.php?title=Wikidata:Copyright&oldid=1523614187",
+        "id": "CC0-1.0"
+      },
+      "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188",
+      "publisher": "Wikimedia Foundation",
+      "retrieval": {
+        "artifact_path": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+        "date": "2026-10-23",
+        "identity": "wikidata:Lexeme:L3006:revision:2549891188",
+        "sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/L3006.json?revision=2549891188"
+      },
+      "source_id": "wikidata-lexeme-l3006-r2549891188",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "alterations": [
+        "Original revision-pinned Special:EntityData JSON retained byte-for-byte. No media or other-namespace text included."
+      ],
+      "author": "Wikidata contributors",
+      "dataset_version": "l7882-r2548839684",
+      "kind": "dictionary",
+      "license": {
+        "evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+        "evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+        "evidence_url": "https://www.wikidata.org/w/index.php?title=Wikidata:Copyright&oldid=1523614187",
+        "id": "CC0-1.0"
+      },
+      "origin_url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684",
+      "publisher": "Wikimedia Foundation",
+      "retrieval": {
+        "artifact_path": "legal/ledger/evidence/wikidata-20261023/L7882-2548839684.json",
+        "date": "2026-10-23",
+        "identity": "wikidata:Lexeme:L7882:revision:2548839684",
+        "sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+        "url": "https://www.wikidata.org/wiki/Special:EntityData/L7882.json?revision=2548839684"
+      },
+      "source_id": "wikidata-lexeme-l7882-r2548839684",
+      "status": "REVIEW_REQUIRED"
+    }
+  ]
+}

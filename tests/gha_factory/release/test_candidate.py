@@ -103,6 +103,29 @@ class CandidateTests(unittest.TestCase):
                 a=self.archive(self.sample(language,word))
                 self.assertEqual(rc.inspect_archive(a,language,allow_fixture=True)['fts5_queries_passed'],1)
 
+    def test_json_decoder_rejects_duplicate_keys_at_every_depth(self):
+        # JSON's last-key-wins behavior can change signed identity and rights
+        # metadata depending on which parser later consumes the same bytes.
+        for label, raw in (
+            ('envelope', b'{"packId":"fr","packId":"de"}'),
+            ('content info', b'{"sourceIds":["wrong"],"sourceIds":["fixture-ref"]}'),
+            ('pack metadata', b'{"source":{"id":"first","id":"second"}}'),
+        ):
+            with self.subTest(label=label), self.assertRaisesRegex(rc.ReleaseError, 'invalid ' + label):
+                rc._json(raw, label)
+
+    def test_json_decoder_rejects_nonfinite_constants(self):
+        for value in (b'NaN', b'Infinity', b'-Infinity', b'1e9999'):
+            with self.subTest(value=value), self.assertRaisesRegex(rc.ReleaseError, 'invalid envelope'):
+                rc._json(b'{"untrusted":' + value + b'}', 'envelope')
+
+    def test_duplicate_archive_identity_rejected_before_candidate_staging(self):
+        # A duplicate first key must not be silently shadowed by the last.
+        raw = rc.json_bytes(self.sample())
+        archive = gzip.compress(b'{"packId":"fr",' + raw[1:], mtime=0)
+        with self.assertRaisesRegex(rc.ReleaseError, 'invalid envelope'):
+            rc.inspect_archive(archive, 'de', allow_fixture=True)
+
     def test_wrong_language_and_stale_version(self):
         env=self.sample()
         with self.assertRaisesRegex(rc.ReleaseError,'wrong language'):

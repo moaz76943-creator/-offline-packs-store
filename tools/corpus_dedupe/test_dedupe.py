@@ -36,6 +36,22 @@ class TestCorpusDeduplicator(unittest.TestCase):
         self.assertEqual(len(self.deduplicator.duplicates), 1)
         self.assertEqual(self.deduplicator.duplicates[0]['status'], 'EXACT_DUPLICATE')
 
+    def test_canonical_record_stays_first_under_reverse_unordered_scans(self):
+        # Without explicit ORDER BY, SQLite can return the newest retained
+        # row under this planner setting. Selection must remain deterministic.
+        self.deduplicator._db.execute('PRAGMA reverse_unordered_selects=ON')
+        for ident in ('l1', 'l2', 'l3'):
+            self.deduplicator.process_record({
+                'lexeme_id': ident, 'language': 'en', 'pos': 'noun',
+                'lemma': 'cat', 'senses': [{'definition': 'animal'}],
+            })
+        self.deduplicator.resolve()
+        self.assertEqual([d['duplicate_of'] for d in self.deduplicator.duplicates],
+                         ['l1', 'l1'])
+        self.assertTrue(all(d['status'] == 'REVIEW_REQUIRED'
+                            for d in self.deduplicator.duplicates))
+        self.assertEqual(len(self.deduplicator.canonical), 3)
+
     def test_incompatible_licenses(self):
         rec1 = {
             'lexeme_id': 'l1', 'language': 'en', 'pos': 'noun', 'lemma': 'cat',

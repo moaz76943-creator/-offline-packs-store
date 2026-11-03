@@ -1,0 +1,112 @@
+# Human-authorized, read-only public source worker. Not a pack publisher.
+name: GHA lexical ingestion worker (approved snapshots only)
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'tools/gha_factory/lexical/**'
+      - 'tests/gha_factory/lexical/**'
+      - '.github/workflows/gha_lexical_worker.yml'
+  workflow_dispatch:
+    inputs:
+      source_id:
+        description: Route 05 approved dictionary source ID
+        type: string
+        required: true
+      language:
+        description: Canonical Route 03 language ID (e.g. de/ar/en/es/fr)
+        type: string
+        required: true
+      partition_index:
+        description: Zero-based stable partition index
+        type: number
+        required: true
+        default: 0
+      partition_count:
+        description: Fixed partition count for immutable snapshot
+        type: number
+        required: true
+        default: 1
+      max_lines:
+        description: Input lines examined this bounded invocation (max 100000)
+        type: number
+        required: true
+        default: 20000
+
+permissions:
+  contents: read
+
+# Serialize each source/language to avoid concurrent ownership overlap.
+concurrency:
+  group: gha-lexical-${{ github.event_name }}-${{ github.event.pull_request.number || inputs.source_id }}-${{ inputs.language || 'qa' }}
+  cancel-in-progress: false
+
+jobs:
+  lexical-qa:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - name: Check out PR synthetic merge without persisting credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run bounded lexical worker regression tests
+        run: python3 -m unittest discover -s tests/gha_factory/lexical -p 'test_*.py' -v
+
+  lexical:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 295
+    env:
+      SOURCE_ID: ${{ inputs.source_id }}
+      LANGUAGE_ID: ${{ inputs.language }}
+      PARTITION_INDEX: ${{ inputs.partition_index }}
+      PARTITION_COUNT: ${{ inputs.partition_count }}
+      MAX_LINES: ${{ inputs.max_lines }}
+      PYTHONUNBUFFERED: '1'
+    steps:
+      - name: Pin public source repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Open-source schema dependency
+        run: python3 -m pip install --disable-pip-version-check 'jsonschema==4.23.0'
+
+      - name: Verify canonical contracts and worker tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 catalog/validate_registry.py
+          python3 -m unittest discover -s tests/gha_factory/lexical -p 'test_*.py' -v
+          python3 -m unittest discover -s tools/sources/pilot5 -p 'test_*.py' -v
+          python3 -m unittest discover -s standards/lexical -p 'test_*.py' -v
+          python3 -m unittest discover -s tools/pack_v2 -p 'test_*.py' -v
+
+      - name: Process immutable approved public dictionary snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 tools/gha_factory/lexical/worker.py \
+            --repo-root . \
+            --source-id "$SOURCE_ID" \
+            --language "$LANGUAGE_ID" \
+            --partition-index "$PARTITION_INDEX" \
+            --partition-count "$PARTITION_COUNT" \
+            --max-lines "$MAX_LINES" \
+            --out "$RUNNER_TEMP/gha-lexical"
+
+      - name: Retain deterministic QA evidence and resumable checkpoint
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gha-lexical-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/gha-lexical/
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 6

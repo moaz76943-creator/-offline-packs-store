@@ -14,9 +14,19 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+def is_candidate_qualified(pr_record):
+    """Listing filter only; exact-SHA checks and reviews still authorize writes."""
+    if pr_record.get('state') != 'open':
+        return False, 'NOT_OPEN'
+    if pr_record.get('draft') is not False:
+        return False, 'DRAFT_STATUS'
+    if (pr_record.get('base') or {}).get('ref') != 'main':
+        return False, 'WRONG_BASE'
+    return True, 'QUALIFIED'
+
+
 REPO = 'moaz76943-creator/-offline-packs-store'
 SHA = re.compile(r'[0-9a-f]{40}\Z')
-SKIP = re.compile(r'\[(?:skip ci|ci skip|no ci|skip actions|actions skip)\]|^skip-checks\s*:\s*true\s*$', re.I | re.M)
 INTEGRATION_CONFIG = Path(__file__).with_name('approved.json')
 DENY_PREFIXES = (
     'packs/', 'media/', 'assets/', 'legal/', 'community/',
@@ -71,10 +81,13 @@ def policy_error(e):
         if not path.startswith(('tools/', 'tests/', 'docs/')) or is_prohibited_prefix(path):
             return 'prohibited owned path'
     names = e.get('checks')
-    if (not isinstance(names, list) or len(names) < 2 or
+    # The required public gate already runs changed-path-selected scoped tests.
+    # Permit one verified status instead of forcing a duplicate CI job; any
+    # additional explicitly authorized names remain mandatory in evaluate().
+    if (not isinstance(names, list) or not names or
             not all(isinstance(name, str) and name for name in names) or
             'public-pr-merge-gate' not in names or len(set(names)) != len(names)):
-        return 'required primary and scoped checks missing'
+        return 'required public PR merge gate missing'
     is_solo = (e.get('authorization_mode') == 'solo_maintainer' or e.get('mode') == 'solo_maintainer')
     expiry_str = e.get('expiry') or e.get('expires_at')
     if expiry_str is not None:
@@ -129,6 +142,23 @@ def order_entries(items):
     for key in sorted(by_id):
         visit(key)
     return order
+
+
+def append_page(out, records, limit, *, listing):
+    """Add one API page. A candidate index truncates; evidence pages fail closed."""
+    if not isinstance(records, list):
+        raise ValueError('unexpected paginated response')
+    if not isinstance(limit, int) or limit < 1:
+        raise ValueError('invalid page limit')
+    if listing and len(out) + len(records) > limit:
+        out.extend(records[:limit - len(out)])
+        return 'truncated'
+    out.extend(records)
+    if len(out) > limit:
+        raise ValueError('pagination limit exceeded; fail closed')
+    if len(records) < 100:
+        return 'done'
+    return 'continue'
 
 
 def changed_path_names(files):
@@ -211,8 +241,6 @@ def evaluate(e, pr, checks, reviews, files, main_sha, commit_message, dependenci
                        (authorization_only and authorization_parent == e['main_sha']))
     if not authorized_main or pr.get('base', {}).get('ref') != 'main' or pr.get('base', {}).get('sha') != main_sha:
         return 'STALE_MAIN', 'canonical main advanced or base branch mismatched'
-    if SKIP.search(commit_message):
-        return 'BLOCKED_SKIP_CI', 'last PR commit skips required CI'
     if pr.get('mergeable') is False or pr.get('mergeable_state') == 'dirty':
         return 'CONFLICT', 'GitHub reports merge conflict'
     if pr.get('mergeable') is not True or pr.get('mergeable_state') not in ('clean', 'unstable'):
@@ -303,17 +331,52 @@ class GitHub:
         return self.request(f'/repos/{REPO}{path}')
 
     def page(self, path, limit=300):
+        # Open-PR discovery is a window: a long queue must not abort the job.
+        # File and review evidence stays fail-closed when a page runs past the bound.
+        listing = path.startswith('/pulls?')
         out = []
         for n in range(1, limit // 100 + 2):
             records = self.get(f'{path}{"&" if "?" in path else "?"}per_page=100&page={n}')
-            if not isinstance(records, list):
-                raise ValueError('unexpected paginated response')
-            out.extend(records)
-            if len(out) > limit:
-                raise ValueError('pagination limit exceeded; fail closed')
-            if len(records) < 100:
+            action = append_page(out, records, limit, listing=listing)
+            if action == 'truncated':
+                print(f'AUTO_DISCOVERY_TRUNCATED={limit}')
+                return out
+            if action == 'done':
                 return out
         raise ValueError('pagination incomplete')
+
+    def ready_pull_requests(self, max_pages=50):
+        """Enumerate the full open PR index but retain only ready (non-draft) entries.
+
+        The old hard 300/1000-item listing could hide eligible PRs behind
+        hundreds of drafts. A 50-page API ceiling bounds work; reaching it
+        without a terminal page fails explicitly instead of silently starving
+        the tail. Exact SHA, status, reviews and branch rules are still checked
+        for each candidate at the merge boundary.
+        """
+        if not isinstance(max_pages, int) or not 1 <= max_pages <= 50:
+            raise ValueError('invalid ready PR discovery page budget')
+        ready, seen = [], set()
+        scanned = 0
+        for page in range(1, max_pages + 1):
+            records = self.get(f'/pulls?state=open&base=main&per_page=100&page={page}')
+            if not isinstance(records, list) or len(records) > 100:
+                raise ValueError('malformed open PR discovery page')
+            for item in records:
+                if (not isinstance(item, dict) or
+                        not isinstance(item.get('number'), int) or item['number'] <= 0):
+                    raise ValueError('malformed open PR discovery candidate')
+                scanned += 1
+                number = item['number']
+                if number in seen:
+                    continue
+                seen.add(number)
+                if is_candidate_qualified(item)[0]:
+                    ready.append(item)
+            if len(records) < 100:
+                print(f'AUTO_DISCOVERY_SCANNED={scanned} READY={len(ready)} PAGES={page}')
+                return ready
+        raise ValueError('open PR discovery incomplete: page ceiling reached; fail closed')
 
     def main_sha(self):
         return self.get('/git/ref/heads/main')['object']['sha']

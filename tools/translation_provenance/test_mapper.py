@@ -1,6 +1,7 @@
 import json
 import tempfile
 import unittest
+import tracemalloc
 from contextlib import redirect_stderr, redirect_stdout
 from io import StringIO
 from pathlib import Path
@@ -84,6 +85,31 @@ class MapperTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.run_gate()
 
+    def test_invalid_language_direction(self):
+        self.records[0]["language"] = "de"
+        self.records[1]["language"] = "de"
+        self.records[-1]["from_language"] = "de"
+        with self.assertRaisesRegex(ValueError, "Invalid language direction"):
+            self.run_gate()
+
+    def test_conflicting_translations(self):
+        self.records.append(self.records[-1].copy())
+        # The conflicting translation has a duplicate ID
+        with self.assertRaisesRegex(ValueError, "Duplicate translation_id"):
+            self.run_gate()
+
+        self.records.pop()
+
+        # Test translation with contradictory direction
+        self.records[-1]["from_language"] = "fr"
+        with self.assertRaisesRegex(ValueError, "Translation direction contradicts sense ownership"):
+            self.run_gate()
+
+    def test_altered_hashes(self):
+        self.records[-1]["translation_evidence"]["sha256"] = "a" * 64
+        with self.assertRaisesRegex(ValueError, "HASH_MISMATCH|hash"):
+            self.run_gate()
+
     def test_preserve_regional_variants_and_contextual_labels(self):
         self.records[-1]["regional_variant"] = "Swiss German"
         self.records[-1]["contextual_label"] = "finance"
@@ -157,6 +183,24 @@ class MapperTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertEqual(out, "")
         self.assertIn("BLOCKED:", err)
+
+    def test_large_stream_does_not_retain_python_record_collection(self):
+        def lines():
+            for row in self.records[:2]:
+                yield json.dumps(row) + '\n'
+            for number in range(6000):
+                yield json.dumps({**self.records[-1], 'translation_id': f'edge-{number}'}) + '\n'
+        tracemalloc.start()
+        try:
+            count = 0
+            for record in map_provenance(lines(), self.ledger, repo_root=self.root):
+                self.assertEqual(record['to_language'], 'de')
+                count += 1
+            _, peak = tracemalloc.get_traced_memory()
+        finally:
+            tracemalloc.stop()
+        self.assertEqual(count, 6000)
+        self.assertLess(peak, 4 * 1024 * 1024, 'Python memory must not retain all mapped records')
 
 if __name__ == "__main__":
     unittest.main()
