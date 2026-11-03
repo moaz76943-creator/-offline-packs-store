@@ -14,25 +14,30 @@ SEPARABLE_PREFIXES = [
 
 def parse_german_verb_morphology(infinitive: str, raw_forms: dict) -> dict:
     inf = infinitive.strip()
-    
-    # Detect separable verb prefix
-    is_separable = False
-    prefix = None
-    for p in SEPARABLE_PREFIXES:
-        if inf.startswith(p) and len(inf) > len(p) + 2:
-            is_separable = True
-            prefix = p
-            break
 
     # Extract attested principal parts without inventing fake forms
     praesens_3sg = raw_forms.get('praesens_3sg')
     praeteritum = raw_forms.get('praeteritum')
     partizip_ii = raw_forms.get('partizip_ii')
-    auxiliary = raw_forms.get('auxiliary', 'haben')
+    auxiliary = raw_forms.get('auxiliary')
 
     # Sanitize auxiliary (must be haben or sein)
     if auxiliary not in ['haben', 'sein']:
-        auxiliary = 'haben'
+        auxiliary = None
+
+    # Spelling alone is insufficient: antworten is not an an- separable verb.
+    # Prefer the longest prefix supported by an attested detached finite form
+    # or the corresponding prefix+ge participle.
+    prefix = None
+    for candidate in sorted(SEPARABLE_PREFIXES, key=len, reverse=True):
+        if inf.startswith(candidate) and (
+            any(isinstance(form, str) and form.strip().endswith(' ' + candidate)
+                for form in (praesens_3sg, praeteritum)) or
+            (isinstance(partizip_ii, str) and partizip_ii.strip().startswith(candidate + 'ge'))
+        ):
+            prefix = candidate
+            break
+    is_separable = bool(prefix) if any((praesens_3sg, praeteritum, partizip_ii)) else None
 
     return {
         'infinitive': inf,
@@ -48,9 +53,9 @@ def parse_german_noun_morphology(lemma: str, gender: str, raw_forms: dict) -> di
     genitive = raw_forms.get('genitive')
     plural = raw_forms.get('plural')
 
-    clean_gender = gender.lower().strip() if gender else 'neutrum'
+    clean_gender = gender.lower().strip() if isinstance(gender, str) else None
     if clean_gender not in ['masculin', 'feminin', 'neutrum']:
-        clean_gender = 'neutrum'
+        clean_gender = None
 
     return {
         'lemma': lemma.strip(),
@@ -61,10 +66,25 @@ def parse_german_noun_morphology(lemma: str, gender: str, raw_forms: dict) -> di
 
 def validate_morphology_record(record: dict) -> bool:
     """Rejects empty or syntactically invalid morphology records."""
-    if not record:
+    if not isinstance(record, dict) or not record:
         return False
-    if 'infinitive' in record and not record['infinitive']:
+    if ('infinitive' in record) == ('lemma' in record):
         return False
-    if 'lemma' in record and not record['lemma']:
+    verb = 'infinitive' in record
+    identifier = record['infinitive' if verb else 'lemma']
+    if not isinstance(identifier, str) or not identifier.strip():
+        return False
+    if verb:
+        if record.get('auxiliary') not in ('haben', 'sein'):
+            return False
+        if record.get('is_separable') not in (None, True, False):
+            return False
+        fields = ('praesens_3sg', 'praeteritum', 'partizip_ii', 'prefix')
+    else:
+        if record.get('gender') not in ('masculin', 'feminin', 'neutrum'):
+            return False
+        fields = ('plural', 'genitive')
+    if any(value is not None and (not isinstance(value, str) or not value.strip())
+           for value in (record.get(field) for field in fields)):
         return False
     return True

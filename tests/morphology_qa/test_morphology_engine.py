@@ -10,6 +10,36 @@ from tools.gha_factory.morphology.morphology_engine import (
 )
 
 class TestMorphologyEngine(unittest.TestCase):
+    def test_separability_follows_attested_forms_and_longest_prefix(self):
+        answer = parse_german_verb_morphology('antworten', {
+            'praesens_3sg': 'antwortet', 'praeteritum': 'antwortete',
+            'partizip_ii': 'geantwortet', 'auxiliary': 'haben'})
+        self.assertFalse(answer['is_separable'])
+        self.assertIsNone(answer['prefix'])
+        returned = parse_german_verb_morphology('zurückkommen', {
+            'praesens_3sg': 'kommt zurück', 'praeteritum': 'kam zurück',
+            'partizip_ii': 'zurückgekommen', 'auxiliary': 'sein'})
+        self.assertTrue(returned['is_separable'])
+        self.assertEqual(returned['prefix'], 'zurück')
+
+    def test_unknown_grammar_is_preserved_and_cannot_pass_complete_validation(self):
+        for forms in ({}, {'auxiliary': 'invalid'}):
+            verb = parse_german_verb_morphology('gehen', forms)
+            self.assertIsNone(verb['auxiliary'])
+            self.assertFalse(validate_morphology_record(verb))
+        for gender in ('', 'unknown', None):
+            noun = parse_german_noun_morphology('Mann', gender, {})
+            self.assertIsNone(noun['gender'])
+            self.assertFalse(validate_morphology_record(noun))
+
+    def test_malformed_shapes_identifiers_and_grammar_do_not_validate(self):
+        for record in ({'garbage': True}, {'infinitive': ' ', 'auxiliary': 'haben'},
+                       {'lemma': ' ', 'gender': 'neutrum'},
+                       {'infinitive': 'gehen', 'auxiliary': 'invalid'},
+                       {'lemma': 'Mann', 'gender': 'unknown'}, [], None):
+            with self.subTest(record=record):
+                self.assertFalse(validate_morphology_record(record))
+
     def test_irregular_strong_verb_parsing(self):
         raw = {
             'praesens_3sg': 'sieht',
