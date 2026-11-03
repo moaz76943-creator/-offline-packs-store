@@ -9,6 +9,8 @@ import json
 import sqlite3
 import sys
 import tempfile
+from contextlib import closing
+from pathlib import Path
 
 from tools.contribution_gate.evidence import (
     exact_source_reference, required, verified_artifact, verified_sources
@@ -17,8 +19,10 @@ from tools.contribution_gate.evidence import (
 def map_provenance(stream, sources_manifest, *, repo_root=None):
     sources = verified_sources(sources_manifest, repo_root)
 
-    with tempfile.NamedTemporaryFile() as tmp:
-        db = sqlite3.connect(tmp.name)
+    with tempfile.TemporaryDirectory(prefix='translation-provenance-') as tmp, closing(
+            sqlite3.connect(Path(tmp) / 'provenance.sqlite')) as db:
+        db.execute('PRAGMA cache_size=-2048')
+        db.execute('PRAGMA temp_store=FILE')
         db.execute("CREATE TABLE senses (sense_id TEXT PRIMARY KEY, lexeme_id TEXT, language TEXT, _verified_source_id TEXT)")
         db.execute("CREATE TABLE seen (translation_id TEXT PRIMARY KEY)")
         db.execute("CREATE TABLE records (id INTEGER PRIMARY KEY AUTOINCREMENT, record TEXT)")
@@ -144,7 +148,7 @@ def main(argv=None):
                 result = map_provenance(f, ledger, repo_root=a.repo_root)
                 for record in result:
                     print(json.dumps(record, ensure_ascii=False, sort_keys=True))
-    except (ValueError, OSError, TypeError) as exc:
+    except (ValueError, OSError, TypeError, sqlite3.Error) as exc:
         print("BLOCKED:", exc, file=sys.stderr)
         return 1
     return 0

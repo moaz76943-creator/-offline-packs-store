@@ -1,6 +1,7 @@
 import json
 import tempfile
 import unittest
+import tracemalloc
 from contextlib import redirect_stderr, redirect_stdout
 from io import StringIO
 from pathlib import Path
@@ -182,6 +183,24 @@ class MapperTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertEqual(out, "")
         self.assertIn("BLOCKED:", err)
+
+    def test_large_stream_does_not_retain_python_record_collection(self):
+        def lines():
+            for row in self.records[:2]:
+                yield json.dumps(row) + '\n'
+            for number in range(6000):
+                yield json.dumps({**self.records[-1], 'translation_id': f'edge-{number}'}) + '\n'
+        tracemalloc.start()
+        try:
+            count = 0
+            for record in map_provenance(lines(), self.ledger, repo_root=self.root):
+                self.assertEqual(record['to_language'], 'de')
+                count += 1
+            _, peak = tracemalloc.get_traced_memory()
+        finally:
+            tracemalloc.stop()
+        self.assertEqual(count, 6000)
+        self.assertLess(peak, 4 * 1024 * 1024, 'Python memory must not retain all mapped records')
 
 if __name__ == "__main__":
     unittest.main()
