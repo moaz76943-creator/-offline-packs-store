@@ -14,6 +14,17 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+def is_candidate_qualified(pr_record):
+    """Listing filter only; exact-SHA checks and reviews still authorize writes."""
+    if pr_record.get('state') != 'open':
+        return False, 'NOT_OPEN'
+    if pr_record.get('draft') is not False:
+        return False, 'DRAFT_STATUS'
+    if (pr_record.get('base') or {}).get('ref') != 'main':
+        return False, 'WRONG_BASE'
+    return True, 'QUALIFIED'
+
+
 REPO = 'moaz76943-creator/-offline-packs-store'
 SHA = re.compile(r'[0-9a-f]{40}\Z')
 INTEGRATION_CONFIG = Path(__file__).with_name('approved.json')
@@ -360,8 +371,7 @@ class GitHub:
                 if number in seen:
                     continue
                 seen.add(number)
-                if (item.get('state') == 'open' and item.get('draft') is False and
-                        (item.get('base') or {}).get('ref') == 'main'):
+                if is_candidate_qualified(item)[0]:
                     ready.append(item)
             if len(records) < 100:
                 print(f'AUTO_DISCOVERY_SCANNED={scanned} READY={len(ready)} PAGES={page}')
