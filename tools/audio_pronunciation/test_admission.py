@@ -212,6 +212,19 @@ class TestAudioAdmissionGate(unittest.TestCase):
         self.assertEqual(accepted, [])
         self.assertIn("Invalid locale", rejected[0]["rejection_reason"])
 
+    def test_variant_is_preserved_and_copied_to_quarantine(self):
+        # Valid candidate with a variant is preserved.
+        row = self.candidate(self.wav, variant="UK")
+        accepted, rejected = process_candidates([row], self.ledger, self.root)
+        self.assertEqual(len(accepted), 1)
+        self.assertEqual(accepted[0].get("variant"), "UK")
+
+        # Invalid candidate with a variant copies it to the quarantine record.
+        row = self.candidate(self.wav, variant="UK", locale="INVALID!")
+        accepted, rejected = process_candidates([row], self.ledger, self.root)
+        self.assertEqual(accepted, [])
+        self.assertEqual(rejected[0].get("variant"), "UK")
+
     def test_prefix_only_containers_rejected(self):
         samples = {
             "tiny.ogg": (b"OggS", "ogg"),
