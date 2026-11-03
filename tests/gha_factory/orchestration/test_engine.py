@@ -16,7 +16,11 @@ class FakeAPI:
         self.runs={};self.writes=[];self.created=[]
     def issues(self):return list(self.data.values())
     def one(self,n):return self.data[n]
-    def update(self,n,t):self.data[n]['body']=p.serialize(t);self.writes.append((n,copy.deepcopy(t)))
+    def update(self,n,t,close_verified=False):
+        if close_verified and t['state']!='SUCCEEDED':raise ValueError('unsafe close')
+        self.data[n]['body']=p.serialize(t)
+        if close_verified:self.data[n]['state']='closed'
+        self.writes.append((n,copy.deepcopy(t)))
     def run(self,n):return self.runs.get(n,{'id':n,'run_attempt':1,'status':'in_progress','head_branch':'main','path':e.WORKFLOW})
     def create(self,t):
         n=max(self.data,default=0)+1
