@@ -13,22 +13,24 @@ VALID_SKILLS = {'vocabulary', 'grammar', 'reading', 'listening', 'speaking', 'wr
 
 def resolve_safe_evidence_path(base_dir: str, rel_path: str) -> str:
     """Guarantees target file path resolves strictly within the authorized base sandbox."""
-    abs_base = os.path.abspath(base_dir)
-    target = os.path.abspath(os.path.join(abs_base, rel_path))
+    abs_base = os.path.realpath(base_dir)
+    target = os.path.realpath(os.path.join(abs_base, rel_path))
     if not (target.startswith(abs_base + os.sep) or target == abs_base):
         raise ValueError(f"SECURITY_VIOLATION: Path traversal detected outside sandbox: '{rel_path}'")
     return target
 
 def validate_cefr_record(record: dict) -> tuple:
+    if not isinstance(record, dict):
+        return False, "INVALID_RECORD: CEFR record must be an object"
     level = str(record.get('level', '')).strip().upper()
     skill = str(record.get('skill', '')).strip().lower()
-    term = str(record.get('term', '')).strip()
+    term = record.get('term')
 
     if level not in VALID_CEFR_LEVELS:
         return False, f"INVALID_CEFR_LEVEL: '{level}' (Allowed: {sorted(VALID_CEFR_LEVELS)})"
     if skill not in VALID_SKILLS:
         return False, f"INVALID_SKILL: '{skill}' (Allowed: {sorted(VALID_SKILLS)})"
-    if not term:
+    if not isinstance(term, str) or not term.strip():
         return False, "EMPTY_TERM: CEFR record must specify target lemma/term"
 
     return True, "CEFR_RECORD_VALID"

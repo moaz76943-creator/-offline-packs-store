@@ -1,4 +1,5 @@
 import os
+import json
 import tempfile
 import unittest
 import sys
@@ -6,7 +7,8 @@ sys.path.insert(0, os.path.abspath('.'))
 
 from tools.cefr_validation.cefr_evidence_validator import (
     resolve_safe_evidence_path,
-    validate_cefr_record
+    validate_cefr_record,
+    run_cefr_audit
 )
 
 class TestCefrEvidenceValidator(unittest.TestCase):
@@ -26,6 +28,27 @@ class TestCefrEvidenceValidator(unittest.TestCase):
     def test_valid_safe_path_resolves(self):
         resolved = resolve_safe_evidence_path(self.temp_dir.name, "evidence/cefr_a1.json")
         self.assertTrue(resolved.startswith(self.temp_dir.name))
+
+    def test_symlink_files_and_directories_cannot_escape_sandbox(self):
+        with tempfile.TemporaryDirectory() as outside:
+            victim = os.path.join(outside, 'victim.json')
+            with open(victim, 'w') as stream:
+                stream.write('preserve external data')
+            source = os.path.join(self.temp_dir.name, 'input.json')
+            with open(source, 'w') as stream:
+                json.dump({'records': [{'level': 'B1', 'skill': 'vocabulary', 'term': 'Haus'}]}, stream)
+            os.symlink(victim, os.path.join(self.temp_dir.name, 'output.json'))
+            os.symlink(outside, os.path.join(self.temp_dir.name, 'directory'))
+            for path in ('output.json', 'directory/new.json'):
+                with self.subTest(path=path), self.assertRaises(ValueError):
+                    run_cefr_audit(self.temp_dir.name, 'input.json', path)
+            with open(victim) as stream:
+                self.assertEqual(stream.read(), 'preserve external data')
+
+    def test_only_nonblank_string_terms_are_valid(self):
+        for term in (None, [], {}, True, 123, '', ' '):
+            with self.subTest(term=term):
+                self.assertFalse(validate_cefr_record({'level': 'B1', 'skill': 'vocabulary', 'term': term})[0])
 
     def test_valid_cefr_levels_and_skills(self):
         valid = {'level': 'B1', 'skill': 'vocabulary', 'term': 'Verhandlung'}
