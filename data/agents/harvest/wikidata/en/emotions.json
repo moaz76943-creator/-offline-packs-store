@@ -240,7 +240,7 @@
         "Q19358081"
       ],
       "record_id": "L25439",
-      "retrieval_date": "2026-10-30",
+      "retrieval_date": "2026-11-03",
       "revision": "2561726169",
       "schema_version": "1.0.0",
       "section": "emotions",
@@ -255,8 +255,8 @@
   "section": "emotions",
   "skipped": [
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q123356335"
+      "reason": "other_language",
+      "wikidata": "Q19358081"
     }
   ],
   "source": "harvest-wikidata"
