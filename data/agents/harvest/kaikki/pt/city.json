@@ -1,0 +1,538 @@
+{
+  "language": "pt",
+  "retrieval_date": "2026-11-03",
+  "rows": [
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q174",
+      "gloss": "São Paulo (a municipality, the state capital of São Paulo State, Brazil)",
+      "language": "pt",
+      "lemma": "São Paulo",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q174"
+      ],
+      "record_id": "en-São_Paulo-pt-name-qMxuqyVy",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-São_Paulo-pt-name-qMxuqyVy",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q174"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1353",
+      "gloss": "alternative spelling of Déli /Deli: Delhi (a megacity and union territory of India, containing the national capital New Delhi)",
+      "language": "pt",
+      "lemma": "Delhi",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1353"
+      ],
+      "record_id": "en-Delhi-pt-name-pUqxCVbz",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Delhi-pt-name-pUqxCVbz",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1353"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3130",
+      "gloss": "Sydney (a major port city, the state capital of New South Wales, Australia, and the most populous city in Australia)",
+      "language": "pt",
+      "lemma": "Sydney",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "en-Sydney-pt-name-FkVs0yR4",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Sydney-pt-name-FkVs0yR4",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2096",
+      "gloss": "Edmonton (the capital city of Alberta, Canada)",
+      "language": "pt",
+      "lemma": "Edmonton",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2096"
+      ],
+      "record_id": "en-Edmonton-pt-name-YzHKhCm2",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Edmonton-pt-name-YzHKhCm2",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2096"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q172",
+      "gloss": "Toronto (the capital city of Ontario, Canada and the largest city in Canada)",
+      "language": "pt",
+      "lemma": "Toronto",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q172"
+      ],
+      "record_id": "en-Toronto-pt-name-UPG6jrnu",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Toronto-pt-name-UPG6jrnu",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q172"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q43463",
+      "gloss": "Fortaleza (a municipality, the state capital of Ceará, Brazil)",
+      "language": "pt",
+      "lemma": "Fortaleza",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q43463"
+      ],
+      "record_id": "en-Fortaleza-pt-name-pb~J~uXv",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Fortaleza-pt-name-pb~J~uXv",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q43463"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1865",
+      "gloss": "Kuala Lumpur (a federal territory, the capital and largest city of Malaysia, located in the western part of the country)",
+      "language": "pt",
+      "lemma": "Kuala Lumpur",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1865"
+      ],
+      "record_id": "en-Kuala_Lumpur-pt-name-YECvoVCk",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Kuala_Lumpur-pt-name-YECvoVCk",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1865"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q8646",
+      "gloss": "Hong Kong (a city, island and special administrative region in southeastern China)",
+      "language": "pt",
+      "lemma": "Hong Kong",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q8646"
+      ],
+      "record_id": "en-Hong_Kong-pt-name-aBkX2cs9",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Hong_Kong-pt-name-aBkX2cs9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8646"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3640",
+      "gloss": "alternative spelling of Ancara:",
+      "language": "pt",
+      "lemma": "Ankara",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3640"
+      ],
+      "record_id": "en-Ankara-pt-name-PwF53Ur6",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Ankara-pt-name-PwF53Ur6",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3640"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1492",
+      "gloss": "Barcelona (the capital city of Catalonia, Spain)",
+      "language": "pt",
+      "lemma": "Barcelona",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1492"
+      ],
+      "record_id": "en-Barcelona-pt-name-q5fjfiDZ",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Barcelona-pt-name-q5fjfiDZ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1492"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q10686",
+      "gloss": "Belfast (the capital and largest city of Northern Ireland)",
+      "language": "pt",
+      "lemma": "Belfast",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q10686"
+      ],
+      "record_id": "en-Belfast-pt-name-yUAqa6LH",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Belfast-pt-name-yUAqa6LH",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q10686"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1563",
+      "gloss": "Havana (the capital city of Cuba)",
+      "language": "pt",
+      "lemma": "Havana",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1563"
+      ],
+      "record_id": "en-Havana-pt-name-VCYmccvm",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Havana-pt-name-VCYmccvm",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1563"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q8673",
+      "gloss": "Lagos (the largest city and former capital of Nigeria, in Lagos State)",
+      "language": "pt",
+      "lemma": "Lagos",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q8673"
+      ],
+      "record_id": "en-Lagos-pt-name-4f1sI57m",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Lagos-pt-name-4f1sI57m",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8673"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q65",
+      "gloss": "Los Angeles (a city and port, the county seat of Los Angeles County, the largest city in California, and the 2nd largest in the United States, famed for being the center of the American film industry)",
+      "language": "pt",
+      "lemma": "Los Angeles",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q65"
+      ],
+      "record_id": "en-Los_Angeles-pt-name-eZIJB0lS",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Los_Angeles-pt-name-eZIJB0lS",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q65"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2467",
+      "gloss": "Nassau (the capital city of the Bahamas)",
+      "language": "pt",
+      "lemma": "Nassau",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2467"
+      ],
+      "record_id": "en-Nassau-pt-name-Zq3O977G",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Nassau-pt-name-Zq3O977G",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2467"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2656",
+      "gloss": "Palermo (a port city and comune, the capital of the Metropolitan City of Palermo and the region of Sicily, Italy)",
+      "language": "pt",
+      "lemma": "Palermo",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2656"
+      ],
+      "record_id": "en-Palermo-pt-name-xOYjWXyp",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Palermo-pt-name-xOYjWXyp",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2656"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q19689",
+      "gloss": "Tirana (a municipality, the capital and largest city of Albania, located in the center of the country west of the mountain of Dajti on the plain of Tirana; it is the seat of its eponymous county and municipality)",
+      "language": "pt",
+      "lemma": "Tirana",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q19689"
+      ],
+      "record_id": "en-Tirana-pt-name-FYI7MqH9",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Tirana-pt-name-FYI7MqH9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q19689"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2028",
+      "gloss": "Verona (a city, the capital of the province of Verona, straddling the river Adige in Veneto, northern Italy)",
+      "language": "pt",
+      "lemma": "Verona",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2028"
+      ],
+      "record_id": "en-Verona-pt-name-xTOkPvvF",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Verona-pt-name-xTOkPvvF",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2028"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1897",
+      "gloss": "Cagliari (a port city and comune, the capital of the province of Cagliari and of Sardinia as a whole)",
+      "language": "pt",
+      "lemma": "Cagliari",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1897"
+      ],
+      "record_id": "en-Cagliari-pt-name-rXiogL~T",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Cagliari-pt-name-rXiogL~T",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1897"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1308",
+      "gloss": "Como (a city and comune, the capital of the province of Como, Lombardy)",
+      "language": "pt",
+      "lemma": "Como",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1308"
+      ],
+      "record_id": "en-Como-pt-name-6GmGPyEa",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Como-pt-name-6GmGPyEa",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1308"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q38511",
+      "gloss": "Turku (a municipality, the capital city of the region of Southwest Finland)",
+      "language": "pt",
+      "lemma": "Turku",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q38511"
+      ],
+      "record_id": "en-Turku-pt-name-dYYnxYHT",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Turku-pt-name-dYYnxYHT",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q38511"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1780",
+      "gloss": "Bratislava (the capital city of Slovakia)",
+      "language": "pt",
+      "lemma": "Bratislava",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "en-Bratislava-pt-name-TXoGHhtI",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bratislava-pt-name-TXoGHhtI",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [],
+  "source": "harvest-kaikki"
+}
