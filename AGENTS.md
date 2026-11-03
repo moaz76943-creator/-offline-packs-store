@@ -13,7 +13,7 @@ The legal license check and the content-policy filter (alcohol Q154, gambling Q1
 GPL, CC-BY-SA-3.0, NC, ND, UniMorph, Apertium and unverified OmegaWiki stay out.
 There is no paid API and no synthetic vocabulary.
 
-The public-pr-merge-gate stays. It rejects CI-skip tokens and is required for pull requests into `main`.
+The public-pr-merge-gate stays required for pull requests into `main`. Commit-level `[skip ci]` text is permitted; it is not an independent veto. GitHub may suppress a required run for a skipped PR tip; absent or skipped checks are never passing evidence, and a reviewed non-skipping integration tip can request a real hosted run.
 Bot output does not open a pull request, because a `GITHUB_TOKEN` pull request does not run that gate.
 
 | Agent | Schedule (UTC) | Workflow |

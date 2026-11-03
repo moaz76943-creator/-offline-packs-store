@@ -51,13 +51,19 @@ class InventoryTests(unittest.TestCase):
         r=inventory.classify(pr,'ok', checks, [], ('public-pr-merge-gate',),'main',['tests/x.py'])
         self.assertIn('NOT_RUN:public-pr-merge-gate',r['blockers'])
 
-    def test_detects_unsafe_main_target_and_tip_skip(self):
+    def test_skip_marker_is_neutral_but_real_blocks_remain(self):
         pr = self.example_pr(draft=False,base='main')
         r = inventory.classify(pr,'[skip ci]',[],[],(), 'staging/v2-full-platform',['lib/services/file.dart'])
         self.assertIn('BASE_REVIEW_REQUIRED', r['blockers'])
-        self.assertIn('SKIP_CI_TIP',r['blockers'])
+        self.assertNotIn('SKIP_CI_TIP',r['blockers'])
         self.assertIn('CI_POLICY_UNVERIFIED',r['blockers'])
         self.assertIn('SENSITIVE_SCOPE',r['blockers'])
+
+    def test_skip_marker_without_hosted_required_check_still_blocks(self):
+        pr = self.example_pr(draft=False)
+        r = inventory.classify(pr,'feat: docs [skip ci]',[],[],('public-pr-merge-gate',),'main',['tests/x.py'])
+        self.assertNotIn('SKIP_CI_TIP',r['blockers'])
+        self.assertIn('NOT_RUN:public-pr-merge-gate',r['blockers'])
 
     def test_author_approval_and_stale_review_are_not_valid(self):
         pr = self.example_pr(draft=False)

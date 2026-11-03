@@ -100,6 +100,18 @@ class PronunciationRegistry:
         self.records: Dict[str, Any] = {}
         self.repo_root = Path(repo_root).resolve() if repo_root is not None else _code_root()
         self._approved: Optional[Dict[str, Any]] = None
+        self._canonical_languages: Optional[set] = None
+
+    def _get_canonical_languages(self) -> set:
+        if self._canonical_languages is None:
+            registry_path = self.repo_root / "catalog" / "language_registry.v1.json"
+            try:
+                with open(registry_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                self._canonical_languages = {lang["id"] for lang in data.get("languages", [])}
+            except (OSError, ValueError) as exc:
+                raise ValueError("Missing or invalid canonical language registry") from exc
+        return self._canonical_languages
 
     def _generate_key(self, record: Dict[str, Any]) -> str:
         """Stable identity including locale and other variant fields.
@@ -160,6 +172,10 @@ class PronunciationRegistry:
     def add_record(self, record: Dict[str, Any]):
         """Validates and adds a pronunciation record to the registry."""
         self._validate_schema(record)
+
+        language = record.get("language")
+        if language and language not in self._get_canonical_languages():
+            raise ValueError(f"Language {language!r} is not a canonical 100-language identity")
 
         if record.get("source", {}).get("source_id") == "auto-gen-orthography":
             raise ValueError("Auto-generating pronunciation from orthographic spelling is not allowed")

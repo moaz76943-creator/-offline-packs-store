@@ -94,7 +94,7 @@ def verify_signed(receipt, public_key, pinned_key_sha256, kind):
             raise AcceptanceError('Ed25519 public key required')
         with tempfile.TemporaryDirectory(prefix='release-verify-') as d:
             msg = Path(d)/'msg'; sig = Path(d)/'sig'
-            msg.write_bytes(DOM + canonical(payload)); sig.write_bytes(signature)
+            msg.write_bytes(DOMAIN + canonical(payload)); sig.write_bytes(signature)
             subprocess.run(['openssl','pkeyutl','-verify','-pubin','-inkey',
                             str(public_key),'-rawin','-in',str(msg),'-sigfile',str(sig)],
                            capture_output=True,timeout=8,check=True)

@@ -325,10 +325,14 @@ def check_sqlite(path, language):
         if db.execute('SELECT COUNT(*) FROM lexicon_fts').fetchone()[0]!=counts['lexicon']:
             raise ValueError('FTS5 row count mismatch')
         # Actual MATCH is mandatory, not mere sqlite_master table existence.
-        word=db.execute('SELECT surface FROM lexicon WHERE language_code=? ORDER BY id LIMIT 1',(language,)).fetchone()[0]
-        query='"'+word.replace('"','""')+'"'
-        if not db.execute('SELECT 1 FROM lexicon_fts WHERE lexicon_fts MATCH ? LIMIT 1',(query,)).fetchone():
-            raise ValueError('FTS5 MATCH smoke test failed')
+        # Probe several rows and qualify the surface column: one unqualified
+        # MATCH cannot detect damaged surface/rowid mapping for other lexemes
+        # and still hits when only lemma or gloss still contains the word.
+        sample=db.execute('SELECT surface FROM lexicon WHERE language_code=? ORDER BY id LIMIT 5',(language,)).fetchall()
+        for (word,) in sample:
+            query='surface:"'+word.replace('"','""')+'"'
+            if not db.execute('SELECT 1 FROM lexicon_fts WHERE lexicon_fts MATCH ? LIMIT 1',(query,)).fetchone():
+                raise ValueError('FTS5 MATCH smoke test failed')
     return counts
 
 

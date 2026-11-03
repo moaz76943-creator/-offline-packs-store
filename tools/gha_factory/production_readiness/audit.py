@@ -19,9 +19,25 @@ PRODUCTION_TASKS = frozenset({'source_backed_real_worker'})
 
 
 def read_json(root, relative, maximum=2_000_000):
-    path = root / relative
-    if path.is_symlink() or not path.is_file() or path.stat().st_size > maximum:
-        raise ValueError('missing, symlinked or oversized repository input: ' + relative)
+    """Read only a bounded regular file beneath the selected repository root.
+
+    Check every path component, not just the final file: a symlinked parent
+    otherwise redirects the readiness audit outside its repository snapshot.
+    """
+    if not isinstance(relative, str) or not relative or '\\' in relative:
+        raise ValueError('unsafe repository input path')
+    rel = Path(relative)
+    if rel.is_absolute() or '..' in rel.parts or '.git' in rel.parts:
+        raise ValueError('unsafe repository input path')
+    base = Path(root).resolve()
+    path = base
+    for component in rel.parts:
+        path = path / component
+        if path.is_symlink():
+            raise ValueError('symlinked repository input path')
+    path = path.resolve()
+    if not path.is_relative_to(base) or not path.is_file() or path.stat().st_size > maximum:
+        raise ValueError('missing, unsafe or oversized repository input: ' + relative)
     return json.loads(path.read_text(encoding='utf-8'))
 
 

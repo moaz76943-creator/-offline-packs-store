@@ -1,0 +1,23 @@
+name: Factory worker handoff contract QA
+on:
+  pull_request:
+    paths:
+      - tools/factory_extensions/worker_handoff/**
+      - tests/factory_extensions/worker_handoff/**
+      - .github/workflows/factory_worker_handoff_qa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-handoff:
+    if: github.repository == 'moaz76943-creator/-offline-packs-store'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Deterministic handoff and historical v1 regression checks
+        run: |
+          python3 -m unittest discover -s tests/factory_extensions/worker_handoff -p 'test_*.py' -v
+          python3 -m unittest discover -s tests/gha_factory/dispatcher -p 'test_*.py' -v
