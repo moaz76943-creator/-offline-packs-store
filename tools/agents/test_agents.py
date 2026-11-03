@@ -32,6 +32,7 @@ from tools.agents.work import (
     grammar_for_language,
     legal_report,
     next_window,
+    production_report,
     qa_rows,
     shard_pairs,
     tune,
@@ -235,6 +236,32 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(duplicated['warnings'],
                          ['wikidata.lexemes: notice not loaded'])
 
+    def test_official_wikidata_cc0_notice_is_source_scoped_and_fail_closed(self):
+        """Official Wikidata structured-data notice never approves other texts."""
+        from tools.open_sources.assess import positive_match
+        notice_path = ROOT / 'legal/source_evidence/wikidata-structured-cc0.txt'
+        notice = notice_path.read_text(encoding='utf-8')
+        self.assertIn('https://www.wikidata.org/wiki/Wikidata:Copyright', notice)
+        self.assertIn('Lexeme', notice)
+        self.assertIn('CC0-1.0', notice)
+        self.assertTrue(positive_match(notice, 'CC0-1.0')[0])
+        self.assertFalse(positive_match(notice, 'CC-BY-SA-4.0')[0])
+        accepted = legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC0-1.0'},
+        ], {'wikidata.lexemes': notice})
+        self.assertEqual(accepted['problems'], [])
+        self.assertEqual(accepted['warnings'], [])
+        # Missing evidence remains degraded and unknown licenses stay blocked.
+        self.assertEqual(legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC0-1.0'}], {})['warnings'],
+                         ['wikidata.lexemes: notice not loaded'])
+        self.assertTrue(legal_report([
+            {'record_id': 'wikidata-L1', 'source_id': 'wikidata.lexemes',
+             'license_id': 'CC-BY-SA-4.0'}],
+            {'wikidata.lexemes': notice})['problems'])
+
     def test_janitor_cleanup_and_repair_do_not_force_or_touch_main(self):
         green = {
             'branch': 'cursor/example-cf19',
@@ -295,6 +322,62 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(dispatch_batch(['a', 'b', 'c', 'd'], cap=3), ['a', 'b', 'c'])
         self.assertEqual(urls_well_formed(['https://example.com', 'http://nope']), ['http://nope'])
 
+    def test_wikidata_api_errors_and_malformed_payloads_are_not_empty_sources(self):
+        from tools.agents.harvest import search_lexemes, load_lexemes
+        for payload in ({'error': {'code': 'maxlag', 'info': 'Waiting for replica'}},
+                        {}, {'query': {'search': None}},
+                        {'query': {'search': [{'title': 'not-a-lexeme'}]}}, []):
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                search_lexemes('Q144', fetch=lambda _url: payload)
+        for payload in ({'error': {'code': 'badvalue'}}, {}, {'entities': []}):
+            with self.subTest(payload=payload), self.assertRaises(ValueError):
+                load_lexemes(['L1'], fetch=lambda _url: payload)
+        self.assertEqual(search_lexemes('Q144', fetch=lambda _url: {
+            'query': {'search': []}}), [])
+        self.assertEqual(search_lexemes('Q144', fetch=lambda _url: {
+            'query': {'search': [{'title': 'Lexeme:L34727'}]}}), ['L34727'])
+        self.assertEqual(load_lexemes([], fetch=lambda _url: self.fail('empty request')), {})
+
+    def test_wikidata_http_retry_is_bounded_and_does_not_mask_errors(self):
+        import io
+        from urllib.error import HTTPError
+        from unittest import mock
+        from tools.agents import harvest
+        url = 'https://www.wikidata.org/w/api.php?action=query'
+        def http(code, retry_after=None):
+            headers = {} if retry_after is None else {'Retry-After': retry_after}
+            return HTTPError(url, code, 'synthetic source failure', headers, None)
+        valid = b'{"query":{"search":[]}}'
+        with (mock.patch.object(harvest.urllib.request, 'urlopen',
+                                side_effect=[http(429, '2'), io.BytesIO(valid)]) as request,
+              mock.patch.object(harvest.time, 'sleep') as sleep):
+            self.assertEqual(harvest.fetch_json(url), {'query': {'search': []}})
+            self.assertEqual(request.call_count, 2)
+            sleep.assert_any_call(2)
+        with (mock.patch.object(harvest.urllib.request, 'urlopen',
+                                side_effect=[http(503), http(503), io.BytesIO(valid)]) as request,
+              mock.patch.object(harvest.time, 'sleep') as sleep):
+            self.assertEqual(harvest.fetch_json(url), {'query': {'search': []}})
+            self.assertEqual(request.call_count, 3)
+            sleep.assert_any_call(1)
+            sleep.assert_any_call(2)
+        for error in (http(404), http(429, '120'), http(429, 'invalid')):
+            with self.subTest(code=error.code, after=error.headers.get('Retry-After')):
+                with (mock.patch.object(harvest.urllib.request, 'urlopen', side_effect=error) as request,
+                      mock.patch.object(harvest.time, 'sleep')):
+                    with self.assertRaises(HTTPError):
+                        harvest.fetch_json(url)
+                    self.assertEqual(request.call_count, 1)
+        with (mock.patch.object(harvest.urllib.request, 'urlopen',
+                                side_effect=[http(429), http(429), http(429)]) as request,
+              mock.patch.object(harvest.time, 'sleep')):
+            with self.assertRaises(HTTPError):
+                harvest.fetch_json(url)
+            self.assertEqual(request.call_count, 3)
+        with mock.patch.object(harvest, 'fetch_bytes', return_value=b' ' * 2_000_001):
+            with self.assertRaisesRegex(harvest.SourceAPIError, 'oversized'):
+                harvest.fetch_json(url)
+
     def test_wikidata_harvest_rotates_attested_concepts_between_runs(self):
         """Two scheduled harvests must not retry the same first concepts."""
         import argparse
@@ -321,9 +404,9 @@ class ContractTests(unittest.TestCase):
             }]}
             attempted = []
 
-            def observed_query(qid):
+            def observed_query(qid, **_kwargs):
                 attempted.append(qid)
-                return []
+                return [], 0
 
             with (mock.patch.object(agent_cli, 'ROOT', root),
                   mock.patch.object(agent_cli, 'OUT', root / 'output'),
@@ -332,7 +415,7 @@ class ContractTests(unittest.TestCase):
                       'languages': [{'id': 'de', 'wikidata': 'Q188'}]}),
                   mock.patch.object(agent_cli, 'load_profiles', return_value={
                       'languages': [{'id': 'de', 'script': 'Latn'}]}),
-                  mock.patch.object(source, 'search_lexemes', side_effect=observed_query),
+                  mock.patch.object(source, 'search_lexeme_page', side_effect=observed_query),
                   mock.patch.object(source, 'load_lexemes', return_value={}),
                   mock.patch.dict(os.environ, {'AGENTS_HALT': '',
                                                'LANGUAGE_PRODUCTION_HALT': ''})):
@@ -352,6 +435,192 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(json.loads(cursor.read_text())['next_index'], 0)
             self.assertFalse(list((root / 'output/data/agents/packs').glob('*.sqlite'))
                              if (root / 'output/data/agents/packs').exists() else [])
+
+    def test_wikidata_pagination_checkpoint_resumes_and_preserves_failed_page(self):
+        import argparse
+        import shutil
+        import urllib.parse
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.cat', 'concepts': [{'id': 'concept.cat', 'wikidata': 'Q146'}],
+        }]}]}
+        requested = []
+        fail_page = [True]
+        def api(url):
+            query = urllib.parse.parse_qs(urllib.parse.urlsplit(url).query)
+            self.assertEqual(query['srsort'], ['create_timestamp_asc'])
+            offset = int(query['sroffset'][0])
+            requested.append(offset)
+            if offset == 16 and fail_page[0]:
+                fail_page[0] = False
+                raise OSError('interrupted')
+            if offset == 16:
+                return {'query': {'search': []}}
+            return {'query': {'search': [{'title': 'Lexeme:L' + str(offset + 1)}]},
+                    'continue': {'sroffset': offset + 8}}
+        search = harvest.search_lexeme_page
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / 'state/agents'
+            state.mkdir(parents=True)
+            (state / 'harvest-wikidata-cursor.json').write_text(json.dumps({
+                'schema_version': '1.0.0', 'next_index': 0,
+                'search_offsets': {'Q146': 'invalid', 'Q999': 8},
+            }))
+            with (mock.patch.object(cli, 'ROOT', root),
+                  mock.patch.object(cli, 'OUT', root / 'out'),
+                  mock.patch.object(cli, 'load_graph', return_value=graph),
+                  mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                  mock.patch.object(cli, '_halt', return_value=False),
+                  mock.patch.object(harvest, 'search_lexeme_page', side_effect=lambda q, **kw: search(q, fetch=api, **kw)),
+                  mock.patch.object(harvest, 'load_lexemes', side_effect=lambda ids: {x: {} for x in ids}),
+                  mock.patch.object(harvest, 'rows_from_lexeme', return_value=([], 'other_language'))):
+                for code, next_offset in [(0, 8), (0, 16), (1, 16), (0, 0), (0, 8)]:
+                    self.assertEqual(cli.command_harvest(argparse.Namespace(name='harvest-wikidata')), code)
+                    cursor = root / 'out/state/agents/harvest-wikidata-cursor.json'
+                    saved = json.loads(cursor.read_text())
+                    self.assertEqual(saved['search_offsets'].get('Q146', 0), next_offset)
+                    self.assertNotIn('Q999', saved['search_offsets'])
+                    shutil.copyfile(cursor, state / cursor.name)
+        self.assertEqual(requested, [0, 8, 16, 16, 0])
+        for continuation in ({'sroffset': 8}, {'sroffset': -1}, {'sroffset': True},
+                             {'sroffset': 0}, {}, {'continue': '-||'}, []):
+            with self.subTest(continuation=continuation), self.assertRaises(ValueError):
+                search('Q146', offset=8, fetch=lambda _url: {
+                    'query': {'search': []}, 'continue': continuation})
+
+    def test_wikidata_source_failure_is_not_successful_empty_harvest(self):
+        import argparse
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.cat', 'concepts': [{'id': 'concept.cat', 'wikidata': 'Q146'}],
+        }]}]}
+        for error in (OSError('network unavailable'),
+                      harvest.SourceAPIError('Wikidata API error: maxlag')):
+            with self.subTest(error=type(error).__name__), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                with (mock.patch.object(cli, 'ROOT', root),
+                      mock.patch.object(cli, 'OUT', root / 'out'),
+                      mock.patch.object(cli, 'load_graph', return_value=graph),
+                      mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                      mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                      mock.patch.object(cli, '_halt', return_value=False),
+                      mock.patch.object(harvest, 'search_lexeme_page', side_effect=error)):
+                    self.assertEqual(cli.command_harvest(
+                        argparse.Namespace(name='harvest-wikidata')), 1)
+                report = json.loads((root / 'out/state/agents/harvest-wikidata-report.json').read_text())
+                self.assertEqual(report['source_errors'], 1)
+                self.assertEqual(report['accepted_rows'], 0)
+                self.assertEqual(report['outcomes'][0]['status'], 'SOURCE_ERROR')
+                heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
+                self.assertEqual(heartbeat['status'], 'failed')
+
+    def test_wikidata_http_error_after_written_rows_is_degraded_not_failed(self):
+        """One concept's HTTP failure must not fail a run that already stored rows."""
+        import argparse
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import cli, harvest
+        graph = {'sections': [{'id': 'animals', 'subsections': [{
+            'id': 'animals.examples', 'concepts': [
+                {'id': 'concept.cat', 'wikidata': 'Q146'},
+                {'id': 'concept.dog', 'wikidata': 'Q144'},
+            ],
+        }]}]}
+
+        def search(qid, offset=0, limit=20):
+            if qid == 'Q144':
+                raise urllib.error.HTTPError(
+                    'https://www.wikidata.org/w/api.php', 503, 'unavailable',
+                    email.message.Message(), None)
+            return ['L1'], 0
+
+        def rows(_entity, concept, *_args):
+            return ([{
+                'language': 'de',
+                'section': 'animals',
+                'concept_id': concept['concept_id'],
+                'wikidata': concept['wikidata'],
+                'lemma': 'Katze',
+                'source_id': 'wikidata.lexemes',
+                'record_id': 'L1',
+                'license_id': 'CC0-1.0',
+                'retrieval_date': '2026-10-25',
+                'status': 'keep',
+            }], 'keep')
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            with (mock.patch.object(cli, 'ROOT', root),
+                  mock.patch.object(cli, 'OUT', root / 'out'),
+                  mock.patch.object(cli, 'load_graph', return_value=graph),
+                  mock.patch.object(cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(cli, 'load_profiles', return_value={'languages': []}),
+                  mock.patch.object(cli, '_halt', return_value=False),
+                  mock.patch.object(harvest, 'search_lexeme_page', side_effect=search),
+                  mock.patch.object(harvest, 'load_lexemes', return_value={'L1': {'id': 'L1'}}),
+                  mock.patch.object(harvest, 'rows_from_lexeme', side_effect=rows)):
+                self.assertEqual(cli.command_harvest(
+                    argparse.Namespace(name='harvest-wikidata')), 0)
+            report = json.loads((root / 'out/state/agents/harvest-wikidata-report.json').read_text())
+            self.assertEqual(report['source_errors'], 1)
+            self.assertEqual(report['accepted_rows'], 1)
+            failed = [item for item in report['outcomes'] if item['status'] == 'SOURCE_ERROR']
+            self.assertEqual(failed[0]['reason'], 'HTTPError:503')
+            saved = json.loads((root / 'out/data/agents/harvest/wikidata/de/animals.json').read_text())
+            self.assertEqual([row['lemma'] for row in saved['rows']], ['Katze'])
+            heartbeat = json.loads((root / 'out/state/agents/harvest-wikidata.json').read_text())
+            self.assertEqual(heartbeat['status'], 'degraded')
+
+    def test_transient_http_is_retried_and_client_errors_are_not(self):
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import harvest
+
+        class Body:
+            def __init__(self, payload):
+                self.payload = payload
+
+            def read(self, _n):
+                return self.payload
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *_args):
+                return False
+
+        pauses = []
+        calls = {'n': 0}
+
+        def opener(*_args, **_kwargs):
+            calls['n'] += 1
+            if calls['n'] == 1:
+                raise urllib.error.HTTPError(
+                    'https://www.wikidata.org/w/api.php', 503, 'unavailable',
+                    email.message.Message(), None)
+            return Body(b'{"ok":true}')
+
+        with mock.patch('urllib.request.urlopen', side_effect=opener):
+            payload = harvest.fetch_bytes('https://www.wikidata.org/w/api.php', pause=pauses.append)
+        self.assertEqual(payload, b'{"ok":true}')
+        self.assertEqual(calls['n'], 2)
+        self.assertEqual(pauses, [1])
+
+        def client_error(*_args, **_kwargs):
+            raise urllib.error.HTTPError(
+                'https://www.wikidata.org/w/api.php', 404, 'missing',
+                email.message.Message(), None)
+
+        with mock.patch('urllib.request.urlopen', side_effect=client_error) as client:
+            with self.assertRaises(urllib.error.HTTPError):
+                harvest.fetch_bytes('https://www.wikidata.org/w/api.php', pause=pauses.append)
+        self.assertEqual(client.call_count, 1)
 
     def test_harvest_preserves_previous_verified_concepts_across_windows(self):
         """Real checkpoint publication must not clobber earlier language rows."""
@@ -401,7 +670,7 @@ class ContractTests(unittest.TestCase):
                       'languages': [{'id': 'de', 'wikidata': 'Q188'}]}),
                   mock.patch.object(agent_cli, 'load_profiles', return_value={
                       'languages': [{'id': 'de', 'script': 'Latn'}]}),
-                  mock.patch.object(source, 'search_lexemes', side_effect=lambda q: [q]),
+                  mock.patch.object(source, 'search_lexeme_page', side_effect=lambda q, **_kwargs: ([q], 0)),
                   mock.patch.object(source, 'load_lexemes',
                                     side_effect=lambda ids: {x: {'id': x} for x in ids}),
                   mock.patch.object(source, 'rows_from_lexeme', side_effect=synthetic_row),
@@ -448,6 +717,32 @@ class ContractTests(unittest.TestCase):
             self.assertEqual(heartbeat['status'], 'degraded')
             self.assertIn('degraded=2', heartbeat['warning'])
 
+    def test_tatoeba_truncated_bzip2_prefix_keeps_only_complete_attributed_rows(self):
+        """Bounded downloads are valid BZip2 prefixes, not finished streams."""
+        import bz2
+        from unittest import mock
+        from tools.agents import harvest as source
+
+        tsv = (
+            '100\ttur\tMerhaba.\tAuthor 1\n'
+            '101\ttur\tNeredesin?\tAuthor 2\n'
+            '102\ttur\tNo author\t\n'
+        ).encode('utf-8')
+        compressed = bz2.compress(tsv)
+        # The on-wire 1.5 MB sample can end before the stream's end marker.
+        prefix = compressed[:-5]
+        with mock.patch.object(source, 'fetch_bytes', return_value=prefix):
+            rows = source.tatoeba_sample('tur', limit=10)
+        self.assertEqual([row['record_id'] for row in rows],
+                         ['tatoeba:100', 'tatoeba:101'])
+        self.assertEqual([row['author'] for row in rows],
+                         ['Author 1', 'Author 2'])
+        self.assertEqual(rows[1]['sentence_slot'], 'sentence.question')
+
+        with mock.patch.object(source, 'fetch_bytes', return_value=compressed):
+            complete = source.tatoeba_sample('tur', limit=10)
+        self.assertEqual(complete, rows)
+
     def test_tatoeba_harvest_rotates_supported_real_language_codes(self):
         import argparse
         import os
@@ -464,14 +759,18 @@ class ContractTests(unittest.TestCase):
             state = root / 'state/agents'
             state.mkdir(parents=True)
             calls = []
-            def samples(code):
+            def samples(code, limit=40, skip=0, max_bytes=1_500_000):
                 calls.append(code)
-                return [{
-                    'record_id': 'tatoeba:' + code,
-                    'text': 'Example sentence ' + code,
-                    'author': 'Test Author',
-                    'sentence_slot': 'sentence.statement',
-                }]
+                return {
+                    'rows': [{
+                        'record_id': 'tatoeba:' + code,
+                        'text': 'Example sentence ' + code,
+                        'author': 'Test Author',
+                        'sentence_slot': 'sentence.statement',
+                    }],
+                    'next_skip': skip + 1,
+                    'exhausted': False,
+                }
             languages = [
                 {'id': 'de', 'wikidata': 'Q188'},
                 {'id': 'en', 'wikidata': 'Q1860'},
@@ -484,7 +783,7 @@ class ContractTests(unittest.TestCase):
                   mock.patch.object(agent_cli, 'load_profiles', return_value={'languages': [
                       {'id': lang['id'], 'script': 'Latn'} for lang in languages]}),
                   mock.patch.object(source, 'accept_notice', return_value=True),
-                  mock.patch.object(source, 'tatoeba_sample', side_effect=samples),
+                  mock.patch.object(source, 'tatoeba_window', side_effect=samples),
                   mock.patch.dict(os.environ, {'AGENTS_HALT': '',
                                                'LANGUAGE_PRODUCTION_HALT': ''})):
                 for _ in range(3):
@@ -667,10 +966,348 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(len(calls), 2)
         root = Path(__file__).resolve().parents[2]
         workflow = (root / '.github/workflows/agent_tests.yml').read_text(encoding='utf-8')
-        self.assertIn('python3 -m unittest tools.agents.test_agents -q', workflow)
+        self.assertIn("python3 -m unittest discover -s tools/agents -p 'test_*.py' -q", workflow)
         self.assertNotIn('legal.ledger.test_license_notice', workflow)
         publish = (root / 'tools/agents/publish.sh').read_text(encoding='utf-8')
         self.assertNotIn('while', publish)
+
+
+    def test_ud_scriptless_sentence_dropped_and_old_row_quarantined(self):
+        """Reject non-language separators without deleting their provenance."""
+        import argparse
+        from unittest import mock
+        from tools.agents import cli as agent_cli, harvest
+
+        sample = (
+            '# sent_id = valid-one\n'
+            '# text = An English sentence.\n'
+            '# sent_id = invalid-two\n'
+            '# text = ***\n'
+        ).encode('utf-8')
+        with mock.patch.object(harvest, 'fetch_bytes', return_value=sample):
+            records = harvest.ud_sample(limit=12)
+        self.assertEqual([row['record_id'] for row in records], ['ud:en_ewt:valid-one'])
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            prior = root / 'data/agents/harvest/ud/en/grammar.json'
+            prior.parent.mkdir(parents=True)
+            bad = {
+                'language': 'en', 'section': 'grammar',
+                'text': '***', 'source_id': 'universal-dependencies',
+                'record_id': 'ud:en_ewt:invalid-two',
+                'license_id': 'CC-BY-SA-4.0', 'retrieval_date': '2026-10-20',
+            }
+            previous = {
+                'schema_version': '1.0.0', 'source': 'harvest-ud',
+                'language': 'en', 'section': 'grammar', 'rows': [bad],
+            }
+            prior.write_text(json.dumps(previous), encoding='utf-8')
+            evidence = root / 'legal/source_evidence/ud-english-ewt-license.txt'
+            evidence.parent.mkdir(parents=True)
+            evidence.write_text('fixture notice', encoding='utf-8')
+            args = argparse.Namespace(name='harvest-ud')
+            patches = (
+                mock.patch.object(agent_cli, 'ROOT', root),
+                mock.patch.object(agent_cli, 'OUT', root / 'out'),
+                mock.patch.object(agent_cli, 'load_languages', return_value={'languages': []}),
+                mock.patch.object(agent_cli, 'load_profiles', return_value={
+                    'languages': [{'id': 'en', 'script': 'Latn'}]}),
+                mock.patch.object(agent_cli, 'load_graph', return_value={'sections': []}),
+                mock.patch.object(agent_cli, 'concept_rows', return_value=[]),
+                mock.patch.object(agent_cli, 'next_window', return_value=([], 0, '')),
+                mock.patch.object(harvest, 'accept_notice', return_value=True),
+                mock.patch.object(harvest, 'ud_window', return_value={
+                    'rows': [{
+                        'text': 'An English sentence.', 'record_id': 'ud:en_ewt:valid-one',
+                        'sentence_slot': 'sentence.statement'}],
+                    'next_skip': 1,
+                    'exhausted': False,
+                }),
+            )
+            with patches[0], patches[1], patches[2], patches[3], patches[4], \
+                    patches[5], patches[6], patches[7], patches[8]:
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            saved = json.loads((root / 'out/data/agents/harvest/ud/en/grammar.json').read_text())
+            self.assertEqual([row['record_id'] for row in saved['rows']],
+                             ['ud:en_ewt:valid-one'])
+            self.assertEqual(saved['quarantined_rows'], [bad])
+            # A second scheduled run must keep audit evidence and must not
+            # restore the bad row or duplicate accepted source identities.
+            prior.write_text(json.dumps(saved), encoding='utf-8')
+            with patches[0], patches[1], patches[2], patches[3], patches[4], \
+                    patches[5], patches[6], patches[7], patches[8]:
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            repeated = json.loads(
+                (root / 'out/data/agents/harvest/ud/en/grammar.json').read_text())
+            self.assertEqual(repeated['rows'], saved['rows'])
+            self.assertEqual(repeated['quarantined_rows'], [bad])
+
+
+class KaikkiHarvestTests(unittest.TestCase):
+    """The German extract is scanned by range. Anchored senses are real rows."""
+
+    def _concept(self):
+        return {'Q3947': [{
+            'concept_id': 'concept.house', 'section': 'city',
+            'subsection': 'buildings', 'wikidata': 'Q3947',
+        }]}
+
+    def test_catalog_anchor_with_sense_id_is_stored_without_a_revision(self):
+        from tools.agents import harvest
+        rows = harvest.rows_from_kaikki_record({
+            'word': 'Haus', 'lang_code': 'de', 'pos': 'noun',
+            'senses': [{'id': 'de-Haus-noun-1', 'glosses': ['house'], 'wikidata': ['Q3947']}],
+        }, self._concept(), {'de': {'script': 'Latn'}}, '2026-10-25')
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]['record_id'], 'de-Haus-noun-1')
+        self.assertEqual(rows[0]['license_id'], 'CC-BY-SA-4.0')
+        self.assertEqual(rows[0]['source_id'], 'kaikki.wiktextract')
+        self.assertEqual(rows[0]['lemma'], 'Haus')
+        self.assertEqual(rows[0]['co_offered'], ['GFDL-1.3-only'])
+        self.assertNotIn('revision', rows[0])
+
+    def test_blocked_unanchored_and_unidentified_senses_are_not_stored(self):
+        from tools.agents import harvest
+        profiles = {'de': {'script': 'Latn'}}
+        concepts = self._concept()
+        self.assertEqual(harvest.rows_from_kaikki_record({
+            'word': 'Wein', 'lang_code': 'de',
+            'senses': [{'id': 'de-Wein', 'wikidata': ['Q3947', 'Q154']}],
+        }, concepts, profiles, '2026-10-25'), [])
+        self.assertEqual(harvest.rows_from_kaikki_record({
+            'word': 'Haus', 'lang_code': 'de',
+            'senses': [{'id': 'de-Haus', 'wikidata': ['Q1']}],
+        }, concepts, profiles, '2026-10-25'), [])
+        self.assertEqual(harvest.rows_from_kaikki_record({
+            'word': 'Haus', 'lang_code': 'de',
+            'senses': [{'glosses': ['house'], 'wikidata': ['Q3947']}],
+        }, concepts, profiles, '2026-10-25'), [])
+
+    def test_window_aligns_to_newlines_and_rejects_an_ignored_range(self):
+        from tools.agents.harvest import SourceAPIError, kaikki_window
+        payload = b'{"word":"Haus"}\n{"word":"partial"'
+        data, nxt, eof = kaikki_window(0, fetch=lambda *_args: (200, None, payload))
+        self.assertEqual(data, b'{"word":"Haus"}\n')
+        self.assertEqual(nxt, len(b'{"word":"Haus"}\n'))
+        self.assertFalse(eof)
+        with self.assertRaises(SourceAPIError):
+            kaikki_window(40, fetch=lambda *_args: (200, None, payload))
+        header = 'bytes 40-45/100'
+        data, nxt, eof = kaikki_window(
+            40, fetch=lambda *_args: (206, header, b'abc\n'))
+        self.assertEqual((data, nxt, eof), (b'abc\n', 44, False))
+        data, nxt, eof = kaikki_window(
+            90, fetch=lambda *_args: (206, 'bytes 90-99/100', b'012345678\n'))
+        self.assertEqual((data, nxt, eof), (b'012345678\n', 0, True))
+        data, nxt, eof = kaikki_window(
+            100, fetch=lambda *_args: (416, None, b''))
+        self.assertEqual((data, nxt, eof), (b'', 0, True))
+
+    def test_urlopen_416_resets_instead_of_sticking_past_eof(self):
+        import email.message
+        import urllib.error
+        from unittest import mock
+        from tools.agents import harvest
+
+        def boom(*_args, **_kwargs):
+            raise urllib.error.HTTPError(
+                'https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl',
+                416, 'Range Not Satisfiable', email.message.Message(), None)
+
+        with mock.patch('urllib.request.urlopen', side_effect=boom):
+            data, nxt, eof = harvest.kaikki_window(8000)
+        self.assertEqual((data, nxt, eof), (b'', 0, True))
+
+    def test_scheduled_runs_advance_the_byte_cursor_and_keep_the_row(self):
+        import argparse
+        import shutil
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        from tools.agents import harvest
+
+        line = json.dumps({
+            'word': 'Haus', 'lang_code': 'de', 'pos': 'noun',
+            'senses': [{'id': 'de-Haus-noun-1', 'glosses': ['house'], 'wikidata': ['Q3947']}],
+        }, ensure_ascii=False).encode() + b'\n'
+        calls = []
+
+        def window(offset, url=None, size=None, fetch=None):
+            calls.append(offset)
+            if offset == 0:
+                return line, len(line), False
+            return b'', len(line), False
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'state/agents').mkdir(parents=True)
+            notice = root / 'legal/source_evidence/wiktionary-copyrights.txt'
+            notice.parent.mkdir(parents=True)
+            notice.write_text('CC BY-SA 4.0 and GFDL fixture', encoding='utf-8')
+            graph = {'sections': []}
+            args = argparse.Namespace(name='harvest-kaikki')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'out'),
+                  mock.patch.object(agent_cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(agent_cli, 'load_profiles', return_value={
+                      'languages': [{'id': 'de', 'script': 'Latn'}]}),
+                  mock.patch.object(agent_cli, 'load_graph', return_value=graph),
+                  mock.patch.object(agent_cli, 'concept_rows', return_value=[{
+                      'concept_id': 'concept.house', 'section': 'city',
+                      'subsection': 'buildings', 'wikidata': 'Q3947'}]),
+                  mock.patch.object(agent_cli, 'next_window', return_value=([], 1, '')),
+                  mock.patch.object(harvest, 'accept_notice', return_value=True),
+                  mock.patch.object(harvest, 'kaikki_window', side_effect=window)):
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+                saved = json.loads((root / 'out/data/agents/harvest/kaikki/de/city.json').read_text())
+                self.assertEqual([row['lemma'] for row in saved['rows']], ['Haus'])
+                cursor = json.loads((root / 'out/state/agents/harvest-kaikki-cursor.json').read_text())
+                self.assertEqual(cursor['byte_offset'], len(line))
+                shutil.copyfile(
+                    root / 'out/state/agents/harvest-kaikki-cursor.json',
+                    root / 'state/agents/harvest-kaikki-cursor.json')
+                self.assertEqual(agent_cli.command_harvest(args), 0)
+            self.assertEqual(calls, [0, len(line), len(line)])
+            repeated = json.loads((root / 'out/data/agents/harvest/kaikki/de/city.json').read_text())
+            self.assertEqual(repeated['rows'], saved['rows'])
+
+    def test_ignored_upstream_range_fails_and_keeps_the_cursor(self):
+        import argparse
+        from unittest import mock
+        from tools.agents import cli as agent_cli
+        from tools.agents.harvest import SourceAPIError
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            state = root / 'state/agents'
+            state.mkdir(parents=True)
+            (state / 'harvest-kaikki-cursor.json').write_text(json.dumps({
+                'schema_version': '1.0.0', 'next_index': 0, 'byte_offset': 80,
+            }), encoding='utf-8')
+            notice = root / 'legal/source_evidence/wiktionary-copyrights.txt'
+            notice.parent.mkdir(parents=True)
+            notice.write_text('fixture', encoding='utf-8')
+            with (mock.patch.object(agent_cli, 'ROOT', root),
+                  mock.patch.object(agent_cli, 'OUT', root / 'out'),
+                  mock.patch.object(agent_cli, 'load_languages', return_value={'languages': []}),
+                  mock.patch.object(agent_cli, 'load_profiles', return_value={'languages': []}),
+                  mock.patch.object(agent_cli, 'load_graph', return_value={'sections': []}),
+                  mock.patch.object(agent_cli, 'concept_rows', return_value=[]),
+                  mock.patch.object(agent_cli, 'next_window', return_value=([], 0, '')),
+                  mock.patch.object(agent_cli, '_halt', return_value=False),
+                  mock.patch('tools.agents.harvest.kaikki_window',
+                             side_effect=SourceAPIError('kaikki range was not honored'))):
+                self.assertEqual(agent_cli.command_harvest(
+                    argparse.Namespace(name='harvest-kaikki')), 1)
+            cursor = json.loads((root / 'out/state/agents/harvest-kaikki-cursor.json').read_text())
+            self.assertEqual(cursor['byte_offset'], 80)
+            heartbeat = json.loads((root / 'out/state/agents/harvest-kaikki.json').read_text())
+            self.assertEqual(heartbeat['status'], 'failed')
+            self.assertFalse((root / 'out/data/agents/harvest/kaikki/de').exists())
+
+    def test_link_encoded_qid_matches_the_catalog_label(self):
+        from tools.agents import harvest
+        concepts = {'Q84': [{
+            'concept_id': 'concept.london', 'section': 'city',
+            'subsection': 'city.q515', 'wikidata': 'Q84', 'anchor_label': 'London',
+        }], 'Q65': [{
+            'concept_id': 'concept.la', 'section': 'city',
+            'subsection': 'city.q515', 'wikidata': 'Q65', 'anchor_label': 'Los Angeles',
+        }]}
+        profiles = {'de': {'script': 'Latn'}}
+        london = harvest.rows_from_kaikki_record({
+            'word': 'London', 'lang_code': 'de', 'pos': 'name',
+            'senses': [{
+                'id': 'en-London-de-name-1',
+                'glosses': ['London'],
+                'links': [['London', 'London#English:_Q84']],
+            }],
+        }, concepts, profiles, '2026-11-01')
+        self.assertEqual([row['wikidata'] for row in london], ['Q84'])
+        self.assertEqual(london[0]['source_id'], 'kaikki.wiktextract')
+        holland = harvest.rows_from_kaikki_record({
+            'word': 'Holland', 'lang_code': 'de', 'pos': 'name',
+            'senses': [{
+                'id': 'en-Holland-de-name-1',
+                'glosses': ['a historical province'],
+                'links': [['Holland', 'Holland#English:_Q65']],
+            }],
+        }, concepts, profiles, '2026-11-01')
+        self.assertEqual(holland, [])
+
+    def test_old_kaikki_cursor_restarts_until_the_new_extractor_is_stored(self):
+        from tools.agents.harvest import kaikki_resume
+        self.assertEqual(kaikki_resume({'byte_offset': 44847591}, 'de'), (0, True))
+        resumed, migrating = kaikki_resume({
+            'extractor': 'wikidata-link-v2',
+            'languages': {'de': {'byte_offset': 1200}},
+        }, 'de')
+        self.assertEqual((resumed, migrating), (1200, False))
+
+
+class SentenceContinuationTests(unittest.TestCase):
+    def test_sentence_rows_without_a_concept_qid_stay_classified(self):
+        placed = classify_row({
+            'language': 'en', 'section': 'sentences', 'text': "Let's try something.",
+            'sentence_slot': 'sentence.statement', 'source_id': 'tatoeba.sentences',
+            'record_id': 'tatoeba:1276', 'license_id': 'CC-BY-2.0-FR',
+            'retrieval_date': '2026-10-30', 'author': 'CK',
+        }, {})
+        self.assertEqual(placed['status'], 'keep')
+        self.assertEqual(placed['section'], 'sentences')
+        self.assertIn('level', placed)
+        missing = classify_row({
+            'language': 'en', 'lemma': 'house', 'source_id': 'wikidata.lexemes',
+            'record_id': 'L1', 'license_id': 'CC0-1.0', 'retrieval_date': '2026-11-01',
+        }, {})
+        self.assertEqual(missing['status'], 'unplaced')
+
+    def test_tatoeba_and_ud_windows_continue_past_the_first_page(self):
+        import bz2
+        from unittest import mock
+        from tools.agents import harvest as source
+
+        tsv = ''.join(f'{index}\teng\tSentence {index}.\tAuthor\n' for index in range(1, 6)).encode()
+        with mock.patch.object(source, 'fetch_bytes', return_value=bz2.compress(tsv)):
+            first = source.tatoeba_window('eng', limit=2, skip=0)
+            second = source.tatoeba_window('eng', limit=2, skip=first['next_skip'])
+        self.assertEqual([row['record_id'] for row in first['rows']], ['tatoeba:1', 'tatoeba:2'])
+        self.assertEqual([row['record_id'] for row in second['rows']], ['tatoeba:3', 'tatoeba:4'])
+        sample = (
+            '# sent_id = one\n# text = First sentence.\n'
+            '# sent_id = two\n# text = Second sentence.\n'
+            '# sent_id = three\n# text = Third sentence?\n'
+        ).encode()
+        with mock.patch.object(source, 'fetch_bytes', return_value=sample):
+            later = source.ud_sample(limit=1, skip=2)
+        self.assertEqual(later[0]['record_id'], 'ud:en_ewt:three')
+        self.assertEqual(later[0]['sentence_slot'], 'sentence.question')
+
+    def test_production_report_counts_sources_and_pack_bytes(self):
+        import sqlite3
+        rows = [
+            {'language': 'de', 'section': 'city', 'source_id': 'kaikki.wiktextract'},
+            {'language': 'en', 'section': 'sentences', 'source_id': 'tatoeba.sentences'},
+            {'language': 'en', 'section': 'grammar', 'source_id': 'universal-dependencies'},
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            pack = Path(tmp) / 'en.sqlite'
+            with sqlite3.connect(pack) as connection:
+                connection.execute(
+                    'CREATE TABLE entries (language TEXT, concept_id TEXT, lemma TEXT, '
+                    'source_id TEXT, record_id TEXT, license_id TEXT, retrieval_date TEXT)')
+                connection.execute(
+                    "INSERT INTO entries VALUES ('en','','Hello','tatoeba.sentences','t1','CC-BY-2.0-FR','2026-11-01')")
+            report = production_report(rows, [pack], classified_rows=rows[:1], generated_by='packs')
+        self.assertEqual(report['rows']['total'], 3)
+        self.assertEqual(report['rows']['by_source']['kaikki.wiktextract'], 1)
+        self.assertEqual(report['rows']['by_language_section']['en']['sentences'], 1)
+        self.assertEqual(report['classified']['by_source']['kaikki.wiktextract'], 1)
+        self.assertEqual(report['packs'][0]['language'], 'en')
+        self.assertGreater(report['packs'][0]['bytes'], 0)
+        self.assertEqual(report['packs'][0]['entries'], 1)
+        self.assertEqual(report['packs'][0]['sources']['tatoeba.sentences'], 1)
+        self.assertEqual(report['generated_by'], 'packs')
 
 
 # The existing agent CI command also runs real-git checkpoint regressions.

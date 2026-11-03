@@ -11,6 +11,7 @@ class SanitizerEngine:
     def __init__(self, registry_path: str = "catalog/language_registry.v1.json"):
         self.valid_languages: Set[str] = set()
         self.seen_identities: Set[str] = set()
+        self.seen_doc_ids: Set[str] = set()
         self._load_registry(registry_path)
 
     def _load_registry(self, registry_path: str) -> None:
@@ -90,6 +91,10 @@ class SanitizerEngine:
         if missing_keys:
             return self.STATUS_QUARANTINE, None, f"Missing required keys: {missing_keys}"
 
+        contract_version = record.get("contract_version")
+        if not isinstance(contract_version, str):
+            return self.STATUS_QUARANTINE, None, "contract_version must be a string"
+
         doc_id = record.get("document_id")
         if not doc_id or not isinstance(doc_id, str) or not doc_id.strip():
             return self.STATUS_QUARANTINE, None, "Empty or invalid document_id"
@@ -103,6 +108,9 @@ class SanitizerEngine:
             repaired_record["document_id"] = doc_id
             needs_repair = True
             reason = "Repaired leading/trailing spaces in document_id"
+
+        if doc_id in self.seen_doc_ids:
+            return self.STATUS_QUARANTINE, None, "Duplicate document_id detected"
 
         # Check languages and types
         lexemes = repaired_record.get("lexemes", [])
@@ -133,6 +141,12 @@ class SanitizerEngine:
             # Check lemma and surface for invalid unicode
             lemma = lexeme.get("lemma", "")
             surface = lexeme.get("surface", "")
+            pos = lexeme.get("pos", "")
+            if not isinstance(lemma, str) or not isinstance(surface, str):
+                 return self.STATUS_QUARANTINE, None, f"lemma and surface must be strings in lexeme {i}"
+            if "pos" in lexeme and not isinstance(pos, str):
+                 return self.STATUS_QUARANTINE, None, f"pos must be a string in lexeme {i}"
+
             if not self.check_valid_unicode(lemma) or not self.check_valid_unicode(surface):
                  return self.STATUS_QUARANTINE, None, f"Invalid Unicode in lexeme {i}"
 
@@ -165,9 +179,12 @@ class SanitizerEngine:
             if not sense.get("sense_id"):
                  return self.STATUS_QUARANTINE, None, f"Empty sense_id at index {i}"
 
-            definition = sense.get("definition")
-            if definition is not None and not self.check_valid_unicode(definition):
-                 return self.STATUS_QUARANTINE, None, f"Invalid Unicode in sense {i}"
+            if "definition" in sense:
+                definition = sense["definition"]
+                if not isinstance(definition, str):
+                     return self.STATUS_QUARANTINE, None, f"definition must be a string in sense {i}"
+                if not self.check_valid_unicode(definition):
+                     return self.STATUS_QUARANTINE, None, f"Invalid Unicode in sense {i}"
 
         # Translations check
         translations = repaired_record.get("translations", [])
@@ -186,7 +203,9 @@ class SanitizerEngine:
             # "Detect duplicate records using lexical and sense identity"
             return self.STATUS_QUARANTINE, None, "Duplicate record detected based on lexical and sense identity"
         else:
+            # Reserve identifiers only after every validation gate succeeded.
             self.seen_identities.add(identity_key)
+            self.seen_doc_ids.add(doc_id)
 
         if needs_repair:
             status = self.STATUS_REPAIRABLE
