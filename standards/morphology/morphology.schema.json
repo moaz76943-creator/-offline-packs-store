@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/morphology/morphology.schema.json",
+  "title": "Public multilingual morphology contract 1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["contract_version", "document_id", "forms"],
+  "properties": {
+    "contract_version": {"const": "1.0.0"},
+    "document_id": {"$ref": "#/$defs/id"},
+    "forms": {"type": "array", "items": {"$ref": "#/$defs/morphological_form"}}
+  },
+  "$defs": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9._:-]{2,127}$"},
+    "text": {"type": "string", "minLength": 1},
+    "optText": {"type": ["string", "null"], "minLength": 1},
+    "lang": {"type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_id", "origin_url", "publisher", "dataset_version", "retrieval_id", "license_id", "record_locator", "publication_approved", "fixture_only"],
+      "properties": {
+        "source_id": {"$ref": "#/$defs/id"},
+        "origin_url": {"type": "string", "pattern": "^https://[^\\s]+$"},
+        "publisher": {"$ref": "#/$defs/text"},
+        "dataset_version": {"$ref": "#/$defs/text"},
+        "retrieval_id": {"$ref": "#/$defs/text"},
+        "license_id": {"$ref": "#/$defs/text"},
+        "record_locator": {"$ref": "#/$defs/text"},
+        "artifact_sha256": {"type": ["string", "null"], "pattern": "^[a-f0-9]{64}$"},
+        "publication_approved": {"type": "boolean"},
+        "fixture_only": {"type": "boolean"}
+      }
+    },
+    "featureMap": {"type": "object", "additionalProperties": {"type": ["string", "number", "boolean", "null"]}},
+    "analysis": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "features": {"$ref": "#/$defs/featureMap"},
+        "root": {"$ref": "#/$defs/text"},
+        "pattern": {"$ref": "#/$defs/text"},
+        "prefixes": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "suffixes": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "morphemes": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "analytic_components": {"type": "array", "items": {"$ref": "#/$defs/id"}}
+      },
+      "anyOf": [
+        {"required": ["features"]},
+        {"required": ["root"]},
+        {"required": ["prefixes"]},
+        {"required": ["suffixes"]},
+        {"required": ["morphemes"]},
+        {"required": ["analytic_components"]}
+      ]
+    },
+    "morphological_form": {
+      "type": "object", "additionalProperties": false,
+      "required": ["form_id", "lemma_id", "form", "language", "analyses", "source"],
+      "properties": {
+        "form_id": {"$ref": "#/$defs/id"},
+        "lemma_id": {"$ref": "#/$defs/id"},
+        "form": {"$ref": "#/$defs/text"},
+        "language": {"$ref": "#/$defs/lang"},
+        "orthographic_variants": {"type": "array", "items": {"$ref": "#/$defs/text"}},
+        "transliteration": {"$ref": "#/$defs/optText"},
+        "analyses": {"type": "array", "items": {"$ref": "#/$defs/analysis"}, "minItems": 1},
+        "source": {"$ref": "#/$defs/source"}
+      }
+    }
+  }
+}
