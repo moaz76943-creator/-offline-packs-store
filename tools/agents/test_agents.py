@@ -32,6 +32,7 @@ from tools.agents.work import (
     grammar_for_language,
     legal_report,
     next_window,
+    production_report,
     qa_rows,
     shard_pairs,
     tune,
@@ -531,7 +532,7 @@ class ContractTests(unittest.TestCase):
             ],
         }]}]}
 
-        def search(qid, offset=0):
+        def search(qid, offset=0, limit=20):
             if qid == 'Q144':
                 raise urllib.error.HTTPError(
                     'https://www.wikidata.org/w/api.php', 503, 'unavailable',
@@ -758,14 +759,18 @@ class ContractTests(unittest.TestCase):
             state = root / 'state/agents'
             state.mkdir(parents=True)
             calls = []
-            def samples(code):
+            def samples(code, limit=40, skip=0, max_bytes=1_500_000):
                 calls.append(code)
-                return [{
-                    'record_id': 'tatoeba:' + code,
-                    'text': 'Example sentence ' + code,
-                    'author': 'Test Author',
-                    'sentence_slot': 'sentence.statement',
-                }]
+                return {
+                    'rows': [{
+                        'record_id': 'tatoeba:' + code,
+                        'text': 'Example sentence ' + code,
+                        'author': 'Test Author',
+                        'sentence_slot': 'sentence.statement',
+                    }],
+                    'next_skip': skip + 1,
+                    'exhausted': False,
+                }
             languages = [
                 {'id': 'de', 'wikidata': 'Q188'},
                 {'id': 'en', 'wikidata': 'Q1860'},
@@ -778,7 +783,7 @@ class ContractTests(unittest.TestCase):
                   mock.patch.object(agent_cli, 'load_profiles', return_value={'languages': [
                       {'id': lang['id'], 'script': 'Latn'} for lang in languages]}),
                   mock.patch.object(source, 'accept_notice', return_value=True),
-                  mock.patch.object(source, 'tatoeba_sample', side_effect=samples),
+                  mock.patch.object(source, 'tatoeba_window', side_effect=samples),
                   mock.patch.dict(os.environ, {'AGENTS_HALT': '',
                                                'LANGUAGE_PRODUCTION_HALT': ''})):
                 for _ in range(3):
@@ -1012,9 +1017,13 @@ class ContractTests(unittest.TestCase):
                 mock.patch.object(agent_cli, 'concept_rows', return_value=[]),
                 mock.patch.object(agent_cli, 'next_window', return_value=([], 0, '')),
                 mock.patch.object(harvest, 'accept_notice', return_value=True),
-                mock.patch.object(harvest, 'ud_sample', return_value=[{
-                    'text': 'An English sentence.', 'record_id': 'ud:en_ewt:valid-one',
-                    'sentence_slot': 'sentence.statement'}]),
+                mock.patch.object(harvest, 'ud_window', return_value={
+                    'rows': [{
+                        'text': 'An English sentence.', 'record_id': 'ud:en_ewt:valid-one',
+                        'sentence_slot': 'sentence.statement'}],
+                    'next_skip': 1,
+                    'exhausted': False,
+                }),
             )
             with patches[0], patches[1], patches[2], patches[3], patches[4], \
                     patches[5], patches[6], patches[7], patches[8]:
@@ -1123,7 +1132,7 @@ class KaikkiHarvestTests(unittest.TestCase):
         }, ensure_ascii=False).encode() + b'\n'
         calls = []
 
-        def window(offset):
+        def window(offset, url=None, size=None, fetch=None):
             calls.append(offset)
             if offset == 0:
                 return line, len(line), False
@@ -1158,7 +1167,7 @@ class KaikkiHarvestTests(unittest.TestCase):
                     root / 'out/state/agents/harvest-kaikki-cursor.json',
                     root / 'state/agents/harvest-kaikki-cursor.json')
                 self.assertEqual(agent_cli.command_harvest(args), 0)
-            self.assertEqual(calls, [0, len(line)])
+            self.assertEqual(calls, [0, len(line), len(line)])
             repeated = json.loads((root / 'out/data/agents/harvest/kaikki/de/city.json').read_text())
             self.assertEqual(repeated['rows'], saved['rows'])
 
@@ -1195,6 +1204,110 @@ class KaikkiHarvestTests(unittest.TestCase):
             heartbeat = json.loads((root / 'out/state/agents/harvest-kaikki.json').read_text())
             self.assertEqual(heartbeat['status'], 'failed')
             self.assertFalse((root / 'out/data/agents/harvest/kaikki/de').exists())
+
+    def test_link_encoded_qid_matches_the_catalog_label(self):
+        from tools.agents import harvest
+        concepts = {'Q84': [{
+            'concept_id': 'concept.london', 'section': 'city',
+            'subsection': 'city.q515', 'wikidata': 'Q84', 'anchor_label': 'London',
+        }], 'Q65': [{
+            'concept_id': 'concept.la', 'section': 'city',
+            'subsection': 'city.q515', 'wikidata': 'Q65', 'anchor_label': 'Los Angeles',
+        }]}
+        profiles = {'de': {'script': 'Latn'}}
+        london = harvest.rows_from_kaikki_record({
+            'word': 'London', 'lang_code': 'de', 'pos': 'name',
+            'senses': [{
+                'id': 'en-London-de-name-1',
+                'glosses': ['London'],
+                'links': [['London', 'London#English:_Q84']],
+            }],
+        }, concepts, profiles, '2026-11-01')
+        self.assertEqual([row['wikidata'] for row in london], ['Q84'])
+        self.assertEqual(london[0]['source_id'], 'kaikki.wiktextract')
+        holland = harvest.rows_from_kaikki_record({
+            'word': 'Holland', 'lang_code': 'de', 'pos': 'name',
+            'senses': [{
+                'id': 'en-Holland-de-name-1',
+                'glosses': ['a historical province'],
+                'links': [['Holland', 'Holland#English:_Q65']],
+            }],
+        }, concepts, profiles, '2026-11-01')
+        self.assertEqual(holland, [])
+
+    def test_old_kaikki_cursor_restarts_until_the_new_extractor_is_stored(self):
+        from tools.agents.harvest import kaikki_resume
+        self.assertEqual(kaikki_resume({'byte_offset': 44847591}, 'de'), (0, True))
+        resumed, migrating = kaikki_resume({
+            'extractor': 'wikidata-link-v2',
+            'languages': {'de': {'byte_offset': 1200}},
+        }, 'de')
+        self.assertEqual((resumed, migrating), (1200, False))
+
+
+class SentenceContinuationTests(unittest.TestCase):
+    def test_sentence_rows_without_a_concept_qid_stay_classified(self):
+        placed = classify_row({
+            'language': 'en', 'section': 'sentences', 'text': "Let's try something.",
+            'sentence_slot': 'sentence.statement', 'source_id': 'tatoeba.sentences',
+            'record_id': 'tatoeba:1276', 'license_id': 'CC-BY-2.0-FR',
+            'retrieval_date': '2026-10-30', 'author': 'CK',
+        }, {})
+        self.assertEqual(placed['status'], 'keep')
+        self.assertEqual(placed['section'], 'sentences')
+        self.assertIn('level', placed)
+        missing = classify_row({
+            'language': 'en', 'lemma': 'house', 'source_id': 'wikidata.lexemes',
+            'record_id': 'L1', 'license_id': 'CC0-1.0', 'retrieval_date': '2026-11-01',
+        }, {})
+        self.assertEqual(missing['status'], 'unplaced')
+
+    def test_tatoeba_and_ud_windows_continue_past_the_first_page(self):
+        import bz2
+        from unittest import mock
+        from tools.agents import harvest as source
+
+        tsv = ''.join(f'{index}\teng\tSentence {index}.\tAuthor\n' for index in range(1, 6)).encode()
+        with mock.patch.object(source, 'fetch_bytes', return_value=bz2.compress(tsv)):
+            first = source.tatoeba_window('eng', limit=2, skip=0)
+            second = source.tatoeba_window('eng', limit=2, skip=first['next_skip'])
+        self.assertEqual([row['record_id'] for row in first['rows']], ['tatoeba:1', 'tatoeba:2'])
+        self.assertEqual([row['record_id'] for row in second['rows']], ['tatoeba:3', 'tatoeba:4'])
+        sample = (
+            '# sent_id = one\n# text = First sentence.\n'
+            '# sent_id = two\n# text = Second sentence.\n'
+            '# sent_id = three\n# text = Third sentence?\n'
+        ).encode()
+        with mock.patch.object(source, 'fetch_bytes', return_value=sample):
+            later = source.ud_sample(limit=1, skip=2)
+        self.assertEqual(later[0]['record_id'], 'ud:en_ewt:three')
+        self.assertEqual(later[0]['sentence_slot'], 'sentence.question')
+
+    def test_production_report_counts_sources_and_pack_bytes(self):
+        import sqlite3
+        rows = [
+            {'language': 'de', 'section': 'city', 'source_id': 'kaikki.wiktextract'},
+            {'language': 'en', 'section': 'sentences', 'source_id': 'tatoeba.sentences'},
+            {'language': 'en', 'section': 'grammar', 'source_id': 'universal-dependencies'},
+        ]
+        with tempfile.TemporaryDirectory() as tmp:
+            pack = Path(tmp) / 'en.sqlite'
+            with sqlite3.connect(pack) as connection:
+                connection.execute(
+                    'CREATE TABLE entries (language TEXT, concept_id TEXT, lemma TEXT, '
+                    'source_id TEXT, record_id TEXT, license_id TEXT, retrieval_date TEXT)')
+                connection.execute(
+                    "INSERT INTO entries VALUES ('en','','Hello','tatoeba.sentences','t1','CC-BY-2.0-FR','2026-11-01')")
+            report = production_report(rows, [pack], classified_rows=rows[:1], generated_by='packs')
+        self.assertEqual(report['rows']['total'], 3)
+        self.assertEqual(report['rows']['by_source']['kaikki.wiktextract'], 1)
+        self.assertEqual(report['rows']['by_language_section']['en']['sentences'], 1)
+        self.assertEqual(report['classified']['by_source']['kaikki.wiktextract'], 1)
+        self.assertEqual(report['packs'][0]['language'], 'en')
+        self.assertGreater(report['packs'][0]['bytes'], 0)
+        self.assertEqual(report['packs'][0]['entries'], 1)
+        self.assertEqual(report['packs'][0]['sources']['tatoeba.sentences'], 1)
+        self.assertEqual(report['generated_by'], 'packs')
 
 
 # The existing agent CI command also runs real-git checkpoint regressions.
