@@ -144,3 +144,14 @@ class LicenseNoticeTests(unittest.TestCase):
             self.assertNotIn('CC-BY-NC-4.0', found, notice)
             self.assertNotIn('CC-BY-ND-4.0', found, notice)
             self.assertTrue(self.conflicts(notice, 'CC0-1.0'), notice)
+
+    def test_explicit_corpus_public_domain_claim_conflicts(self):
+        for notice in (
+            'This dataset is in the public domain.',
+            'All of these sentences are in the public domain.',
+            'The original corpus is in the public domain.',
+            'CC BY-SA 4.0. This material is in the public domain.',
+        ):
+            with self.subTest(notice=notice):
+                self.assertTrue(self.conflicts(notice, 'CC-BY-SA-4.0'))
+

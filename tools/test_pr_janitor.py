@@ -14,16 +14,13 @@ class TestPRJanitor(unittest.TestCase):
         self.assertEqual(pr_janitor.sanitize_subject("Fix bug (#42)", 42), "Fix bug (#42)")
         self.assertEqual(pr_janitor.sanitize_subject("Fix bug #42", 42), "Fix bug #42")
 
-        # Skip CI instructions
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [skip ci]", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("[CI SKIP] Fix bug", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [no ci]", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [skip actions]", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [actions skip]", 42), "Fix bug (#42)")
-
-        # Skip trailer
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug\nskip-checks: true", 42), "Fix bug (#42)")
-        self.assertEqual(pr_janitor.sanitize_subject("Fix bug\nskip-checks: true\n", 42), "Fix bug (#42)")
+        # Squash subjects preserve user-supplied text, including CI-skip tokens.
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [skip ci]", 42), "Fix bug [skip ci] (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("[CI SKIP] Fix bug", 42), "[CI SKIP] Fix bug (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [no ci]", 42), "Fix bug [no ci] (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [skip actions]", 42), "Fix bug [skip actions] (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug [actions skip]", 42), "Fix bug [actions skip] (#42)")
+        self.assertEqual(pr_janitor.sanitize_subject("Fix bug\nskip-checks: true", 42), "Fix bug skip-checks: true (#42)")
 
         # Empty/None titles
         self.assertEqual(pr_janitor.sanitize_subject(None, 42), "PR 42 (#42)")
@@ -35,6 +32,65 @@ class TestPRJanitor(unittest.TestCase):
         result = pr_janitor.sanitize_subject(long_title, 42)
         self.assertEqual(len(result), 240)
         self.assertTrue(result.startswith("A" * 200))
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_output_retries_transient_then_succeeds(self, mock_sleep, mock_check_output):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "list"])
+        mock_check_output.side_effect = [transient, transient, json.dumps([{"number": 42}])]
+        self.assertEqual(json.loads(pr_janitor.gh_output(["gh", "pr", "list"])), [{"number": 42}])
+        self.assertEqual(mock_check_output.call_count, 3)
+        self.assertEqual(mock_sleep.call_count, 2)
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_output_raises_after_exhausted_retries(self, mock_sleep, mock_check_output):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "list"])
+        mock_check_output.side_effect = transient
+        with self.assertRaises(subprocess.CalledProcessError):
+            pr_janitor.gh_output(["gh", "pr", "list"])
+        self.assertEqual(mock_check_output.call_count, pr_janitor.GH_RETRY_ATTEMPTS)
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    def test_gh_output_passes_command_through(self, mock_check_output):
+        mock_check_output.return_value = "[]"
+        pr_janitor.gh_output(["gh", "pr", "list", "--limit", "250"])
+        self.assertEqual(mock_check_output.call_args.args[0],
+                         ["gh", "pr", "list", "--limit", "250"])
+
+    def test_retry_delay_is_bounded_exponential(self):
+        widths = [pr_janitor.retry_delay(attempt)
+                  for attempt in range(1, pr_janitor.GH_RETRY_ATTEMPTS + 1)]
+        self.assertEqual(widths, [5.0, 10.0, 20.0, 40.0, 45.0])
+        for value in widths:
+            self.assertLessEqual(value, pr_janitor.GH_RETRY_BACKOFF_CAP_SECONDS)
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_output_retries_hung_calls(self, mock_sleep, mock_check_output):
+        hung = subprocess.TimeoutExpired(["gh", "pr", "list"], 60)
+        mock_check_output.side_effect = [hung, "[]"]
+        self.assertEqual(pr_janitor.gh_output(["gh", "pr", "list"]), "[]")
+        self.assertEqual(mock_check_output.call_count, 2)
+        self.assertEqual(mock_sleep.call_count, 1)
+
+    @patch("tools.pr_janitor.subprocess.check_call")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_call_retries_transient_then_succeeds(self, mock_sleep, mock_check_call):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "edit"])
+        mock_check_call.side_effect = [transient, 0]
+        pr_janitor.gh_call(["gh", "pr", "edit", "42", "--add-label", "blocked:draft"])
+        self.assertEqual(mock_check_call.call_count, 2)
+        self.assertEqual(mock_sleep.call_count, 1)
+
+    @patch("tools.pr_janitor.subprocess.check_call")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_gh_call_raises_after_exhausted_retries(self, mock_sleep, mock_check_call):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "merge"])
+        mock_check_call.side_effect = transient
+        with self.assertRaises(subprocess.CalledProcessError):
+            pr_janitor.gh_call(["gh", "pr", "merge", "42", "--squash"])
+        self.assertEqual(mock_check_call.call_count, pr_janitor.GH_RETRY_ATTEMPTS)
 
     def test_classify(self):
         # Draft
@@ -97,6 +153,39 @@ class TestPRJanitor(unittest.TestCase):
 
         # Unknown fallback
         self.assertEqual(pr_janitor.classify({}), "unknown")
+
+    def test_successful_status_context_is_not_pending(self):
+        # StatusContext rollup items carry "state" but no "status" key; a
+        # successful one must not trap the PR in pending forever.
+        self.assertEqual(
+            pr_janitor.classify({
+                "mergeStateStatus": "CLEAN",
+                "statusCheckRollup": [
+                    {"name": "public-pr-merge-gate", "conclusion": "SUCCESS", "status": "COMPLETED"},
+                    {"context": "legacy/commit-status", "state": "SUCCESS"},
+                ]
+            }),
+            "ready"
+        )
+        self.assertEqual(
+            pr_janitor.classify({
+                "mergeStateStatus": "CLEAN",
+                "statusCheckRollup": [
+                    {"context": "public-pr-merge-gate", "state": "SUCCESS"},
+                ]
+            }),
+            "ready"
+        )
+        self.assertEqual(
+            pr_janitor.classify({
+                "mergeStateStatus": "CLEAN",
+                "statusCheckRollup": [
+                    {"name": "public-pr-merge-gate", "conclusion": "SUCCESS", "status": "COMPLETED"},
+                    {"context": "legacy/commit-status", "state": "PENDING"},
+                ]
+            }),
+            "unknown"
+        )
 
     def test_label_for(self):
         self.assertEqual(pr_janitor.label_for("behind"), "blocked:behind")
@@ -192,6 +281,22 @@ class TestPRJanitor(unittest.TestCase):
     @patch("tools.pr_janitor.subprocess.check_output")
     @patch("tools.pr_janitor.subprocess.call")
     @patch("tools.pr_janitor.subprocess.check_call")
+    @patch("tools.pr_janitor.time.sleep")
+    def test_label_edit_survives_transient_api_failure(self, mock_sleep, mock_check_call,
+                                                       mock_call, mock_check_output):
+        transient = subprocess.CalledProcessError(1, ["gh", "pr", "edit"])
+        mock_check_output.side_effect = [
+            json.dumps([{"number": 42}]),
+            json.dumps({"mergeStateStatus": "BEHIND"})
+        ]
+        mock_check_call.side_effect = [transient, 0]
+        self.assertEqual(pr_janitor.main([]), 0)
+        self.assertEqual(mock_check_call.call_count, 2)
+        self.assertEqual(mock_sleep.call_count, 1)
+
+    @patch("tools.pr_janitor.subprocess.check_output")
+    @patch("tools.pr_janitor.subprocess.call")
+    @patch("tools.pr_janitor.subprocess.check_call")
     def test_main_merge_one(self, mock_check_call, mock_call, mock_check_output):
         # Ready PR scenario
         mock_check_output.side_effect = [
@@ -215,8 +320,8 @@ class TestPRJanitor(unittest.TestCase):
     @patch("tools.pr_janitor.subprocess.check_output")
     @patch("tools.pr_janitor.subprocess.call")
     @patch("tools.pr_janitor.subprocess.check_call")
-    def test_main_skip_directive_aborts_merge(self, mock_check_call, mock_call, mock_check_output):
-        # Ready PR scenario but subject has skip ci
+    def test_main_preserves_explicit_skip_in_squash_subject(self, mock_check_call, mock_call, mock_check_output):
+        # Ready PR with user-selected CI marker still needs a passing real gate
         mock_check_output.side_effect = [
             json.dumps([{"number": 42}]),
             json.dumps({
@@ -226,13 +331,12 @@ class TestPRJanitor(unittest.TestCase):
             })
         ]
 
-        # We mock sanitize_subject to simulate a scenario where a skip directive is
-        # somehow retained in the subject to trigger the SystemExit check.
         with patch("tools.pr_janitor.sanitize_subject", return_value="Clean PR [skip ci] (#42)"):
-            with self.assertRaises(SystemExit) as cm:
-                pr_janitor.main(["--merge-one"])
-
-        self.assertIn("refusing skip directive", str(cm.exception))
+            self.assertEqual(pr_janitor.main(["--merge-one"]), 0)
+        commands = [call.args[0] for call in mock_check_call.call_args_list]
+        self.assertTrue(any("merge" in c and "--subject" in c
+                            and c[c.index("--subject") + 1] == "Clean PR [skip ci] (#42)"
+                            for c in commands))
 
 
 if __name__ == "__main__":

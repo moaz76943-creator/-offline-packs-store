@@ -192,17 +192,43 @@ def main(argv=None):
     parser.add_argument("--readiness", type=Path, default=HERE / "content_readiness.v1.json")
     parser.add_argument("--manifest", type=Path, default=HERE.parent / "manifest.json")
     args = parser.parse_args(argv)
-    registry = json.loads(args.registry.read_text(encoding="utf-8"))
-    readiness = json.loads(args.readiness.read_text(encoding="utf-8"))
-    manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
-    ledger = json.loads((HERE.parent / "legal" / "ledger" / "sources.json").read_text(encoding="utf-8"))
-    failures = validate(registry, readiness, manifest, source_ledger=ledger)
+
+    failures = []
+    registry = {}
+    try:
+        registry = json.loads(args.registry.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        failures.append(f"registry file not found: {args.registry}")
+
+    readiness = {}
+    try:
+        readiness = json.loads(args.readiness.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        failures.append(f"readiness file not found: {args.readiness}")
+
+    manifest = {}
+    try:
+        manifest = json.loads(args.manifest.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        failures.append(f"manifest file not found: {args.manifest}")
+
+    ledger = {}
+    try:
+        ledger = json.loads((HERE.parent / "legal" / "ledger" / "sources.json").read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        failures.append(f"ledger file not found: {(HERE.parent / 'legal' / 'ledger' / 'sources.json')}")
+
+    if not failures:
+        failures = validate(registry, readiness, manifest, source_ledger=ledger)
+
     for failure in failures:
         print("ERROR:", failure)
+
     if failures:
         return 1
-    print(f"OK: {len(registry['languages'])} canonical languages; {len(registry['aliases'])} compatibility aliases; "
-          f"{len(registry['locale_variants'])} locale variants; readiness promotion guarded by published pack and admitted source evidence")
+
+    print(f"OK: {len(registry.get('languages', []))} canonical languages; {len(registry.get('aliases', []))} compatibility aliases; "
+          f"{len(registry.get('locale_variants', []))} locale variants; readiness promotion guarded by published pack and admitted source evidence")
     return 0
 
 if __name__ == "__main__":

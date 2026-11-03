@@ -186,6 +186,59 @@ class PairValidationTests(unittest.TestCase):
                 main(args)
         self.assertEqual('DO_NOT_OVERWRITE', victim.read_text(encoding='utf-8'))
 
+    def test_existing_receipt_cannot_be_overwritten(self):
+        # A later run must not replace an already staged QA receipt.
+        output = self.dir / 'immutable-report.json'
+        output.write_bytes(b'PREVIOUS_VERIFIED_RECEIPT\n')
+        catalog = self.dir / 'manifest-immutable.json'
+        catalog.write_text(json.dumps({'languages': [{'code': 'l' + str(i)}
+                                                    for i in range(100)]}))
+        args = ['--catalog', str(catalog), '--out', str(output)]
+        for name in ('detailed', 'links', 'cc0', 'candidates'):
+            args.extend(['--' + name, 'fixture', '--' + name + '-sha256', 'a' * 64])
+        with patch('validator.audit_pairs',
+                   return_value={'status': 'QA_ONLY_REVIEW_REQUIRED'}):
+            with self.assertRaisesRegex(PairError, 'UNSAFE_OUTPUT_PATH'):
+                main(args)
+        self.assertEqual(output.read_bytes(), b'PREVIOUS_VERIFIED_RECEIPT\n')
+        self.assertFalse((self.dir / 'immutable-report.json.tmp').exists())
+
+    def test_new_receipt_is_written_once_and_replay_is_safe(self):
+        output = self.dir / 'first-report.json'
+        catalog = self.dir / 'manifest-first.json'
+        catalog.write_text(json.dumps({'languages': [{'code': 'l' + str(i)}
+                                                    for i in range(100)]}))
+        args = ['--catalog', str(catalog), '--out', str(output)]
+        for name in ('detailed', 'links', 'cc0', 'candidates'):
+            args.extend(['--' + name, 'fixture', '--' + name + '-sha256', 'a' * 64])
+        with patch('validator.audit_pairs',
+                   return_value={'status': 'QA_ONLY_REVIEW_REQUIRED'}):
+            main(args)
+            original = output.read_bytes()
+            self.assertEqual(json.loads(original)['status'], 'QA_ONLY_REVIEW_REQUIRED')
+            with self.assertRaisesRegex(PairError, 'UNSAFE_OUTPUT_PATH'):
+                main(args)
+        self.assertEqual(output.read_bytes(), original)
+        self.assertFalse((self.dir / 'first-report.json.tmp').exists())
+
+    def test_preexisting_staged_receipt_is_not_deleted_on_exclusive_create_failure(self):
+        output = self.dir / 'contended-report.json'
+        staged = self.dir / 'contended-report.json.tmp'
+        staged.write_bytes(b'OTHER_RUN_STAGED_RECEIPT\n')
+        catalog = self.dir / 'manifest-contended.json'
+        catalog.write_text(json.dumps({'languages': [{'code': 'l' + str(i)}
+                                                    for i in range(100)]}))
+        args = ['--catalog', str(catalog), '--out', str(output)]
+        for name in ('detailed', 'links', 'cc0', 'candidates'):
+            args.extend(['--' + name, 'fixture', '--' + name + '-sha256', 'a' * 64])
+        with patch('validator.audit_pairs',
+                   return_value={'status': 'QA_ONLY_REVIEW_REQUIRED'}):
+            with self.assertRaisesRegex(PairError, 'UNSAFE_OUTPUT_PATH'):
+                main(args)
+        self.assertTrue(staged.exists(), 'Another run owns the existing staging file')
+        self.assertEqual(staged.read_bytes(), b'OTHER_RUN_STAGED_RECEIPT\n')
+        self.assertFalse(output.exists())
+
     def test_bounded_pair_budget(self):
         with self.assertRaisesRegex(PairError, 'PAIR_BUDGET_EXCEEDED'):
             self.inputs['candidates'] *= 2
@@ -196,6 +249,33 @@ class PairValidationTests(unittest.TestCase):
                 p.write_bytes(data)
                 vals[k] = (p, digest(data))
             audit_pairs(*[v for k in ('detailed','links','cc0','candidates') for v in vals[k]], dict(PILOT), set(PILOT.values()), max_pairs=1)
+
+
+    def test_exponent_overflow_in_review_metadata_is_rejected(self):
+        # A syntactically finite-looking exponent decodes to infinity in Python.
+        original = self.inputs['candidates'].decode('utf-8').rstrip('\n')
+        for exponent in ('1e999', '-1e999'):
+            with self.subTest(exponent=exponent):
+                self.inputs['candidates'] = (original[:-1] +
+                    ',"review_metadata":{"score":' + exponent + '}}\n').encode('utf-8')
+                with self.assertRaisesRegex(PairError, 'NONFINITE_JSON'):
+                    self.audit()
+
+    def test_escaped_lone_surrogate_in_review_metadata_is_rejected(self):
+        # JSON can decode an escaped lone surrogate that is not valid UTF-8 text.
+        original = self.inputs['candidates'].decode('utf-8').rstrip('\n')
+        self.inputs['candidates'] = (original[:-1] +
+            ',"review_metadata":{"notes":["\\ud800"]}}\n').encode('utf-8')
+        with self.assertRaisesRegex(PairError, 'INVALID_UNICODE_JSON'):
+            self.audit()
+
+
+    def test_valid_finite_exponent_and_multiscript_metadata_remain_accepted(self):
+        original = self.inputs['candidates'].decode('utf-8').rstrip('\n')
+        self.inputs['candidates'] = (original[:-1] +
+            ',"review_metadata":{"score":1e2,"notes":"äöüß العربية İı"}}\n').encode('utf-8')
+        result = self.audit()
+        self.assertEqual(1, result['counts']['cc0_direct_candidates_review_required'])
 
 
 if __name__ == '__main__':
