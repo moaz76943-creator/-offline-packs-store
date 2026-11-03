@@ -90,6 +90,7 @@ def parse(body,languages=None):
     marker=next((m for m in (MARKER,v1.MARKER) if body.startswith(m)),None)
     if marker is None:raise ValueError('unknown envelope')
     t=json.loads(body[len(marker):-4],object_pairs_hook=_unique)
+    if not isinstance(t,dict):raise ValueError('queue task must be a JSON object')
     if t.get('schema_version')!=(VERSION if marker==MARKER else v1.VERSION):raise ValueError('envelope/version mismatch')
     return validate(t,languages)
 

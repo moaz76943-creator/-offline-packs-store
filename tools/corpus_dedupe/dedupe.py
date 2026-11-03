@@ -198,7 +198,7 @@ class CorpusDeduplicator:
             reason = None
             if exact is not None:
                 canonical = self._db.execute("""SELECT lexeme_id,payload FROM retained
-                    WHERE bucket=? AND strict_lemma=? AND exact_key=? LIMIT 1""",
+                    WHERE bucket=? AND strict_lemma=? AND exact_key=? ORDER BY id LIMIT 1""",
                     (bucket, strict, exact)).fetchone()
             # Missing rights or semantics must never cause an automatic delete.
             if canonical:
@@ -212,7 +212,7 @@ class CorpusDeduplicator:
                 reason = 'incompatible_licenses'
             if reason is None:
                 other = self._db.execute("""SELECT lexeme_id,payload,license,exact_key
-                    FROM retained WHERE bucket=? AND strict_lemma=? LIMIT 1""",
+                    FROM retained WHERE bucket=? AND strict_lemma=? ORDER BY id LIMIT 1""",
                     (bucket,strict)).fetchone()
                 if other:
                     old = json.loads(other[1])
@@ -227,7 +227,7 @@ class CorpusDeduplicator:
             if reason is None:
                 for token in _sense_tokens(rec.get('senses', [])):
                     near = self._db.execute("""SELECT r.lexeme_id,r.payload,r.exact_key FROM retained_senses s
-                        JOIN retained r ON r.id=s.retained_id WHERE s.bucket=? AND s.token=? LIMIT 1""",
+                        JOIN retained r ON r.id=s.retained_id WHERE s.bucket=? AND s.token=? ORDER BY r.id LIMIT 1""",
                         (bucket,token)).fetchone()
                     if near:
                         canonical = near

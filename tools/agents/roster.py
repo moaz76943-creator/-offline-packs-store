@@ -94,11 +94,11 @@ ROSTER = (
     {
         'name': 'janitor',
         'workflow': '.github/workflows/agent_janitor.yml',
-        'purpose': 'Update green bot pull requests and squash-merge them. No force push.',
+        'purpose': 'Audit green bot pull requests and record non-mutating suggestions; canonical coordinator alone integrates.',
         'schedule': 'every 4 hours from 01:18 UTC',
         'crons': ['18 1,5,9,13,17,21 * * *'],
         'inputs': 'open pull requests and check rolls',
-        'outputs': 'merged pull requests or update commits',
+        'outputs': 'state/agents/janitor.json advisory report; no PR merge/update',
     },
     {
         'name': 'coverage',

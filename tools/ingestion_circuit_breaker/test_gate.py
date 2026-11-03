@@ -1,4 +1,5 @@
 import json
+import os
 import tempfile
 import unittest
 import time
@@ -9,8 +10,10 @@ import sys
 
 try:
     from tools.ingestion_circuit_breaker.gate import process, parse_args, sha256_file
+    from tools.ingestion_circuit_breaker.pipeline import run_fixture_pipeline
 except ImportError:
     from gate import process, parse_args, sha256_file
+    from pipeline import run_fixture_pipeline
 
 class TestGate(unittest.TestCase):
     def setUp(self):
@@ -82,6 +85,41 @@ class TestGate(unittest.TestCase):
         self.assertEqual(errors, [])
         admission = json.loads(stdout)
         self.assertEqual(admission["status"], "ADMITTED")
+        self.assertGreaterEqual(admission["expires_at"], int(time.time()))
+        self.assertLessEqual(admission["expires_at"], int(time.time()) + 300)
+
+    def test_unauthorized_workspace(self):
+        manifest = {
+            "source_id": "test-source-1",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+            "destination": "packs/out"
+        }
+        with patch('os.access', return_value=False) as access:
+            code, errors, _, stderr = self.run_process(manifest)
+            self.assertEqual(code, 1)
+            self.assertIn("WORKSPACE_ACCESS_DENIED", errors)
+            self.assertIn("WORKSPACE_ACCESS_DENIED", stderr)
+            access.assert_called_once_with(self.root.resolve(), os.W_OK | os.X_OK)
+
+    def test_workspace_preflight_uses_selected_repo_root_not_cwd(self):
+        manifest = {
+            "source_id": "test-source-1",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+            "destination": "packs/out",
+        }
+        # The process CWD is irrelevant: the caller explicitly chose --repo-root.
+        def writable_selected_root(path, mode):
+            return Path(path) == self.root.resolve() and mode == (os.W_OK | os.X_OK)
+
+        with patch('os.access', side_effect=writable_selected_root) as access:
+            code, errors, stdout, stderr = self.run_process(manifest)
+        self.assertEqual((code, errors), (0, []), stderr)
+        self.assertEqual(json.loads(stdout)["status"], "ADMITTED")
+        access.assert_called_once_with(self.root.resolve(), os.W_OK | os.X_OK)
 
     def test_missing_license(self):
         manifest = {
@@ -166,6 +204,135 @@ class TestGate(unittest.TestCase):
         self.assertEqual(code, 3)
         self.assertIn("BLOCKED_INTEGRATION", errors)
         self.assertIn("BLOCKED_INTEGRATION", stderr)
+
+    def test_fixture_ingestion_pipeline_halts_on_gate_failure(self):
+        import subprocess
+        gate_script = Path(__file__).parent / 'gate.py'
+        marker = self.root / 'fixture_ingestion_executed.txt'
+        fixture_runner = self.root / 'fixture_pipeline.py'
+        # The real integration is not present; prove the fixture runner stops
+        # on a denied gate and does advance after a successful gate.
+        fixture_runner.write_text(
+            "import subprocess, sys\n"
+            "from pathlib import Path\n"
+            "gate = subprocess.run(sys.argv[1:-1])\n"
+            "if gate.returncode: sys.exit(gate.returncode)\n"
+            "Path(sys.argv[-1]).write_text('executed')\n"
+        )
+        cmd = [
+            sys.executable, str(fixture_runner),
+            sys.executable, str(gate_script),
+            '--repo-root', str(self.root),
+            '--manifest', str(self.manifest_file),
+            '--quarantine', str(self.q_dir),
+            str(marker),
+        ]
+
+        self.manifest_file.write_text(json.dumps({'source_id': 'unknown-source'}))
+        denied = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+        self.assertEqual(denied.returncode, 2)
+        self.assertIn('BLOCK: UNKNOWN_SOURCE', denied.stderr)
+        self.assertFalse(marker.exists())
+        reasons = list(self.q_dir.glob('*.reason.txt'))
+        self.assertEqual(len(reasons), 1)
+        self.assertIn('UNKNOWN_SOURCE', reasons[0].read_text())
+
+        self.manifest_file.write_text(json.dumps({
+            'source_id': 'test-source-1',
+            'artifact_path': 'artifact.json',
+            'artifact_sha256': self.valid_hash,
+            'intended_output_license': 'CC-BY-SA-4.0',
+        }))
+        accepted = subprocess.run(cmd, capture_output=True, text=True, timeout=10)
+        self.assertEqual(accepted.returncode, 0, accepted.stderr)
+        self.assertTrue(marker.exists())
+
+
+    def test_direct_fixture_pipeline_uses_same_admission_gate(self):
+        manifest = {
+            "source_id": "test-source-1",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+        }
+        target = self.root / "out" / "admitted.json"
+        self.manifest_file.write_text(json.dumps(manifest))
+        args = parse_args(["--repo-root", str(self.root),
+                           "--manifest", str(self.manifest_file),
+                           "--quarantine", str(self.q_dir)])
+        code, errors, published = run_fixture_pipeline(args, target, b'{"ok":true}')
+        self.assertEqual((code, errors, published), (0, [], True))
+        self.assertEqual(target.read_bytes(), b'{"ok":true}')
+
+
+    def test_unsupported_source_and_output_licenses_stay_blocked(self):
+        for source_license, output_license, expected in (
+            ('CC0-1.0', 'GPL-3.0', 'UNSUPPORTED_OUTPUT_LICENSE'),
+            ('CC-BY-2.0-FR', 'unverified-license', 'UNSUPPORTED_OUTPUT_LICENSE'),
+            ('CC-BY-2.0-FR', 'GFDL-1.3-only', 'LICENSE_CONVERSION_REVIEW_REQUIRED'),
+            ('GPL-3.0', 'CC0-1.0', 'UNSUPPORTED_SOURCE_LICENSE'),
+            (['CC0-1.0'], 'CC0-1.0', 'UNSUPPORTED_SOURCE_LICENSE'),
+            ('CC0-1.0', {'id': 'CC0-1.0'}, 'UNSUPPORTED_OUTPUT_LICENSE'),
+        ):
+            with self.subTest(source_license=source_license, output_license=output_license):
+                self.ledger_data['sources'][1]['license']['id'] = source_license
+                self.ledger_file.write_text(json.dumps(self.ledger_data))
+                code, errors, stdout, _ = self.run_process({
+                    'source_id': 'test-source-cc0', 'artifact_path': 'artifact.json',
+                    'artifact_sha256': self.valid_hash,
+                    'intended_output_license': output_license, 'destination': 'packs/out',
+                })
+                self.assertEqual(code, 2)
+                self.assertIn(expected, errors)
+                self.assertNotIn('ADMITTED', stdout)
+
+    def test_permissive_conversion_retains_canonical_review_hold(self):
+        # Permissive license with obligations (e.g. CC-BY-2.0-FR) sublicensed to copyleft should be allowed
+        self.ledger_data["sources"].append({
+            "source_id": "test-source-permissive",
+            "retrieval": {
+                "sha256": self.valid_hash
+            },
+            "license": {
+                "id": "CC-BY-2.0-FR"
+            }
+        })
+        self.ledger_file.write_text(json.dumps(self.ledger_data))
+
+        manifest = {
+            "source_id": "test-source-permissive",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "CC-BY-SA-4.0",
+            "destination": "packs/out"
+        }
+        code, errors, _, _ = self.run_process(manifest)
+        self.assertEqual(code, 2)
+        self.assertIn('LICENSE_CONVERSION_REVIEW_REQUIRED', errors)
+
+    def test_sublicense_obligations_to_public_domain(self):
+        # License with obligations (e.g. CC-BY-2.0-FR) cannot be sublicensed to PUBLIC-DOMAIN or CC0-1.0
+        self.ledger_data["sources"].append({
+            "source_id": "test-source-permissive",
+            "retrieval": {
+                "sha256": self.valid_hash
+            },
+            "license": {
+                "id": "CC-BY-2.0-FR"
+            }
+        })
+        self.ledger_file.write_text(json.dumps(self.ledger_data))
+
+        manifest = {
+            "source_id": "test-source-permissive",
+            "artifact_path": "artifact.json",
+            "artifact_sha256": self.valid_hash,
+            "intended_output_license": "PUBLIC-DOMAIN",
+            "destination": "packs/out"
+        }
+        code, errors, _, _ = self.run_process(manifest)
+        self.assertEqual(code, 2)
+        self.assertIn("LICENSE_CONFLICT", errors)
 
 if __name__ == '__main__':
     unittest.main()

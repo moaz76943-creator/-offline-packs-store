@@ -50,6 +50,7 @@ class TestMediaCompiler(unittest.TestCase):
         source = {
             'source_id': 'fixture-vector', 'kind': 'vector_art',
             'origin_url': 'https://example.org/art', 'publisher': 'Fixture Publisher',
+            'author': 'Fixture Author',
             'dataset_version': '2026.10',
             'retrieval': {
                 'identity': 'fixture-snapshot-v1', 'url': 'https://example.org/art',
@@ -124,6 +125,16 @@ class TestMediaCompiler(unittest.TestCase):
         with self.assertRaises(TokenValidationError) as caught:
             self.compiler.validate_token(self.valid_raw)
         self.assertIn('ARTWORK_LICENSE', str(caught.exception))
+
+    def test_missing_source_author_fails_closed(self):
+        source = copy.deepcopy(self.source)
+        source.pop('author', None)
+        self._put(
+            'legal/ledger/sources.json',
+            json.dumps({'schema_version': SCHEMA, 'sources': [source]}).encode(),
+        )
+        with self.assertRaises(TokenValidationError):
+            self.compiler.validate_token(self.valid_raw)
 
     def test_unapproved_source_fails_closed(self):
         self._rewrite_source(status='REVIEW_REQUIRED')
@@ -232,6 +243,9 @@ class TestMediaCompiler(unittest.TestCase):
         with self.assertRaises(CompilationError):
             self.compiler.compile([self.valid_raw], runtime_evidence=None)
 
+        with self.assertRaises(CompilationError):
+            self.compiler.compile([self.valid_raw], runtime_evidence={'compatible': False})
+
     def test_compile_delta_events(self):
         t1 = self.valid_token.copy()
         raw1 = zlib.compress(json.dumps(t1).encode())
@@ -240,19 +254,26 @@ class TestMediaCompiler(unittest.TestCase):
         t2['concept_id'] = 'test-2'
         raw2 = zlib.compress(json.dumps(t2).encode())
 
+        t3 = self.valid_token.copy()
+        t3['concept_id'] = 'test-update'
+        t3['source_hash'] = 'new-hash'
+        raw3 = zlib.compress(json.dumps(t3).encode())
+
         prior_pack_meta = {
             'concepts': {
                 'test-1': {'source_hash': 'abc'}, # unchanged
-                'test-old': {'source_hash': 'def'} # deleted
+                'test-old': {'source_hash': 'def'}, # deleted
+                'test-update': {'source_hash': 'old-hash'} # updated
             }
         }
 
-        res = self.compiler.compile([raw1, raw2], prior_pack_meta=prior_pack_meta, runtime_evidence={'compatible': True})
+        res = self.compiler.compile([raw1, raw2, raw3], prior_pack_meta=prior_pack_meta, runtime_evidence={'compatible': True})
         events = {e['concept_id']: e['type'] for e in res['change_events']}
 
         self.assertEqual(events['test-1'], 'unchanged')
         self.assertEqual(events['test-2'], 'added')
         self.assertEqual(events['test-old'], 'deleted')
+        self.assertEqual(events['test-update'], 'updated')
 
     def test_invalid_token_does_not_delete_published_concept(self):
         pack = os.path.join(self.output_dir, 'pack.vct')

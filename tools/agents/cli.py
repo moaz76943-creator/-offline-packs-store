@@ -7,7 +7,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from tools.agents.common import halted, load_json_tolerant, write_heartbeat, write_json
+from tools.agents.common import halted, load_json_tolerant, script_matches, write_heartbeat, write_json
 from tools.agents.ops import docs_check, performance_report, schema_guard, untested_modules
 from tools.agents.root_cause import open_recorded_issue, repair_update, signature_id
 from tools.agents.roster import ROSTER
@@ -20,6 +20,7 @@ from tools.agents.work import (
     iter_stored_rows,
     legal_report,
     next_window,
+    production_report,
     qa_rows,
     render_status,
     shard_pairs,
@@ -81,9 +82,11 @@ def command_plan(_args):
 def command_qa(_args):
     if _halt('qa'):
         return 0
-    rows = list(iter_stored_rows(ROOT / 'data' / 'agents'))
+    # Validate every collected source record, not a five-row prefix. The
+    # classified snapshot repeats harvest records and is not a second source.
+    rows = list(iter_stored_rows(ROOT / 'data' / 'agents' / 'harvest'))
     profiles = (load_profiles().get('languages') or [])
-    result = qa_rows(rows, profiles, refetch=None, sample=5)
+    result = qa_rows(rows, profiles, refetch=None, sample=len(rows))
     write_json(_out('state/agents/qa-report.json'), {'schema_version': '1.0.0', **result})
     status = 'failed' if result['problems'] else 'ok'
     write_heartbeat(_out('state/agents'), 'qa', status, '; '.join(result['warnings']))
@@ -98,7 +101,7 @@ def command_legal(_args):
     notices = {}
     evidence = ROOT / 'legal' / 'source_evidence'
     mapping = {
-        'wikidata.lexemes': None,
+        'wikidata.lexemes': evidence / 'wikidata-structured-cc0.txt',
         'kaikki.wiktextract': evidence / 'wiktionary-copyrights.txt',
         'tatoeba.sentences': evidence / 'tatoeba-terms.txt',
         'universal-dependencies': evidence / 'ud-english-ewt-license.txt',
@@ -119,7 +122,10 @@ def command_legal(_args):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding='utf-8')
     status = 'failed' if report['problems'] else ('degraded' if report['warnings'] else 'ok')
-    write_heartbeat(_out('state/agents'), 'legal', status, '; '.join(report['problems'][:3]))
+    # Degraded legal evidence must surface its reason in the heartbeat, not
+    # appear as a blank warning while packs remain unapproved.
+    reasons = report['problems'] if report['problems'] else report['warnings']
+    write_heartbeat(_out('state/agents'), 'legal', status, '; '.join(reasons[:3]))
     print(json.dumps({'problems': len(report['problems']), 'warnings': len(report['warnings'])}))
     return 1 if report['problems'] else 0
 
@@ -135,11 +141,25 @@ def command_packs(_args):
     for language, group in sorted(by_language.items()):
         result = build_pack(group, _out(f'data/agents/packs/{language}.sqlite'))
         wrote += int(bool(result.get('wrote')))
-    warning = '' if wrote or not rows else 'rows were not traceable'
+    warning = ('LEGACY_CANDIDATE_ONLY: entries-only SQLite is not v2 or production'
+               if wrote else 'no new legacy candidate; no production packs')
     if not rows:
         warning = 'no harvested rows; root manifest was not modified'
-    write_heartbeat(_out('state/agents'), 'packs', 'ok', warning)
-    print(json.dumps({'packs': wrote, 'warning': warning}))
+    classified_rows = []
+    classified_path = ROOT / 'data' / 'agents' / 'classified' / 'rows.json'
+    if classified_path.is_file():
+        classified_payload, _classified_warning = load_json_tolerant(classified_path, {'rows': []})
+        if isinstance(classified_payload.get('rows'), list):
+            classified_rows = classified_payload['rows']
+    pack_dir = _out('data/agents/packs')
+    pack_paths = sorted(pack_dir.glob('*.sqlite')) if pack_dir.is_dir() else []
+    write_json(_out('state/production_report.json'), production_report(
+        rows, pack_paths, classified_rows=classified_rows, generated_by='packs'))
+    # An operationally completed agent is not a successful pack release.
+    write_heartbeat(_out('state/agents'), 'packs', 'degraded', warning)
+    print(json.dumps({'packs': wrote, 'candidate_packs': wrote,
+                      'production_packs': 0, 'production_status': 'LEGACY_CANDIDATE_ONLY',
+                      'warning': warning}))
     return 0
 
 
@@ -155,6 +175,11 @@ def command_classify(_args):
         if placed.get('status') == 'keep':
             kept.append(placed)
     write_json(_out('data/agents/classified/rows.json'), {'schema_version': '1.0.0', 'rows': kept})
+    stored = list(iter_stored_rows(ROOT / 'data' / 'agents' / 'harvest'))
+    pack_dir = ROOT / 'data' / 'agents' / 'packs'
+    pack_paths = sorted(pack_dir.glob('*.sqlite')) if pack_dir.is_dir() else []
+    write_json(_out('state/production_report.json'), production_report(
+        stored, pack_paths, classified_rows=kept, generated_by='classifier'))
     write_heartbeat(_out('state/agents'), 'classifier', 'ok', '' if kept else 'no anchored rows in this snapshot')
     print(json.dumps({'kept': len(kept)}))
     return 0
@@ -246,6 +271,35 @@ def command_repair(_args):
     if _halt('health'):
         return 0
     signature = _args.signature or 'no-signature'
+    # A green CI run is not proof that independent agent schedules are healthy.
+    from datetime import datetime, timezone
+    from tools.agents.ops import stale_heartbeats
+    snapshots = []
+    folder = ROOT / 'state' / 'agents'
+    known_names = {row['name'] for row in ROSTER}
+    if folder.is_dir():
+        for path in folder.glob('*.json'):
+            payload, warning = load_json_tolerant(path, {'schema_version': '1.0.0'})
+            if not warning and payload.get('name') in known_names:
+                snapshots.append(payload)
+    now = datetime.now(timezone.utc).timestamp()
+    stale = stale_heartbeats(snapshots, now, 8 * 3600)
+    degraded = sorted({
+        row['name'] for row in snapshots
+        if row.get('status') != 'ok' and row.get('name') not in stale
+        and row.get('name') != 'health'  # do not perpetuate yesterday's own alert
+    })
+    health = {
+        'schema_version': '1.0.0',
+        'roster_count': len(ROSTER),
+        'observed_count': len({row['name'] for row in snapshots}),
+        'stale': stale,
+        'degraded': degraded,
+        'failed_github_run': signature != 'no-signature',
+    }
+    write_json(_out('state/agents/health-report.json'), health)
+    health_status = 'degraded' if stale or degraded or health['failed_github_run'] else 'ok'
+    health_warning = f"stale={len(stale)} degraded={len(degraded)} failed_run={int(health['failed_github_run'])}"
     if signature == 'no-signature':
         plan = {
             'schema_version': '1.0.0',
@@ -255,7 +309,7 @@ def command_repair(_args):
             'seen_count': 0,
         }
         write_json(_out('state/agents/repair.json'), plan)
-        write_heartbeat(_out('state/agents'), 'health', 'ok', '')
+        write_heartbeat(_out('state/agents'), 'health', health_status, health_warning)
         print(json.dumps(plan, sort_keys=True))
         return 0
     sid = signature_id(signature)
@@ -284,7 +338,7 @@ def command_repair(_args):
         'action': plan['action'],
         'retries': 0,
     })
-    write_heartbeat(_out('state/agents'), 'health', 'ok', plan['warning'])
+    write_heartbeat(_out('state/agents'), 'health', health_status, health_warning + ('; ' + plan['warning'] if plan['warning'] else ''))
     print(json.dumps(plan, sort_keys=True))
     return 0
 
@@ -294,7 +348,7 @@ def command_harvest(args):
     if _halt(name):
         return 0
     from datetime import date
-    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexemes
+    from tools.agents.harvest import SourceSkip, accept_notice, load_lexemes, rows_from_lexeme, search_lexeme_page
     languages = load_languages()['languages']
     by_qid = {row['wikidata']: row['id'] for row in languages if row.get('wikidata') and row.get('id')}
     profiles = {row['id']: row for row in load_profiles().get('languages') or []}
@@ -305,68 +359,191 @@ def command_harvest(args):
     window = plan.get('window') or []
     sections = {item.get('section') for item in window if isinstance(item, dict)}
     graph = load_graph()
-    concepts = [
+    candidates = [
         row for row in concept_rows(graph)
         if not sections or row.get('section') in sections
-    ][:4]
+    ]
+    # Keep each scheduled source moving across its actual concept inventory.
+    # The existing agents/data checkpoint branch persists these independent
+    # cursors; none changes readiness, licensing or the release manifest.
+    cursor_path = f'state/agents/{name}-cursor.json'
+    cursor, cursor_warning = load_json_tolerant(
+        ROOT / cursor_path,
+        {'schema_version': '1.0.0', 'next_index': 0},
+    )
+    if name == 'harvest-tatoeba':
+        from tools.agents.harvest import TATOEBA_CODES
+        # Tatoeba is a sentence corpus, not a Wikidata concept lookup.
+        # Reuse this source's existing persisted cursor; select one actual
+        # catalog language per run to stay bounded and prevent sv-only loops.
+        candidates = [
+            {'language': code, 'section': 'sentences'}
+            for code in sorted({
+                item.get('id') for item in languages
+                if item.get('id') in TATOEBA_CODES
+            })
+        ]
+        concepts, next_index, window_warning = next_window(candidates, cursor, 1)
+    else:
+        concepts, next_index, window_warning = next_window(candidates, cursor, 8)
     retrieved = date.today().isoformat()
     grouped = {}
     skipped = []
+    source_errors = 0
+    outcomes = []
+    kaikki_byte_offset = None
+    kaikki_meta = None
+    tatoeba_progress = None
+    ud_progress = None
     if name == 'harvest-wikidata':
+        offsets = cursor.get('search_offsets', {})
+        valid_qids = {row.get('wikidata') for row in concept_rows(graph)}
+        if not isinstance(offsets, dict):
+            offsets = {}
+            cursor_warning = 'malformed Wikidata pagination checkpoint; restarted'
+        else:
+            cleaned = {qid: offset for qid, offset in offsets.items()
+                       if qid in valid_qids and type(offset) is int and 0 < offset <= 10000}
+            if len(cleaned) != len(offsets):
+                cursor_warning = 'stale or malformed Wikidata pagination entries; dropped'
+            offsets = cleaned
         for concept in concepts:
+            qid = concept['wikidata']
+            offset = offsets.get(qid, 0)
+            outcome = {'wikidata': concept.get('wikidata'), 'fetched_entities': 0,
+                       'accepted_rows': 0, 'rejected_entities': 0, 'search_offset': offset}
+            outcomes.append(outcome)
             try:
-                ids = search_lexemes(concept['wikidata'])
+                ids, next_offset = search_lexeme_page(qid, offset=offset, limit=20)
                 entities = load_lexemes(ids)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
-                skipped.append({'wikidata': concept.get('wikidata'), 'reason': exc.__class__.__name__})
+                source_errors += 1
+                outcome['status'] = 'SOURCE_ERROR'
+                code = getattr(exc, 'code', None)
+                reason = exc.__class__.__name__
+                if isinstance(code, int):
+                    reason = f'{reason}:{code}'
+                outcome['reason'] = reason
+                skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                 continue
+            outcome['fetched_entities'] = len(entities)
+            outcome['status'] = 'FETCHED' if entities else 'EMPTY_SEARCH'
             for entity in entities.values():
                 rows, reason = rows_from_lexeme(entity, concept, by_qid, profiles, retrieved)
                 if reason != 'keep':
-                    if reason in ('exclude', 'quarantine', 'placeholder'):
-                        skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
+                    outcome['rejected_entities'] += 1
+                    skipped.append({'wikidata': concept.get('wikidata'), 'reason': reason})
                     continue
+                outcome['accepted_rows'] += len(rows)
                 for row in rows:
                     grouped.setdefault((row['language'], row['section']), []).append(row)
+            # Commit the page cursor only after fetch and parsing succeed.
+            # A source error preserves its offset for the next concept rotation.
+            if next_offset:
+                offsets[qid] = next_offset
+            else:
+                offsets.pop(qid, None)
     elif name == 'harvest-kaikki':
+        from tools.agents.harvest import (
+            KAIKKI_DICTIONARIES, KAIKKI_EXTRACTOR, KAIKKI_MAX_ROWS, KAIKKI_WINDOW_SLICES,
+            SourceAPIError, kaikki_dictionary_url, kaikki_resume, kaikki_window,
+            rows_from_kaikki_record,
+        )
         notice = (ROOT / 'legal' / 'source_evidence' / 'wiktionary-copyrights.txt').read_text(encoding='utf-8')
+        concepts_by_qid = {}
+        for concept in concept_rows(graph):
+            qid = concept.get('wikidata')
+            if isinstance(qid, str) and qid:
+                concepts_by_qid.setdefault(qid, []).append(concept)
+        catalog_ids = set(profiles)
+        dictionaries = [item for item in KAIKKI_DICTIONARIES if item[0] in catalog_ids] or list(KAIKKI_DICTIONARIES)
+        lang_index = cursor.get('language_index', 0)
+        if type(lang_index) is not int or lang_index < 0:
+            lang_index = 0
+        expected_language, dictionary_name = dictionaries[lang_index % len(dictionaries)]
+        offset, migrating = kaikki_resume(cursor, expected_language)
+        stored_offset = cursor.get('byte_offset', 0)
+        if type(stored_offset) is not int or stored_offset < 0 or stored_offset > 2_000_000_000:
+            stored_offset = 0
+        if migrating and stored_offset:
+            cursor_warning = 'Kaikki cursor restarted so link-encoded Wikidata anchors are not skipped'
+        url = kaikki_dictionary_url(dictionary_name)
+        next_byte = offset
+        kaikki_failed = False
         try:
             accept_notice(notice, 'CC-BY-SA-4.0', ('GFDL-1.3-only',))
-            from tools.agents.harvest import fetch_bytes
-            raw = fetch_bytes(
-                'https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl',
-                max_bytes=120000,
-            )
-        except (OSError, SourceSkip, UnicodeError) as exc:
+            raw = b''
+            pos = offset
+            for _slice in range(KAIKKI_WINDOW_SLICES):
+                chunk, pos, eof = kaikki_window(pos, url=url)
+                next_byte = pos
+                if not chunk:
+                    break
+                raw += chunk
+                if eof:
+                    break
+        except (OSError, SourceSkip, UnicodeError, SourceAPIError, ValueError) as exc:
+            source_errors += 1
+            kaikki_failed = True
             skipped.append({'reason': exc.__class__.__name__})
             raw = b''
-        wanted = {row['wikidata'] for row in concepts}
-        for line in raw.splitlines():
+            next_byte = stored_offset if migrating else offset
+        kept = 0
+        consumed = 0
+        capped = False
+        for raw_line in raw.splitlines(keepends=True):
+            if kept >= KAIKKI_MAX_ROWS:
+                capped = True
+                break
+            consumed += len(raw_line)
+            line = raw_line.rstrip(b'\r\n')
             if not line.startswith(b'{') or not line.endswith(b'}'):
                 continue
             try:
                 obj = json.loads(line)
             except json.JSONDecodeError:
+                skipped.append({'reason': 'malformed_json'})
                 continue
-            qids = []
-            for sense in obj.get('senses') or []:
-                for qid in sense.get('wikidata') or []:
-                    if isinstance(qid, str):
-                        qids.append(qid)
-            if not set(qids) & wanted:
+            rows = rows_from_kaikki_record(
+                obj, concepts_by_qid, profiles, retrieved,
+                url=url, expected_language=expected_language,
+            )
+            if not rows:
                 continue
-            # Kaikki lines in the sampled window have not carried a Wiktionary revision.
-            # Without a page revision the row is not traceable, so it is not stored.
-            skipped.append({'reason': 'missing_wiktionary_revision', 'word': obj.get('word')})
+            kept += len(rows)
+            for row in rows:
+                grouped.setdefault((row['language'], row['section']), []).append(row)
+        # A full slice advances past its last complete line. A row cap stops
+        # on the first unstored line so the next run does not skip it.
+        kaikki_byte_offset = offset + consumed if capped else next_byte
+        kaikki_meta = {
+            'byte_offset': kaikki_byte_offset,
+            'language': expected_language,
+            'failed': kaikki_failed,
+            'extractor': KAIKKI_EXTRACTOR,
+            'language_index': (lang_index + 1) % len(dictionaries),
+        }
     elif name == 'harvest-tatoeba':
-        from tools.agents.harvest import TATOEBA_CODES, tatoeba_sample
+        from tools.agents.harvest import TATOEBA_CODES, TATOEBA_MAX_BYTES, tatoeba_window
         notice = (ROOT / 'legal' / 'source_evidence' / 'tatoeba-terms.txt').read_text(encoding='utf-8')
         try:
             accept_notice(notice, 'CC-BY-2.0-FR')
-            code = TATOEBA_CODES.get('sv', '')
-            for sample in tatoeba_sample(code):
-                grouped.setdefault(('sv', 'sentences'), []).append({
-                    'language': 'sv',
+            selected_language = concepts[0]['language'] if concepts else ''
+            code = TATOEBA_CODES.get(selected_language)
+            progress = cursor.get('sentences') if isinstance(cursor.get('sentences'), dict) else {}
+            lang_state = progress.get(selected_language) if isinstance(progress.get(selected_language), dict) else {}
+            skip = lang_state.get('skip', 0)
+            max_bytes = lang_state.get('max_bytes', 1_500_000)
+            if type(skip) is not int or skip < 0:
+                skip = 0
+            if type(max_bytes) is not int or not 100_000 <= max_bytes <= TATOEBA_MAX_BYTES:
+                max_bytes = 1_500_000
+            window = tatoeba_window(code, limit=40, skip=skip, max_bytes=max_bytes) if code else {
+                'rows': [], 'next_skip': skip, 'exhausted': True,
+            }
+            for sample in window['rows']:
+                grouped.setdefault((selected_language, 'sentences'), []).append({
+                    'language': selected_language,
                     'section': 'sentences',
                     'text': sample['text'],
                     'author': sample['author'],
@@ -378,6 +555,12 @@ def command_harvest(args):
                     'origin_url': 'https://tatoeba.org/en/terms_of_use',
                     'status': 'keep',
                 })
+            next_bytes = max_bytes
+            if window.get('exhausted') and max_bytes < TATOEBA_MAX_BYTES:
+                next_bytes = min(TATOEBA_MAX_BYTES, max_bytes + 1_500_000)
+            progress = dict(progress)
+            progress[selected_language] = {'skip': window.get('next_skip', skip), 'max_bytes': next_bytes}
+            tatoeba_progress = progress
         except (OSError, SourceSkip, UnicodeError, ValueError) as exc:
             skipped.append({'reason': exc.__class__.__name__})
     else:
@@ -385,8 +568,16 @@ def command_harvest(args):
         notice = notice_path.read_text(encoding='utf-8') if notice_path.is_file() else ''
         try:
             accept_notice(notice, 'CC-BY-SA-4.0')
-            from tools.agents.harvest import ud_sample
-            for sample in ud_sample():
+            from tools.agents.harvest import UD_MAX_BYTES, ud_window
+            ud_state = cursor.get('ud') if isinstance(cursor.get('ud'), dict) else {}
+            skip = ud_state.get('skip', 0)
+            max_bytes = ud_state.get('max_bytes', 400_000)
+            if type(skip) is not int or skip < 0:
+                skip = 0
+            if type(max_bytes) is not int or not 80_000 <= max_bytes <= UD_MAX_BYTES:
+                max_bytes = 400_000
+            window = ud_window(limit=40, skip=skip, max_bytes=max_bytes)
+            for sample in window['rows']:
                 grouped.setdefault(('en', 'grammar'), []).append({
                     'language': 'en',
                     'section': 'grammar',
@@ -399,20 +590,86 @@ def command_harvest(args):
                     'origin_url': 'https://github.com/UniversalDependencies/UD_English-EWT',
                     'status': 'keep',
                 })
+            next_bytes = max_bytes
+            if window.get('exhausted') and max_bytes < UD_MAX_BYTES:
+                next_bytes = min(UD_MAX_BYTES, max_bytes + 400_000)
+            ud_progress = {'skip': window.get('next_skip', skip), 'max_bytes': next_bytes}
         except (OSError, SourceSkip, UnicodeError, ValueError) as exc:
             skipped.append({'reason': exc.__class__.__name__})
     wrote = 0
     for (language, section), rows in sorted(grouped.items()):
+        relative = f'data/agents/harvest/{name.replace("harvest-", "")}/{language}/{section}.json'
+        stored = ROOT / relative
+        previous_rows = []
+        prior_quarantine = []
+        if stored.exists():
+            # Fail closed on a corrupt or mismatched checkpoint: never erase a
+            # previously published window because it could not be decoded.
+            previous = json.loads(stored.read_text(encoding='utf-8'))
+            if (not isinstance(previous, dict)
+                    or previous.get('schema_version') != '1.0.0'
+                    or previous.get('source') != name
+                    or previous.get('language') != language
+                    or previous.get('section') != section
+                    or not isinstance(previous.get('rows'), list)):
+                raise ValueError(f'invalid harvest checkpoint: {relative}')
+            previous_rows = previous['rows']
+            if name == 'harvest-ud':
+                prior_quarantine = previous.get('quarantined_rows', [])
+                if (not isinstance(prior_quarantine, list)
+                        or len(prior_quarantine) > 1000
+                        or any(not isinstance(row, dict)
+                               or not isinstance(row.get('source_id'), str)
+                               or not row.get('source_id')
+                               or not isinstance(row.get('record_id'), str)
+                               or not row.get('record_id')
+                               for row in prior_quarantine)):
+                    raise ValueError(f'invalid UD quarantine checkpoint: {relative}')
+
+        # A scheduled source window is incremental; files are snapshots.
+        # Stable provenance keys prevent replay duplication without mixing
+        # independent senses or directed concepts.
+        accumulated = {}
+        quarantined = {
+            (row['source_id'], row['record_id']): row for row in prior_quarantine
+        }
+        for row in [*previous_rows, *rows]:
+            if (not isinstance(row, dict)
+                    or row.get('language') != language
+                    or row.get('section') != section
+                    or not isinstance(row.get('record_id'), str)
+                    or not row['record_id']
+                    or not isinstance(row.get('source_id'), str)
+                    or not row['source_id']):
+                raise ValueError(f'invalid harvest row: {relative}')
+            identity = (
+                row['source_id'], row['record_id'],
+                row.get('sense_id') or '', row.get('concept_id') or '',
+            )
+            if (name == 'harvest-ud'
+                    and not script_matches(
+                        row.get('text'), (profiles.get(language) or {}).get('script'))):
+                # Preserve the complete attested source record for audit while
+                # keeping non-linguistic separators out of QA and pack inputs.
+                quarantined[(row['source_id'], row['record_id'])] = row
+                if len(quarantined) > 1000:
+                    raise ValueError(f'UD quarantine limit exceeded: {relative}')
+                continue
+            accumulated[identity] = row
         payload = {
             'schema_version': '1.0.0',
             'source': name,
             'language': language,
             'section': section,
             'retrieval_date': retrieved,
-            'rows': rows,
+            'rows': list(accumulated.values()),
             'skipped': skipped,
         }
-        write_json(_out(f'data/agents/harvest/{name.replace("harvest-", "")}/{language}/{section}.json'), payload)
+        if name == 'harvest-ud':
+            payload['quarantined_rows'] = [
+                quarantined[key] for key in sorted(quarantined)
+            ]
+        write_json(_out(relative), payload)
         wrote += 1
     if not grouped:
         write_json(_out(f'data/agents/harvest/{name.replace("harvest-", "")}/checkpoint.json'), {
@@ -421,19 +678,70 @@ def command_harvest(args):
             'retrieval_date': retrieved,
             'rows': [],
             'skipped': skipped,
-            'concepts_attempted': [row.get('wikidata') for row in concepts],
+            'concepts_attempted': [row.get('wikidata') or row.get('language') for row in concepts],
+            'outcomes': outcomes,
         })
+    if name == 'harvest-wikidata':
+        write_json(_out(f'state/agents/{name}-report.json'), {
+            'schema_version': '1.0.0', 'source': name, 'retrieval_date': retrieved,
+            'outcomes': outcomes, 'source_errors': source_errors,
+            'accepted_rows': sum(item['accepted_rows'] for item in outcomes),
+            'production_publication': False,
+        })
+    # Advance only after bounded source processing finishes. The existing
+    # checkpoint publisher writes the cursor to agents/data on each run.
+    cursor_payload = {
+        'schema_version': '1.0.0',
+        'next_index': next_index,
+    }
+    if name == 'harvest-wikidata':
+        cursor_payload['search_offsets'] = offsets
+    if kaikki_meta is not None:
+        cursor_payload['byte_offset'] = kaikki_meta['byte_offset']
+        if not kaikki_meta['failed']:
+            cursor_payload['extractor'] = kaikki_meta['extractor']
+            cursor_payload['language_index'] = kaikki_meta['language_index']
+            previous = cursor.get('languages') if isinstance(cursor.get('languages'), dict) else {}
+            languages = {
+                key: value for key, value in previous.items() if isinstance(value, dict)
+            }
+            languages[kaikki_meta['language']] = {'byte_offset': kaikki_meta['byte_offset']}
+            cursor_payload['languages'] = languages
+        elif cursor.get('extractor') == kaikki_meta['extractor']:
+            cursor_payload['extractor'] = cursor['extractor']
+            if isinstance(cursor.get('language_index'), int):
+                cursor_payload['language_index'] = cursor['language_index']
+            if isinstance(cursor.get('languages'), dict):
+                cursor_payload['languages'] = cursor['languages']
+    if tatoeba_progress is not None:
+        cursor_payload['sentences'] = tatoeba_progress
+    if ud_progress is not None:
+        cursor_payload['ud'] = ud_progress
+    write_json(_out(cursor_path), cursor_payload)
     warning_text = f'skipped {len(skipped)}' if skipped else ''
-    write_heartbeat(_out('state/agents'), name, 'degraded' if skipped and not wrote else 'ok', warning_text)
-    print(json.dumps({'files': wrote, 'skipped': len(skipped), 'warning': warning}))
-    return 0
+    if not wrote:
+        warning_text = warning_text or 'no candidate rows; not production throughput'
+    # A concept that raises after sibling concepts already wrote rows is a
+    # degraded run, not a failed one. A run that wrote nothing stays failed.
+    incomplete = bool(source_errors) and not wrote
+    if source_errors and wrote:
+        extra = f'{source_errors} concept source errors after rows were written'
+        warning_text = f'{warning_text}; {extra}' if warning_text else extra
+    heartbeat_status = (
+        'failed' if incomplete else ('degraded' if source_errors or not wrote else 'ok')
+    )
+    write_heartbeat(_out('state/agents'), name, heartbeat_status, warning_text)
+    warnings = [item for item in (warning, cursor_warning, window_warning) if item]
+    print(json.dumps({'files': wrote, 'skipped': len(skipped),
+                      'attempted_concepts': len(concepts), 'warning': '; '.join(warnings)}))
+    return 1 if incomplete else 0
 
 
 def command_watchdog(_args):
     if _halt('watchdog'):
         return 0
     from datetime import datetime, timezone
-    from tools.agents.ops import dispatch_batch, stale_heartbeats
+    from tools.agents.ops import codeql_run_heartbeat, dispatch_batch, stale_heartbeats
     heartbeats = []
     folder = ROOT / 'state' / 'agents'
     if folder.is_dir():
@@ -442,14 +750,55 @@ def command_watchdog(_args):
             if payload.get('name'):
                 heartbeats.append(payload)
     now = datetime.now(timezone.utc).timestamp()
+    # CodeQL has read-only permissions, so it cannot publish a file heartbeat.
+    # Read actual Actions evidence rather than redispatching it every hour.
+    run_file = getattr(_args, 'codeql_runs', '')
+    if run_file:
+        try:
+            path = Path(run_file)
+            if path.stat().st_size > 16384:
+                raise ValueError('oversized CodeQL run evidence')
+            result = codeql_run_heartbeat(json.loads(path.read_text(encoding='utf-8')), now)
+        except (OSError, ValueError, json.JSONDecodeError):
+            result = None
+        if result is not None:
+            from datetime import datetime as _dt
+            prior = next((x for x in heartbeats if x.get('name') == 'codeql'), None)
+            prior_stamp = (prior or {}).get('last_run') or ''
+            try:
+                prior_epoch = _dt.fromisoformat(prior_stamp.replace('Z', '+00:00')).timestamp()
+            except (ValueError, TypeError, OverflowError):
+                prior_epoch = -1
+            observed_epoch = _dt.fromisoformat(result['last_run']).timestamp()
+            if observed_epoch >= prior_epoch:
+                heartbeats = [x for x in heartbeats if x.get('name') != 'codeql']
+                heartbeats.append(result)
+                write_json(_out('state/agents/codeql.json'), result)
     stale = stale_heartbeats(heartbeats, now, 8 * 3600)
-    batch = dispatch_batch(stale, cap=3)
-    write_json(_out('state/agents/watchdog.json'), {
+    known_names = {row['name'] for row in ROSTER}
+    # Report real degraded agents even when their last heartbeat is fresh.
+    # Do not redispatch persistent legal/source failures every hour: only
+    # overdue jobs enter the bounded recovery queue.
+    degraded = sorted({
+        row['name'] for row in heartbeats
+        if row.get('name') in known_names
+        and row.get('name') not in ('watchdog', 'health')
+        and row.get('name') not in stale
+        and row.get('status') != 'ok'
+    })
+    # Rotate by UTC hour; no new ledger or scheduler is needed. A continuously
+    # failing early roster entry cannot monopolize all three recovery slots.
+    batch = dispatch_batch(stale, cap=3, rotation=int(now // 3600))
+    write_json(_out('state/agents/watchdog-report.json'), {
         'schema_version': '1.0.0',
         'stale': stale,
+        'degraded': degraded,
         'dispatch': batch,
     })
-    write_heartbeat(_out('state/agents'), 'watchdog', 'ok', f'dispatch {len(batch)} of {len(stale)}')
+    # A requested workflow dispatch is not verified worker completion.
+    write_heartbeat(_out('state/agents'), 'watchdog',
+                    'degraded' if stale or degraded else 'ok',
+                    f'requested {len(batch)} of {len(stale)} stale agents; degraded={len(degraded)}')
     print('\n'.join(batch))
     return 0
 
@@ -561,7 +910,9 @@ def build_parser():
             item.add_argument('--run-id', default='')
             item.add_argument('--file-issue', action='store_true')
         item.set_defaults(func=func)
-    commands.add_parser('watchdog').set_defaults(func=command_watchdog)
+    watchdog = commands.add_parser('watchdog')
+    watchdog.add_argument('--codeql-runs', default='')
+    watchdog.set_defaults(func=command_watchdog)
     commands.add_parser('links').set_defaults(func=command_links)
     janitor = commands.add_parser('janitor')
     janitor.add_argument('--pr-json', required=True)

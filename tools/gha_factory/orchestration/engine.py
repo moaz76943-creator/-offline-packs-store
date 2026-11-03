@@ -1,7 +1,9 @@
 """Short serialized mutations, independently running worker jobs, fail-closed recovery."""
 import hashlib
 import json
-from collections import defaultdict
+import math
+import sys
+from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 from tools.gha_factory.admission import pipeline
@@ -15,17 +17,38 @@ CREATORS=frozenset((OWNER,'github-actions[bot]'))
 MAX_CONTROLLER_BYTES=64*1024*1024
 
 def trusted(issue):
-    return (isinstance(issue,dict) and 'pull_request' not in issue
-        and (issue.get('user') or {}).get('login') in CREATORS
-        and isinstance(issue.get('number'),int) and issue['number']>0
-        and issue.get('title','').startswith(p.PREFIX))
+    if not isinstance(issue,dict) or 'pull_request' in issue:
+        return False
+    user=issue.get('user')
+    title=issue.get('title')
+    number=issue.get('number')
+    return (isinstance(user,dict) and user.get('login') in CREATORS
+        and type(number) is int and number>0
+        and isinstance(title,str) and title.startswith(p.PREFIX))
 
-def inventory(api,ctx):
+def inventory(api,ctx,invalid_active=None,telemetry=None):
     entries=[]
     for issue in api.issues():
         if not trusted(issue):continue
-        t=p.parse(issue.get('body'),ctx['languages'])
-        if issue['title']!=p.PREFIX+t['task_id']:raise ValueError('task title identity mismatch')
+        try:
+            t=p.parse(issue.get('body'),ctx['languages'])
+        except (ValueError, TypeError, KeyError, UnicodeError) as exc:
+            if telemetry is not None:
+                telemetry['malformed_queue_issues']=telemetry.get('malformed_queue_issues',0)+1
+            print('QUARANTINED_INVALID_ISSUE', issue['number'],
+                  type(exc).__name__, file=sys.stderr)
+            continue
+        if issue['title']!=p.PREFIX+t['task_id']:
+            if telemetry is not None:
+                telemetry['malformed_queue_issues']=telemetry.get('malformed_queue_issues',0)+1
+            print('QUARANTINED_INVALID_ISSUE', issue['number'],
+                  'TitleIdentityMismatch', file=sys.stderr)
+            if t['state'] not in p.ACTIVE:
+                continue
+            # A validated active lease retains its capacity and source/language
+            # lock, even with a changed title. Never mutate or execute it.
+            if invalid_active is not None:
+                invalid_active.add(issue['number'])
         entries.append((issue['number'],t))
     if len(entries)>2000:raise ValueError('queue inventory exceeds 2000 tasks')
     return sorted(entries)
@@ -68,7 +91,9 @@ def source_gate(t,ctx,registry_sha,root):
         pipeline.route05_source(root,t['source_id'],src['dataset_version'],path,'wiktextract-jsonl')
         report=approved['report'];job=approved['job']
         if report.get('dataset_version')!=src['dataset_version'] or report.get('source_artifact_sha256')!=t['source_sha256']:return 'QUARANTINED'
-        partition=(approved['folder']/job['path']).resolve()
+        partition_link=approved['folder']/job['path']
+        if partition_link.is_symlink():return 'BLOCKED_SOURCE'
+        partition=partition_link.resolve()
         if not partition.is_relative_to(approved['folder'].resolve()) or not partition.is_file():return 'BLOCKED_SOURCE'
         if partition.stat().st_size>40_000_000:return 'BLOCKED_DEPENDENCY'
         if pipeline.digest_file(partition)!=job['sha256']:return 'QUARANTINED'
@@ -79,9 +104,14 @@ def _blocked(t,state):
     if t['schema_version']==v1.VERSION and state=='BLOCKED_DEPENDENCY':state='BLOCKED_SOURCE'
     return p.validate(dict(t,state=state))
 
-def control(api,run_id,attempt,now,root,ctx=None,registry_sha=None):
+def control(api,run_id,attempt,now,root,ctx=None,registry_sha=None,telemetry=None):
     if ctx is None:ctx,registry_sha=legacy.context(root)
-    entries=inventory(api,ctx)
+    invalid_active=set()
+    entries=inventory(api,ctx,invalid_active,telemetry)
+    if telemetry is not None:
+        observed=Counter(t['state'] for _,t in entries)
+        telemetry.update(queue_total=len(entries),
+                         task_states=dict(sorted(observed.items())))
     groups=defaultdict(list)
     for n,t in entries:groups[t['task_id']].append((n,t))
     # Any duplicate is ambiguous: completed receipts are immutable; only incomplete
@@ -106,6 +136,10 @@ def control(api,run_id,attempt,now,root,ctx=None,registry_sha=None):
         t=original
         if t['state'] in p.ACTIVE:
             if len(active)>=32:raise ValueError('unexpected active lease count')
+            if n in invalid_active:
+                # Fail closed: reserve the slot and lock until title correction.
+                active.append((n,t))
+                continue
             if t['run_id'] not in runs:runs[t['run_id']]=api.run(t['run_id'])
             r=runs[t['run_id']]
             exact=(r.get('id')==t['run_id'] and r.get('run_attempt')==t['run_attempt']
@@ -176,6 +210,46 @@ def seed(api,ctx,registry_sha,root):
         t=dict(t,state='READY');created.append(api.create(t));known.add(t['task_id'])
     return created
 
+def strict_partition_row(raw):
+    """Decode one bounded queue row without ambiguous JSON or invalid scalars."""
+    def unique_object(pairs):
+        item = {}
+        for key, value in pairs:
+            if key in item:
+                raise ValueError('duplicate JSON property')
+            item[key] = value
+        return item
+
+    def reject_constant(_value):
+        raise ValueError('nonfinite JSON constant')
+
+    def finite_float(value):
+        number = float(value)
+        if not math.isfinite(number):
+            raise ValueError('overflowed JSON number')
+        return number
+
+    try:
+        row = json.loads(raw.decode('utf-8', 'strict'),
+                         object_pairs_hook=unique_object,
+                         parse_constant=reject_constant,
+                         parse_float=finite_float)
+        # json.loads permits escaped lone UTF-16 surrogates. Never pass these
+        # through as legitimate Arabic, German or other Unicode source text.
+        pending = [row]
+        while pending:
+            value = pending.pop()
+            if isinstance(value, dict):
+                pending.extend(value.keys())
+                pending.extend(value.values())
+            elif isinstance(value, list):
+                pending.extend(value)
+            elif isinstance(value, str):
+                value.encode('utf-8', 'strict')
+        return row
+    except (UnicodeError, ValueError, TypeError, RecursionError) as exc:
+        raise ValueError('invalid partition JSON') from exc
+
 def verify_partition(t,ctx):
     approved=ctx['admissions'][(t['source_id'],t['language'],t['source_sha256'],t['shard'])]
     job=approved['job'];report=approved['report']
@@ -187,7 +261,7 @@ def verify_partition(t,ctx):
             if len(raw)>1_048_576 or not raw.endswith(b'\n'):raise ValueError('invalid partition line')
             count+=1
             if count>10000:raise ValueError('partition limit')
-            digest.update(raw);row=json.loads(raw)
+            digest.update(raw);row=strict_partition_row(raw)
             if (not isinstance(row,dict) or row.get('source_id')!=t['source_id']
                     or row.get('language')!=t['language'] or row.get('source_artifact_sha256')!=t['source_sha256']
                     or row.get('dataset_version')!=report['dataset_version']):raise ValueError('partition record identity mismatch')
@@ -217,32 +291,56 @@ def execute(api,n,task_id,run_id,attempt,directory,root,now):
     temp.replace(directory/'receipt.json')
     return r
 
+class FinalizationError(ValueError):
+    """One or more tasks failed validation; independent results are durable."""
+    def __init__(self, results, errors):
+        super().__init__('one or more worker receipts could not be finalized')
+        self.results = results
+        self.errors = errors
+
+
+def _finalize_job(api,job,folder,run_id,attempt,now):
+    n=job['number'];issue=api.one(n)
+    if not trusted(issue):raise ValueError('untrusted finalization issue')
+    t=p.parse(issue['body'])
+    if t['task_id']!=job['task_id'] or t['run_id']!=run_id or t['run_attempt']!=attempt:raise ValueError('changed ownership')
+    directory=folder/f'dispatcher-{n}'
+    # Never read a receipt or candidate through an extracted directory link.
+    if directory.is_symlink() or directory.resolve().parent!=folder.resolve():
+        raise ValueError('unsafe receipt directory')
+    path=directory/'receipt.json'
+    if path.is_symlink():raise ValueError('unsafe receipt')
+    if path.is_file():
+        if path.stat().st_size>4096:raise ValueError('oversized receipt')
+        r=json.loads(path.read_text())
+        if not isinstance(r, dict):
+            raise ValueError('receipt must be a JSON object')
+        p.verify_output(directory,r)
+        updated=p.finish(t,r,now)
+    else:
+        if t['state'] not in p.ACTIVE:raise ValueError('missing receipt for completed task')
+        updated=p.fail(t,now)
+    if updated!=t:api.update(n,updated)
+    return {'issue':n,'state':updated['state'],'task_id':t['task_id'],'run_id':run_id,'run_attempt':attempt}
+
+
 def finalize(api,jobs,folder,run_id,attempt,now):
     if not isinstance(jobs,list) or len(jobs)>3:raise ValueError('invalid matrix')
     if folder.is_symlink():raise ValueError('unsafe artifact root')
     run=api.run(run_id)
     if run.get('id')!=run_id or run.get('run_attempt')!=attempt or run.get('head_branch')!='main' or run.get('path')!=WORKFLOW:raise ValueError('unverified run identity')
-    done=[]
+    # Reject an invalid matrix before performing any mutation. Receipt failures
+    # below are per-task, while run identity remains a global security gate.
     for job in jobs:
         if not isinstance(job,dict) or set(job)!={'number','task_id'} or type(job['number']) is not int or job['number']<=0 or not v1.HEX.fullmatch(str(job['task_id'])):raise ValueError('invalid matrix item')
-        n=job['number'];issue=api.one(n)
-        if not trusted(issue):raise ValueError('untrusted finalization issue')
-        t=p.parse(issue['body'])
-        if t['task_id']!=job['task_id'] or t['run_id']!=run_id or t['run_attempt']!=attempt:raise ValueError('changed ownership')
-        directory=folder/f'dispatcher-{n}'
-        # Checking only receipt.json misses symlinks in its artifact directory.
-        # Never read a receipt or candidate through an extracted directory link.
-        if directory.is_symlink() or directory.resolve().parent!=folder.resolve():
-            raise ValueError('unsafe receipt directory')
-        path=directory/'receipt.json'
-        if path.is_symlink():raise ValueError('unsafe receipt')
-        if path.is_file():
-            if path.stat().st_size>4096:raise ValueError('oversized receipt')
-            r=json.loads(path.read_text());p.verify_output(directory,r)
-            updated=p.finish(t,r,now)
-        else:
-            if t['state'] not in p.ACTIVE:raise ValueError('missing receipt for completed task')
-            updated=p.fail(t,now)
-        if updated!=t:api.update(n,updated)
-        done.append({'issue':n,'state':updated['state'],'task_id':t['task_id'],'run_id':run_id,'run_attempt':attempt})
+    done=[];errors=[]
+    for job in jobs:
+        try:
+            done.append(_finalize_job(api,job,folder,run_id,attempt,now))
+        except (OSError,ValueError,TypeError,KeyError) as exc:
+            # Do not accept invalid/replayed receipts, release their leases, or
+            # expose artifact contents. Continue finalizing independent tasks.
+            errors.append({'issue':job['number'],'task_id':job['task_id'],
+                           'error':'FINALIZATION_REJECTED','category':type(exc).__name__})
+    if errors:raise FinalizationError(done,errors)
     return done

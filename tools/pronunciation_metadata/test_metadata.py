@@ -25,6 +25,7 @@ def _write_pronunciation_ledger(root, source_id="pronunciation-case", dataset_ve
         "kind": kind,
         "origin_url": origin,
         "publisher": "Example Test Publisher",
+        "author": "Test Author",
         "dataset_version": dataset_version,
         "retrieval": {
             "identity": "test-capture",
@@ -58,6 +59,11 @@ class TestPronunciationMetadata(unittest.TestCase):
         self.source = _write_pronunciation_ledger(self.root)
         self.schema_path = os.path.join(os.path.dirname(__file__), "pronunciation.schema.json")
         self.registry = PronunciationRegistry(self.schema_path, repo_root=self.root)
+        reg_dir = self.root / "catalog"
+        reg_dir.mkdir(parents=True, exist_ok=True)
+        (reg_dir / "language_registry.v1.json").write_text(
+            json.dumps({"languages": [{"id": "en"}, {"id": "es"}, {"id": "fr"}, {"id": "zh"}]})
+        )
 
     def record(self, **overrides):
         source = {
@@ -142,6 +148,14 @@ class TestPronunciationMetadata(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "approved non-fixture"):
             self.registry.add_record(row)
 
+    def test_missing_source_author_in_ledger_is_rejected(self):
+        path = self.root / "legal" / "ledger" / "sources.json"
+        ledger = json.loads(path.read_text(encoding="utf-8"))
+        ledger["sources"][0].pop("author")
+        path.write_text(json.dumps(ledger), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "canonical legal ledger"):
+            self.registry.add_record(self.record())
+
     def test_flags_without_canonical_ledger_source_rejected(self):
         row = self.record()
         row["source"]["source_id"] = "src-1"
@@ -164,6 +178,11 @@ class TestPronunciationMetadata(unittest.TestCase):
         root = Path(self.temp.name) / "dictionary"
         _write_pronunciation_ledger(root, kind="dictionary")
         registry = PronunciationRegistry(self.schema_path, repo_root=root)
+        reg_dir = root / "catalog"
+        reg_dir.mkdir(parents=True, exist_ok=True)
+        (reg_dir / "language_registry.v1.json").write_text(
+            json.dumps({"languages": [{"id": "en"}, {"id": "es"}, {"id": "fr"}, {"id": "zh"}]})
+        )
         with self.assertRaisesRegex(ValueError, "canonical legal ledger"):
             registry.add_record(self.record())
 
@@ -231,6 +250,11 @@ class TestPronunciationMetadata(unittest.TestCase):
     def test_wrong_language_format(self):
         with self.assertRaises(ValueError):
             self.registry.add_record(self.record(language="English"))
+
+    def test_non_canonical_language(self):
+        # A syntactically valid BCP-47 language tag, but not in the 100 canonical list
+        with self.assertRaisesRegex(ValueError, "not a canonical 100-language identity"):
+            self.registry.add_record(self.record(language="xx"))
 
     def test_rejected_source_is_not_exported(self):
         self.registry.add_record(self.record())

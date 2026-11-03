@@ -26,6 +26,7 @@ def schema_source(source_id, status='APPROVED_FOR_REDISTRIBUTION', dataset_versi
         'kind': 'dictionary',
         'origin_url': 'https://example.com/sources/' + source_id,
         'publisher': 'Example Publisher',
+        'author': 'Example Author',
         'dataset_version': dataset_version,
         'retrieval': {
             'identity': source_id,
