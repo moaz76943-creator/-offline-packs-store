@@ -294,6 +294,93 @@
       "co_offered": [
         "GFDL-1.3-only"
       ],
+      "concept_id": "concept.q1410",
+      "gloss": "Gibraltar (a peninsula, city, and overseas territory of the United Kingdom, at the southern end of Iberia)",
+      "language": "de",
+      "lemma": "Gibraltar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "en-Gibraltar-de-name-ZcvZyDDJ",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Gibraltar-de-name-ZcvZyDDJ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q956",
+      "gloss": "Beijing (a direct-administered municipality, the capital city of China)",
+      "language": "de",
+      "lemma": "Peking",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q956"
+      ],
+      "record_id": "en-Peking-de-name-ZRQBenzn",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Peking-de-name-ZRQBenzn",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q956"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q26793",
+      "gloss": "Bergen (a port city, municipality, and former county of the county of Vestland, Norway, formerly part of the county of Hordaland)",
+      "language": "de",
+      "lemma": "Bergen",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q26793"
+      ],
+      "record_id": "en-Bergen-de-name-~7datHnQ",
+      "retrieval_date": "2026-11-03",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bergen-de-name-~7datHnQ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q26793"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
       "concept_id": "concept.q5151",
       "gloss": "A period of 30 days, 31 days, or some alternation thereof.",
       "language": "en",
@@ -7057,7 +7144,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5946",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.question",
       "source_id": "tatoeba.sentences",
@@ -7075,7 +7162,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5947",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.question",
       "source_id": "tatoeba.sentences",
@@ -7093,7 +7180,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5949",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -7111,7 +7198,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5953",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.question",
       "source_id": "tatoeba.sentences",
@@ -7129,7 +7216,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5955",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -7147,7 +7234,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5957",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -7165,7 +7252,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5959",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.question",
       "source_id": "tatoeba.sentences",
@@ -7183,7 +7270,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5961",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.question",
       "source_id": "tatoeba.sentences",
@@ -7201,7 +7288,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5962",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -7219,7 +7306,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5963",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -7237,7 +7324,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5964",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -7255,12 +7342,516 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:5965",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-03",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "De meeste mensen denken dat ik gek ben."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5966",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik moet gaan slapen."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5967",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Heb je gezegd dat ik nooit zou kunnen winnen?"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5968",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Gelukkige verjaardag Muiriel!"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=59; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5969",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Vandaag is het 18 juni en het is de verjaardag van Muiriel!"
+    },
+    {
+      "author": "TRANG",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5970",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wat is dat?"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5971",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wat doe je?"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5972",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Laten we iets proberen!"
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5978",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik wacht al uren lang."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5979",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik was in de bergen."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5980",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Dat was een slecht konijn."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5981",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik weet niet wat te zeggen..."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5982",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hier komt nooit een eind aan."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5983",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik heb er geen woorden voor."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5984",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik ben zo terug."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5985",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Het wachtwoord is \"Muiriel\"."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5986",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Het onderwijs in deze wereld valt me tegen."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5987",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Tenslotte moet iedereen zelf leren."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=59; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5988",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Om de een of andere reden werkte de microfoon daarnet niet."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5989",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik weet niet of ik tijd heb."
+    },
+    {
+      "author": "Dorenda",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:5990",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Is dit een recente foto?"
+    },
+    {
+      "author": "JeroenHoek",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=81; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:164914",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Op onze website, http://www.example.com, staat alle informatie die je nodig hebt."
+    },
+    {
+      "author": "PaulP",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:330699",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Blijf zwemmen tot je aan je grens zit."
+    },
+    {
+      "author": "PaulP",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=84; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:330700",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Laat het ons eerst hebben over de experimenten die uitgevoerd worden in laboratoria."
+    },
+    {
+      "author": "Ramses",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:330701",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hoe heet u?"
+    },
+    {
+      "author": "PaulP",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=89; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:330702",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Het ligt misschien niet in je aard, maar je zou tenminste een beetje beleefd kunnen zijn."
+    },
+    {
+      "author": "Ramses",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:330703",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Spanjaarden hebben twee achternamen."
+    },
+    {
+      "author": "Ramses",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:330704",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Paco tekent stadsgezichten."
+    },
+    {
+      "author": "Ramses",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:330705",
+      "retrieval_date": "2026-11-03",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Raúl kan zich zonder zijn vrienden niet vermaken."
     },
     {
       "author": "sugisaki",
@@ -11853,6 +12444,686 @@
       "source_id": "universal-dependencies",
       "status": "keep",
       "text": "(Applause.)\""
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0037",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Now that's a rambling response."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=91; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0038",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "And I have to wonder: Did he forget that he already has a memoir called \"A Charge to Keep\"?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=90; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-blogspot.com_tacitusproject_20040712123425_ENG_20040712_123425-0039",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "That was the name of his \"autobiography\" -- ghost-written by adviser Karen Hughes in 1999."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=98; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0001",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "There has been random speculation about Google developiong a new browser and/or acquiring Firefox."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=52; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0002",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It is true that Google has been in acquisition mode."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=130; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0003",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "They have acquired Urchin, Zipdash, Applied Semantics, Picasa, Blogger, and satellite imaging company Keyhole, so why not Firefox?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=202; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0004",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I have no inside information, but I have been following links today that strongly indicate that Google is damn serious about securing permanent control of the leading edge browser technology in Firefox."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=53; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0005",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Ben Goodger is the lead engineer for Mozilla Firefox."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0006",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "He announced this in January:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=125; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0007",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "As of January 10, 2005, my source of income changed from The Mozilla Foundation to Google, Inc. of Mountain View, California."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=203; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0008",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "My role with Firefox and the Mozilla project will remain largely unchanged, I will continue doing much the same work as I have described above - with the new goal of successful 1.1, 1.5 and 2.0 releases."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=107; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0009",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I remain devoted full-time to the advancement of Firefox, the Mozilla platform and web browsing in general."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0010",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "He also announced this in January:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0011",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Welcome Darin!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=95; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0012",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I just want to extend a big \"Welcome!\" to Darin Darin Fisher who joined me at Google this week."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0013",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "2005 is going to rock!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=53; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0014",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Darin Fisher wrote this response on January 25, 2005:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0015",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Me and the big \"G\""
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=108; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0016",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Following on the heels of Ben's annoucement yesterday, I thought I'd post that I have joined Google as well."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=87; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0017",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Like Ben, I will still be very much involved with the Mozilla project and community :-)"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0018",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Posted by darin"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0019",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Ben made another announcement on March 28, 2005:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=64; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0020",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I want to use this opportunity to welcome Brian Ryner to Google!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=110; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0021",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Brian has been one of the most crucial elements to the success of Mozilla software over the past few years,..."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0022",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Great to have you on board!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=147; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0023",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Now, none of this has been confirmed by Google at the present time, but it's an old adage that you follow the money to see who is behind something."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=162; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0024",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In this case, following the talent leads me to think that Google will be making an announcement this year that formalizes the Google-Mozilla/Firefox relationship."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=194; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0025",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If you have not already seen the Flash movie Epic , you should take a few minutes and view the future history of media as conceived by Robin Sloan and Matt Thompson, with music by Aaron McLeran."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=87; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0026",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In this movie Google and Amazon (GOOGLEZON ) create a brave new world of media in 2008."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0027",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "This is one thought-provoking film."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=61; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0028",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Every move Google makes brings this particular future closer."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=94; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0029",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Just one small commment - it's not possible, as far as I know, for Google to \"Aquire\" Firefox."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=138; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0030",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "They already have rights to take it, alter it, and release those changes to the world - this is what the whole open source thing is about."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=390; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0031",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I'm inclined to say that google is doing what they can to both shape and support the growth of the most popular non-Microsoft browser out there - by taking on the leading lights in Firefox development, they're ensuring the continued life of the project, and ensuring (not that I think they need to) that their voice will be heard admidst the higher echelons of the firefox development team."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=88; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0032",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It's this sort of enlightened self interest that keeps large open source projects alive."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0033",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Fascinating viewpoint of the future in Epic."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0034",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Thanks for the link."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0035",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Malach, What you say makes sense."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=141; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0036",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Acquiring open source talent gives a company an inexpensive way of influencing and anticipating the direction an open source project will go."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=150; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-typepad.com_ripples_20050410122300_ENG_20050410_122300-0037",
+      "retrieval_date": "2026-11-03",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It probably gives more bang for the buck than acquiring a private company and having to handle the inevitable culture clashes and process mis-matches."
     },
     {
       "concept_id": "concept.q3354532",
