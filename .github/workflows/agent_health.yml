@@ -21,6 +21,8 @@ jobs:
           persist-credentials: true
       - name: Load the last committed snapshot
         run: bash tools/agents/prepare.sh
+      - name: Verify bounded failure selection
+        run: python3 -m unittest tools.agents.test_health_failure_selection -v
       - name: Run health
         id: work
         continue-on-error: true
@@ -28,15 +30,48 @@ jobs:
           AGENTS_HALT: ${{ vars.AGENTS_HALT }}
           LANGUAGE_PRODUCTION_HALT: ${{ vars.LANGUAGE_PRODUCTION_HALT }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
         run: |
-          line="$(gh run list --limit 30 --json databaseId,conclusion,name --jq '[.[] | select(.conclusion=="failure")][0] | [.databaseId, .name] | @tsv')"
-          run_id="${line%%$'\t'*}"
-          signature="${line#*$'\t'}"
-          if [ -z "$signature" ] || [ "$signature" = "$run_id" ]; then
-            signature="no-signature"
-            run_id=""
-          fi
-          python3 -m tools.agents.cli repair --signature "$signature" --run-id "$run_id" --file-issue
+          set -Eeuo pipefail
+          # Full workflow identity, source branch and PR number avoid cross-PR
+          # success masking. Single bounded page; no untrusted query input.
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs?per_page=100" --jq '
+            .workflow_runs | map({
+              databaseId: .id,
+              workflowName: .name,
+              event: .event,
+              pullRequest: (if (.pull_requests | length) == 1 then .pull_requests[0].number else null end),
+              headRepository: .head_repository.full_name,
+              headBranch: .head_branch,
+              headSha: .head_sha,
+              conclusion: .conclusion,
+              status: .status
+            })
+          ' > /tmp/agent-health-runs.json
+          python3 - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          from tools.agents.root_cause import select_active_failures
+
+          runs = json.loads(Path('/tmp/agent-health-runs.json').read_text(encoding='utf-8'))
+          selected = select_active_failures(runs, cap=3)
+          if not selected:
+              # No current failure: refresh health without creating a fake issue.
+              subprocess.run(
+                  ['python3', '-m', 'tools.agents.cli', 'repair',
+                   '--signature', 'no-signature'], check=True
+              )
+          for item in selected:
+              subprocess.run(
+                  ['python3', '-m', 'tools.agents.cli', 'repair',
+                   '--signature', item['name'],
+                   '--run-id', str(item['databaseId']), '--file-issue'], check=True
+              )
+          print(json.dumps({'current_failed_workflows': len(selected),
+                            'observed_run_ids': [r['databaseId'] for r in selected]}))
+          PY
 
       - name: Publish the checkpoint
         if: always()
