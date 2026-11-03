@@ -118,6 +118,19 @@ def gh_call(argv):
             time.sleep(retry_delay(attempt))
 
 
+def select_shard_numbers(records, shard_count, shard_index):
+    """Stable disjoint candidate ownership; duplicates never waste a second API read."""
+    if (not isinstance(records, list) or
+            type(shard_count) is not int or not 1 <= shard_count <= 8 or
+            type(shard_index) is not int or not 0 <= shard_index < shard_count):
+        raise ValueError('invalid PR scout records or partition')
+    return sorted({
+        item['number'] for item in records
+        if isinstance(item, dict) and type(item.get('number')) is int
+        and item['number'] > 0 and item['number'] % shard_count == shard_index
+    })
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Label blocked PRs and squash-merge one ready PR")
     parser.add_argument("--repo", default="moaz76943-creator/-offline-packs-store")
@@ -131,13 +144,15 @@ def main(argv=None):
     if args.merge_one and args.shard_count != 1:
         parser.error("parallel scouts cannot become competing merge authorities")
     listed = gh_output(
-        ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "250",
+        ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "1000",
          "--json", "number,title,isDraft,mergeStateStatus,headRefName"]
     )
-    numbers = sorted(item["number"] for item in json.loads(listed)
-                     if isinstance(item, dict) and type(item.get("number")) is int
-                     and item["number"] > 0
-                     and item["number"] % args.shard_count == args.shard_index)
+    rows = json.loads(listed)
+    if not isinstance(rows, list) or len(rows) >= 1000:
+        raise ValueError('PR scout discovery incomplete: 1000-row ceiling reached')
+    numbers = select_shard_numbers(rows, args.shard_count, args.shard_index)
+    print(f"PR_SCOUT_SHARD={args.shard_index}/{args.shard_count} "
+          f"DISCOVERED={len(rows)} SCOPED={len(numbers)}")
     merged = None
     for number in numbers:
         view = json.loads(gh_output(
