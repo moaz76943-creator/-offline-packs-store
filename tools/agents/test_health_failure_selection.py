@@ -19,6 +19,15 @@ class ActiveFailureSelectionTests(unittest.TestCase):
             {"databaseId": 49, "name": "Agent QA"}
         ])
 
+    def test_stable_workflow_name_groups_dynamic_run_titles(self):
+        rows = [
+            {"databaseId": 85, "name": "Queue 85", "workflowName": "Public GHA issue dispatcher",
+             "status": "completed", "conclusion": "success"},
+            {"databaseId": 82, "name": "Queue 82", "workflowName": "Public GHA issue dispatcher",
+             "status": "completed", "conclusion": "failure"},
+        ]
+        self.assertEqual(select_active_failures(rows), [])
+
     def test_newer_running_job_blocks_stale_failure(self):
         rows = [
             run(51, "Agent QA", None, "in_progress"),
