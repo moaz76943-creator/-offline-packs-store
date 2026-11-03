@@ -1,5 +1,5 @@
 {
-  "next_index": 4,
+  "next_index": 5,
   "schema_version": "1.0.0",
   "sentences": {
     "ar": {
@@ -15,6 +15,10 @@
       "skip": 40
     },
     "es": {
+      "max_bytes": 1500000,
+      "skip": 40
+    },
+    "fr": {
       "max_bytes": 1500000,
       "skip": 40
     },
