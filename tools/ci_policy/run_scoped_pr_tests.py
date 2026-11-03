@@ -27,7 +27,8 @@ SUITES = {
     "open_export": ("tools/open_export", "test_lifecycle.py"),
     "community_automation": ("tools/community_automation", "test_gate.py"),
     "community_intake": ("tests/community/contributions", "test_*.py"),
-    "licensing": ("legal/licensing", "test_ledger.py"),
+    # License-compatibility tests live here; legal/licensing never existed.
+    "licensing": ("legal/license_compatibility", "test_*.py"),
     "ledger": ("legal/ledger", "test_*.py"),
     "registry_unit": ("catalog", "test_registry.py"),
     "utils": ("tests", "test_utils.py"),
@@ -35,8 +36,10 @@ SUITES = {
     "factory_dispatcher": ("tests/gha_factory/dispatcher", "test_*.py"),
     "factory_orchestration": ("tests/gha_factory/orchestration", "test_*.py"),
     "factory_queue_autoseed": ("tests/gha_factory/queue_autoseed", "test_*.py"),
+    "directed_pairs": ("standards/directed_pairs", "test_directed_pair.py"),
+    "svg_optimizer": ("tools/svg_optimizer", "test_optimizer.py"),
 }
-ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "licensing", "ledger", "utils", "registry_unit", "inventory", "factory_dispatcher", "factory_orchestration", "factory_queue_autoseed")
+ORDER = ("media", "pronunciation", "audio", "ingestion", "final_evidence", "corpus_dedupe", "provenance_release", "lexicon_sanitizer", "artifact_digest", "open_index", "repro_build", "pack_manifest", "lexical_quality", "open_export", "community_automation", "community_intake", "licensing", "ledger", "utils", "registry_unit", "inventory", "factory_dispatcher", "factory_orchestration", "factory_queue_autoseed", "directed_pairs", "svg_optimizer")
 
 
 # Only independently tested leaf components may bypass *unrelated* global
@@ -122,7 +125,7 @@ def select_baseline_checks(changed_paths):
                 FACTORY_REGRESSION_WORKFLOW):
             return True
         # New licensing logic must retain the full global safety baseline.
-        if path.startswith("legal/licensing/"):
+        if path.startswith(("legal/licensing/", "legal/license_compatibility/")):
             return False
         if path in ROOT_PROSE_DOCS:
             return True
@@ -161,6 +164,10 @@ def select_suites(changed_paths):
             selected.add("factory_orchestration")
         if path.startswith(("tools/gha_factory/queue_autoseed/", "tests/gha_factory/queue_autoseed/")) or path == FACTORY_QUEUE_WORKFLOW:
             selected.add("factory_queue_autoseed")
+        if path.startswith("standards/directed_pairs/"):
+            selected.add("directed_pairs")
+        if path.startswith("tools/svg_optimizer/"):
+            selected.add("svg_optimizer")
         if path.startswith("tools/media_optimizer/"):
             selected.add("media")
         if path.startswith("tools/pronunciation_metadata/"):
@@ -193,7 +200,7 @@ def select_suites(changed_paths):
             selected.add("community_automation")
         if path.startswith(("community/contributions/", "tests/community/contributions/")):
             selected.add("community_intake")
-        if path.startswith("legal/licensing/"):
+        if path.startswith(("legal/licensing/", "legal/license_compatibility/")):
             selected.add("licensing")
         if path == "utils.py" or path == "tests/test_utils.py":
             selected.add("utils")
@@ -205,7 +212,8 @@ def select_suites(changed_paths):
             # Factory infrastructure is not a consumer of the legal ledger.
             selected.update(name for name in ORDER if name not in (
                 "utils", "inventory", "licensing", "factory_dispatcher",
-                "factory_orchestration", "factory_queue_autoseed"))
+                "factory_orchestration", "factory_queue_autoseed",
+                "directed_pairs", "svg_optimizer"))
         if path.startswith("tools/contribution_gate/"):
             selected.update(("pronunciation", "audio"))
     return tuple(name for name in ORDER if name in selected)

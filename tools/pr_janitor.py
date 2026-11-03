@@ -8,6 +8,18 @@ import argparse
 import json
 import re
 import subprocess
+import time
+
+# Transient GitHub API outages (GraphQL 504, HTTP 502, rate limits) killed a
+# scheduled scout run mid-flight; retry instead of letting the whole
+# classification shard die on one flaky API call. The 2026-10-27 12:51 run
+# still raised after three immediate retries because each attempt fell back
+# to back into the same outage window; bounded exponential backoff spreads
+# the attempts out so one burnt window can end before the last attempt.
+GH_RETRY_ATTEMPTS = 5
+GH_RETRY_DELAY_SECONDS = 5.0
+GH_RETRY_BACKOFF_CAP_SECONDS = 45.0
+GH_CALL_TIMEOUT_SECONDS = 60.0
 
 FAILURES = {"FAILURE", "CANCELLED", "TIMED_OUT", "failure", "cancelled", "timed_out"}
 PENDING = {"", "PENDING", "QUEUED", "IN_PROGRESS", "pending", "queued", "in_progress", None}
@@ -53,7 +65,10 @@ def classify(pr):
     gate = next((c for c in checks if _check_name(c) == "public-pr-merge-gate"), None)
     gate_state = _conclusion(gate) if gate else None
     failing = [c for c in checks if _conclusion(c) in FAILURES]
-    pending = [c for c in checks if _conclusion(c) in PENDING or (c.get("status") in PENDING)]
+    # A missing "status" key is normal for successful StatusContext items; only
+    # an explicit queued/in-progress status counts as pending.
+    pending = [c for c in checks if _conclusion(c) in PENDING
+               or ("status" in c and c["status"] in PENDING)]
     if gate_state in FAILURES:
         return "gate"
     if failing:
@@ -71,6 +86,51 @@ def label_for(kind):
     return LABELS.get(kind)
 
 
+def retry_delay(attempt):
+    """Bounded exponential backoff: 5, 10, 20, 40, capped at 45 seconds."""
+    return min(GH_RETRY_DELAY_SECONDS * (2 ** (attempt - 1)), GH_RETRY_BACKOFF_CAP_SECONDS)
+
+
+def gh_output(argv):
+    """Run a gh CLI read command, retrying transient failures and hangs."""
+    command = list(argv)
+    for attempt in range(1, GH_RETRY_ATTEMPTS + 1):
+        try:
+            return subprocess.check_output(command, text=True,
+                                           timeout=GH_CALL_TIMEOUT_SECONDS)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+            if attempt >= GH_RETRY_ATTEMPTS:
+                raise
+            print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error}; retrying")
+            time.sleep(retry_delay(attempt))
+
+
+def gh_call(argv):
+    """Run a mutating gh CLI command with the same transient-failure retry."""
+    command = list(argv)
+    for attempt in range(1, GH_RETRY_ATTEMPTS + 1):
+        try:
+            return subprocess.check_call(command, timeout=GH_CALL_TIMEOUT_SECONDS)
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+            if attempt >= GH_RETRY_ATTEMPTS:
+                raise
+            print(f"gh failed (attempt {attempt}/{GH_RETRY_ATTEMPTS}): {error}; retrying")
+            time.sleep(retry_delay(attempt))
+
+
+def select_shard_numbers(records, shard_count, shard_index):
+    """Stable disjoint candidate ownership; duplicates never waste a second API read."""
+    if (not isinstance(records, list) or
+            type(shard_count) is not int or not 1 <= shard_count <= 8 or
+            type(shard_index) is not int or not 0 <= shard_index < shard_count):
+        raise ValueError('invalid PR scout records or partition')
+    return sorted({
+        item['number'] for item in records
+        if isinstance(item, dict) and type(item.get('number')) is int
+        and item['number'] > 0 and item['number'] % shard_count == shard_index
+    })
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Label blocked PRs and squash-merge one ready PR")
     parser.add_argument("--repo", default="moaz76943-creator/-offline-packs-store")
@@ -83,21 +143,21 @@ def main(argv=None):
         parser.error("invalid PR scout partition")
     if args.merge_one and args.shard_count != 1:
         parser.error("parallel scouts cannot become competing merge authorities")
-    listed = subprocess.check_output(
-        ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "250",
-         "--json", "number,title,isDraft,mergeStateStatus,headRefName"],
-        text=True,
+    listed = gh_output(
+        ["gh", "pr", "list", "--repo", args.repo, "--state", "open", "--limit", "1000",
+         "--json", "number,title,isDraft,mergeStateStatus,headRefName"]
     )
-    numbers = sorted(item["number"] for item in json.loads(listed)
-                     if isinstance(item, dict) and type(item.get("number")) is int
-                     and item["number"] > 0
-                     and item["number"] % args.shard_count == args.shard_index)
+    rows = json.loads(listed)
+    if not isinstance(rows, list) or len(rows) >= 1000:
+        raise ValueError('PR scout discovery incomplete: 1000-row ceiling reached')
+    numbers = select_shard_numbers(rows, args.shard_count, args.shard_index)
+    print(f"PR_SCOUT_SHARD={args.shard_index}/{args.shard_count} "
+          f"DISCOVERED={len(rows)} SCOPED={len(numbers)}")
     merged = None
     for number in numbers:
-        view = json.loads(subprocess.check_output(
+        view = json.loads(gh_output(
             ["gh", "pr", "view", str(number), "--repo", args.repo,
-             "--json", "number,title,isDraft,state,mergeStateStatus,mergeable,statusCheckRollup,labels"],
-            text=True,
+             "--json", "number,title,isDraft,state,mergeStateStatus,mergeable,statusCheckRollup,labels"]
         ))
         kind = classify(view)
         print(f"#{number} {kind}")
@@ -108,15 +168,15 @@ def main(argv=None):
                    if isinstance(row, dict) and isinstance(row.get("name"), str)}
         for label in LABELS.values():
             if label != wanted and label in present:
-                subprocess.check_call(["gh", "pr", "edit", str(number),
-                                       "--repo", args.repo, "--remove-label", label])
+                gh_call(["gh", "pr", "edit", str(number),
+                         "--repo", args.repo, "--remove-label", label])
         if wanted and wanted not in present:
             subprocess.call(["gh", "label", "create", wanted, "--repo", args.repo, "--color", "B60205",
                              "--description", wanted], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-            subprocess.check_call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--add-label", wanted])
+            gh_call(["gh", "pr", "edit", str(number), "--repo", args.repo, "--add-label", wanted])
         elif kind == "ready" and args.merge_one and merged is None:
             subject = sanitize_subject(view["title"], number)
-            subprocess.check_call([
+            gh_call([
                 "gh", "pr", "merge", str(number), "--repo", args.repo, "--squash",
                 "--subject", subject, "--body", f"Squash merge of #{number}.",
             ])

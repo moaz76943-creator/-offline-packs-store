@@ -50,8 +50,10 @@ def auto_eligible(pr, checks, reviews, files, message, main_sha):
     head = (pr.get('head') or {}).get('sha')
     if not isinstance(head, str) or not AUTO_SHA.fullmatch(head):
         return False, 'missing exact head SHA'
+    # A stale base.sha is not proof of a stale required check. The single
+    # writer verifies strict main rules before merging; GitHub enforces
+    # up-to-date status checks at its protected merge endpoint.
     if ((pr.get('base') or {}).get('ref') != 'main' or
-        (pr.get('base') or {}).get('sha') != main_sha or
         ((pr.get('head') or {}).get('repo') or {}).get('full_name') != 'moaz76943-creator/-offline-packs-store' or
         (pr.get('user') or {}).get('login') != 'moaz76943-creator'):
         return False, 'branch or author out of autonomous scope'

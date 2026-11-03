@@ -88,6 +88,16 @@ def valid_date(value):
         return False
 
 
+def license_info(source):
+    value = source.get('license') if isinstance(source, dict) else None
+    return value if isinstance(value, dict) else {}
+
+
+def retrieval_info(source):
+    value = source.get('retrieval') if isinstance(source, dict) else None
+    return value if isinstance(value, dict) else {}
+
+
 def artifact(root, relative, expected, out, label):
     """Verify local immutable evidence: never fetch unknown URLs or follow escapes."""
     if not text(relative) or not isinstance(expected, str) or not HASH.fullmatch(expected):
@@ -183,46 +193,42 @@ def evaluate(ledger, manifest, dailies, root):
             issue(out, 'EVIDENCE', f'{label}: publisher and exact dataset version required')
         if not text(source.get('author')):
             issue(out, 'EVIDENCE', f'{label}: author required')
-        retrieval = source.get('retrieval') or {}
-        if not isinstance(retrieval, dict):
-            retrieval = {}
+        retrieval = retrieval_info(source)
         if not text(retrieval.get('identity')) or not url_ok(retrieval.get('url')) or not valid_date(retrieval.get('date')):
             issue(out, 'EVIDENCE', f'{label}: retrieval identity, HTTPS URL and date required')
         artifact(root, retrieval.get('artifact_path'), retrieval.get('sha256'), out, f'{label} source')
         if source.get('status') == 'APPROVED_FOR_REDISTRIBUTION' and metadata_only_source_artifact(source):
             issue(out, 'SOURCE_ARTIFACT',
                   f'{label}: index/statistics metadata is not original corpus bytes')
-        license_info = source.get('license') or {}
-        if not isinstance(license_info, dict):
-            license_info = {}
-        lid = license_info.get('id')
+        rights = license_info(source)
+        lid = rights.get('id')
         if lid not in LICENSES:
             issue(out, 'BLOCKED_LICENSE', f'{label}: unknown or unsupported license')
-        if not url_ok(license_info.get('evidence_url')):
+        if not url_ok(rights.get('evidence_url')):
             issue(out, 'EVIDENCE', f'{label}: source-specific license URL required')
         else:
-            url = license_info['evidence_url']
+            url = rights['evidence_url']
             if ('creativecommons.org/licenses/' in url or
                 'creativecommons.org/publicdomain/zero/' in url or
                 'gnu.org/licenses/fdl-' in url):
                 issue(out, 'EVIDENCE', f'{label}: generic license terms are not source-specific proof')
-        proof_ok = artifact(root, license_info.get('evidence_path'),
-                            license_info.get('evidence_sha256'), out, f'{label} license proof')
+        proof_ok = artifact(root, rights.get('evidence_path'),
+                            rights.get('evidence_sha256'), out, f'{label} license proof')
         if proof_ok and license_notice_conflicts(
-                (Path(root).resolve() / license_info['evidence_path']).resolve(), lid,
-                license_info.get('co_offered_licenses', ())):
+                (Path(root).resolve() / rights['evidence_path']).resolve(), lid,
+                rights.get('co_offered_licenses', ())):
             issue(out, 'LICENSE_CONFLICT',
                   f'{label}: license notice conflicts with metadata or cannot be safely checked')
         if lid == 'PUBLIC-DOMAIN':
-            pd = license_info.get('public_domain_proof') or {}
+            pd = rights.get('public_domain_proof') or {}
             if not isinstance(pd, dict) or not all(text(pd.get(k)) for k in ('jurisdiction', 'legal_basis', 'work_date')):
                 issue(out, 'PD_PROOF', f'{label}: jurisdiction, legal basis and work date required')
         if source.get('kind') == 'vector_art':
-            if not url_ok(license_info.get('artwork_evidence_url')):
+            if not url_ok(rights.get('artwork_evidence_url')):
                 issue(out, 'ARTWORK_LICENSE', f'{label}: distinct artwork license evidence required')
             artwork_errors = []
-            artifact(root, license_info.get('artwork_evidence_path'),
-                     license_info.get('artwork_evidence_sha256'), artwork_errors,
+            artifact(root, rights.get('artwork_evidence_path'),
+                     rights.get('artwork_evidence_sha256'), artwork_errors,
                      f'{label} vector artwork rights proof')
             if artwork_errors:
                 issue(out, 'ARTWORK_LICENSE', f'{label}: missing or altered vector artwork evidence')
@@ -273,7 +279,7 @@ def evaluate(ledger, manifest, dailies, root):
                     issue(out, 'SOURCE_PROVENANCE', f'{cid}: source kind does not match asset kind')
                 if ref.get('dataset_version') != src.get('dataset_version'):
                     issue(out, 'VERSION_MISMATCH', f"{cid}: {ref['source_id']} dataset version changed")
-                if ref.get('artifact_sha256') != (src.get('retrieval') or {}).get('sha256'):
+                if ref.get('artifact_sha256') != retrieval_info(src).get('sha256'):
                     issue(out, 'HASH_MISMATCH', f"{cid}: {ref['source_id']} source snapshot changed")
             ids = {r['source_id'] for r in resolved}
             if not text(entry.get('compiler_license_id')):
@@ -281,17 +287,17 @@ def evaluate(ledger, manifest, dailies, root):
             output_license = entry.get('output_license_id')
             if output_license not in LICENSES:
                 issue(out, 'BLOCKED_LICENSE', f'{cid}: unsupported output license')
-            copyleft = {s['license']['id'] for s in resolved if s.get('license', {}).get('id') in OBLIGATIONS}
+            copyleft = {license_info(s).get('id') for s in resolved if license_info(s).get('id') in OBLIGATIONS}
             if len(copyleft) > 1:
                 issue(out, 'LICENSE_CONFLICT', f'{cid}: GFDL and CC BY-SA cannot be assumed interchangeable')
             for src in resolved:
-                lid = src.get('license', {}).get('id')
+                lid = license_info(src).get('id')
                 if lid in OBLIGATIONS and output_license != lid:
                     issue(out, 'LICENSE_CONFLICT', f"{cid}: {src['source_id']} cannot be relicensed to {output_license}")
                 if lid == 'CC0-1.0' and output_license == 'PUBLIC-DOMAIN':
                     issue(out, 'LICENSE_CONFLICT', f'{cid}: CC0 is not a blanket public-domain claim')
             if not copyleft and resolved and output_license == 'PUBLIC-DOMAIN' and any(
-                s.get('license', {}).get('id') != 'PUBLIC-DOMAIN' for s in resolved):
+                license_info(s).get('id') != 'PUBLIC-DOMAIN' for s in resolved):
                 issue(out, 'LICENSE_CONFLICT', f'{cid}: public-domain label contradicts original rights')
             notices = entry.get('notices') or {}
             if not isinstance(notices, dict):
@@ -307,10 +313,10 @@ def evaluate(ledger, manifest, dailies, root):
                     if Path(rel).is_absolute() or not path.is_relative_to(Path(root).resolve()):
                         raise ValueError('bad path')
                     content = path.read_text(encoding='utf-8')
-                    if not all(term in content for term in (sid, src['publisher'],
-                             src['license']['id'], src['origin_url'])):
+                    terms = (sid, src.get('publisher'), license_info(src).get('id'), src.get('origin_url'))
+                    if not all(isinstance(term, str) and term and term in content for term in terms):
                         raise ValueError('notice incomplete')
-                except (OSError, UnicodeError, ValueError):
+                except (TypeError, OSError, UnicodeError, ValueError):
                     issue(out, 'NOTICE', f'{cid}: incomplete/missing notice for {sid}')
             compliance = entry.get('compliance') or {}
             for lid in copyleft:

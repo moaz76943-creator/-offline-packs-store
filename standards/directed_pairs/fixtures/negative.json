@@ -1,0 +1,65 @@
+{
+  "contract_version": "1.0.0",
+  "document_id": "doc.pairs.negative.v1",
+  "lexemes": [
+    {
+      "lexeme_id": "lex.de.gehen",
+      "language": "de",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/negative.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "lex.de.gehen",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/negative.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    }
+  ],
+  "senses": [
+    {
+      "concept_id": "concept.walk",
+      "definition": "sich zu Fuß bewegen",
+      "lexeme_id": "lex.de.gehen",
+      "sense_id": "sense.de.gehen",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/negative.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "sense.de.gehen",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/negative.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    }
+  ],
+  "directed_translations": [
+    {
+      "pair_id": "pair.de.en.gehen",
+      "source_sense_id": "sense.de.gehen",
+      "target_sense_id": "sense.en.walk",
+      "source_language": "de",
+      "target_language": "en",
+      "text": "walk",
+      "equivalence": "contextual",
+      "source": {
+        "artifact_sha256": null,
+        "dataset_version": "1.0.0",
+        "fixture_only": true,
+        "license_id": "LicenseRef-SyntheticTestFixture",
+        "origin_url": "https://github.com/moaz76943-creator/-offline-packs-store/blob/main/standards/directed_pairs/fixtures/negative.json",
+        "publication_approved": false,
+        "publisher": "Directed pair self-authored tests",
+        "record_locator": "pair.de.en.gehen",
+        "retrieval_id": "repository:standards/directed_pairs/fixtures/negative.json",
+        "source_id": "fixture.synthetic.v1"
+      }
+    }
+  ]
+}

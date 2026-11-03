@@ -36,8 +36,12 @@ class PolicyTests(unittest.TestCase):
         for path in ('legal/ledger/sources.json','packs/pack.gz','tools/merge_coordinator/coordinator.py','.github/workflows/public_merge_coordinator.yml'):
             self.assertFalse(auto_safe_files([{'filename':path,'status':'modified'}]))
     def test_reject_draft_or_foreign(self):
-        for change in ({'draft':True},{'mergeable':False},{'mergeable_state':'dirty'},{'user':{'login':'other'}},{'base':{'ref':'main','sha':'c'*40}}):
+        for change in ({'draft':True},{'mergeable':False},{'mergeable_state':'dirty'},{'mergeable_state':'behind'},{'user':{'login':'other'}},{'base':{'ref':'other','sha':MAIN}}):
             self.assertFalse(self.check(pr={**PR,**change})[0])
+    def test_stale_base_sha_hint_never_overrides_fresh_clean_state_or_exact_check(self):
+        stale = {**PR, 'base': {'ref':'main', 'sha':'c'*40}}
+        self.assertTrue(self.check(pr=stale)[0])
+        self.assertFalse(self.check(pr=stale, checks={'check_runs': []})[0])
     def test_ci_skip_text_does_not_override_exact_head_evidence(self):
         self.assertTrue(self.check(message='fix: docs [skip ci]')[0])
         self.assertFalse(self.check(message='fix: docs [skip ci]', checks={'check_runs': []})[0])

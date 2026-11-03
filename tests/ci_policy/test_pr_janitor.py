@@ -1,7 +1,8 @@
 """Janitor checks real gate state and preserves user-supplied squash titles."""
 import unittest
+from pathlib import Path
 
-from tools.pr_janitor import classify, sanitize_subject
+from tools.pr_janitor import classify, sanitize_subject, select_shard_numbers
 
 
 def _pr(**overrides):
@@ -40,6 +41,40 @@ class JanitorContractTest(unittest.TestCase):
             {"name": "audit", "status": "COMPLETED", "conclusion": "FAILURE"},
         ]
         self.assertEqual(classify(_pr(statusCheckRollup=checks, mergeStateStatus="UNSTABLE")), "unstable")
+
+    def test_successful_status_context_is_ready(self):
+        checks = [
+            {"name": "public-pr-merge-gate", "status": "COMPLETED", "conclusion": "SUCCESS"},
+            {"context": "legacy/commit-status", "state": "SUCCESS"},
+        ]
+        self.assertEqual(classify(_pr(statusCheckRollup=checks)), "ready")
+        gate_only = [{"context": "public-pr-merge-gate", "state": "SUCCESS"}]
+        self.assertEqual(classify(_pr(statusCheckRollup=gate_only)), "ready")
+
+    def test_three_shards_cover_more_than_three_hundred_prs_once(self):
+        records = [{"number": n} for n in range(1, 405)]
+        groups = [select_shard_numbers(records, 3, index) for index in range(3)]
+        self.assertEqual(sum(map(len, groups)), 404)
+        self.assertEqual(set().union(*(set(g) for g in groups)), set(range(1, 405)))
+        self.assertTrue(all(not (set(groups[i]) & set(groups[j]))
+                            for i in range(3) for j in range(i + 1, 3)))
+
+    def test_duplicate_or_invalid_pr_numbers_never_create_repeated_work(self):
+        records = [{"number": 3}, {"number": 3}, {"number": 4},
+                   {"number": "5"}, {}, {"number": 0}, {"number": -1}]
+        self.assertEqual(select_shard_numbers(records, 3, 0), [3])
+        self.assertEqual(select_shard_numbers(records, 3, 1), [4])
+        self.assertEqual(select_shard_numbers(records, 3, 2), [])
+
+    def test_existing_janitor_enumerates_full_current_backlog(self):
+        root = Path(__file__).resolve().parents[2]
+        script = (root / "tools/pr_janitor.py").read_text(encoding="utf-8")
+        workflow = (root / ".github/workflows/pr_janitor.yml").read_text(encoding="utf-8")
+        self.assertIn('"--limit", "1000"', script)
+        self.assertIn("max-parallel: 3", workflow)
+        self.assertIn("shard: [0, 1, 2]", workflow)
+        self.assertIn("--shard-count 3", workflow)
+        self.assertNotIn("--merge-one", workflow)
 
     def test_squash_subject_keeps_explicit_skip_directives(self):
         subject = sanitize_subject("feat: builder [skip ci]", 342)
