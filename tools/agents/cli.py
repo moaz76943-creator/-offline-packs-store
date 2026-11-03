@@ -20,6 +20,7 @@ from tools.agents.work import (
     iter_stored_rows,
     legal_report,
     next_window,
+    production_report,
     qa_rows,
     render_status,
     shard_pairs,
@@ -144,6 +145,16 @@ def command_packs(_args):
                if wrote else 'no new legacy candidate; no production packs')
     if not rows:
         warning = 'no harvested rows; root manifest was not modified'
+    classified_rows = []
+    classified_path = ROOT / 'data' / 'agents' / 'classified' / 'rows.json'
+    if classified_path.is_file():
+        classified_payload, _classified_warning = load_json_tolerant(classified_path, {'rows': []})
+        if isinstance(classified_payload.get('rows'), list):
+            classified_rows = classified_payload['rows']
+    pack_dir = _out('data/agents/packs')
+    pack_paths = sorted(pack_dir.glob('*.sqlite')) if pack_dir.is_dir() else []
+    write_json(_out('state/production_report.json'), production_report(
+        rows, pack_paths, classified_rows=classified_rows, generated_by='packs'))
     # An operationally completed agent is not a successful pack release.
     write_heartbeat(_out('state/agents'), 'packs', 'degraded', warning)
     print(json.dumps({'packs': wrote, 'candidate_packs': wrote,
@@ -164,6 +175,11 @@ def command_classify(_args):
         if placed.get('status') == 'keep':
             kept.append(placed)
     write_json(_out('data/agents/classified/rows.json'), {'schema_version': '1.0.0', 'rows': kept})
+    stored = list(iter_stored_rows(ROOT / 'data' / 'agents' / 'harvest'))
+    pack_dir = ROOT / 'data' / 'agents' / 'packs'
+    pack_paths = sorted(pack_dir.glob('*.sqlite')) if pack_dir.is_dir() else []
+    write_json(_out('state/production_report.json'), production_report(
+        stored, pack_paths, classified_rows=kept, generated_by='classifier'))
     write_heartbeat(_out('state/agents'), 'classifier', 'ok', '' if kept else 'no anchored rows in this snapshot')
     print(json.dumps({'kept': len(kept)}))
     return 0
@@ -376,6 +392,9 @@ def command_harvest(args):
     source_errors = 0
     outcomes = []
     kaikki_byte_offset = None
+    kaikki_meta = None
+    tatoeba_progress = None
+    ud_progress = None
     if name == 'harvest-wikidata':
         offsets = cursor.get('search_offsets', {})
         valid_qids = {row.get('wikidata') for row in concept_rows(graph)}
@@ -395,7 +414,7 @@ def command_harvest(args):
                        'accepted_rows': 0, 'rejected_entities': 0, 'search_offset': offset}
             outcomes.append(outcome)
             try:
-                ids, next_offset = search_lexeme_page(qid, offset=offset)
+                ids, next_offset = search_lexeme_page(qid, offset=offset, limit=20)
                 entities = load_lexemes(ids)
             except (OSError, ValueError, json.JSONDecodeError) as exc:
                 source_errors += 1
@@ -426,7 +445,9 @@ def command_harvest(args):
                 offsets.pop(qid, None)
     elif name == 'harvest-kaikki':
         from tools.agents.harvest import (
-            KAIKKI_MAX_ROWS, SourceAPIError, kaikki_window, rows_from_kaikki_record,
+            KAIKKI_DICTIONARIES, KAIKKI_EXTRACTOR, KAIKKI_MAX_ROWS, KAIKKI_WINDOW_SLICES,
+            SourceAPIError, kaikki_dictionary_url, kaikki_resume, kaikki_window,
+            rows_from_kaikki_record,
         )
         notice = (ROOT / 'legal' / 'source_evidence' / 'wiktionary-copyrights.txt').read_text(encoding='utf-8')
         concepts_by_qid = {}
@@ -434,19 +455,39 @@ def command_harvest(args):
             qid = concept.get('wikidata')
             if isinstance(qid, str) and qid:
                 concepts_by_qid.setdefault(qid, []).append(concept)
-        offset = cursor.get('byte_offset', 0)
-        if type(offset) is not int or offset < 0 or offset > 2_000_000_000:
-            offset = 0
-            cursor_warning = 'malformed Kaikki byte cursor; restarted'
+        catalog_ids = set(profiles)
+        dictionaries = [item for item in KAIKKI_DICTIONARIES if item[0] in catalog_ids] or list(KAIKKI_DICTIONARIES)
+        lang_index = cursor.get('language_index', 0)
+        if type(lang_index) is not int or lang_index < 0:
+            lang_index = 0
+        expected_language, dictionary_name = dictionaries[lang_index % len(dictionaries)]
+        offset, migrating = kaikki_resume(cursor, expected_language)
+        stored_offset = cursor.get('byte_offset', 0)
+        if type(stored_offset) is not int or stored_offset < 0 or stored_offset > 2_000_000_000:
+            stored_offset = 0
+        if migrating and stored_offset:
+            cursor_warning = 'Kaikki cursor restarted so link-encoded Wikidata anchors are not skipped'
+        url = kaikki_dictionary_url(dictionary_name)
         next_byte = offset
+        kaikki_failed = False
         try:
             accept_notice(notice, 'CC-BY-SA-4.0', ('GFDL-1.3-only',))
-            raw, next_byte, _eof = kaikki_window(offset)
+            raw = b''
+            pos = offset
+            for _slice in range(KAIKKI_WINDOW_SLICES):
+                chunk, pos, eof = kaikki_window(pos, url=url)
+                next_byte = pos
+                if not chunk:
+                    break
+                raw += chunk
+                if eof:
+                    break
         except (OSError, SourceSkip, UnicodeError, SourceAPIError, ValueError) as exc:
             source_errors += 1
+            kaikki_failed = True
             skipped.append({'reason': exc.__class__.__name__})
             raw = b''
-            next_byte = offset
+            next_byte = stored_offset if migrating else offset
         kept = 0
         consumed = 0
         capped = False
@@ -463,7 +504,10 @@ def command_harvest(args):
             except json.JSONDecodeError:
                 skipped.append({'reason': 'malformed_json'})
                 continue
-            rows = rows_from_kaikki_record(obj, concepts_by_qid, profiles, retrieved)
+            rows = rows_from_kaikki_record(
+                obj, concepts_by_qid, profiles, retrieved,
+                url=url, expected_language=expected_language,
+            )
             if not rows:
                 continue
             kept += len(rows)
@@ -472,14 +516,32 @@ def command_harvest(args):
         # A full slice advances past its last complete line. A row cap stops
         # on the first unstored line so the next run does not skip it.
         kaikki_byte_offset = offset + consumed if capped else next_byte
+        kaikki_meta = {
+            'byte_offset': kaikki_byte_offset,
+            'language': expected_language,
+            'failed': kaikki_failed,
+            'extractor': KAIKKI_EXTRACTOR,
+            'language_index': (lang_index + 1) % len(dictionaries),
+        }
     elif name == 'harvest-tatoeba':
-        from tools.agents.harvest import TATOEBA_CODES, tatoeba_sample
+        from tools.agents.harvest import TATOEBA_CODES, TATOEBA_MAX_BYTES, tatoeba_window
         notice = (ROOT / 'legal' / 'source_evidence' / 'tatoeba-terms.txt').read_text(encoding='utf-8')
         try:
             accept_notice(notice, 'CC-BY-2.0-FR')
             selected_language = concepts[0]['language'] if concepts else ''
             code = TATOEBA_CODES.get(selected_language)
-            for sample in (tatoeba_sample(code) if code else []):
+            progress = cursor.get('sentences') if isinstance(cursor.get('sentences'), dict) else {}
+            lang_state = progress.get(selected_language) if isinstance(progress.get(selected_language), dict) else {}
+            skip = lang_state.get('skip', 0)
+            max_bytes = lang_state.get('max_bytes', 1_500_000)
+            if type(skip) is not int or skip < 0:
+                skip = 0
+            if type(max_bytes) is not int or not 100_000 <= max_bytes <= TATOEBA_MAX_BYTES:
+                max_bytes = 1_500_000
+            window = tatoeba_window(code, limit=40, skip=skip, max_bytes=max_bytes) if code else {
+                'rows': [], 'next_skip': skip, 'exhausted': True,
+            }
+            for sample in window['rows']:
                 grouped.setdefault((selected_language, 'sentences'), []).append({
                     'language': selected_language,
                     'section': 'sentences',
@@ -493,6 +555,12 @@ def command_harvest(args):
                     'origin_url': 'https://tatoeba.org/en/terms_of_use',
                     'status': 'keep',
                 })
+            next_bytes = max_bytes
+            if window.get('exhausted') and max_bytes < TATOEBA_MAX_BYTES:
+                next_bytes = min(TATOEBA_MAX_BYTES, max_bytes + 1_500_000)
+            progress = dict(progress)
+            progress[selected_language] = {'skip': window.get('next_skip', skip), 'max_bytes': next_bytes}
+            tatoeba_progress = progress
         except (OSError, SourceSkip, UnicodeError, ValueError) as exc:
             skipped.append({'reason': exc.__class__.__name__})
     else:
@@ -500,8 +568,16 @@ def command_harvest(args):
         notice = notice_path.read_text(encoding='utf-8') if notice_path.is_file() else ''
         try:
             accept_notice(notice, 'CC-BY-SA-4.0')
-            from tools.agents.harvest import ud_sample
-            for sample in ud_sample():
+            from tools.agents.harvest import UD_MAX_BYTES, ud_window
+            ud_state = cursor.get('ud') if isinstance(cursor.get('ud'), dict) else {}
+            skip = ud_state.get('skip', 0)
+            max_bytes = ud_state.get('max_bytes', 400_000)
+            if type(skip) is not int or skip < 0:
+                skip = 0
+            if type(max_bytes) is not int or not 80_000 <= max_bytes <= UD_MAX_BYTES:
+                max_bytes = 400_000
+            window = ud_window(limit=40, skip=skip, max_bytes=max_bytes)
+            for sample in window['rows']:
                 grouped.setdefault(('en', 'grammar'), []).append({
                     'language': 'en',
                     'section': 'grammar',
@@ -514,6 +590,10 @@ def command_harvest(args):
                     'origin_url': 'https://github.com/UniversalDependencies/UD_English-EWT',
                     'status': 'keep',
                 })
+            next_bytes = max_bytes
+            if window.get('exhausted') and max_bytes < UD_MAX_BYTES:
+                next_bytes = min(UD_MAX_BYTES, max_bytes + 400_000)
+            ud_progress = {'skip': window.get('next_skip', skip), 'max_bytes': next_bytes}
         except (OSError, SourceSkip, UnicodeError, ValueError) as exc:
             skipped.append({'reason': exc.__class__.__name__})
     wrote = 0
@@ -616,8 +696,27 @@ def command_harvest(args):
     }
     if name == 'harvest-wikidata':
         cursor_payload['search_offsets'] = offsets
-    if kaikki_byte_offset is not None:
-        cursor_payload['byte_offset'] = kaikki_byte_offset
+    if kaikki_meta is not None:
+        cursor_payload['byte_offset'] = kaikki_meta['byte_offset']
+        if not kaikki_meta['failed']:
+            cursor_payload['extractor'] = kaikki_meta['extractor']
+            cursor_payload['language_index'] = kaikki_meta['language_index']
+            previous = cursor.get('languages') if isinstance(cursor.get('languages'), dict) else {}
+            languages = {
+                key: value for key, value in previous.items() if isinstance(value, dict)
+            }
+            languages[kaikki_meta['language']] = {'byte_offset': kaikki_meta['byte_offset']}
+            cursor_payload['languages'] = languages
+        elif cursor.get('extractor') == kaikki_meta['extractor']:
+            cursor_payload['extractor'] = cursor['extractor']
+            if isinstance(cursor.get('language_index'), int):
+                cursor_payload['language_index'] = cursor['language_index']
+            if isinstance(cursor.get('languages'), dict):
+                cursor_payload['languages'] = cursor['languages']
+    if tatoeba_progress is not None:
+        cursor_payload['sentences'] = tatoeba_progress
+    if ud_progress is not None:
+        cursor_payload['ud'] = ud_progress
     write_json(_out(cursor_path), cursor_payload)
     warning_text = f'skipped {len(skipped)}' if skipped else ''
     if not wrote:
