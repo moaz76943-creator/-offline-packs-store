@@ -18,13 +18,14 @@ class TestVisualLexicon(unittest.TestCase):
             'viewBox': [0, 0, 24, 24],
             'paths': ['M 10 10 L 20 20 Z'],
             'palette': ['#000', '#FFFFFF'],
-            'semantic_label': 'A test shape'
+            'semantic_label': 'A test shape',
+            'alt_text': 'A test shape alternative'
         }
         self.valid_manifest = {
             'concept_id': 'test.concept.1',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Author Name',
+            'license': 'CC0-1.0',
+            'source': 'https://example.com/asset',
         }
 
     def tearDown(self):
@@ -45,6 +46,8 @@ class TestVisualLexicon(unittest.TestCase):
             (dict(self.valid_token, palette=['black']), "invalid hex color"),
             (dict(self.valid_token, semantic_label='a' * 101), "semantic label too long"),
             (dict(self.valid_token, version=0), "invalid version"),
+            ({k: v for k, v in self.valid_token.items() if k != 'alt_text'}, "missing alt_text"),
+            (dict(self.valid_token, alt_text='a' * 201), "alt_text too long"),
         ]
 
         for token, reason in invalid_tokens:
@@ -54,12 +57,10 @@ class TestVisualLexicon(unittest.TestCase):
 
     def test_schema_invalid_manifest(self):
         invalid_manifests = [
-            (dict(self.valid_manifest, license='CC0-1.0'), "license claim"),
-            (dict(self.valid_manifest, license='CC-BY-4.0'), "another license claim"),
-            (dict(self.valid_manifest, source='https://example.com/cc0-apple'), "external source"),
-            (dict(self.valid_manifest, fixture_status='approved'), "non-synthetic status"),
+            (dict(self.valid_manifest, license='CC-BY-4.0'), "invalid license claim"),
+            ({k: v for k, v in self.valid_manifest.items() if k != 'license'}, "missing license"),
+            ({k: v for k, v in self.valid_manifest.items() if k != 'source'}, "missing source"),
             (dict(self.valid_manifest, author=''), "empty author"),
-            ({k: v for k, v in self.valid_manifest.items() if k != 'fixture_status'}, "missing fixture status"),
         ]
 
         for manifest, reason in invalid_manifests:
@@ -96,8 +97,7 @@ class TestVisualLexicon(unittest.TestCase):
         import copy
         manifest_copy = copy.deepcopy(manifest)
         self.assertIn('test.concept.1', manifest)
-        self.assertEqual(manifest['test.concept.1']['fixture_status'], 'synthetic')
-        self.assertNotIn('license', manifest['test.concept.1'])
+        self.assertEqual(manifest['test.concept.1']['license'], 'CC0-1.0')
         self.assertIn('hash', manifest['test.concept.1'])
 
         # Update token (new version)
