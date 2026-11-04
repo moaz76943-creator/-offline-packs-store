@@ -67,6 +67,9 @@ def evaluate_candidates(candidates_path, repo_root, output_path):
     if not candidates_path.is_file():
         return 1, {"error": "CANDIDATES_FILE_NOT_FOUND"}
 
+    if not os.access(output_path.parent, os.W_OK | os.X_OK):
+        return 1, {"error": "UNAUTHORIZED_REPOSITORY_ACCESS"}
+
     try:
         with open(candidates_path, 'r') as f:
             data = json.load(f)
