@@ -8,7 +8,17 @@ import argparse
 import json
 import logging
 import sys
+import os
 from pathlib import Path
+
+def install_repo_import_path(root):
+    resolved = str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
+
+# Always try to fix sys.path using Path(__file__) when imported, though CLI uses --repo-root
+install_repo_import_path(Path(__file__).resolve().parent.parent.parent)
 
 # We reuse the logic from legal.ledger.admission as much as possible for validation.
 from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
@@ -18,6 +28,10 @@ logger = logging.getLogger(__name__)
 class ProvenanceCompiler:
     def __init__(self, root: Path, ledger_path: Path, daily_dir: Path):
         self.root = root.resolve()
+
+        if not os.access(self.root, os.R_OK):
+            raise PermissionError("UNAUTHORIZED_WORKSPACE")
+
         self.ledger_path = ledger_path.resolve()
         self.daily_dir = daily_dir.resolve()
 
@@ -233,6 +247,8 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     root = args.repo_root.resolve()
+    install_repo_import_path(root)
+
     ledger_path = args.ledger or root / 'legal/ledger/sources.json'
     daily_dir = args.daily_dir or root / 'legal/ledger/daily'
 
