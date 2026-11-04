@@ -171,5 +171,34 @@ class TestReproBuilder(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
 
+    def test_authorization_check(self):
+        with patch('tools.repro_build.compiler.os.access', return_value=False):
+            with self.assertRaises(PermissionError):
+                self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+
+    def test_grammar_sidecar(self):
+        sidecar_path = self.source_path.with_name('en.grammar.json')
+        sidecar_data = {
+            "contract_version": "1.0.0",
+            "languageCode": "en",
+            "rules": [
+                {
+                    "grammar_id": "g.en.1",
+                    "category": "noun",
+                    "title": "plural",
+                    "source": self.doc["lexemes"][0]["source"]
+                }
+            ]
+        }
+        with open(sidecar_path, 'w') as f:
+            json.dump(sidecar_data, f)
+
+        out_path = self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+        with sqlite3.connect(out_path) as db:
+            counts = db.execute("SELECT COUNT(*) FROM grammar").fetchone()[0]
+            self.assertEqual(counts, 1)
+
+        os.unlink(sidecar_path)
+
 if __name__ == '__main__':
     unittest.main()
