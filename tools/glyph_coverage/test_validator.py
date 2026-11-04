@@ -82,14 +82,36 @@ class TestGlyphCoverageValidator(unittest.TestCase):
 
     def test_validate_coverage_missing_glyphs(self):
         res = self.validator.validate_coverage("Latn", os.path.join(self.repo_root, self.arabic_font_path))
+        self.assertEqual(res["status"], "PASS")
         self.assertEqual(len(res["supported"]), 2) # Variation selectors are supported in both dummy fonts
         self.assertEqual(len(res["unsupported"]), len(SCRIPT_SAMPLES["Latn"]))
 
     def test_validate_coverage_negative_fixture(self):
         # Explicit negative fixture missing all core glyphs
         res = self.validator.validate_coverage("Latn", os.path.join(self.repo_root, self.negative_font_path))
+        self.assertEqual(res["status"], "PASS")
         self.assertEqual(len(res["supported"]), 2) # Variation selectors only
         self.assertEqual(len(res["unsupported"]), len(SCRIPT_SAMPLES["Latn"]))
+
+    def test_validate_coverage_missing_registry(self):
+        import builtins
+        import unittest.mock
+        original_open = builtins.open
+        def safe_open(filename, *args, **kwargs):
+            if "language_registry.v1.json" in str(filename):
+                raise FileNotFoundError()
+            return original_open(filename, *args, **kwargs)
+
+        with unittest.mock.patch("builtins.open", side_effect=safe_open):
+            validator_no_registry = GlyphCoverageValidator(repo_root=self.repo_root)
+            res = validator_no_registry.validate_coverage("Latn", os.path.join(self.repo_root, self.latin_font_path))
+            self.assertEqual(res["status"], "REJECT")
+            self.assertIn("Language registry not found", res["issues"])
+
+    def test_validate_coverage_unsupported_script(self):
+        res = self.validator.validate_coverage("InvalidScript", os.path.join(self.repo_root, self.latin_font_path))
+        self.assertEqual(res["status"], "REJECT")
+        self.assertIn("Script InvalidScript not in canonical registry", res["issues"])
 
     def test_generate_fallback_mapping_valid(self):
         asset = self.build_asset("f1", "LatinTest", ["Latn"], self.latin_font_path, self.latin_hash)

@@ -1,4 +1,6 @@
 import os
+import json
+from pathlib import Path
 from typing import Dict, List, Optional, Set
 from fontTools.ttLib import TTFont
 from dataclasses import dataclass
@@ -35,6 +37,14 @@ class GlyphCoverageValidator:
         self.repo_root = repo_root
         self.registry = FontRightsRegistry()
 
+        registry_path = Path(self.repo_root) / "catalog" / "language_registry.v1.json"
+        try:
+            with open(registry_path, "r", encoding="utf-8") as f:
+                registry_data = json.load(f)
+                self.scripts_cache = registry_data.get("scripts", {})
+        except FileNotFoundError:
+            self.scripts_cache = None
+
     def get_font_cmap(self, font_path: str) -> Set[int]:
         try:
             with TTFont(font_path) as font:
@@ -46,7 +56,20 @@ class GlyphCoverageValidator:
         except Exception:
             return set()
 
-    def validate_coverage(self, script: str, font_path: str) -> Dict[str, List[int]]:
+    def validate_coverage(self, script: str, font_path: str) -> Dict:
+        if self.scripts_cache is None:
+            return {"status": "REJECT", "issues": ["Language registry not found"]}
+
+        scripts = self.scripts_cache
+
+        # Determine valid scripts dynamically without mutating cache
+        valid_scripts = set(scripts.keys())
+        if any(s in valid_scripts for s in ["Hans", "Hant", "Jpan", "Kore"]):
+            valid_scripts.add("Hani")
+
+        if script not in valid_scripts:
+            return {"status": "REJECT", "issues": [f"Script {script} not in canonical registry"]}
+
         samples = SCRIPT_SAMPLES.get(script, [])
         samples = samples.copy()
 
@@ -56,7 +79,7 @@ class GlyphCoverageValidator:
         cmap = self.get_font_cmap(font_path)
         supported = [cp for cp in samples if cp in cmap]
         unsupported = [cp for cp in samples if cp not in cmap]
-        return {"supported": supported, "unsupported": unsupported}
+        return {"status": "PASS", "supported": supported, "unsupported": unsupported}
 
     def generate_fallback_mapping(self, script: str, assets: List[FontAsset]) -> FallbackMapping:
         samples = SCRIPT_SAMPLES.get(script, [])
@@ -84,6 +107,9 @@ class GlyphCoverageValidator:
                 continue
 
             coverage = self.validate_coverage(script, full_path)
+
+            if coverage.get("status") == "REJECT":
+                continue
 
             if not coverage["unsupported"]:
                 valid_families.append(asset.family)
