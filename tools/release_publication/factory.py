@@ -80,6 +80,15 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
         verify_publication_eligibility(repo_root)
         verify_publication_authorization(repo_root)
 
+    repo_str = str(repo_root)
+    if repo_str not in sys.path:
+        sys.path.insert(0, repo_str)
+
+    try:
+        from tools.visual_lexicon.core import decode_token
+    except ImportError:
+        decode_token = None
+
     # verify all gates and files
     for entry in artifacts:
         path = (repo_root / entry['path']).resolve()
@@ -106,6 +115,15 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
              if not lang:
                  raise ValueError("Language required for pack conformance check")
              verify_pack_conformance(repo_root, path, entry['sha256'], lang)
+
+        if entry['path'].endswith('.vct'):
+             if decode_token is None:
+                 raise ValueError("Could not import tools.visual_lexicon.core.decode_token")
+             try:
+                 with open(path, 'rb') as vct_f:
+                     decode_token(vct_f.read())
+             except Exception as e:
+                 raise ValueError(f"Invalid vct artifact {path}: {e}")
 
     if not dry_run:
         # Atomic staging using a temporary directory, replacing target on success

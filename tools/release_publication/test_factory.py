@@ -1,6 +1,7 @@
 import json
 import tempfile
 import unittest
+import sys
 from pathlib import Path
 from tools.release_publication.factory import publish_artifacts, file_hash
 
@@ -12,11 +13,35 @@ class TestPublicationFactory(unittest.TestCase):
         self.valid_artifact = self.root / "deutsch_deep_master.pack.gz"
         # copy real fixture
         import shutil
-        repo_root = Path(__file__).resolve().parents[2]
-        shutil.copy2(repo_root / "deutsch_deep_master.pack.gz", self.valid_artifact)
+        self.repo_root = Path(__file__).resolve().parents[2]
+        shutil.copy2(self.repo_root / "deutsch_deep_master.pack.gz", self.valid_artifact)
 
         self.valid_hash = file_hash(self.valid_artifact)
         self.target = self.root / "published"
+
+        self.valid_vct = self.root / "test.vct"
+        # make a dummy vct and copy from core.encode_token if we can
+        try:
+             repo_str = str(self.repo_root)
+             if repo_str not in sys.path:
+                 sys.path.insert(0, repo_str)
+             from tools.visual_lexicon.core import encode_token
+             token_data = {
+                 "concept_id": "test_id",
+                 "version": 1,
+                 "viewBox": [0, 0, 100, 100],
+                 "paths": ["M10 10 H 90 V 90 H 10 Z"],
+                 "palette": ["#000000"],
+                 "semantic_label": "test",
+                 "license": "CC0-1.0",
+                 "source_hash": "test",
+                 "author": "test"
+             }
+             compressed, _ = encode_token(token_data)
+             self.valid_vct.write_bytes(compressed)
+             self.valid_vct_hash = file_hash(self.valid_vct)
+        except Exception as e:
+             print("Error generating vct:", e)
 
     def tearDown(self):
         self.temp_dir.cleanup()
@@ -89,3 +114,18 @@ class TestPublicationFactory(unittest.TestCase):
         artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "de"}]
         with self.assertRaises(ValueError):
             publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+
+    def test_vct_validation(self):
+        if self.valid_vct.exists():
+            artifacts = [{"path": "test.vct", "sha256": self.valid_vct_hash}]
+            publish_artifacts(self.root, self.target, artifacts, check_auth=False)
+            self.assertTrue((self.target / "test.vct").exists())
+
+            invalid_vct = self.root / "invalid.vct"
+            invalid_vct.write_bytes(b"invalid data")
+            invalid_hash = file_hash(invalid_vct)
+            artifacts = [{"path": "invalid.vct", "sha256": invalid_hash}]
+            with self.assertRaises(ValueError):
+                publish_artifacts(self.root, self.target, artifacts, check_auth=False)
+        else:
+            self.fail("valid_vct does not exist")
