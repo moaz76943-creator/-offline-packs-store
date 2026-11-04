@@ -35,8 +35,18 @@ def validate_contribution(manifest_dict, repo_root):
         src_lic = source["license"]["id"]
         if "output_license_id" in manifest_dict and out_lic not in LICENSES:
             raise ValueError("unsupported output license")
-        if src_lic in OBLIGATIONS and out_lic != src_lic:
-            raise ValueError(f"{source['source_id']} cannot be relicensed to {out_lic}")
+
+        if src_lic in OBLIGATIONS:
+            # Verify that the target license preserves baseline obligations
+            out_obls = OBLIGATIONS.get(out_lic, ())
+            for obl in OBLIGATIONS[src_lic]:
+                if obl not in out_obls:
+                    raise ValueError(f"{source['source_id']} cannot be relicensed to {out_lic}")
+
+            # Strict copyleft requires exactly the same license
+            if "sharealike" in OBLIGATIONS[src_lic] or "history" in OBLIGATIONS[src_lic] or "share_alike" in OBLIGATIONS[src_lic]:
+                if out_lic != src_lic:
+                    raise ValueError(f"{source['source_id']} cannot be relicensed to {out_lic}")
         if src_lic == "CC0-1.0" and out_lic == "PUBLIC-DOMAIN":
             raise ValueError("CC0 is not a blanket public-domain claim")
         if out_lic == "PUBLIC-DOMAIN" and src_lic != "PUBLIC-DOMAIN":
