@@ -94,24 +94,28 @@ def extract_metadata(filepath):
             raise ValueError(f"Missing license identifier in {filepath}")
 
         deps = data.get('dependencies', [])
+        provenance = data.get('provenance') or data.get('header', {}).get('provenance') or []
 
         return {
             'pack_id': pack_id,
             'version': version,
             'entry_count': entry_count,
             'license': license_id,
-            'dependencies': deps
+            'dependencies': deps,
+            'provenance': provenance
         }
 
     elif str(filepath).endswith('.vct'):
         pack_id = data.get('asset_id') or os.path.basename(filepath)
         deps = data.get('dependencies', [])
+        provenance = data.get('provenance', [])
         return {
             'pack_id': pack_id,
             'version': data.get('version', '1.0.0'),
             'entry_count': 1,
             'license': data.get('license', 'CC0-1.0'),
-            'dependencies': deps
+            'dependencies': deps,
+            'provenance': provenance
         }
     else:
         raise ValueError(f"Unsupported file type: {filepath}")
@@ -144,7 +148,8 @@ def build_manifest(base_dir, file_paths, output_manifest_path):
             'size_bytes': size,
             'sha256': sha256,
             'license': meta['license'],
-            'dependencies': meta['dependencies']
+            'dependencies': meta['dependencies'],
+            'provenance': meta['provenance']
         }
 
     out_dir = os.path.dirname(output_manifest_path)
@@ -185,7 +190,7 @@ def generate_update_plan(old_manifest_path, new_manifest_path):
             plan['added'].append(pack_id)
         else:
             old_meta = old_packs[pack_id]
-            if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies']:
+            if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies'] and old_meta.get('provenance') == new_meta.get('provenance'):
                 plan['unchanged'].append(pack_id)
             elif old_meta['sha256'] == new_meta['sha256']:
                 # Skip changed metadata with no payload delta

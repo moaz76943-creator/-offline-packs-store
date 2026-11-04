@@ -27,7 +27,8 @@ class TestPackManifestBuilder(unittest.TestCase):
                 "terms_count": 2,
                 "vocabulary": [1, 2],
                 "license": "CC-BY-SA-4.0",
-                "dependencies": ["pack2"]
+                "dependencies": ["pack2"],
+                "provenance": ["source-af-1"]
             }, f)
 
         self.pack2_path = self.base_dir / "pack2.pack.gz"
@@ -35,7 +36,8 @@ class TestPackManifestBuilder(unittest.TestCase):
             json.dump({
                 "header": {
                     "code": "ar",
-                    "license": "CC0-1.0"
+                    "license": "CC0-1.0",
+                    "provenance": ["source-ar-1", "source-ar-2"]
                 },
                 "version": "2.0.0",
                 "domains": [1, 2, 3]
@@ -43,7 +45,7 @@ class TestPackManifestBuilder(unittest.TestCase):
 
         self.vct_path = self.base_dir / "icon.vct"
         with open(self.vct_path, 'wb') as f:
-            data = json.dumps({"asset_id": "test_icon", "version": "1.1.0", "license": "CC0-1.0"}).encode('utf-8')
+            data = json.dumps({"asset_id": "test_icon", "version": "1.1.0", "license": "CC0-1.0", "provenance": ["source-icon"]}).encode('utf-8')
             f.write(zlib.compress(data))
 
     def tearDown(self):
@@ -69,6 +71,9 @@ class TestPackManifestBuilder(unittest.TestCase):
         packs = data["packs"]
         self.assertIn("af", packs)
         self.assertEqual(packs["af"]["dependencies"], ["pack2"])
+        self.assertEqual(packs["af"]["provenance"], ["source-af-1"])
+        self.assertEqual(packs["ar"]["provenance"], ["source-ar-1", "source-ar-2"])
+        self.assertEqual(packs["test_icon"]["provenance"], ["source-icon"])
 
     def test_missing_files_rejected(self):
         manifest_path = self.base_dir / "manifest.json"
