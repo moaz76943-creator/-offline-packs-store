@@ -118,6 +118,19 @@ class TestDigestEngine(unittest.TestCase):
             validate_artifact(filepath, invalid_meta)
         self.assertIn("Size mismatch", str(ctx.exception))
 
+    def test_truncated_files(self):
+        filepath = os.path.join(self.test_dir, "truncated.txt")
+        with open(filepath, 'w') as f:
+            f.write("1234") # 4 bytes instead of 5
+
+        meta = {
+            'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1',
+            'size_bytes': 5
+        }
+        with self.assertRaises(ValueError) as ctx:
+            validate_artifact(filepath, meta)
+        self.assertIn("Size mismatch", str(ctx.exception))
+
     def test_missing_files(self):
         filepath = os.path.join(self.test_dir, "missing.txt")
         meta = {'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1'}
@@ -201,6 +214,35 @@ class TestDigestEngine(unittest.TestCase):
 
         hash_val = compute_sha256(filepath, chunk_size=1024)
         self.assertTrue(len(hash_val) == 64)
+
+    def test_various_extensions(self):
+        base_dir = os.path.join(self.test_dir, "exts")
+        os.makedirs(base_dir)
+
+        extensions = ['.sqlite', '.json', '.pack.gz', '.vct']
+        records = []
+        for i, ext in enumerate(extensions):
+            filename = f"file{ext}"
+            filepath = os.path.join(base_dir, filename)
+            content = f"content for {ext}"
+            with open(filepath, 'w') as f:
+                f.write(content)
+
+            records.append({
+                'path': filename, 'source_id': f's{i}', 'license_id': f'l{i}',
+                'asset_id': f'a{i}', 'version': 'v1', 'size_bytes': len(content)
+            })
+
+        out_path = os.path.join(self.test_dir, "exts_index.json")
+        build_digest_index(base_dir, records, out_path)
+
+        with open(out_path, 'r') as f:
+            index = json.load(f)
+
+        for ext in extensions:
+            self.assertIn(f"file{ext}", index)
+            self.assertNotIn('invalid', index[f"file{ext}"])
+
 
 if __name__ == '__main__':
     unittest.main()
