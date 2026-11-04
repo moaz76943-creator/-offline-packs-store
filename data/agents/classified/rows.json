@@ -1396,6 +1396,35 @@
       "co_offered": [
         "GFDL-1.3-only"
       ],
+      "concept_id": "concept.q1410",
+      "gloss": "Gibraltar (a peninsula, city, and overseas territory of the United Kingdom, at the southern end of Iberia)",
+      "language": "fr",
+      "lemma": "Gibraltar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "en-Gibraltar-fr-name-ZcvZyDDJ",
+      "retrieval_date": "2026-11-04",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Gibraltar-fr-name-ZcvZyDDJ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
       "concept_id": "concept.q3114",
       "gloss": "Canberra (the capital city of Australia; located in the Australian Capital Territory)",
       "language": "it",
@@ -10041,6 +10070,726 @@
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Matsuyama'da doğup büyüdüm."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355936",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Düşmanla anlaşmaya vardılar."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=124; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355938",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Go büyük ihtimalle benim ülkemdeki en popüler Japon oyunu olsa da o bile bazı üniversite öğrencileri dışında pek bilinmiyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355939",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mahjong taşları çok güzeller."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355940",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mahjong genellikle dört kişi oynanan bir oyun."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355941",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mahjong dünyada çok popüler olan oyunlardan biri."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355943",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mahjong oynamayı biliyor musun?"
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355944",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mahjong'u çok seviyorum."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355945",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mahjong'da çok iyiymiş."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355947",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bu Mahjong."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355949",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hayalim çok güçlü bir Mahjong oyuncusu olmak."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=54; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355953",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Japoncayı Japonya'da mahjong oynamak için öğreniyorum."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355961",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ateşin var mı?"
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355962",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Şu köpek elimi ısırmaya çalıştı."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355963",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Evimin arkasında bir kilise var."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355964",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sam Tom'dan iki yaş küçük."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:355965",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Lütfen burayı imzalayın."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=60; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356138",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Zamanda geçmişe seyahat etmenin imkansız olduğu düşünülüyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356139",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Bu otobüs elli kişilik."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356140",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John cebinden bir anahtar çıkardı."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356141",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John Floridalı, karısı ise Kaliforniyalı."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356142",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John, Fransızcayı iyi konuşamıyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356143",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John birçok şişe şarap içti."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356144",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John Bill'den daha zeki."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356145",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John Bill'in zayıflığından istifade etti."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356146",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John Bill kadar yaşlı değil; çok daha genç."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356147",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John o kadar telaşlıydı ki konuşmaya vakti yoktu."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356149",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John işe aşina."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356150",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John, New York'ta yaşıyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=60; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356151",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "John o kadar sesli konuştu ki ikinci kattan bile duyabildim."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356210",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "İş ben gelmeden önce bitmişti."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356284",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Birini tanıyorum da ötekini değil."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356366",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ailesini çok endişelendirdi."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356367",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sadece beyaz kağıt yeterli."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356368",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Üşüyüp ısıtıcıyı açtım."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=53; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356369",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Doğduğum yer olan Nagasaki, güzel bir liman kentidir."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356370",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Kızın artık bir çocuk değil."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356371",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hava bulutlanıyor."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356372",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Pardon ama radyoyu kısabilir misin acaba?"
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356373",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Tenis oynamak sağlıklıdır."
+    },
+    {
+      "author": "Denizar",
+      "language": "tr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:356374",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sağlıklı olan adam sağlığın değerini bilmez."
     },
     {
       "author": "sysko",
@@ -22621,7 +23370,7 @@
         "Q18054140"
       ],
       "record_id": "L28085",
-      "retrieval_date": "2026-10-31",
+      "retrieval_date": "2026-11-04",
       "revision": "1767843872",
       "schema_version": "1.0.0",
       "section": "health",
