@@ -60,8 +60,8 @@
     },
     "capabilities": {
       "type": "object",
-      "minProperties": 25,
-      "maxProperties": 25,
+      "minProperties": 26,
+      "maxProperties": 26,
       "additionalProperties": {
         "enum": [
           "supported",

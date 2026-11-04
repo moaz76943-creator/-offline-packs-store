@@ -124,6 +124,38 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
             self.validator.validate(testlang_record)
         self.assertIn("Property 'root' requires feature 'root_pattern' which is not applicable", str(context.exception))
 
+    def test_valid_transliteration(self):
+        valid_record = {
+            "language_code": "zh",
+            "lemma_id": "zh:书:1",
+            "sense_id": "zh:书:book",
+            "lemma": "书",
+            "form": "书",
+            "transliteration": "shū",
+            "features": {},
+            "source_id": "test",
+            "evidence_version": "2026-10-12"
+        }
+        self.assertTrue(self.validator.validate(valid_record))
+
+    def test_invalid_transliteration(self):
+        self.validator.compatibility["testlang"] = {"transliteration": "not_applicable"}
+        testlang_record = {
+            "language_code": "testlang",
+            "lemma_id": "testlang:word:1",
+            "sense_id": "testlang:word:item",
+            "lemma": "word",
+            "form": "words",
+            "transliteration": "translit",
+            "features": {},
+            "source_id": "test",
+            "evidence_version": "2026-10-12"
+        }
+        with self.assertRaises(ValueError) as context:
+            self.validator.validate(testlang_record)
+        self.assertIn("Property 'transliteration' requires feature 'transliteration' which is not applicable", str(context.exception))
+
+
 if __name__ == '__main__':
     unittest.main()
 
