@@ -171,5 +171,10 @@ class TestReproBuilder(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
 
+    def test_unauthorized_workspace_raises_runtime_error(self):
+        with patch("os.access", return_value=False):
+            with self.assertRaisesRegex(RuntimeError, "Unauthorized workspace"):
+                ReproBuilder(self.repo_root)
+
 if __name__ == '__main__':
     unittest.main()
