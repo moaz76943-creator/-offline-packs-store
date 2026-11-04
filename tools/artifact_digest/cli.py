@@ -2,9 +2,19 @@ import argparse
 import sys
 import json
 import os
-from tools.artifact_digest.engine import compute_sha256, build_digest_index, compare_indexes
+from pathlib import Path
+
+def install_repo_import_path():
+    """Inject the repository root into sys.path."""
+    repo_root = Path(__file__).resolve().parent.parent.parent
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
 
 def main():
+    install_repo_import_path()
+
+    from tools.artifact_digest.engine import compute_sha256, build_digest_index, compare_indexes
+
     parser = argparse.ArgumentParser(description="Content-Addressed Artifact Digest & Provenance Engine CLI")
     subparsers = parser.add_subparsers(dest='command', required=True)
 
