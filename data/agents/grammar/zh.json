@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:41",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "那是我該說的話!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:42",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "他在踢我！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:43",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你肯定吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:44",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "那就表示有問題..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:45",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "哦！有一隻蝴蝶！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:46",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "趕快!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:47",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "如果我可以像那樣的話..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:48",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你是在跟我開玩笑吧？！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:49",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我長大後想當國王。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:50",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我好胖哦。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:51",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "那又怎樣?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:52",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我要把他射下來。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:53",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "那是因為妳是女生。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:54",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我会不高兴，但我不会自杀。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:55",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "以前讀高中的時候﹐我每天早上六點起床。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:56",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你問這個幹什麼?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:57",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你待了多久?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:58",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我不知道它是从哪里来的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:59",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "這個不重要。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:60",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "哪裡有問題?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:61",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "不要再把我当成“正常”人！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:62",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "所有被发明的都是真的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:63",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "感到惊讶、感到惊奇就是明白的开始。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:64",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "宇宙毫无疑问是无限的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:65",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "要变得完美，她就是少了一个缺点。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:66",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "然而，相反的理论往往也是真的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:67",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我们看东西不是看其实质，而是以我们的主观意识看它们的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:68",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "世界就是一个疯子的囚笼。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:69",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我叫Jack。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:70",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "从来就没有徒劳的爱情。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:71",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "生活就是當你忙著進行你的計劃時總有其他的事情發生。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:72",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "没有欲望就等于拥有。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:73",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "聖誕節快樂！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:74",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "罗马不是一天建成的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:75",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你是从哪个国家来的？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:7166",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我已经看过这部电影了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:119950",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "墨西哥有很多贫民窟。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:119952",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "这间房间朝向很好。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136201",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你知不知道他们是谁?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136206",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你骗人！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1",
@@ -821,6 +1221,406 @@
       "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "不，我不是！你才是！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:41",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "那是我該說的話!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:42",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "他在踢我！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:43",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你肯定吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:44",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "那就表示有問題..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:45",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "哦！有一隻蝴蝶！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:46",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "趕快!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:47",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "如果我可以像那樣的話..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:48",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你是在跟我開玩笑吧？！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:49",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我長大後想當國王。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:50",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我好胖哦。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:51",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "那又怎樣?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:52",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我要把他射下來。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:53",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "那是因為妳是女生。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:54",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我会不高兴，但我不会自杀。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:55",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "以前讀高中的時候﹐我每天早上六點起床。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:56",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你問這個幹什麼?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:57",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你待了多久?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:58",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我不知道它是从哪里来的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:59",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "這個不重要。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:60",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "哪裡有問題?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:61",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "不要再把我当成“正常”人！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:62",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "所有被发明的都是真的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:63",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "感到惊讶、感到惊奇就是明白的开始。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:64",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "宇宙毫无疑问是无限的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:65",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "要变得完美，她就是少了一个缺点。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:66",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "然而，相反的理论往往也是真的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:67",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我们看东西不是看其实质，而是以我们的主观意识看它们的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:68",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "世界就是一个疯子的囚笼。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:69",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我叫Jack。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:70",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "从来就没有徒劳的爱情。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:71",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "生活就是當你忙著進行你的計劃時總有其他的事情發生。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:72",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "没有欲望就等于拥有。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:73",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "聖誕節快樂！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:74",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "罗马不是一天建成的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:75",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你是从哪个国家来的？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:7166",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "我已经看过这部电影了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:119950",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "墨西哥有很多贫民窟。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:119952",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "这间房间朝向很好。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136201",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你知不知道他们是谁?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136206",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "你骗人！"
     }
   ]
 }

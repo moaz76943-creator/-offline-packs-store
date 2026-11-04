@@ -2823,6 +2823,406 @@
       "value": "boob out?"
     },
     {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0011",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "should I be embarrassed that I haven't the slightest idea what that means?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0001",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i am going out tonight to get wasted if anyone is interested."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0002",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "jill allen finishes her cpa today and she and her friends are going to party."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0003",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "max and jen are looking for you."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0004",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "call them at 303-832-8160."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0005",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "they haven't heard from you in a while."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0006",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Work it into your speech-- something along the line of, \"And Jen, you come from great people and have fantastic friends."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0007",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "In fact Peder and I were remarking on how agreeable they all are as the sucked on our balls last night."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0008",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Fucking bitches!\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0001",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i have to go to butt-fucking mississippi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0002",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i am not looking foward to that but don't tell val."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0003",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "the following weekend i will be ready to rock."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0004",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i think they are all bark and no bite."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0005",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i think they could get their asses kicked by cats."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0006",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "they look like they were doberman pinchers who were shrunk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0007",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "you should get a cockerspaniel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0008",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "no, i am not kidding and no i don't want it b/c of the taco bell dog."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0009",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i want it b/c it is really small and cute."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0010",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i knew someone in college who had one and i loved it."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0011",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "why do you think they are mean?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0012",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "are you kidding?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0013",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "why would you want a chihuahua?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0014",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "those dogs aren't even friendly."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0015",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "do you think they are cool b/c of the taco bell dog?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0001",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "\"Les Spahnn\" <spahnn@hnks.com>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0002",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "02/13/2001 08:02 PM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0003",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "All:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0004",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "It is my understanding, from good sources in the Govs office that the Gov will order Loretta Lynch to expeditiously implement the provision to suspend all parties auhtority to enter into direct access contracts."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0005",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "The premise with which the administartion is acting is that if they expeditiously suspend everyone's right to bilateral contracts quickly, it sets up a barrier which the direct access coalition must break through."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0006",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "In other words the table is set."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0007",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Deal your meal from where the dishes are located."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0008",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "I.E. the Davis Administration wants to place all direct access advocates in the position of having to justify why each and every party should be the exception to the suspension rather than have a general rule concerning how direct access should work for all parties."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0009",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "It clearly gives the Admin a very strong upper hand to control who when and where direct access can occur without having to say that they oppose direct access."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0010",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Power be where power lies."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0001",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "you aren't going in for the wedding until sunday now?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0002",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "I'm in"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0003",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0004",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Kevin A. Boone Accenture -- Houston Consultant -- Energy (Octel) 713.837.1638 (Client) 281.848.1619 (C) 713.306.7940 (H) 713.864.4149 Kevin.A.Boone@accenture.com"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0005",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Our web address is http://www.accenture.com"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0006",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "\"Lenhart, Matthew\""
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -5637,6 +6037,406 @@
       "retrieval_date": "2026-11-04",
       "source_id": "universal-dependencies",
       "value": "boob out?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0011",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "should I be embarrassed that I haven't the slightest idea what that means?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0001",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i am going out tonight to get wasted if anyone is interested."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0002",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "jill allen finishes her cpa today and she and her friends are going to party."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0003",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "max and jen are looking for you."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0004",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "call them at 303-832-8160."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0005",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "they haven't heard from you in a while."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0006",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Work it into your speech-- something along the line of, \"And Jen, you come from great people and have fantastic friends."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0007",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "In fact Peder and I were remarking on how agreeable they all are as the sucked on our balls last night."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_08-0008",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Fucking bitches!\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0001",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i have to go to butt-fucking mississippi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0002",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i am not looking foward to that but don't tell val."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0003",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "the following weekend i will be ready to rock."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0004",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i think they are all bark and no bite."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0005",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i think they could get their asses kicked by cats."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0006",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "they look like they were doberman pinchers who were shrunk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0007",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "you should get a cockerspaniel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0008",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "no, i am not kidding and no i don't want it b/c of the taco bell dog."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0009",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i want it b/c it is really small and cute."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0010",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "i knew someone in college who had one and i loved it."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0011",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "why do you think they are mean?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0012",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "are you kidding?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0013",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "why would you want a chihuahua?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0014",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "those dogs aren't even friendly."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_11-0015",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "do you think they are cool b/c of the taco bell dog?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0001",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "\"Les Spahnn\" <spahnn@hnks.com>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0002",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "02/13/2001 08:02 PM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0003",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "All:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0004",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "It is my understanding, from good sources in the Govs office that the Gov will order Loretta Lynch to expeditiously implement the provision to suspend all parties auhtority to enter into direct access contracts."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0005",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "The premise with which the administartion is acting is that if they expeditiously suspend everyone's right to bilateral contracts quickly, it sets up a barrier which the direct access coalition must break through."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0006",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "In other words the table is set."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0007",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Deal your meal from where the dishes are located."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0008",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "I.E. the Davis Administration wants to place all direct access advocates in the position of having to justify why each and every party should be the exception to the suspension rather than have a general rule concerning how direct access should work for all parties."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0009",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "It clearly gives the Admin a very strong upper hand to control who when and where direct access can occur without having to say that they oppose direct access."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent05_01-0010",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Power be where power lies."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0001",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "you aren't going in for the wedding until sunday now?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0002",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "I'm in"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0003",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0004",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Kevin A. Boone Accenture -- Houston Consultant -- Energy (Octel) 713.837.1638 (Client) 281.848.1619 (C) 713.306.7940 (H) 713.864.4149 Kevin.A.Boone@accenture.com"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0005",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "Our web address is http://www.accenture.com"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent23_14-0006",
+      "retrieval_date": "2026-11-04",
+      "source_id": "universal-dependencies",
+      "value": "\"Lenhart, Matthew\""
     },
     {
       "id": "verb.forms",
