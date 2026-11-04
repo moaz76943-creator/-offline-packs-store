@@ -20,8 +20,8 @@ FIXTURES = (
         'manifest': {
             'concept_id': 'food.fruit.apple',
             'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
             'source': 'synthetic-fixture',
+            'license': 'CC0-1.0',
         },
     },
     {
@@ -36,8 +36,8 @@ FIXTURES = (
         'manifest': {
             'concept_id': 'animal.mammal.bat',
             'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
             'source': 'synthetic-fixture',
+            'license': 'CC0-1.0',
         },
     },
 )
