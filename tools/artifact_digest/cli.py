@@ -2,6 +2,18 @@ import argparse
 import sys
 import json
 import os
+from pathlib import Path
+
+def install_repo_import_path():
+    """Ensure the repository root is in sys.path for direct execution."""
+    # Find the repository root by going up until we find something like 'tools'
+    current_dir = Path(__file__).resolve().parent
+    repo_root = current_dir.parent.parent
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+
+install_repo_import_path()
+
 from tools.artifact_digest.engine import compute_sha256, build_digest_index, compare_indexes
 
 def main():
