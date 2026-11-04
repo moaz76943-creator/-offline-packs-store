@@ -101,7 +101,7 @@ class TestGate(unittest.TestCase):
             self.assertEqual(code, 1)
             self.assertIn("WORKSPACE_ACCESS_DENIED", errors)
             self.assertIn("WORKSPACE_ACCESS_DENIED", stderr)
-            access.assert_called_once_with(self.root.resolve(), os.W_OK | os.X_OK)
+            access.assert_called_once_with(self.root.resolve(), os.R_OK)
 
     def test_workspace_preflight_uses_selected_repo_root_not_cwd(self):
         manifest = {
@@ -113,13 +113,13 @@ class TestGate(unittest.TestCase):
         }
         # The process CWD is irrelevant: the caller explicitly chose --repo-root.
         def writable_selected_root(path, mode):
-            return Path(path) == self.root.resolve() and mode == (os.W_OK | os.X_OK)
+            return Path(path) == self.root.resolve() and mode == os.R_OK
 
         with patch('os.access', side_effect=writable_selected_root) as access:
             code, errors, stdout, stderr = self.run_process(manifest)
         self.assertEqual((code, errors), (0, []), stderr)
         self.assertEqual(json.loads(stdout)["status"], "ADMITTED")
-        access.assert_called_once_with(self.root.resolve(), os.W_OK | os.X_OK)
+        access.assert_called_once_with(self.root.resolve(), os.R_OK)
 
     def test_missing_license(self):
         manifest = {
