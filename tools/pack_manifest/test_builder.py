@@ -69,6 +69,9 @@ class TestPackManifestBuilder(unittest.TestCase):
         packs = data["packs"]
         self.assertIn("af", packs)
         self.assertEqual(packs["af"]["dependencies"], ["pack2"])
+        self.assertEqual(packs["af"]["language"], "af")
+        self.assertEqual(packs["af"]["schema_version"], "1.0.0")
+        self.assertEqual(packs["af"]["provenance"], [])
 
     def test_missing_files_rejected(self):
         manifest_path = self.base_dir / "manifest.json"
@@ -100,8 +103,7 @@ class TestPackManifestBuilder(unittest.TestCase):
 
         build_manifest(self.base_dir, ["pack1.pack.gz", "pack3.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['added'], ['en'])
-        self.assertEqual(plan['updated'], ['af'])
+        self.assertEqual(plan['updated'], ['pack1.pack.gz', 'pack3.pack.gz'])
 
     def test_removed_packs(self):
         old_manifest_path = self.base_dir / "old_manifest.json"
@@ -109,7 +111,7 @@ class TestPackManifestBuilder(unittest.TestCase):
         build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz"], str(old_manifest_path))
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['removed'], ['ar'])
+        self.assertEqual(plan['deleted'], ['pack2.pack.gz'])
 
     def test_mismatched_entry_count(self):
         bad_pack = self.base_dir / "bad.pack.gz"
@@ -131,7 +133,7 @@ class TestPackManifestBuilder(unittest.TestCase):
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['unchanged'], ['af'])
+        self.assertEqual(plan['unchanged'], ['pack1.pack.gz'])
 
     def test_small_compressed_bomb_exceeding_limit_is_rejected(self):
         from unittest.mock import patch

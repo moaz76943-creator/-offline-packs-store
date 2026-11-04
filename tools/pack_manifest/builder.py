@@ -94,24 +94,34 @@ def extract_metadata(filepath):
             raise ValueError(f"Missing license identifier in {filepath}")
 
         deps = data.get('dependencies', [])
+        schema_version = data.get('schema_version', '1.0.0')
+        provenance = data.get('provenance') or data.get('source_ids') or []
 
         return {
             'pack_id': pack_id,
             'version': version,
             'entry_count': entry_count,
             'license': license_id,
-            'dependencies': deps
+            'dependencies': deps,
+            'language': pack_id,
+            'schema_version': schema_version,
+            'provenance': provenance
         }
 
     elif str(filepath).endswith('.vct'):
         pack_id = data.get('asset_id') or os.path.basename(filepath)
         deps = data.get('dependencies', [])
+        schema_version = data.get('schema_version', '1.0.0')
+        provenance = data.get('provenance') or data.get('source_ids') or []
         return {
             'pack_id': pack_id,
             'version': data.get('version', '1.0.0'),
             'entry_count': 1,
             'license': data.get('license', 'CC0-1.0'),
-            'dependencies': deps
+            'dependencies': deps,
+            'language': None,
+            'schema_version': schema_version,
+            'provenance': provenance
         }
     else:
         raise ValueError(f"Unsupported file type: {filepath}")
@@ -144,7 +154,10 @@ def build_manifest(base_dir, file_paths, output_manifest_path):
             'size_bytes': size,
             'sha256': sha256,
             'license': meta['license'],
-            'dependencies': meta['dependencies']
+            'dependencies': meta['dependencies'],
+            'language': meta['language'],
+            'schema_version': meta['schema_version'],
+            'provenance': meta['provenance']
         }
 
     out_dir = os.path.dirname(output_manifest_path)
@@ -174,28 +187,28 @@ def generate_update_plan(old_manifest_path, new_manifest_path):
     new_packs = new_data.get('packs', {})
 
     plan = {
-        'added': [],
+        'unchanged': [],
         'updated': [],
-        'removed': [],
-        'unchanged': []
+        'deleted': [],
+        'invalid': []
     }
 
     for pack_id, new_meta in new_packs.items():
         if pack_id not in old_packs:
-            plan['added'].append(pack_id)
+            plan['updated'].append(new_meta['path'])
         else:
             old_meta = old_packs[pack_id]
             if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies']:
-                plan['unchanged'].append(pack_id)
+                plan['unchanged'].append(new_meta['path'])
             elif old_meta['sha256'] == new_meta['sha256']:
                 # Skip changed metadata with no payload delta
-                plan['unchanged'].append(pack_id)
+                plan['unchanged'].append(new_meta['path'])
             else:
-                plan['updated'].append(pack_id)
+                plan['updated'].append(new_meta['path'])
 
     for pack_id in old_packs:
         if pack_id not in new_packs:
-            plan['removed'].append(pack_id)
+            plan['deleted'].append(old_packs[pack_id]['path'])
 
     for key in plan:
         plan[key].sort()
