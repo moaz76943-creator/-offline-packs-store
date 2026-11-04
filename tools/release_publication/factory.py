@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-"""Verified Public Release Publication Factory"""
 import argparse
 import hashlib
 import json
@@ -7,6 +5,8 @@ import os
 import shutil
 import subprocess
 import sys
+import tempfile
+import gzip
 from pathlib import Path
 
 MAX_FILE_SIZE = 100 * 1024 * 1024
@@ -18,15 +18,15 @@ def file_hash(path):
             h.update(chunk)
     return h.hexdigest()
 
-def verify_publication_eligibility(repo_root):
+def verify_publication_eligibility(repo_root, artifacts_json_path, output_path):
     """Ensure artifacts are ready for publication by calling release gate."""
-    # Reuse release gate
-    gate_script = repo_root / "tools/release_gate/gate.py"
+    # Reuse release gate tools/release_validation/validator.py
+    gate_script = repo_root / "tools/release_validation/validator.py"
     if not gate_script.is_file():
-        raise ValueError("Release gate missing")
+        raise ValueError("Release validation script missing")
 
     result = subprocess.run(
-        [sys.executable, str(gate_script), "--repo-root", str(repo_root)],
+        [sys.executable, str(gate_script), "--repo-root", str(repo_root), "--candidates", str(artifacts_json_path), "--output", str(output_path)],
         capture_output=True,
         text=True
     )
@@ -38,8 +38,9 @@ def verify_publication_eligibility(repo_root):
     except Exception:
         raise ValueError("Release gate output is not valid json")
 
-    if evidence.get("status") != "VERIFIED_CANDIDATE":
-        raise ValueError(f"Not a verified candidate: {evidence.get('blockers', [])}")
+    for art_id, statuses in evidence.items():
+        if statuses != ["PASSED"]:
+            raise ValueError(f"Not a verified candidate: {art_id} -> {statuses}")
 
     return evidence
 
@@ -50,25 +51,56 @@ def verify_publication_authorization(repo_root):
         raise ValueError("Unauthorized: Missing credentials")
 
 def verify_pack_conformance(repo_root, path, sha, language):
-    check_script = repo_root / "tools/gha_factory/pack_conformance/check.py"
+    check_script = repo_root / "tools/pack_conformance/validator.py"
     if not check_script.is_file():
         raise ValueError("Conformance check missing")
 
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo_root)
 
+    # Decompress `.pack.gz` archives to a temporary `.db` database before validating
+    tmp_fd, tmp_db_path = tempfile.mkstemp(suffix=".db")
+    os.close(tmp_fd)
+
+    try:
+        with gzip.open(path, 'rb') as f_in:
+            with open(tmp_db_path, 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+
+        result = subprocess.run(
+            [sys.executable, str(check_script), tmp_db_path, "--structural-only"],
+            capture_output=True,
+            text=True,
+            env=env
+        )
+        if result.returncode != 0:
+            raise ValueError(f"Pack conformance check failed: {result.stdout.strip()} {result.stderr.strip()}")
+    finally:
+        if os.path.exists(tmp_db_path):
+            os.remove(tmp_db_path)
+
+def generate_provenance(repo_root, manifest_out, notice_out):
+    compiler_script = repo_root / "tools/provenance_release/compiler.py"
+    if not compiler_script.is_file():
+        raise ValueError("Provenance compiler missing")
+
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(repo_root)
+
     result = subprocess.run(
-        [sys.executable, str(check_script), "--root", str(repo_root), "--archive", str(path), "--language", language, "--sha256", sha],
+        [sys.executable, str(compiler_script), "--repo-root", str(repo_root), "--manifest-out", str(manifest_out), "--notice-out", str(notice_out)],
         capture_output=True,
         text=True,
         env=env
     )
     if result.returncode != 0:
-        raise ValueError(f"Pack conformance check failed: {result.stdout.strip()}")
+        raise ValueError(f"Provenance generation failed: {result.stdout.strip()} {result.stderr.strip()}")
 
-def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_auth=True):
+
+def publish_artifacts(repo_root, target_dir, artifacts_json_path, dry_run=False, check_auth=True):
     repo_root = Path(repo_root).resolve()
     target = Path(target_dir).resolve()
+    artifacts_json_path = Path(artifacts_json_path).resolve()
 
     try:
         target.relative_to(repo_root)
@@ -76,13 +108,29 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
         if not dry_run:
             raise ValueError("Target directory must be within repository") from None
 
+    with open(artifacts_json_path, 'r') as f:
+        artifacts_data = json.load(f)
+        artifacts = artifacts_data.get('artifacts', [])
+
     if check_auth:
-        verify_publication_eligibility(repo_root)
         verify_publication_authorization(repo_root)
+
+        # Use a temporary file for the verified output of the validation gate
+        with tempfile.NamedTemporaryFile(suffix=".json", delete=False) as tmp_out:
+            tmp_out_path = tmp_out.name
+        try:
+            verify_publication_eligibility(repo_root, artifacts_json_path, tmp_out_path)
+        finally:
+            if os.path.exists(tmp_out_path):
+                os.remove(tmp_out_path)
 
     # verify all gates and files
     for entry in artifacts:
-        path = (repo_root / entry['path']).resolve()
+        path_str = entry.get('path')
+        if not path_str:
+            raise ValueError("Missing path in artifact entry")
+
+        path = (repo_root / path_str).resolve()
         try:
              path.relative_to(repo_root)
         except ValueError:
@@ -109,7 +157,6 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
 
     if not dry_run:
         # Atomic staging using a temporary directory, replacing target on success
-        import tempfile
         target.parent.mkdir(parents=True, exist_ok=True)
         tmp_dir = tempfile.mkdtemp(dir=target.parent)
         tmp_path = Path(tmp_dir)
@@ -119,18 +166,8 @@ def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_aut
                 dst = tmp_path / src.name
                 shutil.copy2(src, dst)
 
-                # Write attribution/provenance manifest preserving versions
-                manifest = tmp_path / f"{src.name}.manifest.json"
-                manifest.write_text(json.dumps({
-                    "source": str(entry['path']),
-                    "sha256": entry['sha256'],
-                    "language": entry.get('language', 'unknown'),
-                    "version": entry.get('version', '0.0.0'),
-                    "schema": entry.get('schema', 'v2'),
-                    "provenance": entry.get('provenance', []),
-                    "attribution": entry.get('attribution', 'No attribution provided'),
-                    "published": True
-                }, indent=2) + "\n")
+            # Generate release_provenance.json and NOTICE.txt
+            generate_provenance(repo_root, tmp_path / "release_provenance.json", tmp_path / "NOTICE.txt")
 
             # preserve last verified if exists
             if target.exists():
@@ -163,13 +200,7 @@ def main():
     args = parser.parse_args()
 
     try:
-        artifacts = json.loads(args.artifacts_json.read_text())
-    except (json.JSONDecodeError, OSError) as e:
-        print(f"Error loading artifacts manifest: {e}", file=sys.stderr)
-        return 1
-
-    try:
-        publish_artifacts(args.repo_root, args.target_dir, artifacts, args.dry_run, not args.skip_auth)
+        publish_artifacts(args.repo_root, args.target_dir, args.artifacts_json, args.dry_run, not args.skip_auth)
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1
