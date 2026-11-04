@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 
 import jsonschema
+import referencing
 
 # Documented IPA repertoire. A value is IPA only when every character is in this
 # set and at least one base letter is present.
@@ -134,10 +135,12 @@ class PronunciationRegistry:
 
     def _validate_schema(self, record: Dict[str, Any]) -> None:
         try:
-            inner_schema = self.schema["$defs"]["pronunciation_record"]
-            resolver = jsonschema.validators.RefResolver.from_schema(self.schema)
+            uri = self.schema.get("$id", "")
+            resource = referencing.Resource.from_contents(self.schema)
+            registry = referencing.Registry().with_resource(uri=uri, resource=resource)
+            inner_schema = {"$ref": f"{uri}#/$defs/pronunciation_record"}
             inner_validator = jsonschema.Draft202012Validator(
-                inner_schema, resolver=resolver, format_checker=jsonschema.FormatChecker()
+                inner_schema, registry=registry, format_checker=jsonschema.FormatChecker()
             )
             inner_validator.validate(record)
         except jsonschema.ValidationError as e:
