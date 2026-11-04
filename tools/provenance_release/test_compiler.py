@@ -120,6 +120,19 @@ class TestProvenanceCompiler(unittest.TestCase):
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['invalid'], ['asset_1'])
 
+    def test_missing_author_fails(self):
+        src = self.base_source.copy()
+        src['author'] = 'original_author'
+
+        # notice is missing author
+        self.notice_path.write_text("src_id publisher CC-BY-SA-4.0 https://origin")
+
+        self.write_ledger([src])
+        self.write_daily([self.base_candidate])
+
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], ['asset_1'])
+
     def test_missing_author_or_source_id(self):
         # We test that missing source_id in notice also fails
         self.notice_path.write_text("publisher CC-BY-SA-4.0 https://origin")
