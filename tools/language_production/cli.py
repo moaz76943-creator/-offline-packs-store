@@ -9,7 +9,7 @@ from pathlib import Path
 from tools.language_production.catalog import load_languages, load_sections
 from tools.language_production.checkpoint import advance_cursor, byte_range, load_cursor
 from tools.language_production.dumps import resolve_dump_date
-from tools.language_production.harvest import harvest_dump
+from tools.language_production.harvest import HarvestConfig, harvest_dump
 from tools.language_production.publish import merge_decision
 from tools.language_production.repair import note_failure, note_success, should_advance, slice_budget
 from tools.language_production.schedule import rotation_slot, select_coverage_batch
@@ -65,14 +65,17 @@ def command_harvest(args):
     rows = [row for row in catalog['languages'] if row['id'] == args.language]
     if not rows:
         raise ValueError(f'unknown production language {args.language}')
-    summary = harvest_dump(
-        args.dump,
-        rows[0],
-        taxonomy=load_sections(),
+    config = HarvestConfig(
         dataset_version=args.dataset_version,
         origin_url=args.origin_url,
         max_lexemes=int(args.max_lexemes),
         output=args.output,
+    )
+    summary = harvest_dump(
+        args.dump,
+        rows[0],
+        config,
+        taxonomy=load_sections(),
     )
     Path(args.summary).parent.mkdir(parents=True, exist_ok=True)
     Path(args.summary).write_text(json.dumps(summary, indent=2) + '\n', encoding='utf-8')

@@ -13,6 +13,7 @@ from tools.language_production.catalog import ROOT, load_languages, load_section
 from tools.language_production.checkpoint import advance_cursor, byte_range, load_cursor
 from tools.language_production.dumps import latest_dump_date, resolve_dump_date
 from tools.language_production.harvest import (
+    HarvestConfig,
     assert_safe_output,
     classify_entity,
     harvest_dump,
@@ -133,9 +134,12 @@ class PolicyTests(unittest.TestCase):
         self.blocked = {'Q154', 'Q11416', 'Q154136', 'Q11639'}
 
     def _classify(self, entity, class_index=None):
+        config = HarvestConfig(
+            dataset_version=DATE, origin_url=ORIGIN, max_lexemes=5, output='', repo_root='',
+        )
         return classify_entity(
             entity, self.language, self.taxonomy, class_index or {},
-            self.blocked, set(), DATE, ORIGIN,
+            self.blocked, set(), config,
         )
 
     def test_blocked_ancestor_is_excluded_and_mixed_is_quarantined(self):
@@ -197,16 +201,19 @@ class OverlayTests(unittest.TestCase):
             dump.write_bytes(blob)
             for language_id, qid in PROOF.items():
                 output = Path(tmp) / f'{language_id}.sqlite'
-                summary = harvest_language(
-                    dump,
-                    {'id': language_id, 'wikidata': qid},
-                    taxonomy=taxonomy,
-                    class_index={},
+                config = HarvestConfig(
                     dataset_version=DATE,
                     origin_url=ORIGIN,
                     max_lexemes=5,
                     output=output,
                     repo_root=tmp,
+                )
+                summary = harvest_language(
+                    dump,
+                    {'id': language_id, 'wikidata': qid},
+                    config,
+                    taxonomy=taxonomy,
+                    class_index={},
                 )
                 self.assertEqual(summary['lexemes'], 1)
                 self.assertFalse(summary['checksum_verified'])
@@ -245,9 +252,11 @@ class OverlayTests(unittest.TestCase):
             dump = Path(tmp) / 'slice.json.gz'
             dump.write_bytes(blob)
             output = Path(tmp) / 'de.sqlite'
-            summary = harvest_language(
-                dump, {'id': 'de', 'wikidata': 'Q188'}, taxonomy=taxonomy, class_index={},
+            config = HarvestConfig(
                 dataset_version=DATE, origin_url=ORIGIN, max_lexemes=5, output=output, repo_root=tmp,
+            )
+            summary = harvest_language(
+                dump, {'id': 'de', 'wikidata': 'Q188'}, config, taxonomy=taxonomy, class_index={},
             )
             self.assertEqual(summary['lexemes'], 0)
             self.assertFalse(output.exists())
@@ -265,9 +274,11 @@ class OverlayTests(unittest.TestCase):
             dump = Path(tmp) / 'slice.json.gz'
             dump.write_bytes(blob)
             output = Path(tmp) / 'de.sqlite'
-            summary = harvest_language(
-                dump, {'id': 'de', 'wikidata': 'Q188'}, taxonomy=taxonomy, class_index={},
+            config = HarvestConfig(
                 dataset_version=DATE, origin_url=ORIGIN, max_lexemes=1, output=output, repo_root=tmp,
+            )
+            summary = harvest_language(
+                dump, {'id': 'de', 'wikidata': 'Q188'}, config, taxonomy=taxonomy, class_index={},
             )
             self.assertLess(summary['decompressed_bytes'], full)
             self.assertFalse(summary['gzip_complete'])
@@ -286,10 +297,12 @@ class OverlayTests(unittest.TestCase):
             dump = Path(tmp) / 'slice.json.gz'
             dump.write_bytes(blob)
             output = Path(tmp) / 'de.sqlite'
+            config = HarvestConfig(
+                dataset_version=DATE, origin_url=ORIGIN, max_lexemes=5, output=output, repo_root=tmp,
+            )
             summary = harvest_dump(
-                dump, {'id': 'de', 'wikidata': 'Q188'}, taxonomy=taxonomy,
-                dataset_version=DATE, origin_url=ORIGIN, max_lexemes=5, output=output,
-                fetch=fetch, repo_root=tmp,
+                dump, {'id': 'de', 'wikidata': 'Q188'}, config, taxonomy=taxonomy,
+                fetch=fetch,
             )
         self.assertEqual(summary['lexemes'], 1)
         self.assertIn('Q2095', seen['qids'])

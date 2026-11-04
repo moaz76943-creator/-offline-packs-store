@@ -2,7 +2,9 @@
 
 import re
 import unicodedata
+from dataclasses import dataclass
 from pathlib import Path
+from typing import Optional
 
 from tools.language_production.build_overlay import source_record, write_overlay
 from tools.language_production.catalog import ROOT, load_blocklist, registry_by_id
@@ -18,6 +20,16 @@ from tools.wikidata_lexemes.extract_de_verbs import (
 )
 
 FORBIDDEN_OUTPUTS = ('manifest.json', 'legal/ledger/sources.json')
+
+
+@dataclass(frozen=True)
+class HarvestConfig:
+    dataset_version: str
+    origin_url: str
+    max_lexemes: int
+    output: str
+    blocklist_path: Optional[str] = None
+    repo_root: Optional[str] = None
 
 
 def lemma_for(entity, language_id):
@@ -87,7 +99,7 @@ def _blocked(item_qids, blocked_concepts, class_index):
     return False
 
 
-def classify_entity(entity, language, taxonomy, class_index, blocked_concepts, blocked_lemmas, dataset_version, origin_url):
+def classify_entity(entity, language, taxonomy, class_index, blocked_concepts, blocked_lemmas, config: HarvestConfig):
     """Return keep/exclude/quarantine/skip plus a record when the lexeme is kept."""
     language_id = language['id']
     if entity.get('language') != language['wikidata']:
@@ -151,7 +163,7 @@ def classify_entity(entity, language, taxonomy, class_index, blocked_concepts, b
             'domains': [f'section.{section_id}'],
             'subdomains': _subdomains(entity, category, class_index, taxonomy, pos),
             'levels': [level],
-            'source': source_record(language_id, dataset_version, origin_url, sense_id),
+            'source': source_record(language_id, config.dataset_version, config.origin_url, sense_id),
         })
     if blocked_senses and not allowed_senses and not ambiguous:
         return 'exclude', {'id': lexeme_qid, 'reason': 'blocked_concept'}
@@ -169,7 +181,7 @@ def classify_entity(entity, language, taxonomy, class_index, blocked_concepts, b
         'pos': pos,
         'direction': 'rtl' if (registry.get('default_script') in {'Arab', 'Hebr'}) else 'ltr',
         'morphology': {'conjugations': forms} if pos == 'verb' else {'inflections': forms},
-        'source': source_record(language_id, dataset_version, origin_url, locator),
+        'source': source_record(language_id, config.dataset_version, config.origin_url, locator),
     }
     grammar = None
     if forms:
@@ -249,30 +261,26 @@ def collect_qids(dump_path, language, max_lexemes):
     return list(dict.fromkeys(found))
 
 
-def harvest_dump(dump_path, language, *, taxonomy, dataset_version, origin_url, max_lexemes, output,
-                  class_index=None, fetch=None, blocklist_path=None, repo_root=None):
+def harvest_dump(dump_path, language, config: HarvestConfig, *, taxonomy, class_index=None, fetch=None):
     """Classify one language. A missing class index is fetched with a bounded walk."""
     language = attach_registry(language)
     if class_index is None:
         from tools.language_production.classes import fetch_class_index
-        qids = collect_qids(dump_path, language, max_lexemes)
+        qids = collect_qids(dump_path, language, config.max_lexemes)
         fetch = fetch or fetch_class_index
         class_index = fetch(qids)
     return harvest_language(
-        dump_path, language, taxonomy=taxonomy, class_index=class_index,
-        dataset_version=dataset_version, origin_url=origin_url, max_lexemes=max_lexemes,
-        output=output, blocklist_path=blocklist_path, repo_root=repo_root,
+        dump_path, language, config, taxonomy=taxonomy, class_index=class_index
     )
 
 
-def harvest_language(dump_path, language, *, taxonomy, class_index, dataset_version, origin_url,
-                     max_lexemes, output, blocklist_path=None, repo_root=None):
+def harvest_language(dump_path, language, config: HarvestConfig, *, taxonomy, class_index):
     """Read dump lines until this language reaches max_lexemes, then stop."""
-    if not re.fullmatch(r'[0-9]{8}', dataset_version):
+    if not re.fullmatch(r'[0-9]{8}', config.dataset_version):
         raise ValueError('dataset version must be YYYYMMDD')
     language = attach_registry(language)
-    assert_safe_output(output, repo_root)
-    blocked_concepts, blocked_lemmas = load_blocklist(blocklist_path) if blocklist_path else load_blocklist()
+    assert_safe_output(config.output, config.repo_root)
+    blocked_concepts, blocked_lemmas = load_blocklist(config.blocklist_path) if config.blocklist_path else load_blocklist()
     reader = GzipLineReader(dump_path)
     kept = []
     excluded = []
@@ -281,8 +289,7 @@ def harvest_language(dump_path, language, *, taxonomy, class_index, dataset_vers
     try:
         for entity in iter_entities(reader):
             decision, payload = classify_entity(
-                entity, language, taxonomy, class_index, blocked_concepts, blocked_lemmas,
-                dataset_version, origin_url,
+                entity, language, taxonomy, class_index, blocked_concepts, blocked_lemmas, config
             )
             if decision == 'skip':
                 continue
@@ -293,7 +300,7 @@ def harvest_language(dump_path, language, *, taxonomy, class_index, dataset_vers
                 quarantined.append(payload)
             else:
                 kept.append(payload)
-            if seen >= max_lexemes:
+            if seen >= config.max_lexemes:
                 break
     finally:
         decompressed = reader.decompressed_bytes
@@ -301,8 +308,8 @@ def harvest_language(dump_path, language, *, taxonomy, class_index, dataset_vers
         reader.close()
     written = None
     if kept:
-        write_overlay(language['id'], kept, output, dataset_version, origin_url)
-        written = output
+        write_overlay(language['id'], kept, config.output, config.dataset_version, config.origin_url)
+        written = config.output
     return _summary(language, kept, excluded, quarantined, decompressed, complete, written)
 
 
