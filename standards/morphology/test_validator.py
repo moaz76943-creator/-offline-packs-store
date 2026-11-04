@@ -31,6 +31,11 @@ class TestMorphologyValidatorBasic(unittest.TestCase):
             self.validator.validate(invalid_record)
         self.assertIn("Schema validation failed", str(context.exception))
 
+    def test_transliteration_support(self):
+        translit_record = self.valid_base.copy()
+        translit_record["transliteration"] = "Bukh"
+        self.assertTrue(self.validator.validate(translit_record))
+
     def test_invalid_lemma_id_prefix(self):
         invalid_record = self.valid_base.copy()
         invalid_record["lemma_id"] = "en:Buch:1"
