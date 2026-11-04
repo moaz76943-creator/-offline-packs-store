@@ -45,6 +45,9 @@ class FontAsset:
     public_domain_proof: Optional[dict] = None
 
 class FontRightsRegistry:
+    def __init__(self):
+        self._registry_cache = {}
+
     # No vendor or font family receives a blanket license inference.
     def validate_asset(self, asset: FontAsset, expected_hash=None, *, repo_root=None):
         issues = []
@@ -56,8 +59,28 @@ class FontRightsRegistry:
             issues.append("Unknown source is explicitly rejected")
         if _normalized_label(asset.family) in MIXED_FAMILY_LABELS:
             issues.append("Mixed families are explicitly rejected")
-        if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
+
+        cache_key = str(repo_root) if repo_root else "."
+        if cache_key not in self._registry_cache:
+            registry_path = (Path(repo_root) if repo_root else Path(".")) / "catalog/language_registry.v1.json"
+            import json
+            try:
+                with open(registry_path, "r", encoding="utf-8") as f:
+                    registry_data = json.load(f)
+                    self._registry_cache[cache_key] = set(registry_data.get("scripts", {}).keys())
+            except FileNotFoundError:
+                self._registry_cache[cache_key] = None
+
+        valid_scripts = self._registry_cache[cache_key]
+        if valid_scripts is None:
+            issues.append("Missing canonical language registry")
+        elif not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
+        else:
+            for script in asset.scripts:
+                if script not in valid_scripts:
+                    issues.append(f"Script {script} is not supported by the canonical registry")
+
         if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
             issues.append("Unknown, unsupported or unverified rights")
         if not url_ok(asset.origin_url) or not url_ok(asset.license_evidence_url):
