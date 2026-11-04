@@ -171,5 +171,62 @@ class TestReproBuilder(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
 
+
+    def test_grammar_is_preserved(self):
+        sidecar = self.source_path.with_name("en.grammar.json")
+        origin = 'https://example.org/fixtures-only'
+        source = {
+            'source_id':'fixture.demo',
+            'origin_url':origin,
+            'publisher':'Self-authored synthetic test',
+            'dataset_version':'1',
+            'retrieval_id':'synthetic:1',
+            'license_id':'LicenseRef-SyntheticTestFixture',
+            'record_locator':'illustration',
+            'publication_approved':False,
+            'fixture_only':True,
+            'artifact_sha256':None
+        }
+        grammar_doc = {
+            "languageCode": "en",
+            "contract_version": "1.0.0",
+            "rules": [
+                {
+                    "grammar_id": "g1",
+                    "category": "noun",
+                    "title": "plural",
+                    "source": source
+                }
+            ]
+        }
+        with open(sidecar, 'w') as f:
+            json.dump(grammar_doc, f)
+
+        out_path = self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+        with sqlite3.connect(out_path) as db:
+            count = db.execute("SELECT COUNT(*) FROM grammar").fetchone()[0]
+            self.assertEqual(count, 1)
+
+
+    def test_directed_pair_metadata_is_preserved(self):
+        self.doc['translations'].append({
+            "translation_id": "tr1",
+            "from_sense_id": "sense.en.one",
+            "to_sense_id": "sense.en.one",
+            "language": "en",
+            "text": "word",
+            "equivalence": "exact",
+            "source": self.doc['lexemes'][0]['source']
+        })
+        with open(self.source_path, 'w') as f:
+            json.dump(self.doc, f)
+
+        out_path = self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+        with sqlite3.connect(out_path) as db:
+            count = db.execute("SELECT COUNT(*) FROM translations").fetchone()[0]
+            self.assertEqual(count, 1)
+
 if __name__ == '__main__':
+
+
     unittest.main()
