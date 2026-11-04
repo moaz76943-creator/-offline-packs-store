@@ -4,7 +4,8 @@ import tempfile
 import json
 from io import StringIO
 
-from tools.lexicon_sanitizer.cli import process_stream
+from tools.lexicon_sanitizer.cli import process_stream, main
+from unittest.mock import patch
 from tools.lexicon_sanitizer.engine import SanitizerEngine
 
 class TestCLI(unittest.TestCase):
@@ -79,6 +80,12 @@ class TestCLI(unittest.TestCase):
                 with open(os.path.join(quar_dir, file), "r", encoding="utf-8") as rf:
                     content = rf.read()
                     self.assertIn("Reason: ", content)
+
+    @patch("tools.lexicon_sanitizer.cli.os.access", return_value=False)
+    def test_main_unauthorized_workspace(self, mock_access):
+        with self.assertRaises(SystemExit) as cm:
+            main()
+        self.assertEqual(cm.exception.code, 'UNAUTHORIZED_WORKSPACE')
 
 if __name__ == '__main__':
     unittest.main()

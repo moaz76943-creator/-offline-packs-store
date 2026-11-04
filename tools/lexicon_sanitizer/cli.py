@@ -85,6 +85,9 @@ def process_stream(
     return stats
 
 def main():
+    if not os.access(os.getcwd(), os.W_OK):
+        import sys
+        sys.exit('UNAUTHORIZED_WORKSPACE')
     parser = argparse.ArgumentParser(description="Multilingual Lexicon Sanitizer & Deduplication Engine")
     parser.add_argument("--input", required=True, help="Input JSONL file")
     parser.add_argument("--output-dir", required=True, help="Output directory for processed files")
