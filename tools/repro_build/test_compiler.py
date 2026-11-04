@@ -171,5 +171,29 @@ class TestReproBuilder(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
 
+    def test_workspace_authorization_failure(self):
+        with patch('os.access', return_value=False):
+            with self.assertRaises(PermissionError):
+                self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+
+    def test_grammar_sidecar_parsing(self):
+        grammar_content = [{"some": "grammar"}]
+        grammar_path = self.source_path.with_name("en.grammar.json")
+        with open(grammar_path, 'w', encoding='utf-8') as gf:
+            json.dump(grammar_content, gf)
+
+        # We need to mock make_database to actually create the temp_db file, otherwise sha256_file fails
+        def mock_make_database(doc, language, grammar, temp_db):
+            with open(temp_db, 'w') as f:
+                f.write("mock db")
+            return 1
+
+        with patch('tools.repro_build.compiler.make_database', side_effect=mock_make_database) as mock_make_db, \
+             patch('tools.repro_build.compiler.check_sqlite'):
+            self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+            mock_make_db.assert_called_once()
+            # arg index 2 is grammar
+            self.assertEqual(mock_make_db.call_args[0][2], grammar_content)
+
 if __name__ == '__main__':
     unittest.main()
