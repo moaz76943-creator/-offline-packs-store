@@ -15,7 +15,9 @@ def fixture():
                   family="Test", scripts=["Latn"], default_script="Latn",
                   regions=[], dialects=[], morphology={"features":["number"],"review_status":"provisional"},
                   proficiency={"framework_ids":[], "mapping_status":"not_mapped"}) for code in codes]
-    registry = dict(schema_version="1.0.0", scripts={"Latn":{"name":"Latin","direction":"ltr"},
+    registry = dict(schema_version="1.0.0",
+                    source={"repository": "moaz76943-creator/-offline-packs-store", "manifest_path": "manifest.json", "reviewed_head_sha": "bb15e9f02b216bbcb62a254d4a5bd695d405e9d5", "selection_policy": "preserve_all_100_published_stable_ids"},
+                    scripts={"Latn":{"name":"Latin","direction":"ltr"},
                     "Arab":{"name":"Arabic","direction":"rtl"}, "Hebr":{"name":"Hebrew","direction":"rtl"}},
                     frameworks={}, languages=langs, aliases=[], locale_variants=[])
     readiness = dict(schema_version="1.0.0",registry_version="1.0.0", states={x:"unverified" for x in codes},validation_evidence={})
@@ -56,7 +58,7 @@ class TaxonomyValidationTests(unittest.TestCase):
 
     def test_alias_and_variant_collision(self):
         r, c, m = fixture()
-        r["aliases"].append({"from":"aa-Latn","to":"aa","lossy":True,"status":"migration_review_required"})
+        r["aliases"].append({"from":"aa-Latn","to":"aa","kind":"fallback","lossy":True,"status":"migration_review_required", "note": "test"})
         r["locale_variants"].append(dict(tag="aa-Latn",language_id="aa",script="Latn",region=None,dialect=None))
         self.assertTrue(any("alias/variant collision: aa-Latn" in s for s in validate(r,c,m)))
 
@@ -253,7 +255,7 @@ class TaxonomyValidationTests(unittest.TestCase):
         self.assertTrue(any("alias target missing" in s for s in validate(r, c, m)))
 
         r, c, m = fixture()
-        r["aliases"].append({"from": "aa-Latn", "to": "aa", "lossy": False, "status": "migration_review_required"})
+        r["aliases"].append({"from": "aa-Latn", "to": "aa", "kind": "fallback", "lossy": False, "status": "migration_review_required", "note": "test"})
         self.assertTrue(any("unsafe unreviewed fallback alias" in s for s in validate(r, c, m)))
 
     def test_invalid_locale_variants(self):
@@ -279,7 +281,7 @@ class TaxonomyValidationTests(unittest.TestCase):
 
         r, c, m = fixture()
         r["languages"][0]["regions"] = ["US"]
-        r["locale_variants"].append({"tag": "aa-US", "language_id": "aa", "region": "US"})
+        r["locale_variants"].append({"tag": "aa-US", "language_id": "aa", "script": None, "region": "US", "dialect": None, "content_status": "unverified"})
         self.assertEqual([], validate(r, c, m))
 
         r["locale_variants"][0]["region"] = "GB"
@@ -329,7 +331,7 @@ class TaxonomyValidationTests(unittest.TestCase):
     def test_alias_collision_with_existing(self):
         r, c, m = fixture()
         # Create an alias that collides with an existing language tag
-        r["aliases"].append({"from": "aa", "to": "ab", "lossy": True, "status": "migration_review_required"})
+        r["aliases"].append({"from": "aa", "to": "ab", "kind": "fallback", "lossy": True, "status": "migration_review_required", "note": "test"})
         self.assertTrue(any("alias/variant collision: aa" in s for s in validate(r, c, m)))
 
     def test_main(self):

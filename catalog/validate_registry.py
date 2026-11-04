@@ -29,6 +29,19 @@ def validate(registry, readiness, manifest=None, required_count=100, source_ledg
         problem("unsupported readiness schema_version")
     if readiness.get("registry_version") != registry.get("schema_version"):
         problem("readiness registry_version mismatch")
+
+    try:
+        import jsonschema
+        schema_path = HERE / "language_registry.schema.json"
+        if schema_path.exists():
+            schema = json.loads(schema_path.read_text(encoding="utf-8"))
+            try:
+                jsonschema.validate(instance=registry, schema=schema)
+            except jsonschema.exceptions.ValidationError as e:
+                problem(f"schema validation failed: {e.message}")
+    except ImportError:
+        pass
+
     scripts = registry.get("scripts")
     languages = registry.get("languages")
     frameworks = registry.get("frameworks")
