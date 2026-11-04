@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lexical Source Licensing Ledger",
+  "description": "Schema for source-specific licensing records for multilingual dictionaries and lexical sources",
+  "type": "object",
+  "properties": {
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "description": "Unique identifier for the source"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL of the source"
+          },
+          "author": {
+            "type": "string",
+            "description": "Author or attribution requirement"
+          },
+          "version": {
+            "type": "string",
+            "description": "Version of the source"
+          },
+          "license": {
+            "type": "object",
+            "properties": {
+              "declared": {
+                "type": "string",
+                "description": "License as declared by the source"
+              },
+              "evidence": {
+                "type": "string",
+                "description": "Verified evidence of the license (e.g. URL to license text or specific confirmation)"
+              }
+            },
+            "required": ["declared", "evidence"],
+            "additionalProperties": false
+          },
+          "modification_status": {
+            "type": "string",
+            "enum": ["unmodified", "modified", "derivative"],
+            "description": "Whether the source has been modified or is a derivative"
+          },
+          "source_hash": {
+            "type": "string",
+            "description": "Hash of the source artifacts (if applicable)"
+          }
+        },
+        "required": ["source_id", "url", "author", "version", "license", "modification_status"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["records"],
+  "additionalProperties": false
+}
