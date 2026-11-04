@@ -227,7 +227,7 @@ class CorpusDeduplicator:
             if reason is None:
                 for token in _sense_tokens(rec.get('senses', [])):
                     near = self._db.execute("""SELECT r.lexeme_id,r.payload,r.exact_key FROM retained_senses s
-                        JOIN retained r ON r.id=s.retained_id WHERE s.bucket=? AND s.token=? ORDER BY r.id LIMIT 1""",
+                        LEFT JOIN retained r ON r.id=s.retained_id WHERE s.bucket=? AND s.token=? ORDER BY r.id LIMIT 1""",
                         (bucket,token)).fetchone()
                     if near:
                         canonical = near
@@ -243,8 +243,8 @@ class CorpusDeduplicator:
             cur = self._db.execute("""INSERT INTO retained(bucket,lexeme_id,exact_key,strict_lemma,
                 license,rights_ok,payload) VALUES(?,?,?,?,?,?,?)""",
                 (bucket,rec['lexeme_id'],exact,strict,license_id,int(license_id is not None),payload))
-            for token in _sense_tokens(rec.get('senses', [])):
-                self._db.execute('INSERT INTO retained_senses VALUES(?,?,?)', (bucket,token,cur.lastrowid))
+            self._db.executemany('INSERT INTO retained_senses VALUES(?,?,?)',
+                                 ((bucket, token, cur.lastrowid) for token in _sense_tokens(rec.get('senses', []))))
             yield 'canonical', rec
         self._db.commit()
 
