@@ -111,6 +111,60 @@ class TestReviewStateMachine(unittest.TestCase):
         res = self.machine.verify_handoff("sub1")
         self.assertEqual(res["state"], ReviewState.PUBLISHED_ELIGIBLE.value)
 
+
+    def test_enqueue_manifest(self):
+        manifest_path = self.artifact_dir / "manifest.json"
+
+        manifest_data = {
+            "added": [
+                {
+                    "submission_id": "sub_add1",
+                    "content_hash": self.test_hash,
+                    "metadata": self.metadata,
+                    "artifact_path": str(self.test_artifact)
+                },
+                {
+                    "submission_id": "sub_add2",
+                    "content_hash": self.test_hash,
+                    "metadata": self.metadata,
+                    "artifact_path": str(self.test_artifact)
+                }
+            ],
+            "updated": [
+                {
+                    "submission_id": "sub_upd1",
+                    "content_hash": self.test_hash,
+                    "metadata": self.metadata,
+                    "artifact_path": str(self.test_artifact)
+                }
+            ],
+            "unchanged": [
+                {
+                    "submission_id": "sub_unchanged1",
+                    "content_hash": self.test_hash,
+                    "metadata": self.metadata,
+                    "artifact_path": str(self.test_artifact)
+                }
+            ]
+        }
+
+        manifest_path.write_text(json.dumps(manifest_data), encoding="utf-8")
+
+        results = self.machine.enqueue_manifest(manifest_path)
+
+        self.assertEqual(len(results), 3)
+        self.assertEqual(results[0]["submission_id"], "sub_add1")
+        self.assertEqual(results[1]["submission_id"], "sub_add2")
+        self.assertEqual(results[2]["submission_id"], "sub_upd1")
+
+        # Verify state
+        for sub_id in ("sub_add1", "sub_add2", "sub_upd1"):
+            res = self.machine._read(sub_id)
+            self.assertEqual(res["state"], ReviewState.SUBMITTED.value)
+
+        self.assertIsNone(self.machine._read("sub_unchanged1"))
+
+
     def test_reject(self):
         self.machine.submit("sub2", self.test_hash, self.metadata, self.test_artifact)
         self.machine.start_validation("sub2")
