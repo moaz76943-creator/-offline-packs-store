@@ -59,11 +59,33 @@ def zip_entry(archive, name, content):
 
 
 
-def _audit_member(source, destination=None):
+def _audit_member(source, destination=None, item_type="lexical"):
     """Bounded read and shared semantic audit for new AND cached releases."""
     h = hashlib.sha256()
     total = 0
+
+    if item_type == "semantic":
+        data = source.read(2048)
+        if len(data) == 2048: # might be larger but we cap it or it fails decode
+            extra = source.read(1)
+            if extra:
+                raise ExportError("semantic token exceeds 2048 bytes")
+        total = len(data)
+        h.update(data)
+
+        # Decompress and validate token
+        try:
+            from tools.visual_lexicon.core import decode_token
+            decode_token(data)
+        except Exception as e:
+            raise ExportError(f"invalid semantic token: {e}")
+
+        if destination is not None:
+            destination.write(data)
+        return total, h.hexdigest()
+
     lexemes = {}
+
     senses = {}
     translations = []
     seen_lexemes = set()
@@ -251,7 +273,7 @@ class CommunityExporter:
                                 info.compress_type = zipfile.ZIP_STORED
                                 info.external_attr = 0o644 << 16
                                 with path.open("rb") as source, archive.open(info, "w", force_zip64=False) as dest:
-                                    size_written, actual_hash = _audit_member(source, dest)
+                                    size_written, actual_hash = _audit_member(source, dest, item_type)
                                 if actual_hash != expected:
                                     raise ExportError("file changed during packaging")
                             zip_entry(archive, "ATTRIBUTION.json", canonical(notices))
@@ -277,7 +299,7 @@ class CommunityExporter:
                             raise ExportError("untrusted cached archive member")
                     for aid, path, expected, item_type, lang in entries:
                         with archive.open("data/" + aid + ".bin") as stream:
-                            size, actual_hash = _audit_member(stream)
+                            size, actual_hash = _audit_member(stream, item_type=item_type)
                         if size > MAX_FILE or actual_hash != expected:
                             raise ExportError("cached archive content mismatch")
                     with archive.open("ATTRIBUTION.json") as stream:
