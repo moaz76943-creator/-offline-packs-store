@@ -118,6 +118,18 @@ class TestDigestEngine(unittest.TestCase):
             validate_artifact(filepath, invalid_meta)
         self.assertIn("Size mismatch", str(ctx.exception))
 
+    def test_truncated_files(self):
+        filepath = os.path.join(self.test_dir, "truncated.txt")
+        with open(filepath, 'w') as f: f.write("123") # 3 bytes
+
+        meta = {
+            'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1',
+            'size_bytes': 10 # Declared larger than actual
+        }
+        with self.assertRaises(ValueError) as ctx:
+            validate_artifact(filepath, meta)
+        self.assertIn("Size mismatch", str(ctx.exception))
+
     def test_missing_files(self):
         filepath = os.path.join(self.test_dir, "missing.txt")
         meta = {'source_id': 's1', 'license_id': 'l1', 'asset_id': 'a1', 'version': 'v1'}
