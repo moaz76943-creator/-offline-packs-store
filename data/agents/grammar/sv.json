@@ -28,7 +28,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:337413",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Vi trodde att det var ett flygande tefat."
     },
@@ -38,7 +38,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341910",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Detta är huset jag bodde i när jag var barn."
     },
@@ -48,7 +48,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341938",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Vi hade roligt på stranden igår."
     },
@@ -58,7 +58,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341939",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Jag spelade tennis hela dagen."
     },
@@ -68,7 +68,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341940",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "De skymtade mannen genom folkmassan."
     },
@@ -78,7 +78,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341941",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Han vande sig kvickt vid det kalla vädret."
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341942",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Jag blev till slut klar med arbetet."
     },
@@ -98,7 +98,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341943",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Jag kan inte komma på någon bra ursäkt till varför jag är sen till tandläkaren."
     },
@@ -108,7 +108,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341944",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Kan du simma lika snabbt som honom?"
     },
@@ -118,7 +118,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:353815",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Han är inte läkare."
     },
@@ -128,7 +128,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:353816",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Hon skulle gärna kommit men hon var på semester."
     },
@@ -138,9 +138,289 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:353817",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Åh nej! Mitt hus brinner!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353818",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag trodde aldrig att ett såhär fint hotell skulle finnas på en sådan här plats."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353819",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Detta är deras hus."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353820",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Men hon tyckte om barn och gillade sitt jobb."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353821",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon tycker mycket om att skriva dikter."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353822",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag kan inte stå ut med detta ljudet längre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353823",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon bad mig att se efter hennes bebis medans hon var borta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353824",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Han gnäller alltid på dålig medicinsk behandling."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353825",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Stick härifrån, ungjävlar!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372403",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon är en tillförlitlig person."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372416",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Solen skiner."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372419",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Den här boken verkar intressant."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372420",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Det var en ny bok."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372423",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Vems bok är det?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372425",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Den här boken tillhör skolbiblioteket."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372426",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Den här boken handlar om Kina."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372427",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Lägg inte plånboken på elementet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372428",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Du är så trevlig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372429",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Åh, herregud!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372430",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Du bör inte lämna barnet ensamt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372441",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Studenterna lyssnar på en föreläsning i historia."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372445",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Idag mår jag mycket bättre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372449",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Skolan ser ut som ett fängelse."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372451",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Alla dessa böcker är mina."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372453",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Behöver du den här boken?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372466",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon ville resa."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372468",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Framför oss stod en skrattande flicka."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372471",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Han arbetar åtta timmar om dagen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372473",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag pratar inte tyska."
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:337413",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Vi trodde att det var ett flygande tefat."
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341910",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Detta är huset jag bodde i när jag var barn."
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341938",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Vi hade roligt på stranden igår."
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341939",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Jag spelade tennis hela dagen."
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341940",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "De skymtade mannen genom folkmassan."
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341941",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Han vande sig kvickt vid det kalla vädret."
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341942",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Jag blev till slut klar med arbetet."
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341943",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Jag kan inte komma på någon bra ursäkt till varför jag är sen till tandläkaren."
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:341944",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Kan du simma lika snabbt som honom?"
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:353815",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Han är inte läkare."
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:353816",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Hon skulle gärna kommit men hon var på semester."
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:353817",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Åh nej! Mitt hus brinner!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353818",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag trodde aldrig att ett såhär fint hotell skulle finnas på en sådan här plats."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353819",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Detta är deras hus."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353820",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Men hon tyckte om barn och gillade sitt jobb."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353821",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon tycker mycket om att skriva dikter."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353822",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag kan inte stå ut med detta ljudet längre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353823",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon bad mig att se efter hennes bebis medans hon var borta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353824",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Han gnäller alltid på dålig medicinsk behandling."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:353825",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Stick härifrån, ungjävlar!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372403",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon är en tillförlitlig person."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372416",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Solen skiner."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372419",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Den här boken verkar intressant."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372420",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Det var en ny bok."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372423",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Vems bok är det?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372425",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Den här boken tillhör skolbiblioteket."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372426",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Den här boken handlar om Kina."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372427",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Lägg inte plånboken på elementet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372428",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Du är så trevlig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372429",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Åh, herregud!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372430",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Du bör inte lämna barnet ensamt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372441",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Studenterna lyssnar på en föreläsning i historia."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372445",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Idag mår jag mycket bättre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372449",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Skolan ser ut som ett fängelse."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372451",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Alla dessa böcker är mina."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372453",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Behöver du den här boken?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372466",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon ville resa."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372468",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Framför oss stod en skrattande flicka."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372471",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Han arbetar åtta timmar om dagen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372473",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag pratar inte tyska."
     }
   ]
 }
