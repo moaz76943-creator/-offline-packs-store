@@ -105,8 +105,10 @@ class FontRightsRegistry:
                         issues.append("Distributed notice does not contain claimed license")
         else:
             # Registry metadata does not attest redistribution of uninspected bytes.
-            return {"status": "REVIEW_REQUIRED", "issues": issues + [
-                "Metadata-only font has no verified embedded bytes"], "publication_approved": False}
+            is_reject = len(issues) > 0
+            issues.append("Metadata-only font has no verified embedded bytes")
+            if not is_reject:
+                return {"status": "REVIEW_REQUIRED", "issues": issues, "publication_approved": False}
         return {"status": "REJECT" if issues else "EVIDENCE_PASS",
                 "issues": issues, "publication_approved": False}
 

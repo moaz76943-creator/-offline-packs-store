@@ -66,6 +66,10 @@ class FontEvidenceTests(unittest.TestCase):
     def test_metadata_only_is_not_embedded_redistribution(self):
         self.asset.embedded = False
         self.assertEqual(self.check()["status"], "REVIEW_REQUIRED")
+    def test_metadata_only_with_errors_rejected(self):
+        self.asset.embedded = False
+        self.asset.author = ""
+        self.assertEqual(self.check()["status"], "REJECT")
     def test_symlink_escape_rejected(self):
         with tempfile.TemporaryDirectory() as outside:
             outside_file = Path(outside) / "font.otf"
