@@ -1,38 +1,32 @@
 #!/usr/bin/env python3
-import json
+"""Compatibility entry point for the canonical, fail-closed rights gate.
+
+This command cannot approve a source. A positional ledger path is retained for
+old callers; all validation and exit statuses belong to legal.ledger.admission.
+"""
+from pathlib import Path
 import sys
 
-MANDATORY_PROVENANCE_FIELDS = [
-    'source_id',
-    'canonical_url',
-    'publisher',
-    'license_id',
-    'license_url',
-    'allowed_uses',
-    'attribution_required',
-    'source_sha256',
-    'license_evidence_sha256',
-    'review_decision',
-    'retrieval_date',
-]
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-def validate_source_entry(source):
-    missing = [f for f in MANDATORY_PROVENANCE_FIELDS if f not in source or not source[f]]
-    if missing:
-        return False, f"QUARANTINED: Missing fields: {', '.join(missing)}"
-    if str(source.get('review_decision', '')).upper() != 'APPROVED':
-        return False, "QUARANTINED: Not approved"
-    return True, "ADMITTED"
+from legal.ledger import admission
+
+
+def main(argv=None):
+    args = list(sys.argv[1:] if argv is None else argv)
+    if args and not args[0].startswith('-'):
+        args[:1] = ['--ledger', args[0]]
+    if not any(arg == '--repo-root' or arg.startswith('--repo-root=')
+               for arg in args):
+        args.extend(['--repo-root', str(ROOT)])
+    return admission.main(args)
+
 
 def audit_sources_ledger(filepath):
-    with open(filepath, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    sources = data.get('sources', [])
-    for s in sources:
-        ok, msg = validate_source_entry(s)
-        print(f"[{'PASS' if ok else 'FAIL'}] {s.get('source_id')}: {msg}")
-    return True
+    return main(['--ledger', str(filepath)]) == 0
 
-if __name__ == "__main__":
-    path = sys.argv[1] if len(sys.argv) > 1 else "legal/ledger/sources.json"
-    audit_sources_ledger(path)
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,38 @@
+{
+  "status": "RESEARCH_ONLY_REVIEW_REQUIRED",
+  "retrieved_at_utc": "2026-11-04",
+  "sources": [
+    {
+      "path": "legal/ledger/evidence/kaikki-20261104/kaikki-german.html",
+      "url": "https://kaikki.org/dictionary/German/",
+      "sha256": "9665257d3184d96c1e93ef8f6d46c3122372e576cc17d34809a2aa05c8aab526",
+      "bytes": 17366
+    },
+    {
+      "path": "legal/ledger/evidence/kaikki-20261104/kaikki-rights.html",
+      "url": "https://kaikki.org/dictionary/rawdata.html",
+      "sha256": "919f4b79486f1d437551adf158e0d8d62a0287bda27b3c8288b7441f894afeda",
+      "bytes": 27252
+    },
+    {
+      "path": "legal/ledger/evidence/kaikki-20261104/wiktionary-copyrights.html",
+      "url": "https://en.wiktionary.org/wiki/Wiktionary:Copyrights",
+      "sha256": "685b79be96466162583999140d94cc50cea9290b5e95aac214248f3f6eab8776",
+      "bytes": 86206
+    },
+    {
+      "path": "legal/evidence/licenses/CC-BY-SA-4.0.txt",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+      "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5",
+      "bytes": 20138
+    }
+  ],
+  "corpus_status": "NOT_ACQUIRED_NOT_ADMITTED",
+  "review_decision": "REVIEW_REQUIRED",
+  "findings": [
+    "Official German page reports postprocessing and additional data merged from other sources: blanket corpus attribution is insufficient.",
+    "Official extraction metadata: enwiktionary dump 2026-10-01; extraction 2026-10-30; wiktextract 19f9a3006a405fb7bfb40193dca41c7117a009a5; wikitextprocessor 6f96ddf5f3466707f1869fe6618390fd77dfd109.",
+    "Copyright page revision 87545419: text licensing does not establish the separate rights of media, quotations or imported data.",
+    "The PR source seed and ledger approval remain unsupported; these research snapshots grant no source admission."
+  ]
+}
