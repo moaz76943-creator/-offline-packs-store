@@ -64,8 +64,8 @@ def process(args):
     # Preflight the selected workspace, not the process working directory.
     # This is an availability check; actual writes must still handle OS errors.
     workspace = args.repo_root.resolve()
-    if not workspace.is_dir() or not os.access(workspace, os.W_OK | os.X_OK):
-        print("WORKSPACE_ACCESS_DENIED: workspace is not writable/traversable", file=sys.stderr)
+    if not workspace.is_dir() or not os.access(workspace, os.R_OK | os.X_OK):
+        print("WORKSPACE_ACCESS_DENIED: workspace is not readable/traversable", file=sys.stderr)
         return 1, ["WORKSPACE_ACCESS_DENIED"]
 
     try:
