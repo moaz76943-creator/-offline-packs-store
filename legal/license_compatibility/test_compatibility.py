@@ -181,5 +181,18 @@ class CompatibilityTests(unittest.TestCase):
         self.assertEqual(r["status"], "INCOMPATIBLE", r)
         self.assertEqual(r["reason"], "cannot drop obligations for CC0-1.0")
 
+    def test_unknown_source_license_fails_closed(self):
+        self.source["license"]["id"] = "UNKNOWN-LICENSE"
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(output="CC0-1.0")
+        self.assertEqual(r["status"], "REVIEW_REQUIRED")
+
+    def test_missing_attribution_source_stays_compatible(self):
+        self.source["license"]["id"] = "CC0-1.0"
+        save_ledger(self.tmp.name, self.ledger)
+        r = self.run_gate(output="CC0-1.0")
+        self.assertEqual(r["status"], "COMPATIBLE")
+        self.assertFalse(r["obligations"]["attribution"])
+
 if __name__ == "__main__":
     unittest.main()
