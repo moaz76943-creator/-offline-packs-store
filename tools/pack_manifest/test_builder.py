@@ -27,7 +27,8 @@ class TestPackManifestBuilder(unittest.TestCase):
                 "terms_count": 2,
                 "vocabulary": [1, 2],
                 "license": "CC-BY-SA-4.0",
-                "dependencies": ["pack2"]
+                "provenance": ["source1", "source2"],
+                "dependencies": []
             }, f)
 
         self.pack2_path = self.base_dir / "pack2.pack.gz"
@@ -68,7 +69,12 @@ class TestPackManifestBuilder(unittest.TestCase):
         self.assertEqual(data["schema_version"], "1.0.0")
         packs = data["packs"]
         self.assertIn("af", packs)
-        self.assertEqual(packs["af"]["dependencies"], ["pack2"])
+        self.assertEqual(packs["af"]["dependencies"], [])
+        self.assertEqual(packs["af"]["language"], "af")
+        self.assertEqual(packs["af"]["provenance"], ["source1", "source2"])
+
+        self.assertIn("test_icon", packs)
+        self.assertIsNone(packs["test_icon"]["language"])
 
     def test_missing_files_rejected(self):
         manifest_path = self.base_dir / "manifest.json"
@@ -100,8 +106,9 @@ class TestPackManifestBuilder(unittest.TestCase):
 
         build_manifest(self.base_dir, ["pack1.pack.gz", "pack3.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['added'], ['en'])
-        self.assertEqual(plan['updated'], ['af'])
+        self.assertEqual(plan['updated'], ['pack1.pack.gz', 'pack3.pack.gz'])
+        self.assertEqual(plan['unchanged'], [])
+        self.assertEqual(plan['deleted'], [])
 
     def test_removed_packs(self):
         old_manifest_path = self.base_dir / "old_manifest.json"
@@ -109,7 +116,29 @@ class TestPackManifestBuilder(unittest.TestCase):
         build_manifest(self.base_dir, ["pack1.pack.gz", "pack2.pack.gz"], str(old_manifest_path))
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['removed'], ['ar'])
+        self.assertEqual(plan['deleted'], ['pack2.pack.gz'])
+
+    def test_broken_dependencies(self):
+        old_manifest_path = self.base_dir / "old_manifest.json"
+        new_manifest_path = self.base_dir / "new_manifest.json"
+
+        broken_pack_path = self.base_dir / "broken.pack.gz"
+        with gzip.open(broken_pack_path, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "broken",
+                "version": "1.0.0",
+                "terms_count": 0,
+                "license": "CC0-1.0",
+                "dependencies": ["missing_dep"]
+            }, f)
+
+        with open(str(old_manifest_path), 'w', encoding='utf-8') as f:
+            json.dump({'schema_version': '1.0.0', 'packs': {}}, f)
+        build_manifest(self.base_dir, ["broken.pack.gz"], str(new_manifest_path))
+
+        plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
+        self.assertEqual(plan['invalid'], ['broken.pack.gz'])
+        self.assertNotIn('broken.pack.gz', plan['updated'])
 
     def test_mismatched_entry_count(self):
         bad_pack = self.base_dir / "bad.pack.gz"
@@ -131,7 +160,7 @@ class TestPackManifestBuilder(unittest.TestCase):
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
-        self.assertEqual(plan['unchanged'], ['af'])
+        self.assertEqual(plan['unchanged'], ['pack1.pack.gz'])
 
     def test_small_compressed_bomb_exceeding_limit_is_rejected(self):
         from unittest.mock import patch
