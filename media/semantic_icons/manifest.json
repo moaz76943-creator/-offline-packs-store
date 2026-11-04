@@ -1,0 +1,18 @@
+{
+  "animal.mammal.bat": {
+    "author": "Jane Smith",
+    "concept_id": "animal.mammal.bat",
+    "file": "animal.mammal.bat.vct",
+    "hash": "6162264a35423ddff6aa824e07093a9c4ff4e15e2b40c05ba7a2a7c29bbf1aae",
+    "license": "CC0-1.0",
+    "source": "https://example.com/cc0-bat"
+  },
+  "food.fruit.apple": {
+    "author": "John Doe",
+    "concept_id": "food.fruit.apple",
+    "file": "food.fruit.apple.vct",
+    "hash": "f4a65dc1078fdc5de494da2fd34cef437780ea86cca1191809b57d64a35b45ee",
+    "license": "CC0-1.0",
+    "source": "https://example.com/cc0-apple"
+  }
+}
