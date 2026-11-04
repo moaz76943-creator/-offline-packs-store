@@ -333,6 +333,25 @@ class TestAudioAdmissionGate(unittest.TestCase):
         accepted, rejected = process_candidates([row], self.ledger, self.root)
         self.assertIn("missing or contradictory sample rate", rejected[0]["rejection_reason"])
 
+    def test_truncated_files(self):
+        # Truncate an ogg file midway
+        path = self.root / "truncated.ogg"
+        original = self.ogg.read_bytes()
+        # Cut the file in half, leaving enough of the header to attempt parse
+        path.write_bytes(original[:len(original) // 2])
+        row = self.candidate(self.ogg)
+        row["artifact_path"] = path.name
+        row["sha256"] = _sha256(path)
+        accepted, rejected = process_candidates([row], self.ledger, self.root)
+        self.assertEqual(accepted, [])
+        self.assertIn("malformed", rejected[0]["rejection_reason"])
+
+    def test_unlicensed_audio(self):
+        ledger = write_ledger(self.root, status="REVIEW_REQUIRED")
+        accepted, rejected = process_candidates([self.candidate(self.wav)], ledger, self.root)
+        self.assertEqual(accepted, [])
+        self.assertIn("Source rights missing or unapproved", rejected[0]["rejection_reason"])
+
     def test_too_many_channels_and_unsupported_rate_come_from_bytes(self):
         wide = inspect_audio(self.wide.read_bytes(), "wav")
         self.assertEqual(wide["channels"], 3)
