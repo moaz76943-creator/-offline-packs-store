@@ -8,6 +8,7 @@ import argparse
 import json
 import logging
 import sys
+import os
 from pathlib import Path
 
 # We reuse the logic from legal.ledger.admission as much as possible for validation.
@@ -26,6 +27,10 @@ class ProvenanceCompiler:
         Compile provenance and output release_provenance.json and NOTICE.txt.
         Returns a dictionary of statuses for tests.
         """
+
+        if not os.access(self.root, os.R_OK | os.X_OK):
+            logger.error("Repository access unavailable.")
+            raise OSError("Repository access unavailable.")
         try:
             with open(self.ledger_path, 'r', encoding='utf-8') as f:
                 ledger = json.load(f)
@@ -165,7 +170,7 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('author', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:

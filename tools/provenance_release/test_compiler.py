@@ -27,7 +27,7 @@ class TestProvenanceCompiler(unittest.TestCase):
         self.artifact_path = self.root / 'artifact.txt'
         self.artifact_path.write_text(self.artifact_content)
 
-        self.notice_content = "src_id publisher CC-BY-SA-4.0 https://origin"
+        self.notice_content = "src_id publisher author_name CC-BY-SA-4.0 https://origin"
         self.notice_path = self.root / 'notice.txt'
         self.notice_path.write_text(self.notice_content)
 
@@ -36,6 +36,7 @@ class TestProvenanceCompiler(unittest.TestCase):
             "kind": "dictionary",
             "origin_url": "https://origin",
             "publisher": "publisher",
+            "author": "author_name",
             "dataset_version": "v1",
             "retrieval": {
                 "identity": "id",
@@ -112,7 +113,7 @@ class TestProvenanceCompiler(unittest.TestCase):
         self.assertEqual(manifest['release_provenance'][0]['asset_id'], 'asset_1')
         self.assertEqual(manifest['release_provenance'][0]['sources'][0]['publisher'], 'publisher')
 
-    def test_missing_publisher_in_notice(self):
+    def test_missing_author_in_notice(self):
         self.notice_path.write_text("src_id CC-BY-SA-4.0 https://origin") # missing publisher
         self.write_ledger([self.base_source])
         self.write_daily([self.base_candidate])
@@ -122,7 +123,7 @@ class TestProvenanceCompiler(unittest.TestCase):
 
     def test_missing_author_or_source_id(self):
         # We test that missing source_id in notice also fails
-        self.notice_path.write_text("publisher CC-BY-SA-4.0 https://origin")
+        self.notice_path.write_text("publisher author_name CC-BY-SA-4.0 https://origin")
         self.write_ledger([self.base_source])
         self.write_daily([self.base_candidate])
 
