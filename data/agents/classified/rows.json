@@ -932,6 +932,35 @@
       "co_offered": [
         "GFDL-1.3-only"
       ],
+      "concept_id": "concept.q1410",
+      "gloss": "Gibraltar (a peninsula, city, and overseas territory of the United Kingdom, at the southern end of Iberia)",
+      "language": "es",
+      "lemma": "Gibraltar",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "en-Gibraltar-es-name-ZcvZyDDJ",
+      "retrieval_date": "2026-11-04",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Gibraltar-es-name-ZcvZyDDJ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
       "concept_id": "concept.q1489",
       "gloss": "Mexico City (the capital city of Mexico)",
       "language": "fr",
@@ -8584,7 +8613,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:337413",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8602,7 +8631,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:341910",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8620,7 +8649,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:341938",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8638,7 +8667,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:341939",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8656,7 +8685,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:341940",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8674,7 +8703,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:341941",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8692,7 +8721,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:341942",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8710,7 +8739,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:341943",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8728,7 +8757,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:341944",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.question",
       "source_id": "tatoeba.sentences",
@@ -8746,7 +8775,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:353815",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8764,7 +8793,7 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:353816",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
@@ -8782,12 +8811,516 @@
       "license_id": "CC-BY-2.0-FR",
       "origin_url": "https://tatoeba.org/en/terms_of_use",
       "record_id": "tatoeba:353817",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-04",
       "section": "sentences",
       "sentence_slot": "sentence.statement",
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Åh nej! Mitt hus brinner!"
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=80; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353818",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Jag trodde aldrig att ett såhär fint hotell skulle finnas på en sådan här plats."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353819",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Detta är deras hus."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353820",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Men hon tyckte om barn och gillade sitt jobb."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353821",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hon tycker mycket om att skriva dikter."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353822",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Jag kan inte stå ut med detta ljudet längre."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=59; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353823",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hon bad mig att se efter hennes bebis medans hon var borta."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353824",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Han gnäller alltid på dålig medicinsk behandling."
+    },
+    {
+      "author": "Tobberoth",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:353825",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Stick härifrån, ungjävlar!"
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372403",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hon är en tillförlitlig person."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372416",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Solen skiner."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372419",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Den här boken verkar intressant."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372420",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Det var en ny bok."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372423",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Vems bok är det?"
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372425",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Den här boken tillhör skolbiblioteket."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372426",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Den här boken handlar om Kina."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372427",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Lägg inte plånboken på elementet."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372428",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Du är så trevlig."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372429",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Åh, herregud!"
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372430",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Du bör inte lämna barnet ensamt."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372441",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Studenterna lyssnar på en föreläsning i historia."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372445",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Idag mår jag mycket bättre."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372449",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Skolan ser ut som ett fängelse."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372451",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Alla dessa böcker är mina."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372453",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Behöver du den här boken?"
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372466",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hon ville resa."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372468",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Framför oss stod en skrattande flicka."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372471",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Han arbetar åtta timmar om dagen."
+    },
+    {
+      "author": "ilayde",
+      "language": "sv",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:372473",
+      "retrieval_date": "2026-11-04",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Jag pratar inte tyska."
     },
     {
       "author": "Adopter",
@@ -13628,6 +14161,686 @@
       "source_id": "universal-dependencies",
       "status": "keep",
       "text": "It probably gives more bang for the buck than acquiring a private company and having to handle the inevitable culture clashes and process mis-matches."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=217; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0001",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The Coalition decision to provoke a fight with Muqtada al-Sadr's movement only three months before the Coalition Provisional Authority goes out of business has to be seen as a form of gross incompetence in governance."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=162; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0002",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "How did the CPA get to the point where it has turned even Iraqi Shiites, who were initially grateful for the removal of Saddam Hussein, against the United States?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=184; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0003",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Where it risks fighting dual Sunni Arab and Shiite insurgencies simultaneously, at a time when US troops are rotating on a massive scale and hoping to downsize their forces in country?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=129; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0004",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "At a time when the Spanish, Thai and other contingents are already committed to leaving, and the UN is reluctant to get involved?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=84; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0005",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "One answer is that the Pentagon prevented the State Department from running the CPA."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=78; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0006",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "State is the body with experience in international affairs and administration."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=75; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0007",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The civilians in the Department of Defense only know how to blow things up."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=185; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0008",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Rumsfeld, Wolfowitz and Feith staffed the CPA with Neoconservatives, most of whom had no administrative experience, no Arabic, and no respect for Muslim culture (or knowledge about it)."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=68; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0009",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "They actively excluded State Department Iraq hands like Tom Warrick."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=117; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0010",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "(Only recently have a few experienced State Department Arabists been allowed in to try to begin mopping up the mess.)"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=266; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0011",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The Neocons in the CPA have all sorts of ulterior motives and social experiments they want to impose on the Iraqi people, including Polish-style economic shock therapy, some sort of sweetheart deal for Israel, and maybe even breaking the country up into three parts."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=140; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0012",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The Washington Monthly's Who's Who of Neocons in Iraq helps explain the extreme incompetence and possibly double-dealing of many in the CPA."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=236; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0013",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Sept. 11 Commission member Philip Zelikow, who is close to the Bush administration, admitted on Sept. 10, 2002, that the ulterior motive of the Bush administration for the Iraq War was to \"protect Israel,\" according to the Asian Times ."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=52; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0014",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I have long been a trenchant critic of the Sadrists."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=87; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0015",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "But they haven't been up to anything extraordinary as far as I can see in recent weeks."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=155; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0016",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Someone in the CPA sat down and thought up ways to stir them up by closing their newspaper and issuing 28 arrest warrants and taking in people like Yaqubi."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=105; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0017",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "This is either gross incompetence or was done with dark ulterior motives that can scarcely be guessed at."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=196; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0018",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "There is a classical logical fallacy, post hoc ergo propter hoc (Z happens after X, therefore Z is caused by X), and I keep revising this posting this evening because I don't want to fall into it."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=68; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0019",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "But sometimes, of course, when Z happens after X it is because of X."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=196; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0020",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "So I may as well just come out with it: It is pretty suspicious, given the Neocon predominance in the CPA and in the upper reaches of the Defense Department that on April 2 AP reported of Muqtada:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=173; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0021",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "' A radical Shiite Muslim cleric has expressed solidarity with the militant Palestinian group Hamas and said that he should be considered the group's \"striking arm\" in Iraq."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=240; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0022",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"I have said and I repeat my expression of solidarity which Hassan Nasrallah called for to stand with Hamas,\" Shiite cleric Muqtada al-Sadr said Friday in a reference to Nasrallah, the leader of the militant Lebanese Shiite group Hezbollah."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=76; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0023",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Last month, Nasrallah announced that his party would close ranks with Hamas."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=188; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0024",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"Let (Hamas) consider me their striking arm in Iraq because the fate of Iraq and Palestine is the same,\" al-Sadr said during a Friday prayer sermon in Kufa, his home base south of Baghdad."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0025",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "He did comment on what he meant by the phrase. '"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=220; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0026",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "And on April 3 his chief aide in Najaf was suddenly arrested along with 13 other members of his organization, and the Coalition forces are put into violent conflict with his organization, which leaves 7 US soldiers dead."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=71; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0027",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The Army is unlikely to forgive or forget; but who provoked it and why?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=109; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0028",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I'm not even in Iraq and I could have predicted to you the consequences of doing what the CPA has been doing."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=110; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0029",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Anthony Shadid of the Washington Post reveals that the warrants for the arrests had been issued months be for."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:weblog-juancole.com_juancole_20040404101100_ENG_20040404_101100-0030",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Why were they suddenly acted on Saturday?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=67; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0001",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "i am not going unless lisa promises to get all wasted and boob out."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=75; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0002",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I definitely could use a drink, actually a couple would probably do better."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0003",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Bryan, you're in, right?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=37; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0004",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Anybody up for happy hour after work?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0005",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I was thinking Kenneally's at around 5."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0006",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Let me know"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0007",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "you don't know what that means?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0008",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "where did you grow up?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0009",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "india?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent23_13-0010",
+      "retrieval_date": "2026-11-04",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "boob out?"
     },
     {
       "concept_id": "concept.q3354532",
