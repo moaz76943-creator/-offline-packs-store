@@ -3,6 +3,16 @@ import tempfile
 import unittest
 from pathlib import Path
 import hashlib
+import sys
+
+def install_repo_import_path(root):
+    resolved = str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
+
+install_repo_import_path(Path.cwd())
+
 from tools.provenance_release.compiler import ProvenanceCompiler, main
 
 def sha256_str(data: str) -> str:
@@ -27,7 +37,7 @@ class TestProvenanceCompiler(unittest.TestCase):
         self.artifact_path = self.root / 'artifact.txt'
         self.artifact_path.write_text(self.artifact_content)
 
-        self.notice_content = "src_id publisher CC-BY-SA-4.0 https://origin"
+        self.notice_content = "src_id publisher author_name CC-BY-SA-4.0 https://origin"
         self.notice_path = self.root / 'notice.txt'
         self.notice_path.write_text(self.notice_content)
 
@@ -36,6 +46,7 @@ class TestProvenanceCompiler(unittest.TestCase):
             "kind": "dictionary",
             "origin_url": "https://origin",
             "publisher": "publisher",
+            "author": "author_name",
             "dataset_version": "v1",
             "retrieval": {
                 "identity": "id",
@@ -122,7 +133,7 @@ class TestProvenanceCompiler(unittest.TestCase):
 
     def test_missing_author_or_source_id(self):
         # We test that missing source_id in notice also fails
-        self.notice_path.write_text("publisher CC-BY-SA-4.0 https://origin")
+        self.notice_path.write_text("src_id publisher CC-BY-SA-4.0 https://origin")
         self.write_ledger([self.base_source])
         self.write_daily([self.base_candidate])
 
