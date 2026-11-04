@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "viewBox": [0, 0, 24, 24],
+  "paths": ["M12 2L2 22h20L12 2z"],
+  "palette": ["#000000"],
+  "semantic_label": "triangle"
+}

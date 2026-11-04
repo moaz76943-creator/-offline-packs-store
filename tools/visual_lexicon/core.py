@@ -1,48 +1,70 @@
 import json
 import zlib
 import hashlib
-from typing import Dict, Any, Tuple
-from tools.visual_lexicon.schema import validate_token
 
-MAX_COMPRESSED_SIZE = 2048
+MAX_TOKEN_SIZE = 2048
+MAX_PATHS = 50
+MAX_COORDS_PER_PATH = 500
 
-def encode_token(token: Dict[str, Any]) -> Tuple[bytes, str]:
-    """
-    Serializes, validates, and compresses a declarative token JSON.
-    Returns a tuple of (compressed_bytes, sha256_hash_of_json).
-    """
-    validate_token(token)
+def validate_token_data(token_data: dict):
+    if not isinstance(token_data, dict):
+        raise ValueError("Token data must be a dictionary.")
 
-    # Deterministic JSON serialization
-    serialized = json.dumps(token, separators=(',', ':'), sort_keys=True)
-    json_bytes = serialized.encode('utf-8')
+    required_keys = {"version", "viewBox", "paths", "palette", "semantic_label"}
+    missing_keys = required_keys - set(token_data.keys())
+    if missing_keys:
+        raise ValueError(f"Missing required fields. Missing: {missing_keys}")
 
-    # Calculate deterministic hash
-    token_hash = hashlib.sha256(json_bytes).hexdigest()
+    if not isinstance(token_data["version"], int) or token_data["version"] < 1:
+        raise ValueError("Invalid version.")
 
-    # Compress via zlib
-    compressed = zlib.compress(json_bytes, level=9)
+    if not isinstance(token_data["viewBox"], (list, tuple)) or len(token_data["viewBox"]) != 4:
+        raise ValueError("viewBox must be an array of 4 numbers.")
 
-    # Enforce maximum size bound (under 2048 compressed bytes)
-    if len(compressed) >= MAX_COMPRESSED_SIZE:
-        raise ValueError(f"Token is too large: {len(compressed)} bytes compressed (limit is {MAX_COMPRESSED_SIZE - 1})")
+    if not isinstance(token_data["paths"], list):
+        raise ValueError("paths must be a list.")
 
-    return compressed, token_hash
+    if len(token_data["paths"]) > MAX_PATHS:
+        raise ValueError(f"Exceeded maximum path count of {MAX_PATHS}.")
 
-def decode_token(compressed_bytes: bytes) -> Dict[str, Any]:
-    """
-    Decompresses and returns the token from bytes.
-    Validates after decoding.
-    """
+    for path in token_data["paths"]:
+        if not isinstance(path, str):
+            raise ValueError("each path must be a string.")
+        # Simple complexity bound check by length or splitting
+        if len(path.split()) > MAX_COORDS_PER_PATH:
+            raise ValueError("Exceeded maximum coordinates per path.")
+
+    if not isinstance(token_data["palette"], list):
+        raise ValueError("palette must be a list of colors.")
+
+    if not isinstance(token_data["semantic_label"], str) or not token_data["semantic_label"]:
+        raise ValueError("semantic_label must be a non-empty string.")
+
+def encode_token(token_data: dict) -> bytes:
+    validate_token_data(token_data)
+    json_bytes = json.dumps(token_data, separators=(',', ':')).encode('utf-8')
+    compressed = zlib.compress(json_bytes)
+
+    if len(compressed) >= MAX_TOKEN_SIZE:
+        raise ValueError(f"Oversized token. Size: {len(compressed)} bytes (limit: {MAX_TOKEN_SIZE}).")
+
+    return compressed
+
+def decode_token(data: bytes) -> dict:
+    if len(data) >= MAX_TOKEN_SIZE:
+        raise ValueError(f"Oversized token. Size: {len(data)} bytes (limit: {MAX_TOKEN_SIZE}).")
     try:
-        json_bytes = zlib.decompress(compressed_bytes)
+        json_bytes = zlib.decompress(data)
     except zlib.error as e:
-        raise ValueError(f"Failed to decompress token: {e}")
+        raise ValueError(f"Invalid compressed data: {e}")
 
     try:
-        token = json.loads(json_bytes.decode('utf-8'))
+        token_data = json.loads(json_bytes.decode('utf-8'))
     except json.JSONDecodeError as e:
-        raise ValueError(f"Invalid JSON in token: {e}")
+        raise ValueError(f"Invalid JSON payload: {e}")
 
-    validate_token(token)
-    return token
+    validate_token_data(token_data)
+    return token_data
+
+def get_content_hash(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
