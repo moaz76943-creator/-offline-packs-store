@@ -1,0 +1,4 @@
+# Dart Parser dependencies
+dart_parser/.dart_tool/
+dart_parser/bin/parser.exe
+dart_parser/bin/parser
