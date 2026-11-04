@@ -10,7 +10,7 @@ import re
 import sqlite3
 import tempfile
 import unicodedata
-from collections import Counter
+from collections import Counter, OrderedDict
 from pathlib import Path
 
 FIELDS = frozenset(('language_code','lemma_id','sense_id','lemma','form','features',
@@ -150,6 +150,7 @@ def audit_stream(path, declared_sha256, registered_languages, source_id, *, shar
     with tempfile.TemporaryDirectory(prefix='gha04-qa-') as temp:
         with sqlite3.connect(str(Path(temp)/'seen.sqlite')) as db:
             db.execute('CREATE TABLE seen (id TEXT PRIMARY KEY, facts TEXT NOT NULL)')
+            batch = OrderedDict()
             with Path(path).open('rb') as stream:
                 # Enforce the line bound while reading, not after buffering it.
                 for line_no,raw in enumerate(iter(lambda: stream.readline(max_line_bytes + 1), b''), 1):
@@ -166,12 +167,37 @@ def audit_stream(path, declared_sha256, registered_languages, source_id, *, shar
                     if obj['source_id']!=source_id:
                         raise LinguisticError(f'line {line_no}: source ID conflict')
                     key,facts=_signature(obj)
-                    prev=db.execute('SELECT facts FROM seen WHERE id=?',(key,)).fetchone()
-                    if prev and prev[0]!=facts:
-                        raise LinguisticError(f'line {line_no}: contradictory attestation')
-                    if not prev:db.execute('INSERT INTO seen VALUES (?,?)',(key,facts))
+
+                    if key in batch:
+                        if batch[key][0] != facts:
+                            raise LinguisticError(f'line {line_no}: contradictory attestation')
+                    else:
+                        batch[key] = (facts, line_no)
+
+                    if len(batch) >= 999:
+                        keys = list(batch.keys())
+                        placeholders = ','.join('?' for _ in keys)
+                        rows = db.execute(f'SELECT id, facts FROM seen WHERE id IN ({placeholders})', keys).fetchall()
+                        db_dict = dict(rows)
+                        for un_key, (un_facts, un_line) in batch.items():
+                            if un_key in db_dict and db_dict[un_key] != un_facts:
+                                raise LinguisticError(f'line {un_line}: contradictory attestation')
+                        db.executemany('INSERT OR IGNORE INTO seen VALUES (?,?)', [(k, v[0]) for k, v in batch.items()])
+                        batch.clear()
+
                     n+=1;counts[obj['language_code']]+=1
                     part_counts[str(shard_for(obj,shards)).zfill(len(str(shards-1)))]+=1
+
+            if batch:
+                keys = list(batch.keys())
+                placeholders = ','.join('?' for _ in keys)
+                rows = db.execute(f'SELECT id, facts FROM seen WHERE id IN ({placeholders})', keys).fetchall()
+                db_dict = dict(rows)
+                for un_key, (un_facts, un_line) in batch.items():
+                    if un_key in db_dict and db_dict[un_key] != un_facts:
+                        raise LinguisticError(f'line {un_line}: contradictory attestation')
+                db.executemany('INSERT OR IGNORE INTO seen VALUES (?,?)', [(k, v[0]) for k, v in batch.items()])
+
             if digest.hexdigest()!=declared_sha256:
                 raise LinguisticError('source artifact SHA-256 mismatch')
     return {'status':'QA_ONLY_BLOCKED_SOURCE','records':n,
