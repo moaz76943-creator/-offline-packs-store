@@ -27,7 +27,8 @@ class TestPackManifestBuilder(unittest.TestCase):
                 "terms_count": 2,
                 "vocabulary": [1, 2],
                 "license": "CC-BY-SA-4.0",
-                "dependencies": ["pack2"]
+                "dependencies": ["pack2"],
+                "source": "test_source"
             }, f)
 
         self.pack2_path = self.base_dir / "pack2.pack.gz"
@@ -35,7 +36,8 @@ class TestPackManifestBuilder(unittest.TestCase):
             json.dump({
                 "header": {
                     "code": "ar",
-                    "license": "CC0-1.0"
+                    "license": "CC0-1.0",
+                    "source": "test_source"
                 },
                 "version": "2.0.0",
                 "domains": [1, 2, 3]
@@ -69,6 +71,8 @@ class TestPackManifestBuilder(unittest.TestCase):
         packs = data["packs"]
         self.assertIn("af", packs)
         self.assertEqual(packs["af"]["dependencies"], ["pack2"])
+        self.assertIn("payload_sha256", packs["af"])
+        self.assertEqual(packs["af"]["source"], "test_source")
 
     def test_missing_files_rejected(self):
         manifest_path = self.base_dir / "manifest.json"
@@ -95,13 +99,35 @@ class TestPackManifestBuilder(unittest.TestCase):
                 "version": "1.0.1",
                 "terms_count": 2,
                 "vocabulary": [1, 3], # changed
-                "license": "CC-BY-SA-4.0"
+                "license": "CC-BY-SA-4.0",
+                "source": "test_source"
             }, f)
 
         build_manifest(self.base_dir, ["pack1.pack.gz", "pack3.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
         self.assertEqual(plan['added'], ['en'])
         self.assertEqual(plan['updated'], ['af'])
+
+    def test_changed_metadata_unchanged_payload(self):
+        old_manifest_path = self.base_dir / "old_manifest.json"
+        new_manifest_path = self.base_dir / "new_manifest.json"
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
+
+        # Recreate pack1.pack.gz with ONLY metadata changes
+        with gzip.open(self.pack1_path, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "af",
+                "version": "1.0.1", # changed
+                "terms_count": 2,
+                "vocabulary": [1, 2], # unchanged
+                "license": "CC-BY-SA-4.0",
+                "dependencies": ["pack2"],
+                "source": "test_source"
+            }, f)
+
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
+        plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
+        self.assertEqual(plan['unchanged'], ['af'])
 
     def test_removed_packs(self):
         old_manifest_path = self.base_dir / "old_manifest.json"
