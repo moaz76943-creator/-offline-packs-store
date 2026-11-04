@@ -59,6 +59,24 @@ def zip_entry(archive, name, content):
 
 
 
+
+
+def stream_hash(stream):
+    h = hashlib.sha256()
+    while chunk := stream.read(65536):
+        h.update(chunk)
+    return h.hexdigest()
+
+
+def stream_copy_hash(path, dest):
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        while chunk := f.read(65536):
+            h.update(chunk)
+            dest.write(chunk)
+    return h.hexdigest()
+
+
 def _audit_member(source, destination=None):
     """Bounded read and shared semantic audit for new AND cached releases."""
     h = hashlib.sha256()
@@ -133,6 +151,15 @@ def _audit_member(source, destination=None):
     return total, h.hexdigest()
 
 
+def install_repo_import_path(root):
+    """Put the checkout on sys.path so a direct script run can import legal.*.
+
+    """
+    import sys
+    resolved = str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
 
 class CommunityExporter:
     def __init__(self, source_dir, output_dir, review_machine, *, language=None, categories=None, repository_root=None):
@@ -251,7 +278,13 @@ class CommunityExporter:
                                 info.compress_type = zipfile.ZIP_STORED
                                 info.external_attr = 0o644 << 16
                                 with path.open("rb") as source, archive.open(info, "w", force_zip64=False) as dest:
-                                    size_written, actual_hash = _audit_member(source, dest)
+                                    size_written, actual_hash = _audit_member(source, dest) if item_type != "semantic" else (path.stat().st_size, stream_copy_hash(path, dest))
+
+                                if item_type == "semantic":
+                                    from tools.visual_lexicon.core import decode_token
+                                    with path.open("rb") as f:
+                                        decode_token(f.read())
+
                                 if actual_hash != expected:
                                     raise ExportError("file changed during packaging")
                             zip_entry(archive, "ATTRIBUTION.json", canonical(notices))
@@ -277,9 +310,15 @@ class CommunityExporter:
                             raise ExportError("untrusted cached archive member")
                     for aid, path, expected, item_type, lang in entries:
                         with archive.open("data/" + aid + ".bin") as stream:
-                            size, actual_hash = _audit_member(stream)
+                            size, actual_hash = _audit_member(stream) if item_type != "semantic" else (info.file_size, stream_hash(stream))
+
                         if size > MAX_FILE or actual_hash != expected:
                             raise ExportError("cached archive content mismatch")
+                        if item_type == "semantic":
+                            from tools.visual_lexicon.core import decode_token
+                            with archive.open("data/" + aid + ".bin") as stream:
+                                decode_token(stream.read())
+
                     with archive.open("ATTRIBUTION.json") as stream:
                         attribution = stream.read(65537)
                     if len(attribution) > 65536 or attribution != canonical(notices):
@@ -311,6 +350,7 @@ def main(argv=None):
     parser.add_argument("--categories", help="Comma-separated list of categories to export")
     parser.add_argument("--operator-keys", required=True, help="Protected JSON file outside submissions/repository")
     args = parser.parse_args(argv)
+    install_repo_import_path(Path(__file__).resolve().parents[2])
     try:
         keys_path = Path(args.operator_keys)
         if keys_path.is_symlink() or not keys_path.is_file() or keys_path.stat().st_mode & 0o077:
