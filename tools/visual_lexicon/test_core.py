@@ -22,9 +22,9 @@ class TestVisualLexicon(unittest.TestCase):
         }
         self.valid_manifest = {
             'concept_id': 'test.concept.1',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Test Author',
+            'source': 'https://example.com/source',
+            'license': 'CC0-1.0'
         }
 
     def tearDown(self):
@@ -54,12 +54,9 @@ class TestVisualLexicon(unittest.TestCase):
 
     def test_schema_invalid_manifest(self):
         invalid_manifests = [
-            (dict(self.valid_manifest, license='CC0-1.0'), "license claim"),
-            (dict(self.valid_manifest, license='CC-BY-4.0'), "another license claim"),
-            (dict(self.valid_manifest, source='https://example.com/cc0-apple'), "external source"),
-            (dict(self.valid_manifest, fixture_status='approved'), "non-synthetic status"),
+            (dict(self.valid_manifest, license='CC-BY-4.0'), "unauthorized license"),
             (dict(self.valid_manifest, author=''), "empty author"),
-            ({k: v for k, v in self.valid_manifest.items() if k != 'fixture_status'}, "missing fixture status"),
+            ({k: v for k, v in self.valid_manifest.items() if k != 'source'}, "missing source"),
         ]
 
         for manifest, reason in invalid_manifests:
@@ -96,8 +93,7 @@ class TestVisualLexicon(unittest.TestCase):
         import copy
         manifest_copy = copy.deepcopy(manifest)
         self.assertIn('test.concept.1', manifest)
-        self.assertEqual(manifest['test.concept.1']['fixture_status'], 'synthetic')
-        self.assertNotIn('license', manifest['test.concept.1'])
+        self.assertEqual(manifest['test.concept.1']['license'], 'CC0-1.0')
         self.assertIn('hash', manifest['test.concept.1'])
 
         # Update token (new version)

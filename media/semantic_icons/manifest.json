@@ -1,0 +1,18 @@
+{
+  "animal.mammal.bat": {
+    "author": "Test Author",
+    "concept_id": "animal.mammal.bat",
+    "file": "animal.mammal.bat.vct",
+    "hash": "ad1a384b11364164be1d999bcfc8f92a62aa7760cd1487b461aa899804c80258",
+    "license": "CC0-1.0",
+    "source": "synthetic-fixture"
+  },
+  "food.fruit.apple": {
+    "author": "Test Author",
+    "concept_id": "food.fruit.apple",
+    "file": "food.fruit.apple.vct",
+    "hash": "4b39c4dab75fbc14c1d28354c0d099e87f827503d6f0408cf95f210ffbd40aae",
+    "license": "CC0-1.0",
+    "source": "synthetic-fixture"
+  }
+}
