@@ -35,63 +35,69 @@ class MorphologyValidator:
         if not form_record['sense_id'].startswith(f"{lang}:"):
             raise ValueError(f"sense_id '{form_record['sense_id']}' must start with language_code '{lang}:'")
 
-        # 3. Feature Compatibility Check
-        features = form_record.get('features', {})
-        for feature, value in features.items():
-            if not self._is_applicable(lang, feature):
-                raise ValueError(f"Feature '{feature}' is explicitly not applicable for language '{lang}'")
+        # 3. Iterate Over Analyses
+        for analysis in form_record.get('analyses', []):
+            # Feature Compatibility Check
+            features = analysis.get('features', {})
+            for feature, value in features.items():
+                if not self._is_applicable(lang, feature):
+                    raise ValueError(f"Feature '{feature}' is explicitly not applicable for language '{lang}'")
 
-        # 4. Property Mapping Checks
-        prop_feature_map = {
-            'root': 'root_pattern',
-            'pattern': 'root_pattern',
-            'vowel_harmony_class': 'vowel_harmony',
-            'segmentation': 'segmentation',
-            'orthographic_variant': 'orthographic_variants',
-        }
-        for prop, feat in prop_feature_map.items():
-            if prop in form_record:
-                if not self._is_applicable(lang, feat):
-                    raise ValueError(f"Property '{prop}' requires feature '{feat}' which is not applicable for '{lang}'")
+            # Property Mapping Checks
+            prop_feature_map = {
+                'root': 'root_pattern',
+                'pattern': 'root_pattern',
+                'vowel_harmony_class': 'vowel_harmony',
+                'segmentation': 'segmentation',
+                'orthographic_variant': 'orthographic_variants',
+            }
+            # Special check for orthographic_variant which might be at the top level
+            if 'orthographic_variant' in form_record:
+                 if not self._is_applicable(lang, 'orthographic_variants'):
+                     raise ValueError(f"Property 'orthographic_variant' requires feature 'orthographic_variants' which is not applicable for '{lang}'")
 
-        # Check nonconcatenative fallback for root/pattern
-        if 'root' in form_record or 'pattern' in form_record:
-             if not self._is_applicable(lang, 'root_pattern') and not self._is_applicable(lang, 'nonconcatenative'):
-                 raise ValueError(f"root/pattern requires root_pattern or nonconcatenative features which are not applicable for '{lang}'")
+            for prop, feat in prop_feature_map.items():
+                if prop in analysis:
+                    if not self._is_applicable(lang, feat):
+                        raise ValueError(f"Property '{prop}' requires feature '{feat}' which is not applicable for '{lang}'")
 
-        # 5. Process Mapping Checks
-        processes = form_record.get('processes', [])
-        for process in processes:
-            # Try matching process name to feature exactly
-            if process in self.default_features:
-                 if not self._is_applicable(lang, process):
-                     raise ValueError(f"Process '{process}' is explicitly not applicable for language '{lang}'")
-            # Special case compound
-            if 'compound' in process and not self._is_applicable(lang, 'compound'):
-                 raise ValueError(f"Process '{process}' requires 'compound' feature which is not applicable for '{lang}'")
-            # Special case broken_plural -> nonconcatenative
-            if process == 'broken_plural' and not self._is_applicable(lang, 'nonconcatenative') and not self._is_applicable(lang, 'root_pattern'):
-                 raise ValueError(f"Process 'broken_plural' requires 'nonconcatenative' or 'root_pattern' feature not applicable for '{lang}'")
+            # Check nonconcatenative fallback for root/pattern
+            if 'root' in analysis or 'pattern' in analysis:
+                 if not self._is_applicable(lang, 'root_pattern') and not self._is_applicable(lang, 'nonconcatenative'):
+                     raise ValueError(f"root/pattern requires root_pattern or nonconcatenative features which are not applicable for '{lang}'")
 
+            # Process Mapping Checks
+            processes = analysis.get('processes', [])
+            for process in processes:
+                # Try matching process name to feature exactly
+                if process in self.default_features:
+                     if not self._is_applicable(lang, process):
+                         raise ValueError(f"Process '{process}' is explicitly not applicable for language '{lang}'")
+                # Special case compound
+                if 'compound' in process and not self._is_applicable(lang, 'compound'):
+                     raise ValueError(f"Process '{process}' requires 'compound' feature which is not applicable for '{lang}'")
+                # Special case broken_plural -> nonconcatenative
+                if process == 'broken_plural' and not self._is_applicable(lang, 'nonconcatenative') and not self._is_applicable(lang, 'root_pattern'):
+                     raise ValueError(f"Process 'broken_plural' requires 'nonconcatenative' or 'root_pattern' feature not applicable for '{lang}'")
 
-        # 6. Morpheme Mapping Checks
-        morphemes = form_record.get('morphemes', [])
-        morpheme_feature_map = {
-            'prefix': 'prefix',
-            'suffix': 'suffix',
-            'clitic': 'clitic',
-            'compound_member': 'compound',
-            'root': 'root_pattern',
-            'pattern': 'root_pattern'
-        }
-        for morpheme in morphemes:
-            kind = morpheme.get('kind')
-            if kind in morpheme_feature_map:
-                feat = morpheme_feature_map[kind]
-                if not self._is_applicable(lang, feat):
-                     # fallback nonconcatenative for root/pattern
-                     if kind in ['root', 'pattern'] and self._is_applicable(lang, 'nonconcatenative'):
-                         continue
-                     raise ValueError(f"Morpheme kind '{kind}' requires feature '{feat}' which is not applicable for '{lang}'")
+            # Morpheme Mapping Checks
+            morphemes = analysis.get('morphemes', [])
+            morpheme_feature_map = {
+                'prefix': 'prefix',
+                'suffix': 'suffix',
+                'clitic': 'clitic',
+                'compound_member': 'compound',
+                'root': 'root_pattern',
+                'pattern': 'root_pattern'
+            }
+            for morpheme in morphemes:
+                kind = morpheme.get('kind')
+                if kind in morpheme_feature_map:
+                    feat = morpheme_feature_map[kind]
+                    if not self._is_applicable(lang, feat):
+                         # fallback nonconcatenative for root/pattern
+                         if kind in ['root', 'pattern'] and self._is_applicable(lang, 'nonconcatenative'):
+                             continue
+                         raise ValueError(f"Morpheme kind '{kind}' requires feature '{feat}' which is not applicable for '{lang}'")
 
         return True
