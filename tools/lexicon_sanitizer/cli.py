@@ -1,10 +1,13 @@
 import argparse
 import json
 import os
+import sys
 import hashlib
 from typing import TextIO
 
-from tools.lexicon_sanitizer.engine import SanitizerEngine
+def install_repo_import_path(repo_root: str):
+    if repo_root not in sys.path:
+        sys.path.insert(0, repo_root)
 
 def get_record_hash(record_str: str) -> str:
     """Returns the SHA-256 hash of the record string."""
@@ -18,8 +21,9 @@ def process_stream(
     quarantine_stream: TextIO,
     review_stream: TextIO,
     quarantine_dir: str,
-    engine: SanitizerEngine
+    engine
 ):
+    from tools.lexicon_sanitizer.engine import SanitizerEngine
     """Processes a JSONL stream line by line, writing to appropriate output streams."""
     os.makedirs(quarantine_dir, exist_ok=True)
 
@@ -89,8 +93,16 @@ def main():
     parser.add_argument("--input", required=True, help="Input JSONL file")
     parser.add_argument("--output-dir", required=True, help="Output directory for processed files")
     parser.add_argument("--registry", default="catalog/language_registry.v1.json", help="Path to language registry JSON")
+    parser.add_argument("--repo-root", default=".", help="Repository root path")
 
     args = parser.parse_args()
+
+    if not os.access(args.repo_root, os.R_OK | os.X_OK):
+        print(f"Error: public workspace at {args.repo_root} is inaccessible.", file=sys.stderr)
+        sys.exit(1)
+
+    install_repo_import_path(args.repo_root)
+    from tools.lexicon_sanitizer.engine import SanitizerEngine
 
     os.makedirs(args.output_dir, exist_ok=True)
     quarantine_dir = os.path.join(args.output_dir, "quarantined")
