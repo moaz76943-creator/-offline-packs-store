@@ -195,3 +195,24 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+class TestMorphologyValidatorTypedFeatures(unittest.TestCase):
+    def setUp(self):
+        self.validator = MorphologyValidator()
+        self.valid_base = {
+            "language_code": "de",
+            "lemma_id": "de:Buch:1",
+            "sense_id": "de:Buch:book",
+            "lemma": "Buch",
+            "form": "Buch",
+            "features": {"number": "singular", "case": "nominative", "is_strong": True, "class": 1, "null_feature": None},
+            "source_id": "wiktionary-de-buch",
+            "evidence_version": "2026-10-12",
+            "transliteration": "bux"
+        }
+
+    def test_valid_typed_features(self):
+        self.assertTrue(self.validator.validate(self.valid_base))
+
+if __name__ == '__main__':
+    unittest.main()

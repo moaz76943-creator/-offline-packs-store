@@ -38,7 +38,12 @@
     "features": {
       "type": "object",
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
       }
     },
     "root": {
@@ -118,6 +123,9 @@
     "evidence_version": {
       "type": "string",
       "minLength": 1
+    },
+    "transliteration": {
+      "type": "string"
     }
   }
 }
