@@ -2,9 +2,10 @@ import argparse
 import json
 import os
 import hashlib
+from pathlib import Path
 from typing import TextIO
 
-from tools.lexicon_sanitizer.engine import SanitizerEngine
+from tools.lexicon_sanitizer.engine import SanitizerEngine, DEFAULT_REGISTRY_PATH
 
 def get_record_hash(record_str: str) -> str:
     """Returns the SHA-256 hash of the record string."""
@@ -88,7 +89,7 @@ def main():
     parser = argparse.ArgumentParser(description="Multilingual Lexicon Sanitizer & Deduplication Engine")
     parser.add_argument("--input", required=True, help="Input JSONL file")
     parser.add_argument("--output-dir", required=True, help="Output directory for processed files")
-    parser.add_argument("--registry", default="catalog/language_registry.v1.json", help="Path to language registry JSON")
+    parser.add_argument("--registry", default=DEFAULT_REGISTRY_PATH, help="Path to language registry JSON")
 
     args = parser.parse_args()
 

@@ -1,6 +1,9 @@
 import json
 import re
+from pathlib import Path
 from typing import Dict, Any, Tuple, Optional, Set
+
+DEFAULT_REGISTRY_PATH = str(Path(__file__).resolve().parent.parent.parent / "catalog" / "language_registry.v1.json")
 
 class SanitizerEngine:
     STATUS_ACCEPT = "ACCEPT"
@@ -8,7 +11,7 @@ class SanitizerEngine:
     STATUS_QUARANTINE = "QUARANTINE"
     STATUS_REVIEW_REQUIRED = "REVIEW_REQUIRED"
 
-    def __init__(self, registry_path: str = "catalog/language_registry.v1.json"):
+    def __init__(self, registry_path: str = DEFAULT_REGISTRY_PATH):
         self.valid_languages: Set[str] = set()
         self.seen_identities: Set[str] = set()
         self.seen_doc_ids: Set[str] = set()
