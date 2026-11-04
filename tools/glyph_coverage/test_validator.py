@@ -18,7 +18,7 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         self.arabic_font_path = "tools/glyph_coverage/fixtures/test_arabic.ttf"
         self.hebrew_font_path = "tools/glyph_coverage/fixtures/test_hebrew.ttf"
         self.deva_font_path = "tools/glyph_coverage/fixtures/test_deva.ttf"
-        self.cjk_font_path = "tools/glyph_coverage/fixtures/test_cjk.ttf"
+        self.hans_font_path = "tools/glyph_coverage/fixtures/test_hans.ttf"
         self.thai_font_path = "tools/glyph_coverage/fixtures/test_thai.ttf"
         self.cyrillic_font_path = "tools/glyph_coverage/fixtures/test_cyrillic.ttf"
         self.greek_font_path = "tools/glyph_coverage/fixtures/test_greek.ttf"
@@ -29,7 +29,7 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         self.arabic_hash = get_hash(os.path.join(self.repo_root, self.arabic_font_path))
         self.hebrew_hash = get_hash(os.path.join(self.repo_root, self.hebrew_font_path))
         self.deva_hash = get_hash(os.path.join(self.repo_root, self.deva_font_path))
-        self.cjk_hash = get_hash(os.path.join(self.repo_root, self.cjk_font_path))
+        self.hans_hash = get_hash(os.path.join(self.repo_root, self.hans_font_path))
         self.thai_hash = get_hash(os.path.join(self.repo_root, self.thai_font_path))
         self.cyrillic_hash = get_hash(os.path.join(self.repo_root, self.cyrillic_font_path))
         self.greek_hash = get_hash(os.path.join(self.repo_root, self.greek_font_path))
@@ -118,9 +118,9 @@ class TestGlyphCoverageValidator(unittest.TestCase):
         self.assertEqual(len(mapping.unsupported_points), 0)
 
     def test_generate_fallback_mapping_valid_cjk(self):
-        asset = self.build_asset("f1", "CJKTest", ["Hani"], self.cjk_font_path, self.cjk_hash)
+        asset = self.build_asset("f1", "CJKTest", ["Hans"], self.hans_font_path, self.hans_hash)
 
-        mapping = self.validator.generate_fallback_mapping("Hani", [asset])
+        mapping = self.validator.generate_fallback_mapping("Hans", [asset])
         self.assertTrue(mapping.cmap_coverage)
         self.assertIn("CJKTest", mapping.valid_fallback_families)
         self.assertEqual(len(mapping.unsupported_points), 0)
