@@ -3,6 +3,7 @@ import hashlib
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from legal.font_assets.registry import FontAsset, FontRightsRegistry
 
@@ -137,6 +138,16 @@ class FontEvidenceTests(unittest.TestCase):
         mapping = self.gate.generate_script_mapping([self.asset, asset2, asset_rejected], repo_root=self.root)
         self.assertEqual(mapping.get("Latn"), ["fixture-font", "fixture-font-2"])
         self.assertEqual(mapping.get("Cyrl"), ["fixture-font-2"])
+
+
+    def test_unknown_script_rejected(self):
+        self.asset.scripts = ["UnknownScript"]
+        self.assertEqual(self.check()["status"], "REJECT")
+
+    @patch("legal.font_assets.registry.Path")
+    def test_missing_registry_file_rejected(self, mock_path):
+        mock_path.return_value.resolve.return_value.parents = [None, None, Path("/fake/path")]
+        self.assertEqual(self.check()["status"], "REJECT")
 
     def test_repeated_script_is_mapped_once(self):
         self.asset.scripts = ["Latn", "Latn"]
