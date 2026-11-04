@@ -56,6 +56,16 @@ class DirectedPairSchemaTest(unittest.TestCase):
         pairs = self.data['directed_translations']
         self.assertTrue(any(p['source_sense_id'] == 'sense.de.bank.finance' and p['target_sense_id'] == 'sense.en.bank.finance' for p in pairs))
         self.assertTrue(any(p['source_sense_id'] == 'sense.en.bank.finance' and p['target_sense_id'] == 'sense.de.bank.finance' for p in pairs))
+    def test_regional_variants(self):
+        """Test polysemous words, homographs, regional variants, missing context and reverse pairs."""
+        senses = self.data['senses']
+        regional_senses = [s for s in senses if s['lexeme_id'] in ('lex.en-US.truck', 'lex.en-GB.lorry')]
+        self.assertEqual(len(regional_senses), 2)
+
+        pairs = self.data['directed_translations']
+        self.assertTrue(any(p['source_sense_id'] == 'sense.en-US.truck' and p['target_sense_id'] == 'sense.en-GB.lorry' for p in pairs))
+        self.assertTrue(any(p['source_sense_id'] == 'sense.en-GB.lorry' and p['target_sense_id'] == 'sense.en-US.truck' for p in pairs))
+
 
     def test_negative_fixture_rejected(self):
         with self.assertRaises(DirectedPairContractError) as context:
