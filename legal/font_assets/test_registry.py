@@ -1,5 +1,6 @@
 """Synthetic fixtures test a gate; they never constitute redistribution rights."""
 import hashlib
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -21,6 +22,15 @@ class FontEvidenceTests(unittest.TestCase):
         self.lic_hash = put("evidence/rights.txt", b"Fixture origin font SIL OPEN FONT LICENSE")
         self.notice_hash = put("notices/OFL.txt", b"SIL OPEN FONT LICENSE fixture")
         self.review_hash = put("evidence/review.txt", b"Fixture reviewer decision record")
+
+        # Mock canonical language registry
+        put("catalog/language_registry.v1.json", json.dumps({
+            "languages": [
+                {"id": "en", "scripts": ["Latn"]},
+                {"id": "ru", "scripts": ["Cyrl"]}
+            ]
+        }).encode("utf-8"))
+
         self.asset = FontAsset(
             id="fixture-font", family="Fixture Font", source="fixture-publisher",
             version="1.0", author="Fixture Author", license_id="OFL-1.1",
@@ -147,6 +157,10 @@ class FontEvidenceTests(unittest.TestCase):
         twin = FontAsset(**self.asset.__dict__)
         with self.assertRaises(ValueError):
             self.gate.generate_script_mapping([self.asset, twin], repo_root=self.root)
+
+    def test_unknown_script_rejected(self):
+        self.asset.scripts = ["InvalidScript"]
+        self.assertEqual(self.check()["status"], "REJECT")
 
 if __name__ == "__main__":
     unittest.main()
