@@ -1,5 +1,5 @@
 {
-  "next_index": 400,
+  "next_index": 480,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "af",
+      "section": "body"
+    },
+    {
+      "language": "am",
+      "section": "body"
+    },
+    {
+      "language": "ar",
+      "section": "body"
+    },
+    {
+      "language": "as",
+      "section": "body"
+    },
+    {
+      "language": "az",
+      "section": "body"
+    },
+    {
+      "language": "ba",
+      "section": "body"
+    },
+    {
+      "language": "be",
+      "section": "body"
+    },
+    {
+      "language": "bg",
+      "section": "body"
+    },
+    {
+      "language": "bn",
+      "section": "body"
+    },
+    {
+      "language": "br",
+      "section": "body"
+    },
+    {
+      "language": "bs",
+      "section": "body"
+    },
+    {
+      "language": "ca",
+      "section": "body"
+    },
+    {
+      "language": "cs",
+      "section": "body"
+    },
+    {
+      "language": "cy",
+      "section": "body"
+    },
+    {
+      "language": "da",
+      "section": "body"
+    },
+    {
+      "language": "de",
+      "section": "body"
+    },
+    {
+      "language": "dv",
+      "section": "body"
+    },
+    {
+      "language": "el",
+      "section": "body"
+    },
+    {
+      "language": "en",
+      "section": "body"
+    },
+    {
+      "language": "eo",
+      "section": "body"
+    },
+    {
       "language": "es",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "et",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "eu",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "fa",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "fi",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "fo",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "fr",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "fy",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ga",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "gd",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "gl",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "gu",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ha",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "hi",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "hr",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "hu",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "hy",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "id",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ig",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "is",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "it",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ja",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ka",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "kk",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "km",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "kn",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ko",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ku",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ky",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "la",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "lb",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "lo",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "lt",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "lv",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "mg",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "mk",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ml",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "mn",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "mr",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ms",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "mt",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "my",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ne",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "nl",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "no",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "or",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "pa",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "pl",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ps",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "pt",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ro",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "ru",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "rw",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "sd",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "si",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "sk",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "sl",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "sn",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "so",
-      "section": "home"
+      "section": "body"
     },
     {
       "language": "sq",
-      "section": "home"
-    },
-    {
-      "language": "sr",
-      "section": "home"
-    },
-    {
-      "language": "sv",
-      "section": "home"
-    },
-    {
-      "language": "sw",
-      "section": "home"
-    },
-    {
-      "language": "ta",
-      "section": "home"
-    },
-    {
-      "language": "te",
-      "section": "home"
-    },
-    {
-      "language": "tg",
-      "section": "home"
-    },
-    {
-      "language": "th",
-      "section": "home"
-    },
-    {
-      "language": "tk",
-      "section": "home"
-    },
-    {
-      "language": "tl",
-      "section": "home"
-    },
-    {
-      "language": "tr",
-      "section": "home"
-    },
-    {
-      "language": "tt",
-      "section": "home"
-    },
-    {
-      "language": "ug",
-      "section": "home"
-    },
-    {
-      "language": "uk",
-      "section": "home"
-    },
-    {
-      "language": "ur",
-      "section": "home"
-    },
-    {
-      "language": "uz",
-      "section": "home"
-    },
-    {
-      "language": "vi",
-      "section": "home"
-    },
-    {
-      "language": "xh",
-      "section": "home"
-    },
-    {
-      "language": "yo",
-      "section": "home"
-    },
-    {
-      "language": "zh",
-      "section": "home"
-    },
-    {
-      "language": "zu",
-      "section": "home"
+      "section": "body"
     }
   ]
 }
