@@ -143,6 +143,13 @@ class FontEvidenceTests(unittest.TestCase):
         mapping = self.gate.generate_script_mapping([self.asset], repo_root=self.root)
         self.assertEqual(mapping.get("Latn"), ["fixture-font"])
 
+    def test_cjk_scripts_map_to_hani(self):
+        self.asset.scripts = ["Hans", "Jpan"]
+        mapping = self.gate.generate_script_mapping([self.asset], repo_root=self.root)
+        self.assertEqual(mapping.get("Hani"), ["fixture-font"])
+        self.assertNotIn("Hans", mapping)
+        self.assertNotIn("Jpan", mapping)
+
     def test_duplicate_asset_ids_are_rejected(self):
         twin = FontAsset(**self.asset.__dict__)
         with self.assertRaises(ValueError):
