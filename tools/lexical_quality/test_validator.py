@@ -17,6 +17,27 @@ class TestLexicalValidator(unittest.TestCase):
         self.validator = LexicalValidator()
         self.addCleanup(self.validator.close)
 
+    def test_absent_optional_fields_malformed_examples_and_mismatches(self):
+        """Test absent optional fields, malformed examples, duplicate senses and language mismatches."""
+        # Absent optional fields
+        entry = {"id": "eng-min", "surface": "minimal", "language": "eng", "pos": "noun"}
+        res = self.validator.validate_entry(entry)
+        self.assertEqual(res["status"], "accepted")
+
+        # Malformed examples
+        entry_malformed = {"id": "eng-ex", "surface": "test", "language": "eng", "pos": "noun", "examples": [{"not_text": "bad"}]}
+        res_malformed = self.validator.validate_entry(entry_malformed)
+        self.assertEqual(res_malformed["status"], "rejected")
+
+        # Duplicate senses (already tested in another test, but included for completeness of the requirement)
+        res_dup = self.validator.validate_entry(entry)
+        self.assertEqual(res_dup["status"], "rejected")
+
+        # Language mismatches
+        entry_mismatch = {"id": "deu-mismatch", "surface": "test", "language": "eng", "pos": "noun"}
+        res_mismatch = self.validator.validate_entry(entry_mismatch)
+        self.assertEqual(res_mismatch["status"], "rejected")
+
     def test_spilled_history_keeps_old_ids_and_bounds_python_memory(self):
         with LexicalValidator(max_history=2) as validator:
             for i in range(20):

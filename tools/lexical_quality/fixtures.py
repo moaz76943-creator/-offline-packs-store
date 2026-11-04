@@ -1,6 +1,14 @@
-"""Fixtures for testing multilingual lexical quality validator."""
+"""Fixtures for testing multilingual lexical quality validator.
+Includes multilingual fixtures for German, Arabic, Hebrew, Chinese, Japanese, Thai and other scripts.
+"""
 
 VALID_ENTRIES = [
+    {
+        "id": "eng-US-1",
+        "surface": "color",
+        "language": "eng-US",
+        "pos": "noun"
+    },
     {
         "id": "eng-1",
         "surface": "hello",
@@ -15,6 +23,7 @@ VALID_ENTRIES = [
         ]
     },
     {
+        # German fixture
         "id": "deu-1",
         "surface": "Hund",
         "language": "deu",
@@ -25,6 +34,7 @@ VALID_ENTRIES = [
         ]
     },
     {
+        # Arabic fixture
         "id": "ara-1",
         "surface": "كتاب",
         "language": "ara",
@@ -32,12 +42,14 @@ VALID_ENTRIES = [
         "plural": "كتب"
     },
     {
+        # Hebrew fixture
         "id": "heb-1",
         "surface": "שָׁלוֹם",
         "language": "heb",
         "pos": "noun"
     },
     {
+        # Chinese fixture
         "id": "zho-1",
         "surface": "苹果",
         "language": "zho",
@@ -47,12 +59,14 @@ VALID_ENTRIES = [
         ]
     },
     {
+        # Thai fixture
         "id": "tha-1",
         "surface": "สวัสดี",
         "language": "tha",
         "pos": "interjection"
     },
     {
+        # Japanese fixture
         "id": "jpn-1",
         "surface": "食べる",
         "language": "jpn",
