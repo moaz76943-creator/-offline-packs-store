@@ -7,7 +7,7 @@ import tempfile
 from pathlib import Path
 from typing import Dict, Any, List
 
-from tools.pack_v2.pipeline import make_database, check_sqlite, validate_document, read_json, MAX_JSON
+from tools.pack_v2.pipeline import make_database, check_sqlite, validate_document, read_json, MAX_JSON, grammar_records
 from tools.lexicon_sanitizer.engine import SanitizerEngine
 
 class ReproBuilder:
@@ -31,6 +31,11 @@ class ReproBuilder:
         full_source_path = (self.repo_root / source_path).resolve()
         if not full_source_path.exists():
             raise ValueError(f"Source path {full_source_path} does not exist")
+
+        if not os.access(full_source_path.parent, os.R_OK | os.X_OK):
+            raise ValueError(f"Unauthorized source directory access")
+        if not os.access(self.repo_root, os.R_OK | os.X_OK):
+            raise ValueError(f"Unauthorized workspace access")
 
         # Read source exactly once. Parse only the bytes whose digest was checked
         # so a concurrent source replacement cannot change published content.
@@ -77,13 +82,17 @@ class ReproBuilder:
 
         output_dir.mkdir(parents=True, exist_ok=True)
 
+        # Load grammar sidecar
+        sidecar_path = full_source_path.with_name(f"{language}.grammar.json")
+        grammar = grammar_records(sidecar_path if sidecar_path.is_file() else None, language, fixture_only, self.repo_root)
+
         # Stage on the destination filesystem; os.replace stays atomic.
         with tempfile.TemporaryDirectory(dir=output_dir) as tempdir:
             temp_db = Path(tempdir) / "temp.sqlite"
 
             # make_database
             try:
-                counts = make_database(doc, language, [], temp_db)
+                counts = make_database(doc, language, grammar, temp_db)
                 # verify sqlite integrity
                 check_sqlite(temp_db, language)
             except Exception as e:
