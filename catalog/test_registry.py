@@ -17,6 +17,12 @@ def fixture():
                   proficiency={"framework_ids":[], "mapping_status":"not_mapped"}) for code in codes]
     registry = dict(schema_version="1.0.0", scripts={"Latn":{"name":"Latin","direction":"ltr"},
                     "Arab":{"name":"Arabic","direction":"rtl"}, "Hebr":{"name":"Hebrew","direction":"rtl"}},
+                    source={
+                        "repository": "offline-packs-store",
+                        "manifest_path": "manifest.json",
+                        "reviewed_head_sha": "bb15e9f02b216bbcb62a254d4a5bd695d405e9d5",
+                        "selection_policy": "preserve_all_100_published_stable_ids"
+                    },
                     frameworks={}, languages=langs, aliases=[], locale_variants=[])
     readiness = dict(schema_version="1.0.0",registry_version="1.0.0", states={x:"unverified" for x in codes},validation_evidence={})
     manifest = dict(languages=[dict(code=l["id"],family=l["family"],native_name=l["native_name"]) for l in langs])
@@ -24,6 +30,23 @@ def fixture():
 
 
 class TaxonomyValidationTests(unittest.TestCase):
+    def test_all_100_ids_have_negative_fixtures(self):
+        r, c, m = fixture()
+        # Verify 100 languages exist
+        self.assertEqual(100, len(r["languages"]))
+        # Negative test for each language
+        for i in range(100):
+            with self.subTest(i=i):
+                r_copy, c_copy, m_copy = fixture()
+                r_copy["languages"][i]["id"] = "invalid_id_!!!"
+                failures = validate(r_copy, c_copy, m_copy)
+                self.assertTrue(len(failures) > 0, f"Expected validation failure for invalid ID at index {i}")
+
+                r_copy, c_copy, m_copy = fixture()
+                r_copy["languages"][i]["native_name"] = ""
+                failures = validate(r_copy, c_copy, m_copy)
+                self.assertTrue(len(failures) > 0, f"Expected validation failure for missing native_name at index {i}")
+
     def test_fresh_registry_passes(self):
         self.assertEqual([], validate(*fixture()))
 
