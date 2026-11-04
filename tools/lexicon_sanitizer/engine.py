@@ -161,7 +161,8 @@ class SanitizerEngine:
                 reason = "Repaired whitespace in surface"
 
             # Ensure identifiers aren't empty
-            if not lexeme.get("lexeme_id"):
+            lexeme_id = lexeme.get("lexeme_id")
+            if not isinstance(lexeme_id, str) or not lexeme_id.strip():
                 return self.STATUS_QUARANTINE, None, f"Empty lexeme_id at index {i}"
 
             repaired_lexemes.append(lexeme)
@@ -176,7 +177,8 @@ class SanitizerEngine:
         for i, sense in enumerate(senses):
             if not isinstance(sense, dict):
                  return self.STATUS_QUARANTINE, None, f"sense at index {i} is not an object"
-            if not sense.get("sense_id"):
+            sense_id = sense.get("sense_id")
+            if not isinstance(sense_id, str) or not sense_id.strip():
                  return self.STATUS_QUARANTINE, None, f"Empty sense_id at index {i}"
 
             if "definition" in sense:
@@ -193,7 +195,8 @@ class SanitizerEngine:
         for i, t in enumerate(translations):
             if not isinstance(t, dict):
                  return self.STATUS_QUARANTINE, None, f"translation at index {i} is not an object"
-            if not t.get("translation_id"):
+            translation_id = t.get("translation_id")
+            if not isinstance(translation_id, str) or not translation_id.strip():
                 return self.STATUS_QUARANTINE, None, f"Empty translation_id at index {i}"
 
         # Duplication check
