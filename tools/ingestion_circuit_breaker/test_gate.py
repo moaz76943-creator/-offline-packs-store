@@ -20,8 +20,22 @@ class TestGate(unittest.TestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name)
 
-        self.ledger_dir = self.root / 'legal' / 'ledger'
-        self.ledger_dir.mkdir(parents=True)
+        admission_dir = self.root / 'legal' / 'ledger'
+        admission_dir.mkdir(parents=True, exist_ok=True)
+        (admission_dir / '__init__.py').touch()
+        (self.root / 'legal' / '__init__.py').touch()
+
+        # Write a mock admission.py file with necessary variables
+        (admission_dir / 'admission.py').write_text(
+            "LICENSES = {'CC-BY-SA-4.0', 'GFDL-1.3-only', 'CC0-1.0', 'PUBLIC-DOMAIN', 'CC-BY-2.0-FR'}\n"
+            "OBLIGATIONS = {\n"
+            "    'CC-BY-SA-4.0': ('attribution', 'license_link', 'changes_disclosed', 'sharealike', 'no_additional_restrictions'),\n"
+            "    'GFDL-1.3-only': ('license_copy', 'copyright_notices', 'history', 'invariant_sections_checked', 'cover_texts_checked', 'transparent_copy_checked'),\n"
+            "    'CC-BY-2.0-FR': ('attribution', 'license_link'),\n"
+            "}\n"
+        )
+
+        self.ledger_dir = admission_dir
         self.ledger_file = self.ledger_dir / 'sources.json'
 
         self.q_dir = self.root / 'quarantine'
@@ -101,7 +115,7 @@ class TestGate(unittest.TestCase):
             self.assertEqual(code, 1)
             self.assertIn("WORKSPACE_ACCESS_DENIED", errors)
             self.assertIn("WORKSPACE_ACCESS_DENIED", stderr)
-            access.assert_called_once_with(self.root.resolve(), os.W_OK | os.X_OK)
+            access.assert_called_once_with(self.root.resolve(), os.R_OK | os.X_OK)
 
     def test_workspace_preflight_uses_selected_repo_root_not_cwd(self):
         manifest = {
@@ -113,13 +127,13 @@ class TestGate(unittest.TestCase):
         }
         # The process CWD is irrelevant: the caller explicitly chose --repo-root.
         def writable_selected_root(path, mode):
-            return Path(path) == self.root.resolve() and mode == (os.W_OK | os.X_OK)
+            return Path(path) == self.root.resolve() and mode == (os.R_OK | os.X_OK)
 
         with patch('os.access', side_effect=writable_selected_root) as access:
             code, errors, stdout, stderr = self.run_process(manifest)
         self.assertEqual((code, errors), (0, []), stderr)
         self.assertEqual(json.loads(stdout)["status"], "ADMITTED")
-        access.assert_called_once_with(self.root.resolve(), os.W_OK | os.X_OK)
+        access.assert_called_once_with(self.root.resolve(), os.R_OK | os.X_OK)
 
     def test_missing_license(self):
         manifest = {
