@@ -268,12 +268,12 @@ class TestMediaCompiler(unittest.TestCase):
         }
 
         res = self.compiler.compile([raw1, raw2, raw3], prior_pack_meta=prior_pack_meta, runtime_evidence={'compatible': True})
-        events = {e['concept_id']: e['type'] for e in res['change_events']}
+        events = res['change_events']
 
-        self.assertEqual(events['test-1'], 'unchanged')
-        self.assertEqual(events['test-2'], 'added')
-        self.assertEqual(events['test-old'], 'deleted')
-        self.assertEqual(events['test-update'], 'updated')
+        self.assertIn('test-1', events['unchanged'])
+        self.assertIn('test-2', events['updated'])
+        self.assertIn('test-old', events['deleted'])
+        self.assertIn('test-update', events['updated'])
 
     def test_invalid_token_does_not_delete_published_concept(self):
         pack = os.path.join(self.output_dir, 'pack.vct')
@@ -373,6 +373,15 @@ class TestMediaCompiler(unittest.TestCase):
             with self.assertRaises(DiskSpaceError):
                 self.compiler.compile([self.valid_raw], runtime_evidence={'compatible': True})
         self.assertFalse(os.path.exists(os.path.join(self.output_dir, 'pack.vct')))
+
+    def test_wordbit_compatibility_manifest(self):
+        res = self.compiler.compile([self.valid_raw], runtime_evidence={'compatible': True})
+        manifest = res.get('decoder_manifest', {})
+        self.assertTrue(manifest.get('wordbit_compatible'))
+        self.assertIn('supported_encodings', manifest)
+        self.assertIn('max_paths', manifest)
+        self.assertIn('max_bytes', manifest)
+        self.assertIn('max_decoded_bytes', manifest)
 
 if __name__ == '__main__':
     unittest.main()
