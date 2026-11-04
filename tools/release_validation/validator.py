@@ -64,6 +64,9 @@ def validate_artifact(artifact, repo_root):
     return reasons
 
 def evaluate_candidates(candidates_path, repo_root, output_path):
+    if not (repo_root.exists() and repo_root.is_dir() and os.access(repo_root, os.R_OK | os.W_OK | os.X_OK)):
+        raise RuntimeError("Unauthorized workspace access")
+
     if not candidates_path.is_file():
         return 1, {"error": "CANDIDATES_FILE_NOT_FOUND"}
 
