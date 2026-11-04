@@ -24,6 +24,11 @@ class TestMorphologyValidatorBasic(unittest.TestCase):
     def test_valid_record(self):
         self.assertTrue(self.validator.validate(self.valid_base))
 
+    def test_valid_record_with_transliteration(self):
+        record = self.valid_base.copy()
+        record["transliteration"] = "buh"
+        self.assertTrue(self.validator.validate(record))
+
     def test_invalid_schema(self):
         invalid_record = self.valid_base.copy()
         del invalid_record["form"]
