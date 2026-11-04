@@ -32,6 +32,9 @@ class ReproBuilder:
         if not full_source_path.exists():
             raise ValueError(f"Source path {full_source_path} does not exist")
 
+        if not os.access(full_source_path.parent, os.R_OK | os.X_OK):
+            raise PermissionError("UNAUTHORIZED_WORKSPACE")
+
         # Read source exactly once. Parse only the bytes whose digest was checked
         # so a concurrent source replacement cannot change published content.
         with full_source_path.open('rb') as stream:
@@ -75,6 +78,12 @@ class ReproBuilder:
         # Validate document with pack_v2 validate_document
         validate_document(doc, language, self.repo_root, fixture_only=fixture_only)
 
+        grammar = []
+        grammar_path = full_source_path.parent / f"{language}.grammar.json"
+        if grammar_path.exists():
+            with open(grammar_path, 'r', encoding='utf-8') as f:
+                grammar = json.load(f)
+
         output_dir.mkdir(parents=True, exist_ok=True)
 
         # Stage on the destination filesystem; os.replace stays atomic.
@@ -83,7 +92,7 @@ class ReproBuilder:
 
             # make_database
             try:
-                counts = make_database(doc, language, [], temp_db)
+                counts = make_database(doc, language, grammar, temp_db)
                 # verify sqlite integrity
                 check_sqlite(temp_db, language)
             except Exception as e:
