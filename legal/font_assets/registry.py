@@ -14,6 +14,19 @@ FONT_LICENSES = frozenset({"OFL-1.1", "UFL-1.0", "Apache-2.0", "MIT", "CC0-1.0",
 UNKNOWN_SOURCE_LABELS = frozenset({"unknown", "unknown vendor"})
 MIXED_FAMILY_LABELS = frozenset({"mixed", "mixed families"})
 
+def _get_valid_scripts(repo_root):
+    if repo_root is None:
+        return None
+    try:
+        import json
+        registry_path = (Path(repo_root) / "catalog" / "language_registry.v1.json").resolve()
+        if registry_path.is_file():
+            with open(registry_path, "r", encoding="utf-8") as f:
+                catalog = json.load(f)
+                return set(catalog.get("scripts", {}).keys())
+    except Exception:
+        pass
+    return None
 
 def _normalized_label(value):
     if not isinstance(value, str):
@@ -58,6 +71,11 @@ class FontRightsRegistry:
             issues.append("Mixed families are explicitly rejected")
         if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
+        else:
+            valid_scripts = _get_valid_scripts(repo_root)
+            if valid_scripts is not None:
+                if any(s not in valid_scripts for s in asset.scripts):
+                    issues.append("Script not found in canonical registry")
         if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
             issues.append("Unknown, unsupported or unverified rights")
         if not url_ok(asset.origin_url) or not url_ok(asset.license_evidence_url):
