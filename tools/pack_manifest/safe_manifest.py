@@ -156,7 +156,18 @@ def diff(old,new):
     before,after=keyed(old),keyed(new)
     unchanged=[];changed=[]
     for lang in sorted(set(before)&set(after)):
-        if before[lang]==after[lang]:unchanged.append(lang)
+        b_pack = before[lang].copy()
+        a_pack = after[lang].copy()
+
+        # If the sqlite content hash is the same, meaning no payload delta,
+        # we skip repackaging it. We treat it as unchanged if only the archive properties differ.
+        if b_pack.get('sqlite_sha256') == a_pack.get('sqlite_sha256'):
+            b_pack.pop('archive_sha256', None)
+            b_pack.pop('artifact_path', None)
+            a_pack.pop('archive_sha256', None)
+            a_pack.pop('artifact_path', None)
+
+        if b_pack == a_pack:unchanged.append(lang)
         else:changed.append(lang)
     return {'unchanged':unchanged,'added_pending_review':sorted(set(after)-set(before)),
             'removed_pending_review':sorted(set(before)-set(after)),

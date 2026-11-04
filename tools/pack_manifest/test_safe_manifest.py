@@ -90,6 +90,7 @@ class ManifestTests(unittest.TestCase):
 
     def test_safe_diff_requires_manual_id_review(self):
         old=self.generate();new=json.loads(json.dumps(old));new['packs'][0]['archive_sha256']='d'*64
+        new['packs'][0]['sqlite_sha256']='e'*64
         diff=m.diff(old,new)
         self.assertEqual(diff['changed_pending_stable_id_review'],['ar'])
         self.assertFalse(diff['safe_to_apply'])
@@ -142,5 +143,27 @@ class ManifestTests(unittest.TestCase):
         with patch.object(m,'MAX_ARCHIVE',100),patch.object(Path,'stat',lambda _self,*_a,**_k: fake):
             with self.assertRaisesRegex(m.ManifestBlocked,'exceeds max bytes'):
                 m.archive_bytes(path)
+
+    def test_unchanged_sqlite_skips_repackaging(self):
+        old = self.generate()
+        new = json.loads(json.dumps(old))
+
+        # Change archive_sha256 but keep sqlite_sha256 the same
+        new['packs'][0]['archive_sha256'] = 'd'*64
+
+        diff = m.diff(old, new)
+        self.assertEqual(diff['unchanged'], ['ar'])
+        self.assertEqual(diff['changed_pending_stable_id_review'], [])
+
+    def test_changed_sqlite_triggers_review(self):
+        old = self.generate()
+        new = json.loads(json.dumps(old))
+
+        # Change sqlite_sha256
+        new['packs'][0]['sqlite_sha256'] = 'e'*64
+
+        diff = m.diff(old, new)
+        self.assertEqual(diff['changed_pending_stable_id_review'], ['ar'])
+        self.assertEqual(diff['unchanged'], [])
 
 if __name__=='__main__':unittest.main()
