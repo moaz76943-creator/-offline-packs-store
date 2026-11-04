@@ -28,7 +28,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:243",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Один раз в жизни я делаю хорошее дело... И оно бесполезно."
     },
@@ -38,7 +38,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5409",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Давайте что-нибудь попробуем!"
     },
@@ -48,7 +48,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5410",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Мне пора идти спать."
     },
@@ -58,7 +58,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5411",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Что ты делаешь?"
     },
@@ -68,7 +68,7 @@
       "level": "B1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5412",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Что это?"
     },
@@ -78,7 +78,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5413",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Сегодня 18 июня, и это день рождения Мюриэл!"
     },
@@ -88,7 +88,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5414",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "С днём рождения, Мюриэл!"
     },
@@ -98,7 +98,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5415",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Мюриэл сейчас 20."
     },
@@ -108,7 +108,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5416",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Пароль «Muiriel»."
     },
@@ -118,7 +118,7 @@
       "level": "B2",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5419",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "У меня нет слов."
     },
@@ -128,7 +128,7 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5421",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Не знаю, что и сказать."
     },
@@ -138,9 +138,289 @@
       "level": "C1",
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5422",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Это был злой кролик."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5424",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Это новая фотография?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5425",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не знаю, будет ли у меня время."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5426",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Микрофон по какой-то причине до этого не работал."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5427",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Каждый, в итоге, должен учиться сам."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5429",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Учиться нельзя заставлять. Учёбу нужно поощрять."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5430",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Нелегко решать, что правильно, а что нет, но приходится это делать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5431",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Это ничего не изменит."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5433",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я зарабатываю сто евро в день."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5434",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я, может, скоро сдамся и вместо этого пойду вздремну."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5436",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Этого не случится."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5437",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Иногда он очень странен."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5438",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я постараюсь не мешать тебе учиться."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5439",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я могу только догадываться, так ли это и для всех остальных."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5440",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я полагаю, это будет выглядеть несколько иначе, когда ты подумаешь об этом в долгосрочном плане."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5441",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Не беспокойся."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5442",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я скучаю по тебе."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5443",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я позвоню им завтра, когда вернусь домой."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5444",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Мне всегда больше нравились таинственные персонажи."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5445",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Тебе лучше поспать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5446",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я пойду."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5447",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я сказал им послать мне ещё один билет."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5448",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "У тебя не хватает терпения на меня."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5449",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я так жить не могу."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5450",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Когда-то я хотел быть астрофизиком."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5451",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я никогда не любил биологию."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5452",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Последний человек, которому я рассказал свою идею, решил, что я сумасшедший."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5453",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Если бы мир не был таким, каков он сейчас, я мог бы доверять людям."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5454",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "К сожалению, это правда."
     },
     {
       "id": "sentence.statement",
@@ -148,7 +428,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:243",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Один раз в жизни я делаю хорошее дело... И оно бесполезно."
     },
@@ -158,7 +438,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5409",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Давайте что-нибудь попробуем!"
     },
@@ -168,7 +448,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5410",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Мне пора идти спать."
     },
@@ -178,7 +458,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5411",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Что ты делаешь?"
     },
@@ -188,7 +468,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5412",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Что это?"
     },
@@ -198,7 +478,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5413",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Сегодня 18 июня, и это день рождения Мюриэл!"
     },
@@ -208,7 +488,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5414",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "С днём рождения, Мюриэл!"
     },
@@ -218,7 +498,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5415",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Мюриэл сейчас 20."
     },
@@ -228,7 +508,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5416",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Пароль «Muiriel»."
     },
@@ -238,7 +518,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5419",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "У меня нет слов."
     },
@@ -248,7 +528,7 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5421",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Не знаю, что и сказать."
     },
@@ -258,9 +538,289 @@
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5422",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Это был злой кролик."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5424",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Это новая фотография?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5425",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не знаю, будет ли у меня время."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5426",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Микрофон по какой-то причине до этого не работал."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5427",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Каждый, в итоге, должен учиться сам."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5429",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Учиться нельзя заставлять. Учёбу нужно поощрять."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5430",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Нелегко решать, что правильно, а что нет, но приходится это делать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5431",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Это ничего не изменит."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5433",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я зарабатываю сто евро в день."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5434",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я, может, скоро сдамся и вместо этого пойду вздремну."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5436",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Этого не случится."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5437",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Иногда он очень странен."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5438",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я постараюсь не мешать тебе учиться."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5439",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я могу только догадываться, так ли это и для всех остальных."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5440",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я полагаю, это будет выглядеть несколько иначе, когда ты подумаешь об этом в долгосрочном плане."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5441",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Не беспокойся."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5442",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я скучаю по тебе."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5443",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я позвоню им завтра, когда вернусь домой."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5444",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Мне всегда больше нравились таинственные персонажи."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5445",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Тебе лучше поспать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5446",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я пойду."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5447",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я сказал им послать мне ещё один билет."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5448",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "У тебя не хватает терпения на меня."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5449",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я так жить не могу."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5450",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Когда-то я хотел быть астрофизиком."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5451",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Я никогда не любил биологию."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5452",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Последний человек, которому я рассказал свою идею, решил, что я сумасшедший."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5453",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "Если бы мир не был таким, каков он сейчас, я мог бы доверять людям."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5454",
+      "retrieval_date": "2026-11-03",
+      "source_id": "tatoeba.sentences",
+      "value": "К сожалению, это правда."
     }
   ]
 }
