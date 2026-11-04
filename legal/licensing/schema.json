@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lexical Source Licensing Ledger",
+  "type": "object",
+  "required": ["source_id", "url", "author", "version", "modification_status", "artifact_hash", "license", "status"],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "modification_status": {
+      "enum": ["unmodified", "modified"]
+    },
+    "artifact_hash": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "license": {
+      "type": "object",
+      "required": ["declaration", "evidence"],
+      "properties": {
+        "declaration": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence": {
+          "type": "object",
+          "properties": {
+            "attribution": {
+              "type": "boolean"
+            },
+            "share_alike": {
+              "type": "boolean"
+            },
+            "gfdl_history": {
+              "type": "boolean"
+            },
+            "public_domain": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "status": {
+      "enum": ["verified", "blocked", "reviewRequired"]
+    }
+  }
+}
