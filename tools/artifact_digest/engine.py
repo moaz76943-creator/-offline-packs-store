@@ -43,17 +43,16 @@ def validate_artifact(filepath, metadata):
         raise FileNotFoundError(f"Missing file: {filepath}")
 
     # Provenance requirements
-    required_keys = ['source_id', 'license_id', 'asset_id', 'version']
+    required_keys = ['source_id', 'license_id', 'asset_id', 'version', 'size_bytes']
     for key in required_keys:
-        if key not in metadata or not metadata[key]:
+        if key not in metadata or (metadata[key] is None) or (metadata[key] == ''):
             raise ValueError(f"Invalid provenance: missing or empty {key}")
 
     # Size validation
     declared_size = metadata.get('size_bytes')
-    if declared_size is not None:
-        actual_size = os.path.getsize(filepath)
-        if actual_size != declared_size:
-            raise ValueError(f"Size mismatch: declared {declared_size}, actual {actual_size}")
+    actual_size = os.path.getsize(filepath)
+    if actual_size != declared_size:
+        raise ValueError(f"Size mismatch: declared {declared_size}, actual {actual_size}")
 
     return True
 
@@ -147,7 +146,7 @@ def compare_indexes(old_index, new_index):
             # Check if updated or unchanged
             if old_meta.get('sha256') == new_meta.get('sha256'):
                 is_changed = False
-                for key in ['sha256', 'source_id', 'license_id', 'asset_id', 'version']:
+                for key in ['sha256', 'source_id', 'license_id', 'asset_id', 'version', 'size_bytes']:
                     if old_meta.get(key) != new_meta.get(key):
                         is_changed = True
                         break
