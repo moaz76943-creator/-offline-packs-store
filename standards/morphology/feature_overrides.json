@@ -30,7 +30,8 @@
     "classifiers",
     "honorifics",
     "segmentation",
-    "orthographic_variants"
+    "orthographic_variants",
+    "transliteration"
   ],
   "pilot_languages": [
     "de",
@@ -70,7 +71,8 @@
       "nonconcatenative": "supported",
       "prefix": "supported",
       "suffix": "supported",
-      "clitic": "supported"
+      "clitic": "supported",
+      "transliteration": "supported"
     },
     "en": {
       "number": "supported",
@@ -117,11 +119,13 @@
     },
     "ru": {
       "aspect": "supported",
-      "case": "supported"
+      "case": "supported",
+      "transliteration": "supported"
     },
     "uk": {
       "aspect": "supported",
-      "case": "supported"
+      "case": "supported",
+      "transliteration": "supported"
     },
     "pl": {
       "aspect": "supported",
@@ -162,18 +166,21 @@
       "tone": "supported",
       "analytic": "supported",
       "segmentation": "supported",
-      "orthographic_variants": "supported"
+      "orthographic_variants": "supported",
+      "transliteration": "supported"
     },
     "ja": {
       "classifiers": "supported",
       "honorifics": "supported",
       "segmentation": "supported",
-      "orthographic_variants": "supported"
+      "orthographic_variants": "supported",
+      "transliteration": "supported"
     },
     "ko": {
       "classifiers": "supported",
       "honorifics": "supported",
-      "segmentation": "supported"
+      "segmentation": "supported",
+      "transliteration": "supported"
     },
     "vi": {
       "classifiers": "supported",
@@ -184,15 +191,18 @@
     "th": {
       "classifiers": "supported",
       "tone": "supported",
-      "segmentation": "supported"
+      "segmentation": "supported",
+      "transliteration": "supported"
     },
     "lo": {
       "classifiers": "supported",
       "tone": "supported",
-      "segmentation": "supported"
+      "segmentation": "supported",
+      "transliteration": "supported"
     },
     "sr": {
-      "orthographic_variants": "supported"
+      "orthographic_variants": "supported",
+      "transliteration": "supported"
     }
   },
   "scripts": {
