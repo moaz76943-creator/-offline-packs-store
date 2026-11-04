@@ -11,6 +11,8 @@ from pathlib import Path
 from community.contributions.ingest import ingest, quarantine_submission, main
 
 class TestIngest(unittest.TestCase):
+    """Test suite for the ingest module."""
+
     def setUp(self):
         self.tmpdir = tempfile.mkdtemp()
         self.staging_root = Path(self.tmpdir) / "staging"
