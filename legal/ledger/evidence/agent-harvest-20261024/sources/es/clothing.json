@@ -1,0 +1,38 @@
+{
+  "language": "es",
+  "retrieval_date": "2026-10-19",
+  "rows": [
+    {
+      "concept_id": "concept.q483444",
+      "forms": [
+        "kimono",
+        "quimono",
+        "kimonos",
+        "quimonos"
+      ],
+      "language": "es",
+      "lemma": "kimono",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L941118",
+      "pos": "",
+      "qids": [
+        "Q483444",
+        "Q979202"
+      ],
+      "record_id": "L941118",
+      "retrieval_date": "2026-10-19",
+      "revision": "2409423163",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L941118-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q483444"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "clothing",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

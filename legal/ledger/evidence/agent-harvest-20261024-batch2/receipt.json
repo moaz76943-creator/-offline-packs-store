@@ -1,0 +1,56 @@
+{
+  "actual_rows": 19,
+  "candidate_sha256": "15412053e7bbbc77d856b090f3b5c582c51c68880359813e43222dd50d05fedb",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "2ac92fbf1521a617db59dede784163b939c811e6",
+  "source_files": [
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "a484d8a41cb1465712c6c4cb39909705f0207e0a",
+      "origin_path": "data/agents/harvest/wikidata/en/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024-batch2/sources/en/animals.json",
+      "rows": 5,
+      "sha256": "662b2bc2d99748f9e5bfb31f3fba15e39063073a6ec5e2de63a7826b7171afe9",
+      "topic": "animals"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "71051e469e6d8f1df3c1fc872e7e01eea87b62c5",
+      "origin_path": "data/agents/harvest/wikidata/en/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024-batch2/sources/en/colors.json",
+      "rows": 4,
+      "sha256": "dd37af87a399b3fbf419adbf80b9e83c51af30edf9f4a310b9edf377241780fd",
+      "topic": "colors"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "bccae7bd3b1f62469b90e3cf26bbd813604bf4c2",
+      "origin_path": "data/agents/harvest/wikidata/en/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024-batch2/sources/en/emotions.json",
+      "rows": 9,
+      "sha256": "33c235d37d76c86aa91348a0676f301abe08aff54e59787ea3741d6c21d15bc1",
+      "topic": "emotions"
+    },
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "3231f7f3c3f4809fa911d3c2b89d424b28c14b32",
+      "origin_path": "data/agents/harvest/wikidata/es/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261024-batch2/sources/es/animals.json",
+      "rows": 1,
+      "sha256": "64e957c410dc11dbafedb631b754d371536cfe8138ac71a290cb672251bc351d",
+      "topic": "animals"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

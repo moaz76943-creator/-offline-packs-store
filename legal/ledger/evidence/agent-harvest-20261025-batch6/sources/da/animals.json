@@ -1,0 +1,110 @@
+{
+  "language": "da",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q726",
+      "forms": [
+        "hest",
+        "hesten",
+        "heste",
+        "hestene",
+        "hests",
+        "hestens",
+        "hestes",
+        "hestenes"
+      ],
+      "language": "da",
+      "lemma": "hest",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L42341",
+      "pos": "",
+      "qids": [
+        "Q726",
+        "Q27022",
+        "Q89585622"
+      ],
+      "record_id": "L42341",
+      "retrieval_date": "2026-10-20",
+      "revision": "2448224805",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L42341-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
+      "concept_id": "concept.q59099",
+      "forms": [
+        "planteæder",
+        "planteæderen",
+        "planteædere",
+        "planteæderne"
+      ],
+      "language": "da",
+      "lemma": "planteæder",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L347245",
+      "pos": "",
+      "qids": [
+        "Q59099"
+      ],
+      "record_id": "L347245",
+      "retrieval_date": "2026-10-20",
+      "revision": "2241346541",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L347245-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q59099"
+    },
+    {
+      "concept_id": "concept.q430",
+      "forms": [
+        "dino",
+        "dinoen",
+        "dinoer",
+        "dinoerne"
+      ],
+      "language": "da",
+      "lemma": "dino",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L49654",
+      "pos": "",
+      "qids": [
+        "Q430"
+      ],
+      "record_id": "L49654",
+      "retrieval_date": "2026-10-20",
+      "revision": "966338766",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L49654-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q430"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "animals",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q26401003"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q25326"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q164509"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

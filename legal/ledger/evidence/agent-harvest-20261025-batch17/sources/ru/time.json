@@ -1,0 +1,74 @@
+{
+  "language": "ru",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "хронология",
+        "хронологии",
+        "хронологии",
+        "хронологию",
+        "хронологией",
+        "хронологиею",
+        "хронологии",
+        "хронологии"
+      ],
+      "language": "ru",
+      "lemma": "хронология",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L177761",
+      "pos": "",
+      "qids": [
+        "Q186117",
+        "Q130788"
+      ],
+      "record_id": "L177761",
+      "retrieval_date": "2026-10-25",
+      "revision": "2236739954",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L177761-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q398085",
+      "forms": [
+        "эон",
+        "эона",
+        "эону",
+        "эон",
+        "эоном",
+        "эоне",
+        "эоны",
+        "эонов"
+      ],
+      "language": "ru",
+      "lemma": "эон",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L182626",
+      "pos": "",
+      "qids": [
+        "Q108256",
+        "Q398085"
+      ],
+      "record_id": "L182626",
+      "retrieval_date": "2026-10-25",
+      "revision": "2237362584",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L182626-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q398085"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

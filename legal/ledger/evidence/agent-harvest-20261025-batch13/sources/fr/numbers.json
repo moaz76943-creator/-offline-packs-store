@@ -1,0 +1,35 @@
+{
+  "language": "fr",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q12916",
+      "forms": [
+        "nombre réel",
+        "nombres réels"
+      ],
+      "language": "fr",
+      "lemma": "nombre réel",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1313083",
+      "pos": "",
+      "qids": [
+        "Q12916"
+      ],
+      "record_id": "L1313083",
+      "retrieval_date": "2026-10-25",
+      "revision": "2215899899",
+      "schema_version": "1.0.0",
+      "section": "numbers",
+      "sense_id": "L1313083-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "numbers.q11563",
+      "wikidata": "Q12916"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "numbers",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

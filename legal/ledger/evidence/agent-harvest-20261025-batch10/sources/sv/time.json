@@ -1,0 +1,85 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q28130149",
+      "forms": [
+        "skärmtid",
+        "skärmtiden",
+        "skärmtids",
+        "skärmtidens"
+      ],
+      "language": "sv",
+      "lemma": "skärmtid",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L584851",
+      "pos": "",
+      "qids": [
+        "Q28130149"
+      ],
+      "record_id": "L584851",
+      "retrieval_date": "2026-10-25",
+      "revision": "2484843026",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L584851-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q28130149"
+    },
+    {
+      "concept_id": "concept.q130788",
+      "forms": [
+        "tideräkning",
+        "tideräkningen",
+        "tideräkningar",
+        "tideräkningarna",
+        "tideräknings",
+        "tideräkningens",
+        "tideräkningars",
+        "tideräkningarnas"
+      ],
+      "language": "sv",
+      "lemma": "tideräkning",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L489412",
+      "pos": "",
+      "qids": [
+        "Q130788"
+      ],
+      "record_id": "L489412",
+      "retrieval_date": "2026-10-25",
+      "revision": "2503879937",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L489412-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q130788"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

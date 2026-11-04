@@ -1,0 +1,42 @@
+{
+  "language": "pl",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q12199",
+      "forms": [
+        "dżuma XX wieku",
+        "dżumy XX wieku",
+        "dżumie XX wieku",
+        "dżumę XX wieku",
+        "dżumą XX wieku",
+        "dżumie XX wieku",
+        "dżumo XX wieku",
+        "dżumy XX wieku"
+      ],
+      "language": "pl",
+      "lemma": "dżuma XX wieku",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L35132",
+      "pos": "",
+      "qids": [
+        "Q12199",
+        "Q128135"
+      ],
+      "record_id": "L35132",
+      "retrieval_date": "2026-10-18",
+      "revision": "893436563",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L35132-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q12199"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "health",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

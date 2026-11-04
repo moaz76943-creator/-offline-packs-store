@@ -1,0 +1,101 @@
+{
+  "language": "et",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ihtüoloog",
+        "ihtüoloogi",
+        "ihtüoloogi",
+        "ihtüoloogisse",
+        "ihtüoloogis",
+        "ihtüoloogist",
+        "ihtüoloogile",
+        "ihtüoloogil"
+      ],
+      "language": "et",
+      "lemma": "ihtüoloog",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L357497",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L357497",
+      "retrieval_date": "2026-10-23",
+      "revision": "2327763303",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L357497-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "kalateadlane",
+        "kalateadlase",
+        "kalateadlast",
+        "kalateadlasesse",
+        "kalateadlases",
+        "kalateadlasest",
+        "kalateadlasele",
+        "kalateadlasel"
+      ],
+      "language": "et",
+      "lemma": "kalateadlane",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L360373",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L360373",
+      "retrieval_date": "2026-10-23",
+      "revision": "2327763970",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L360373-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q9149093"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q8178443"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q3303330"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

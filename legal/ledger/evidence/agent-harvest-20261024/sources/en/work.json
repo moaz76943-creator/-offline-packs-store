@@ -1,0 +1,222 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q82955",
+      "forms": [
+        "politician",
+        "politicians"
+      ],
+      "language": "en",
+      "lemma": "politician",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L9594",
+      "pos": "",
+      "qids": [
+        "Q82955"
+      ],
+      "record_id": "L9594",
+      "retrieval_date": "2026-10-19",
+      "revision": "2549919210",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L9594-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q82955"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "actor",
+        "actors"
+      ],
+      "language": "en",
+      "lemma": "actor",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L7011",
+      "pos": "",
+      "qids": [
+        "Q33999",
+        "Q23894381",
+        "Q112619615",
+        "Q33999"
+      ],
+      "record_id": "L7011",
+      "retrieval_date": "2026-10-19",
+      "revision": "2554529217",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L7011-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "actress",
+        "actresses"
+      ],
+      "language": "en",
+      "lemma": "actress",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L7012",
+      "pos": "",
+      "qids": [
+        "Q21169216",
+        "Q33999"
+      ],
+      "record_id": "L7012",
+      "retrieval_date": "2026-10-19",
+      "revision": "2554529735",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L7012-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q33999",
+      "forms": [
+        "star",
+        "stars",
+        "starred",
+        "starring",
+        "starred"
+      ],
+      "language": "en",
+      "lemma": "star",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L11308",
+      "pos": "verb",
+      "qids": [
+        "Q33999",
+        "Q3297652"
+      ],
+      "record_id": "L11308",
+      "retrieval_date": "2026-10-19",
+      "revision": "2514236570",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L11308-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q33999"
+    },
+    {
+      "concept_id": "concept.q3126128",
+      "forms": [
+        "geneticist",
+        "geneticists"
+      ],
+      "language": "en",
+      "lemma": "geneticist",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L86298",
+      "pos": "",
+      "qids": [
+        "Q3126128"
+      ],
+      "record_id": "L86298",
+      "retrieval_date": "2026-10-23",
+      "revision": "2549888042",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L86298-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3126128"
+    },
+    {
+      "concept_id": "concept.q9149093",
+      "forms": [
+        "mountaineer",
+        "mountaineers"
+      ],
+      "language": "en",
+      "lemma": "mountaineer",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L324197",
+      "pos": "",
+      "qids": [
+        "Q9149093"
+      ],
+      "record_id": "L324197",
+      "retrieval_date": "2026-10-23",
+      "revision": "2306540946",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L324197-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q9149093"
+    },
+    {
+      "concept_id": "concept.q4205432",
+      "forms": [
+        "ichthyologist",
+        "ichthyologists"
+      ],
+      "language": "en",
+      "lemma": "ichthyologist",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L36014",
+      "pos": "",
+      "qids": [
+        "Q4205432"
+      ],
+      "record_id": "L36014",
+      "retrieval_date": "2026-10-23",
+      "revision": "2551585516",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L36014-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q4205432"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3126128"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q9149093"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q4205432"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q8178443"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q3303330"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

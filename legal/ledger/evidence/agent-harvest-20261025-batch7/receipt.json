@@ -1,0 +1,56 @@
+{
+  "actual_rows": 4,
+  "candidate_sha256": "3588851dca20892e03d5dcfed2e914af3eaf6c46073a45b5b9ca71882d92a10e",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "2ac92fbf1521a617db59dede784163b939c811e6",
+  "source_files": [
+    {
+      "language": "eu",
+      "origin_git_blob_sha1": "f8123e5ac57d8dc7ae519bf10e243ce73d444fa7",
+      "origin_path": "data/agents/harvest/wikidata/eu/animals.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch7/sources/eu/animals.json",
+      "rows": 1,
+      "sha256": "e9509470d874f61d5caadbd06d22f4c2bbc9b4bae754410290b65417a261c2db",
+      "topic": "animals"
+    },
+    {
+      "language": "eu",
+      "origin_git_blob_sha1": "d81e7a2079c2ac3a5764aa82096925955d264f2b",
+      "origin_path": "data/agents/harvest/wikidata/eu/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch7/sources/eu/emotions.json",
+      "rows": 1,
+      "sha256": "5a66b4fa0d6dee9fe284bf26b388b5d4a3d1f0490fb4bf49cbae40590e4fdedc",
+      "topic": "emotions"
+    },
+    {
+      "language": "eu",
+      "origin_git_blob_sha1": "c80863a8e6b980779190a75b2f446500c84d035b",
+      "origin_path": "data/agents/harvest/wikidata/eu/work.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch7/sources/eu/work.json",
+      "rows": 1,
+      "sha256": "fb367e0bce0934bf80b8e688a805a1a6cca766968c6dcd5433219ff1809b119a",
+      "topic": "work"
+    },
+    {
+      "language": "la",
+      "origin_git_blob_sha1": "aa0b3011c23d0919a6477611d916e8b1dac67865",
+      "origin_path": "data/agents/harvest/wikidata/la/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch7/sources/la/city.json",
+      "rows": 1,
+      "sha256": "1a294a56f0f11c3f0e2caadf9be270a8f88e8b4c038e32674e11181cd354fec5",
+      "topic": "city"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

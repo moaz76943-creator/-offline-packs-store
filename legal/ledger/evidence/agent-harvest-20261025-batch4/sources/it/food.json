@@ -1,0 +1,36 @@
+{
+  "language": "it",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "frumento",
+        "frumenti"
+      ],
+      "language": "it",
+      "lemma": "frumento",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L689572",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q15645384"
+      ],
+      "record_id": "L689572",
+      "retrieval_date": "2026-10-18",
+      "revision": "2230360687",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L689572-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

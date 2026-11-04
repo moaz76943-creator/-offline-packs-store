@@ -1,0 +1,65 @@
+{
+  "actual_rows": 12,
+  "candidate_sha256": "e7a9df25ab2f4bbf1b11831a6458d7983fa87b0cad2dc76dc4eee596fea5c098",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "2ac92fbf1521a617db59dede784163b939c811e6",
+  "source_files": [
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "1d170a8b47b2d9b72de5dc04b03ce7bc1a5d0b22",
+      "origin_path": "data/agents/harvest/wikidata/en/body.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch4/sources/en/body.json",
+      "rows": 1,
+      "sha256": "4299eba4ad8a09c297212dce2067445ec7301d44807af2b7c0b10f9873dfdb0a",
+      "topic": "body"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "1753e7d3e69dde14f6d92f96421d3b94b5c05281",
+      "origin_path": "data/agents/harvest/wikidata/it/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch4/sources/it/food.json",
+      "rows": 1,
+      "sha256": "80cc62d9d0b84c06b714994c96fc4aab561ab6d08c9d64d414a51a805376b803",
+      "topic": "food"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "3d54e7847feb7ef03c55f0625485afdefe23a4cb",
+      "origin_path": "data/agents/harvest/wikidata/ru/food.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch4/sources/ru/food.json",
+      "rows": 2,
+      "sha256": "8840944e9a1c3ce21f37e547c37b9d540cea8625787b6d31690875b9a6ddca2e",
+      "topic": "food"
+    },
+    {
+      "language": "cs",
+      "origin_git_blob_sha1": "0b1d697b649f7a79e5d08ceabc27c746d4ef9b60",
+      "origin_path": "data/agents/harvest/wikidata/cs/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch4/sources/cs/city.json",
+      "rows": 5,
+      "sha256": "82f2b8716ab3dca7f3c8755fe8253cd2ef58850decc1f16544402602efe35956",
+      "topic": "city"
+    },
+    {
+      "language": "da",
+      "origin_git_blob_sha1": "31ab5302715852e25837d17100d9c8549757aae1",
+      "origin_path": "data/agents/harvest/wikidata/da/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch4/sources/da/city.json",
+      "rows": 3,
+      "sha256": "4b9c5c7bb9409065ac74996e462b279fbd8c1772df6b465a5cfb40d2ef4794f3",
+      "topic": "city"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

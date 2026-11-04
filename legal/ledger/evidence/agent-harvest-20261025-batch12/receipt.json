@@ -1,0 +1,92 @@
+{
+  "actual_rows": 9,
+  "candidate_sha256": "28dd4a5e52826fb97f78370b562cbdf78fad0872517638d13320517845002f57",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "b9ee04521ba4305bc8d486392fc2f847569c6fde",
+  "source_files": [
+    {
+      "language": "et",
+      "origin_git_blob_sha1": "2a61c038d20dfb160f3d88b471a5bbe05e393625",
+      "origin_path": "data/agents/harvest/wikidata/et/colors.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch12/sources/et/colors.json",
+      "rows": 1,
+      "sha256": "af191876f552ab965980155f37b879ac25571c97f6e348dc4dce6cc02dabe421",
+      "topic": "colors"
+    },
+    {
+      "language": "et",
+      "origin_git_blob_sha1": "7337eb34a7d4ed8251e798995c6af76388255d12",
+      "origin_path": "data/agents/harvest/wikidata/et/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch12/sources/et/emotions.json",
+      "rows": 1,
+      "sha256": "67bf48f5b054993635dda32af9e71c99dd5571dbd74f8c6ad2dea8d236914a0f",
+      "topic": "emotions"
+    },
+    {
+      "language": "eu",
+      "origin_git_blob_sha1": "9df076945a77d5287ece465a23fe21e3be0b1a23",
+      "origin_path": "data/agents/harvest/wikidata/eu/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch12/sources/eu/time.json",
+      "rows": 2,
+      "sha256": "e073174862e00471362b89b267905a845b8a4de0eb526f80935830f2c71b04ad",
+      "topic": "time"
+    },
+    {
+      "language": "ko",
+      "origin_git_blob_sha1": "385cebeda124ca058a772f1f078c81d6af220c78",
+      "origin_path": "data/agents/harvest/wikidata/ko/city.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch12/sources/ko/city.json",
+      "rows": 1,
+      "sha256": "f1f5f1a8a1080bac20a0be6e4f2464a9d8a8afacd0a6209ce39cc81f0b00e3aa",
+      "topic": "city"
+    },
+    {
+      "language": "ml",
+      "origin_git_blob_sha1": "b023ec8abf025dccd0c43eebe8d5b33d11d6ac6f",
+      "origin_path": "data/agents/harvest/wikidata/ml/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch12/sources/ml/clothing.json",
+      "rows": 1,
+      "sha256": "51d18729615b4ca4a83c1d1613bc841acff8a12e192a261b2885ec8c165ecdc6",
+      "topic": "clothing"
+    },
+    {
+      "language": "ml",
+      "origin_git_blob_sha1": "c92014ce15eea0097fecdab6f8a224cd66ae3a6a",
+      "origin_path": "data/agents/harvest/wikidata/ml/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch12/sources/ml/time.json",
+      "rows": 1,
+      "sha256": "d63858e4c3465d95d2d246620d695134eb0155e03a9b7c20159a03b25e3d6dfa",
+      "topic": "time"
+    },
+    {
+      "language": "pa",
+      "origin_git_blob_sha1": "9765cd1ae5ad5337fab9cb953baaa30555c93acf",
+      "origin_path": "data/agents/harvest/wikidata/pa/clothing.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch12/sources/pa/clothing.json",
+      "rows": 1,
+      "sha256": "27fb472c13d5c094d134399401e0580312a8f01dbaf41b84f539832014d1f84d",
+      "topic": "clothing"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "b0bf99bff6f5f4613d805390fee326aafac97142",
+      "origin_path": "data/agents/harvest/wikidata/ru/body.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch12/sources/ru/body.json",
+      "rows": 1,
+      "sha256": "37373f38a4bcbd37b0b5c8ca8a2af9df685756c3968a15d3d29e3e640274bee2",
+      "topic": "body"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

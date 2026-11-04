@@ -1,0 +1,35 @@
+{
+  "language": "ko",
+  "retrieval_date": "2026-10-22",
+  "rows": [
+    {
+      "concept_id": "concept.q319763",
+      "forms": [
+        "콤플렉스"
+      ],
+      "language": "ko",
+      "lemma": "콤플렉스",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L992174",
+      "pos": "",
+      "qids": [
+        "Q319763",
+        "Q679989"
+      ],
+      "record_id": "L992174",
+      "retrieval_date": "2026-10-22",
+      "revision": "1816583000",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L992174-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q319763"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "health",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

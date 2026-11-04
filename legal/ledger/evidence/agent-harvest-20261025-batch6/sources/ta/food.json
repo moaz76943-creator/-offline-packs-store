@@ -1,0 +1,35 @@
+{
+  "language": "ta",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "கோதுமை"
+      ],
+      "language": "ta",
+      "lemma": "கோதுமை",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L40897",
+      "pos": "",
+      "qids": [
+        "Q15645384",
+        "Q12106"
+      ],
+      "record_id": "L40897",
+      "retrieval_date": "2026-10-18",
+      "revision": "2165592434",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L40897-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,36 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q2346768",
+      "forms": [
+        "aperture",
+        "apetures"
+      ],
+      "language": "en",
+      "lemma": "aperture",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L43934",
+      "pos": "",
+      "qids": [
+        "Q6434802",
+        "Q2346768"
+      ],
+      "record_id": "L43934",
+      "retrieval_date": "2026-10-23",
+      "revision": "2549765919",
+      "schema_version": "1.0.0",
+      "section": "body",
+      "sense_id": "L43934-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "body.q4936952",
+      "wikidata": "Q2346768"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "body",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

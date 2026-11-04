@@ -1,0 +1,56 @@
+{
+  "actual_rows": 13,
+  "candidate_sha256": "fbe169f3fa7b7065b482a9ff05d83379c2a8ef5cab7cd4e47b8019a65baa81c2",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "4373c61cbd60f35b84008970f60521972566ae56",
+  "source_files": [
+    {
+      "language": "de",
+      "origin_git_blob_sha1": "eb91e9c86efffd0f846193a8e552206e6aa25ac5",
+      "origin_path": "data/agents/harvest/wikidata/de/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch9/sources/de/time.json",
+      "rows": 5,
+      "sha256": "15de3b548bf6a73affa58cdd110ef5436a402674504472c7f319e9df4b1548c0",
+      "topic": "time"
+    },
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "950a9f4ffa5c8e9f7b57607cea01c26f8b43790f",
+      "origin_path": "data/agents/harvest/wikidata/en/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch9/sources/en/time.json",
+      "rows": 5,
+      "sha256": "cfc2214c69720d3a2d8eafab5c179ada1a67b5a16cb1b120ed4396db8ca6b08c",
+      "topic": "time"
+    },
+    {
+      "language": "es",
+      "origin_git_blob_sha1": "42a56b8addb7962c29c65074f5af509757f4922c",
+      "origin_path": "data/agents/harvest/wikidata/es/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch9/sources/es/time.json",
+      "rows": 1,
+      "sha256": "1a1bd70e29ea78e301c8e0f03e8f981d4289a2a2707621c37e10af907669c0e7",
+      "topic": "time"
+    },
+    {
+      "language": "fr",
+      "origin_git_blob_sha1": "f1d95d10a1d16dbdddf247bbcef067362b1c2af0",
+      "origin_path": "data/agents/harvest/wikidata/fr/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch9/sources/fr/time.json",
+      "rows": 2,
+      "sha256": "4568eda0691a40457a610db087ff3beaed77c8dfcf004725f7844cf4f244245a",
+      "topic": "time"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

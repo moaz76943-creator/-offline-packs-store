@@ -1,0 +1,32 @@
+{
+  "actual_rows": 1,
+  "candidate_sha256": "427334033748bb8d51d80b53281f1d8430f0e00342a1e9640c74cb65d7c22103",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "93e6ae4dcf05efa163e94ea91a503d9802c6d8b8",
+  "source_files": [
+    {
+      "language": "en",
+      "origin_git_blob_sha1": "16a40abe3797a353bc03e5e983d6e1b30f41fb83",
+      "origin_path": "data/agents/harvest/wikidata/en/emotions.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261026-batch19/sources/en/emotions.json",
+      "rows": 10,
+      "selected_sense_ids": [
+        "L25439-S1"
+      ],
+      "sha256": "20c65ee70744ef004e13f7025efd5d009a283c6ff13eafaf5cb143aaf995950d",
+      "topic": "emotions"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

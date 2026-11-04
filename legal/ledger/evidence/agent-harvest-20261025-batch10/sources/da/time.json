@@ -1,0 +1,58 @@
+{
+  "language": "da",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q28130149",
+      "forms": [
+        "skærmtid",
+        "skærmtiden",
+        "skærmtider",
+        "skærmtiderne",
+        "skærmtids",
+        "skærmtidens",
+        "skærmtiders",
+        "skærmtidernes"
+      ],
+      "language": "da",
+      "lemma": "skærmtid",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1187944",
+      "pos": "",
+      "qids": [
+        "Q28130149"
+      ],
+      "record_id": "L1187944",
+      "retrieval_date": "2026-10-25",
+      "revision": "1987189566",
+      "schema_version": "1.0.0",
+      "section": "time",
+      "sense_id": "L1187944-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "time.q11471",
+      "wikidata": "Q28130149"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "time",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

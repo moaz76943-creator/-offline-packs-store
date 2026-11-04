@@ -1,0 +1,53 @@
+{
+  "actual_rows": 25,
+  "candidate_sha256": "f9d14135d0564cb1940c48d72512eb0ac1d905fcde4e1d9931b81b995bd97145",
+  "cefr_level": "UNKNOWN",
+  "directed_translations": 0,
+  "examples": 0,
+  "form_count": 40,
+  "lexeme_count": 3,
+  "license_evidence_path": "legal/ledger/evidence/wikidata-20261023/copyright-1523614187.txt",
+  "license_evidence_sha256": "a74df271d6e2cceb81f71967fb180c66d08c33a670d14d8b64448ee9ef286396",
+  "license_id": "CC0-1.0",
+  "notes": "One candidate per attested sense, with separate lexeme/form identities. P5137 and P9970 are preserved as source claims only, not translation assertions. No original Wikidata source bytes duplicated, no independent legal approval inferred.",
+  "original_lexeme_json_pinned": true,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Special:EntityData original revision-pinned Lexeme JSON already retained in main",
+  "source_admission_approved": false,
+  "source_files": [
+    {
+      "forms": 32,
+      "language": "de",
+      "language_qid": "Q188",
+      "lexeme_id": "L1026",
+      "path": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json",
+      "revision": 2457144138,
+      "senses": 5,
+      "sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2"
+    },
+    {
+      "forms": 5,
+      "language": "en",
+      "language_qid": "Q1860",
+      "lexeme_id": "L3006",
+      "path": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "revision": 2549891188,
+      "senses": 19,
+      "sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa"
+    },
+    {
+      "forms": 3,
+      "language": "ar",
+      "language_qid": "Q13955",
+      "lexeme_id": "L7882",
+      "path": "legal/ledger/evidence/wikidata-20261023/L7882-2548839684.json",
+      "revision": 2548839684,
+      "senses": 1,
+      "sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d"
+    }
+  ],
+  "status": "REVIEW_REQUIRED",
+  "topic_estimates": 3,
+  "unassigned_topics": 22
+}

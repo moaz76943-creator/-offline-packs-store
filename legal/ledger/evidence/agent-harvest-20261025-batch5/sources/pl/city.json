@@ -1,0 +1,251 @@
+{
+  "language": "pl",
+  "retrieval_date": "2026-10-24",
+  "rows": [
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratysława",
+        "Bratysławy",
+        "Bratysławie",
+        "Bratysławę",
+        "Bratysławą",
+        "Bratysławie",
+        "Bratysławo"
+      ],
+      "language": "pl",
+      "lemma": "Bratysława",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L730959",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L730959",
+      "retrieval_date": "2026-10-20",
+      "revision": "2298303102",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L730959-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q41252",
+      "forms": [
+        "Bydgoszcz",
+        "Bydgoszczy",
+        "Bydgoszczy",
+        "Bydgoszcz",
+        "Bydgoszczą",
+        "Bydgoszczy",
+        "Bydgoszczy",
+        "Bydgoszcze"
+      ],
+      "language": "pl",
+      "lemma": "Bydgoszcz",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1215757",
+      "pos": "",
+      "qids": [
+        "Q41252",
+        "Q5003992"
+      ],
+      "record_id": "L1215757",
+      "retrieval_date": "2026-10-24",
+      "revision": "2036630589",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1215757-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q41252"
+    },
+    {
+      "concept_id": "concept.q1754",
+      "forms": [
+        "Sztokholm",
+        "Sztokholmu",
+        "Sztokholmowi",
+        "Sztokholm",
+        "Sztokholmem",
+        "Sztokholmie",
+        "Sztokholmie"
+      ],
+      "language": "pl",
+      "lemma": "Sztokholm",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L730960",
+      "pos": "",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "L730960",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337973386",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L730960-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "concept_id": "concept.q270",
+      "forms": [
+        "Warszawa",
+        "Warszawy",
+        "Warszawie",
+        "Warszawę",
+        "Warszawą",
+        "Warszawie",
+        "Warszawo",
+        "Warszawy"
+      ],
+      "language": "pl",
+      "lemma": "Warszawa",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L2041",
+      "pos": "",
+      "qids": [
+        "Q270",
+        "Q9371134",
+        "Q7970959",
+        "Q7970956",
+        "Q30910818",
+        "Q30911370",
+        "Q30911357",
+        "Q30911311"
+      ],
+      "record_id": "L2041",
+      "retrieval_date": "2026-10-24",
+      "revision": "2442939209",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L2041-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q270",
+      "forms": [
+        "warszawski",
+        "warszawska",
+        "warszawskie",
+        "warszawscy",
+        "warszawskie"
+      ],
+      "language": "pl",
+      "lemma": "warszawski",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L52987",
+      "pos": "",
+      "qids": [
+        "Q270"
+      ],
+      "record_id": "L52987",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337980333",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L52987-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q23436",
+      "forms": [
+        "Edynburg",
+        "Edynburga",
+        "Edyburgowi",
+        "Edynburg",
+        "Edynburgiem",
+        "Edynburgu",
+        "Edynburgu",
+        "Edynburgi"
+      ],
+      "language": "pl",
+      "lemma": "Edynburg",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L727893",
+      "pos": "",
+      "qids": [
+        "Q23436"
+      ],
+      "record_id": "L727893",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337979105",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L727893-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q23436"
+    },
+    {
+      "concept_id": "concept.q36600",
+      "forms": [
+        "Haga",
+        "Hagi",
+        "Hadze",
+        "Hagę",
+        "Hagą",
+        "Hadze",
+        "Hago",
+        "Hagi"
+      ],
+      "language": "pl",
+      "lemma": "Haga",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L728170",
+      "pos": "",
+      "qids": [
+        "Q36600"
+      ],
+      "record_id": "L728170",
+      "retrieval_date": "2026-10-24",
+      "revision": "2337974401",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L728170-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36600"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q62"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1794"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1489"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,1061 @@
+{
+  "actual_rows": 25,
+  "candidates": [
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": [
+          "Q19279529"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "ar:L7882:L7882-S1",
+      "intent": null,
+      "language": "ar",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L7882",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L7882-S1",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L7882-2548839684.json",
+      "subtopic": null,
+      "topic": "activities",
+      "topic_status": "MAPPED_ESTIMATE"
+    },
+    {
+      "concept_links": {
+        "P5137": [
+          "Q25443024"
+        ],
+        "P9970": [
+          "Q6537379"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "de:L1026:L1026-S1",
+      "intent": null,
+      "language": "de",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L1026",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L1026-S1",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": [
+          "Q21171241"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "de:L1026:L1026-S2",
+      "intent": null,
+      "language": "de",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L1026",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L1026-S2",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": [
+          "Q30295815"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "de:L1026:L1026-S3",
+      "intent": null,
+      "language": "de",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L1026",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L1026-S3",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": [
+          "Q2918584"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "de:L1026:L1026-S5",
+      "intent": null,
+      "language": "de",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L1026",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L1026-S5",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": [
+          "Q19279529"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "de:L1026:L1026-S6",
+      "intent": null,
+      "language": "de",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L1026",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L1026-S6",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json",
+      "subtopic": null,
+      "topic": "activities",
+      "topic_status": "MAPPED_ESTIMATE"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": [
+          "Q19279529"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S1",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S1",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "activities",
+      "topic_status": "MAPPED_ESTIMATE"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S10",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S10",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S11",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S11",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S12",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S12",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S13",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S13",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S14",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S14",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S15",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S15",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S16",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S16",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S17",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S17",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S18",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S18",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S19",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S19",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": [
+          "Q21171241"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S2",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S2",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S20",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S20",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S4",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S4",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": [
+          "Q11639276"
+        ]
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S5",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S5",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S6",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S6",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S7",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S7",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S8",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S8",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    },
+    {
+      "concept_links": {
+        "P5137": [],
+        "P9970": []
+      },
+      "directed_translations": [],
+      "examples": [],
+      "grammar": null,
+      "id": "en:L3006:L3006-S9",
+      "intent": null,
+      "language": "en",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L3006",
+      "review_status": "REVIEW_REQUIRED",
+      "scenario": null,
+      "sense_id": "L3006-S9",
+      "skill": null,
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json",
+      "subtopic": null,
+      "topic": "UNASSIGNED",
+      "topic_status": "UNKNOWN"
+    }
+  ],
+  "form_count": 40,
+  "lexeme_count": 3,
+  "lexemes": [
+    {
+      "forms": [
+        {
+          "form_id": "L7882-F1",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q124351233",
+            "Q1317831",
+            "Q499327",
+            "Q51929074"
+          ],
+          "surface": "ذَهَبَ"
+        },
+        {
+          "form_id": "L7882-F2",
+          "grammatical_feature_qids": [],
+          "surface": "ذَهَبْتُ"
+        },
+        {
+          "form_id": "L7882-F3",
+          "grammatical_feature_qids": [],
+          "surface": "أذْهَبُ"
+        }
+      ],
+      "language": "ar",
+      "lemma": "ذَهَبَ",
+      "lexeme_id": "L7882",
+      "lexical_category_qid": "Q24905",
+      "revision": 2548839684,
+      "source_sha256": "b147755e4266a4305d6dc2a0670d03025f1b938a4afa87e738ff8a73c370da5d",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L7882-2548839684.json"
+    },
+    {
+      "forms": [
+        {
+          "form_id": "L1026-F1",
+          "grammatical_feature_qids": [
+            "Q12717679"
+          ],
+          "surface": "gegangen"
+        },
+        {
+          "form_id": "L1026-F2",
+          "grammatical_feature_qids": [
+            "Q10345583"
+          ],
+          "surface": "gehend"
+        },
+        {
+          "form_id": "L1026-F3",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q21714344",
+            "Q682111"
+          ],
+          "surface": "gehe"
+        },
+        {
+          "form_id": "L1026-F4",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q51929049",
+            "Q682111"
+          ],
+          "surface": "gehst"
+        },
+        {
+          "form_id": "L1026-F5",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q51929074",
+            "Q682111"
+          ],
+          "surface": "geht"
+        },
+        {
+          "form_id": "L1026-F6",
+          "grammatical_feature_qids": [
+            "Q179230"
+          ],
+          "surface": "gehen"
+        },
+        {
+          "form_id": "L1026-F7",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q21714344",
+            "Q682111"
+          ],
+          "surface": "gehen"
+        },
+        {
+          "form_id": "L1026-F8",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q51929049",
+            "Q682111"
+          ],
+          "surface": "geht"
+        },
+        {
+          "form_id": "L1026-F9",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q51929074",
+            "Q682111"
+          ],
+          "surface": "gehen"
+        },
+        {
+          "form_id": "L1026-F10",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q21714344",
+            "Q442485",
+            "Q682111"
+          ],
+          "surface": "ging"
+        },
+        {
+          "form_id": "L1026-F11",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q442485",
+            "Q51929049",
+            "Q682111"
+          ],
+          "surface": "gingst"
+        },
+        {
+          "form_id": "L1026-F12",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q442485",
+            "Q51929074",
+            "Q682111"
+          ],
+          "surface": "ging"
+        },
+        {
+          "form_id": "L1026-F13",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q21714344",
+            "Q442485",
+            "Q682111"
+          ],
+          "surface": "gingen"
+        },
+        {
+          "form_id": "L1026-F14",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q442485",
+            "Q51929049",
+            "Q682111"
+          ],
+          "surface": "gingt"
+        },
+        {
+          "form_id": "L1026-F15",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q442485",
+            "Q51929074",
+            "Q682111"
+          ],
+          "surface": "gingen"
+        },
+        {
+          "form_id": "L1026-F16",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q22716",
+            "Q51929049",
+            "Q55228835"
+          ],
+          "surface": "geh"
+        },
+        {
+          "form_id": "L1026-F17",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q22716",
+            "Q51929049"
+          ],
+          "surface": "gehe"
+        },
+        {
+          "form_id": "L1026-F18",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q22716",
+            "Q51929049"
+          ],
+          "surface": "geht"
+        },
+        {
+          "form_id": "L1026-F19",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q22716",
+            "Q51929049"
+          ],
+          "surface": "gehet"
+        },
+        {
+          "form_id": "L1026-F20",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q21714344",
+            "Q442485",
+            "Q54671845"
+          ],
+          "surface": "ginge"
+        },
+        {
+          "form_id": "L1026-F21",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q51929049",
+            "Q55685962"
+          ],
+          "surface": "gehest"
+        },
+        {
+          "form_id": "L1026-F22",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q21714344",
+            "Q55685962"
+          ],
+          "surface": "gehe"
+        },
+        {
+          "form_id": "L1026-F23",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q192613",
+            "Q51929074",
+            "Q55685962"
+          ],
+          "surface": "gehe"
+        },
+        {
+          "form_id": "L1026-F24",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q21714344",
+            "Q55685962"
+          ],
+          "surface": "gehen"
+        },
+        {
+          "form_id": "L1026-F25",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q51929049",
+            "Q55685962"
+          ],
+          "surface": "gehet"
+        },
+        {
+          "form_id": "L1026-F26",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q192613",
+            "Q51929074",
+            "Q55685962"
+          ],
+          "surface": "gehen"
+        },
+        {
+          "form_id": "L1026-F28",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q442485",
+            "Q51929049",
+            "Q54671845"
+          ],
+          "surface": "gingest"
+        },
+        {
+          "form_id": "L1026-F29",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q1317831",
+            "Q442485",
+            "Q51929074",
+            "Q54671845"
+          ],
+          "surface": "ginge"
+        },
+        {
+          "form_id": "L1026-F30",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q21714344",
+            "Q442485",
+            "Q54671845"
+          ],
+          "surface": "gingen"
+        },
+        {
+          "form_id": "L1026-F31",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q442485",
+            "Q51929049",
+            "Q54671845"
+          ],
+          "surface": "ginget"
+        },
+        {
+          "form_id": "L1026-F32",
+          "grammatical_feature_qids": [
+            "Q1317831",
+            "Q146786",
+            "Q442485",
+            "Q51929074",
+            "Q54671845"
+          ],
+          "surface": "gingen"
+        },
+        {
+          "form_id": "L1026-F41",
+          "grammatical_feature_qids": [
+            "Q100952920"
+          ],
+          "surface": "zu gehen"
+        }
+      ],
+      "language": "de",
+      "lemma": "gehen",
+      "lexeme_id": "L1026",
+      "lexical_category_qid": "Q24905",
+      "revision": 2457144138,
+      "source_sha256": "ce04495fa86963798a2bf5b0bbf65880d90268e74d3eed060de944f5f2c5cbb2",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L1026-2457144138.json"
+    },
+    {
+      "forms": [
+        {
+          "form_id": "L3006-F1",
+          "grammatical_feature_qids": [
+            "Q3910936"
+          ],
+          "surface": "go"
+        },
+        {
+          "form_id": "L3006-F2",
+          "grammatical_feature_qids": [
+            "Q110786",
+            "Q3910936",
+            "Q51929074"
+          ],
+          "surface": "goes"
+        },
+        {
+          "form_id": "L3006-F3",
+          "grammatical_feature_qids": [
+            "Q1392475"
+          ],
+          "surface": "went"
+        },
+        {
+          "form_id": "L3006-F4",
+          "grammatical_feature_qids": [
+            "Q1230649"
+          ],
+          "surface": "gone"
+        },
+        {
+          "form_id": "L3006-F5",
+          "grammatical_feature_qids": [
+            "Q10345583"
+          ],
+          "surface": "going"
+        }
+      ],
+      "language": "en",
+      "lemma": "go",
+      "lexeme_id": "L3006",
+      "lexical_category_qid": "Q24905",
+      "revision": 2549891188,
+      "source_sha256": "7e3bc9a51337eae5996b382c3ca3083266530ae15e2806a19b13ed9a076372fa",
+      "source_snapshot": "legal/ledger/evidence/wikidata-20261023/L3006-2549891188.json"
+    }
+  ],
+  "production_ready": false,
+  "review_status": "REVIEW_REQUIRED",
+  "schema_version": 1,
+  "source_admission_approved": false
+}

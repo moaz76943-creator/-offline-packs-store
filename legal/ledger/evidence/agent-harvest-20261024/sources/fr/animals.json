@@ -1,0 +1,75 @@
+{
+  "language": "fr",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q726",
+      "forms": [
+        "cheval",
+        "chevaux"
+      ],
+      "language": "fr",
+      "lemma": "cheval",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L19113",
+      "pos": "",
+      "qids": [
+        "Q726",
+        "Q27022",
+        "Q136"
+      ],
+      "record_id": "L19113",
+      "retrieval_date": "2026-10-20",
+      "revision": "2455345262",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L19113-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q726"
+    },
+    {
+      "concept_id": "concept.q1141466",
+      "forms": [
+        "pollinisateur",
+        "pollinisateurs"
+      ],
+      "language": "fr",
+      "lemma": "pollinisateur",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1583893",
+      "pos": "",
+      "qids": [
+        "Q1141466"
+      ],
+      "record_id": "L1583893",
+      "retrieval_date": "2026-10-20",
+      "revision": "2527773175",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1583893-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q1141466"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "animals",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q26401003"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q25326"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q164509"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

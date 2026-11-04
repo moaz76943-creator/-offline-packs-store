@@ -1,0 +1,63 @@
+{
+  "actual_rows": 2,
+  "candidates": [
+    {
+      "concept_id": "concept.q3014419",
+      "directed_translations": [],
+      "examples": [],
+      "forms": [
+        "wine",
+        "wines"
+      ],
+      "id": "en:L4710:L4710-S2:concept.q3014419",
+      "language": "en",
+      "lemma": "wine",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L4710",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L4710",
+      "retrieval_date": "2026-10-25",
+      "review_status": "REVIEW_REQUIRED",
+      "revision": "2532910327",
+      "sense_id": "L4710-S2",
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/agent-harvest-20261025-batch18/sources/en/colors.json",
+      "source_snapshot_sha256": "6f533d80182c192d89030a37d4f90af3b04d10a2070f7734695aad926983a150",
+      "subtopic": "colors.q1075",
+      "topic": "colors",
+      "wikidata": "Q3014419"
+    },
+    {
+      "concept_id": "concept.q3014419",
+      "directed_translations": [],
+      "examples": [],
+      "forms": [
+        "vinaccia",
+        "vinacce"
+      ],
+      "id": "it:L1168678:L1168678-S1:concept.q3014419",
+      "language": "it",
+      "lemma": "vinaccia",
+      "level": "UNKNOWN",
+      "level_evidence": null,
+      "lexeme_id": "L1168678",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1168678",
+      "retrieval_date": "2026-10-25",
+      "review_status": "REVIEW_REQUIRED",
+      "revision": "2229017357",
+      "sense_id": "L1168678-S1",
+      "source_id": "wikidata.lexemes",
+      "source_snapshot": "legal/ledger/evidence/agent-harvest-20261025-batch18/sources/it/colors.json",
+      "source_snapshot_sha256": "401f5b1b7695cfb6c2b157d51f044718c9500fd8449c967eb049e23950b9b3fe",
+      "subtopic": "colors.q1075",
+      "topic": "colors",
+      "wikidata": "Q3014419"
+    }
+  ],
+  "production_ready": false,
+  "review_status": "REVIEW_REQUIRED",
+  "schema_version": 1,
+  "source_commit": "767c3ba3eaa25c9677cd4449788614202b0346db"
+}

@@ -1,0 +1,35 @@
+{
+  "language": "it",
+  "retrieval_date": "2026-10-22",
+  "rows": [
+    {
+      "concept_id": "concept.q1423009",
+      "forms": [
+        "zervanismo",
+        "zervanismi"
+      ],
+      "language": "it",
+      "lemma": "zervanismo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1168243",
+      "pos": "",
+      "qids": [
+        "Q1423009"
+      ],
+      "record_id": "L1168243",
+      "retrieval_date": "2026-10-22",
+      "revision": "2311722012",
+      "schema_version": "1.0.0",
+      "section": "religion",
+      "sense_id": "L1168243-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "religion.q9174",
+      "wikidata": "Q1423009"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "religion",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

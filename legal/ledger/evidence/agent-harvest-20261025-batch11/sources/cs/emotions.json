@@ -1,0 +1,50 @@
+{
+  "language": "cs",
+  "retrieval_date": "2026-10-21",
+  "rows": [
+    {
+      "concept_id": "concept.q16868715",
+      "forms": [
+        "úžas",
+        "úžasu",
+        "úžasu",
+        "úžas",
+        "úžase",
+        "úžase",
+        "úžasu",
+        "úžasem"
+      ],
+      "language": "cs",
+      "lemma": "úžas",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1335982",
+      "pos": "",
+      "qids": [
+        "Q16868715"
+      ],
+      "record_id": "L1335982",
+      "retrieval_date": "2026-10-21",
+      "revision": "2214732818",
+      "schema_version": "1.0.0",
+      "section": "emotions",
+      "sense_id": "L1335982-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "emotions.q9415",
+      "wikidata": "Q16868715"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "emotions",
+  "skipped": [
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q10923556"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q2563496"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

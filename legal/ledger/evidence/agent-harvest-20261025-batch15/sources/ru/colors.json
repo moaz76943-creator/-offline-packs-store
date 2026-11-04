@@ -1,0 +1,90 @@
+{
+  "language": "ru",
+  "retrieval_date": "2026-10-25",
+  "rows": [
+    {
+      "concept_id": "concept.q901731",
+      "forms": [
+        "умбра",
+        "умбры",
+        "умбре",
+        "умбру",
+        "умброй",
+        "умброю",
+        "умбре",
+        "умбры"
+      ],
+      "language": "ru",
+      "lemma": "умбра",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L173083",
+      "pos": "",
+      "qids": [
+        "Q901731",
+        "Q30157802"
+      ],
+      "record_id": "L173083",
+      "retrieval_date": "2026-10-25",
+      "revision": "2464559492",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L173083-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q901731"
+    },
+    {
+      "concept_id": "concept.q901731",
+      "forms": [
+        "умбра",
+        "умбры",
+        "умбре",
+        "умбру",
+        "умброй",
+        "умброю",
+        "умбре",
+        "умбры"
+      ],
+      "language": "ru",
+      "lemma": "умбра",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L173084",
+      "pos": "",
+      "qids": [
+        "Q901731"
+      ],
+      "record_id": "L173084",
+      "retrieval_date": "2026-10-25",
+      "revision": "1912075803",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L173084-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q901731"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "colors",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q425278"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q425278"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q1520693"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7622361"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

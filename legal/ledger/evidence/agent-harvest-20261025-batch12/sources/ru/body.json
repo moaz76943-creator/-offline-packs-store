@@ -1,0 +1,42 @@
+{
+  "language": "ru",
+  "retrieval_date": "2026-10-23",
+  "rows": [
+    {
+      "concept_id": "concept.q107246703",
+      "forms": [
+        "пятачок",
+        "пятачка",
+        "пятачку",
+        "пятачок",
+        "пятачком",
+        "пятачке",
+        "пятачки",
+        "пятачков"
+      ],
+      "language": "ru",
+      "lemma": "пятачок",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L154489",
+      "pos": "",
+      "qids": [
+        "Q107246703",
+        "Q2673594"
+      ],
+      "record_id": "L154489",
+      "retrieval_date": "2026-10-23",
+      "revision": "2236750569",
+      "schema_version": "1.0.0",
+      "section": "body",
+      "sense_id": "L154489-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "body.q4936952",
+      "wikidata": "Q107246703"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "body",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

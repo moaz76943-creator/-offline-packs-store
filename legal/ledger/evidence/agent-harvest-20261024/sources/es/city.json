@@ -1,0 +1,177 @@
+{
+  "language": "es",
+  "retrieval_date": "2026-10-24",
+  "rows": [
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava",
+        "Bratislavas"
+      ],
+      "language": "es",
+      "lemma": "Bratislava",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1082006",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L1082006",
+      "retrieval_date": "2026-10-20",
+      "revision": "1859861545",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1082006-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q3711",
+      "forms": [
+        "Belgrado",
+        "Belgrados",
+        "Belgrado",
+        "Belgrados"
+      ],
+      "language": "es",
+      "lemma": "Belgrado",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1131435",
+      "pos": "",
+      "qids": [
+        "Q3711"
+      ],
+      "record_id": "L1131435",
+      "retrieval_date": "2026-10-20",
+      "revision": "2436131794",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1131435-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3711"
+    },
+    {
+      "concept_id": "concept.q3130",
+      "forms": [
+        "Sídney"
+      ],
+      "language": "es",
+      "lemma": "Sídney",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L645398",
+      "pos": "",
+      "qids": [
+        "Q3130"
+      ],
+      "record_id": "L645398",
+      "retrieval_date": "2026-10-20",
+      "revision": "1588105290",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L645398-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3130"
+    },
+    {
+      "concept_id": "concept.q2683",
+      "forms": [
+        "Parma"
+      ],
+      "language": "es",
+      "lemma": "Parma",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1398470",
+      "pos": "",
+      "qids": [
+        "Q2683"
+      ],
+      "record_id": "L1398470",
+      "retrieval_date": "2026-10-24",
+      "revision": "2285754237",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1398470-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2683"
+    },
+    {
+      "concept_id": "concept.q1754",
+      "forms": [
+        "Estocolmo"
+      ],
+      "language": "es",
+      "lemma": "Estocolmo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L645399",
+      "pos": "",
+      "qids": [
+        "Q1754"
+      ],
+      "record_id": "L645399",
+      "retrieval_date": "2026-10-24",
+      "revision": "2436171134",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L645399-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1754"
+    },
+    {
+      "concept_id": "concept.q1492",
+      "forms": [
+        "Barcelona",
+        "Barcelonas"
+      ],
+      "language": "es",
+      "lemma": "Barcelona",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L640120",
+      "pos": "",
+      "qids": [
+        "Q1492",
+        "Q81949"
+      ],
+      "record_id": "L640120",
+      "retrieval_date": "2026-10-24",
+      "revision": "2303242099",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L640120-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1492"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q1492"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1757"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q10690"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q490"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

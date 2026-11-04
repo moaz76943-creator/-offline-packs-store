@@ -1,0 +1,39 @@
+{
+  "language": "pt",
+  "retrieval_date": "2026-10-19",
+  "rows": [
+    {
+      "concept_id": "concept.q3354532",
+      "forms": [
+        "manta",
+        "mantas"
+      ],
+      "language": "pt",
+      "lemma": "manta",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L447041",
+      "pos": "",
+      "qids": [
+        "Q52734062",
+        "Q3354532",
+        "Q1587577",
+        "Q108414082",
+        "Q19"
+      ],
+      "record_id": "L447041",
+      "retrieval_date": "2026-10-19",
+      "revision": "2539216915",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L447041-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q3354532"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "clothing",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

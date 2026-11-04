@@ -1,0 +1,35 @@
+{
+  "language": "da",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q105688",
+      "forms": [
+        "hypoksi",
+        "hypoksien"
+      ],
+      "language": "da",
+      "lemma": "hypoksi",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L641176",
+      "pos": "",
+      "qids": [
+        "Q105688"
+      ],
+      "record_id": "L641176",
+      "retrieval_date": "2026-10-18",
+      "revision": "1568742694",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L641176-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q105688"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "health",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

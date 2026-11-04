@@ -1,0 +1,85 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q2941309",
+      "forms": [
+        "blackcurrant",
+        "blackcurrants"
+      ],
+      "language": "en",
+      "lemma": "blackcurrant",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L58100",
+      "pos": "",
+      "qids": [
+        "Q2941309"
+      ],
+      "record_id": "L58100",
+      "retrieval_date": "2026-10-18",
+      "revision": "2508394084",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L58100-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q2941309"
+    },
+    {
+      "concept_id": "concept.q147651",
+      "forms": [
+        "peanut butter",
+        "peanut butters"
+      ],
+      "language": "en",
+      "lemma": "peanut butter",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1259881",
+      "pos": "",
+      "qids": [
+        "Q147651"
+      ],
+      "record_id": "L1259881",
+      "retrieval_date": "2026-10-18",
+      "revision": "2466088451",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1259881-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q147651"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "noodle",
+        "noodles"
+      ],
+      "language": "en",
+      "lemma": "noodle",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L56521",
+      "pos": "",
+      "qids": [
+        "Q192874"
+      ],
+      "record_id": "L56521",
+      "retrieval_date": "2026-10-18",
+      "revision": "2549893541",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L56521-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

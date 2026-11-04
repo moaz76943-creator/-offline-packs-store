@@ -1,0 +1,41 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-10-19",
+  "rows": [
+    {
+      "concept_id": "concept.q483444",
+      "forms": [
+        "kimono",
+        "kimonon",
+        "kimonor",
+        "kimonorna",
+        "kimonos",
+        "kimonons",
+        "kimonors",
+        "kimonornas"
+      ],
+      "language": "sv",
+      "lemma": "kimono",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L243067",
+      "pos": "",
+      "qids": [
+        "Q483444"
+      ],
+      "record_id": "L243067",
+      "retrieval_date": "2026-10-19",
+      "revision": "2509092329",
+      "schema_version": "1.0.0",
+      "section": "clothing",
+      "sense_id": "L243067-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "clothing.q11460",
+      "wikidata": "Q483444"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "clothing",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

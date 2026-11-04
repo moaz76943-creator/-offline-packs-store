@@ -1,0 +1,100 @@
+{
+  "language": "de",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q2941309",
+      "forms": [
+        "Aalbeere",
+        "Aalbeere",
+        "Aalbeere",
+        "Aalbeere",
+        "Aalbeeren",
+        "Aalbeeren",
+        "Aalbeeren",
+        "Aalbeeren"
+      ],
+      "language": "de",
+      "lemma": "Aalbeere",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1234846",
+      "pos": "",
+      "qids": [
+        "Q2941309"
+      ],
+      "record_id": "L1234846",
+      "retrieval_date": "2026-10-18",
+      "revision": "2508819060",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L1234846-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q2941309"
+    },
+    {
+      "concept_id": "concept.q147651",
+      "forms": [
+        "Erdnussbutter",
+        "Erdnussbutter",
+        "Erdnussbutter",
+        "Erdnussbutter"
+      ],
+      "language": "de",
+      "lemma": "Erdnussbutter",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L400201",
+      "pos": "",
+      "qids": [
+        "Q147651"
+      ],
+      "record_id": "L400201",
+      "retrieval_date": "2026-10-18",
+      "revision": "2453739790",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L400201-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q147651"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "Nudel",
+        "Nudel",
+        "Nudel",
+        "Nudel",
+        "Nudeln",
+        "Nudeln",
+        "Nudeln",
+        "Nudeln"
+      ],
+      "language": "de",
+      "lemma": "Nudel",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L493393",
+      "pos": "",
+      "qids": [
+        "Q178",
+        "Q192874"
+      ],
+      "record_id": "L493393",
+      "retrieval_date": "2026-10-18",
+      "revision": "2514879859",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L493393-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

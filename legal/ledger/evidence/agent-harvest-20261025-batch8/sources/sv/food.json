@@ -1,0 +1,68 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q147651",
+      "forms": [
+        "jordnötssmör",
+        "jordnötssmöret",
+        "jordnötssmörs",
+        "jordnötssmörets"
+      ],
+      "language": "sv",
+      "lemma": "jordnötssmör",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L588219",
+      "pos": "",
+      "qids": [
+        "Q147651"
+      ],
+      "record_id": "L588219",
+      "retrieval_date": "2026-10-18",
+      "revision": "2484061465",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L588219-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q147651"
+    },
+    {
+      "concept_id": "concept.q192874",
+      "forms": [
+        "nudel",
+        "nudeln",
+        "nudlar",
+        "nudlarna",
+        "nudels",
+        "nudelns",
+        "nudlars",
+        "nudlarnas"
+      ],
+      "language": "sv",
+      "lemma": "nudel",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L240055",
+      "pos": "",
+      "qids": [
+        "Q192874"
+      ],
+      "record_id": "L240055",
+      "retrieval_date": "2026-10-18",
+      "revision": "2546533090",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L240055-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q192874"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

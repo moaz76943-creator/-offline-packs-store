@@ -1,0 +1,180 @@
+{
+  "language": "cs",
+  "retrieval_date": "2026-10-24",
+  "rows": [
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Bratislava",
+        "Bratislavy",
+        "Bratislavě",
+        "Bratislavu",
+        "Bratislavo",
+        "Bratislavě",
+        "Bratislavou"
+      ],
+      "language": "cs",
+      "lemma": "Bratislava",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L55439",
+      "pos": "",
+      "qids": [
+        "Q1780"
+      ],
+      "record_id": "L55439",
+      "retrieval_date": "2026-10-20",
+      "revision": "2221192756",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L55439-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    },
+    {
+      "concept_id": "concept.q43453",
+      "forms": [
+        "Plzeň",
+        "Plzně",
+        "Plzni",
+        "Plzeň",
+        "Plzni",
+        "Plzní"
+      ],
+      "language": "cs",
+      "lemma": "Plzeň",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1031450",
+      "pos": "",
+      "qids": [
+        "Q43453"
+      ],
+      "record_id": "L1031450",
+      "retrieval_date": "2026-10-20",
+      "revision": "1853766822",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1031450-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q43453"
+    },
+    {
+      "concept_id": "concept.q1492",
+      "forms": [
+        "Barcelona",
+        "Barcelony",
+        "Barceloně",
+        "Barcelonu",
+        "Barcelono",
+        "Barceloně",
+        "Barcelonou"
+      ],
+      "language": "cs",
+      "lemma": "Barcelona",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L305982",
+      "pos": "",
+      "qids": [
+        "Q1492"
+      ],
+      "record_id": "L305982",
+      "retrieval_date": "2026-10-24",
+      "revision": "2221193939",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L305982-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1492"
+    },
+    {
+      "concept_id": "concept.q270",
+      "forms": [
+        "Varšava",
+        "Varšavy",
+        "Varšavě",
+        "Varšavu",
+        "Varšavo",
+        "Varšavě",
+        "Varšavou"
+      ],
+      "language": "cs",
+      "lemma": "Varšava",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L41123",
+      "pos": "",
+      "qids": [
+        "Q270"
+      ],
+      "record_id": "L41123",
+      "retrieval_date": "2026-10-24",
+      "revision": "1251312923",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L41123-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q270"
+    },
+    {
+      "concept_id": "concept.q36600",
+      "forms": [
+        "Haag",
+        "Haagu",
+        "Haagu",
+        "Haag",
+        "Haagu",
+        "Haagu",
+        "Haagem"
+      ],
+      "language": "cs",
+      "lemma": "Haag",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L222269",
+      "pos": "",
+      "qids": [
+        "Q36600"
+      ],
+      "record_id": "L222269",
+      "retrieval_date": "2026-10-24",
+      "revision": "2458376839",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L222269-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36600"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q23436"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q174"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q62"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1794"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1489"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

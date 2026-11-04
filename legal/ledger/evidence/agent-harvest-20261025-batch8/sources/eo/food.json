@@ -1,0 +1,38 @@
+{
+  "language": "eo",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q12106",
+      "forms": [
+        "tritiko",
+        "tritikon",
+        "tritikoj",
+        "tritikojn"
+      ],
+      "language": "eo",
+      "lemma": "tritiko",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L311463",
+      "pos": "",
+      "qids": [
+        "Q12106",
+        "Q15645384"
+      ],
+      "record_id": "L311463",
+      "retrieval_date": "2026-10-18",
+      "revision": "2532345038",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L311463-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q12106"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

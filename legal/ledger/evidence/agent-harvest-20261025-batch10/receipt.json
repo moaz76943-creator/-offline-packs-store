@@ -1,0 +1,83 @@
+{
+  "actual_rows": 9,
+  "candidate_sha256": "61d7aabc8e03954374855477bf28f37961f78bde5c4d7ac56af5e96cb72db887",
+  "directed_translations": 0,
+  "examples": 0,
+  "original_lexeme_json_pinned": false,
+  "production_ready": false,
+  "schema_version": 1,
+  "source": "Wikidata Lexemes via pinned derived harvest checkpoint",
+  "source_admission_approved": false,
+  "source_branch": "agents/data",
+  "source_commit": "4373c61cbd60f35b84008970f60521972566ae56",
+  "source_files": [
+    {
+      "language": "cs",
+      "origin_git_blob_sha1": "c346a248ee89ba279863b54ede14259134e46cd2",
+      "origin_path": "data/agents/harvest/wikidata/cs/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch10/sources/cs/time.json",
+      "rows": 1,
+      "sha256": "81e9205a4fd28c29a7171751839a2163aa4c9e1b8e1b6bb5c1b6ef75051aef91",
+      "topic": "time"
+    },
+    {
+      "language": "da",
+      "origin_git_blob_sha1": "8fcdc1522422c47154f7bf226adbc7abddf56d48",
+      "origin_path": "data/agents/harvest/wikidata/da/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch10/sources/da/time.json",
+      "rows": 1,
+      "sha256": "822bc76d69a85a550ef7c45a285208fbbffe52b3aa57692236d24eec9a2849e0",
+      "topic": "time"
+    },
+    {
+      "language": "it",
+      "origin_git_blob_sha1": "7f4a653ade79fb6b4062225144a59f7773db8e87",
+      "origin_path": "data/agents/harvest/wikidata/it/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch10/sources/it/time.json",
+      "rows": 1,
+      "sha256": "fbc2fd382b1e5e8374f940fc6c94e46dcf7fe62de5905feeff65078d7fc51d29",
+      "topic": "time"
+    },
+    {
+      "language": "ja",
+      "origin_git_blob_sha1": "46a966fba34df2593112c1fe902e9316de4d610e",
+      "origin_path": "data/agents/harvest/wikidata/ja/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch10/sources/ja/time.json",
+      "rows": 2,
+      "sha256": "c88694713c9ad004e9b79638aaeddb79d4ca2d933dbd74144d451b5689ec927e",
+      "topic": "time"
+    },
+    {
+      "language": "pt",
+      "origin_git_blob_sha1": "d44a489107c451837f63a778172b4e077ee31135",
+      "origin_path": "data/agents/harvest/wikidata/pt/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch10/sources/pt/time.json",
+      "rows": 1,
+      "sha256": "83b7a7fd74de97b36a4e745ec2286a8a6a417508d64b532d8c44f82dfa60767a",
+      "topic": "time"
+    },
+    {
+      "language": "ru",
+      "origin_git_blob_sha1": "5d6b9a82c75f62fbd1ac432a0f9e98e95677905e",
+      "origin_path": "data/agents/harvest/wikidata/ru/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch10/sources/ru/time.json",
+      "rows": 1,
+      "sha256": "bfefea88e131462c169f10d1452290b6eee3166692bfb095af1dac9cab525cc1",
+      "topic": "time"
+    },
+    {
+      "language": "sv",
+      "origin_git_blob_sha1": "320c7e56ac77d89782dc31d359a0a88a1bd016c6",
+      "origin_path": "data/agents/harvest/wikidata/sv/time.json",
+      "path": "legal/ledger/evidence/agent-harvest-20261025-batch10/sources/sv/time.json",
+      "rows": 2,
+      "sha256": "e7e5f2bddc769847ce725f9cc773f8b59f7dd340e641c33f9f8c4907c2b4ecec",
+      "topic": "time"
+    }
+  ],
+  "source_license": "CC0-1.0",
+  "source_license_evidence_path": "legal/source_evidence/wikidata-structured-cc0.txt",
+  "source_license_evidence_sha256": "234e955b1d8e8b1c58f0b5f7b78f439a465f4badaeabe2ddacedc7d977ca71e6",
+  "status": "REVIEW_REQUIRED",
+  "topic_levels": "UNKNOWN unless independently evidenced"
+}

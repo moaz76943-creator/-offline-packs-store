@@ -1,0 +1,66 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-10-18",
+  "rows": [
+    {
+      "concept_id": "concept.q12199",
+      "forms": [
+        "aids",
+        "aids"
+      ],
+      "language": "sv",
+      "lemma": "aids",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1508387",
+      "pos": "",
+      "qids": [
+        "Q12199"
+      ],
+      "record_id": "L1508387",
+      "retrieval_date": "2026-10-18",
+      "revision": "2514038017",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L1508387-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q12199"
+    },
+    {
+      "concept_id": "concept.q193211",
+      "forms": [
+        "cysta",
+        "cystan",
+        "cystor",
+        "cystorna",
+        "cystas",
+        "cystans",
+        "cystors",
+        "cystornas"
+      ],
+      "language": "sv",
+      "lemma": "cysta",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L487834",
+      "pos": "",
+      "qids": [
+        "Q193211"
+      ],
+      "record_id": "L487834",
+      "retrieval_date": "2026-10-18",
+      "revision": "2504664566",
+      "schema_version": "1.0.0",
+      "section": "health",
+      "sense_id": "L487834-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "health.q12136",
+      "wikidata": "Q193211"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "health",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,59 @@
+{
+  "language": "la",
+  "retrieval_date": "2026-10-20",
+  "rows": [
+    {
+      "concept_id": "concept.q1780",
+      "forms": [
+        "Posonium",
+        "Posonii",
+        "Posoni",
+        "Posonio",
+        "Posonium",
+        "Posonio",
+        "Posonium",
+        "Posonii"
+      ],
+      "language": "la",
+      "lemma": "Posonium",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1558825",
+      "pos": "",
+      "qids": [
+        "Q1780",
+        "Q183498"
+      ],
+      "record_id": "L1558825",
+      "retrieval_date": "2026-10-20",
+      "revision": "2471726121",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1558825-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1780"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "city",
+  "skipped": [
+    {
+      "reason": "quarantine",
+      "wikidata": "Q3711"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q586"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q1156"
+    },
+    {
+      "reason": "HTTPError",
+      "wikidata": "Q641"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
