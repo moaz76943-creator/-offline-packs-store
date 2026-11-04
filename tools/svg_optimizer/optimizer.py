@@ -4,6 +4,7 @@ import zlib
 import re
 import hashlib
 from typing import Dict, List, Any
+from tools.visual_lexicon.schema import validate_token
 
 class SVGSecurityError(ValueError): pass
 class SVGUnsupportedError(ValueError): pass
@@ -87,6 +88,22 @@ class SVGOptimizer:
 
         def get_color_index(color: str):
             if not color: return None
+            if color.lower() == 'none': return None
+
+            # Convert non-hex colors or fail
+            if not re.match(r'^#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?$', color):
+                # We could map common names like 'black', 'white', but for now fail closed
+                if color == 'black': color = '#000000'
+                elif color == 'white': color = '#ffffff'
+                elif color == 'red': color = '#ff0000'
+                else: raise SVGUnsupportedError(f"Non-hex colors are not representable: {color}")
+
+            # Normalize 3 digit hex to 6 digit hex
+            if len(color) == 4:
+                color = '#' + color[1]*2 + color[2]*2 + color[3]*2
+
+            color = color.lower()
+
             if color not in palette:
                 palette[color] = len(palette_list)
                 palette_list.append(color)
@@ -95,8 +112,8 @@ class SVGOptimizer:
         def get_path_index(d: str):
             if not d: return None
 
-            # Simple path validation
-            if not re.match(r'^[MmLlHhVvCcSsQqTtAaZz0-9\s,\.-]+$', d):
+            # Simple path validation for schema
+            if not re.match(r'^[MmLlHhVvCcSsQqTtAaZz0-9\s.,-]+$', d):
                 raise SVGParseError(f"Invalid characters in path data: {d}")
 
             if d not in path_data_map:
@@ -179,16 +196,44 @@ class SVGOptimizer:
 
         process_element(root)
 
+        # Extract semantic_label from <title> or <desc>
+        semantic_label = concept_id
+        title_el = root.find('.//{http://www.w3.org/2000/svg}title')
+        if title_el is None:
+            title_el = root.find('title')
+        if title_el is not None and title_el.text:
+            semantic_label = title_el.text.strip()[:100]
+        else:
+            desc_el = root.find('.//{http://www.w3.org/2000/svg}desc')
+            if desc_el is None:
+                desc_el = root.find('desc')
+            if desc_el is not None and desc_el.text:
+                semantic_label = desc_el.text.strip()[:100]
+
+        # Parse viewBox into a list of floats
+        vb_list = [0, 0, 24, 24]
+        if viewBox:
+            try:
+                vb_list = [float(x) for x in viewBox.replace(',', ' ').split() if x.strip()]
+            except ValueError:
+                pass
+
         token = {
-            "v": 1,
-            "id": concept_id,
-            "lic": license_evidence,
-            "src": source_hash,
-            "vb": viewBox,
-            "p": palette_list,
-            "pd": path_data_list,
-            "e": elements
+            "concept_id": concept_id,
+            "version": 1,
+            "viewBox": vb_list,
+            "paths": path_data_list if path_data_list else ["M0 0"], # Fallback for schema
+            "palette": palette_list,
+            "semantic_label": semantic_label,
+            "e": elements,
+            "license": license_evidence,
+            "source_hash": source_hash,
         }
+
+        try:
+            validate_token(token)
+        except ValueError as e:
+            raise SVGUnsupportedError(f"Validation failed: {e}")
 
         canonical_json = json.dumps(token, separators=(',', ':'), sort_keys=True).encode('utf-8')
         compressed = zlib.compress(canonical_json)
@@ -206,7 +251,7 @@ class SVGOptimizer:
         token = self.decode(compressed_bytes)
 
         # 1. Source Hash Verification
-        if token['src'] != hashlib.sha256(original_svg).hexdigest():
+        if token['source_hash'] != hashlib.sha256(original_svg).hexdigest():
             raise ValueError("Source hash mismatch in roundtrip")
 
         # 2. Deterministic Encoding Verification
@@ -229,18 +274,24 @@ class SVGOptimizer:
             h = root.attrib.get('height', '24')
             orig_viewBox = f"0 0 {quantize_numbers(w, self.precision)} {quantize_numbers(h, self.precision)}"
 
-        if token['vb'] != orig_viewBox:
-            raise ValueError(f"ViewBox bounds mismatch in roundtrip: {token['vb']} != {orig_viewBox}")
+        orig_vb_list = [0, 0, 24, 24]
+        try:
+            orig_vb_list = [float(x) for x in orig_viewBox.replace(',', ' ').split() if x.strip()]
+        except ValueError:
+            pass
 
-        # Rebuild the independently parsed source geometry. A matching 'src'
+        if token['viewBox'] != orig_vb_list:
+            raise ValueError(f"ViewBox bounds mismatch in roundtrip: {token['viewBox']} != {orig_vb_list}")
+
+        # Rebuild the independently parsed source geometry. A matching 'source_hash'
         # hash and viewBox alone cannot prove that palette, shapes or paths
         # survived the encoding round trip intact.
         try:
-            expected = self.decode(self.optimize(original_svg, token['id'], token['lic']))
+            expected = self.decode(self.optimize(original_svg, token['concept_id'], token['license']))
         except (KeyError, TypeError, SVGParseError, SVGUnsupportedError,
                 SVGSecurityError, SVGSizeError) as exc:
             raise ValueError("Unverifiable source geometry") from exc
-        for key in ('vb', 'p', 'pd', 'e'):
+        for key in ('viewBox', 'palette', 'paths', 'e'):
             if token.get(key) != expected.get(key):
                 raise ValueError(f"Encoded geometry mismatch in roundtrip: {key}")
 

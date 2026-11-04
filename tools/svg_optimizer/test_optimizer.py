@@ -14,12 +14,12 @@ class TestSVGOptimizer(unittest.TestCase):
         res = self.opt.optimize(svg, self.cid, self.lic)
 
         token = self.opt.decode(res)
-        self.assertEqual(token['id'], self.cid)
-        self.assertEqual(token['lic'], self.lic)
-        self.assertEqual(token['vb'], "0 0 24 24")
+        self.assertEqual(token['concept_id'], self.cid)
+        self.assertEqual(token['license'], self.lic)
+        self.assertEqual(token['viewBox'], [0.0, 0.0, 24.0, 24.0])
         self.assertEqual(len(token['e']), 1)
-        self.assertEqual(token['p'], ["#fff"])
-        self.assertEqual(token['pd'], ["M1 1 L2 2"])
+        self.assertEqual(token['palette'], ["#ffffff"])
+        self.assertEqual(token['paths'], ["M1 1 L2 2"])
 
         self.opt.verify_roundtrip(svg, res)
 
@@ -78,7 +78,7 @@ class TestSVGOptimizer(unittest.TestCase):
     def test_roundtrip_rejects_changed_encoded_geometry_even_with_original_source_hash(self):
         svg = b'<svg viewBox="0 0 24 24"><path d="M1 1 L2 2" fill="#fff"/></svg>'
         packed = self.opt.optimize(svg, self.cid, self.lic)
-        for field, wrong in (("e", []), ("pd", ["M4 4"])):
+        for field, wrong in (("e", []), ("paths", ["M4 4"])):
             with self.subTest(field=field):
                 token = self.opt.decode(packed)
                 token[field] = wrong
@@ -106,10 +106,10 @@ class TestSVGOptimizer(unittest.TestCase):
         with self.assertRaises(SVGSecurityError):
             self.opt.optimize(svg, self.cid, self.lic)
 
-        # Local refs should pass
+        # Local refs like gradients aren't supported in J053 compact vectors because they aren't hex colors
         svg2 = b'<svg><path fill="url(#local)" d="M0 0"/></svg>'
-        res = self.opt.optimize(svg2, self.cid, self.lic)
-        self.assertIsNotNone(res)
+        with self.assertRaises(SVGUnsupportedError):
+            self.opt.optimize(svg2, self.cid, self.lic)
 
     def test_nested_transforms(self):
         svg = b'<svg><g transform="translate(10, 10)"><path transform="scale(2)" d="M1 1 L2 2"/></g></svg>'
@@ -123,9 +123,9 @@ class TestSVGOptimizer(unittest.TestCase):
         res = self.opt.optimize(svg, self.cid, self.lic)
         token = self.opt.decode(res)
 
-        self.assertEqual(token['vb'], "0 0 24.12 24.99")
-        self.assertEqual(len(token['p']), 1)
-        self.assertEqual(len(token['pd']), 1)
+        self.assertEqual(token['viewBox'], [0.0, 0.0, 24.12, 24.99])
+        self.assertEqual(len(token['palette']), 1)
+        self.assertEqual(len(token['paths']), 1)
         self.assertEqual(len(token['e']), 2)
 
     def test_size_limit(self):
@@ -147,7 +147,7 @@ class TestSVGOptimizer(unittest.TestCase):
 
         # Test failure on corrupted hash
         token = self.opt.decode(res)
-        token['src'] = "corrupted"
+        token['source_hash'] = "corrupted"
         corrupted_res = zlib.compress(json.dumps(token, separators=(',', ':'), sort_keys=True).encode('utf-8'))
         with self.assertRaises(ValueError):
             self.opt.verify_roundtrip(svg, corrupted_res)
