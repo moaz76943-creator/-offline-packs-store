@@ -15,6 +15,7 @@ import zipfile
 from pathlib import Path
 
 from community.review.state_machine import ReviewStateMachine, canonical, existing_file, safe_directory, safe_name
+from tools.visual_lexicon.core import decode_token
 
 HASH = re.compile(r"^[0-9a-f]{64}$")
 MAX_FILES = 128
@@ -59,10 +60,25 @@ def zip_entry(archive, name, content):
 
 
 
-def _audit_member(source, destination=None):
+def _audit_member(source, destination=None, item_type=None):
     """Bounded read and shared semantic audit for new AND cached releases."""
     h = hashlib.sha256()
     total = 0
+
+    if item_type == "semantic":
+        # Semantic assets are binary (compressed), not JSONL.
+        content = source.read(MAX_FILE + 1)
+        if len(content) > MAX_FILE:
+            raise ExportError("file changed during packaging or too large")
+        h.update(content)
+        if destination is not None:
+            destination.write(content)
+        try:
+            decode_token(content)
+        except Exception as exc:
+            raise ExportError(f"invalid semantic asset: {exc}") from exc
+        return len(content), h.hexdigest()
+
     lexemes = {}
     senses = {}
     translations = []
@@ -247,11 +263,12 @@ class CommunityExporter:
                     with os.fdopen(fd, "wb") as stream:
                         with zipfile.ZipFile(stream, "w", allowZip64=False) as archive:
                             for aid, path, expected, item_type, lang in entries:
-                                info = zipfile.ZipInfo("data/" + aid + ".bin", date_time=ZIP_DATE)
+                                ext = ".vct" if item_type == "semantic" else ".bin"
+                                info = zipfile.ZipInfo("data/" + aid + ext, date_time=ZIP_DATE)
                                 info.compress_type = zipfile.ZIP_STORED
                                 info.external_attr = 0o644 << 16
                                 with path.open("rb") as source, archive.open(info, "w", force_zip64=False) as dest:
-                                    size_written, actual_hash = _audit_member(source, dest)
+                                    size_written, actual_hash = _audit_member(source, dest, item_type)
                                 if actual_hash != expected:
                                     raise ExportError("file changed during packaging")
                             zip_entry(archive, "ATTRIBUTION.json", canonical(notices))
@@ -269,15 +286,16 @@ class CommunityExporter:
                 if not release.is_file() or release.stat().st_size > MAX_RELEASE_BYTES:
                     raise ExportError("untrusted cached export exceeds archive byte limit")
                 with zipfile.ZipFile(release) as archive:
-                    expected_names = ["data/" + aid + ".bin" for aid, _, _, _, _ in entries] + ["ATTRIBUTION.json"]
+                    expected_names = ["data/" + aid + (".vct" if item_type == "semantic" else ".bin") for aid, _, _, item_type, _ in entries] + ["ATTRIBUTION.json"]
                     if archive.namelist() != expected_names:
                         raise ExportError("corrupt cached export")
                     for info in archive.infolist():
                         if info.compress_type != zipfile.ZIP_STORED or info.file_size > MAX_FILE:
                             raise ExportError("untrusted cached archive member")
                     for aid, path, expected, item_type, lang in entries:
-                        with archive.open("data/" + aid + ".bin") as stream:
-                            size, actual_hash = _audit_member(stream)
+                        ext = ".vct" if item_type == "semantic" else ".bin"
+                        with archive.open("data/" + aid + ext) as stream:
+                            size, actual_hash = _audit_member(stream, item_type=item_type)
                         if size > MAX_FILE or actual_hash != expected:
                             raise ExportError("cached archive content mismatch")
                     with archive.open("ATTRIBUTION.json") as stream:
