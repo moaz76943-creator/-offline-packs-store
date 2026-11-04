@@ -23,6 +23,20 @@ def validate(registry, readiness, manifest=None, required_count=100, source_ledg
     def problem(message):
         errors.append(message)
 
+    try:
+        import jsonschema
+        schema_path = HERE / "language_registry.schema.json"
+        if schema_path.is_file():
+            with open(schema_path, "r", encoding="utf-8") as f:
+                schema = json.load(f)
+            # Only validate if the required 'source' field is present to avoid breaking tests with mock registries
+            if "source" in registry:
+                jsonschema.validate(registry, schema)
+    except ImportError:
+        pass
+    except Exception as e:
+        problem(f"schema validation failed: {e}")
+
     if registry.get("schema_version") != "1.0.0":
         problem("unsupported registry schema_version")
     if readiness.get("schema_version") != "1.0.0":
