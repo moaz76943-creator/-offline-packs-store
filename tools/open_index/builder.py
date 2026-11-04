@@ -38,6 +38,9 @@ def build_index(db_path):
     if not path.is_file():
         raise IndexBuilderError(f'Input database not found: {path}')
 
+    if not os.access(path.parent, os.R_OK | os.W_OK | os.X_OK):
+        raise IndexBuilderError(f'Workspace inaccessible: {path.parent}')
+
     staged_path = path.with_suffix('.sqlite.staged')
 
     # Copy the database to a staged file
