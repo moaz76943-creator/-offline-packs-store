@@ -1,5 +1,7 @@
 import json
 import re
+import os
+from pathlib import Path
 from typing import Dict, Any, Tuple, Optional, Set
 
 class SanitizerEngine:
@@ -12,7 +14,13 @@ class SanitizerEngine:
         self.valid_languages: Set[str] = set()
         self.seen_identities: Set[str] = set()
         self.seen_doc_ids: Set[str] = set()
+        self._verify_workspace_access()
         self._load_registry(registry_path)
+
+    def _verify_workspace_access(self) -> None:
+        repo_root = Path(__file__).resolve().parent.parent.parent
+        if not (repo_root.exists() and repo_root.is_dir() and os.access(repo_root, os.R_OK | os.W_OK | os.X_OK)):
+            raise RuntimeError("Workspace access unauthorized. Halting execution.")
 
     def _load_registry(self, registry_path: str) -> None:
         try:
