@@ -125,10 +125,43 @@ class TestPackManifestBuilder(unittest.TestCase):
         with self.assertRaises(ValueError):
             build_manifest(self.base_dir, ["bad.pack.gz"], str(manifest_path))
 
+    def test_mismatched_entry_count_domains(self):
+        bad_pack = self.base_dir / "bad.pack.gz"
+        with gzip.open(bad_pack, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "bad",
+                "version": "1.0.0",
+                "terms_count": 5,
+                "domains": [1], # mismatch!
+                "license": "CC0-1.0"
+            }, f)
+        manifest_path = self.base_dir / "manifest.json"
+        with self.assertRaises(ValueError):
+            build_manifest(self.base_dir, ["bad.pack.gz"], str(manifest_path))
+
     def test_unchanged_packs(self):
         old_manifest_path = self.base_dir / "old_manifest.json"
         new_manifest_path = self.base_dir / "new_manifest.json"
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
+        plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
+        self.assertEqual(plan['unchanged'], ['af'])
+
+    def test_changed_metadata_only_is_unchanged(self):
+        old_manifest_path = self.base_dir / "old_manifest.json"
+        new_manifest_path = self.base_dir / "new_manifest.json"
+        build_manifest(self.base_dir, ["pack1.pack.gz"], str(old_manifest_path))
+
+        with gzip.open(self.pack1_path, 'wt', encoding='utf-8') as f:
+            json.dump({
+                "lang_code": "af",
+                "version": "1.0.1", # Changed version
+                "terms_count": 2,
+                "vocabulary": [1, 2], # Same payload
+                "license": "CC0-1.0", # Changed license
+                "dependencies": ["pack2"]
+            }, f)
+
         build_manifest(self.base_dir, ["pack1.pack.gz"], str(new_manifest_path))
         plan = generate_update_plan(str(old_manifest_path), str(new_manifest_path))
         self.assertEqual(plan['unchanged'], ['af'])
