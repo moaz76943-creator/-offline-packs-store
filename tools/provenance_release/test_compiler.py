@@ -120,6 +120,30 @@ class TestProvenanceCompiler(unittest.TestCase):
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['invalid'], ['asset_1'])
 
+    def test_named_author_is_required_in_notice(self):
+        source = dict(self.base_source, author="Original Author")
+        self.write_ledger([source])
+        self.write_daily([self.base_candidate])
+        # The other four attribution fields alone must not authorize release.
+        self.notice_path.write_text("src_id publisher CC-BY-SA-4.0 https://origin")
+
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], ['asset_1'])
+        self.assertEqual(statuses['approved'], [])
+        self.assertEqual(json.loads(self.manifest_out.read_text())['release_provenance'], [])
+
+    def test_named_author_in_notice_allows_valid_candidate(self):
+        source = dict(self.base_source, author="Original Author")
+        self.write_ledger([source])
+        self.write_daily([self.base_candidate])
+        self.notice_path.write_text(
+            "src_id publisher Original Author CC-BY-SA-4.0 https://origin"
+        )
+
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], [])
+        self.assertEqual(statuses['approved'], ['asset_1'])
+
     def test_missing_author_or_source_id(self):
         # We test that missing source_id in notice also fails
         self.notice_path.write_text("publisher CC-BY-SA-4.0 https://origin")
@@ -254,6 +278,26 @@ class TestProvenanceCompiler(unittest.TestCase):
         ])
         self.assertEqual(statuses['approved'], [])
         self.assertEqual(self._compile_exit(), 1)
+
+    def test_direct_cli_imports_without_pythonpath(self):
+        import subprocess
+        import os
+        import sys
+        self.write_ledger([self.base_source])
+        self.write_daily([self.base_candidate])
+        script = Path(__file__).resolve().parent / 'compiler.py'
+        env = os.environ.copy()
+        env.pop('PYTHONPATH', None)
+        result = subprocess.run([
+            sys.executable, str(script),
+            '--repo-root', str(self.root),
+            '--ledger', str(self.ledger_path),
+            '--daily-dir', str(self.daily_dir),
+            '--manifest-out', str(self.manifest_out),
+            '--notice-out', str(self.notice_out),
+        ], env=env, capture_output=True, text=True, check=False)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertNotIn('No module named', result.stdout + result.stderr)
 
 if __name__ == '__main__':
     unittest.main()
