@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Lexical Source Licensing Ledger",
+  "type": "object",
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "declared_license": {
+      "type": "string"
+    },
+    "verified_evidence": {
+      "type": "string"
+    },
+    "modification_status": {
+      "type": "string",
+      "enum": ["unmodified", "modified", "translated"]
+    },
+    "source_hash": {
+      "type": "string"
+    },
+    "mixed_sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": { "type": "string" },
+          "license": { "type": "string" }
+        },
+        "required": ["source_id", "license"]
+      }
+    }
+  },
+  "required": [
+    "source_id",
+    "author",
+    "declared_license"
+  ]
+}
