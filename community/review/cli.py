@@ -30,14 +30,18 @@ def main(argv=None):
     parser.add_argument("--storage", required=True, type=Path)
     parser.add_argument("--artifacts", required=True, type=Path)
     parser.add_argument("--operator-keys", required=True, type=Path)
-    parser.add_argument("action", choices=("submit", "start", "validate", "approve", "reject", "eligible"))
-    parser.add_argument("--id", required=True)
+    parser.add_argument("action", choices=("submit", "start", "validate", "approve", "reject", "eligible", "enqueue"))
+    parser.add_argument("--id")
     parser.add_argument("--sha256")
     parser.add_argument("--metadata", type=Path)
     parser.add_argument("--artifact", type=Path)
     parser.add_argument("--actor")
     parser.add_argument("--token")
     args = parser.parse_args(argv)
+
+    if args.action != "enqueue" and not args.id:
+        parser.error("--id is required")
+
     try:
         root = Path(__file__).resolve().parents[2]
         validators, reviewers = read_operator_keys(args.operator_keys, (root, args.storage, args.artifacts))
@@ -56,10 +60,18 @@ def main(argv=None):
             outcome = machine.complete_validation(args.id, args.actor, args.token)
         elif args.action in ("approve", "reject"):
             outcome = machine.review(args.id, args.actor, args.action == "approve", args.token)
+        elif args.action == "enqueue":
+            if not args.artifact:
+                raise ValueError("enqueue requires --artifact")
+            machine.enqueue_manifest(args.artifact)
+            outcome = {"enqueued": True}
         else:
             outcome = machine.mark_published_eligible(args.id)
         # Never print authority keys, HMAC tokens or unredacted contributor metadata.
-        print(json.dumps({k: outcome[k] for k in ("submission_id", "content_hash", "revision", "state")}, sort_keys=True))
+        if args.action == "enqueue":
+            print(json.dumps(outcome, sort_keys=True))
+        else:
+            print(json.dumps({k: outcome[k] for k in ("submission_id", "content_hash", "revision", "state")}, sort_keys=True))
         return 0
     except (ValueError, OSError, KeyError, PermissionError, TypeError) as error:
         print("BLOCKED:", error, file=sys.stderr)

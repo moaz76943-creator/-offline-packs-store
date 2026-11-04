@@ -221,5 +221,31 @@ class TestReviewStateMachine(unittest.TestCase):
         with self.assertRaises(PermissionError):
             self.machine.complete_validation("sub_conflict", "val2", token_wrong)
 
+    def test_enqueue_manifest(self):
+        test_file = "test.json"
+
+        metadata_entry = self.metadata.copy()
+        metadata_entry["sha256"] = self.test_hash
+
+        manifest_data = {
+            "added": [test_file],
+            "updated": [],
+            "index": {
+                test_file: metadata_entry
+            }
+        }
+
+        manifest_path = self.artifact_dir / "manifest.json"
+        manifest_path.write_text(json.dumps(manifest_data), encoding="utf-8")
+
+        results = self.machine.enqueue_manifest(manifest_path)
+
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0]["state"], ReviewState.SUBMITTED.value)
+
+        # Verify it was actually written
+        data = self.machine._read("test")
+        self.assertEqual(data["state"], ReviewState.SUBMITTED.value)
+
 if __name__ == '__main__':
     unittest.main()
