@@ -1,14 +1,41 @@
 import re
+import json
+from pathlib import Path
 from typing import Dict, Any, List
 from .schema import VisualAssetMetadata
 
 CONTROL_CHAR_RE = re.compile(r'[\x00-\x1F\x7F]')
 
 class AccessibilityValidator:
+    def __init__(self, registry_path: str = None):
+        if registry_path is None:
+            registry_path = Path(__file__).resolve().parent.parent.parent / "catalog" / "language_registry.v1.json"
+
+        self.registry = None
+        self.registry_error = False
+        try:
+            with open(registry_path, "r", encoding="utf-8") as f:
+                self.registry = json.load(f)
+
+            self.valid_languages = {lang["id"] for lang in self.registry.get("languages", [])}
+            self.valid_scripts = set(self.registry.get("scripts", {}).keys())
+        except FileNotFoundError:
+            self.registry_error = True
+        except Exception:
+            self.registry_error = True
+
     def validate_asset(self, asset: VisualAssetMetadata) -> Dict[str, Any]:
         errors = []
         warnings = []
         status = "accepted"
+
+        if self.registry_error:
+            errors.append("Failed to load canonical language registry")
+            return {
+                "status": "rejected",
+                "errors": errors,
+                "warnings": warnings
+            }
 
         concept_id = asset.get("concept_id")
         if not concept_id:
@@ -43,12 +70,25 @@ class AccessibilityValidator:
             errors.append("Missing or empty alt text")
             return
 
-        for label in labels:
-            if not label.get("language"):
-                errors.append("Missing language metadata")
+        seen_languages = set()
 
-            if not label.get("script"):
+        for label in labels:
+            lang = label.get("language")
+            if not lang:
+                errors.append("Missing language metadata")
+            else:
+                if lang in seen_languages:
+                    errors.append(f"Duplicate alt-text language '{lang}'")
+                seen_languages.add(lang)
+
+                if lang not in self.valid_languages:
+                    errors.append(f"Unsupported language '{lang}'")
+
+            script = label.get("script")
+            if not script:
                 errors.append("Missing script metadata")
+            elif script not in self.valid_scripts:
+                errors.append(f"Unsupported script '{script}'")
 
             text = label.get("text")
             if not text:

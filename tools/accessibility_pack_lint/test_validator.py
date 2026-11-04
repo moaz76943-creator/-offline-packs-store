@@ -28,7 +28,7 @@ class TestAccessibilityValidator(unittest.TestCase):
         asset = self.load_fixture("unsupported_scripts.json")
         result = self.validator.validate_asset(asset)
         self.assertEqual(result["status"], "rejected")
-        self.assertIn("Missing script metadata", result["errors"])
+        self.assertIn("Unsupported script 'Xxxx'", result["errors"])
 
     def test_mismatched_concept(self):
         asset = self.load_fixture("mismatched_concept.json")
@@ -152,6 +152,25 @@ class TestAccessibilityValidator(unittest.TestCase):
         result = self.validator.validate_asset(asset)
         self.assertEqual(result["status"], "rejected")
         self.assertIn("Malformed RTL/LTR direction metadata", result["errors"])
+
+    def test_duplicate_language(self):
+        asset = self.load_fixture("duplicate_language.json")
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Duplicate alt-text language 'en'", result["errors"])
+
+    def test_unsupported_language(self):
+        asset = self.load_fixture("unsupported_language.json")
+        result = self.validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Unsupported language 'xx'", result["errors"])
+
+    def test_missing_registry(self):
+        validator = AccessibilityValidator(registry_path="nonexistent/path/language_registry.v1.json")
+        asset = self.load_fixture("valid_asset.json")
+        result = validator.validate_asset(asset)
+        self.assertEqual(result["status"], "rejected")
+        self.assertIn("Failed to load canonical language registry", result["errors"])
 
 if __name__ == "__main__":
     unittest.main()
