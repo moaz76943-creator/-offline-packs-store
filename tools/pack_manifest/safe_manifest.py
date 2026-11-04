@@ -111,7 +111,7 @@ def manifest(root,claims):
     packs=[]
     from tools.gha_factory.pack_conformance.check import inspect
     for claim in claims:
-        if not isinstance(claim,dict) or set(claim)!={'language','artifact_path','archive_sha256'}:
+        if not isinstance(claim,dict) or not {'language','artifact_path','archive_sha256'}.issubset(claim):
             raise ManifestBlocked('incomplete candidate identity')
         lang,relative,sha=claim['language'],claim['artifact_path'],claim['archive_sha256']
         if (not isinstance(lang,str) or not LANGUAGE.fullmatch(lang)
@@ -128,13 +128,20 @@ def manifest(root,claims):
             raise ManifestBlocked('fixture or self-authorizing conformance report')
         if not isinstance(report.get('sqlite_sha256'),str) or not SHA.fullmatch(report['sqlite_sha256']):
             raise ManifestBlocked('missing verified independent SQLite content hash')
-        packs.append({'language':lang,'artifact_path':relative,'archive_sha256':sha,
-                      'sqlite_sha256':report['sqlite_sha256'],
-                      'lexical_count':report['actual_lexical_count'],
-                      'source_ids':sorted(report['source_ids']),
-                      'schema_version':report['schema_version'],
-                      'stable_ids_status':'NOT_PROVEN',
-                      'rights_publication_approved':False})
+        if 'actual_entry_count' in claim and claim['actual_entry_count'] != report['actual_lexical_count']:
+            raise ManifestBlocked('mismatched entry counts')
+        pack_doc = {'language':lang,'artifact_path':relative,'archive_sha256':sha,
+                    'sqlite_sha256':report['sqlite_sha256'],
+                    'lexical_count':report['actual_lexical_count'],
+                    'source_ids':sorted(report['source_ids']),
+                    'schema_version':report['schema_version'],
+                    'artifact_byte_size':len(archive),
+                    'stable_ids_status':'NOT_PROVEN',
+                    'rights_publication_approved':False}
+        for opt_key in ('pack_id', 'license_identifiers', 'semantic_vectors', 'dependencies', 'update_identity'):
+            if opt_key in claim:
+                pack_doc[opt_key] = claim[opt_key]
+        packs.append(pack_doc)
     return {'manifest_version':'1.0.0','status':'QUARANTINED_CANDIDATES_ONLY',
             'packs':sorted(packs,key=lambda x:x['language']),
             'signature_verified':False,'stable_id_migration_verified':False,
@@ -156,7 +163,7 @@ def diff(old,new):
     before,after=keyed(old),keyed(new)
     unchanged=[];changed=[]
     for lang in sorted(set(before)&set(after)):
-        if before[lang]==after[lang]:unchanged.append(lang)
+        if before[lang].get('sqlite_sha256')==after[lang].get('sqlite_sha256'):unchanged.append(lang)
         else:changed.append(lang)
     return {'unchanged':unchanged,'added_pending_review':sorted(set(after)-set(before)),
             'removed_pending_review':sorted(set(before)-set(after)),
