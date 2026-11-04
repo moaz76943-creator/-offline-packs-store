@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355936",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Düşmanla anlaşmaya vardılar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355938",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Go büyük ihtimalle benim ülkemdeki en popüler Japon oyunu olsa da o bile bazı üniversite öğrencileri dışında pek bilinmiyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355939",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong taşları çok güzeller."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355940",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong genellikle dört kişi oynanan bir oyun."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355941",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong dünyada çok popüler olan oyunlardan biri."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355943",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong oynamayı biliyor musun?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355944",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong'u çok seviyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355945",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong'da çok iyiymiş."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355947",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu Mahjong."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355949",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hayalim çok güçlü bir Mahjong oyuncusu olmak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355953",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Japoncayı Japonya'da mahjong oynamak için öğreniyorum."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355961",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Ateşin var mı?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355962",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Şu köpek elimi ısırmaya çalıştı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355963",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Evimin arkasında bir kilise var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355964",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Sam Tom'dan iki yaş küçük."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355965",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Lütfen burayı imzalayın."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356138",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Zamanda geçmişe seyahat etmenin imkansız olduğu düşünülüyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356139",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu otobüs elli kişilik."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356140",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John cebinden bir anahtar çıkardı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356141",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John Floridalı, karısı ise Kaliforniyalı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356142",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John, Fransızcayı iyi konuşamıyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356143",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John birçok şişe şarap içti."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356144",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John Bill'den daha zeki."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356145",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John Bill'in zayıflığından istifade etti."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356146",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John Bill kadar yaşlı değil; çok daha genç."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356147",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John o kadar telaşlıydı ki konuşmaya vakti yoktu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356149",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John işe aşina."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356150",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John, New York'ta yaşıyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356151",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John o kadar sesli konuştu ki ikinci kattan bile duyabildim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356210",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "İş ben gelmeden önce bitmişti."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356284",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Birini tanıyorum da ötekini değil."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356366",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Ailesini çok endişelendirdi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356367",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Sadece beyaz kağıt yeterli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356368",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Üşüyüp ısıtıcıyı açtım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356369",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Doğduğum yer olan Nagasaki, güzel bir liman kentidir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356370",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Kızın artık bir çocuk değil."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356371",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hava bulutlanıyor."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356372",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Pardon ama radyoyu kısabilir misin acaba?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356373",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Tenis oynamak sağlıklıdır."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356374",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Sağlıklı olan adam sağlığın değerini bilmez."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:170564",
@@ -821,6 +1221,406 @@
       "retrieval_date": "2026-11-01",
       "source_id": "tatoeba.sentences",
       "value": "Matsuyama'da doğup büyüdüm."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355936",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Düşmanla anlaşmaya vardılar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355938",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Go büyük ihtimalle benim ülkemdeki en popüler Japon oyunu olsa da o bile bazı üniversite öğrencileri dışında pek bilinmiyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355939",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong taşları çok güzeller."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355940",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong genellikle dört kişi oynanan bir oyun."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355941",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong dünyada çok popüler olan oyunlardan biri."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355943",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong oynamayı biliyor musun?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355944",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong'u çok seviyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355945",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong'da çok iyiymiş."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355947",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu Mahjong."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355949",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hayalim çok güçlü bir Mahjong oyuncusu olmak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355953",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Japoncayı Japonya'da mahjong oynamak için öğreniyorum."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355961",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Ateşin var mı?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355962",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Şu köpek elimi ısırmaya çalıştı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355963",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Evimin arkasında bir kilise var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355964",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Sam Tom'dan iki yaş küçük."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:355965",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Lütfen burayı imzalayın."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356138",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Zamanda geçmişe seyahat etmenin imkansız olduğu düşünülüyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356139",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu otobüs elli kişilik."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356140",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John cebinden bir anahtar çıkardı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356141",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John Floridalı, karısı ise Kaliforniyalı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356142",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John, Fransızcayı iyi konuşamıyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356143",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John birçok şişe şarap içti."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356144",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John Bill'den daha zeki."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356145",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John Bill'in zayıflığından istifade etti."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356146",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John Bill kadar yaşlı değil; çok daha genç."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356147",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John o kadar telaşlıydı ki konuşmaya vakti yoktu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356149",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John işe aşina."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356150",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John, New York'ta yaşıyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356151",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "John o kadar sesli konuştu ki ikinci kattan bile duyabildim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356210",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "İş ben gelmeden önce bitmişti."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356284",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Birini tanıyorum da ötekini değil."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356366",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Ailesini çok endişelendirdi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356367",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Sadece beyaz kağıt yeterli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356368",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Üşüyüp ısıtıcıyı açtım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356369",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Doğduğum yer olan Nagasaki, güzel bir liman kentidir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356370",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Kızın artık bir çocuk değil."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356371",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Hava bulutlanıyor."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356372",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Pardon ama radyoyu kısabilir misin acaba?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356373",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Tenis oynamak sağlıklıdır."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:356374",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "Sağlıklı olan adam sağlığın değerini bilmez."
     }
   ]
 }
