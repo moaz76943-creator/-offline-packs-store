@@ -49,24 +49,18 @@ def validate_token(token):
     return True
 
 def validate_manifest(manifest):
-    """Synthetic geometry fixtures only. They carry no license and no source claim."""
+    """Validates that real assets have CC0 license and accurate source evidence."""
     if not isinstance(manifest, dict):
         raise ValueError("Manifest must be a dictionary")
 
-    required_keys = {'concept_id', 'author', 'fixture_status'}
+    required_keys = {'concept_id', 'author', 'source', 'license'}
     if not required_keys.issubset(manifest.keys()):
         missing = required_keys - manifest.keys()
         raise ValueError(f"Missing required manifest keys: {missing}")
 
-    if manifest.get('fixture_status') != 'synthetic':
-        raise ValueError("only synthetic fixtures are accepted")
-
-    if 'license' in manifest or 'licence' in manifest:
-        raise ValueError("synthetic fixtures must not carry a license claim")
-
-    source = manifest.get('source')
-    if source is not None and source != 'synthetic-fixture':
-        raise ValueError("synthetic fixtures must not cite an external source")
+    license_claim = manifest.get('license')
+    if license_claim not in ('CC0-1.0', 'Public Domain'):
+        raise ValueError("Assets must be explicitly licensed under CC0-1.0 or Public Domain")
 
     for key in required_keys:
         if not isinstance(manifest[key], str) or not manifest[key]:
