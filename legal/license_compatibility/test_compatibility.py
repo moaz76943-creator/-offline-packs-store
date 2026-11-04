@@ -27,6 +27,16 @@ class CompatibilityTests(unittest.TestCase):
         self.assertFalse(r["publication_approved"])
     def test_missing_source_rejected(self):
         self.assertEqual(self.run_gate([])["status"], "REVIEW_REQUIRED")
+
+    def test_missing_attribution_rejected(self):
+        del self.source["author"]
+        save_ledger(self.tmp.name, self.ledger)
+        self.assertEqual(self.run_gate()["status"], "REVIEW_REQUIRED")
+
+    def test_unknown_source_license_rejected(self):
+        self.source["license"]["id"] = "MIT"
+        save_ledger(self.tmp.name, self.ledger)
+        self.assertEqual(self.run_gate()["status"], "REVIEW_REQUIRED")
     def test_unverified_rights_fail_closed(self):
         self.source["status"] = "UNVERIFIED_RIGHTS"
         self.assertEqual(self.run_gate()["status"], "REVIEW_REQUIRED")
