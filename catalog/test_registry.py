@@ -24,6 +24,7 @@ def fixture():
 
 
 class TaxonomyValidationTests(unittest.TestCase):
+    """Tests for validating the canonical 100-language taxonomy registry."""
     def test_fresh_registry_passes(self):
         self.assertEqual([], validate(*fixture()))
 
