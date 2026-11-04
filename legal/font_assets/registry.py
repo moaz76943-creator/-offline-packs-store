@@ -1,5 +1,6 @@
 """Offline font evidence preflight. EVIDENCE_PASS is not legal clearance or pack admission."""
 import hashlib
+import json
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -45,6 +46,35 @@ class FontAsset:
     public_domain_proof: Optional[dict] = None
 
 class FontRightsRegistry:
+    def __init__(self):
+        self._cached_scripts = None
+
+    def _get_canonical_scripts(self, repo_root, issues):
+        if self._cached_scripts is not None:
+            return self._cached_scripts
+
+        try:
+            if repo_root is not None:
+                registry_path = Path(repo_root) / "catalog" / "language_registry.v1.json"
+            else:
+                registry_path = Path(__file__).resolve().parent.parent.parent / "catalog" / "language_registry.v1.json"
+
+            with open(registry_path, "r", encoding="utf-8") as f:
+                registry = json.load(f)
+
+            scripts = set(registry.get("scripts", {}).keys())
+            if any(s in scripts for s in ("Hans", "Hant", "Jpan", "Kore")):
+                scripts.add("Hani")
+
+            self._cached_scripts = scripts
+            return scripts
+        except FileNotFoundError:
+            issues.append("Missing canonical language registry")
+            return None
+        except Exception:
+            issues.append("Failed to read canonical language registry")
+            return None
+
     # No vendor or font family receives a blanket license inference.
     def validate_asset(self, asset: FontAsset, expected_hash=None, *, repo_root=None):
         issues = []
@@ -58,6 +88,12 @@ class FontRightsRegistry:
             issues.append("Mixed families are explicitly rejected")
         if not isinstance(asset.scripts, list) or not asset.scripts or not all(text(x) for x in asset.scripts):
             issues.append("Missing script identities")
+        else:
+            canonical_scripts = self._get_canonical_scripts(repo_root, issues)
+            if canonical_scripts is not None:
+                for script in asset.scripts:
+                    if script not in canonical_scripts:
+                        issues.append(f"Unknown script identity: {script}")
         if not isinstance(asset.license_id, str) or asset.license_id not in FONT_LICENSES:
             issues.append("Unknown, unsupported or unverified rights")
         if not url_ok(asset.origin_url) or not url_ok(asset.license_evidence_url):
