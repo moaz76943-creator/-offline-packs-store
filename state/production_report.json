@@ -60,8 +60,8 @@
     },
     "total": 1290
   },
-  "generated_by": "classifier",
-  "pack_bytes": 417792,
+  "generated_by": "packs",
+  "pack_bytes": 421888,
   "packs": [
     {
       "bytes": 16384,
@@ -160,10 +160,10 @@
     },
     {
       "bytes": 20480,
-      "entries": 106,
+      "entries": 107,
       "language": "fr",
       "sources": {
-        "kaikki.wiktextract": 15,
+        "kaikki.wiktextract": 16,
         "tatoeba.sentences": 40,
         "wikidata.lexemes": 51
       }
@@ -297,11 +297,11 @@
       }
     },
     {
-      "bytes": 16384,
-      "entries": 41,
+      "bytes": 20480,
+      "entries": 81,
       "language": "tr",
       "sources": {
-        "tatoeba.sentences": 40,
+        "tatoeba.sentences": 80,
         "wikidata.lexemes": 1
       }
     },
