@@ -31,6 +31,7 @@ ALLOWED_FIELDS = (
     "duration_ms",
     "channels",
     "sample_rate",
+    "pronunciation_variant",
 )
 BANNED_METADATA_KEYS = frozenset({
     "biometric_profile",
@@ -533,7 +534,7 @@ def _public_record(entry, measured):
 def _quarantine_record(entry, reason):
     safe = {"rejection_reason": str(reason)}
     if isinstance(entry, dict):
-        for key in ("lexeme_id", "locale", "source_id", "artifact_path"):
+        for key in ("lexeme_id", "locale", "source_id", "artifact_path", "pronunciation_variant"):
             value = entry.get(key)
             if isinstance(value, str):
                 safe[key] = value

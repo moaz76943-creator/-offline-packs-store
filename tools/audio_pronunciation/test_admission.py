@@ -137,19 +137,42 @@ class TestAudioAdmissionGate(unittest.TestCase):
 
     def test_valid_wav_ogg_mp3_and_webm(self):
         for path in (self.wav, self.ogg, self.mp3, self.webm):
-            accepted, rejected = process_candidates([self.candidate(path)], self.ledger, self.root)
+            candidate_row = self.candidate(path)
+            candidate_row["pronunciation_variant"] = "uk-northern"
+            accepted, rejected = process_candidates([candidate_row], self.ledger, self.root)
             self.assertEqual(rejected, [], path.name)
             self.assertEqual(len(accepted), 1, path.name)
             self.assertTrue(set(accepted[0]).issubset({
                 "lexeme_id", "locale", "source_id", "human_recorded", "is_tts",
                 "artifact_path", "sha256", "format", "duration_ms", "channels", "sample_rate",
+                "pronunciation_variant",
             }))
+            self.assertEqual(accepted[0]["pronunciation_variant"], "uk-northern")
             measured = inspect_audio(path.read_bytes(), path.suffix.lstrip("."))
             self.assertEqual(accepted[0]["duration_ms"], measured["duration_ms"])
             self.assertEqual(accepted[0]["channels"], measured["channels"])
             self.assertEqual(accepted[0]["sample_rate"], measured["sample_rate"])
             self.assertLessEqual(measured["duration_ms"], 10000)
             self.assertGreater(measured["duration_ms"], 0)
+
+    def test_truncated_files(self):
+        for path in (self.wav, self.ogg, self.mp3, self.webm):
+            data = path.read_bytes()
+            truncated_path = self.root / f"truncated_{path.name}"
+            truncated_path.write_bytes(data[:len(data) // 2])
+
+            row = self.candidate(path)
+            row["artifact_path"] = truncated_path.name
+            row["sha256"] = _sha256(truncated_path)
+            row["format"] = path.suffix.lstrip(".")
+
+            accepted, rejected = process_candidates([row], self.ledger, self.root)
+            self.assertEqual(accepted, [], path.name)
+            self.assertTrue(
+                "Invalid file format or malformed header" in rejected[0]["rejection_reason"] or
+                "contradictory" in rejected[0]["rejection_reason"],
+                f"Unexpected rejection reason for {path.name}: {rejected[0]['rejection_reason']}"
+            )
 
     def test_shallow_ledger_does_not_admit_audio(self):
         shallow = {
