@@ -30,19 +30,33 @@ def main(argv=None):
     parser.add_argument("--storage", required=True, type=Path)
     parser.add_argument("--artifacts", required=True, type=Path)
     parser.add_argument("--operator-keys", required=True, type=Path)
-    parser.add_argument("action", choices=("submit", "start", "validate", "approve", "reject", "eligible"))
-    parser.add_argument("--id", required=True)
+    parser.add_argument("action", choices=("submit", "start", "validate", "approve", "reject", "eligible", "enqueue"))
+    parser.add_argument("--id")
     parser.add_argument("--sha256")
     parser.add_argument("--metadata", type=Path)
+    parser.add_argument("--manifest", type=Path)
     parser.add_argument("--artifact", type=Path)
     parser.add_argument("--actor")
     parser.add_argument("--token")
     args = parser.parse_args(argv)
     try:
+        if args.action != "enqueue" and not args.id:
+            raise ValueError(f"action '{args.action}' requires --id")
+
         root = Path(__file__).resolve().parents[2]
         validators, reviewers = read_operator_keys(args.operator_keys, (root, args.storage, args.artifacts))
         machine = ReviewStateMachine(args.storage, args.artifacts,
                                      validator_keys=validators, reviewer_keys=reviewers)
+
+        if args.action == "enqueue":
+            if args.manifest is None:
+                raise ValueError("enqueue requires --manifest")
+            if args.manifest.is_symlink() or args.manifest.stat().st_size > 10 * 1024 * 1024:
+                raise ValueError("unsafe manifest file")
+            outcomes = machine.enqueue_manifest(args.manifest)
+            print(json.dumps([{k: out[k] for k in ("submission_id", "content_hash", "revision", "state")} for out in outcomes], sort_keys=True))
+            return 0
+
         if args.action == "submit":
             if args.metadata is None or args.sha256 is None or args.artifact is None:
                 raise ValueError("submission requires --metadata, --sha256 and --artifact")
