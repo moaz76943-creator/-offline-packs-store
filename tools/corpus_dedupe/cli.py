@@ -28,9 +28,10 @@ def main(argv=None):
     p.add_argument('--input', '-i')
     p.add_argument('--canonical', '-c', required=True)
     p.add_argument('--duplicates', '-d', required=True)
+    p.add_argument('--review-required', '-r', required=True)
     args = p.parse_args(argv)
-    if args.canonical == args.duplicates:
-        p.error('canonical and duplicates paths must differ')
+    if args.canonical == args.duplicates or args.canonical == args.review_required or args.duplicates == args.review_required:
+        p.error('canonical, duplicates, and review-required paths must differ')
     try:
         with CorpusDeduplicator() as dedup:
             if args.input:
@@ -39,9 +40,16 @@ def main(argv=None):
             else:
                 process_stream(sys.stdin, dedup)
             with open(args.canonical, 'w', encoding='utf-8') as canonical, \
-                 open(args.duplicates, 'w', encoding='utf-8') as duplicates:
+                 open(args.duplicates, 'w', encoding='utf-8') as duplicates, \
+                 open(args.review_required, 'w', encoding='utf-8') as review_req:
                 for kind, record in dedup.iter_resolved():
-                    stream = canonical if kind == 'canonical' else duplicates
+                    if kind == 'canonical':
+                        stream = canonical
+                    else:
+                        if record.get('status') == 'REVIEW_REQUIRED':
+                            stream = review_req
+                        else:
+                            stream = duplicates
                     stream.write(json.dumps(record, ensure_ascii=False, sort_keys=True) + '\n')
     except (OSError, ValueError) as exc:
         print(f'INVALID: {exc}', file=sys.stderr)
