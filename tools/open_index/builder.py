@@ -34,6 +34,9 @@ def is_tokenizer_supported(tokenizer_name):
 
 
 def build_index(db_path):
+    if not os.access(os.getcwd(), os.W_OK):
+        raise IndexBuilderError('UNAUTHORIZED_WORKSPACE')
+
     path = Path(db_path).resolve()
     if not path.is_file():
         raise IndexBuilderError(f'Input database not found: {path}')
@@ -93,8 +96,10 @@ def build_index(db_path):
                 db.execute('INSERT INTO lexicon_fts(rowid, surface, lemma, gloss, language_code) VALUES(?, ?, ?, ?, ?)',
                            (r_rowid, r_surface, r_lemma, gloss, r_lang))
 
-            # Re-insert integrity check row
-            db.execute("INSERT INTO lexicon_fts(lexicon_fts) VALUES('integrity-check')")
+            # Verify integrity
+            integrity_res = db.execute("PRAGMA integrity_check(lexicon_fts)").fetchone()
+            if not integrity_res or integrity_res[0] != 'ok':
+                raise IndexBuilderError('FTS5 index integrity check failed')
 
             # Verify indexed row counts and representative MATCH query
             expected_count = db.execute('SELECT COUNT(*) FROM lexicon').fetchone()[0]
