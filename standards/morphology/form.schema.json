@@ -5,6 +5,7 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
+    "schema_version",
     "language_code",
     "lemma_id",
     "sense_id",
@@ -38,7 +39,12 @@
     "features": {
       "type": "object",
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
       }
     },
     "root": {
@@ -118,6 +124,13 @@
     "evidence_version": {
       "type": "string",
       "minLength": 1
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "transliteration": {
+      "type": "string"
     }
   }
 }

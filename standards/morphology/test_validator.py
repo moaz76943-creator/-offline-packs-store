@@ -18,11 +18,28 @@ class TestMorphologyValidatorBasic(unittest.TestCase):
             "form": "Buch",
             "features": {"number": "singular", "case": "nominative"},
             "source_id": "wiktionary-de-buch",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
 
     def test_valid_record(self):
         self.assertTrue(self.validator.validate(self.valid_base))
+
+    def test_valid_transliteration(self):
+        trans_record = self.valid_base.copy()
+        trans_record["transliteration"] = "book"
+        self.assertTrue(self.validator.validate(trans_record))
+
+    def test_typed_features(self):
+        typed_record = self.valid_base.copy()
+        typed_record["features"] = {
+            "is_plural": True,
+            "weight": 2.5,
+            "count": 10,
+            "unknown_feature": None,
+            "case": "nominative"
+        }
+        self.assertTrue(self.validator.validate(typed_record))
 
     def test_invalid_schema(self):
         invalid_record = self.valid_base.copy()
@@ -58,7 +75,8 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
             "form": "books",
             "features": {"number": "plural"},
             "source_id": "wiktionary-en-book",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
 
     def test_invalid_feature_for_language(self):
@@ -84,7 +102,8 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
             "features": {},
             "morphemes": [{"surface": "s", "kind": "clitic", "position": 1}],
             "source_id": "test",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
         with self.assertRaises(ValueError) as context:
             self.validator.validate(testlang_record)
@@ -101,7 +120,8 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
             "features": {},
             "processes": ["broken_plural"],
             "source_id": "test",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
         with self.assertRaises(ValueError) as context:
             self.validator.validate(testlang_record)
@@ -118,7 +138,8 @@ class TestMorphologyValidatorFeatures(unittest.TestCase):
             "features": {},
             "root": "w-r-d",
             "source_id": "test",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
         with self.assertRaises(ValueError) as context:
             self.validator.validate(testlang_record)
@@ -148,7 +169,8 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
             ],
             "vowel_harmony_class": "back",
             "source_id": "wiktionary-tr-kitap",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
         self.assertTrue(self.validator.validate(tr_record))
 
@@ -164,7 +186,8 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
             "pattern": "فُعُل",
             "processes": ["broken_plural", "nonconcatenative"],
             "source_id": "wiktionary-ar-kitab",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
         self.assertTrue(self.validator.validate(ar_record))
 
@@ -178,7 +201,8 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
             "form": "read",
             "features": {"tense": "past"},
             "source_id": "wiktionary-en-read",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
         en_record_participle = {
             "language_code": "en",
@@ -188,7 +212,8 @@ class TestMorphologyValidatorTypologies(unittest.TestCase):
             "form": "read",
             "features": {"verb_form": "past_participle"},
             "source_id": "wiktionary-en-read",
-            "evidence_version": "2026-10-12"
+            "evidence_version": "2026-10-12",
+            "schema_version": "1.0.0"
         }
         self.assertTrue(self.validator.validate(en_record_past))
         self.assertTrue(self.validator.validate(en_record_participle))
