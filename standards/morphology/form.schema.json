@@ -10,9 +10,9 @@
     "sense_id",
     "lemma",
     "form",
-    "features",
     "source_id",
-    "evidence_version"
+    "evidence_version",
+    "analyses"
   ],
   "properties": {
     "language_code": {
@@ -35,76 +35,6 @@
       "type": "string",
       "minLength": 1
     },
-    "features": {
-      "type": "object",
-      "additionalProperties": {
-        "type": "string"
-      }
-    },
-    "root": {
-      "type": "string"
-    },
-    "pattern": {
-      "type": "string"
-    },
-    "processes": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "uniqueItems": true
-    },
-    "components": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "morphemes": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "surface",
-          "kind",
-          "position"
-        ],
-        "additionalProperties": false,
-        "properties": {
-          "surface": {
-            "type": "string"
-          },
-          "kind": {
-            "enum": [
-              "root",
-              "prefix",
-              "suffix",
-              "infix",
-              "clitic",
-              "stem",
-              "pattern",
-              "compound_member"
-            ]
-          },
-          "position": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "allomorph": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "vowel_harmony_class": {
-      "type": "string"
-    },
-    "segmentation": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
     "script": {
       "type": "string"
     },
@@ -118,6 +48,89 @@
     "evidence_version": {
       "type": "string",
       "minLength": 1
+    },
+    "analyses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "features"
+        ],
+        "properties": {
+          "features": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "root": {
+            "type": "string"
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "processes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "morphemes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "surface",
+                "kind",
+                "position"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "surface": {
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "root",
+                    "prefix",
+                    "suffix",
+                    "infix",
+                    "clitic",
+                    "stem",
+                    "pattern",
+                    "compound_member"
+                  ]
+                },
+                "position": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "allomorph": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "vowel_harmony_class": {
+            "type": "string"
+          },
+          "segmentation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "minItems": 1
     }
   }
 }
