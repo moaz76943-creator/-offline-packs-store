@@ -188,18 +188,71 @@ class CorpusDeduplicator:
             raise ValueError('resolution is single-use')
         self._resolved = True
         self._db.commit()
+
+        current_bucket = None
+        bucket_exact = {}
+        bucket_strict = {}
+        bucket_senses = {}
+        pending_retained = []
+        pending_retained_senses = []
+
+        # Initialize next_rowid based on current table state
+        max_id = self._db.execute('SELECT MAX(id) FROM retained').fetchone()[0]
+        next_rowid = (max_id or 0) + 1
+
+        def flush_pending():
+            if pending_retained:
+                self._db.executemany(
+                    "INSERT INTO retained(id,bucket,lexeme_id,exact_key,strict_lemma,license,rights_ok,payload) VALUES(?,?,?,?,?,?,?,?)",
+                    pending_retained
+                )
+                pending_retained.clear()
+            if pending_retained_senses:
+                self._db.executemany(
+                    "INSERT INTO retained_senses(bucket,token,retained_id) VALUES(?,?,?)",
+                    pending_retained_senses
+                )
+                pending_retained_senses.clear()
+
+        def load_bucket_state(bucket):
+            bucket_exact.clear()
+            bucket_strict.clear()
+            bucket_senses.clear()
+
+            # Load existing retained records for this bucket
+            for row in self._db.execute("SELECT id, lexeme_id, payload, license, exact_key, strict_lemma FROM retained WHERE bucket=? ORDER BY id", (bucket,)):
+                rid, lexeme_id, payload, license_id, exact_key, strict_lemma = row
+                row_tuple = (lexeme_id, payload, license_id, exact_key)
+
+                if exact_key is not None and (strict_lemma, exact_key) not in bucket_exact:
+                    bucket_exact[(strict_lemma, exact_key)] = row_tuple
+
+                if strict_lemma not in bucket_strict:
+                    bucket_strict[strict_lemma] = row_tuple
+
+            # Load existing retained senses for this bucket
+            for row in self._db.execute("SELECT s.token, r.lexeme_id, r.payload, r.license, r.exact_key FROM retained_senses s JOIN retained r ON r.id = s.retained_id WHERE s.bucket=? ORDER BY r.id", (bucket,)):
+                token, lexeme_id, payload, license_id, exact_key = row
+                if token not in bucket_senses:
+                    bucket_senses[token] = (lexeme_id, payload, license_id, exact_key)
+
         for bucket, _rid, payload in self._db.execute(
                 'SELECT bucket,lexeme_id,payload FROM input ORDER BY bucket,lexeme_id,seq'):
+            if bucket != current_bucket:
+                flush_pending()
+                current_bucket = bucket
+                load_bucket_state(bucket)
+
             rec = json.loads(payload)
             strict = normalize_strict(rec['lemma'])
             exact = _exact_identity(rec) if self._all_sources_admitted(rec) else None
             license_id = _rights(rec.get('source'))
             canonical = None
             reason = None
+
             if exact is not None:
-                canonical = self._db.execute("""SELECT lexeme_id,payload FROM retained
-                    WHERE bucket=? AND strict_lemma=? AND exact_key=? ORDER BY id LIMIT 1""",
-                    (bucket, strict, exact)).fetchone()
+                canonical = bucket_exact.get((strict, exact))
+
             # Missing rights or semantics must never cause an automatic delete.
             if canonical:
                 if self.are_licenses_compatible(rec, json.loads(canonical[1])):
@@ -210,10 +263,9 @@ class CorpusDeduplicator:
                         'original_record': rec}
                     continue
                 reason = 'incompatible_licenses'
+
             if reason is None:
-                other = self._db.execute("""SELECT lexeme_id,payload,license,exact_key
-                    FROM retained WHERE bucket=? AND strict_lemma=? ORDER BY id LIMIT 1""",
-                    (bucket,strict)).fetchone()
+                other = bucket_strict.get(strict)
                 if other:
                     old = json.loads(other[1])
                     same_semantics = _sense_tokens(rec.get('senses', [])) == _sense_tokens(old.get('senses', []))
@@ -224,28 +276,38 @@ class CorpusDeduplicator:
                                   else 'missing_or_unapproved_source' if not self.are_licenses_compatible(rec, old)
                                   else 'unverified_sense_identity')
                         canonical = other
+
             if reason is None:
                 for token in _sense_tokens(rec.get('senses', [])):
-                    near = self._db.execute("""SELECT r.lexeme_id,r.payload,r.exact_key FROM retained_senses s
-                        JOIN retained r ON r.id=s.retained_id WHERE s.bucket=? AND s.token=? ORDER BY r.id LIMIT 1""",
-                        (bucket,token)).fetchone()
+                    near = bucket_senses.get(token)
                     if near:
                         canonical = near
                         old = json.loads(near[1])
                         reason = ('overlapping_senses' if strict == normalize_strict(old['lemma'])
                                   else 'near_duplicate_orthography')
                         break
+
             if reason:
                 yield 'duplicate', {'status': 'REVIEW_REQUIRED',
                     'original_id': rec['lexeme_id'], 'duplicate_of': canonical[0],
                     'source': rec.get('source'), 'reason': reason}
+
             # Retain all records needing review (no destructive deduplication).
-            cur = self._db.execute("""INSERT INTO retained(bucket,lexeme_id,exact_key,strict_lemma,
-                license,rights_ok,payload) VALUES(?,?,?,?,?,?,?)""",
-                (bucket,rec['lexeme_id'],exact,strict,license_id,int(license_id is not None),payload))
+            pending_retained.append((next_rowid, bucket, rec['lexeme_id'], exact, strict, license_id, int(license_id is not None), payload))
+            row_tuple = (rec['lexeme_id'], payload, license_id, exact)
+
+            if exact is not None and (strict, exact) not in bucket_exact:
+                bucket_exact[(strict, exact)] = row_tuple
+            if strict not in bucket_strict:
+                bucket_strict[strict] = row_tuple
             for token in _sense_tokens(rec.get('senses', [])):
-                self._db.execute('INSERT INTO retained_senses VALUES(?,?,?)', (bucket,token,cur.lastrowid))
+                pending_retained_senses.append((bucket, token, next_rowid))
+                if token not in bucket_senses:
+                    bucket_senses[token] = row_tuple
+            next_rowid += 1
             yield 'canonical', rec
+
+        flush_pending()
         self._db.commit()
 
     def resolve(self):
