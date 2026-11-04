@@ -240,20 +240,26 @@ class MediaCompiler:
         }
 
         delta_plan = {}
-        change_events = []
+        change_events = {
+            "unchanged": [],
+            "updated": [],
+            "deleted": [],
+            "added": [],
+            "invalid": []
+        }
         if prior_pack_meta:
             prior_concepts = prior_pack_meta.get('concepts', {})
             for cid, current_data in pack_data['concepts'].items():
                 if cid not in prior_concepts:
-                    change_events.append({"type": "added", "concept_id": cid})
+                    change_events["added"].append(cid)
                 elif prior_concepts[cid]['source_hash'] != current_data['source_hash']:
-                    change_events.append({"type": "updated", "concept_id": cid})
+                    change_events["updated"].append(cid)
                 else:
-                    change_events.append({"type": "unchanged", "concept_id": cid})
+                    change_events["unchanged"].append(cid)
 
             for cid in prior_concepts:
                 if cid not in pack_data['concepts']:
-                    change_events.append({"type": "deleted", "concept_id": cid})
+                    change_events["deleted"].append(cid)
 
             delta_plan = {"changes": change_events}
 
@@ -263,7 +269,8 @@ class MediaCompiler:
             'supported_encodings': self.supported_encodings,
             'max_paths': self.max_paths,
             'max_bytes': self.max_bytes,
-            'max_decoded_bytes': self.max_decoded_bytes
+            'max_decoded_bytes': self.max_decoded_bytes,
+            'wordbit_compatible': True
         }
 
         return {
