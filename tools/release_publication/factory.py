@@ -50,21 +50,36 @@ def verify_publication_authorization(repo_root):
         raise ValueError("Unauthorized: Missing credentials")
 
 def verify_pack_conformance(repo_root, path, sha, language):
-    check_script = repo_root / "tools/gha_factory/pack_conformance/check.py"
+    check_script = repo_root / "tools/pack_conformance/validator.py"
     if not check_script.is_file():
         raise ValueError("Conformance check missing")
 
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo_root)
 
-    result = subprocess.run(
-        [sys.executable, str(check_script), "--root", str(repo_root), "--archive", str(path), "--language", language, "--sha256", sha],
-        capture_output=True,
-        text=True,
-        env=env
-    )
-    if result.returncode != 0:
-        raise ValueError(f"Pack conformance check failed: {result.stdout.strip()}")
+    import gzip
+    import tempfile
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmp_db = Path(tmpdir) / "test.db"
+        with gzip.open(path, 'rb') as f_in:
+            with open(tmp_db, 'wb') as f_out:
+                shutil.copyfileobj(f_in, f_out)
+
+        result = subprocess.run(
+            [sys.executable, str(check_script), str(tmp_db)],
+            capture_output=True,
+            text=True,
+            env=env
+        )
+        if result.returncode != 0:
+            raise ValueError(f"Pack conformance check failed: {result.stderr.strip()} {result.stdout.strip()}")
+        try:
+            output = json.loads(result.stdout)
+            if output.get("structural_validation") != "PASS" or not output.get("source_evidence_verified"):
+                raise ValueError("Pack conformance engine rejected the pack")
+        except json.JSONDecodeError:
+            raise ValueError(f"Invalid JSON from pack conformance check: {result.stdout.strip()}")
 
 def publish_artifacts(repo_root, target_dir, artifacts, dry_run=False, check_auth=True):
     repo_root = Path(repo_root).resolve()

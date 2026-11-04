@@ -89,3 +89,43 @@ class TestPublicationFactory(unittest.TestCase):
         artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "de"}]
         with self.assertRaises(ValueError):
             publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+
+    def test_end_to_end_valid_and_rejected_artifacts(self):
+        import unittest.mock
+
+        artifacts = [{"path": "deutsch_deep_master.pack.gz", "sha256": self.valid_hash, "language": "de"}]
+
+        # Need to mock the check_script file existence since repo_root is a temp dir
+        with unittest.mock.patch('tools.release_publication.factory.verify_publication_eligibility'), \
+             unittest.mock.patch('tools.release_publication.factory.verify_publication_authorization'), \
+             unittest.mock.patch('pathlib.Path.is_file', return_value=True), \
+             unittest.mock.patch('subprocess.run') as mock_run:
+
+            # Mock subprocess.run for validator
+            mock_run.return_value = unittest.mock.MagicMock(returncode=0, stdout=json.dumps({"structural_validation": "PASS", "source_evidence_verified": True}), stderr="")
+
+            publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+            self.assertTrue((self.target / "deutsch_deep_master.pack.gz").exists())
+            self.assertTrue((self.target / "deutsch_deep_master.pack.gz.manifest.json").exists())
+
+        with unittest.mock.patch('tools.release_publication.factory.verify_publication_eligibility'), \
+             unittest.mock.patch('tools.release_publication.factory.verify_publication_authorization'), \
+             unittest.mock.patch('pathlib.Path.is_file', return_value=True), \
+             unittest.mock.patch('subprocess.run') as mock_run:
+
+            # Reject
+            mock_run.return_value = unittest.mock.MagicMock(returncode=0, stdout=json.dumps({"structural_validation": "FAIL", "source_evidence_verified": False}), stderr="")
+
+            with self.assertRaises(ValueError):
+                publish_artifacts(self.root, self.target, artifacts, check_auth=True)
+
+        with unittest.mock.patch('tools.release_publication.factory.verify_publication_eligibility'), \
+             unittest.mock.patch('tools.release_publication.factory.verify_publication_authorization'), \
+             unittest.mock.patch('pathlib.Path.is_file', return_value=True), \
+             unittest.mock.patch('subprocess.run') as mock_run:
+
+            # Invalid JSON
+            mock_run.return_value = unittest.mock.MagicMock(returncode=0, stdout="Not JSON", stderr="")
+
+            with self.assertRaises(ValueError):
+                publish_artifacts(self.root, self.target, artifacts, check_auth=True)
