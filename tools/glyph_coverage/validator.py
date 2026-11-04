@@ -1,3 +1,4 @@
+import json
 import os
 from typing import Dict, List, Optional, Set
 from fontTools.ttLib import TTFont
@@ -35,6 +36,24 @@ class GlyphCoverageValidator:
         self.repo_root = repo_root
         self.registry = FontRightsRegistry()
 
+
+    def validate_script(self, script: str) -> dict:
+        registry_path = os.path.join(self.repo_root, "catalog", "language_registry.v1.json")
+        try:
+            with open(registry_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            return {"status": "REJECT", "issues": [f"Failed to read registry: {e}"]}
+
+        canonical_scripts = set(data.get("scripts", {}).keys())
+        if any(s in canonical_scripts for s in ["Hans", "Hant", "Jpan", "Kore"]):
+            canonical_scripts.add("Hani")
+
+        if script not in canonical_scripts:
+            return {"status": "REJECT", "issues": [f"Unsupported script: {script}"]}
+
+        return {"status": "ACCEPT", "issues": []}
+
     def get_font_cmap(self, font_path: str) -> Set[int]:
         try:
             with TTFont(font_path) as font:
@@ -59,6 +78,18 @@ class GlyphCoverageValidator:
         return {"supported": supported, "unsupported": unsupported}
 
     def generate_fallback_mapping(self, script: str, assets: List[FontAsset]) -> FallbackMapping:
+        script_val = self.validate_script(script)
+        if script_val.get("status") == "REJECT":
+            return FallbackMapping(
+                script=script,
+                supported_points=[],
+                unsupported_points=[],
+                cmap_coverage=False,
+                shaping_guaranteed=False,
+                device_rendering_guaranteed=False,
+                valid_fallback_families=[]
+            )
+
         samples = SCRIPT_SAMPLES.get(script, [])
         samples = samples.copy()
         samples.extend(VARIATION_SELECTORS)
