@@ -9,6 +9,12 @@
   "roster_count": 21,
   "schema_version": "1.0.0",
   "stale": [
-    "health"
+    "harvest-kaikki",
+    "harvest-tatoeba",
+    "classifier",
+    "grammar",
+    "qa",
+    "janitor",
+    "coverage"
   ]
 }
