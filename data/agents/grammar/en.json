@@ -426,6 +426,406 @@
       "id": "sentence.statement",
       "language": "en",
       "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1323",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "No I'm not; you are!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1324",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That's MY line!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1325",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "He's kicking me!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1326",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Are you sure?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1327",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Then there is a problem..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1328",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, there's a butterfly!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1329",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Hurry up."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1330",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It doesn't surprise me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1332",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "For some reason I feel more alive at night."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1333",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It depends on the context."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1334",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Are you freaking kidding me?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1335",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That's the stupidest thing I've ever said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1336",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I don't want to be lame; I want to be cool!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1337",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "When I grow up, I want to be a king."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1338",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "America is a lovely place to be, if you are here to earn money."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1339",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm so fat."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1340",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "So what?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1341",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm gonna shoot him."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1342",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm not a real fish, I'm just a mere plushy."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1343",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm just saying!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1344",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That was probably what influenced their decision."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1345",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I've always wondered what it'd be like to have siblings."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1346",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "This is what I would have said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1347",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It would take forever for me to explain everything."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1348",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That's because you're a girl."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1349",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Sometimes I can't help showing emotions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1350",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It's a word I'd like to find a substitute for."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1351",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It would be something I'd have to program."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1352",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I don't intend to be selfish."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1353",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Let's consider the worst that could happen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1354",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "How many close friends do you have?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1355",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I may be antisocial, but it doesn't mean I don't talk to people."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1356",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "This is always the way it has been."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1357",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I think it is best not to be impolite."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1358",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "One can always find time."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1359",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'd be unhappy, but I wouldn't kill myself."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1360",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Back in high school, I got up at 6 a.m. every morning."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1361",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "When I woke up, I was sad."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1362",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That is somewhat explained at the end."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1363",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I thought you liked to learn new things."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
       "license_id": "CC-BY-SA-4.0",
       "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0001",
       "retrieval_date": "2026-11-01",
@@ -3832,6 +4232,406 @@
       "id": "sentence.statement",
       "language": "en",
       "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1323",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "No I'm not; you are!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1324",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That's MY line!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1325",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "He's kicking me!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1326",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Are you sure?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1327",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Then there is a problem..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1328",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, there's a butterfly!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1329",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Hurry up."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1330",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It doesn't surprise me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1332",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "For some reason I feel more alive at night."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1333",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It depends on the context."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1334",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Are you freaking kidding me?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1335",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That's the stupidest thing I've ever said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1336",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I don't want to be lame; I want to be cool!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1337",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "When I grow up, I want to be a king."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1338",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "America is a lovely place to be, if you are here to earn money."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1339",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm so fat."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1340",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "So what?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1341",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm gonna shoot him."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1342",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm not a real fish, I'm just a mere plushy."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1343",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'm just saying!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1344",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That was probably what influenced their decision."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1345",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I've always wondered what it'd be like to have siblings."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1346",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "This is what I would have said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1347",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It would take forever for me to explain everything."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1348",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That's because you're a girl."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1349",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Sometimes I can't help showing emotions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1350",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It's a word I'd like to find a substitute for."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1351",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "It would be something I'd have to program."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1352",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I don't intend to be selfish."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1353",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Let's consider the worst that could happen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1354",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "How many close friends do you have?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1355",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I may be antisocial, but it doesn't mean I don't talk to people."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1356",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "This is always the way it has been."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1357",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I think it is best not to be impolite."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1358",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "One can always find time."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1359",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I'd be unhappy, but I wouldn't kill myself."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1360",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Back in high school, I got up at 6 a.m. every morning."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1361",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "When I woke up, I was sad."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1362",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "That is somewhat explained at the end."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1363",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "I thought you liked to learn new things."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
       "license_id": "CC-BY-SA-4.0",
       "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0001",
       "retrieval_date": "2026-11-01",
@@ -6817,6 +7617,406 @@
       "retrieval_date": "2026-11-05",
       "source_id": "universal-dependencies",
       "value": "I enjoyed working with all of you during the past five years at Enron / Azurix, and I wish you all of the best."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0008",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Take care."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0009",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Rob Bryngelson"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0010",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "PS -- There is a happy hour tonight at Scudeiros on Dallas Street (just west of the Met Garage) beginning around 5:00."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0011",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "If you can make it, please come!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0012",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Traci Warner@ENRON COMMUNICATIONS on 08/16/2000 03:14:14 PM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0013",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Steve, Rod and Elyse -"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0014",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Just wanted to confirm our meeting on Tuesday Aug 29th from 1:30 -2:30 to discuss Uof H's endowment proposal."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0015",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "We will meeting Rod's office EB4054"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0016",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "I look forward to seeing you all there."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0017",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Sincerely,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0018",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Traci"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent20_02-0019",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Traci Warner Enron Broadband Services, Inc. Phone (713) 853-3242 Cell (713) 705-7201"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0001",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Kay Mann"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0002",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "04/26/2001 07:17 AM"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0003",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Will you be providing an execution version with questions removed/blanks filled in?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0004",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Please send it directly to kent.shoemaker@ae.ge.com, copy to me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0005",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Thanks,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0006",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Thanks,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0007",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Kay"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0008",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "\"paulhastings.com\" made the following annotations on 04/25/01 12:42:55"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0009",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "We have changed our e-mail address."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0010",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Our new domain name is paulhastings.com."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0011",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "In most cases, our address is composed of conventional first name and last name plus @paulhastings.com."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0012",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Here are two examples: janesmith@paulhastings.com and danjones@paulhastings.com."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0013",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "If you have any questions, please contact us at noc@paulhastings.com."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0015",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "\"The information transmitted is intended only for the person or entity to which it is addressed and may contain confidential and/or privileged material."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0016",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Any review, retransmission, dissemination or other use of, or taking of any action in reliance upon, this information by persons or entities other than the intended recipient is prohibited."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0017",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "If you received this in error, please contact the sender and delete the material from all computers.\""
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0019",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Attached please find the GE Guarantee in Word format.?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0020",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Also, we have attached a pdf black-line of the Guarantee vs the form of guarantee in the Turbine Contract."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0022",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Do not hesitate to call us with any questions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0024",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Best regards."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent26_02-0027",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "John Staikos Direct Dial:? 203.961.7523 Direct Fax:? 203.674.7723 E-mail:? johnstaikos@paulhastings.com"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_02-0001",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Sean Boyle"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_02-0002",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "08/17/2000 11:21 AM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_02-0003",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "I spoke to Bruce Garcey at NiMo regarding their RFP."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_02-0004",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "Bruce indicated NiMo short listed five companies who all bid higher than ENA."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_02-0005",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "However, he also mentioned we were a close sixth, that is close to the fifth highest bid."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_02-0006",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "He gave no indication on the value of the highest bid."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_02-0007",
+      "retrieval_date": "2026-11-05",
+      "source_id": "universal-dependencies",
+      "value": "He also said that the other five companies making the short list all proposed alternative structures to the proposed NiMo Tier Structure."
     },
     {
       "id": "verb.forms",
