@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370530",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هل تريد أن تنصحني بشيء ما ؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370531",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "تعتمد اليابان على نفط البلدان العربية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370532",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "ما هذا؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370533",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "من رسم هذه اللوحة؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370534",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا بيتي وهذه أرضي!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370535",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "أحببت هذا الفيلم."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370536",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "من كتب هذا الكتاب؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370537",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "من وضع هذه الخطة؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370538",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا ليس عدلاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370539",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "اشتريته بالأمس."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370540",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا لك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370541",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا كتاب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370542",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا كتابها."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370543",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "قابلنا كاتباً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370545",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "الطريق طويل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370549",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "العالم قرية صغيرة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370551",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "الكرز أحمر."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370554",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "المنافسة قوية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370556",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "نحن عرب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370558",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هو ذكي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370560",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه ذكي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370561",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "أنت صديقي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370563",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا دفتري."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370565",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "عيادة الطبيب في الدور الثاني."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370566",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه جدير بأن يكون قائد فريقنا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370569",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه يعرفنا جيداً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370570",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "أحبه أكثر من بقية الأولاد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370571",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "لم ينجُ أحد من تحطم الطائرة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370572",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا غير صحيح."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370574",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "ما أجمل هذه الزهرة!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370575",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "تتكاثر الفئران بسرعة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370576",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا الحلم سَيَتَحَقَّق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370577",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذه قصة حقيقية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370578",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "لكن هذا ليس صحيحاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370579",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "زوجتي طبيبة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370581",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "الموسيقى لغة عالمية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370584",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "الحمد لله."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370586",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "سرق الرجل حقيبة يدي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370587",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "عندي مشكلة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370589",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هناك عوامل كثيرة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:331919",
@@ -821,6 +1221,406 @@
       "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "تركوا المشكلة بدون حل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370530",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هل تريد أن تنصحني بشيء ما ؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370531",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "تعتمد اليابان على نفط البلدان العربية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370532",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "ما هذا؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370533",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "من رسم هذه اللوحة؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370534",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا بيتي وهذه أرضي!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370535",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "أحببت هذا الفيلم."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370536",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "من كتب هذا الكتاب؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370537",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "من وضع هذه الخطة؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370538",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا ليس عدلاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370539",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "اشتريته بالأمس."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370540",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا لك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370541",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا كتاب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370542",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا كتابها."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370543",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "قابلنا كاتباً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370545",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "الطريق طويل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370549",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "العالم قرية صغيرة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370551",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "الكرز أحمر."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370554",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "المنافسة قوية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370556",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "نحن عرب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370558",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هو ذكي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370560",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه ذكي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370561",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "أنت صديقي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370563",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا دفتري."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370565",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "عيادة الطبيب في الدور الثاني."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370566",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه جدير بأن يكون قائد فريقنا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370569",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "إنه يعرفنا جيداً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370570",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "أحبه أكثر من بقية الأولاد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370571",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "لم ينجُ أحد من تحطم الطائرة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370572",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا غير صحيح."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370574",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "ما أجمل هذه الزهرة!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370575",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "تتكاثر الفئران بسرعة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370576",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا الحلم سَيَتَحَقَّق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370577",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هذه قصة حقيقية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370578",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "لكن هذا ليس صحيحاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370579",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "زوجتي طبيبة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370581",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "الموسيقى لغة عالمية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370584",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "الحمد لله."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370586",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "سرق الرجل حقيبة يدي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370587",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "عندي مشكلة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370589",
+      "retrieval_date": "2026-11-04",
+      "source_id": "tatoeba.sentences",
+      "value": "هناك عوامل كثيرة."
     }
   ]
 }
