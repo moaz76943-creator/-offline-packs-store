@@ -3075,6 +3075,35 @@
       "wikidata": "Q1410"
     },
     {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q8646",
+      "gloss": "Hong Kong (a city, island and special administrative region in southeastern China)",
+      "language": "sv",
+      "lemma": "Hongkong",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Swedish/kaikki.org-dictionary-Swedish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q8646"
+      ],
+      "record_id": "en-Hongkong-sv-name-aBkX2cs9",
+      "retrieval_date": "2026-11-05",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Hongkong-sv-name-aBkX2cs9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8646"
+    },
+    {
       "author": "hashimi",
       "language": "ar",
       "level": {
@@ -6673,6 +6702,726 @@
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Most people think I'm crazy."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1323",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No I'm not; you are!"
+    },
+    {
+      "author": "human600",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1324",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "That's MY line!"
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1325",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "He's kicking me!"
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1326",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Are you sure?"
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1327",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Then there is a problem..."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1328",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Oh, there's a butterfly!"
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1329",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hurry up."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1330",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It doesn't surprise me."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1332",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "For some reason I feel more alive at night."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1333",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It depends on the context."
+    },
+    {
+      "author": "AlanF_US",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1334",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Are you freaking kidding me?!"
+    },
+    {
+      "author": "wakaran",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=42; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1335",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "That's the stupidest thing I've ever said."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1336",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't want to be lame; I want to be cool!!"
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1337",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "When I grow up, I want to be a king."
+    },
+    {
+      "author": "AlanF_US",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=63; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1338",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "America is a lovely place to be, if you are here to earn money."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1339",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'm so fat."
+    },
+    {
+      "author": "Sbgodin",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1340",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "So what?"
+    },
+    {
+      "author": "human600",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1341",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'm gonna shoot him."
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1342",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'm not a real fish, I'm just a mere plushy."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1343",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'm just saying!"
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1344",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "That was probably what influenced their decision."
+    },
+    {
+      "author": "human600",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=56; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1345",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I've always wondered what it'd be like to have siblings."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1346",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "This is what I would have said."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=51; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1347",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It would take forever for me to explain everything."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1348",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "That's because you're a girl."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1349",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sometimes I can't help showing emotions."
+    },
+    {
+      "author": "human600",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1350",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It's a word I'd like to find a substitute for."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=42; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1351",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It would be something I'd have to program."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1352",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't intend to be selfish."
+    },
+    {
+      "author": "human600",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1353",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Let's consider the worst that could happen."
+    },
+    {
+      "author": "al_ex_an_der",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1354",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "How many close friends do you have?"
+    },
+    {
+      "author": "wuiwie",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=64; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1355",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I may be antisocial, but it doesn't mean I don't talk to people."
+    },
+    {
+      "author": "CM",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1356",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "This is always the way it has been."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1357",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I think it is best not to be impolite."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1358",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "One can always find time."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1359",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I'd be unhappy, but I wouldn't kill myself."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=54; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1360",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Back in high school, I got up at 6 a.m. every morning."
+    },
+    {
+      "author": "100nosewiggles",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1361",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "When I woke up, I was sad."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1362",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "That is somewhat explained at the end."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1363",
+      "retrieval_date": "2026-11-05",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I thought you liked to learn new things."
     },
     {
       "author": "Shishir",
@@ -20172,6 +20921,42 @@
       "wikidata": "Q2251335"
     },
     {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "mikrobiolog",
+        "mikrobiologen",
+        "mikrobiologer",
+        "mikrobiologerne",
+        "mikrobiologs",
+        "mikrobiologens",
+        "mikrobiologers",
+        "mikrobiologernes"
+      ],
+      "language": "da",
+      "lemma": "mikrobiolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1225591",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L1225591",
+      "retrieval_date": "2026-11-05",
+      "revision": "2188616067",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1225591-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
+    },
+    {
       "concept_id": "concept.q1780",
       "forms": [
         "Pressburg",
@@ -21860,7 +22645,7 @@
         "Q8178443"
       ],
       "record_id": "L348813",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2306688298",
       "schema_version": "1.0.0",
       "section": "work",
@@ -21896,7 +22681,7 @@
         "Q16308156"
       ],
       "record_id": "L616434",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "1884129210",
       "schema_version": "1.0.0",
       "section": "work",
@@ -22014,6 +22799,78 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "Mikrobiologin",
+        "Mikrobiologin",
+        "Mikrobiologin",
+        "Mikrobiologin",
+        "Mikrobiologinnen",
+        "Mikrobiologinnen",
+        "Mikrobiologinnen",
+        "Mikrobiologinnen"
+      ],
+      "language": "de",
+      "lemma": "Mikrobiologin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348753",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L348753",
+      "retrieval_date": "2026-11-05",
+      "revision": "2042215666",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348753-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "Mikrobiologe",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen"
+      ],
+      "language": "de",
+      "lemma": "Mikrobiologe",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348832",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L348832",
+      "retrieval_date": "2026-11-05",
+      "revision": "2306694400",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348832-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     },
     {
       "concept_id": "concept.q726",
@@ -24630,7 +25487,7 @@
         "Q8178443"
       ],
       "record_id": "L323237",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2562095822",
       "schema_version": "1.0.0",
       "section": "work",
@@ -24660,7 +25517,7 @@
         "Q3303330"
       ],
       "record_id": "L317618",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2561123060",
       "schema_version": "1.0.0",
       "section": "work",
@@ -24789,6 +25646,36 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "microbiologist",
+        "microbiologists"
+      ],
+      "language": "en",
+      "lemma": "microbiologist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L37384",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L37384",
+      "retrieval_date": "2026-11-05",
+      "revision": "2466192800",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L37384-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     },
     {
       "concept_id": "concept.q726",
@@ -25504,7 +26391,7 @@
         "Q16308156"
       ],
       "record_id": "L1334309",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2206931817",
       "schema_version": "1.0.0",
       "section": "work",
@@ -25536,7 +26423,7 @@
         "Q16308156"
       ],
       "record_id": "L1334310",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2206931917",
       "schema_version": "1.0.0",
       "section": "work",
@@ -25577,6 +26464,38 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "microbiólogo",
+        "microbiólogos",
+        "microbióloga",
+        "microbiólogas"
+      ],
+      "language": "es",
+      "lemma": "microbiólogo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L680258",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L680258",
+      "retrieval_date": "2026-11-05",
+      "revision": "2415727483",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L680258-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     },
     {
       "concept_id": "concept.q2778382",
@@ -26061,7 +26980,7 @@
         "Q3303330"
       ],
       "record_id": "L1003979",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2162522932",
       "schema_version": "1.0.0",
       "section": "work",
@@ -27227,7 +28146,7 @@
         "Q22929895"
       ],
       "record_id": "L621494",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-05",
       "revision": "2524853208",
       "schema_version": "1.0.0",
       "section": "work",
@@ -27347,7 +28266,7 @@
         "Q8178443"
       ],
       "record_id": "L621500",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "1700258889",
       "schema_version": "1.0.0",
       "section": "work",
@@ -27377,7 +28296,7 @@
         "Q16308156"
       ],
       "record_id": "L621608",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2155193124",
       "schema_version": "1.0.0",
       "section": "work",
@@ -27407,7 +28326,7 @@
         "Q3303330"
       ],
       "record_id": "L1576832",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2524839915",
       "schema_version": "1.0.0",
       "section": "work",
@@ -27601,6 +28520,36 @@
       "wikidata": "Q2468727"
     },
     {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "microbiologiste",
+        "microbiologistes"
+      ],
+      "language": "fr",
+      "lemma": "microbiologiste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621556",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L621556",
+      "retrieval_date": "2026-11-05",
+      "revision": "2515269167",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621556-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
+    },
+    {
       "concept_id": "concept.q11756",
       "forms": [
         "prapovijest",
@@ -27707,6 +28656,150 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "mikrobiologica",
+        "mikrobiologice",
+        "mikrobiologici",
+        "mikrobiologicu",
+        "mikrobiologico",
+        "mikrobiologici",
+        "mikrobiologicom",
+        "mikrobiologice"
+      ],
+      "language": "hr",
+      "lemma": "mikrobiologica",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1226421",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L1226421",
+      "retrieval_date": "2026-11-05",
+      "revision": "2045604061",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1226421-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "mikrobiološkinja",
+        "mikrobiološkinje",
+        "mikrobiološkinji",
+        "mikrobiološkinju",
+        "mikrobiološkinjo",
+        "mikrobiološkinji",
+        "mikrobiološkinjom",
+        "mikrobiološkinje"
+      ],
+      "language": "hr",
+      "lemma": "mikrobiološkinja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1226422",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L1226422",
+      "retrieval_date": "2026-11-05",
+      "revision": "2045604286",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1226422-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "mikrobiologinja",
+        "mikrobiologinje",
+        "mikrobiologinji",
+        "mikrobiologinju",
+        "mikrobiologinjo",
+        "mikrobiologinji",
+        "mikrobiologinjom",
+        "mikrobiologinje"
+      ],
+      "language": "hr",
+      "lemma": "mikrobiologinja",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1226423",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L1226423",
+      "retrieval_date": "2026-11-05",
+      "revision": "2045603868",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1226423-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "mikrobiolog",
+        "mikrobiologa",
+        "mikrobiologu",
+        "mikrobiologa",
+        "mikrobiolože",
+        "mikrobiologu",
+        "mikrobiologom",
+        "mikrobiolozi"
+      ],
+      "language": "hr",
+      "lemma": "mikrobiolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1226424",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L1226424",
+      "retrieval_date": "2026-11-05",
+      "revision": "2045605367",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1226424-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     },
     {
       "concept_id": "concept.q59099",
@@ -28710,7 +29803,7 @@
         "Q3332711"
       ],
       "record_id": "L1231762",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-05",
       "revision": "2191546151",
       "schema_version": "1.0.0",
       "section": "work",
@@ -28833,7 +29926,7 @@
         "Q8178443"
       ],
       "record_id": "L1231742",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2181655809",
       "schema_version": "1.0.0",
       "section": "work",
@@ -28865,7 +29958,7 @@
         "Q16308156"
       ],
       "record_id": "L1375969",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2390682867",
       "schema_version": "1.0.0",
       "section": "work",
@@ -28895,7 +29988,7 @@
         "Q3303330"
       ],
       "record_id": "L1209392",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2390818348",
       "schema_version": "1.0.0",
       "section": "work",
@@ -29028,6 +30121,36 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2468727"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "microbiologo",
+        "microbiologi"
+      ],
+      "language": "it",
+      "lemma": "microbiologo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1190777",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L1190777",
+      "retrieval_date": "2026-11-05",
+      "revision": "2083468661",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1190777-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     },
     {
       "concept_id": "concept.q1754",
@@ -30727,6 +31850,35 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "മൈക്രോബയോളജിസ്റ്റ്"
+      ],
+      "language": "ml",
+      "lemma": "മൈക്രോബയോളജിസ്റ്റ്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L454663",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L454663",
+      "retrieval_date": "2026-11-05",
+      "revision": "1394201662",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L454663-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     },
     {
       "concept_id": "concept.q12898224",
@@ -32484,7 +33636,7 @@
         "Q3332711"
       ],
       "record_id": "L126362",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-05",
       "revision": "2237188901",
       "schema_version": "1.0.0",
       "section": "work",
@@ -32556,7 +33708,7 @@
         "Q8178443"
       ],
       "record_id": "L123291",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2237170032",
       "schema_version": "1.0.0",
       "section": "work",
@@ -32675,6 +33827,42 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "микробиолог",
+        "микробиолога",
+        "микробиологу",
+        "микробиолога",
+        "микробиологом",
+        "микробиологе",
+        "микробиологи",
+        "микробиологов"
+      ],
+      "language": "ru",
+      "lemma": "микробиолог",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L127546",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L127546",
+      "retrieval_date": "2026-11-05",
+      "revision": "2237195185",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L127546-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     },
     {
       "concept_id": "concept.q726",
@@ -33647,7 +34835,7 @@
         "Q16308156"
       ],
       "record_id": "L1403572",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2478522177",
       "schema_version": "1.0.0",
       "section": "work",
@@ -33874,6 +35062,42 @@
       "wikidata": "Q2468727"
     },
     {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "mikrobiolog",
+        "mikrobiologen",
+        "mikrobiologer",
+        "mikrobiologerna",
+        "mikrobiologs",
+        "mikrobiologens",
+        "mikrobiologers",
+        "mikrobiologernas"
+      ],
+      "language": "sv",
+      "lemma": "mikrobiolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L290257",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L290257",
+      "retrieval_date": "2026-11-05",
+      "revision": "2481277336",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L290257-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
+    },
+    {
       "concept_id": "concept.q12106",
       "forms": [
         "கோதுமை"
@@ -33932,6 +35156,36 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q3354532"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "mikrobiyolog",
+        "میكروبییولوغ"
+      ],
+      "language": "tr",
+      "lemma": "mikrobiyolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1225401",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L1225401",
+      "retrieval_date": "2026-11-05",
+      "revision": "2042570500",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1225401-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     },
     {
       "concept_id": "concept.q2778382",
