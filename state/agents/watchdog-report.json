@@ -3,13 +3,7 @@
     "harvest-wikidata",
     "packs"
   ],
-  "dispatch": [
-    "watchdog",
-    "health"
-  ],
+  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": [
-    "health",
-    "watchdog"
-  ]
+  "stale": []
 }
