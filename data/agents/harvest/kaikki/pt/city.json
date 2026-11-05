@@ -1,6 +1,6 @@
 {
   "language": "pt",
-  "retrieval_date": "2026-11-03",
+  "retrieval_date": "2026-11-05",
   "rows": [
     {
       "co_offered": [
@@ -529,6 +529,102 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1780"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q1410",
+      "gloss": "Gibraltar (a peninsula, city, and overseas territory of the United Kingdom, at the southern end of Iberia)",
+      "language": "pt",
+      "lemma": "Gibraltar",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q1410"
+      ],
+      "record_id": "en-Gibraltar-pt-name-ZcvZyDDJ",
+      "retrieval_date": "2026-11-05",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Gibraltar-pt-name-ZcvZyDDJ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1410"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q36405",
+      "gloss": "Aberdeen (a port city in Aberdeen council area, Scotland, on the North Sea)",
+      "language": "pt",
+      "lemma": "Aberdeen",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q36405"
+      ],
+      "record_id": "en-Aberdeen-pt-name-VhWkDwLG",
+      "retrieval_date": "2026-11-05",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Aberdeen-pt-name-VhWkDwLG",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36405"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3551",
+      "gloss": "Rabat (the capital city of Morocco, and capital city of the region of Rabat-Sale-Kenitra, Morocco)",
+      "language": "pt",
+      "lemma": "Rabat",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q3551"
+      ],
+      "record_id": "en-Rabat-pt-name-rWVVxS4C",
+      "retrieval_date": "2026-11-05",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Rabat-pt-name-rWVVxS4C",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q3551"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q8646",
+      "gloss": "dated spelling of Hong Kong: Hong Kong (a city, island and special administrative region in southeastern China)",
+      "language": "pt",
+      "lemma": "Hongkong",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Portuguese/kaikki.org-dictionary-Portuguese.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q8646"
+      ],
+      "record_id": "en-Hongkong-pt-name-Y09~uj2w",
+      "retrieval_date": "2026-11-05",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Hongkong-pt-name-Y09~uj2w",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8646"
     }
   ],
   "schema_version": "1.0.0",
