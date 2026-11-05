@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:121",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn die Welt nicht so wäre wie sie jetzt ist, könnte ich jedem vertrauen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:122",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Unglücklicherweise stimmt es."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:123",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Sie sind zu sehr damit beschäftigt, sich gegenseitig zu bekämpfen, als dass sie sich gemeinsamen Idealen widmen könnten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:124",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Die meisten Leute denken, ich sei verrückt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:125",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Nein, ich bin es nicht, du bist es!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:126",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das war mein Satz!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:127",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Er tritt mich!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:128",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Bist du sicher?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:129",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Dann haben wir ein Problem..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:130",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, da ist ein Schmetterling!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:131",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Beeil dich!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:132",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es überrascht mich nicht."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:133",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn ich so sein könnte..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:134",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Aus irgendeinem Grund fühle ich mich nachts lebendiger."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:135",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das kommt auf den Zusammenhang an."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Willst du mich verdammt nochmal auf den Arm nehmen?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:137",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das ist das Dümmste, was ich je gesagt habe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:138",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich will nicht erbärmlich sein, ich will cool sein!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:139",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn ich groß bin, will ich ein König sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:140",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es ist wundervoll in Amerika zu sein, wenn man hier ist, um Geld zu verdienen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:141",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin so dick."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:142",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Na und?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:143",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde ihn erschießen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:144",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin kein echter Fisch, ich bin nur ein einfaches Plüschtier."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:145",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich sag's ja nur!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:146",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wahrscheinlich war es das, was ihre Entscheidung beeinflusst hat."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:147",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich habe mich immer gefragt, wie es wäre, Geschwister zu haben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:148",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das hätte ich gesagt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:149",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es würde ewig dauern, alles zu erklären."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:150",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es liegt daran, dass du ein Mädchen bist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:151",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Manchmal kann ich es nicht vermeiden, Gefühle zu zeigen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:152",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es ist ein Wort, für das ich gerne einen Ersatz finden würde."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:153",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das wäre etwas, das ich programmieren sollte."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:154",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich beabsichtige nicht, selbstsüchtig zu sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:155",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Lass uns über das Schlimmste, das passieren könnte, nachdenken."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:156",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wie viele enge Freunde hast du?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:157",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin vielleicht asozial, aber das heißt nicht, dass ich nicht mit Leuten rede."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:158",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das ist immer so gewesen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:159",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich denke, es ist am besten, nicht unhöflich zu sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:160",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Man kann immer Zeit finden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:77",
@@ -821,6 +1221,406 @@
       "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Die letzte Person, der ich meine Idee erzählt habe, dachte, ich wäre bekloppt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:121",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn die Welt nicht so wäre wie sie jetzt ist, könnte ich jedem vertrauen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:122",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Unglücklicherweise stimmt es."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:123",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Sie sind zu sehr damit beschäftigt, sich gegenseitig zu bekämpfen, als dass sie sich gemeinsamen Idealen widmen könnten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:124",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Die meisten Leute denken, ich sei verrückt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:125",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Nein, ich bin es nicht, du bist es!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:126",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das war mein Satz!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:127",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Er tritt mich!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:128",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Bist du sicher?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:129",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Dann haben wir ein Problem..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:130",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, da ist ein Schmetterling!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:131",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Beeil dich!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:132",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es überrascht mich nicht."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:133",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn ich so sein könnte..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:134",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Aus irgendeinem Grund fühle ich mich nachts lebendiger."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:135",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das kommt auf den Zusammenhang an."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Willst du mich verdammt nochmal auf den Arm nehmen?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:137",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das ist das Dümmste, was ich je gesagt habe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:138",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich will nicht erbärmlich sein, ich will cool sein!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:139",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn ich groß bin, will ich ein König sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:140",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es ist wundervoll in Amerika zu sein, wenn man hier ist, um Geld zu verdienen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:141",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin so dick."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:142",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Na und?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:143",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde ihn erschießen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:144",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin kein echter Fisch, ich bin nur ein einfaches Plüschtier."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:145",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich sag's ja nur!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:146",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wahrscheinlich war es das, was ihre Entscheidung beeinflusst hat."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:147",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich habe mich immer gefragt, wie es wäre, Geschwister zu haben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:148",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das hätte ich gesagt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:149",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es würde ewig dauern, alles zu erklären."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:150",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es liegt daran, dass du ein Mädchen bist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:151",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Manchmal kann ich es nicht vermeiden, Gefühle zu zeigen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:152",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Es ist ein Wort, für das ich gerne einen Ersatz finden würde."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:153",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das wäre etwas, das ich programmieren sollte."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:154",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich beabsichtige nicht, selbstsüchtig zu sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:155",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Lass uns über das Schlimmste, das passieren könnte, nachdenken."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:156",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Wie viele enge Freunde hast du?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:157",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin vielleicht asozial, aber das heißt nicht, dass ich nicht mit Leuten rede."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:158",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Das ist immer so gewesen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:159",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich denke, es ist am besten, nicht unhöflich zu sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:160",
+      "retrieval_date": "2026-11-05",
+      "source_id": "tatoeba.sentences",
+      "value": "Man kann immer Zeit finden."
     }
   ]
 }
