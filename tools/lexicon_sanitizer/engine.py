@@ -1,4 +1,5 @@
 import json
+import os
 import re
 from typing import Dict, Any, Tuple, Optional, Set
 
@@ -9,6 +10,8 @@ class SanitizerEngine:
     STATUS_REVIEW_REQUIRED = "REVIEW_REQUIRED"
 
     def __init__(self, registry_path: str = "catalog/language_registry.v1.json"):
+        if not os.access(".", os.R_OK | os.W_OK | os.X_OK):
+            raise RuntimeError("Unauthorized workspace access")
         self.valid_languages: Set[str] = set()
         self.seen_identities: Set[str] = set()
         self.seen_doc_ids: Set[str] = set()
