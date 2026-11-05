@@ -224,7 +224,7 @@
         "Q2055046"
       ],
       "record_id": "L1181476",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2230282335",
       "schema_version": "1.0.0",
       "section": "work",
@@ -249,7 +249,7 @@
         "Q2487799"
       ],
       "record_id": "L1190776",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2195979170",
       "schema_version": "1.0.0",
       "section": "work",
@@ -276,7 +276,7 @@
         "Q3658608"
       ],
       "record_id": "L1375892",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2390819798",
       "schema_version": "1.0.0",
       "section": "work",
@@ -303,7 +303,7 @@
         "Q2468727"
       ],
       "record_id": "L1231576",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2230330997",
       "schema_version": "1.0.0",
       "section": "work",
@@ -337,6 +337,56 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "consulente",
+        "consulenti"
+      ],
+      "language": "it",
+      "lemma": "consulente",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1232665",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L1232665",
+      "retrieval_date": "2026-11-05",
+      "revision": "2230335014",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1232665-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "orafo",
+        "orafi"
+      ],
+      "language": "it",
+      "lemma": "orafo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1209489",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L1209489",
+      "retrieval_date": "2026-11-05",
+      "revision": "1999511443",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1209489-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
     }
   ],
   "schema_version": "1.0.0",
@@ -344,51 +394,59 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "reason": "other_language",
+      "wikidata": "Q2468727"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q16271064"
+      "reason": "other_language",
+      "wikidata": "Q1731155"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2251335"
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
     }
   ],
   "source": "harvest-wikidata"

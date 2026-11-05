@@ -25,6 +25,30 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "സ്വർണ്ണപ്പണി"
+      ],
+      "language": "ml",
+      "lemma": "സ്വർണ്ണപ്പണി",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L307537",
+      "pos": "",
+      "qids": [
+        "Q211423"
+      ],
+      "record_id": "L307537",
+      "retrieval_date": "2026-11-05",
+      "revision": "1292242728",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L307537-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
     }
   ],
   "schema_version": "1.0.0",
@@ -32,51 +56,59 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "reason": "other_language",
+      "wikidata": "Q2468727"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q16271064"
+      "reason": "other_language",
+      "wikidata": "Q1731155"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2251335"
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
     }
   ],
   "source": "harvest-wikidata"

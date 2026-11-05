@@ -127,7 +127,7 @@
         "Q2055046"
       ],
       "record_id": "L750720",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-05",
       "revision": "2409433444",
       "schema_version": "1.0.0",
       "section": "work",
@@ -208,7 +208,7 @@
         "Q3658608"
       ],
       "record_id": "L1360767",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2297577669",
       "schema_version": "1.0.0",
       "section": "work",
@@ -244,6 +244,33 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "consultor",
+        "consultores",
+        "consultora",
+        "consultoras"
+      ],
+      "language": "es",
+      "lemma": "consultor",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1205347",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L1205347",
+      "retrieval_date": "2026-11-05",
+      "revision": "2415702573",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1205347-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
     }
   ],
   "schema_version": "1.0.0",
@@ -251,51 +278,59 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "reason": "other_language",
+      "wikidata": "Q2468727"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q16271064"
+      "reason": "other_language",
+      "wikidata": "Q1731155"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2251335"
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
     }
   ],
   "source": "harvest-wikidata"

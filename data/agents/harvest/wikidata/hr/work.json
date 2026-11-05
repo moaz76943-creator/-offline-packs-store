@@ -125,6 +125,68 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q1900167",
+      "forms": [
+        "psihoterapeutkinja",
+        "psihoterapeutkinje",
+        "psihoterapeutkinji",
+        "psihoterapeutkinju",
+        "psihoterapeutkinjo",
+        "psihoterapeutkinji",
+        "psihoterapeutkinjom",
+        "psihoterapeutkinje"
+      ],
+      "language": "hr",
+      "lemma": "psihoterapeutkinja",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1378963",
+      "pos": "",
+      "qids": [
+        "Q1900167"
+      ],
+      "record_id": "L1378963",
+      "retrieval_date": "2026-11-05",
+      "revision": "2276913565",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1378963-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1900167"
+    },
+    {
+      "concept_id": "concept.q1900167",
+      "forms": [
+        "psihoterapeut",
+        "psihoterapeuta",
+        "psihoterapeutu",
+        "psihoterapeuta",
+        "psihoterapeute",
+        "psihoterapeutu",
+        "psihoterapeutom",
+        "psihoterapeuti"
+      ],
+      "language": "hr",
+      "lemma": "psihoterapeut",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1378964",
+      "pos": "",
+      "qids": [
+        "Q1900167"
+      ],
+      "record_id": "L1378964",
+      "retrieval_date": "2026-11-05",
+      "revision": "2276913634",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1378964-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1900167"
     }
   ],
   "schema_version": "1.0.0",
@@ -132,51 +194,59 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "reason": "other_language",
+      "wikidata": "Q2468727"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q16271064"
+      "reason": "other_language",
+      "wikidata": "Q1731155"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2251335"
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
     }
   ],
   "source": "harvest-wikidata"

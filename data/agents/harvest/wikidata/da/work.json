@@ -156,6 +156,69 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q15978655",
+      "forms": [
+        "konsulent",
+        "konsulenten",
+        "konsulenter",
+        "konsulenterne",
+        "konsulents",
+        "konsulentens",
+        "konsulenters",
+        "konsulenternes"
+      ],
+      "language": "da",
+      "lemma": "konsulent",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L632875",
+      "pos": "",
+      "qids": [
+        "Q15978655"
+      ],
+      "record_id": "L632875",
+      "retrieval_date": "2026-11-05",
+      "revision": "2241383094",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L632875-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q15978655"
+    },
+    {
+      "concept_id": "concept.q211423",
+      "forms": [
+        "guldsmed",
+        "guldsmeden",
+        "guldsmede",
+        "guldsmedene",
+        "guldsmeds",
+        "guldsmedens",
+        "guldsmedes",
+        "guldsmedenes"
+      ],
+      "language": "da",
+      "lemma": "guldsmed",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L590621",
+      "pos": "",
+      "qids": [
+        "Q25375",
+        "Q211423"
+      ],
+      "record_id": "L590621",
+      "retrieval_date": "2026-11-05",
+      "revision": "2439780771",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L590621-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q211423"
     }
   ],
   "schema_version": "1.0.0",
@@ -163,51 +226,59 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q16308156"
+      "wikidata": "Q2055046"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q15978655"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3303330"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q211423"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3779582"
+      "wikidata": "Q2487799"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "reason": "other_language",
+      "wikidata": "Q2468727"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q16271064"
+      "reason": "other_language",
+      "wikidata": "Q1731155"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2251335"
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1900167"
     }
   ],
   "source": "harvest-wikidata"
