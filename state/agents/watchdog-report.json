@@ -1,16 +1,9 @@
 {
   "degraded": [
-    "harvest-wikidata"
+    "harvest-wikidata",
+    "packs"
   ],
-  "dispatch": [
-    "packs",
-    "watchdog",
-    "triage"
-  ],
+  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": [
-    "packs",
-    "watchdog",
-    "triage"
-  ]
+  "stale": []
 }
