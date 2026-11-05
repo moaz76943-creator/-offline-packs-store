@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-11-01",
+  "retrieval_date": "2026-11-05",
   "rows": [
     {
       "concept_id": "concept.q82955",
@@ -476,7 +476,7 @@
         "Q8178443"
       ],
       "record_id": "L348813",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2306688298",
       "schema_version": "1.0.0",
       "section": "work",
@@ -507,7 +507,7 @@
         "Q16308156"
       ],
       "record_id": "L616434",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "1884129210",
       "schema_version": "1.0.0",
       "section": "work",
@@ -610,6 +610,68 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3658608"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "Mikrobiologin",
+        "Mikrobiologin",
+        "Mikrobiologin",
+        "Mikrobiologin",
+        "Mikrobiologinnen",
+        "Mikrobiologinnen",
+        "Mikrobiologinnen",
+        "Mikrobiologinnen"
+      ],
+      "language": "de",
+      "lemma": "Mikrobiologin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348753",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L348753",
+      "retrieval_date": "2026-11-05",
+      "revision": "2042215666",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348753-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "Mikrobiologe",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen",
+        "Mikrobiologen"
+      ],
+      "language": "de",
+      "lemma": "Mikrobiologe",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348832",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L348832",
+      "retrieval_date": "2026-11-05",
+      "revision": "2306694400",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348832-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     }
   ],
   "schema_version": "1.0.0",
@@ -617,31 +679,51 @@
   "skipped": [
     {
       "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5482740"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q16271064"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2055046"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q15978655"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q211423"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2487799"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2487799"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2468727"
     }
   ],
   "source": "harvest-wikidata"

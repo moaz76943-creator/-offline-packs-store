@@ -1,6 +1,6 @@
 {
   "language": "ru",
-  "retrieval_date": "2026-11-01",
+  "retrieval_date": "2026-11-05",
   "rows": [
     {
       "concept_id": "concept.q937857",
@@ -117,7 +117,7 @@
         "Q3332711"
       ],
       "record_id": "L126362",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-05",
       "revision": "2237188901",
       "schema_version": "1.0.0",
       "section": "work",
@@ -179,7 +179,7 @@
         "Q8178443"
       ],
       "record_id": "L123291",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2237170032",
       "schema_version": "1.0.0",
       "section": "work",
@@ -283,6 +283,37 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2487799"
+    },
+    {
+      "concept_id": "concept.q3779582",
+      "forms": [
+        "микробиолог",
+        "микробиолога",
+        "микробиологу",
+        "микробиолога",
+        "микробиологом",
+        "микробиологе",
+        "микробиологи",
+        "микробиологов"
+      ],
+      "language": "ru",
+      "lemma": "микробиолог",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L127546",
+      "pos": "",
+      "qids": [
+        "Q3779582"
+      ],
+      "record_id": "L127546",
+      "retrieval_date": "2026-11-05",
+      "revision": "2237195185",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L127546-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3779582"
     }
   ],
   "schema_version": "1.0.0",
@@ -290,31 +321,51 @@
   "skipped": [
     {
       "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q16308156"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3303330"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5482740"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q16271064"
+    },
+    {
+      "reason": "HTTPError:429",
       "wikidata": "Q2251335"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2055046"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q15978655"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q211423"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2487799"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2487799"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q2468727"
     }
   ],
   "source": "harvest-wikidata"

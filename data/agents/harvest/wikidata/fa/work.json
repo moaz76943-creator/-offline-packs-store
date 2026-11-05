@@ -1,6 +1,6 @@
 {
   "language": "fa",
-  "retrieval_date": "2026-11-01",
+  "retrieval_date": "2026-11-05",
   "rows": [
     {
       "concept_id": "concept.q2055046",
@@ -42,7 +42,7 @@
         "Q3303330"
       ],
       "record_id": "L1003979",
-      "retrieval_date": "2026-11-01",
+      "retrieval_date": "2026-11-05",
       "revision": "2162522932",
       "schema_version": "1.0.0",
       "section": "work",
@@ -58,14 +58,6 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q4205432"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q4205432"
-    },
-    {
-      "reason": "other_language",
       "wikidata": "Q16308156"
     },
     {
@@ -85,16 +77,32 @@
       "wikidata": "Q3303330"
     },
     {
-      "reason": "HTTPError:429",
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3779582"
+    },
+    {
+      "reason": "other_language",
       "wikidata": "Q3779582"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q3332711"
+      "wikidata": "Q5482740"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q5482740"
+      "wikidata": "Q16271064"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2251335"
     }
   ],
   "source": "harvest-wikidata"
