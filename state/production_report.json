@@ -60,8 +60,8 @@
     },
     "total": 1718
   },
-  "generated_by": "classifier",
-  "pack_bytes": 466944,
+  "generated_by": "packs",
+  "pack_bytes": 471040,
   "packs": [
     {
       "bytes": 16384,
@@ -160,10 +160,10 @@
     },
     {
       "bytes": 24576,
-      "entries": 150,
+      "entries": 153,
       "language": "fr",
       "sources": {
-        "kaikki.wiktextract": 16,
+        "kaikki.wiktextract": 19,
         "tatoeba.sentences": 80,
         "wikidata.lexemes": 54
       }
@@ -186,11 +186,11 @@
       }
     },
     {
-      "bytes": 16384,
-      "entries": 62,
+      "bytes": 20480,
+      "entries": 102,
       "language": "ja",
       "sources": {
-        "tatoeba.sentences": 40,
+        "tatoeba.sentences": 80,
         "wikidata.lexemes": 22
       }
     },
@@ -343,10 +343,10 @@
       "et": 6,
       "eu": 7,
       "fa": 2,
-      "fr": 150,
+      "fr": 153,
       "hr": 9,
       "it": 62,
-      "ja": 62,
+      "ja": 102,
       "ko": 3,
       "la": 3,
       "lv": 1,
@@ -445,7 +445,7 @@
       },
       "fr": {
         "animals": 3,
-        "city": 32,
+        "city": 35,
         "colors": 1,
         "health": 3,
         "numbers": 1,
@@ -478,7 +478,7 @@
         "colors": 3,
         "emotions": 1,
         "food": 2,
-        "sentences": 40,
+        "sentences": 80,
         "technology": 1,
         "time": 4,
         "work": 4
@@ -617,7 +617,7 @@
         "wikidata.lexemes": 2
       },
       "fr": {
-        "kaikki.wiktextract": 16,
+        "kaikki.wiktextract": 19,
         "tatoeba.sentences": 80,
         "wikidata.lexemes": 54
       },
@@ -629,7 +629,7 @@
         "wikidata.lexemes": 46
       },
       "ja": {
-        "tatoeba.sentences": 40,
+        "tatoeba.sentences": 80,
         "wikidata.lexemes": 22
       },
       "ko": {
@@ -691,7 +691,7 @@
     "by_section": {
       "animals": 24,
       "body": 2,
-      "city": 266,
+      "city": 269,
       "clothing": 15,
       "colors": 39,
       "emotions": 20,
@@ -700,7 +700,7 @@
       "health": 18,
       "numbers": 4,
       "religion": 1,
-      "sentences": 720,
+      "sentences": 760,
       "sports": 3,
       "technology": 5,
       "time": 41,
@@ -708,12 +708,12 @@
       "work": 159
     },
     "by_source": {
-      "kaikki.wiktextract": 111,
-      "tatoeba.sentences": 720,
+      "kaikki.wiktextract": 114,
+      "tatoeba.sentences": 760,
       "universal-dependencies": 379,
       "wikidata.lexemes": 508
     },
-    "total": 1718
+    "total": 1761
   },
   "schema_version": "1.0.0"
 }
