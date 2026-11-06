@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3129",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je leur ai dit de m'envoyer un autre ticket."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3130",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu es tellement impatiente avec moi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3131",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne peux pas vivre comme ça."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3132",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Il fut un temps où je voulais être astrophysicien."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3133",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je n'ai jamais aimé la biologie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3134",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "La dernière personne à qui j'ai raconté mon idée a pensé que j'étais cinglé."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3135",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Si le monde n'était pas dans l'état où il est maintenant, je pourrais faire confiance à n'importe qui."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3136",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est malheureusement vrai."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3137",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ils sont trop occupés à se battre entre eux pour s'occuper d'idéaux communs."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3138",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "La plupart des gens pensent que je suis fou."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3139",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Non je ne le suis pas, c'est toi qui l'es !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3140",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est ma réplique !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3141",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Il me donne des coups de pied !"
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3142",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Est-ce que tu es sûr ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3143",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Alors il y a un problème..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3144",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, il y a un papillon !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3145",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Dépêche-toi !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3146",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça ne me surprend pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3147",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Si je pouvais être comme ça..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3148",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Pour une raison que j'ignore, je me sens plus vivant la nuit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3149",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça dépend du contexte."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3150",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Est-ce que tu te fous de moi ? !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3151",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est la chose la plus stupide que j'ai jamais dite."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3152",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne veux pas être lamentable, je veux être cool ! !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3153",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Quand je serai grand, je veux être roi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3154",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "L'Amérique est un endroit charmant pour vivre, si c'est pour gagner de l'argent."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3155",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je suis si gros."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3156",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Et alors ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3157",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je vais le descendre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3158",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne suis pas un vrai poisson, je ne suis qu'une simple peluche."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3159",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne fais que parler !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3160",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'était probablement ce qui a influencé leur décision."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3161",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je me suis toujours demandé ce que ça ferait d'avoir des frères et sœurs."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3162",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est ce que j'aurais dit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3163",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça me prendrait l'éternité pour tout expliquer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3164",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est parce que tu es une fille."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3165",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Parfois je ne peux pas m'empêcher de montrer des émotions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3166",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est un mot pour lequel j'aimerais trouver un substitut."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3167",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ce serait quelque chose qu'il faudrait que je programme."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3168",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Il n'est pas dans mon intention d'être égoïste."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1115",
@@ -821,6 +1221,406 @@
       "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "Tu devrais dormir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3129",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je leur ai dit de m'envoyer un autre ticket."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3130",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu es tellement impatiente avec moi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3131",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne peux pas vivre comme ça."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3132",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Il fut un temps où je voulais être astrophysicien."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3133",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je n'ai jamais aimé la biologie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3134",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "La dernière personne à qui j'ai raconté mon idée a pensé que j'étais cinglé."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3135",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Si le monde n'était pas dans l'état où il est maintenant, je pourrais faire confiance à n'importe qui."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3136",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est malheureusement vrai."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3137",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ils sont trop occupés à se battre entre eux pour s'occuper d'idéaux communs."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3138",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "La plupart des gens pensent que je suis fou."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3139",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Non je ne le suis pas, c'est toi qui l'es !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3140",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est ma réplique !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3141",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Il me donne des coups de pied !"
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3142",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Est-ce que tu es sûr ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3143",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Alors il y a un problème..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3144",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, il y a un papillon !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3145",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Dépêche-toi !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3146",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça ne me surprend pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3147",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Si je pouvais être comme ça..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3148",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Pour une raison que j'ignore, je me sens plus vivant la nuit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3149",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça dépend du contexte."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3150",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Est-ce que tu te fous de moi ? !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3151",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est la chose la plus stupide que j'ai jamais dite."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3152",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne veux pas être lamentable, je veux être cool ! !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3153",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Quand je serai grand, je veux être roi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3154",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "L'Amérique est un endroit charmant pour vivre, si c'est pour gagner de l'argent."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3155",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je suis si gros."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3156",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Et alors ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3157",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je vais le descendre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3158",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne suis pas un vrai poisson, je ne suis qu'une simple peluche."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3159",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne fais que parler !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3160",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'était probablement ce qui a influencé leur décision."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3161",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Je me suis toujours demandé ce que ça ferait d'avoir des frères et sœurs."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3162",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est ce que j'aurais dit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3163",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça me prendrait l'éternité pour tout expliquer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3164",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est parce que tu es une fille."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3165",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Parfois je ne peux pas m'empêcher de montrer des émotions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3166",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est un mot pour lequel j'aimerais trouver un substitut."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3167",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Ce serait quelque chose qu'il faudrait que je programme."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3168",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Il n'est pas dans mon intention d'être égoïste."
     }
   ]
 }
