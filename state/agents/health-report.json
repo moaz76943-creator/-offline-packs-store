@@ -9,9 +9,7 @@
   "roster_count": 21,
   "schema_version": "1.0.0",
   "stale": [
-    "harvest-ud",
     "health",
-    "schema-guard",
-    "links"
+    "codeql"
   ]
 }
