@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2524",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "La última persona a la que le conté mi idea pensó que yo estaba loco."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2525",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Si el mundo no fuera como es, yo podría confiar en cualquiera."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2526",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Desafortunadamente es verdad."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2527",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Están muy ocupados peleándose entre ellos, como para preocuparse por los ideales comunes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2528",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "La mayoría de la gente cree que estoy loco."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2529",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡No, no lo soy! ¡Lo eres tú!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2530",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Esa es mi frase!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2531",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡¡Él está pateándome!!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2532",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Estás seguro?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2533",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Entonces tenemos un problema..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2534",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Ah, allí hay una mariposa!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2535",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Date prisa!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2536",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "No me sorprende."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2537",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Si yo pudiera ser así..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2538",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Por alguna razón, me siento más vivo por la noche."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2539",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso depende del contexto."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2540",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡¿Acaso te quieres burlar de mí?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2541",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Es la cosa más estúpida que he dicho nunca."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2542",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡¡No quiero ser patético, quiero ser guay!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2543",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Cuando crezca, quiero ser un rey."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2544",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "América es un lugar encantador para vivir, si estás aquí para ganar dinero."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2545",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Estoy tan gordo."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2546",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Entonces qué?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2547",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Voy a pegarle un tiro."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2548",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "No soy un pez de verdad, sólo soy un peluche."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2549",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Yo sólo lo digo!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2550",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso fue probablemente lo que influenció su decisión."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2551",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Siempre me he preguntado cómo será tener hermanos."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2552",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Esto es lo que yo habría dicho."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2553",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Me tomaría una eternidad explicarte todo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2554",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso es porque eres una chica."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2555",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Algunas veces no puedo evitar mostrar mis sentimientos."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2556",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Es una palabra para la que me gustaría encontrar una sustituta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2557",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso sería algo que habría que programar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2558",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "No tengo la intención de ser egoísta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2559",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Pensemos en lo peor que podría pasar."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2560",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Cuántos amigos íntimos tienes?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2561",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo puedo ser antisocial, pero eso no significa que no hable con la gente."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2562",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Así ha sido siempre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2563",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Creo que lo mejor es no ser maleducado."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2481",
@@ -821,6 +1221,406 @@
       "retrieval_date": "2026-11-02",
       "source_id": "tatoeba.sentences",
       "value": "Nunca me gustó la biología."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2524",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "La última persona a la que le conté mi idea pensó que yo estaba loco."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2525",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Si el mundo no fuera como es, yo podría confiar en cualquiera."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2526",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Desafortunadamente es verdad."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2527",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Están muy ocupados peleándose entre ellos, como para preocuparse por los ideales comunes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2528",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "La mayoría de la gente cree que estoy loco."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2529",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡No, no lo soy! ¡Lo eres tú!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2530",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Esa es mi frase!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2531",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡¡Él está pateándome!!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2532",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Estás seguro?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2533",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Entonces tenemos un problema..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2534",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Ah, allí hay una mariposa!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2535",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Date prisa!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2536",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "No me sorprende."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2537",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Si yo pudiera ser así..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2538",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Por alguna razón, me siento más vivo por la noche."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2539",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso depende del contexto."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2540",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡¿Acaso te quieres burlar de mí?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2541",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Es la cosa más estúpida que he dicho nunca."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2542",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡¡No quiero ser patético, quiero ser guay!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2543",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Cuando crezca, quiero ser un rey."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2544",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "América es un lugar encantador para vivir, si estás aquí para ganar dinero."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2545",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Estoy tan gordo."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2546",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Entonces qué?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2547",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Voy a pegarle un tiro."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2548",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "No soy un pez de verdad, sólo soy un peluche."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2549",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Yo sólo lo digo!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2550",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso fue probablemente lo que influenció su decisión."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2551",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Siempre me he preguntado cómo será tener hermanos."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2552",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Esto es lo que yo habría dicho."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2553",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Me tomaría una eternidad explicarte todo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2554",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso es porque eres una chica."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2555",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Algunas veces no puedo evitar mostrar mis sentimientos."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2556",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Es una palabra para la que me gustaría encontrar una sustituta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2557",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso sería algo que habría que programar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2558",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "No tengo la intención de ser egoísta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2559",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Pensemos en lo peor que podría pasar."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2560",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Cuántos amigos íntimos tienes?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2561",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo puedo ser antisocial, pero eso no significa que no hable con la gente."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2562",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Así ha sido siempre."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2563",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "Creo que lo mejor es no ser maleducado."
     }
   ]
 }
