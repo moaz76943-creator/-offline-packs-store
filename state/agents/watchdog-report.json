@@ -1,14 +1,13 @@
 {
   "degraded": [
+    "harvest-wikidata",
     "packs"
   ],
   "dispatch": [
-    "grammar",
-    "harvest-kaikki"
+    "codeql"
   ],
   "schema_version": "1.0.0",
   "stale": [
-    "harvest-kaikki",
-    "grammar"
+    "codeql"
   ]
 }
