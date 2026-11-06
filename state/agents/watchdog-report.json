@@ -4,10 +4,10 @@
     "packs"
   ],
   "dispatch": [
-    "codeql"
+    "health"
   ],
   "schema_version": "1.0.0",
   "stale": [
-    "codeql"
+    "health"
   ]
 }
