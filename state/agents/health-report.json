@@ -9,7 +9,6 @@
   "roster_count": 21,
   "schema_version": "1.0.0",
   "stale": [
-    "health",
-    "codeql"
+    "health"
   ]
 }
