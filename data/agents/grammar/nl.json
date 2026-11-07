@@ -423,6 +423,406 @@
       "value": "Raúl kan zich zonder zijn vrienden niet vermaken."
     },
     {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330706",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Rosa Montero is een heel bijzondere vrouw."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330707",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Rubén is vader van drie kinderen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330708",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Sinds 1975 kent Spanje een democratie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330709",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Soms weten critici niet wat ze aan het bekritiseren zijn."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330710",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Sporten is goed voor je lichamelijke conditie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:348583",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Ze voerden een verrassingsaanval uit op de vijand."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:367952",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik ben veganist."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:367959",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Zit er vlees in dit eten?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:367974",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik eet geen vlees, geen vis en geen zeevruchten, en ook geen vleesbouillon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:368200",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik heb altijd geloofd dat een hartaanval de aankondiging van het ophanden zijnde overlijden is."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373339",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Hallo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375820",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Dank je, dat is alles."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375821",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat is er gebeurd?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375827",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Kijk uit!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375832",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Welkom!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375836",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Engels wordt hier niet gesproken."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375837",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Neem de andere stoel!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375839",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Het ligt onder de stoel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375840",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Deze stoel is lelijk."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375846",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Zit de kat op of onder de stoel?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375847",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "U mag op de stoel gaan zitten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375848",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Er zat een kat op de stoel."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375849",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat heeft deze stoel hier te zoeken?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375850",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "De jongen zat op een stoel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375851",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij stond achter de stoel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375852",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "De stoel is niet dicht bij het raam."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375853",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Welke jongen is Masao?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375854",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "De jongen liep weg."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375855",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Het heeft geen zin om me om geld te vragen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375856",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Maak je geen zorgen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375857",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Maak je er geen zorgen over!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375858",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Maak je geen zorgen over het verleden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375859",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Maak je geen zorgen over mij."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375860",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Maak je geen zorgen over ons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375861",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "We vragen ons af waarom."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375862",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom kwam je niet?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375863",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom ik?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375864",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom niet?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375865",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom is hij hier?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375868",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom was je laat?"
+    },
+    {
       "id": "sentence.question",
       "language": "nl",
       "level": null,

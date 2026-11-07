@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372474",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag förstår inte tyska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372475",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag kan inte prata tyska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372476",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Tyskan är inte ett lätt språk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372477",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Nederländskan är nära besläktad med tyskan."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372478",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Pratar du japanska?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372479",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Många utlänningar pratar bra japanska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372480",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det här är en japansk docka."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372485",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Min hund är vit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372620",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är kallt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372621",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det regnar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372622",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är inte viktigt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372623",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Glöm inte biljetten."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372624",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Minns du det?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372625",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad är det som saknas?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372626",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag minns den första gången."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372627",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag brukar diska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372628",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är varmt idag."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372629",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Kommer du ihåg mig?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372630",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Nu är jag på flygplatsen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372631",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Ingenting saknas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372632",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Föräldrar älskar sina barn."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372633",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag är väldigt upptagen hemma."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372634",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Visa mig ett annat exempel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372635",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag har tappat min plånbok."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372636",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Igår på morgonen var det väldigt kallt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375845",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Denna stol är ful."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375874",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Varför?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375881",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Lycka till."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376074",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad gör du?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376078",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad gjorde du?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:397491",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Tack!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401218",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Han håller de gamla fotografierna mycket kära."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401226",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Löven ändrar färg på hösten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401227",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Skolbarn är förkylda dubbelt så ofta som vuxna."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401232",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "I medicinsk forskning är ett av de största problemen att ta reda på orsaken till sjukdomen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401237",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Han slipade en kniv."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401239",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Låt mig fundera ett litet tag."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401250",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Han blev en berömd sångare."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401255",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Han söker desperat efter fler bevis."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401256",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "De här blommorna blommar tidigare än vad andra gör."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:337413",
@@ -821,6 +1221,406 @@
       "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "Jag pratar inte tyska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372474",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag förstår inte tyska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372475",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag kan inte prata tyska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372476",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Tyskan är inte ett lätt språk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372477",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Nederländskan är nära besläktad med tyskan."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372478",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Pratar du japanska?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372479",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Många utlänningar pratar bra japanska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372480",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det här är en japansk docka."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372485",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Min hund är vit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372620",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är kallt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372621",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det regnar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372622",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är inte viktigt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372623",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Glöm inte biljetten."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372624",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Minns du det?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372625",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad är det som saknas?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372626",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag minns den första gången."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372627",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag brukar diska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372628",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är varmt idag."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372629",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Kommer du ihåg mig?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372630",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Nu är jag på flygplatsen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372631",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Ingenting saknas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372632",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Föräldrar älskar sina barn."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372633",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag är väldigt upptagen hemma."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372634",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Visa mig ett annat exempel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372635",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag har tappat min plånbok."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:372636",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Igår på morgonen var det väldigt kallt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375845",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Denna stol är ful."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375874",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Varför?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375881",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Lycka till."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376074",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad gör du?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376078",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad gjorde du?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:397491",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Tack!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401218",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Han håller de gamla fotografierna mycket kära."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401226",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Löven ändrar färg på hösten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401227",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Skolbarn är förkylda dubbelt så ofta som vuxna."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401232",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "I medicinsk forskning är ett av de största problemen att ta reda på orsaken till sjukdomen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401237",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Han slipade en kniv."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401239",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Låt mig fundera ett litet tag."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401250",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Han blev en berömd sångare."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401255",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Han söker desperat efter fler bevis."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401256",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "De här blommorna blommar tidigare än vad andra gör."
     }
   ]
 }

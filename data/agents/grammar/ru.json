@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5455",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Они слишком заняты склоками друг с другом, чтобы думать об общих идеалах."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5456",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Большинство людей думает, что я сумасшедший."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5457",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Нет, не я, а ты!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5458",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Это мой ответ!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5459",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Он меня пинает!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5460",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты уверен?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5461",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Тогда это проблема..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5462",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "О, здесь бабочка!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5464",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Это не удивительно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5465",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Если бы я мог быть таким..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5466",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Почему-то по ночам я бодрее."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5467",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Это зависит от контекста."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5468",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты шутишь?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5469",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Это самая глупая вещь, которую я когда-либо говорил."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5470",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не хочу быть жалким, я хочу быть крутым!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5471",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Когда я вырасту, я хочу стать королём."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5472",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Америка - это очень милое место, если вы находитесь здесь с целью заработать деньги."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5473",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Я такой жирный."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5474",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Так что?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5475",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Я пристрелю его."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5476",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не настоящая рыба; я всего лишь плюшевая игрушка."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5477",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Я всего лишь говорю!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5478",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Скорее всего, это и повлияло на их решение."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5479",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Мне всегда было интересно, как это - иметь братьев и сестер."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5480",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Я бы так и сказал."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5481",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Мне потребуется вечность, чтобы всё объяснить."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5482",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Это потому, что ты девушка."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5483",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Иногда я не могу сдержать эмоций."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5484",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Это и есть то слово, для которого я хотел бы найти замену."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5485",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Это было что-то, что я должен был запрограммировать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5486",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не хочу быть эгоистичным."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5487",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Давай подумаем, что может произойти в худшем случае."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5488",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Сколько у тебя близких друзей?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5489",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Быть может, я и асоциален, но это не значит, что я не общаюсь с людьми."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5490",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Так оно и есть."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5491",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Думаю, лучше вести себя воспитанно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5492",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Время всегда можно найти."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5493",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Быть может, я несчастлив, но я не собираюсь убивать себя."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5494",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Когда я учился в средней школе, я вставал в 6:00 каждое утро."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5495",
+      "retrieval_date": "2026-11-07",
+      "source_id": "tatoeba.sentences",
+      "value": "Когда я проснулся, мне было грустно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:243",
