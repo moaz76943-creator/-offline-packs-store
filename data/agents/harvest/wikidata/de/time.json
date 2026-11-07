@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-10-29",
+  "retrieval_date": "2026-11-07",
   "rows": [
     {
       "concept_id": "concept.q11756",
@@ -19,7 +19,7 @@
         "Q11756"
       ],
       "record_id": "L500302",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-07",
       "revision": "1885841484",
       "schema_version": "1.0.0",
       "section": "time",
@@ -46,7 +46,7 @@
         "Q11756"
       ],
       "record_id": "L784878",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-07",
       "revision": "1880660120",
       "schema_version": "1.0.0",
       "section": "time",
@@ -77,7 +77,7 @@
         "Q11756"
       ],
       "record_id": "L811050",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-07",
       "revision": "1885906202",
       "schema_version": "1.0.0",
       "section": "time",
@@ -162,7 +162,7 @@
         "Q11756"
       ],
       "record_id": "L811400",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-07",
       "revision": "2306771653",
       "schema_version": "1.0.0",
       "section": "time",
@@ -178,23 +178,23 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q347066"
+      "wikidata": "Q11756"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q186566"
+      "wikidata": "Q11756"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q5447288"
+      "wikidata": "Q11756"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q398085"
+      "reason": "other_language",
+      "wikidata": "Q11756"
     },
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2675808"
+      "reason": "other_language",
+      "wikidata": "Q55313888"
     }
   ],
   "source": "harvest-wikidata"

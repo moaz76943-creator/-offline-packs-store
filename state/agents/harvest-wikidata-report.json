@@ -1,5 +1,5 @@
 {
-  "accepted_rows": 1,
+  "accepted_rows": 18,
   "outcomes": [
     {
       "accepted_rows": 0,
@@ -7,7 +7,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q64148858"
+      "wikidata": "Q115779640"
     },
     {
       "accepted_rows": 0,
@@ -15,7 +15,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q118926681"
+      "wikidata": "Q122918781"
     },
     {
       "accepted_rows": 0,
@@ -23,7 +23,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q65027836"
+      "wikidata": "Q7501240"
     },
     {
       "accepted_rows": 0,
@@ -31,31 +31,23 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q212930"
+      "wikidata": "Q106508708"
     },
     {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q3415282"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q3482595"
-    },
-    {
-      "accepted_rows": 1,
-      "fetched_entities": 1,
-      "rejected_entities": 0,
+      "accepted_rows": 16,
+      "fetched_entities": 20,
+      "rejected_entities": 4,
       "search_offset": 0,
       "status": "FETCHED",
-      "wikidata": "Q470982"
+      "wikidata": "Q11756"
+    },
+    {
+      "accepted_rows": 2,
+      "fetched_entities": 3,
+      "rejected_entities": 1,
+      "search_offset": 0,
+      "status": "FETCHED",
+      "wikidata": "Q55313888"
     },
     {
       "accepted_rows": 0,
@@ -63,7 +55,15 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q55637790"
+      "wikidata": "Q6146525"
+    },
+    {
+      "accepted_rows": 0,
+      "fetched_entities": 0,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "EMPTY_SEARCH",
+      "wikidata": "Q55313907"
     }
   ],
   "production_publication": false,

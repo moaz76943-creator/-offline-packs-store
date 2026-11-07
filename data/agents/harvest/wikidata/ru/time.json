@@ -1,6 +1,6 @@
 {
   "language": "ru",
-  "retrieval_date": "2026-11-02",
+  "retrieval_date": "2026-11-07",
   "rows": [
     {
       "concept_id": "concept.q130788",
@@ -78,7 +78,7 @@
         "Q11756"
       ],
       "record_id": "L1012666",
-      "retrieval_date": "2026-11-02",
+      "retrieval_date": "2026-11-07",
       "revision": "2236649765",
       "schema_version": "1.0.0",
       "section": "time",
@@ -100,7 +100,7 @@
         "Q11756"
       ],
       "record_id": "L1012667",
-      "retrieval_date": "2026-11-02",
+      "retrieval_date": "2026-11-07",
       "revision": "1829291520",
       "schema_version": "1.0.0",
       "section": "time",
@@ -115,16 +115,24 @@
   "section": "time",
   "skipped": [
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q115779640"
-    },
-    {
-      "reason": "SourceAPIError",
-      "wikidata": "Q7501240"
+      "reason": "other_language",
+      "wikidata": "Q11756"
     },
     {
       "reason": "other_language",
       "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q11756"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q55313888"
     }
   ],
   "source": "harvest-wikidata"
