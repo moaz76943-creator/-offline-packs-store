@@ -24875,7 +24875,7 @@
         "Q2167"
       ],
       "record_id": "L1216935",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-07",
       "revision": "2014625761",
       "schema_version": "1.0.0",
       "section": "city",
@@ -25848,7 +25848,7 @@
         "Q628"
       ],
       "record_id": "L297273",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-07",
       "revision": "2414950578",
       "schema_version": "1.0.0",
       "section": "city",
@@ -26054,6 +26054,39 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1489"
+    },
+    {
+      "concept_id": "concept.q39121",
+      "forms": [
+        "Leeds",
+        "Leeds’",
+        "Leeds",
+        "Leeds",
+        "Leeds"
+      ],
+      "language": "de",
+      "lemma": "Leeds",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1411217",
+      "pos": "",
+      "qids": [
+        "Q39121"
+      ],
+      "record_id": "L1411217",
+      "retrieval_date": "2026-11-07",
+      "revision": "2306206061",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1411217-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q39121"
     },
     {
       "concept_id": "concept.q3354532",
@@ -28310,7 +28343,7 @@
         "Q628"
       ],
       "record_id": "L452737",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-07",
       "revision": "2338348762",
       "schema_version": "1.0.0",
       "section": "city",
@@ -28526,6 +28559,96 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1489"
+    },
+    {
+      "concept_id": "concept.q1355",
+      "forms": [
+        "Bengaluru"
+      ],
+      "language": "en",
+      "lemma": "Bengaluru",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453062",
+      "pos": "",
+      "qids": [
+        "Q1355"
+      ],
+      "record_id": "L453062",
+      "retrieval_date": "2026-11-07",
+      "revision": "2434106457",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453062-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1355"
+    },
+    {
+      "concept_id": "concept.q11739",
+      "forms": [
+        "Lahore"
+      ],
+      "language": "en",
+      "lemma": "Lahore",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452791",
+      "pos": "",
+      "qids": [
+        "Q11739"
+      ],
+      "record_id": "L452791",
+      "retrieval_date": "2026-11-07",
+      "revision": "2551472408",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452791-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q11739"
+    },
+    {
+      "concept_id": "concept.q234178",
+      "forms": [
+        "Bangor",
+        "Bangors"
+      ],
+      "language": "en",
+      "lemma": "Bangor",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1420955",
+      "pos": "",
+      "qids": [
+        "Q327012",
+        "Q806551",
+        "Q234178"
+      ],
+      "record_id": "L1420955",
+      "retrieval_date": "2026-11-07",
+      "revision": "2551464775",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1420955-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q234178"
     },
     {
       "concept_id": "concept.q483444",
@@ -33977,7 +34100,7 @@
         "Q628"
       ],
       "record_id": "L1235584",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-07",
       "revision": "2198174649",
       "schema_version": "1.0.0",
       "section": "city",
@@ -34046,6 +34169,37 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1799"
+    },
+    {
+      "concept_id": "concept.q2751",
+      "forms": [
+        "Siena"
+      ],
+      "language": "it",
+      "lemma": "Siena",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1233862",
+      "pos": "",
+      "qids": [
+        "Q20001017",
+        "Q37543776",
+        "Q2751"
+      ],
+      "record_id": "L1233862",
+      "retrieval_date": "2026-11-07",
+      "revision": "2198433252",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1233862-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2751"
     },
     {
       "concept_id": "concept.q10940",
@@ -35756,6 +35910,35 @@
       "wikidata": "Q62"
     },
     {
+      "concept_id": "concept.q11739",
+      "forms": [
+        "라호르"
+      ],
+      "language": "ko",
+      "lemma": "라호르",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1474905",
+      "pos": "",
+      "qids": [
+        "Q11739"
+      ],
+      "record_id": "L1474905",
+      "retrieval_date": "2026-11-07",
+      "revision": "2530378921",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1474905-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q11739"
+    },
+    {
       "concept_id": "concept.q319763",
       "forms": [
         "콤플렉스"
@@ -36725,6 +36908,93 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1489"
+    },
+    {
+      "concept_id": "concept.q39121",
+      "forms": [
+        "ലീഡ്സ്"
+      ],
+      "language": "ml",
+      "lemma": "ലീഡ്സ്",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L454000",
+      "pos": "",
+      "qids": [
+        "Q39121"
+      ],
+      "record_id": "L454000",
+      "retrieval_date": "2026-11-07",
+      "revision": "2522370510",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L454000-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q39121"
+    },
+    {
+      "concept_id": "concept.q1355",
+      "forms": [
+        "ബെംഗളൂരു"
+      ],
+      "language": "ml",
+      "lemma": "ബെംഗളൂരു",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453832",
+      "pos": "",
+      "qids": [
+        "Q1355"
+      ],
+      "record_id": "L453832",
+      "retrieval_date": "2026-11-07",
+      "revision": "2522370761",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453832-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1355"
+    },
+    {
+      "concept_id": "concept.q11739",
+      "forms": [
+        "ലാഹോർ"
+      ],
+      "language": "ml",
+      "lemma": "ലാഹോർ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453471",
+      "pos": "",
+      "qids": [
+        "Q11739"
+      ],
+      "record_id": "L453471",
+      "retrieval_date": "2026-11-07",
+      "revision": "2522370725",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453471-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q11739"
     },
     {
       "concept_id": "concept.q483444",
@@ -39206,7 +39476,7 @@
         "Q29599"
       ],
       "record_id": "L475066",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-07",
       "revision": "2484848710",
       "schema_version": "1.0.0",
       "section": "city",
@@ -39275,6 +39545,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q47048",
+      "forms": [
+        "Uleåborg",
+        "Uleåborgs"
+      ],
+      "language": "sv",
+      "lemma": "Uleåborg",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L484342",
+      "pos": "",
+      "qids": [
+        "Q47048"
+      ],
+      "record_id": "L484342",
+      "retrieval_date": "2026-11-07",
+      "revision": "2342205349",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L484342-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q47048"
     },
     {
       "concept_id": "concept.q483444",
