@@ -202,6 +202,31 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1794"
+    },
+    {
+      "concept_id": "concept.q47048",
+      "forms": [
+        "Uleåborg",
+        "Uleåborgs"
+      ],
+      "language": "sv",
+      "lemma": "Uleåborg",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L484342",
+      "pos": "",
+      "qids": [
+        "Q47048"
+      ],
+      "record_id": "L484342",
+      "retrieval_date": "2026-11-07",
+      "revision": "2342205349",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L484342-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q47048"
     }
   ],
   "schema_version": "1.0.0",
@@ -209,19 +234,27 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q11739"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q25804"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q25804"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q155993"
+      "wikidata": "Q8851"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q4024"
+      "wikidata": "Q23800"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q11194"
     }
   ],
   "source": "harvest-wikidata"

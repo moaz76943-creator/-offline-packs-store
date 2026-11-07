@@ -738,6 +738,81 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1489"
+    },
+    {
+      "concept_id": "concept.q1355",
+      "forms": [
+        "Bengaluru"
+      ],
+      "language": "en",
+      "lemma": "Bengaluru",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L453062",
+      "pos": "",
+      "qids": [
+        "Q1355"
+      ],
+      "record_id": "L453062",
+      "retrieval_date": "2026-11-07",
+      "revision": "2434106457",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L453062-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1355"
+    },
+    {
+      "concept_id": "concept.q11739",
+      "forms": [
+        "Lahore"
+      ],
+      "language": "en",
+      "lemma": "Lahore",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L452791",
+      "pos": "",
+      "qids": [
+        "Q11739"
+      ],
+      "record_id": "L452791",
+      "retrieval_date": "2026-11-07",
+      "revision": "2551472408",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L452791-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q11739"
+    },
+    {
+      "concept_id": "concept.q234178",
+      "forms": [
+        "Bangor",
+        "Bangors"
+      ],
+      "language": "en",
+      "lemma": "Bangor",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1420955",
+      "pos": "",
+      "qids": [
+        "Q327012",
+        "Q806551",
+        "Q234178"
+      ],
+      "record_id": "L1420955",
+      "retrieval_date": "2026-11-07",
+      "revision": "2551464775",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1420955-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q234178"
     }
   ],
   "schema_version": "1.0.0",
@@ -745,19 +820,27 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q11739"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q628"
+      "wikidata": "Q25804"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q25804"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q155993"
+      "wikidata": "Q8851"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q4024"
+      "wikidata": "Q23800"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q11194"
     }
   ],
   "source": "harvest-wikidata"
