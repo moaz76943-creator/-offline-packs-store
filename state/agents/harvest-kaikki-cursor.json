@@ -1,7 +1,7 @@
 {
-  "byte_offset": 35898400,
+  "byte_offset": 35890679,
   "extractor": "wikidata-link-v2",
-  "language_index": 4,
+  "language_index": 5,
   "languages": {
     "de": {
       "byte_offset": 35889402
@@ -16,7 +16,7 @@
       "byte_offset": 35898400
     },
     "it": {
-      "byte_offset": 23920104
+      "byte_offset": 35890679
     },
     "nl": {
       "byte_offset": 23950695
@@ -28,6 +28,6 @@
       "byte_offset": 23945857
     }
   },
-  "next_index": 140,
+  "next_index": 148,
   "schema_version": "1.0.0"
 }
