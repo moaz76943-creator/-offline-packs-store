@@ -6,7 +6,7 @@
       "cs": 14,
       "da": 24,
       "de": 154,
-      "en": 639,
+      "en": 679,
       "eo": 2,
       "es": 125,
       "et": 6,
@@ -26,7 +26,7 @@
       "pl": 10,
       "pt": 34,
       "ru": 108,
-      "sv": 85,
+      "sv": 125,
       "ta": 1,
       "tr": 82,
       "uk": 3,
@@ -41,11 +41,11 @@
       "colors": 39,
       "emotions": 20,
       "food": 20,
-      "grammar": 459,
+      "grammar": 499,
       "health": 18,
       "numbers": 4,
       "religion": 1,
-      "sentences": 840,
+      "sentences": 880,
       "shopping": 1,
       "sports": 3,
       "technology": 5,
@@ -55,13 +55,13 @@
     },
     "by_source": {
       "kaikki.wiktextract": 114,
-      "tatoeba.sentences": 840,
-      "universal-dependencies": 459,
+      "tatoeba.sentences": 880,
+      "universal-dependencies": 499,
       "wikidata.lexemes": 519
     },
-    "total": 1932
+    "total": 2012
   },
-  "generated_by": "packs",
+  "generated_by": "classifier",
   "pack_bytes": 503808,
   "packs": [
     {
