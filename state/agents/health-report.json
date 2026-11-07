@@ -4,9 +4,14 @@
     "packs",
     "watchdog"
   ],
-  "failed_github_run": false,
+  "failed_github_run": true,
   "observed_count": 21,
   "roster_count": 21,
   "schema_version": "1.0.0",
-  "stale": []
+  "stale": [
+    "harvest-kaikki",
+    "harvest-tatoeba",
+    "grammar",
+    "health"
+  ]
 }
