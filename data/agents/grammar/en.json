@@ -4613,6 +4613,406 @@
       "value": "Ginny, Please see the attached guaranty."
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0015",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "A clean and redlined version are attached."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0016",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "I revised the language based on our discussions and added the language concerning interest which we had both previously approved."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0017",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "We are OK to execute this form."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0018",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Let me know if acceptable and I will go ahead and execute."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0019",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Thanks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0020",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "\"Townsend, George\" <gtownsend@manorisd.net>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0021",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "03/27/2001 09:11 AM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0022",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Puto,"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0023",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "What's going on dude?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0024",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Antigua was awesome."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0025",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "I survived it without a problem."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0026",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Heather moving in has been a different story."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0027",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "I didn't realize how much \"stuff\" you could pack into a one bedroom apartment."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0028",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "How is your love life."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0029",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "The gal from the wedding was pretty hot."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0030",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Are you still chasing that?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0031",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Lets get together soon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0032",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Our extra bedroom is nicer now."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0033",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "My old bed got tossed in a dumpster."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0034",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "It smelled like shit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0035",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Talk to you later"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0036",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "GT"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0037",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "How is it going?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0038",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Did you survive the honeymoon?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0039",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "These look fine to me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0040",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Go ahead and forward to Brant if you are ready."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0001",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Joan Woodson"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0002",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "08/10/2000 08:28 AM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0003",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Enron Investment Partners"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0004",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Congratulations!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0005",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "You've all won!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0006",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "...Now comes the fun part...."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0007",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "The following have made a team for the game show on August 17th!."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0008",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Thanks to all who volunteered."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0009",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "You will remain as alternates."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0010",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Analyst Team Participants:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0011",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Analyst Team 1: Coach: Lisa Gilette"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0012",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Kristen Quinn, Sarah Mulholland, Samuel Pak, Daniel Kang"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0013",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Analyst Team 2: Coach: Doug Sewell"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0014",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Jeffrey Synder, Ryan Hinze, Sheetal Patel, Johnathan Anderson"
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -9217,6 +9617,406 @@
       "retrieval_date": "2026-11-06",
       "source_id": "universal-dependencies",
       "value": "Ginny, Please see the attached guaranty."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0015",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "A clean and redlined version are attached."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0016",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "I revised the language based on our discussions and added the language concerning interest which we had both previously approved."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0017",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "We are OK to execute this form."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0018",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Let me know if acceptable and I will go ahead and execute."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0019",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Thanks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0020",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "\"Townsend, George\" <gtownsend@manorisd.net>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0021",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "03/27/2001 09:11 AM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0022",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Puto,"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0023",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "What's going on dude?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0024",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Antigua was awesome."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0025",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "I survived it without a problem."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0026",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Heather moving in has been a different story."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0027",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "I didn't realize how much \"stuff\" you could pack into a one bedroom apartment."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0028",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "How is your love life."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0029",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "The gal from the wedding was pretty hot."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0030",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Are you still chasing that?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0031",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Lets get together soon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0032",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Our extra bedroom is nicer now."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0033",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "My old bed got tossed in a dumpster."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0034",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "It smelled like shit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0035",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Talk to you later"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0036",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "GT"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0037",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "How is it going?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0038",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Did you survive the honeymoon?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0039",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "These look fine to me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent28_03-0040",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Go ahead and forward to Brant if you are ready."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0001",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Joan Woodson"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0002",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "08/10/2000 08:28 AM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0003",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Enron Investment Partners"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0004",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Congratulations!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0005",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "You've all won!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0006",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "...Now comes the fun part...."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0007",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "The following have made a team for the game show on August 17th!."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0008",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Thanks to all who volunteered."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0009",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "You will remain as alternates."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0010",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Analyst Team Participants:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0011",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Analyst Team 1: Coach: Lisa Gilette"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0012",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Kristen Quinn, Sarah Mulholland, Samuel Pak, Daniel Kang"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0013",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Analyst Team 2: Coach: Doug Sewell"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0014",
+      "retrieval_date": "2026-11-06",
+      "source_id": "universal-dependencies",
+      "value": "Jeffrey Synder, Ryan Hinze, Sheetal Patel, Johnathan Anderson"
     },
     {
       "id": "verb.forms",

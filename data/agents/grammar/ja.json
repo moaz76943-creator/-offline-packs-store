@@ -425,6 +425,406 @@
     {
       "id": "sentence.statement",
       "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4747",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "大抵の人は僕を気違いだと思っている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4748",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "私は違います。あなたです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4749",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "それは私の台詞だよ！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4750",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "彼は私を蹴っています！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4751",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "本当？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4752",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "そうしたらひとつ問題があって・・・。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4753",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "あ！蝶々がいる！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4754",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "急いで！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4755",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "驚くことではないね。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4757",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "私はなぜか夜の方が元気だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4758",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "それは文脈による。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4759",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "冗談でしょ！？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4760",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "こんな馬鹿なことは言ったことが無い。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4761",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "のろまにはなりたくない。かっこ良くなりたい！！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4762",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "大きくなったら王様になりたい。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4763",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "お金を稼ぎたいならアメリカが一番だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4764",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "僕はすごく太ってる。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4765",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "だから何？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4766",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "こらしめてやる。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4767",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "言ってみただけだよ！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4768",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "それで彼らの気が変わったのかも知れない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4769",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "兄弟がいるとどんなだろうといつも思う。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4770",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "私ならそう言っただろうと思う。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4771",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "いつまでかかっても全部を説明するのは無理だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4772",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "あなたが女の子だからよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4773",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "時々感情が抑えられないことがある。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4774",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "これは代わりになるものをみつけたい単語だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4775",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "自分勝手にするつもりはない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4776",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "最悪の場合を考えておこう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4777",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "親友は何人いる？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4778",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "私は反社会的かもしれないけれど人と話さないわけではない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4779",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "そういうものなんです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4780",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "失礼に振舞ったりしないのが一番だと思う。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4781",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "時間はいくらでも作れる。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4782",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "僕は不幸かも知れないけれど自殺はしない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4783",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "高校生の時は毎朝6時に起きていた。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4784",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "起きた時私は悲しかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4785",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "あなたは新しいことを勉強したいのだと思った。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4786",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "多くの人が日常のことについて文を書く。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4787",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "それをするためには危険を冒さなければならない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1297",
@@ -821,6 +1221,406 @@
       "retrieval_date": "2026-11-03",
       "source_id": "tatoeba.sentences",
       "value": "残念ながらそれは本当なのです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4747",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "大抵の人は僕を気違いだと思っている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4748",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "私は違います。あなたです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4749",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "それは私の台詞だよ！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4750",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "彼は私を蹴っています！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4751",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "本当？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4752",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "そうしたらひとつ問題があって・・・。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4753",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "あ！蝶々がいる！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4754",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "急いで！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4755",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "驚くことではないね。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4757",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "私はなぜか夜の方が元気だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4758",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "それは文脈による。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4759",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "冗談でしょ！？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4760",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "こんな馬鹿なことは言ったことが無い。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4761",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "のろまにはなりたくない。かっこ良くなりたい！！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4762",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "大きくなったら王様になりたい。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4763",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "お金を稼ぎたいならアメリカが一番だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4764",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "僕はすごく太ってる。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4765",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "だから何？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4766",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "こらしめてやる。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4767",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "言ってみただけだよ！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4768",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "それで彼らの気が変わったのかも知れない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4769",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "兄弟がいるとどんなだろうといつも思う。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4770",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "私ならそう言っただろうと思う。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4771",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "いつまでかかっても全部を説明するのは無理だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4772",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "あなたが女の子だからよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4773",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "時々感情が抑えられないことがある。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4774",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "これは代わりになるものをみつけたい単語だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4775",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "自分勝手にするつもりはない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4776",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "最悪の場合を考えておこう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4777",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "親友は何人いる？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4778",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "私は反社会的かもしれないけれど人と話さないわけではない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4779",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "そういうものなんです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4780",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "失礼に振舞ったりしないのが一番だと思う。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4781",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "時間はいくらでも作れる。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4782",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "僕は不幸かも知れないけれど自殺はしない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4783",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "高校生の時は毎朝6時に起きていた。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4784",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "起きた時私は悲しかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4785",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "あなたは新しいことを勉強したいのだと思った。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4786",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "多くの人が日常のことについて文を書く。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4787",
+      "retrieval_date": "2026-11-06",
+      "source_id": "tatoeba.sentences",
+      "value": "それをするためには危険を冒さなければならない。"
     }
   ]
 }
