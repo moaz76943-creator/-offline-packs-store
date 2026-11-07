@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q117316551",
-    "Q133103952",
-    "Q3213425",
-    "Q126282337",
-    "Q136769332",
-    "Q6972547",
-    "Q137216261",
-    "Q119901651"
+    "Q55637790",
+    "Q115779640",
+    "Q122918781",
+    "Q7501240",
+    "Q106508708",
+    "Q2054456",
+    "Q7501224",
+    "Q49740414"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q117316551"
+      "wikidata": "Q55637790"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q133103952"
+      "wikidata": "Q115779640"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3213425"
+      "wikidata": "Q122918781"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q126282337"
+      "wikidata": "Q7501240"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q136769332"
+      "wikidata": "Q106508708"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q6972547"
+      "wikidata": "Q2054456"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q137216261"
+      "wikidata": "Q7501224"
     },
     {
       "accepted_rows": 0,
@@ -72,10 +72,10 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q119901651"
+      "wikidata": "Q49740414"
     }
   ],
-  "retrieval_date": "2026-11-06",
+  "retrieval_date": "2026-11-07",
   "rows": [],
   "schema_version": "1.0.0",
   "skipped": [],
