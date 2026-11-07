@@ -10019,6 +10019,406 @@
       "value": "Jeffrey Synder, Ryan Hinze, Sheetal Patel, Johnathan Anderson"
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0015",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Associate Team Participants:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0016",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Associate Team 1: Coach: Ben Markey"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0017",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Mary John, Russell Dyk, Webb Jennings, Martin Gonzales"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0018",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Mixed A/ATeam 2: Coach: Melanie King Brandon Luna - Analyst, Bryan Hull - Analyst, Eduardo Tellechea - Associate, Milson Mundim - Associate"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0019",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Alternates: Heather Johnson, Usman Shaukat, Gerard Benitez, Matthew Almy, Travis Hanson"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0020",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "WHO WANTS TO HELP MILLIONS FOR UNITED WAY?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0021",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "We hope you do!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0022",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "How to Pledge:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0023",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "This year it is very easy to make your contribution."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0024",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Simply type in the following United Way link, http://unitedway.enron.com or go directly to Internet Explorer or Netscape and type in unitedway.enron.com in the address field."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0025",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Either option should take you directly to Enron's United Way 2000 Campaign site."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0026",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "PLEASE NOTE: Your pledge is to be made electronically - it only takes minutes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0027",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "No physical pledge cards."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0028",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Questions: If you have any questions regarding the pledging process, please contact Joan Woodson (3-5213), Bert Frazier (3-5076) or Kathy Mayfield (3-3264)."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0029",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "you know that both o'neal and matt are out?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0030",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Game tonight at 7, it's time to kick some ass."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0031",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "i have not gotten a good response so i think shanna and i are going to stay in town."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0032",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "the weather is going to be fine, hector was just blowing smoke."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0033",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Christa Winfrey"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0034",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "08/08/2000 11:36 AM"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0035",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "have you heard from anyone?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0036",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "also, what's the deal with the weather this weekend?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0037",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "is it supposed to be storming?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0038",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "by the way, buy it now b/c it is going to 100 by year end."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0039",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Your father never listens to me, what can I say?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0040",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "But, I'm very happy for you!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0041",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "How are you?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0042",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Any news on Aunt Toni?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0043",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "LU"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent01_01-0044",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "-M"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0001",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Glad to hear all is well."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0002",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "I meant to comment that I thought the people profiled in the article should pull their heads out of their self important asses."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0003",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "It isn't about finding the meaning of life at work."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0004",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "It is all about the $$$."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0005",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Work hard."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0006",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Make $$$."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0007",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Retire young."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0008",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Things with me are great."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0009",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Moving back to Calgary in about a month which is a little sooner than I thought I would be going back but when opportunity knocks you gotta go."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent08_01-0010",
+      "retrieval_date": "2026-11-07",
+      "source_id": "universal-dependencies",
+      "value": "Take care."
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": null,
