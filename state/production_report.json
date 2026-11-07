@@ -6,7 +6,7 @@
       "cs": 14,
       "da": 24,
       "de": 154,
-      "en": 599,
+      "en": 639,
       "eo": 2,
       "es": 125,
       "et": 6,
@@ -21,12 +21,12 @@
       "lv": 1,
       "ml": 35,
       "ms": 4,
-      "nl": 54,
+      "nl": 94,
       "pa": 6,
       "pl": 10,
       "pt": 34,
-      "ru": 68,
-      "sv": 84,
+      "ru": 108,
+      "sv": 85,
       "ta": 1,
       "tr": 82,
       "uk": 3,
@@ -41,11 +41,12 @@
       "colors": 39,
       "emotions": 20,
       "food": 20,
-      "grammar": 419,
+      "grammar": 459,
       "health": 18,
       "numbers": 4,
       "religion": 1,
-      "sentences": 760,
+      "sentences": 840,
+      "shopping": 1,
       "sports": 3,
       "technology": 5,
       "time": 41,
@@ -54,13 +55,13 @@
     },
     "by_source": {
       "kaikki.wiktextract": 114,
-      "tatoeba.sentences": 760,
-      "universal-dependencies": 419,
-      "wikidata.lexemes": 518
+      "tatoeba.sentences": 840,
+      "universal-dependencies": 459,
+      "wikidata.lexemes": 519
     },
-    "total": 1811
+    "total": 1932
   },
-  "generated_by": "packs",
+  "generated_by": "classifier",
   "pack_bytes": 491520,
   "packs": [
     {
@@ -337,7 +338,7 @@
       "cs": 14,
       "da": 24,
       "de": 154,
-      "en": 599,
+      "en": 639,
       "eo": 2,
       "es": 125,
       "et": 6,
@@ -405,7 +406,7 @@
         "colors": 12,
         "emotions": 10,
         "food": 3,
-        "grammar": 419,
+        "grammar": 459,
         "health": 4,
         "sentences": 80,
         "sports": 1,
@@ -597,7 +598,7 @@
       "en": {
         "kaikki.wiktextract": 2,
         "tatoeba.sentences": 80,
-        "universal-dependencies": 419,
+        "universal-dependencies": 459,
         "wikidata.lexemes": 98
       },
       "eo": {
@@ -697,7 +698,7 @@
       "colors": 39,
       "emotions": 20,
       "food": 20,
-      "grammar": 419,
+      "grammar": 459,
       "health": 18,
       "numbers": 4,
       "religion": 1,
@@ -712,10 +713,10 @@
     "by_source": {
       "kaikki.wiktextract": 114,
       "tatoeba.sentences": 840,
-      "universal-dependencies": 419,
+      "universal-dependencies": 459,
       "wikidata.lexemes": 519
     },
-    "total": 1892
+    "total": 1932
   },
   "schema_version": "1.0.0"
 }
