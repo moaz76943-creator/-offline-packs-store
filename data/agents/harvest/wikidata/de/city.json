@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-11-02",
+  "retrieval_date": "2026-11-07",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -353,7 +353,7 @@
         "Q628"
       ],
       "record_id": "L297273",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-07",
       "revision": "2414950578",
       "schema_version": "1.0.0",
       "section": "city",
@@ -529,22 +529,54 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1489"
+    },
+    {
+      "concept_id": "concept.q39121",
+      "forms": [
+        "Leeds",
+        "Leeds’",
+        "Leeds",
+        "Leeds",
+        "Leeds"
+      ],
+      "language": "de",
+      "lemma": "Leeds",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1411217",
+      "pos": "",
+      "qids": [
+        "Q39121"
+      ],
+      "record_id": "L1411217",
+      "retrieval_date": "2026-11-07",
+      "revision": "2306206061",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1411217-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q39121"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2634"
+      "reason": "other_language",
+      "wikidata": "Q628"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q34370"
+      "wikidata": "Q155993"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q956"
+      "wikidata": "Q4024"
     }
   ],
   "source": "harvest-wikidata"

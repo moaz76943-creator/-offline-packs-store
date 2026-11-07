@@ -1,6 +1,6 @@
 {
   "language": "ml",
-  "retrieval_date": "2026-11-02",
+  "retrieval_date": "2026-11-07",
   "rows": [
     {
       "concept_id": "concept.q4093",
@@ -632,22 +632,50 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1489"
+    },
+    {
+      "concept_id": "concept.q39121",
+      "forms": [
+        "ലീഡ്സ്"
+      ],
+      "language": "ml",
+      "lemma": "ലീഡ്സ്",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L454000",
+      "pos": "",
+      "qids": [
+        "Q39121"
+      ],
+      "record_id": "L454000",
+      "retrieval_date": "2026-11-07",
+      "revision": "2522370510",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L454000-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q39121"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2634"
+      "reason": "other_language",
+      "wikidata": "Q628"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q34370"
+      "wikidata": "Q155993"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q956"
+      "wikidata": "Q4024"
     }
   ],
   "source": "harvest-wikidata"

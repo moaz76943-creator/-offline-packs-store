@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-11-02",
+  "retrieval_date": "2026-11-07",
   "rows": [
     {
       "concept_id": "concept.q3711",
@@ -254,7 +254,7 @@
         "Q628"
       ],
       "record_id": "L1235584",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-07",
       "revision": "2198174649",
       "schema_version": "1.0.0",
       "section": "city",
@@ -313,22 +313,52 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1799"
+    },
+    {
+      "concept_id": "concept.q2751",
+      "forms": [
+        "Siena"
+      ],
+      "language": "it",
+      "lemma": "Siena",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1233862",
+      "pos": "",
+      "qids": [
+        "Q20001017",
+        "Q37543776",
+        "Q2751"
+      ],
+      "record_id": "L1233862",
+      "retrieval_date": "2026-11-07",
+      "revision": "2198433252",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1233862-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2751"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2634"
+      "reason": "other_language",
+      "wikidata": "Q628"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q628"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q34370"
+      "wikidata": "Q155993"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q956"
+      "wikidata": "Q4024"
     }
   ],
   "source": "harvest-wikidata"

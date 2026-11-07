@@ -1,6 +1,6 @@
 {
   "language": "da",
-  "retrieval_date": "2026-10-28",
+  "retrieval_date": "2026-11-07",
   "rows": [
     {
       "concept_id": "concept.q3130",
@@ -117,7 +117,7 @@
         "Q2167"
       ],
       "record_id": "L1216935",
-      "retrieval_date": "2026-10-28",
+      "retrieval_date": "2026-11-07",
       "revision": "2014625761",
       "schema_version": "1.0.0",
       "section": "city",
@@ -211,23 +211,19 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q956"
+      "wikidata": "Q628"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q956"
+      "wikidata": "Q628"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1780"
+      "wikidata": "Q155993"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q3711"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3130"
+      "wikidata": "Q4024"
     }
   ],
   "source": "harvest-wikidata"
