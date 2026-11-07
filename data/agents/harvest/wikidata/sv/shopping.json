@@ -1,0 +1,37 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-11-07",
+  "rows": [
+    {
+      "concept_id": "concept.q470982",
+      "forms": [
+        "gränshandel",
+        "gränshandeln",
+        "gränshandels",
+        "gränshandelns"
+      ],
+      "language": "sv",
+      "lemma": "gränshandel",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L662663",
+      "pos": "",
+      "qids": [
+        "Q470982"
+      ],
+      "record_id": "L662663",
+      "retrieval_date": "2026-11-07",
+      "revision": "2564215897",
+      "schema_version": "1.0.0",
+      "section": "shopping",
+      "sense_id": "L662663-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "shopping.q830036",
+      "wikidata": "Q470982"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "shopping",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}
