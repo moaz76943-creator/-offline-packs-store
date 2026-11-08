@@ -61,8 +61,8 @@
     },
     "total": 2012
   },
-  "generated_by": "classifier",
-  "pack_bytes": 503808,
+  "generated_by": "packs",
+  "pack_bytes": 512000,
   "packs": [
     {
       "bytes": 16384,
@@ -263,10 +263,10 @@
     },
     {
       "bytes": 8192,
-      "entries": 34,
+      "entries": 35,
       "language": "pt",
       "sources": {
-        "kaikki.wiktextract": 28,
+        "kaikki.wiktextract": 29,
         "wikidata.lexemes": 6
       }
     },
@@ -298,11 +298,11 @@
       }
     },
     {
-      "bytes": 20480,
-      "entries": 82,
+      "bytes": 24576,
+      "entries": 122,
       "language": "tr",
       "sources": {
-        "tatoeba.sentences": 80,
+        "tatoeba.sentences": 120,
         "wikidata.lexemes": 2
       }
     },
@@ -323,11 +323,11 @@
       }
     },
     {
-      "bytes": 16384,
-      "entries": 80,
+      "bytes": 20480,
+      "entries": 120,
       "language": "zh",
       "sources": {
-        "tatoeba.sentences": 80
+        "tatoeba.sentences": 120
       }
     }
   ],
@@ -356,14 +356,14 @@
       "nl": 94,
       "pa": 6,
       "pl": 10,
-      "pt": 34,
+      "pt": 35,
       "ru": 108,
       "sv": 125,
       "ta": 1,
-      "tr": 82,
+      "tr": 122,
       "uk": 3,
       "vi": 1,
-      "zh": 80
+      "zh": 120
     },
     "by_language_section": {
       "ar": {
@@ -527,7 +527,7 @@
       },
       "pt": {
         "animals": 1,
-        "city": 27,
+        "city": 28,
         "clothing": 1,
         "colors": 1,
         "technology": 2,
@@ -563,7 +563,7 @@
       },
       "tr": {
         "clothing": 1,
-        "sentences": 80,
+        "sentences": 120,
         "work": 1
       },
       "uk": {
@@ -574,7 +574,7 @@
         "food": 1
       },
       "zh": {
-        "sentences": 80
+        "sentences": 120
       }
     },
     "by_language_source": {
@@ -661,7 +661,7 @@
         "wikidata.lexemes": 10
       },
       "pt": {
-        "kaikki.wiktextract": 28,
+        "kaikki.wiktextract": 29,
         "wikidata.lexemes": 6
       },
       "ru": {
@@ -677,7 +677,7 @@
         "wikidata.lexemes": 1
       },
       "tr": {
-        "tatoeba.sentences": 80,
+        "tatoeba.sentences": 120,
         "wikidata.lexemes": 2
       },
       "uk": {
@@ -687,13 +687,13 @@
         "wikidata.lexemes": 1
       },
       "zh": {
-        "tatoeba.sentences": 80
+        "tatoeba.sentences": 120
       }
     },
     "by_section": {
       "animals": 24,
       "body": 2,
-      "city": 279,
+      "city": 280,
       "clothing": 15,
       "colors": 39,
       "emotions": 20,
@@ -702,7 +702,7 @@
       "health": 18,
       "numbers": 4,
       "religion": 1,
-      "sentences": 880,
+      "sentences": 960,
       "shopping": 1,
       "sports": 3,
       "technology": 5,
@@ -711,12 +711,12 @@
       "work": 159
     },
     "by_source": {
-      "kaikki.wiktextract": 114,
-      "tatoeba.sentences": 880,
+      "kaikki.wiktextract": 115,
+      "tatoeba.sentences": 960,
       "universal-dependencies": 499,
       "wikidata.lexemes": 519
     },
-    "total": 2012
+    "total": 2093
   },
   "schema_version": "1.0.0"
 }
