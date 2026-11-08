@@ -1,6 +1,6 @@
 {
   "language": "uk",
-  "retrieval_date": "2026-10-29",
+  "retrieval_date": "2026-11-08",
   "rows": [
     {
       "concept_id": "concept.q2778382",
@@ -23,7 +23,7 @@
         "Q2778382"
       ],
       "record_id": "L596914",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-11-08",
       "revision": "2160965106",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -54,7 +54,7 @@
         "Q5148721"
       ],
       "record_id": "L605459",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2161103234",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -69,24 +69,12 @@
   "section": "colors",
   "skipped": [
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q218218"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q797446"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q797446"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1324818"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q43213808"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q533047"
+      "wikidata": "Q797446"
     }
   ],
   "source": "harvest-wikidata"

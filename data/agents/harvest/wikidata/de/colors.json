@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-11-02",
+  "retrieval_date": "2026-11-08",
   "rows": [
     {
       "concept_id": "concept.q906936",
@@ -24,7 +24,7 @@
         "Q906936"
       ],
       "record_id": "L2938",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2529590323",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -63,20 +63,12 @@
   "section": "colors",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q797446"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q797446"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1324818"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q425278"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q3014419"
+      "wikidata": "Q797446"
     }
   ],
   "source": "harvest-wikidata"

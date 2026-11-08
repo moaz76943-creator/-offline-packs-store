@@ -1,6 +1,6 @@
 {
   "language": "sv",
-  "retrieval_date": "2026-10-21",
+  "retrieval_date": "2026-11-08",
   "rows": [
     {
       "concept_id": "concept.q71404162",
@@ -20,7 +20,7 @@
         "Q71404162"
       ],
       "record_id": "L56203",
-      "retrieval_date": "2026-10-21",
+      "retrieval_date": "2026-11-08",
       "revision": "2483603317",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -35,11 +35,11 @@
   "section": "colors",
   "skipped": [
     {
-      "reason": "HTTPError",
+      "reason": "HTTPError:429",
       "wikidata": "Q1324818"
     },
     {
-      "reason": "HTTPError",
+      "reason": "HTTPError:429",
       "wikidata": "Q797446"
     }
   ],
