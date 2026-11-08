@@ -1,19 +1,13 @@
 {
-  "degraded": [],
-  "dispatch": [
-    "grammar",
-    "legal",
+  "degraded": [
+    "harvest-wikidata",
     "packs"
+  ],
+  "dispatch": [
+    "harvest-kaikki"
   ],
   "schema_version": "1.0.0",
   "stale": [
-    "harvest-wikidata",
-    "harvest-kaikki",
-    "classifier",
-    "grammar",
-    "legal",
-    "packs",
-    "health",
-    "janitor"
+    "harvest-kaikki"
   ]
 }
