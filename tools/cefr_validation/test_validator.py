@@ -107,6 +107,7 @@ class CEFRValidatorTest(unittest.TestCase):
         self.assertEqual(len(accepted), 1) # First one goes through
         self.assertEqual(len(rejected), 1) # Second one is rejected due to conflict
         self.assertIn("Substantial source conflict", rejected[0]["reason"])
+        self.assertEqual(rejected[0]["record"]["_resolution"], "conflicting")
 
     def test_preserves_independent_sources_without_conflict(self):
         # A1 and A2 for the same word is not a "substantial" conflict
