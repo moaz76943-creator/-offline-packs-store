@@ -1,5 +1,5 @@
 {
-  "next_index": 1600,
+  "next_index": 1680,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "af",
+      "section": "emotions"
+    },
+    {
+      "language": "am",
+      "section": "emotions"
+    },
+    {
+      "language": "ar",
+      "section": "emotions"
+    },
+    {
+      "language": "as",
+      "section": "emotions"
+    },
+    {
+      "language": "az",
+      "section": "emotions"
+    },
+    {
+      "language": "ba",
+      "section": "emotions"
+    },
+    {
+      "language": "be",
+      "section": "emotions"
+    },
+    {
+      "language": "bg",
+      "section": "emotions"
+    },
+    {
+      "language": "bn",
+      "section": "emotions"
+    },
+    {
+      "language": "br",
+      "section": "emotions"
+    },
+    {
+      "language": "bs",
+      "section": "emotions"
+    },
+    {
+      "language": "ca",
+      "section": "emotions"
+    },
+    {
+      "language": "cs",
+      "section": "emotions"
+    },
+    {
+      "language": "cy",
+      "section": "emotions"
+    },
+    {
+      "language": "da",
+      "section": "emotions"
+    },
+    {
+      "language": "de",
+      "section": "emotions"
+    },
+    {
+      "language": "dv",
+      "section": "emotions"
+    },
+    {
+      "language": "el",
+      "section": "emotions"
+    },
+    {
+      "language": "en",
+      "section": "emotions"
+    },
+    {
+      "language": "eo",
+      "section": "emotions"
+    },
+    {
       "language": "es",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "et",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "eu",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "fa",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "fi",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "fo",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "fr",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "fy",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ga",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "gd",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "gl",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "gu",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ha",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "hi",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "hr",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "hu",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "hy",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "id",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ig",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "is",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "it",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ja",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ka",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "kk",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "km",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "kn",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ko",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ku",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ky",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "la",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "lb",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "lo",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "lt",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "lv",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "mg",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "mk",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ml",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "mn",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "mr",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ms",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "mt",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "my",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ne",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "nl",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "no",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "or",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "pa",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "pl",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ps",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "pt",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ro",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "ru",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "rw",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "sd",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "si",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "sk",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "sl",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "sn",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "so",
-      "section": "colors"
+      "section": "emotions"
     },
     {
       "language": "sq",
-      "section": "colors"
-    },
-    {
-      "language": "sr",
-      "section": "colors"
-    },
-    {
-      "language": "sv",
-      "section": "colors"
-    },
-    {
-      "language": "sw",
-      "section": "colors"
-    },
-    {
-      "language": "ta",
-      "section": "colors"
-    },
-    {
-      "language": "te",
-      "section": "colors"
-    },
-    {
-      "language": "tg",
-      "section": "colors"
-    },
-    {
-      "language": "th",
-      "section": "colors"
-    },
-    {
-      "language": "tk",
-      "section": "colors"
-    },
-    {
-      "language": "tl",
-      "section": "colors"
-    },
-    {
-      "language": "tr",
-      "section": "colors"
-    },
-    {
-      "language": "tt",
-      "section": "colors"
-    },
-    {
-      "language": "ug",
-      "section": "colors"
-    },
-    {
-      "language": "uk",
-      "section": "colors"
-    },
-    {
-      "language": "ur",
-      "section": "colors"
-    },
-    {
-      "language": "uz",
-      "section": "colors"
-    },
-    {
-      "language": "vi",
-      "section": "colors"
-    },
-    {
-      "language": "xh",
-      "section": "colors"
-    },
-    {
-      "language": "yo",
-      "section": "colors"
-    },
-    {
-      "language": "zh",
-      "section": "colors"
-    },
-    {
-      "language": "zu",
-      "section": "colors"
+      "section": "emotions"
     }
   ]
 }
