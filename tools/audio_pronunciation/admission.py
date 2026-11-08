@@ -22,6 +22,7 @@ MALFORMED = "Invalid file format or malformed header"
 ALLOWED_FIELDS = (
     "lexeme_id",
     "locale",
+    "variant",
     "source_id",
     "human_recorded",
     "is_tts",
@@ -533,7 +534,7 @@ def _public_record(entry, measured):
 def _quarantine_record(entry, reason):
     safe = {"rejection_reason": str(reason)}
     if isinstance(entry, dict):
-        for key in ("lexeme_id", "locale", "source_id", "artifact_path"):
+        for key in ("lexeme_id", "locale", "variant", "source_id", "artifact_path"):
             value = entry.get(key)
             if isinstance(value, str):
                 safe[key] = value
