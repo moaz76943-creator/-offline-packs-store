@@ -171,5 +171,12 @@ class TestReproBuilder(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
 
+    def test_authorization_fails(self):
+        import os
+        from unittest.mock import patch
+        with patch('os.access', return_value=False):
+            with self.assertRaises(PermissionError):
+                ReproBuilder(self.repo_root)
+
 if __name__ == '__main__':
     unittest.main()
