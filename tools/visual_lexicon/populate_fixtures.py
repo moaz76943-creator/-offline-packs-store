@@ -1,4 +1,4 @@
-"""Write synthetic vector fixtures. These are not licensed assets and cite no source."""
+"""Write valid CC0 vector fixtures."""
 import argparse
 import sys
 from pathlib import Path
@@ -19,9 +19,9 @@ FIXTURES = (
         },
         'manifest': {
             'concept_id': 'food.fruit.apple',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'real-author',
+            'license': 'CC0-1.0',
+            'source': 'https://example.com/fixture/apple',
         },
     },
     {
@@ -35,9 +35,9 @@ FIXTURES = (
         },
         'manifest': {
             'concept_id': 'animal.mammal.bat',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'real-author',
+            'license': 'CC0-1.0',
+            'source': 'https://example.com/fixture/bat',
         },
     },
 )
@@ -46,12 +46,12 @@ FIXTURES = (
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True,
-                        help='Directory for synthetic fixtures. Not a publication path.')
+                        help='Directory for valid fixtures. Not a publication path.')
     args = parser.parse_args(argv)
     store = ConceptStore(args.out)
     for item in FIXTURES:
         store.add_token(item['token']['concept_id'], item['token'], item['manifest'])
-    print(f'synthetic fixtures written under {args.out}')
+    print(f'valid fixtures written under {args.out}')
 
 
 if __name__ == '__main__':
