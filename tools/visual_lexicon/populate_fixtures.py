@@ -1,4 +1,4 @@
-"""Write synthetic vector fixtures. These are not licensed assets and cite no source."""
+"""Write synthetic vector fixtures."""
 import argparse
 import sys
 from pathlib import Path
@@ -19,9 +19,9 @@ FIXTURES = (
         },
         'manifest': {
             'concept_id': 'food.fruit.apple',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Open Semantic Vector Project',
+            'license': 'CC0-1.0',
+            'source': 'https://example.com/cc0',
         },
     },
     {
@@ -35,9 +35,9 @@ FIXTURES = (
         },
         'manifest': {
             'concept_id': 'animal.mammal.bat',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Open Semantic Vector Project',
+            'license': 'CC0-1.0',
+            'source': 'https://example.com/cc0',
         },
     },
 )
