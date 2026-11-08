@@ -18,6 +18,9 @@ logger = logging.getLogger(__name__)
 class ProvenanceCompiler:
     def __init__(self, root: Path, ledger_path: Path, daily_dir: Path):
         self.root = root.resolve()
+        import os
+        if not self.root.is_dir() or not os.access(self.root, os.R_OK | os.X_OK):
+            raise RuntimeError("Repository access is unavailable")
         self.ledger_path = ledger_path.resolve()
         self.daily_dir = daily_dir.resolve()
 

@@ -99,6 +99,12 @@ class TestProvenanceCompiler(unittest.TestCase):
             "release_candidates": candidates
         }))
 
+    def test_no_access(self):
+        with unittest.mock.patch('os.access', return_value=False):
+            with self.assertRaises(RuntimeError) as context:
+                ProvenanceCompiler(self.root, self.ledger_path, self.daily_dir)
+            self.assertIn("Repository access is unavailable", str(context.exception))
+
     def test_successful_compilation(self):
         self.write_ledger([self.base_source])
         self.write_daily([self.base_candidate])
