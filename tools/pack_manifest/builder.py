@@ -100,7 +100,8 @@ def extract_metadata(filepath):
             'version': version,
             'entry_count': entry_count,
             'license': license_id,
-            'dependencies': deps
+            'dependencies': deps,
+            'provenance': data.get('provenance', [])
         }
 
     elif str(filepath).endswith('.vct'):
@@ -111,7 +112,8 @@ def extract_metadata(filepath):
             'version': data.get('version', '1.0.0'),
             'entry_count': 1,
             'license': data.get('license', 'CC0-1.0'),
-            'dependencies': deps
+            'dependencies': deps,
+            'provenance': data.get('provenance', [])
         }
     else:
         raise ValueError(f"Unsupported file type: {filepath}")
@@ -144,8 +146,14 @@ def build_manifest(base_dir, file_paths, output_manifest_path):
             'size_bytes': size,
             'sha256': sha256,
             'license': meta['license'],
-            'dependencies': meta['dependencies']
+            'dependencies': meta['dependencies'],
+            'provenance': meta['provenance']
         }
+
+    for pack_id, pack_info in manifest['packs'].items():
+        for dep in pack_info['dependencies']:
+            if dep not in manifest['packs']:
+                raise ValueError(f"Broken dependency: {dep} required by {pack_id} is missing")
 
     out_dir = os.path.dirname(output_manifest_path)
     if out_dir:
@@ -185,7 +193,7 @@ def generate_update_plan(old_manifest_path, new_manifest_path):
             plan['added'].append(pack_id)
         else:
             old_meta = old_packs[pack_id]
-            if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies']:
+            if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies'] and old_meta.get('provenance') == new_meta.get('provenance'):
                 plan['unchanged'].append(pack_id)
             elif old_meta['sha256'] == new_meta['sha256']:
                 # Skip changed metadata with no payload delta
