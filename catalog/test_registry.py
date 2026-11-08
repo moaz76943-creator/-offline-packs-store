@@ -336,14 +336,14 @@ class TaxonomyValidationTests(unittest.TestCase):
         import tempfile
         import json
         from pathlib import Path
-        from catalog.validate_registry import main
+        from validate_registry import main
+        import validate_registry as vr
         r, c, m = fixture()
         with tempfile.TemporaryDirectory() as td:
             tdp = Path(td)
             (tdp / "r.json").write_text(json.dumps(r), encoding="utf-8")
             (tdp / "c.json").write_text(json.dumps(c), encoding="utf-8")
             (tdp / "m.json").write_text(json.dumps(m), encoding="utf-8")
-            import catalog.validate_registry as vr
             orig_here = vr.HERE
             try:
                 vr.HERE = tdp / "catalog"
@@ -358,11 +358,11 @@ class TaxonomyValidationTests(unittest.TestCase):
                 vr.HERE = orig_here
 
     def test_missing_file_handled_gracefully(self):
-        from catalog.validate_registry import main
+        from validate_registry import main
         import tempfile
         import json
         from pathlib import Path
-        import catalog.validate_registry as vr
+        import validate_registry as vr
         r, c, m = fixture()
         with tempfile.TemporaryDirectory() as td:
             tdp = Path(td)
