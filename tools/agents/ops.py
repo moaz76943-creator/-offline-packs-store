@@ -194,8 +194,28 @@ def codeql_run_heartbeat(runs, now_epoch):
     return None
 
 
+def clean_branch_name(name):
+    """Return a normalized branch name, or '' when the text is not a safe ref.
+
+    Prefix checks must not treat traversal (`agents/tmp/../data`) or a
+    decorated ref (`refs/heads/agents/data`) as an ordinary deletable name.
+    """
+    if not isinstance(name, str):
+        return ''
+    text = name.strip()
+    if text.startswith('refs/heads/'):
+        text = text[len('refs/heads/'):]
+    if not text or text.startswith('/') or '\\' in text or '//' in text or text.endswith('/'):
+        return ''
+    parts = text.split('/')
+    if any(part in ('', '.', '..') for part in parts):
+        return ''
+    return text
+
+
 def branch_deletable(name, merged):
-    if not isinstance(name, str) or not name or name in PROTECTED_BRANCHES:
+    name = clean_branch_name(name)
+    if not name or name in PROTECTED_BRANCHES:
         return False
     if name.startswith('cursor/'):
         return False

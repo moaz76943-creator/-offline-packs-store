@@ -5,6 +5,7 @@ Agents do not depend on each other. They read and write versioned JSON under `st
 (schema 1.0.0) and, when they have data, files under `data/agents/`.
 A missing, stale or malformed file is a warning. The consumer keeps going.
 Checkpoints are commits on the branch `agents/data` (no force push).
+That branch is not a cleanup target. If it is missing, `tools/agents/prepare.sh` and `tools/agents/publish.sh` recreate it from the sha in `state/agents/snapshot-ref.json` on `main` (create the ref, never force) or skip the run. They do not start a new history.
 Root `manifest.json` and `legal/ledger/sources.json` are not edited by these workflows.
 
 Halt every agent by setting the repository variable `AGENTS_HALT` or `LANGUAGE_PRODUCTION_HALT` to `true`.
