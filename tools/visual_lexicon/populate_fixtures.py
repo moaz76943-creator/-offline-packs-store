@@ -6,7 +6,6 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from tools.visual_lexicon.store import ConceptStore
 
-
 FIXTURES = (
     {
         'token': {
@@ -19,9 +18,9 @@ FIXTURES = (
         },
         'manifest': {
             'concept_id': 'food.fruit.apple',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Jules',
+            'source': 'Original creation',
+            'license': 'CC0-1.0'
         },
     },
     {
@@ -35,13 +34,12 @@ FIXTURES = (
         },
         'manifest': {
             'concept_id': 'animal.mammal.bat',
-            'author': 'synthetic-fixture',
-            'fixture_status': 'synthetic',
-            'source': 'synthetic-fixture',
+            'author': 'Jules',
+            'source': 'Original creation',
+            'license': 'CC0-1.0'
         },
     },
 )
-
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
@@ -52,7 +50,6 @@ def main(argv=None):
     for item in FIXTURES:
         store.add_token(item['token']['concept_id'], item['token'], item['manifest'])
     print(f'synthetic fixtures written under {args.out}')
-
 
 if __name__ == '__main__':
     main()
