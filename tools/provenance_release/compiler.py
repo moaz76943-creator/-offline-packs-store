@@ -8,6 +8,7 @@ import argparse
 import json
 import logging
 import sys
+import os
 from pathlib import Path
 
 # We reuse the logic from legal.ledger.admission as much as possible for validation.
@@ -18,6 +19,8 @@ logger = logging.getLogger(__name__)
 class ProvenanceCompiler:
     def __init__(self, root: Path, ledger_path: Path, daily_dir: Path):
         self.root = root.resolve()
+        if not os.access(self.root, os.R_OK | os.X_OK):
+            raise OSError("Repository access is unavailable")
         self.ledger_path = ledger_path.resolve()
         self.daily_dir = daily_dir.resolve()
 
@@ -165,7 +168,7 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('author') or '___MISSING_AUTHOR___', src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:
@@ -202,6 +205,7 @@ class ProvenanceCompiler:
                         "source_id": src.get('source_id'),
                         "dataset_version": src.get('dataset_version'),
                         "publisher": src.get('publisher'),
+                        "author": src.get('author'),
                         "license": src.get('license', {}).get('id'),
                         "alterations": src.get('alterations', [])
                     })
