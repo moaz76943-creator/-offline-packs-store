@@ -146,7 +146,10 @@ class CommunityExporter:
         self.repo = Path(repository_root or Path(__file__).resolve().parents[2]).resolve()
 
         # Verify repository access and required source contracts
-        if not self.repo.is_dir() or not (self.repo / "catalog").exists() or not (self.repo / "legal").exists():
+        if not self.repo.is_dir() or not (self.repo / "catalog").exists() or not (self.repo / "legal").exists() or \
+           not os.access(self.repo, os.R_OK | os.X_OK) or \
+           not os.access(self.repo / "catalog", os.R_OK | os.X_OK) or \
+           not os.access(self.repo / "legal", os.R_OK | os.X_OK):
             raise ExportError("BLOCKED_REPOSITORY_ACCESS")
 
     def _admitted(self):
