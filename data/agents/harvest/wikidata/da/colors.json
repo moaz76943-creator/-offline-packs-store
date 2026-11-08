@@ -46,7 +46,7 @@
         "Q604079"
       ],
       "record_id": "L1355107",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2378664169",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -61,12 +61,20 @@
   "section": "colors",
   "skipped": [
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1324818"
+      "reason": "other_language",
+      "wikidata": "Q425278"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q425278"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q797446"
+      "wikidata": "Q1520693"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7622361"
     }
   ],
   "source": "harvest-wikidata"
