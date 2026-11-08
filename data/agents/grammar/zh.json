@@ -825,6 +825,406 @@
     {
       "id": "sentence.statement",
       "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136235",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "他也会说法语。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136236",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我会说法语。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136238",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我收到了请帖。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136401",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "你住在哪里？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136402",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "你记不记得我们认识的那一天？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136598",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "他住在这里吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136604",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "火车站离这里不远。"
+    },
+    {
+      "id": "sentence.question",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136613",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "火车站在哪里?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:136646",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "正在下雹。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:139673",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我爱你。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:180700",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我喜欢旅行。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:180705",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我很期待去旅游."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:180706",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我在旅行社工作."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:180712",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我跟父母住在一起."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:181028",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "他没有孩子。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330581",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "这是我的妈妈。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330582",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "以后再讲。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330583",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我真的不知道。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330584",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "人人都愿意相信美梦可以成真。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330585",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "十分感谢。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330586",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我跟父母联络了一下。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330587",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我跟父母讲了留学的事情。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330588",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我把旅费耗光了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330589",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我在旅行中用了地图。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330590",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我不够钱去旅行。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:330591",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "他喜欢旅行。我也是。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332135",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "今天是几月几号？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332420",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我收到了一张请帖。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332421",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "她半年后就要出国了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332422",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "很少人这么认为。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332423",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "这周我一直在工作。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332424",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我和她外出了几个月。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332425",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "明天下午之前我会把它完成。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332426",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "自己动手真好。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332427",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "那个发现纯属偶然。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332428",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "在英国的时候，我经常看参考书。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332429",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "我弟弟会经常彻夜不睡。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332430",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "你不得不制造一些借口。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332431",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "她可能出什么事了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332432",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "你参加社团活动吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1",
