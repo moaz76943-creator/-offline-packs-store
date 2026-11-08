@@ -121,13 +121,23 @@ class TestProvenanceCompiler(unittest.TestCase):
         self.assertEqual(statuses['invalid'], ['asset_1'])
 
     def test_missing_author_or_source_id(self):
-        # We test that missing source_id in notice also fails
-        self.notice_path.write_text("publisher CC-BY-SA-4.0 https://origin")
-        self.write_ledger([self.base_source])
+        # We test that missing author in notice fails
+        src = self.base_source.copy()
+        src['author'] = "author_name"
+        self.notice_path.write_text("src_id publisher CC-BY-SA-4.0 https://origin")
+        self.write_ledger([src])
         self.write_daily([self.base_candidate])
 
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['invalid'], ['asset_1'])
+
+        # Now include the author
+        self.notice_path.write_text("src_id publisher CC-BY-SA-4.0 https://origin author_name")
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['approved'], ['asset_1'])
+
+        manifest = json.loads(self.manifest_out.read_text())
+        self.assertEqual(manifest['release_provenance'][0]['sources'][0]['author'], "author_name")
 
     def test_altered_file_invalid_hash(self):
         self.artifact_path.write_text("altered content") # Changes hash

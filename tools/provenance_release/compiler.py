@@ -165,7 +165,10 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        terms = [sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', '')]
+                        if src.get('author'):
+                            terms.append(src['author'])
+                        if not all(term in content for term in terms):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:
@@ -198,13 +201,16 @@ class ProvenanceCompiler:
                     "sources": []
                 }
                 for src in resolved_sources:
-                    prov['sources'].append({
+                    src_prov = {
                         "source_id": src.get('source_id'),
                         "dataset_version": src.get('dataset_version'),
                         "publisher": src.get('publisher'),
                         "license": src.get('license', {}).get('id'),
                         "alterations": src.get('alterations', [])
-                    })
+                    }
+                    if src.get('author'):
+                        src_prov['author'] = src['author']
+                    prov['sources'].append(src_prov)
                 provenance.append(prov)
 
         # Write manifest
