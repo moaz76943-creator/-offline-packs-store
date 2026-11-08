@@ -23,17 +23,26 @@ class CEFRValidator:
         if registry_path is None:
             registry_path = Path(__file__).resolve().parents[2] / "catalog" / "language_registry.v1.json"
 
-        with open(registry_path, "r", encoding="utf-8") as f:
-            registry_data = json.load(f)
+        self._registry_missing = False
+        try:
+            with open(registry_path, "r", encoding="utf-8") as f:
+                registry_data = json.load(f)
+            self.supported_languages = {
+                lang["id"]: lang
+                for lang in registry_data.get("languages", [])
+            }
+        except FileNotFoundError:
+            self._registry_missing = True
+            self.supported_languages = {}
 
-        self.supported_languages = {
-            lang["id"]: lang
-            for lang in registry_data.get("languages", [])
-        }
         self._history = {}
 
     def validate_stream(self, records: Iterable[Dict]) -> Generator[Tuple[str, Dict, str], None, None]:
         for original_record in records:
+            if self._registry_missing:
+                yield "rejected", original_record, "Registry file not found"
+                continue
+
             record = copy.deepcopy(original_record)
 
             lexical_id = record.get("record_id")
