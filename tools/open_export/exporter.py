@@ -149,6 +149,13 @@ class CommunityExporter:
         if not self.repo.is_dir() or not (self.repo / "catalog").exists() or not (self.repo / "legal").exists():
             raise ExportError("BLOCKED_REPOSITORY_ACCESS")
 
+        if not os.access(self.repo, os.R_OK | os.X_OK):
+            raise ExportError("BLOCKED_REPOSITORY_ACCESS")
+        if not os.access(self.repo / "catalog", os.R_OK | os.X_OK):
+            raise ExportError("BLOCKED_REPOSITORY_ACCESS")
+        if not os.access(self.repo / "legal", os.R_OK | os.X_OK):
+            raise ExportError("BLOCKED_REPOSITORY_ACCESS")
+
     def _admitted(self):
         """Use the existing authoritative independent source-rights gate."""
         from legal.ledger.admission import evaluate
