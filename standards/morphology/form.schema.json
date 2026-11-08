@@ -38,7 +38,12 @@
     "features": {
       "type": "object",
       "additionalProperties": {
-        "type": "string"
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
       }
     },
     "root": {
@@ -109,6 +114,9 @@
       "type": "string"
     },
     "orthographic_variant": {
+      "type": "string"
+    },
+    "transliteration": {
       "type": "string"
     },
     "source_id": {
