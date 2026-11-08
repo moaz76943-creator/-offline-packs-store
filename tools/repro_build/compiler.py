@@ -13,6 +13,8 @@ from tools.lexicon_sanitizer.engine import SanitizerEngine
 class ReproBuilder:
     def __init__(self, repo_root: Path):
         self.repo_root = repo_root.resolve()
+        if not os.access(self.repo_root, os.R_OK | os.W_OK | os.X_OK):
+            raise PermissionError(f"Workspace authorization failed for {self.repo_root}")
 
     def sha256_file(self, path: Path) -> str:
         hasher = hashlib.sha256()
