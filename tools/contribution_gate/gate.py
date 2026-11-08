@@ -2,16 +2,27 @@
 import argparse
 import hashlib
 import json
+import os
+import sys
 from pathlib import Path
-
-from legal.ledger.admission import KINDS, LICENSES, OBLIGATIONS, manual_review, text, url_ok
-from tools.contribution_gate.evidence import (
-    EvidenceError, exact_source_reference, load_verified_ledger, required, verified_artifact
-)
 
 MAX_BYTES = 50 * 1024 * 1024
 
+def install_repo_import_path(repo_root):
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+
 def validate_contribution(manifest_dict, repo_root):
+    install_repo_import_path(repo_root)
+
+    if not os.access(str(repo_root), os.R_OK | os.X_OK):
+        raise ValueError("Missing read-only access to repository root")
+
+    from legal.ledger.admission import KINDS, LICENSES, OBLIGATIONS, manual_review, text, url_ok
+    from tools.contribution_gate.evidence import (
+        EvidenceError, exact_source_reference, load_verified_ledger, required, verified_artifact
+    )
+
     def block(message, status="REJECT"):
         return {"status": status, "reasons": [message], "publication_approved": False}
     if not isinstance(manifest_dict, dict):
