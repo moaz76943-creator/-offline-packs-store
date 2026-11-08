@@ -2,6 +2,8 @@ import argparse
 import json
 import os
 import hashlib
+import sys
+from pathlib import Path
 from typing import TextIO
 
 from tools.lexicon_sanitizer.engine import SanitizerEngine
@@ -85,6 +87,10 @@ def process_stream(
     return stats
 
 def main():
+    workspace = Path.cwd()
+    if not workspace.exists() or not workspace.is_dir() or not os.access(workspace, os.R_OK | os.W_OK | os.X_OK):
+        raise RuntimeError("Workspace access not authorized")
+
     parser = argparse.ArgumentParser(description="Multilingual Lexicon Sanitizer & Deduplication Engine")
     parser.add_argument("--input", required=True, help="Input JSONL file")
     parser.add_argument("--output-dir", required=True, help="Output directory for processed files")
