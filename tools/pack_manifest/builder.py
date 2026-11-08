@@ -71,6 +71,7 @@ def extract_metadata(filepath):
         if not pack_id:
             raise ValueError(f"Missing pack identity in {filepath}")
 
+        language = pack_id
         version = data.get('version') or '1.0.0'
 
         # Compute entry count and validate
@@ -93,13 +94,17 @@ def extract_metadata(filepath):
         if not license_id:
             raise ValueError(f"Missing license identifier in {filepath}")
 
+        provenance = data.get('provenance') or data.get('source') or data.get('header', {}).get('source')
+
         deps = data.get('dependencies', [])
 
         return {
             'pack_id': pack_id,
+            'language': language,
             'version': version,
             'entry_count': entry_count,
             'license': license_id,
+            'provenance': provenance,
             'dependencies': deps
         }
 
@@ -108,9 +113,11 @@ def extract_metadata(filepath):
         deps = data.get('dependencies', [])
         return {
             'pack_id': pack_id,
+            'language': None,
             'version': data.get('version', '1.0.0'),
             'entry_count': 1,
             'license': data.get('license', 'CC0-1.0'),
+            'provenance': data.get('provenance') or data.get('source'),
             'dependencies': deps
         }
     else:
@@ -139,11 +146,14 @@ def build_manifest(base_dir, file_paths, output_manifest_path):
             raise ValueError(f"Duplicate pack identity: {pack_id}")
         manifest['packs'][pack_id] = {
             'path': str(rel_path),
+            'pack_id': pack_id,
+            'language': meta['language'],
             'version': meta['version'],
             'entry_count': meta['entry_count'],
             'size_bytes': size,
             'sha256': sha256,
             'license': meta['license'],
+            'provenance': meta['provenance'],
             'dependencies': meta['dependencies']
         }
 
@@ -174,28 +184,38 @@ def generate_update_plan(old_manifest_path, new_manifest_path):
     new_packs = new_data.get('packs', {})
 
     plan = {
-        'added': [],
+        'unchanged': [],
         'updated': [],
-        'removed': [],
-        'unchanged': []
+        'deleted': [],
+        'invalid': []
     }
 
     for pack_id, new_meta in new_packs.items():
+        has_broken_deps = False
+        for dep in new_meta.get('dependencies', []):
+            if dep not in new_packs:
+                has_broken_deps = True
+                break
+
+        if has_broken_deps:
+            plan['invalid'].append(new_meta['path'])
+            continue
+
         if pack_id not in old_packs:
-            plan['added'].append(pack_id)
+            plan['updated'].append(new_meta['path'])
         else:
             old_meta = old_packs[pack_id]
             if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies']:
-                plan['unchanged'].append(pack_id)
+                plan['unchanged'].append(new_meta['path'])
             elif old_meta['sha256'] == new_meta['sha256']:
                 # Skip changed metadata with no payload delta
-                plan['unchanged'].append(pack_id)
+                plan['unchanged'].append(new_meta['path'])
             else:
-                plan['updated'].append(pack_id)
+                plan['updated'].append(new_meta['path'])
 
-    for pack_id in old_packs:
+    for pack_id, old_meta in old_packs.items():
         if pack_id not in new_packs:
-            plan['removed'].append(pack_id)
+            plan['deleted'].append(old_meta['path'])
 
     for key in plan:
         plan[key].sort()
