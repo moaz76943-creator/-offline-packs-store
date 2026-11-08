@@ -6,6 +6,7 @@ This validator additionally enforces cross-record invariants absent from JSON Sc
 """
 import argparse
 import json
+import jsonschema
 import re
 from pathlib import Path
 
@@ -22,6 +23,16 @@ def validate(registry, readiness, manifest=None, required_count=100, source_ledg
     errors = []
     def problem(message):
         errors.append(message)
+
+    schema_path = HERE / "language_registry.schema.json"
+    if schema_path.exists():
+        with open(schema_path, "r", encoding="utf-8") as f:
+            schema = json.load(f)
+        try:
+            jsonschema.validate(instance=registry, schema=schema)
+        except jsonschema.exceptions.ValidationError as e:
+            problem(f"schema validation error: {e.message}")
+
 
     if registry.get("schema_version") != "1.0.0":
         problem("unsupported registry schema_version")
