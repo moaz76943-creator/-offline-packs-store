@@ -7,21 +7,29 @@ Excludes unverified materials from the release manifest.
 import argparse
 import json
 import logging
+import os
 import sys
 from pathlib import Path
 
-# We reuse the logic from legal.ledger.admission as much as possible for validation.
-from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
-
 logger = logging.getLogger(__name__)
+
+def install_repo_import_path(root):
+    resolved = str(Path(root).resolve())
+    if resolved in sys.path:
+        sys.path.remove(resolved)
+    sys.path.insert(0, resolved)
 
 class ProvenanceCompiler:
     def __init__(self, root: Path, ledger_path: Path, daily_dir: Path):
         self.root = root.resolve()
+        if not os.access(self.root, os.R_OK):
+            raise PermissionError(f"No read access to repository root: {self.root}")
         self.ledger_path = ledger_path.resolve()
         self.daily_dir = daily_dir.resolve()
 
     def compile(self, manifest_out: Path, notice_out: Path) -> dict:
+        install_repo_import_path(self.root)
+        from legal.ledger.admission import SCHEMA, KINDS, LICENSES, OBLIGATIONS, sha256_file, text
         """
         Compile provenance and output release_provenance.json and NOTICE.txt.
         Returns a dictionary of statuses for tests.
@@ -165,7 +173,10 @@ class ProvenanceCompiler:
                             block_reason = "invalid notice path"
                             continue
                         content = p.read_text(encoding='utf-8')
-                        if not all(term in content for term in (sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', ''))):
+                        terms = [sid, src.get('publisher', ''), src.get('license', {}).get('id', ''), src.get('origin_url', '')]
+                        if src.get('author'):
+                            terms.append(src.get('author'))
+                        if not all(term in content for term in terms):
                             is_valid = False
                             block_reason = "incomplete notice"
                         else:

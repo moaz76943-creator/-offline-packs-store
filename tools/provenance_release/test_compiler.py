@@ -129,6 +129,15 @@ class TestProvenanceCompiler(unittest.TestCase):
         statuses = self.compiler.compile(self.manifest_out, self.notice_out)
         self.assertEqual(statuses['invalid'], ['asset_1'])
 
+        # Now test missing author
+        src_with_author = self.base_source.copy()
+        src_with_author['author'] = 'Test Author'
+        self.notice_path.write_text("src_id publisher CC-BY-SA-4.0 https://origin") # missing author
+        self.write_ledger([src_with_author])
+        self.write_daily([self.base_candidate])
+        statuses = self.compiler.compile(self.manifest_out, self.notice_out)
+        self.assertEqual(statuses['invalid'], ['asset_1'])
+
     def test_altered_file_invalid_hash(self):
         self.artifact_path.write_text("altered content") # Changes hash
         self.write_ledger([self.base_source])
