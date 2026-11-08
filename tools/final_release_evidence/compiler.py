@@ -217,6 +217,11 @@ class EvidenceCompiler:
         info = {
             'file': declared,
             'actual_sha256': None,
+            'lexical_counts': pack.get('lexical_counts'),
+            'cefr_evidence': pack.get('cefr_evidence'),
+            'version': pack.get('version'),
+            'source_licenses': pack.get('source_licenses'),
+            'media_identities': pack.get('media_identities'),
             'valid': False,
         }
         evidence = {
