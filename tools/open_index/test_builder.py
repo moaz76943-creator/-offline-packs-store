@@ -134,6 +134,14 @@ class TestIndexBuilder(unittest.TestCase):
         self.assertFalse(staged_path.exists())
         self.assertTrue(self.db_path.exists())
 
+    @patch('os.access')
+    def test_inaccessible_workspace(self, mock_access):
+        mock_access.return_value = False
+        setup_dummy_db(self.db_path, 'eng', ['test'])
+
+        with self.assertRaisesRegex(IndexBuilderError, 'inaccessible'):
+            build_index(self.db_path)
+
 
 if __name__ == '__main__':
     unittest.main()
