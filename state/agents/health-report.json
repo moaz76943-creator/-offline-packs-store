@@ -1,6 +1,6 @@
 {
   "degraded": [
-    "harvest-kaikki",
+    "harvest-wikidata",
     "packs",
     "watchdog"
   ],
@@ -8,5 +8,10 @@
   "observed_count": 21,
   "roster_count": 21,
   "schema_version": "1.0.0",
-  "stale": []
+  "stale": [
+    "harvest-kaikki",
+    "classifier",
+    "health",
+    "codeql"
+  ]
 }
