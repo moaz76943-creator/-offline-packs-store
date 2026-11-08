@@ -6213,6 +6213,406 @@
       "value": "In addition, I received feedback from our Gas Desk that the access to the Gas segment of Enron On-Line was cut off to CPS --- do you know who would handle this at Enron that we can speak to?"
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0007",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Greatly appreciate your prompt feedback to this inquiry."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0008",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "I look forward to your feedback on the GISB."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0009",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0010",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Vangie McGilloway Constellation Power Source, Inc. (\"CPS\") 111 Market Place Ste 500 Baltimore,MD 21202 Phone 410-468-3798 Fax 410-468-3499 Email vangie.mcgilloway@powersrc.com"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0011",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "PS- Were you having phone system problems this morning?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0012",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Myself and Credit were calling in and none of the calls rolled into voice mail (?)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0013",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Further to our conversation, please see attached sample agreements."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0014",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Upon your review, please give me a call to discuss any questionsand or issues you may have regarding this matter."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0015",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "(See attached file: Constellation Power (GISB draft).doc)(See attached file: Sam3102.doc)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0016",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0017",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0018",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "- ENRON-CPS (GISB rev1).doc"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0019",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "I have sent your question re on line trading to that area."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0020",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "They will contact you."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0021",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "I am in the process of reviewing your special provisions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0022",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Best regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0023",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0024",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Jackie Taylor - she is located at Court House Concessionaire and under her name in the directory."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0025",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0026",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Please clarify \"all\" do you intend 10MM for ENA as well?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0027",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Thx"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0028",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "dp"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0029",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0030",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Revised Article 4.6"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0031",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0032",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "The only agreement I can find is a Master Sale Spot w/ City of Springfield."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0033",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Please let me know if you need anything else."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0034",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "dp"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0035",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0036",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Tammi,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0037",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Attached is an image of the GISB."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0038",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "As you see it was CES acquired by ENA in asset purchase."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0039",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Please let me know how you would like to proceed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0040",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Best regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0041",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0042",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0043",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Priscilla,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0044",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "I do not find the term \"Alternate Transporter Imbalance\" in our agreement.."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0045",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "The term \"Aggregate Transporter Imbalance\" is located in several sections."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0046",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Could this be what your referencing?"
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -12417,6 +12817,406 @@
       "retrieval_date": "2026-11-08",
       "source_id": "universal-dependencies",
       "value": "In addition, I received feedback from our Gas Desk that the access to the Gas segment of Enron On-Line was cut off to CPS --- do you know who would handle this at Enron that we can speak to?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0007",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Greatly appreciate your prompt feedback to this inquiry."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0008",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "I look forward to your feedback on the GISB."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0009",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0010",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Vangie McGilloway Constellation Power Source, Inc. (\"CPS\") 111 Market Place Ste 500 Baltimore,MD 21202 Phone 410-468-3798 Fax 410-468-3499 Email vangie.mcgilloway@powersrc.com"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0011",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "PS- Were you having phone system problems this morning?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0012",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Myself and Credit were calling in and none of the calls rolled into voice mail (?)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0013",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Further to our conversation, please see attached sample agreements."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0014",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Upon your review, please give me a call to discuss any questionsand or issues you may have regarding this matter."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0015",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "(See attached file: Constellation Power (GISB draft).doc)(See attached file: Sam3102.doc)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0016",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0017",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0018",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "- ENRON-CPS (GISB rev1).doc"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0019",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "I have sent your question re on line trading to that area."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0020",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "They will contact you."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0021",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "I am in the process of reviewing your special provisions."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0022",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Best regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0023",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0024",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Jackie Taylor - she is located at Court House Concessionaire and under her name in the directory."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0025",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0026",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Please clarify \"all\" do you intend 10MM for ENA as well?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0027",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Thx"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0028",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "dp"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0029",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0030",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Revised Article 4.6"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0031",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0032",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "The only agreement I can find is a Master Sale Spot w/ City of Springfield."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0033",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Please let me know if you need anything else."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0034",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "dp"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0035",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0036",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Tammi,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0037",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Attached is an image of the GISB."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0038",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "As you see it was CES acquired by ENA in asset purchase."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0039",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Please let me know how you would like to proceed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0040",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Best regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0041",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0042",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0043",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Priscilla,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0044",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "I do not find the term \"Alternate Transporter Imbalance\" in our agreement.."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0045",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "The term \"Aggregate Transporter Imbalance\" is located in several sections."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0046",
+      "retrieval_date": "2026-11-08",
+      "source_id": "universal-dependencies",
+      "value": "Could this be what your referencing?"
     },
     {
       "id": "verb.forms",

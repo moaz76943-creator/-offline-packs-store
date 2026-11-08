@@ -825,6 +825,406 @@
     {
       "id": "sentence.statement",
       "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370591",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "قابلتها في الشارع."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370592",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أيمكنك رؤية الفرق؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370593",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أيمكنك ملاحظة الفرق؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370594",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "المهم هو العمل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370598",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أنت لست صديقنا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370600",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "الدلفين نوع من الثدييات."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370601",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "عاد السفير."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370603",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "صفق الجمهور للممثلة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370604",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أعرف شيئاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370606",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "رفع يده."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370608",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "ضحك الطلاب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370610",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "لا تلمس البضاعة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370611",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "الأولاد نائمون."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370612",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "سأشتري سيارة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370613",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "من فضلك إتّصل بي لاحقاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370614",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هنا موقع الحادث."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370615",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "سررت بلقائك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370616",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "تنافس عشر فرق على الجائزة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370617",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أعرّفك بصديقي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370618",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "مبيعات السيارات اليابانية في الخارج جيدة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370619",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أصبح بوب مهندساً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370620",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أعتقد أن شكسبير أعظم كاتب دراما في التاريخ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370621",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "حضر اللقاء عدد من أصحاب الإختصاص."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370623",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "ترك الباب مفتوحاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370625",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أعطني انطباعك عن هذا الكتاب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370626",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "لنكمل حديثنا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370627",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أحقا مات أبي؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370629",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "يا لها من جملة!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370631",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هو ولد مشاغب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370633",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "درّسني التاريخ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370635",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا المنتزه يذكّرني بطفولتي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370636",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا المنتزه جميل و نظيف حقاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370637",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "كاد الولد أن يغرق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370638",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "شك المحامي في براءته."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370639",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "نصحها الطبيب بأخذ إجازة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370640",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "سامحني من فضلك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370641",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أحب أن أطبخ عندما يكون الجو حارّاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370642",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "من ارتكب هذه الجريمة حتماً فقد عقله."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370643",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "علمتني عمتي كيف أحضّر قهوةً لذيذة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370644",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا بيت و ذلك مسجد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:331919",
@@ -1621,6 +2021,406 @@
       "retrieval_date": "2026-11-04",
       "source_id": "tatoeba.sentences",
       "value": "هناك عوامل كثيرة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370591",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "قابلتها في الشارع."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370592",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أيمكنك رؤية الفرق؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370593",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أيمكنك ملاحظة الفرق؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370594",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "المهم هو العمل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370598",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أنت لست صديقنا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370600",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "الدلفين نوع من الثدييات."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370601",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "عاد السفير."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370603",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "صفق الجمهور للممثلة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370604",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أعرف شيئاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370606",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "رفع يده."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370608",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "ضحك الطلاب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370610",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "لا تلمس البضاعة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370611",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "الأولاد نائمون."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370612",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "سأشتري سيارة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370613",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "من فضلك إتّصل بي لاحقاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370614",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هنا موقع الحادث."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370615",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "سررت بلقائك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370616",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "تنافس عشر فرق على الجائزة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370617",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أعرّفك بصديقي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370618",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "مبيعات السيارات اليابانية في الخارج جيدة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370619",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أصبح بوب مهندساً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370620",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أعتقد أن شكسبير أعظم كاتب دراما في التاريخ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370621",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "حضر اللقاء عدد من أصحاب الإختصاص."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370623",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "ترك الباب مفتوحاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370625",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أعطني انطباعك عن هذا الكتاب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370626",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "لنكمل حديثنا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370627",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "أحقا مات أبي؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370629",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "يا لها من جملة!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370631",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هو ولد مشاغب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370633",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "درّسني التاريخ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370635",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا المنتزه يذكّرني بطفولتي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370636",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا المنتزه جميل و نظيف حقاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370637",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "كاد الولد أن يغرق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370638",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "شك المحامي في براءته."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370639",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "نصحها الطبيب بأخذ إجازة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370640",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "سامحني من فضلك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370641",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أحب أن أطبخ عندما يكون الجو حارّاً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370642",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "من ارتكب هذه الجريمة حتماً فقد عقله."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370643",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "علمتني عمتي كيف أحضّر قهوةً لذيذة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370644",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا بيت و ذلك مسجد."
     }
   ]
 }
