@@ -171,5 +171,58 @@ class TestReproBuilder(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
 
+
+
+    def test_grammar_sidecar_loaded(self):
+        # Create grammar sidecar
+        grammar_doc = {
+            "languageCode": "en",
+            "contract_version": "1.0.0",
+            "rules": [
+                {
+                    "grammar_id": "g1",
+                    "category": "syntax",
+                    "title": "Rule 1",
+                    "source": {
+                        "fixture_only": True,
+                        "publication_approved": False,
+                        "source_id": "test"
+                    }
+                }
+            ]
+        }
+        sidecar_path = self.source_path.with_name(f"en.grammar.json")
+        self.addCleanup(lambda: sidecar_path.unlink(missing_ok=True))
+        with open(sidecar_path, 'w') as f:
+            json.dump(grammar_doc, f)
+
+        out_path = self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+        self.assertTrue(out_path.exists())
+
+        with sqlite3.connect(out_path) as db:
+            counts = db.execute("SELECT COUNT(*) FROM grammar").fetchone()[0]
+            self.assertEqual(counts, 1)
+
+    def test_access_checks(self):
+        # Unauth parent dir test
+        with patch('os.access') as mock_access:
+            # We mock so that when access is called on full_source_path.parent it returns False
+            def mock_access_side_effect(path, mode):
+                if path == self.source_path.parent:
+                    return False
+                return True
+            mock_access.side_effect = mock_access_side_effect
+            with self.assertRaisesRegex(ValueError, "Unauthorized source directory access"):
+                self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+
+        with patch('os.access') as mock_access:
+            def mock_access_side_effect(path, mode):
+                if path == self.repo_root:
+                    return False
+                return True
+            mock_access.side_effect = mock_access_side_effect
+            with self.assertRaisesRegex(ValueError, "Unauthorized workspace access"):
+                self.builder.build(self.manifest_path, self.output_dir, fixture_only=True)
+
 if __name__ == '__main__':
     unittest.main()
