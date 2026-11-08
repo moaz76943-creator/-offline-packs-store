@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # Publish one agent's checkpoint from an isolated worktree; never rewrite shared HEAD.
+# A missing agents/data ref is recreated at the sha recorded on main, or this
+# publish is skipped. It never force-pushes and never starts a new root history.
 set -euo pipefail
 name="${1:?agent name}"
 out="${AGENT_OUT:-/tmp/agent-out}"
-branch="agents/data"
+here="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=snapshot_ref.sh
+source "$here/snapshot_ref.sh"
+branch="$SNAPSHOT_BRANCH"
 if [ ! -d "$out" ]; then
   echo "no agent output"
   exit 0
@@ -20,7 +25,11 @@ mkdir -p "$stage/output"
 cp -a "$out"/. "$stage/output"/
 
 # A failed fetch must not silently create a replacement for the shared branch.
-git fetch origin "$branch"
+rev="$(snapshot_resolve .)"
+if [ "$rev" != "origin/$branch" ]; then
+  echo "no recoverable ${branch} snapshot; skipping publish for ${name}"
+  exit 0
+fi
 git worktree add --detach "$checkout" "origin/$branch"
 git -C "$checkout" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 git -C "$checkout" config user.name "github-actions[bot]"

@@ -122,6 +122,87 @@ fi
             git(observer, 'log', '--oneline', '--grep=checkpoint').count('checkpoint'), 2,
         )
 
+    def _record_pointer(self, sha):
+        main = self.root / 'main-pointer'
+        git(self.root, 'clone', '--branch', 'main', str(self.remote), str(main))
+        git(main, 'config', 'user.email', 'test@invalid.example')
+        git(main, 'config', 'user.name', 'Test')
+        pointer = main / 'state/agents/snapshot-ref.json'
+        pointer.parent.mkdir(parents=True, exist_ok=True)
+        pointer.write_text(json.dumps({
+            'schema_version': '1.0.0',
+            'branch': 'agents/data',
+            'sha': sha,
+        }) + '\n')
+        git(main, 'add', 'state/agents/snapshot-ref.json')
+        git(main, 'commit', '-m', 'record snapshot sha')
+        git(main, 'push', 'origin', 'HEAD:refs/heads/main')
+        git(self.remote, 'config', 'uploadpack.allowAnySHA1InWant', 'true')
+        return sha
+
+    def test_missing_branch_recreates_from_recorded_sha(self):
+        sha = git(self.remote, 'rev-parse', 'refs/heads/agents/data')
+        self._record_pointer(sha)
+        git(self.root / 'main-pointer', 'push', 'origin', '--delete', 'agents/data')
+        self.assertNotIn('agents/data', git(self.remote, 'show-ref'))
+        work = self.worker('recover')
+        self.assertTrue((work / 'state/agents/watchdog.json').is_file())
+        self.assertEqual(
+            json.loads((work / 'state/agents/snapshot-ref.json').read_text())['sha'],
+            sha,
+        )
+        self.result_dir('recover')
+        result = self.publish(work, 'recover')
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        tip = git(self.remote, 'rev-parse', 'refs/heads/agents/data')
+        self.assertNotEqual(tip, sha)
+        self.assertEqual(git(self.remote, 'rev-parse', tip + '^'), sha)
+        observer = self.root / 'recovered'
+        git(self.root, 'clone', '--branch', 'agents/data', str(self.remote), str(observer))
+        self.assertTrue((observer / 'state/agents/watchdog.json').is_file())
+        self.assertTrue((observer / 'state/agents/recover.json').is_file())
+
+    def test_missing_branch_without_sha_skips_without_a_new_root(self):
+        git(self.root / 'seed', 'push', 'origin', '--delete', 'agents/data')
+        work = self.root / 'skip'
+        git(self.root, 'clone', '--branch', 'main', str(self.remote), str(work))
+        git(work, 'config', 'user.email', 'test@invalid.example')
+        git(work, 'config', 'user.name', 'Test')
+        prepared = subprocess.run(
+            ['bash', str(SCRIPTS / 'prepare.sh')], cwd=work, check=False,
+            capture_output=True, text=True,
+        )
+        self.assertEqual(prepared.returncode, 0, prepared.stdout + prepared.stderr)
+        self.assertFalse((work / 'state/agents/watchdog.json').exists())
+        self.result_dir('skip')
+        published = self.publish(work, 'skip')
+        self.assertEqual(published.returncode, 0, published.stdout + published.stderr)
+        self.assertNotIn('agents/data', git(self.remote, 'show-ref'))
+        self.assertIn('skipping publish', published.stdout + published.stderr)
+
+    def test_recorded_sha_does_not_rewind_a_newer_branch(self):
+        old = git(self.remote, 'rev-parse', 'refs/heads/agents/data')
+        newer = self.root / 'newer'
+        git(self.root, 'clone', '--branch', 'agents/data', str(self.remote), str(newer))
+        git(newer, 'config', 'user.email', 'test@invalid.example')
+        git(newer, 'config', 'user.name', 'Test')
+        marker = newer / 'state/agents/newer.json'
+        marker.write_text('{"status":"newer"}\n')
+        git(newer, 'add', 'state/agents/newer.json')
+        git(newer, 'commit', '-m', 'newer snapshot')
+        git(newer, 'push', 'origin', 'HEAD:refs/heads/agents/data')
+        new = git(self.remote, 'rev-parse', 'refs/heads/agents/data')
+        self.assertNotEqual(new, old)
+        self._record_pointer(old)
+        work = self.worker('keep-new')
+        self.assertTrue((work / 'state/agents/newer.json').is_file())
+        self.result_dir('keep-new')
+        result = self.publish(work, 'keep-new')
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        tip = git(self.remote, 'rev-parse', 'refs/heads/agents/data')
+        self.assertNotEqual(tip, old)
+        self.assertEqual(git(self.remote, 'rev-parse', tip + '^'), new)
+
 
 if __name__ == '__main__':
     unittest.main()

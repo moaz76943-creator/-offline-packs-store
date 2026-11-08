@@ -32,6 +32,20 @@ jobs:
           python3 -m tools.agents.cli cleanup --list /tmp/branches.txt > /tmp/delete.txt
           while IFS= read -r branch; do
             [ -z "$branch" ] && continue
+            # The shell is the last check. agents/data is the fleet checkpoint
+            # and is never a cleanup target, even if the name list is wrong.
+            case "$branch" in
+              main|master|gh-pages|agents/data|refs/heads/agents/data|refs/heads/main|refs/heads/master)
+                echo "refusing to delete protected ref: $branch" >&2
+                continue
+                ;;
+              language-production/*|agents/tmp/*)
+                ;;
+              *)
+                echo "refusing to delete ref outside the cleanup allowlist: $branch" >&2
+                continue
+                ;;
+            esac
             git push origin --delete "$branch"
           done < /tmp/delete.txt
 
