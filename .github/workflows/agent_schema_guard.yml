@@ -3,6 +3,12 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '23 4,16 * * *'
+  # A push of this file is the dispatch this token can actually cause.
+  # Other main pushes do not start the agent.
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/agent_schema_guard.yml'
 permissions:
   contents: write
 concurrency:
