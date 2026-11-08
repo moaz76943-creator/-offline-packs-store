@@ -63,6 +63,14 @@ def bounded_json_parse(filepath):
         raise ValueError('Pack metadata must be a JSON object')
     return data
 
+
+def compute_payload_sha256(data):
+    clone = dict(data)
+    for key in ['version', 'license', 'source', 'header', 'lang_code', 'asset_id']:
+        clone.pop(key, None)
+    encoded = json.dumps(clone, sort_keys=True).encode('utf-8')
+    return hashlib.sha256(encoded).hexdigest()
+
 def extract_metadata(filepath):
     data = bounded_json_parse(filepath)
 
@@ -95,23 +103,35 @@ def extract_metadata(filepath):
 
         deps = data.get('dependencies', [])
 
+        source = data.get('source') or data.get('header', {}).get('source')
+        lang_code = data.get('lang_code') or data.get('header', {}).get('code')
+        payload_sha256 = compute_payload_sha256(data)
         return {
             'pack_id': pack_id,
             'version': version,
             'entry_count': entry_count,
             'license': license_id,
-            'dependencies': deps
+            'dependencies': deps,
+            'source': source,
+            'language': lang_code,
+            'payload_sha256': payload_sha256
         }
 
     elif str(filepath).endswith('.vct'):
         pack_id = data.get('asset_id') or os.path.basename(filepath)
         deps = data.get('dependencies', [])
+        source = data.get('source')
+        lang_code = data.get('lang_code')
+        payload_sha256 = compute_payload_sha256(data)
         return {
             'pack_id': pack_id,
             'version': data.get('version', '1.0.0'),
             'entry_count': 1,
             'license': data.get('license', 'CC0-1.0'),
-            'dependencies': deps
+            'dependencies': deps,
+            'source': source,
+            'language': lang_code,
+            'payload_sha256': payload_sha256
         }
     else:
         raise ValueError(f"Unsupported file type: {filepath}")
@@ -144,8 +164,16 @@ def build_manifest(base_dir, file_paths, output_manifest_path):
             'size_bytes': size,
             'sha256': sha256,
             'license': meta['license'],
-            'dependencies': meta['dependencies']
+            'dependencies': meta['dependencies'],
+            'source': meta['source'],
+            'language': meta['language'],
+            'payload_sha256': meta['payload_sha256']
         }
+
+    for pack_meta in manifest['packs'].values():
+        for dep in pack_meta['dependencies']:
+            if dep not in manifest['packs']:
+                raise ValueError(f"Missing dependency: {dep}")
 
     out_dir = os.path.dirname(output_manifest_path)
     if out_dir:
@@ -185,10 +213,7 @@ def generate_update_plan(old_manifest_path, new_manifest_path):
             plan['added'].append(pack_id)
         else:
             old_meta = old_packs[pack_id]
-            if old_meta['sha256'] == new_meta['sha256'] and old_meta['version'] == new_meta['version'] and old_meta['dependencies'] == new_meta['dependencies']:
-                plan['unchanged'].append(pack_id)
-            elif old_meta['sha256'] == new_meta['sha256']:
-                # Skip changed metadata with no payload delta
+            if old_meta['payload_sha256'] == new_meta['payload_sha256']:
                 plan['unchanged'].append(pack_id)
             else:
                 plan['updated'].append(pack_id)
