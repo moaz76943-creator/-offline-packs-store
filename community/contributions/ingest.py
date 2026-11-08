@@ -102,6 +102,19 @@ def validate_document(doc, valid_languages, validate_lexical, license_ids):
             language = record.get("language")
             if language and language not in valid_languages:
                 raise ValueError("unregistered language")
+            if collection == "translations":
+                to_sense_id = record.get("to_sense_id")
+                target_language = None
+                for sense in doc.get("senses", []):
+                    if sense.get("sense_id") == to_sense_id:
+                        lexeme_id = sense.get("lexeme_id")
+                        for lexeme in doc.get("lexemes", []):
+                            if lexeme.get("lexeme_id") == lexeme_id:
+                                target_language = lexeme.get("language")
+                                break
+                        break
+                if target_language and target_language != language:
+                    raise ValueError("target language mismatch")
 
     def traverse(value):
         if isinstance(value, list):
