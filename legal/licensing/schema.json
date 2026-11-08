@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://standards.local/licensing.schema.json",
+  "title": "Open Lexical Source Licensing Ledger",
+  "description": "Ledger of licensing records and provenance for multilingual dictionaries and lexical sources",
+  "type": "object",
+  "properties": {
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "description": "Unique identifier for the source dataset"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Canonical URL where the source material is distributed"
+          },
+          "author": {
+            "type": "string",
+            "description": "Attributed author or organization responsible for the source material"
+          },
+          "version": {
+            "type": "string",
+            "description": "Specific version or release tag of the source material"
+          },
+          "license": {
+            "type": "string",
+            "description": "Declared license identifier (e.g., 'CC BY-SA 4.0', 'GFDL-1.3', 'CC0-1.0')"
+          },
+          "modification_status": {
+            "type": "string",
+            "enum": ["unmodified", "modified", "aggregated"],
+            "description": "How the source material was used or altered"
+          },
+          "artifact_hash": {
+            "type": "string",
+            "description": "SHA-256 hash of the downloaded source artifact (optional)"
+          },
+          "verified_evidence": {
+            "type": "object",
+            "properties": {
+              "license_text_found": {
+                "type": "boolean"
+              },
+              "attribution_found": {
+                "type": "boolean"
+              },
+              "notes": {
+                "type": "string"
+              }
+            },
+            "required": ["license_text_found", "attribution_found"],
+            "description": "Evidence that the declared license is actually verified in the source artifact"
+          }
+        },
+        "required": ["source_id", "url", "author", "version", "license", "modification_status"]
+      }
+    }
+  },
+  "required": ["records"]
+}
