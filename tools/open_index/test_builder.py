@@ -122,6 +122,13 @@ class TestIndexBuilder(unittest.TestCase):
         with self.assertRaisesRegex(IndexBuilderError, 'Unsupported tokenizer'):
             build_index(self.db_path)
 
+    @patch('os.access')
+    def test_workspace_inaccessible(self, mock_access):
+        mock_access.return_value = False
+        setup_dummy_db(self.db_path, 'eng', ['test'])
+        with self.assertRaisesRegex(IndexBuilderError, 'Workspace inaccessible'):
+            build_index(self.db_path)
+
     @patch('os.replace')
     def test_interrupted_index_generation(self, mock_replace):
         mock_replace.side_effect = Exception("Interrupted!")
