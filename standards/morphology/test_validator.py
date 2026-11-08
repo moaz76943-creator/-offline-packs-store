@@ -45,6 +45,17 @@ class TestMorphologyValidatorBasic(unittest.TestCase):
             self.validator.validate(invalid_record)
         self.assertIn("must start with language_code", str(context.exception))
 
+    def test_typed_features_and_transliteration(self):
+        valid_record = self.valid_base.copy()
+        valid_record["features"] = {
+            "number": 1,
+            "case": "nominative",
+            "boolean_feature": True,
+            "null_feature": None
+        }
+        valid_record["transliteration"] = "buh"
+        self.assertTrue(self.validator.validate(valid_record))
+
 class TestMorphologyValidatorFeatures(unittest.TestCase):
     def setUp(self):
         self.validator = MorphologyValidator()
