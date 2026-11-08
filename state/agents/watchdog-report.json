@@ -1,9 +1,9 @@
 {
   "degraded": [],
   "dispatch": [
-    "janitor",
-    "watchdog",
-    "triage"
+    "grammar",
+    "legal",
+    "packs"
   ],
   "schema_version": "1.0.0",
   "stale": [
@@ -14,8 +14,6 @@
     "legal",
     "packs",
     "health",
-    "janitor",
-    "watchdog",
-    "triage"
+    "janitor"
   ]
 }
