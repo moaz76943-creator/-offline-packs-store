@@ -1,10 +1,16 @@
 import re
+import json
+from pathlib import Path
 from typing import Dict, Any, List
 from .schema import VisualAssetMetadata
 
 CONTROL_CHAR_RE = re.compile(r'[\x00-\x1F\x7F]')
 
 class AccessibilityValidator:
+    def __init__(self, registry_path: str = "catalog/language_registry.v1.json"):
+        with open(registry_path, "r", encoding="utf-8") as f:
+            self.registry = json.load(f)
+
     def validate_asset(self, asset: VisualAssetMetadata) -> Dict[str, Any]:
         errors = []
         warnings = []
@@ -44,11 +50,20 @@ class AccessibilityValidator:
             return
 
         for label in labels:
-            if not label.get("language"):
+            lang = label.get("language")
+            lang_data = None
+            if not lang:
                 errors.append("Missing language metadata")
+            else:
+                lang_data = next((l for l in self.registry.get("languages", []) if l.get("id") == lang), None)
+                if not lang_data:
+                    errors.append("Unsupported language metadata")
 
-            if not label.get("script"):
+            script = label.get("script")
+            if not script:
                 errors.append("Missing script metadata")
+            elif lang_data and script not in lang_data.get("scripts", []):
+                errors.append("Unsupported script metadata")
 
             text = label.get("text")
             if not text:
