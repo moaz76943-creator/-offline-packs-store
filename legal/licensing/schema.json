@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "source_id": { "type": "string" },
+    "url": { "type": "string" },
+    "author": { "type": "string" },
+    "version": { "type": "string" },
+    "license": {
+      "type": "object",
+      "properties": {
+        "declaration": { "type": "string" },
+        "verified_evidence": { "type": "string" },
+        "obligations": {
+          "type": "object",
+          "properties": {
+            "attribution_met": { "type": "boolean" },
+            "share_alike_met": { "type": "boolean" },
+            "history_preserved": { "type": "boolean" }
+          }
+        }
+      },
+      "required": ["declaration", "verified_evidence"]
+    },
+    "modification_status": { "type": "string" },
+    "artifact_hash": { "type": "string" }
+  },
+  "required": [
+    "source_id",
+    "url",
+    "author",
+    "version",
+    "license",
+    "modification_status"
+  ]
+}
