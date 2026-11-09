@@ -1,5 +1,5 @@
 {
-  "next_index": 1840,
+  "next_index": 1920,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "it",
+      "section": "technology"
+    },
+    {
+      "language": "ja",
+      "section": "technology"
+    },
+    {
+      "language": "ka",
+      "section": "technology"
+    },
+    {
+      "language": "kk",
+      "section": "technology"
+    },
+    {
+      "language": "km",
+      "section": "technology"
+    },
+    {
+      "language": "kn",
+      "section": "technology"
+    },
+    {
+      "language": "ko",
+      "section": "technology"
+    },
+    {
+      "language": "ku",
+      "section": "technology"
+    },
+    {
+      "language": "ky",
+      "section": "technology"
+    },
+    {
+      "language": "la",
+      "section": "technology"
+    },
+    {
+      "language": "lb",
+      "section": "technology"
+    },
+    {
+      "language": "lo",
+      "section": "technology"
+    },
+    {
+      "language": "lt",
+      "section": "technology"
+    },
+    {
+      "language": "lv",
+      "section": "technology"
+    },
+    {
+      "language": "mg",
+      "section": "technology"
+    },
+    {
+      "language": "mk",
+      "section": "technology"
+    },
+    {
+      "language": "ml",
+      "section": "technology"
+    },
+    {
+      "language": "mn",
+      "section": "technology"
+    },
+    {
+      "language": "mr",
+      "section": "technology"
+    },
+    {
+      "language": "ms",
+      "section": "technology"
+    },
+    {
       "language": "mt",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "my",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ne",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "nl",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "no",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "or",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "pa",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "pl",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ps",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "pt",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ro",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ru",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "rw",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "sd",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "si",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "sk",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "sl",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "sn",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "so",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "sq",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "sr",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "sv",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "sw",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ta",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "te",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "tg",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "th",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "tk",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "tl",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "tr",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "tt",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ug",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "uk",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ur",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "uz",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "vi",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "xh",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "yo",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "zh",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "zu",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "af",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "am",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ar",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "as",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "az",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ba",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "be",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "bg",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "bn",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "br",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "bs",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ca",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "cs",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "cy",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "da",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "de",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "dv",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "el",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "en",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "eo",
-      "section": "technology"
-    },
-    {
-      "language": "es",
-      "section": "technology"
-    },
-    {
-      "language": "et",
-      "section": "technology"
-    },
-    {
-      "language": "eu",
-      "section": "technology"
-    },
-    {
-      "language": "fa",
-      "section": "technology"
-    },
-    {
-      "language": "fi",
-      "section": "technology"
-    },
-    {
-      "language": "fo",
-      "section": "technology"
-    },
-    {
-      "language": "fr",
-      "section": "technology"
-    },
-    {
-      "language": "fy",
-      "section": "technology"
-    },
-    {
-      "language": "ga",
-      "section": "technology"
-    },
-    {
-      "language": "gd",
-      "section": "technology"
-    },
-    {
-      "language": "gl",
-      "section": "technology"
-    },
-    {
-      "language": "gu",
-      "section": "technology"
-    },
-    {
-      "language": "ha",
-      "section": "technology"
-    },
-    {
-      "language": "hi",
-      "section": "technology"
-    },
-    {
-      "language": "hr",
-      "section": "technology"
-    },
-    {
-      "language": "hu",
-      "section": "technology"
-    },
-    {
-      "language": "hy",
-      "section": "technology"
-    },
-    {
-      "language": "id",
-      "section": "technology"
-    },
-    {
-      "language": "ig",
-      "section": "technology"
-    },
-    {
-      "language": "is",
-      "section": "technology"
+      "section": "religion"
     }
   ]
 }
