@@ -826,6 +826,406 @@
       "id": "sentence.statement",
       "language": "en",
       "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1364",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Most people write about their daily life."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1365",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "If I could send you a marshmallow, Trang, I would."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1366",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "In order to do that, you have to take risks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1367",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Every person who is alone is alone because they are afraid of others."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1368",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Why do you ask?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1369",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I am not an artist. I never had the knack for it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1370",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I can't tell her now. It's not that simple anymore."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1371",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I am a flawed person, but these are flaws that can easily be fixed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1372",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Whenever I find something I like, it's too expensive."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1373",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "How long did you stay?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1374",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Maybe it will be exactly the same for him."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1375",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Innocence is a beautiful thing."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1376",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Humans were never meant to live forever."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1377",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I don't want to lose my ideas, even though some of them are a bit extreme."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1378",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I think I have a theory about that."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1379",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "That is intriguing."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1380",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "You are saying you intentionally hide your good looks?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1381",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I do not have an account in these forums."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1382",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "If anyone was to ask what the point of the story is, I really don't know."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1383",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I didn't know where it came from."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1384",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I think my living with you has influenced your way of living."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1385",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "This is not important."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1386",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I didn't like it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1387",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "She's asking how that's possible."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1388",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "You're just running away from life's problems."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1389",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "If you look at the lyrics, they don't really mean much."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1390",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "There's a problem there that you don't see."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1391",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "You can do it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1392",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "My physics teacher doesn't care if I skip classes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1393",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I wish I could go to Japan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1394",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I hate it when there are a lot of people."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1395",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I have to go to bed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1396",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "After that, I left, but then I realized that I forgot my backpack at their house."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1397",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I won't ask you anything else today."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1398",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "It may freeze next week."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1399",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Even though he apologized, I'm still furious."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1400",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "The police will get you to find the bullets."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1401",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Thanks for having explained to me at last why people take me for an idiot."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1402",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "That wasn't my intention."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1403",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Thanks for your explanation."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
       "license_id": "CC-BY-SA-4.0",
       "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0001",
       "retrieval_date": "2026-11-01",
@@ -6611,6 +7011,406 @@
       "retrieval_date": "2026-11-08",
       "source_id": "universal-dependencies",
       "value": "Could this be what your referencing?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0047",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0048",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0049",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "See attached revised Article 4.6 Masters below."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0050",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Dp"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0051",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0052",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Gerald Nemec"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0053",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "These look fine to me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0054",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Go ahead and forward to Brant if you are ready."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0055",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0056",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "03/27/2001 01:58 PM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0057",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Revised Article 4.6"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0058",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0059",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Kathleen,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0060",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "You are correct, I will make the appropriate changes and give you another review before sending execution papers."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0061",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Best regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0062",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0063",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "4105SF"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0064",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0065",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Jill:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0066",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "As discussed, attached is a GISB draft for Pioneer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0067",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "As you can see there are several blanks concerning administrative information for ENA Upstream."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0068",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "I was able to secure a Duns# and Fed Tax ID however, I am lacking Fax and bank account numbers."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0069",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Do you have this information?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0070",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Dp"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0071",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0072",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0073",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Jeffrey T Hodge"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0074",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "03/29/2001 09:01 AM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0075",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Rudwell Johnson/ENRON@enronXgate"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0076",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "03/28/2001 05:09 PM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0077",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Jeff!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0078",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Please find attached a credit worksheet for a Master Firm contract for the above mentioned counterparty."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0079",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Please complete agreement and forward to counterparty."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0080",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Thanks"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0081",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Rudwell 53596."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0082",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Cindy,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0083",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Please forward a copy of the J.M. Huber Corporation Guaranty to my attention."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0084",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "The Guaranty is dated August 1, 2000."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0085",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Thanks!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0086",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
     },
     {
       "id": "verb.forms",
@@ -7432,6 +8232,406 @@
       "id": "sentence.statement",
       "language": "en",
       "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1364",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Most people write about their daily life."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1365",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "If I could send you a marshmallow, Trang, I would."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1366",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "In order to do that, you have to take risks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1367",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Every person who is alone is alone because they are afraid of others."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1368",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Why do you ask?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1369",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I am not an artist. I never had the knack for it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1370",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I can't tell her now. It's not that simple anymore."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1371",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I am a flawed person, but these are flaws that can easily be fixed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1372",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Whenever I find something I like, it's too expensive."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1373",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "How long did you stay?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1374",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Maybe it will be exactly the same for him."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1375",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Innocence is a beautiful thing."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1376",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Humans were never meant to live forever."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1377",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I don't want to lose my ideas, even though some of them are a bit extreme."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1378",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I think I have a theory about that."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1379",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "That is intriguing."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1380",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "You are saying you intentionally hide your good looks?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1381",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I do not have an account in these forums."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1382",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "If anyone was to ask what the point of the story is, I really don't know."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1383",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I didn't know where it came from."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1384",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I think my living with you has influenced your way of living."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1385",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "This is not important."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1386",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I didn't like it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1387",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "She's asking how that's possible."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1388",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "You're just running away from life's problems."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1389",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "If you look at the lyrics, they don't really mean much."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1390",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "There's a problem there that you don't see."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1391",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "You can do it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1392",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "My physics teacher doesn't care if I skip classes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1393",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I wish I could go to Japan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1394",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I hate it when there are a lot of people."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1395",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I have to go to bed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1396",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "After that, I left, but then I realized that I forgot my backpack at their house."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1397",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "I won't ask you anything else today."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1398",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "It may freeze next week."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1399",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Even though he apologized, I'm still furious."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1400",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "The police will get you to find the bullets."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1401",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Thanks for having explained to me at last why people take me for an idiot."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1402",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "That wasn't my intention."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:1403",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Thanks for your explanation."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
       "license_id": "CC-BY-SA-4.0",
       "record_id": "ud:en_ewt:weblog-blogspot.com_nominations_20041117172713_ENG_20041117_172713-0001",
       "retrieval_date": "2026-11-01",
@@ -13217,6 +14417,406 @@
       "retrieval_date": "2026-11-08",
       "source_id": "universal-dependencies",
       "value": "Could this be what your referencing?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0047",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0048",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0049",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "See attached revised Article 4.6 Masters below."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0050",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Dp"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0051",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0052",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Gerald Nemec"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0053",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "These look fine to me."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0054",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Go ahead and forward to Brant if you are ready."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0055",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0056",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "03/27/2001 01:58 PM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0057",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Revised Article 4.6"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0058",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0059",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Kathleen,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0060",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "You are correct, I will make the appropriate changes and give you another review before sending execution papers."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0061",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Best regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0062",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0063",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "4105SF"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0064",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0065",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Jill:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0066",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "As discussed, attached is a GISB draft for Pioneer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0067",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "As you can see there are several blanks concerning administrative information for ENA Upstream."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0068",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "I was able to secure a Duns# and Fed Tax ID however, I am lacking Fax and bank account numbers."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0069",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Do you have this information?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0070",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Dp"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0071",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0072",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0073",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Jeffrey T Hodge"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0074",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "03/29/2001 09:01 AM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0075",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Rudwell Johnson/ENRON@enronXgate"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0076",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "03/28/2001 05:09 PM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0077",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Jeff!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0078",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Please find attached a credit worksheet for a Master Firm contract for the above mentioned counterparty."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0079",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Please complete agreement and forward to counterparty."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0080",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Thanks"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0081",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Rudwell 53596."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0082",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Cindy,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0083",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Please forward a copy of the J.M. Huber Corporation Guaranty to my attention."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0084",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "The Guaranty is dated August 1, 2000."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0085",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Thanks!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0086",
+      "retrieval_date": "2026-11-09",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
     },
     {
       "id": "verb.forms",
