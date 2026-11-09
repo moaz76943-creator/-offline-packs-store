@@ -7052,6 +7052,726 @@
       "text": "Man kann immer Zeit finden."
     },
     {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=63; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:161",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich wäre unglücklich, aber ich würde keinen Selbstmord begehen."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=63; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:162",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Damals im Gymnasium bin ich jeden Morgen um 6 Uhr aufgestanden."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:163",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Als ich aufgewacht bin, war ich traurig."
+    },
+    {
+      "author": "ludoviko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=37; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:164",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das ist am Ende einigermaßen erklärt."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:165",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich dachte, du würdest gerne neue Sachen lernen."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=53; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:166",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Die meisten Menschen schreiben über ihr Alltagsleben."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=70; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:167",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wenn ich dir ein Marshmallow schicken könnte, Trang, würde ich es tun."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:168",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Um das zu tun, musst du Risiken eingehen."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=76; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:169",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Jeder Mensch, der allein ist, ist allein, weil er Angst vor den anderen hat."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:170",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Warum fragst du?"
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=55; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:171",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich bin kein Künstler. Ich hatte niemals das Zeug dazu."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=65; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:172",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich kann es ihr jetzt nicht sagen. Das ist nicht mehr so einfach."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=92; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:173",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich bin ein Mensch, der viele Fehler hat, aber diese Fehler können leicht korrigiert werden."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:174",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Immer, wenn ich etwas finde, das mir gefällt, ist es zu teuer."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:175",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wie lange bist du geblieben?"
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:176",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Vielleicht wird es für ihn genauso sein."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:177",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Unschuld ist eine schöne Sache."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=51; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:178",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Die Menschen waren nie dazu gedacht, ewig zu leben."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=92; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:179",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich will meine Ideen nicht verlieren, selbst wenn einige von ihnen ein bisschen extrem sind."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:180",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich denke, ich habe dazu eine Theorie."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:181",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Das macht neugierig."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=65; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:182",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Meinst du gerade, dass du absichtlich deine Schönheit versteckst?"
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:183",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich habe kein Konto in diesen Foren."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=91; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:184",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wenn jemand fragen sollte, was die Pointe der Geschichte sei, ich wüsste es wirklich nicht."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:185",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich wusste nicht, woher es kam."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=77; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:186",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich denke, dass mein Zusammenleben mit dir deine Lebensweise beeinflusst hat."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:187",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Dies ist nicht wichtig."
+    },
+    {
+      "author": "al_ex_an_der",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:188",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich möchte es nicht."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:189",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sie fragt, wie das möglich ist."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=53; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:190",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Du läufst einfach vor den Problemen des Lebens davon."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=64; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:191",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wenn du den Liedtext anschaust, bedeutet er nicht wirklich viel."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:192",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Es gibt da ein Problem, das du nicht siehst."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:193",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Du kannst das machen!"
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=66; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:194",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Meinem Physiklehrer ist es egal, wenn ich den Unterricht schwänze."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=42; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:195",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich wünschte, ich könnte nach Japan gehen."
+    },
+    {
+      "author": "human600",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:196",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich hasse es, wenn viele Leute da sind."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:197",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich muss ins Bett gehen."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=78; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:198",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Danach gehe ich, aber dann merke ich, dass ich meinen Rucksack vergessen habe."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:199",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ich werde dich heute nichts mehr fragen."
+    },
+    {
+      "author": "kroko",
+      "language": "de",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:200",
+      "retrieval_date": "2026-11-08",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Nächste Woche wird es vielleicht Frost geben."
+    },
+    {
       "author": "CK",
       "language": "en",
       "level": {
@@ -32217,7 +32937,7 @@
         "Q604079"
       ],
       "record_id": "L1355107",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2378664169",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -36041,7 +36761,7 @@
         "Q34687"
       ],
       "record_id": "L18379",
-      "retrieval_date": "2026-11-02",
+      "retrieval_date": "2026-11-08",
       "revision": "2561686739",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -36072,7 +36792,7 @@
         "Q3014419"
       ],
       "record_id": "L4710",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2561879621",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -36102,7 +36822,7 @@
         "Q604079"
       ],
       "record_id": "L24330",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2562071404",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -36133,7 +36853,7 @@
         "Q604079"
       ],
       "record_id": "L24331",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2562071425",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -38029,7 +38749,7 @@
         "Q604079"
       ],
       "record_id": "L1415169",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2314333889",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -38760,7 +39480,7 @@
         "Q604079"
       ],
       "record_id": "L73213",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "1354523191",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -39585,7 +40305,7 @@
         "Q604079"
       ],
       "record_id": "L671264",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2257847185",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -41531,7 +42251,7 @@
         "Q533047"
       ],
       "record_id": "L1219216",
-      "retrieval_date": "2026-11-02",
+      "retrieval_date": "2026-11-08",
       "revision": "2229020042",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -41561,7 +42281,7 @@
         "Q425278"
       ],
       "record_id": "L1209364",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2230331433",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -41592,7 +42312,7 @@
         "Q3122830"
       ],
       "record_id": "L1168678",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-08",
       "revision": "2229017357",
       "schema_version": "1.0.0",
       "section": "colors",
