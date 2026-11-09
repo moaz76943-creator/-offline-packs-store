@@ -61,8 +61,8 @@
     },
     "total": 2257
   },
-  "generated_by": "classifier",
-  "pack_bytes": 532480,
+  "generated_by": "packs",
+  "pack_bytes": 536576,
   "packs": [
     {
       "bytes": 20480,
@@ -97,12 +97,12 @@
       }
     },
     {
-      "bytes": 24576,
-      "entries": 155,
+      "bytes": 28672,
+      "entries": 195,
       "language": "de",
       "sources": {
         "kaikki.wiktextract": 16,
-        "tatoeba.sentences": 80,
+        "tatoeba.sentences": 120,
         "wikidata.lexemes": 59
       }
     },
