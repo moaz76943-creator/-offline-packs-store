@@ -1,6 +1,5 @@
 {
   "degraded": [
-    "harvest-kaikki",
     "packs",
     "watchdog"
   ],
@@ -9,6 +8,11 @@
   "roster_count": 21,
   "schema_version": "1.0.0",
   "stale": [
-    "health"
+    "harvest-kaikki",
+    "classifier",
+    "grammar",
+    "health",
+    "janitor",
+    "cleanup"
   ]
 }
