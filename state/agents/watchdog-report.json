@@ -3,12 +3,18 @@
     "packs"
   ],
   "dispatch": [
-    "grammar",
-    "harvest-kaikki"
+    "health",
+    "janitor",
+    "watchdog"
   ],
   "schema_version": "1.0.0",
   "stale": [
     "harvest-kaikki",
-    "grammar"
+    "classifier",
+    "grammar",
+    "health",
+    "janitor",
+    "watchdog",
+    "cleanup"
   ]
 }
