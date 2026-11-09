@@ -2179,6 +2179,35 @@
       "co_offered": [
         "GFDL-1.3-only"
       ],
+      "concept_id": "concept.q2617229",
+      "gloss": "periwinkle (color)",
+      "language": "it",
+      "lemma": "pervinca",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Italian/kaikki.org-dictionary-Italian.jsonl",
+      "pos": "noun",
+      "qids": [
+        "Q2617229"
+      ],
+      "record_id": "en-pervinca-it-noun-it:Q2617229",
+      "retrieval_date": "2026-11-09",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "en-pervinca-it-noun-it:Q2617229",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2617229"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
       "concept_id": "concept.q3640",
       "gloss": "Ankara (the capital city of Turkey and the capital of Ankara Province)",
       "language": "nl",
