@@ -135,5 +135,11 @@ class TestIndexBuilder(unittest.TestCase):
         self.assertTrue(self.db_path.exists())
 
 
+    @patch('os.access')
+    def test_inaccessible_workspace(self, mock_access):
+        mock_access.return_value = False
+        with self.assertRaisesRegex(IndexBuilderError, 'workspace'):
+            build_index(self.db_path)
+
 if __name__ == '__main__':
     unittest.main()
