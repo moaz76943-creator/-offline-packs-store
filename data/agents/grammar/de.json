@@ -825,6 +825,406 @@
     {
       "id": "sentence.statement",
       "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:161",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich wäre unglücklich, aber ich würde keinen Selbstmord begehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:162",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Damals im Gymnasium bin ich jeden Morgen um 6 Uhr aufgestanden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:163",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Als ich aufgewacht bin, war ich traurig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:164",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Das ist am Ende einigermaßen erklärt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:165",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich dachte, du würdest gerne neue Sachen lernen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:166",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Die meisten Menschen schreiben über ihr Alltagsleben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:167",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn ich dir ein Marshmallow schicken könnte, Trang, würde ich es tun."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:168",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Um das zu tun, musst du Risiken eingehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:169",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Jeder Mensch, der allein ist, ist allein, weil er Angst vor den anderen hat."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:170",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Warum fragst du?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:171",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin kein Künstler. Ich hatte niemals das Zeug dazu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:172",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich kann es ihr jetzt nicht sagen. Das ist nicht mehr so einfach."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:173",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin ein Mensch, der viele Fehler hat, aber diese Fehler können leicht korrigiert werden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:174",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Immer, wenn ich etwas finde, das mir gefällt, ist es zu teuer."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:175",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Wie lange bist du geblieben?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:176",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Vielleicht wird es für ihn genauso sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:177",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Unschuld ist eine schöne Sache."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:178",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Die Menschen waren nie dazu gedacht, ewig zu leben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:179",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich will meine Ideen nicht verlieren, selbst wenn einige von ihnen ein bisschen extrem sind."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:180",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich denke, ich habe dazu eine Theorie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:181",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Das macht neugierig."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:182",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Meinst du gerade, dass du absichtlich deine Schönheit versteckst?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:183",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich habe kein Konto in diesen Foren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:184",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn jemand fragen sollte, was die Pointe der Geschichte sei, ich wüsste es wirklich nicht."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:185",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich wusste nicht, woher es kam."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:186",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich denke, dass mein Zusammenleben mit dir deine Lebensweise beeinflusst hat."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:187",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Dies ist nicht wichtig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:188",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich möchte es nicht."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:189",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Sie fragt, wie das möglich ist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:190",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Du läufst einfach vor den Problemen des Lebens davon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:191",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn du den Liedtext anschaust, bedeutet er nicht wirklich viel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:192",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Es gibt da ein Problem, das du nicht siehst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:193",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Du kannst das machen!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:194",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Meinem Physiklehrer ist es egal, wenn ich den Unterricht schwänze."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:195",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich wünschte, ich könnte nach Japan gehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:196",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich hasse es, wenn viele Leute da sind."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:197",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich muss ins Bett gehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:198",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Danach gehe ich, aber dann merke ich, dass ich meinen Rucksack vergessen habe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:199",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde dich heute nichts mehr fragen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:200",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Nächste Woche wird es vielleicht Frost geben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:77",
@@ -1621,6 +2021,406 @@
       "retrieval_date": "2026-11-05",
       "source_id": "tatoeba.sentences",
       "value": "Man kann immer Zeit finden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:161",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich wäre unglücklich, aber ich würde keinen Selbstmord begehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:162",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Damals im Gymnasium bin ich jeden Morgen um 6 Uhr aufgestanden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:163",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Als ich aufgewacht bin, war ich traurig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:164",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Das ist am Ende einigermaßen erklärt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:165",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich dachte, du würdest gerne neue Sachen lernen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:166",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Die meisten Menschen schreiben über ihr Alltagsleben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:167",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn ich dir ein Marshmallow schicken könnte, Trang, würde ich es tun."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:168",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Um das zu tun, musst du Risiken eingehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:169",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Jeder Mensch, der allein ist, ist allein, weil er Angst vor den anderen hat."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:170",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Warum fragst du?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:171",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin kein Künstler. Ich hatte niemals das Zeug dazu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:172",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich kann es ihr jetzt nicht sagen. Das ist nicht mehr so einfach."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:173",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin ein Mensch, der viele Fehler hat, aber diese Fehler können leicht korrigiert werden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:174",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Immer, wenn ich etwas finde, das mir gefällt, ist es zu teuer."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:175",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Wie lange bist du geblieben?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:176",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Vielleicht wird es für ihn genauso sein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:177",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Unschuld ist eine schöne Sache."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:178",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Die Menschen waren nie dazu gedacht, ewig zu leben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:179",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich will meine Ideen nicht verlieren, selbst wenn einige von ihnen ein bisschen extrem sind."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:180",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich denke, ich habe dazu eine Theorie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:181",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Das macht neugierig."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:182",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Meinst du gerade, dass du absichtlich deine Schönheit versteckst?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:183",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich habe kein Konto in diesen Foren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:184",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn jemand fragen sollte, was die Pointe der Geschichte sei, ich wüsste es wirklich nicht."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:185",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich wusste nicht, woher es kam."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:186",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich denke, dass mein Zusammenleben mit dir deine Lebensweise beeinflusst hat."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:187",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Dies ist nicht wichtig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:188",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich möchte es nicht."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:189",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Sie fragt, wie das möglich ist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:190",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Du läufst einfach vor den Problemen des Lebens davon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:191",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn du den Liedtext anschaust, bedeutet er nicht wirklich viel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:192",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Es gibt da ein Problem, das du nicht siehst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:193",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Du kannst das machen!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:194",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Meinem Physiklehrer ist es egal, wenn ich den Unterricht schwänze."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:195",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich wünschte, ich könnte nach Japan gehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:196",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich hasse es, wenn viele Leute da sind."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:197",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich muss ins Bett gehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:198",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Danach gehe ich, aber dann merke ich, dass ich meinen Rucksack vergessen habe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:199",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde dich heute nichts mehr fragen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:200",
+      "retrieval_date": "2026-11-08",
+      "source_id": "tatoeba.sentences",
+      "value": "Nächste Woche wird es vielleicht Frost geben."
     }
   ]
 }
