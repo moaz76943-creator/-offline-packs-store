@@ -1,12 +1,10 @@
 {
   "degraded": [
-    "harvest-wikidata"
-  ],
-  "dispatch": [
+    "harvest-kaikki",
+    "harvest-wikidata",
     "packs"
   ],
+  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": [
-    "packs"
-  ]
+  "stale": []
 }
