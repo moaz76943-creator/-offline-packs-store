@@ -191,12 +191,18 @@ class SecurityRegression(unittest.TestCase):
         self.manifest(name, sha)
         first = self.export()
         second = self.export()
-        self.assertEqual(first, second)
+        self.assertEqual(first["release"], second["release"])
+        self.assertEqual(first["sha256"], second["sha256"])
+        self.assertEqual(first["items"], second["items"])
+        self.assertEqual(first["published"], second["published"])
+        self.assertEqual(first["incremental"], {"added": 1, "removed": 0, "unchanged": 0})
+        self.assertEqual(second["incremental"], {"added": 0, "removed": 0, "unchanged": 1})
         with zipfile.ZipFile(self.out / "releases" / first["release"]) as z:
             self.assertEqual(z.namelist(), ["data/item1.bin", "ATTRIBUTION.json"])
         (self.src / "manifest.json").write_text('{"items":[{"id":"../../oops"}]}')
         with self.assertRaises(ValueError):
             self.export()
+        first["incremental"] = {"added": 0, "removed": 0, "unchanged": 1}
         self.assertEqual(json.loads((self.out / "CURRENT.json").read_text()), first)
 
     def test_export_unsafe_symlinks_and_bounded_size(self):
