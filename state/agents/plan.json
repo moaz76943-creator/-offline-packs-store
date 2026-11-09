@@ -1,5 +1,5 @@
 {
-  "next_index": 1760,
+  "next_index": 1840,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "mt",
+      "section": "sports"
+    },
+    {
+      "language": "my",
+      "section": "sports"
+    },
+    {
+      "language": "ne",
+      "section": "sports"
+    },
+    {
+      "language": "nl",
+      "section": "sports"
+    },
+    {
+      "language": "no",
+      "section": "sports"
+    },
+    {
+      "language": "or",
+      "section": "sports"
+    },
+    {
+      "language": "pa",
+      "section": "sports"
+    },
+    {
+      "language": "pl",
+      "section": "sports"
+    },
+    {
+      "language": "ps",
+      "section": "sports"
+    },
+    {
+      "language": "pt",
+      "section": "sports"
+    },
+    {
+      "language": "ro",
+      "section": "sports"
+    },
+    {
+      "language": "ru",
+      "section": "sports"
+    },
+    {
+      "language": "rw",
+      "section": "sports"
+    },
+    {
+      "language": "sd",
+      "section": "sports"
+    },
+    {
+      "language": "si",
+      "section": "sports"
+    },
+    {
+      "language": "sk",
+      "section": "sports"
+    },
+    {
+      "language": "sl",
+      "section": "sports"
+    },
+    {
+      "language": "sn",
+      "section": "sports"
+    },
+    {
+      "language": "so",
+      "section": "sports"
+    },
+    {
+      "language": "sq",
+      "section": "sports"
+    },
+    {
       "language": "sr",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "sv",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "sw",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "ta",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "te",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "tg",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "th",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "tk",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "tl",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "tr",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "tt",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "ug",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "uk",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "ur",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "uz",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "vi",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "xh",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "yo",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "zh",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "zu",
-      "section": "emotions"
+      "section": "sports"
     },
     {
       "language": "af",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "am",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ar",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "as",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "az",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ba",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "be",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "bg",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "bn",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "br",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "bs",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ca",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "cs",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "cy",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "da",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "de",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "dv",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "el",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "en",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "eo",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "es",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "et",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "eu",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "fa",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "fi",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "fo",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "fr",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "fy",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ga",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "gd",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "gl",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "gu",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ha",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "hi",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "hr",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "hu",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "hy",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "id",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "ig",
-      "section": "sports"
+      "section": "technology"
     },
     {
       "language": "is",
-      "section": "sports"
-    },
-    {
-      "language": "it",
-      "section": "sports"
-    },
-    {
-      "language": "ja",
-      "section": "sports"
-    },
-    {
-      "language": "ka",
-      "section": "sports"
-    },
-    {
-      "language": "kk",
-      "section": "sports"
-    },
-    {
-      "language": "km",
-      "section": "sports"
-    },
-    {
-      "language": "kn",
-      "section": "sports"
-    },
-    {
-      "language": "ko",
-      "section": "sports"
-    },
-    {
-      "language": "ku",
-      "section": "sports"
-    },
-    {
-      "language": "ky",
-      "section": "sports"
-    },
-    {
-      "language": "la",
-      "section": "sports"
-    },
-    {
-      "language": "lb",
-      "section": "sports"
-    },
-    {
-      "language": "lo",
-      "section": "sports"
-    },
-    {
-      "language": "lt",
-      "section": "sports"
-    },
-    {
-      "language": "lv",
-      "section": "sports"
-    },
-    {
-      "language": "mg",
-      "section": "sports"
-    },
-    {
-      "language": "mk",
-      "section": "sports"
-    },
-    {
-      "language": "ml",
-      "section": "sports"
-    },
-    {
-      "language": "mn",
-      "section": "sports"
-    },
-    {
-      "language": "mr",
-      "section": "sports"
-    },
-    {
-      "language": "ms",
-      "section": "sports"
+      "section": "technology"
     }
   ]
 }
