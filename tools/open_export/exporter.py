@@ -285,7 +285,29 @@ class CommunityExporter:
                     if len(attribution) > 65536 or attribution != canonical(notices):
                         raise ExportError("cached attribution mismatch")
             sha = file_hash(release)
-            receipt = {"release": release.name, "sha256": sha, "items": len(entries), "published": False}
+
+            incremental = {"added": len(entries), "removed": 0, "unchanged": 0}
+            current_path = target / "CURRENT.json"
+            if current_path.is_file():
+                try:
+                    prior_text = current_path.read_text(encoding="utf-8")
+                    prior = json.loads(prior_text)
+                    if prior.get("sha256") == sha:
+                        incremental = {"added": 0, "removed": 0, "unchanged": len(entries)}
+                    else:
+                        prior_release = releases / prior.get("release", "")
+                        if prior_release.is_file():
+                            with zipfile.ZipFile(prior_release) as archive:
+                                prior_names = set(n for n in archive.namelist() if n.startswith("data/"))
+                                current_names = set("data/" + aid + ".bin" for aid, _, _, _, _ in entries)
+                                added = len(current_names - prior_names)
+                                removed = len(prior_names - current_names)
+                                unchanged = len(current_names.intersection(prior_names))
+                                incremental = {"added": added, "removed": removed, "unchanged": unchanged}
+                except (ValueError, KeyError, zipfile.BadZipFile):
+                    pass
+
+            receipt = {"release": release.name, "sha256": sha, "items": len(entries), "published": False, "incremental": incremental}
             fd, tmp = tempfile.mkstemp(dir=target, prefix=".pointer-")
             try:
                 with os.fdopen(fd, "wb") as stream:
