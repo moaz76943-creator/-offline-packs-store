@@ -468,6 +468,35 @@
       "co_offered": [
         "GFDL-1.3-only"
       ],
+      "concept_id": "concept.q8074",
+      "gloss": "cloud (a visible mass of water droplets suspended in the air)",
+      "language": "de",
+      "lemma": "Wolke",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "pos": "noun",
+      "qids": [
+        "Q8074"
+      ],
+      "record_id": "en-Wolke-de-noun-O9rAGViO",
+      "retrieval_date": "2026-11-10",
+      "schema_version": "1.0.0",
+      "section": "nature",
+      "sense_id": "en-Wolke-de-noun-O9rAGViO",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "nature.q11663",
+      "wikidata": "Q8074"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
       "concept_id": "concept.q1489",
       "gloss": "Ellipsis of Mexico City: the capital city of Mexico.",
       "language": "en",
@@ -492,6 +521,35 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1489"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q872",
+      "gloss": "The technology that allows for the transmission of sound or other signals by modulation of electromagnetic waves.",
+      "language": "en",
+      "lemma": "radio",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl",
+      "pos": "noun",
+      "qids": [
+        "Q872"
+      ],
+      "record_id": "en-radio-en-noun-en:Q872",
+      "retrieval_date": "2026-11-10",
+      "schema_version": "1.0.0",
+      "section": "technology",
+      "sense_id": "en-radio-en-noun-en:Q872",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "technology.q11016",
+      "wikidata": "Q872"
     },
     {
       "co_offered": [
@@ -3566,6 +3624,35 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q16869"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2634",
+      "gloss": "Naples (a port city and comune, the capital of the Metropolitan City of Naples and the region of Campania, Italy)",
+      "language": "sv",
+      "lemma": "Neapel",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Swedish/kaikki.org-dictionary-Swedish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2634"
+      ],
+      "record_id": "en-Neapel-sv-name-aqgv9LZc",
+      "retrieval_date": "2026-11-10",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Neapel-sv-name-aqgv9LZc",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2634"
     },
     {
       "author": "hashimi",
@@ -17966,6 +18053,726 @@
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Waarom was je laat?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375869",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Waarom ben je aan het huilen?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375870",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Waarom?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375875",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Waarom studeer je?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375876",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Veel geluk."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=60; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375885",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wees niet bang om fouten te maken wanneer je Engels spreekt."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375886",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Schrijf alstublieft met een pen."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375887",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik schrijf regelmatig artikels."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375888",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Eet wat je wilt."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375889",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Kan ik dit eten?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375891",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mag ik iets zeggen?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375892",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Zeg het in het Engels."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375894",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wat heeft hij gezegd?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375896",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Zeg 'aaa'."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375897",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wat heb je gezegd?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375899",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Zeg dat niet."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375900",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hoe durf je dat te zeggen."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375901",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Waarom zeg je dat?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375902",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Zeg het op een andere manier."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375903",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je kan niet \"nee\" zeggen."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375907",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "In het begin wist ik niet wat te doen."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375908",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Vertaal deze zin in het Japans alstublieft."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375909",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Vertaal de volgende zinnen in het Japans."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375910",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Het kostte me meer dan twee uur om een paar pagina's in het Engels te vertalen."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375911",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Het is moeilijk om een gedicht in een andere taal te vertalen."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=67; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375913",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Dit werkwoord wordt gewoonlijk alleen gebruikt in de derde persoon."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375958",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hij speelt zeer goed."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=54; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375960",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Het probleem was dat ik niets tegen hem te zeggen had."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375962",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Kleren maken de man."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375964",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Geef me de sleutel van dit kasteel!"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375965",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik zal jou dit boek geven."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:375966",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Waarom zou je zo triest moeten zijn?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=37; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376005",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "We bleven tijdens de nacht in Hakone."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376006",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Zij is zeer mooi."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376007",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Het kan niet waar zijn."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376008",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wie is de vrouw met de bruine jas?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376009",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ik keek toen tv."
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376064",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wat is nieuw?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376067",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wat?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376070",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wat ben je aan het doen?"
+    },
+    {
+      "author": "megamanenm",
+      "language": "nl",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:376076",
+      "retrieval_date": "2026-11-10",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Wat was je aan het doen?"
     },
     {
       "author": "sugisaki",
@@ -37049,6 +37856,686 @@
       "source_id": "universal-dependencies",
       "status": "keep",
       "text": "He has become our department expert on the PSA account (much more knowledgeable than myself) and the various plan provision amendments."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=114; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0018",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If you would like, we can set up a conference call with you, myself, and Larry to go over the payment methodology."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0019",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Please let me know a date and time that is convenient for you."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0020",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Thanks,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0021",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Renee"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0022",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Renee,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=70; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0023",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Thank you for digging in to the issue of Deferred Phantom Stock Units."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=52; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0024",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It is clear that the payment will be made in shares."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=111; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0025",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "However, I still don't understand which date will be used to determine the value and calculate how many shares."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0026",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The plan document under VII."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=266; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0027",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Amount of Benefit Payments reads \"The value of the shares, and resulting payment amount will be based on the closing price of Enron Corp. common stock on the January 1 before the date of payment, and such payment shall be made in shares of Enron Corp. common stock.\""
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=84; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0028",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Can you help me interpret this statement and work through the numbers on my account."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0029",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Thank you,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0030",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Phillip Allen"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0031",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Let me know when you get the quotes from Pauline."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=58; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0032",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I am expecting to pay something in the $3,to $5,000 range."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=72; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0033",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I would like to see the quotes and a description of the work to be done."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0034",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It is my understanding that some rock will be removed and replaced with siding."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=75; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0035",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If they are getting quotes to put up new rock then we will need to clarify."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=59; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0036",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Jacques is ready to drop in a dollar amount on the release."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=86; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0037",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If the negotiations stall, it seems like I need to go ahead and cut off the utilities."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0038",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Hopefully things will go smoothly."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0039",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Phillip"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0040",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Attendees: Pam Butler"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0041",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Renee Ratcliff"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0042",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Larry Lewis"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0043",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Tom Martin"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0044",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Scott Neal"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0045",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Phillip Allen"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0046",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Greg,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=90; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0047",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I faxed you the promotional on 10300 Heritage Office Building with the Nimitz post office."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=154; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0048",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The broker called back shortly after I spoke to you to let me know that the kestrel air park building and the strip center at fm78 & walzem had both sold."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0049",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Let me know what you think of this property."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=64; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0050",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Also, let me know of any other ideas about replacement property."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0051",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Phillip"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0052",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Jim,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0053",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Take a look at this spreadsheet."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=71; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0054",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I tried to calculate the IRR on the port Aransas and Roma post offices."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=59; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0055",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Is this how your clients usually evaluate these properties?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0056",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The Roma deal looks much better."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent00_02-0057",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Phillip"
     },
     {
       "concept_id": "concept.q3354532",
