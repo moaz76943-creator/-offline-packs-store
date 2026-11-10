@@ -1,9 +1,15 @@
 {
-  "degraded": [
-    "harvest-kaikki",
-    "packs"
+  "degraded": [],
+  "dispatch": [
+    "harvest-tatoeba",
+    "qa",
+    "legal"
   ],
-  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": []
+  "stale": [
+    "harvest-tatoeba",
+    "qa",
+    "legal",
+    "packs"
+  ]
 }
