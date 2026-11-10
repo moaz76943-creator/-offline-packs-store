@@ -11459,6 +11459,726 @@
       "text": "Creo que lo mejor es no ser maleducado."
     },
     {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2564",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Uno siempre puede encontrar tiempo."
+    },
+    {
+      "author": "Hohen",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2565",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Yo seré infeliz, pero no me suicidaría."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=72; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2566",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Cuando yo estaba en el instituto me levantaba a las 6 todas las mañanas."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2567",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Cuando me desperté estaba triste."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2568",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Por fin está más o menos explicado."
+    },
+    {
+      "author": "qdii",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2569",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Yo pensaba que te gustaba aprender cosas nuevas."
+    },
+    {
+      "author": "darinmex",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=55; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2570",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "La mayoría de la gente escribe sobre su vida cotidiana."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=51; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2571",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Si pudiera enviarte un malvavisco, Trang, lo haría."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2572",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Para hacer eso, tienes que arriesgarte."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=81; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2573",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Todas las personas que están solas, están solas porque tienen miedo de los demás."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2574",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Por qué lo preguntas?"
+    },
+    {
+      "author": "japegon",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2575",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No soy un artista. Nunca tuve mente para ello."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2576",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No puedo decírselo ahora. Ya no es tan simple."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=95; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2577",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Soy una persona que tiene muchos defectos, pero esos defectos pueden ser corregidos fácilmente."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=60; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2578",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Cada vez que encuentro algo que me gusta, es demasiado caro."
+    },
+    {
+      "author": "Raimondi",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2579",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Cuánto tiempo estuviste?"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2580",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Quizás sea lo mismo para él."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2581",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "La inocencia es una cosa hermosa."
+    },
+    {
+      "author": "Fanki",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=55; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2582",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Los humanos nunca fueron hechos para vivir eternamente."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=74; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2583",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No quiero perder mis ideas, aunque algunas de ellas sean un poco extremas."
+    },
+    {
+      "author": "Fanki",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2584",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Creo que tengo una teoría sobre eso."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2585",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Eso es intrigante."
+    },
+    {
+      "author": "Raimondi",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=55; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2586",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Quieres decir que ocultas intencionalmente tu belleza?"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2587",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Yo no tengo una cuenta en estos foros."
+    },
+    {
+      "author": "japegon",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=84; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2588",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Si alguien fuera a preguntar cuál es el objetivo de la historia, realmente no lo sé."
+    },
+    {
+      "author": "Raimondi",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2589",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No sabía de dónde venía eso."
+    },
+    {
+      "author": "Hohen",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2590",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Creo que nuestra convivencia ha influenciado tu forma de vida."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2591",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No es importante."
+    },
+    {
+      "author": "Zifre",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2592",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No me gustaba."
+    },
+    {
+      "author": "Zifre",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2593",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ella pregunta cómo es posible eso."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2594",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Tú simplemente huyes de los problemas de la vida."
+    },
+    {
+      "author": "sarostegui",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=52; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2595",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Si buscas las letras, realmente no significan mucho."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2596",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hay un problema que no ves."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2597",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¡Puedes hacerlo!"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=61; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2598",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "A mi profesor de física no le importa si me salto las clases."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2599",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Deseo poder ir a Japón."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2600",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Odio cuando hay mucha gente."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2601",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Me tengo que ir a la cama."
+    },
+    {
+      "author": "DanaDescalza",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=77; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2602",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Después de eso, me voy, pero entonces me doy cuenta de que olvidé mi mochila."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2603",
+      "retrieval_date": "2026-11-09",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No te preguntaré más por hoy."
+    },
+    {
       "author": "TRANG",
       "language": "fr",
       "level": {
@@ -33502,6 +34222,686 @@
       "text": "Debra Perlingiere"
     },
     {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0087",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "They are taking delivery in the U.S."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0088",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Debra Perlingiere"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0001",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Visit,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0002",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Thanks for your message."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=61; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0003",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Can you send me the data you used: I shall take a look at it."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0004",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Vince"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0005",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Dear All,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0006",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "My mane is Visit Phunnarungsi."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=163; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0007",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I used to e-mail Vince Kaminski about the advice on his article \"The Challenge of Pricing and Risk Managing Electricity Derivatives\" and he had mailed me the copy."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=220; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0008",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I am now modelling the Queensland electricity spot price using Geometric Brownian Mean Reverting Jump Diffusion Model and have followed your paper \"Making the most of mean reversion\" to estimate the mean reversion speed."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=112; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0009",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I use Queensland half-hourly price during 13 December, 1998-30 June 2001 giving about 44,000 price observations."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=117; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0010",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "However, the result from Ordinary Least Squares was not as expected due to different sign for both slope & intercept."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=51; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0011",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The coefficient and standard error are as followed:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0012",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Intercept: -0.3931 (0.0076)"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0013",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Slope: 0.1171 (0.0022)"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0014",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "R Square: 0.0585"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=100; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0015",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Therefore I could not estimate the mean reversion rate as the estimated slope has the positive sign."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=60; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0016",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I have also tried monthly data and the results are the same."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0017",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It would be appreciated if you could advice me on this matter."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0018",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Kindest regards,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0019",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Visit"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=118; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0020",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Get your FREE download of MSN Explorer at http://explorer.msn.com << File: 'http://go.msn.com/bql/hmtag_itl_EN.asp' >>"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0021",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Chris,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=71; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0022",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Plz contact Shirley Crenshaw (X 3-5290) regarding a copy of an article."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0023",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Vince"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0024",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Traci,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0025",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Thanks."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0026",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "This is the best solution given all the uncertainties we face."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0027",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Vince"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0028",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Vince -"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=66; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0029",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Thanks for the message regarding a possible intern for your group."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=155; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0030",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Right now, we are in the process of evaluating both our new hire needs and our summer needs and will be making those decisions after the first of the year."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=97; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0031",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Until we have come up with those numbers it would be premature to make any offers for the summer."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=230; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0032",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "What I would like to do in this case is get the information to Jeff Davis, who is responsible for Georgia Tech and ask him to get Sungjoo's resume and start a file on him with a notation that you would like to hire him for summer."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=94; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0033",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "When we start the summer process, we will interview the candidate and slot him for your group."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0034",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Is this okay with you?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0035",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Hope all is well with you"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0036",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Take Care"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0037",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Traci"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0038",
+      "retrieval_date": "2026-11-10",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Traci,"
+    },
+    {
       "concept_id": "concept.q3354532",
       "forms": [
         "шал"
@@ -39032,7 +40432,7 @@
         "Q1055446"
       ],
       "record_id": "L1403951",
-      "retrieval_date": "2026-10-26",
+      "retrieval_date": "2026-11-10",
       "revision": "2291366328",
       "schema_version": "1.0.0",
       "section": "technology",
@@ -44997,7 +46397,7 @@
         "Q1055446"
       ],
       "record_id": "L1604881",
-      "retrieval_date": "2026-10-26",
+      "retrieval_date": "2026-11-10",
       "revision": "2538026647",
       "schema_version": "1.0.0",
       "section": "technology",
