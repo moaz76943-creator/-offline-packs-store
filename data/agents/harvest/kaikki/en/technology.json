@@ -1,0 +1,34 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-11-10",
+  "rows": [
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q872",
+      "gloss": "The technology that allows for the transmission of sound or other signals by modulation of electromagnetic waves.",
+      "language": "en",
+      "lemma": "radio",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl",
+      "pos": "noun",
+      "qids": [
+        "Q872"
+      ],
+      "record_id": "en-radio-en-noun-en:Q872",
+      "retrieval_date": "2026-11-10",
+      "schema_version": "1.0.0",
+      "section": "technology",
+      "sense_id": "en-radio-en-noun-en:Q872",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "technology.q11016",
+      "wikidata": "Q872"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "technology",
+  "skipped": [],
+  "source": "harvest-kaikki"
+}
