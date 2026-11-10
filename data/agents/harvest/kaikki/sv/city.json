@@ -1,6 +1,6 @@
 {
   "language": "sv",
-  "retrieval_date": "2026-11-08",
+  "retrieval_date": "2026-11-10",
   "rows": [
     {
       "co_offered": [
@@ -193,6 +193,30 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q16869"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2634",
+      "gloss": "Naples (a port city and comune, the capital of the Metropolitan City of Naples and the region of Campania, Italy)",
+      "language": "sv",
+      "lemma": "Neapel",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Swedish/kaikki.org-dictionary-Swedish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2634"
+      ],
+      "record_id": "en-Neapel-sv-name-aqgv9LZc",
+      "retrieval_date": "2026-11-10",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Neapel-sv-name-aqgv9LZc",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2634"
     }
   ],
   "schema_version": "1.0.0",
