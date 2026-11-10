@@ -1,8 +1,8 @@
 {
-  "last_run": "2026-11-10T17:19:42Z",
+  "last_run": "2026-11-10T17:20:00Z",
   "name": "watchdog",
   "schema_version": "1.0.0",
   "status": "degraded",
   "version": "1.0.0",
-  "warning": "requested 3 of 3 stale agents; degraded=2"
+  "warning": "requested 1 of 1 stale agents; degraded=2"
 }
