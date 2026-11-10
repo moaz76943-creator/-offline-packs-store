@@ -1,5 +1,5 @@
 {
-  "next_index": 80,
+  "next_index": 160,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
-      "language": "af",
+      "language": "sr",
       "section": "family"
+    },
+    {
+      "language": "sv",
+      "section": "family"
+    },
+    {
+      "language": "sw",
+      "section": "family"
+    },
+    {
+      "language": "ta",
+      "section": "family"
+    },
+    {
+      "language": "te",
+      "section": "family"
+    },
+    {
+      "language": "tg",
+      "section": "family"
+    },
+    {
+      "language": "th",
+      "section": "family"
+    },
+    {
+      "language": "tk",
+      "section": "family"
+    },
+    {
+      "language": "tl",
+      "section": "family"
+    },
+    {
+      "language": "tr",
+      "section": "family"
+    },
+    {
+      "language": "tt",
+      "section": "family"
+    },
+    {
+      "language": "ug",
+      "section": "family"
+    },
+    {
+      "language": "uk",
+      "section": "family"
+    },
+    {
+      "language": "ur",
+      "section": "family"
+    },
+    {
+      "language": "uz",
+      "section": "family"
+    },
+    {
+      "language": "vi",
+      "section": "family"
+    },
+    {
+      "language": "xh",
+      "section": "family"
+    },
+    {
+      "language": "yo",
+      "section": "family"
+    },
+    {
+      "language": "zh",
+      "section": "family"
+    },
+    {
+      "language": "zu",
+      "section": "family"
+    },
+    {
+      "language": "af",
+      "section": "health"
     },
     {
       "language": "am",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ar",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "as",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "az",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ba",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "be",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "bg",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "bn",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "br",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "bs",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ca",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "cs",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "cy",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "da",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "de",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "dv",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "el",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "en",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "eo",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "es",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "et",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "eu",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "fa",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "fi",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "fo",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "fr",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "fy",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ga",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "gd",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "gl",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "gu",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ha",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "hi",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "hr",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "hu",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "hy",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "id",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ig",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "is",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "it",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ja",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ka",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "kk",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "km",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "kn",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ko",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ku",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ky",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "la",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "lb",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "lo",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "lt",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "lv",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "mg",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "mk",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ml",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "mn",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "mr",
-      "section": "family"
+      "section": "health"
     },
     {
       "language": "ms",
-      "section": "family"
-    },
-    {
-      "language": "mt",
-      "section": "family"
-    },
-    {
-      "language": "my",
-      "section": "family"
-    },
-    {
-      "language": "ne",
-      "section": "family"
-    },
-    {
-      "language": "nl",
-      "section": "family"
-    },
-    {
-      "language": "no",
-      "section": "family"
-    },
-    {
-      "language": "or",
-      "section": "family"
-    },
-    {
-      "language": "pa",
-      "section": "family"
-    },
-    {
-      "language": "pl",
-      "section": "family"
-    },
-    {
-      "language": "ps",
-      "section": "family"
-    },
-    {
-      "language": "pt",
-      "section": "family"
-    },
-    {
-      "language": "ro",
-      "section": "family"
-    },
-    {
-      "language": "ru",
-      "section": "family"
-    },
-    {
-      "language": "rw",
-      "section": "family"
-    },
-    {
-      "language": "sd",
-      "section": "family"
-    },
-    {
-      "language": "si",
-      "section": "family"
-    },
-    {
-      "language": "sk",
-      "section": "family"
-    },
-    {
-      "language": "sl",
-      "section": "family"
-    },
-    {
-      "language": "sn",
-      "section": "family"
-    },
-    {
-      "language": "so",
-      "section": "family"
-    },
-    {
-      "language": "sq",
-      "section": "family"
+      "section": "health"
     }
   ]
 }
