@@ -825,6 +825,406 @@
     {
       "id": "sentence.statement",
       "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3169",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Réfléchissons au pire qui pourrait arriver."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3170",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Combien d'amis proches est-ce que tu as ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3171",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Il se peut que je sois antisocial, mais ça ne veut pas dire pas que je ne parle pas aux gens."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3172",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est toujours tel que ça a été."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3173",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je pense que c'est mieux de ne pas être impoli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3174",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "On peut toujours trouver du temps."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3175",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je serais malheureux, mais je ne me suiciderais pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3176",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "À l'époque du lycée je me levais à 6h tous les matins."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3177",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Quand je me suis réveillé j'étais triste."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3178",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "C’est ce qui est expliqué à la fin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3179",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je pensais que tu aimais apprendre de nouvelles choses."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3180",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "La plupart des gens écrivent à propos de leur vie quotidienne."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3181",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Si je pouvais t'envoyer un marshmallow, Trang, je le ferais."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3182",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Pour faire cela, il te faut prendre des risques."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3183",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Chaque personne qui est seule est seule parce qu'elle a peur des autres."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3184",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Pourquoi demandes-tu ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3185",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne suis pas un artiste. Je n'ai jamais eu l'esprit pour ça."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3186",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne peux pas lui dire maintenant. Ce n’est pas si simple."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3187",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je suis une personne qui a des défauts, mais ces défauts peuvent être facilement corrigés."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3188",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Chaque fois que je trouve quelque chose que j'aime, c'est trop cher."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3189",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Combien de temps es-tu restée ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3190",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Peut-être que ce sera la même chose pour lui."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3191",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "L'innocence est une belle chose."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3192",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Les humains n'ont jamais été faits pour vivre éternellement."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3193",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne veux pas perdre mes idées, même si certaines d'entre elles sont un peu extrêmes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3194",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je pense que j'ai une théorie à ce sujet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3195",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est intrigant."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3196",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu es en train de dire que tu caches intentionnellement ta beauté ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3197",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je n’ai pas de compte sur ces forums."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3198",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Si quelqu'un devait demander quel est le but de l'histoire, je ne saurais vraiment pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3199",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne savais pas d'où ça venait."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3200",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je pense que le fait que j'ai vécu avec toi a influencé la façon dont tu vis."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3201",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Ce n'est pas important."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3202",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je n'ai pas aimé."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3203",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Elle demande comment c’est possible."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3204",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu ne fais que fuir les problèmes de la vie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3205",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Si tu regardes les paroles, elles ne signifient pas vraiment grand-chose."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3206",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Il y a un problème que tu ne vois pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3207",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu peux le faire !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3208",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Mon prof de physique s'en fiche si je sèche les cours."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1115",
@@ -1621,6 +2021,406 @@
       "retrieval_date": "2026-11-06",
       "source_id": "tatoeba.sentences",
       "value": "Il n'est pas dans mon intention d'être égoïste."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3169",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Réfléchissons au pire qui pourrait arriver."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3170",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Combien d'amis proches est-ce que tu as ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3171",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Il se peut que je sois antisocial, mais ça ne veut pas dire pas que je ne parle pas aux gens."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3172",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est toujours tel que ça a été."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3173",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je pense que c'est mieux de ne pas être impoli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3174",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "On peut toujours trouver du temps."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3175",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je serais malheureux, mais je ne me suiciderais pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3176",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "À l'époque du lycée je me levais à 6h tous les matins."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3177",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Quand je me suis réveillé j'étais triste."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3178",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "C’est ce qui est expliqué à la fin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3179",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je pensais que tu aimais apprendre de nouvelles choses."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3180",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "La plupart des gens écrivent à propos de leur vie quotidienne."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3181",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Si je pouvais t'envoyer un marshmallow, Trang, je le ferais."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3182",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Pour faire cela, il te faut prendre des risques."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3183",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Chaque personne qui est seule est seule parce qu'elle a peur des autres."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3184",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Pourquoi demandes-tu ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3185",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne suis pas un artiste. Je n'ai jamais eu l'esprit pour ça."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3186",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne peux pas lui dire maintenant. Ce n’est pas si simple."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3187",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je suis une personne qui a des défauts, mais ces défauts peuvent être facilement corrigés."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3188",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Chaque fois que je trouve quelque chose que j'aime, c'est trop cher."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3189",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Combien de temps es-tu restée ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3190",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Peut-être que ce sera la même chose pour lui."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3191",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "L'innocence est une belle chose."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3192",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Les humains n'ont jamais été faits pour vivre éternellement."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3193",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne veux pas perdre mes idées, même si certaines d'entre elles sont un peu extrêmes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3194",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je pense que j'ai une théorie à ce sujet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3195",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est intrigant."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3196",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu es en train de dire que tu caches intentionnellement ta beauté ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3197",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je n’ai pas de compte sur ces forums."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3198",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Si quelqu'un devait demander quel est le but de l'histoire, je ne saurais vraiment pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3199",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne savais pas d'où ça venait."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3200",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je pense que le fait que j'ai vécu avec toi a influencé la façon dont tu vis."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3201",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Ce n'est pas important."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3202",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je n'ai pas aimé."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3203",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Elle demande comment c’est possible."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3204",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu ne fais que fuir les problèmes de la vie."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3205",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Si tu regardes les paroles, elles ne signifient pas vraiment grand-chose."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3206",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Il y a un problème que tu ne vois pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3207",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu peux le faire !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3208",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Mon prof de physique s'en fiche si je sèche les cours."
     }
   ]
 }

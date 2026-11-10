@@ -825,6 +825,406 @@
     {
       "id": "sentence.statement",
       "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4788",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "孤独な人は、他人を恐れるから一人なのだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4789",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "なんで聞くの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4790",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "私は芸術家ではない。全然向いていない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4791",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "もう彼女には言えないよ。そんなに単純なことではなくなってきたからね。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4792",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "傷を付けたのは私だけど、こんなの簡単に直せる傷よ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4793",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "欲しいものがみつかると、決まって高いものだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4794",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "どのくらいいたの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4795",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "たぶん彼にしてみれば同じことよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4796",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "潔白であることは美しいことだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4797",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "人間は決して永遠には生きられないものだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4798",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "行き過ぎたものであっても、僕は自分の考えをなくしたくない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4799",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "それは面白い。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4800",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "自分のかっこ良さをわざと隠すということ？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4801",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "もし誰かにこの話の要点は何かって尋ねられても、私はさっぱりわからないわ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4802",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "それがどこから来たのか分からなかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4803",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "僕が君と一緒に住んだことは君の人生観に影響を与えたと思う。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4804",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "これは重要ではない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4805",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "好きにはなれなかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4806",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "彼女は、どうしてそんなことが可能なのかと尋ねている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4807",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "君はただ人生の問題から逃げているだけだよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4808",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "歌詞を見てみれば、あまり意味が無いことに気付くでしょう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4809",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "君の気付いていない問題がある。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4810",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "できるよ！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4811",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "私の物理の先生は授業をサボっても気にしない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4812",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "日本へ行けたらいいのに。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4813",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "人ごみは大嫌い。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4814",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "私は寝なければなりません。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4815",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "その後私はそこを出るんだけど、鞄を忘れてきたことに気付くんだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4816",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "今日はもう聞かないよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4817",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "来週には凍るかも知れない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4818",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "謝罪はあったにせよ、私はまだ彼に腹を立てている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4819",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "警察はあなたに弾丸をみつけさせるでしょう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4820",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "なぜみんなが私のことを気違いだと思うのか、遂に説明してくれてありがとう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4821",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "そんなつもりではなかったんだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4822",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "説明してくれてありがとう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4823",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "理論的には、私は数学をしている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4824",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "何が起きたの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4825",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "丸一日オンラインで君を見ないなんてびっくりだよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4826",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "何が言いたいのか分からないなあ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4827",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "私のパソコンは何かの役に立つはずだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1297",
@@ -1621,6 +2021,406 @@
       "retrieval_date": "2026-11-06",
       "source_id": "tatoeba.sentences",
       "value": "それをするためには危険を冒さなければならない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4788",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "孤独な人は、他人を恐れるから一人なのだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4789",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "なんで聞くの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4790",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "私は芸術家ではない。全然向いていない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4791",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "もう彼女には言えないよ。そんなに単純なことではなくなってきたからね。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4792",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "傷を付けたのは私だけど、こんなの簡単に直せる傷よ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4793",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "欲しいものがみつかると、決まって高いものだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4794",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "どのくらいいたの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4795",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "たぶん彼にしてみれば同じことよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4796",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "潔白であることは美しいことだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4797",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "人間は決して永遠には生きられないものだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4798",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "行き過ぎたものであっても、僕は自分の考えをなくしたくない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4799",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "それは面白い。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4800",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "自分のかっこ良さをわざと隠すということ？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4801",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "もし誰かにこの話の要点は何かって尋ねられても、私はさっぱりわからないわ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4802",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "それがどこから来たのか分からなかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4803",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "僕が君と一緒に住んだことは君の人生観に影響を与えたと思う。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4804",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "これは重要ではない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4805",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "好きにはなれなかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4806",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "彼女は、どうしてそんなことが可能なのかと尋ねている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4807",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "君はただ人生の問題から逃げているだけだよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4808",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "歌詞を見てみれば、あまり意味が無いことに気付くでしょう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4809",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "君の気付いていない問題がある。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4810",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "できるよ！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4811",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "私の物理の先生は授業をサボっても気にしない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4812",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "日本へ行けたらいいのに。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4813",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "人ごみは大嫌い。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4814",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "私は寝なければなりません。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4815",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "その後私はそこを出るんだけど、鞄を忘れてきたことに気付くんだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4816",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "今日はもう聞かないよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4817",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "来週には凍るかも知れない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4818",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "謝罪はあったにせよ、私はまだ彼に腹を立てている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4819",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "警察はあなたに弾丸をみつけさせるでしょう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4820",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "なぜみんなが私のことを気違いだと思うのか、遂に説明してくれてありがとう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4821",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "そんなつもりではなかったんだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4822",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "説明してくれてありがとう。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4823",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "理論的には、私は数学をしている。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4824",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "何が起きたの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4825",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "丸一日オンラインで君を見ないなんてびっくりだよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4826",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "何が言いたいのか分からないなあ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4827",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "私のパソコンは何かの役に立つはずだ。"
     }
   ]
 }
