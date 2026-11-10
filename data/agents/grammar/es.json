@@ -825,6 +825,406 @@
     {
       "id": "sentence.statement",
       "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2564",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Uno siempre puede encontrar tiempo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2565",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo seré infeliz, pero no me suicidaría."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2566",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Cuando yo estaba en el instituto me levantaba a las 6 todas las mañanas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2567",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Cuando me desperté estaba triste."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2568",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Por fin está más o menos explicado."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2569",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo pensaba que te gustaba aprender cosas nuevas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2570",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "La mayoría de la gente escribe sobre su vida cotidiana."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2571",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Si pudiera enviarte un malvavisco, Trang, lo haría."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2572",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Para hacer eso, tienes que arriesgarte."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2573",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Todas las personas que están solas, están solas porque tienen miedo de los demás."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2574",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Por qué lo preguntas?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2575",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No soy un artista. Nunca tuve mente para ello."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2576",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No puedo decírselo ahora. Ya no es tan simple."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2577",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Soy una persona que tiene muchos defectos, pero esos defectos pueden ser corregidos fácilmente."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2578",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Cada vez que encuentro algo que me gusta, es demasiado caro."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2579",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Cuánto tiempo estuviste?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2580",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Quizás sea lo mismo para él."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2581",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "La inocencia es una cosa hermosa."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2582",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Los humanos nunca fueron hechos para vivir eternamente."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2583",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No quiero perder mis ideas, aunque algunas de ellas sean un poco extremas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2584",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Creo que tengo una teoría sobre eso."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2585",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso es intrigante."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2586",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Quieres decir que ocultas intencionalmente tu belleza?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2587",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo no tengo una cuenta en estos foros."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2588",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Si alguien fuera a preguntar cuál es el objetivo de la historia, realmente no lo sé."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2589",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No sabía de dónde venía eso."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2590",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Creo que nuestra convivencia ha influenciado tu forma de vida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2591",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No es importante."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2592",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No me gustaba."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2593",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Ella pregunta cómo es posible eso."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2594",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Tú simplemente huyes de los problemas de la vida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2595",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Si buscas las letras, realmente no significan mucho."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2596",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Hay un problema que no ves."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2597",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Puedes hacerlo!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2598",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "A mi profesor de física no le importa si me salto las clases."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2599",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Deseo poder ir a Japón."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2600",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Odio cuando hay mucha gente."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2601",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Me tengo que ir a la cama."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2602",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Después de eso, me voy, pero entonces me doy cuenta de que olvidé mi mochila."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2603",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No te preguntaré más por hoy."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:2481",
@@ -1621,6 +2021,406 @@
       "retrieval_date": "2026-11-06",
       "source_id": "tatoeba.sentences",
       "value": "Creo que lo mejor es no ser maleducado."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2564",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Uno siempre puede encontrar tiempo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2565",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo seré infeliz, pero no me suicidaría."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2566",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Cuando yo estaba en el instituto me levantaba a las 6 todas las mañanas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2567",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Cuando me desperté estaba triste."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2568",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Por fin está más o menos explicado."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2569",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo pensaba que te gustaba aprender cosas nuevas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2570",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "La mayoría de la gente escribe sobre su vida cotidiana."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2571",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Si pudiera enviarte un malvavisco, Trang, lo haría."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2572",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Para hacer eso, tienes que arriesgarte."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2573",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Todas las personas que están solas, están solas porque tienen miedo de los demás."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2574",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Por qué lo preguntas?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2575",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No soy un artista. Nunca tuve mente para ello."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2576",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No puedo decírselo ahora. Ya no es tan simple."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2577",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Soy una persona que tiene muchos defectos, pero esos defectos pueden ser corregidos fácilmente."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2578",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Cada vez que encuentro algo que me gusta, es demasiado caro."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2579",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Cuánto tiempo estuviste?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2580",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Quizás sea lo mismo para él."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2581",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "La inocencia es una cosa hermosa."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2582",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Los humanos nunca fueron hechos para vivir eternamente."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2583",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No quiero perder mis ideas, aunque algunas de ellas sean un poco extremas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2584",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Creo que tengo una teoría sobre eso."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2585",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso es intrigante."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2586",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Quieres decir que ocultas intencionalmente tu belleza?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2587",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Yo no tengo una cuenta en estos foros."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2588",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Si alguien fuera a preguntar cuál es el objetivo de la historia, realmente no lo sé."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2589",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No sabía de dónde venía eso."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2590",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Creo que nuestra convivencia ha influenciado tu forma de vida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2591",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No es importante."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2592",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No me gustaba."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2593",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Ella pregunta cómo es posible eso."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2594",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Tú simplemente huyes de los problemas de la vida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2595",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Si buscas las letras, realmente no significan mucho."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2596",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Hay un problema que no ves."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2597",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Puedes hacerlo!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2598",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "A mi profesor de física no le importa si me salto las clases."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2599",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Deseo poder ir a Japón."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2600",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Odio cuando hay mucha gente."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2601",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Me tengo que ir a la cama."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2602",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "Después de eso, me voy, pero entonces me doy cuenta de que olvidé mi mochila."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2603",
+      "retrieval_date": "2026-11-09",
+      "source_id": "tatoeba.sentences",
+      "value": "No te preguntaré más por hoy."
     }
   ]
 }

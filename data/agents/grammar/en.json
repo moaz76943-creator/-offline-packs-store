@@ -7413,6 +7413,406 @@
       "value": "Debra Perlingiere"
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0087",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "They are taking delivery in the U.S."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0088",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0001",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Visit,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0002",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Thanks for your message."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0003",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Can you send me the data you used: I shall take a look at it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0004",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Vince"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0005",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Dear All,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0006",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "My mane is Visit Phunnarungsi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0007",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "I used to e-mail Vince Kaminski about the advice on his article \"The Challenge of Pricing and Risk Managing Electricity Derivatives\" and he had mailed me the copy."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0008",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "I am now modelling the Queensland electricity spot price using Geometric Brownian Mean Reverting Jump Diffusion Model and have followed your paper \"Making the most of mean reversion\" to estimate the mean reversion speed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0009",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "I use Queensland half-hourly price during 13 December, 1998-30 June 2001 giving about 44,000 price observations."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0010",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "However, the result from Ordinary Least Squares was not as expected due to different sign for both slope & intercept."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0011",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "The coefficient and standard error are as followed:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0012",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Intercept: -0.3931 (0.0076)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0013",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Slope: 0.1171 (0.0022)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0014",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "R Square: 0.0585"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0015",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Therefore I could not estimate the mean reversion rate as the estimated slope has the positive sign."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0016",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "I have also tried monthly data and the results are the same."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0017",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "It would be appreciated if you could advice me on this matter."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0018",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Kindest regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0019",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Visit"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0020",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Get your FREE download of MSN Explorer at http://explorer.msn.com << File: 'http://go.msn.com/bql/hmtag_itl_EN.asp' >>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0021",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Chris,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0022",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Plz contact Shirley Crenshaw (X 3-5290) regarding a copy of an article."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0023",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Vince"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0024",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Traci,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0025",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Thanks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0026",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "This is the best solution given all the uncertainties we face."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0027",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Vince"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0028",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Vince -"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0029",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Thanks for the message regarding a possible intern for your group."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0030",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Right now, we are in the process of evaluating both our new hire needs and our summer needs and will be making those decisions after the first of the year."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0031",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Until we have come up with those numbers it would be premature to make any offers for the summer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0032",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "What I would like to do in this case is get the information to Jeff Davis, who is responsible for Georgia Tech and ask him to get Sungjoo's resume and start a file on him with a notation that you would like to hire him for summer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0033",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "When we start the summer process, we will interview the candidate and slot him for your group."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0034",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Is this okay with you?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0035",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Hope all is well with you"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0036",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Take Care"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0037",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Traci"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0038",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Traci,"
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -14817,6 +15217,406 @@
       "retrieval_date": "2026-11-09",
       "source_id": "universal-dependencies",
       "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0087",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "They are taking delivery in the U.S."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent29_01-0088",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Debra Perlingiere"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0001",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Visit,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0002",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Thanks for your message."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0003",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Can you send me the data you used: I shall take a look at it."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0004",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Vince"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0005",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Dear All,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0006",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "My mane is Visit Phunnarungsi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0007",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "I used to e-mail Vince Kaminski about the advice on his article \"The Challenge of Pricing and Risk Managing Electricity Derivatives\" and he had mailed me the copy."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0008",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "I am now modelling the Queensland electricity spot price using Geometric Brownian Mean Reverting Jump Diffusion Model and have followed your paper \"Making the most of mean reversion\" to estimate the mean reversion speed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0009",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "I use Queensland half-hourly price during 13 December, 1998-30 June 2001 giving about 44,000 price observations."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0010",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "However, the result from Ordinary Least Squares was not as expected due to different sign for both slope & intercept."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0011",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "The coefficient and standard error are as followed:"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0012",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Intercept: -0.3931 (0.0076)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0013",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Slope: 0.1171 (0.0022)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0014",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "R Square: 0.0585"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0015",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Therefore I could not estimate the mean reversion rate as the estimated slope has the positive sign."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0016",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "I have also tried monthly data and the results are the same."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0017",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "It would be appreciated if you could advice me on this matter."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0018",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Kindest regards,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0019",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Visit"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0020",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Get your FREE download of MSN Explorer at http://explorer.msn.com << File: 'http://go.msn.com/bql/hmtag_itl_EN.asp' >>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0021",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Chris,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0022",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Plz contact Shirley Crenshaw (X 3-5290) regarding a copy of an article."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0023",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Vince"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0024",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Traci,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0025",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Thanks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0026",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "This is the best solution given all the uncertainties we face."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0027",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Vince"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0028",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Vince -"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0029",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Thanks for the message regarding a possible intern for your group."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0030",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Right now, we are in the process of evaluating both our new hire needs and our summer needs and will be making those decisions after the first of the year."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0031",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Until we have come up with those numbers it would be premature to make any offers for the summer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0032",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "What I would like to do in this case is get the information to Jeff Davis, who is responsible for Georgia Tech and ask him to get Sungjoo's resume and start a file on him with a notation that you would like to hire him for summer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0033",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "When we start the summer process, we will interview the candidate and slot him for your group."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0034",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Is this okay with you?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0035",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Hope all is well with you"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0036",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Take Care"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0037",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Traci"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:email-enronsent19_02-0038",
+      "retrieval_date": "2026-11-10",
+      "source_id": "universal-dependencies",
+      "value": "Traci,"
     },
     {
       "id": "verb.forms",
