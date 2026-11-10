@@ -61,8 +61,8 @@
     },
     "total": 2340
   },
-  "generated_by": "classifier",
-  "pack_bytes": 544768,
+  "generated_by": "packs",
+  "pack_bytes": 561152,
   "packs": [
     {
       "bytes": 20480,
@@ -107,13 +107,13 @@
       }
     },
     {
-      "bytes": 147456,
-      "entries": 839,
+      "bytes": 155648,
+      "entries": 879,
       "language": "en",
       "sources": {
         "kaikki.wiktextract": 2,
         "tatoeba.sentences": 120,
-        "universal-dependencies": 619,
+        "universal-dependencies": 659,
         "wikidata.lexemes": 98
       }
     },
@@ -126,12 +126,12 @@
       }
     },
     {
-      "bytes": 20480,
-      "entries": 125,
+      "bytes": 28672,
+      "entries": 165,
       "language": "es",
       "sources": {
         "kaikki.wiktextract": 20,
-        "tatoeba.sentences": 80,
+        "tatoeba.sentences": 120,
         "wikidata.lexemes": 25
       }
     },
@@ -179,10 +179,10 @@
     },
     {
       "bytes": 16384,
-      "entries": 63,
+      "entries": 64,
       "language": "it",
       "sources": {
-        "kaikki.wiktextract": 16,
+        "kaikki.wiktextract": 17,
         "wikidata.lexemes": 47
       }
     },
@@ -338,9 +338,9 @@
       "cs": 14,
       "da": 24,
       "de": 195,
-      "en": 839,
+      "en": 879,
       "eo": 2,
-      "es": 125,
+      "es": 165,
       "et": 6,
       "eu": 7,
       "fa": 2,
@@ -406,7 +406,7 @@
         "colors": 12,
         "emotions": 10,
         "food": 3,
-        "grammar": 619,
+        "grammar": 659,
         "health": 4,
         "sentences": 120,
         "sports": 1,
@@ -425,7 +425,7 @@
         "colors": 2,
         "emotions": 1,
         "food": 1,
-        "sentences": 80,
+        "sentences": 120,
         "time": 1,
         "work": 10
       },
@@ -598,7 +598,7 @@
       "en": {
         "kaikki.wiktextract": 2,
         "tatoeba.sentences": 120,
-        "universal-dependencies": 619,
+        "universal-dependencies": 659,
         "wikidata.lexemes": 98
       },
       "eo": {
@@ -606,7 +606,7 @@
       },
       "es": {
         "kaikki.wiktextract": 20,
-        "tatoeba.sentences": 80,
+        "tatoeba.sentences": 120,
         "wikidata.lexemes": 25
       },
       "et": {
@@ -698,11 +698,11 @@
       "colors": 40,
       "emotions": 20,
       "food": 20,
-      "grammar": 619,
+      "grammar": 659,
       "health": 18,
       "numbers": 4,
       "religion": 1,
-      "sentences": 1080,
+      "sentences": 1120,
       "shopping": 1,
       "sports": 3,
       "technology": 5,
@@ -712,11 +712,11 @@
     },
     "by_source": {
       "kaikki.wiktextract": 122,
-      "tatoeba.sentences": 1080,
-      "universal-dependencies": 619,
+      "tatoeba.sentences": 1120,
+      "universal-dependencies": 659,
       "wikidata.lexemes": 519
     },
-    "total": 2340
+    "total": 2420
   },
   "schema_version": "1.0.0"
 }
