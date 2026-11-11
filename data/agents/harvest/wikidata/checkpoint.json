@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q1168486",
-    "Q525617",
-    "Q3107961",
-    "Q1777088",
-    "Q978317",
-    "Q13744553",
-    "Q260672",
-    "Q583628"
+    "Q5754866",
+    "Q114036386",
+    "Q427933",
+    "Q3107569",
+    "Q3196591",
+    "Q3065146",
+    "Q3065499",
+    "Q5615306"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1168486"
+      "wikidata": "Q5754866"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q525617"
+      "wikidata": "Q114036386"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3107961"
+      "wikidata": "Q427933"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1777088"
+      "wikidata": "Q3107569"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q978317"
+      "wikidata": "Q3196591"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q13744553"
+      "wikidata": "Q3065146"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q260672"
+      "wikidata": "Q3065499"
     },
     {
       "accepted_rows": 0,
@@ -72,10 +72,10 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q583628"
+      "wikidata": "Q5615306"
     }
   ],
-  "retrieval_date": "2026-11-10",
+  "retrieval_date": "2026-11-11",
   "rows": [],
   "schema_version": "1.0.0",
   "skipped": [],
