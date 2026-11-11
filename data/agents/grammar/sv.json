@@ -1621,6 +1621,406 @@
       "retrieval_date": "2026-11-07",
       "source_id": "tatoeba.sentences",
       "value": "De här blommorna blommar tidigare än vad andra gör."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401257",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Den där slipsen passar bra till din skjorta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401259",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag ska av på nästa station."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401267",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "I morgon är det hennes födelsedag."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401268",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "I morgon fyller hon år."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401273",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Hennes enda önskan var att träffa sin son igen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401297",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Det hängde en hatt och en kappa på väggen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401313",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Föraren vred ratten åt höger."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401316",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Nästa konsert kommer att hållas i juni."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401325",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Vi talar å den australienska ungdomens vägnar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401326",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Vi är rädda."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401347",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad betyder det?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401351",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Deras trädgård är full av väldigt vackra blommor året runt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401360",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "De säljer diverse varor på den affären."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401367",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Segla längs kusten."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401388",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Var är den japanska ambassaden?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401394",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Låna mig din cykel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401406",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Han måste köpa en ny cykel åt sin son."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401412",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Vi dekorerade rummet själva."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401442",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag försökte skriva med vänster hand."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401443",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "En bra lärare måste vara tålmodig med sina elever."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401459",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag stod och väntade på en buss."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401482",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Nu finns det ingen återvändo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401493",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Publiken bestod mest av elever."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401505",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag har bott här."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401511",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "En kombination av flera misstag ledde till olyckan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401513",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Så här långt ser det bra ut."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401525",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "När jag besökte deras lägenhet, var paret mitt i ett gräl."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401531",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Han är säker på att han kommer att vinna matchen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401535",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Hur många engelska ord kan du?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401546",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Det du har blivit lärd är oriktigt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401548",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Det fanns inte en själ i sikte."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:401554",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Tomten stod på tomten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402086",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Lägg tillbaka boken där du fann den."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402087",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Kärleken kommer så småningom."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402091",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Löven virvlade runt på gården."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402099",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Man har funnit olja under Nordsjön."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402102",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Prova den tröjan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402105",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Han klagade över att rätten smakade illa."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402109",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Våra ansträngningar medförde inte någon framgång."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402111",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Du ska inte tro att det kommer att bli enkelt."
     }
   ]
 }
