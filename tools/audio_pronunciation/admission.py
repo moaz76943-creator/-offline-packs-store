@@ -31,6 +31,7 @@ ALLOWED_FIELDS = (
     "duration_ms",
     "channels",
     "sample_rate",
+    "variant",
 )
 BANNED_METADATA_KEYS = frozenset({
     "biometric_profile",
