@@ -825,6 +825,406 @@
     {
       "id": "sentence.statement",
       "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5496",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Это то, что раскрывается под конец."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5497",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я думал, ты любишь изучать новые вещи."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5498",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Многие люди пишут о своей обыденной жизни."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5499",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Если бы я мог послать тебе зефир, Чанг, я сделал бы это."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5500",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты должен рискнуть, чтобы сделать это."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5501",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Каждый одинокий человек одинок из-за страха перед окружающими."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5502",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Почему ты спрашиваешь?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5503",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не художник. Я совсем не гожусь для этого."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5504",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не могу сказать ей это сейчас. Это уже не так просто."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5505",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я человек с недостатками, но это недостатки, которые могут быть легко устранены."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5506",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Всегда, когда я нахожу что-либо, что мне нравится, это слишком дорого."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5507",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Сколько ты там пробыл?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5508",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Может, для него это будет то же самое."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5509",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Невинность - это прекрасная штука."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5510",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Люди не могут жить вечно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5511",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не хочу менять свои взгляды, даже если они несколько экстремальны."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5512",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Думаю, у меня есть теория на этот счёт."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5513",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Это интересно."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5514",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты хочешь сказать, что намеренно скрываешь свою красоту?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5515",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "У меня нет учетной записи на этих форумах."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5516",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Если кто-либо спросит, в чем суть истории, я действительно не знаю."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5517",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не знал, откуда это пришло."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5518",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я думаю, наше совместное проживание повлияло на твой стиль жизни."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5519",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Это не важно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5520",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Мне это не нравилось."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5521",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Она спрашивает, как это возможно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5522",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты просто убегаешь от жизненных проблем."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5523",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Если взглянуть на текст песни, ясно, что он на самом деле ничего не значит."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5524",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Есть проблема, которую ты не понимаешь."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5525",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты можешь сделать это!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5526",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Моему учителю физики все равно, пропущу ли я занятия."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5527",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я хотела бы иметь возможность поехать в Японию."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5528",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не люблю толпу."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5529",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Мне нужно идти спать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5530",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Потом я ушел оттуда, но понял, что забыл сумку."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5531",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не буду вас сегодня больше ни о чем спрашивать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5532",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "На следующей неделе могут быть заморозки."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5533",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Несмотря на то, что он извинился, я все ещё в бешенстве."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5534",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Полиция вас заставит найти пули."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5535",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Спасибо за то, что наконец объяснили, почему люди принимают меня за идиота."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:243",
@@ -1621,6 +2021,406 @@
       "retrieval_date": "2026-11-07",
       "source_id": "tatoeba.sentences",
       "value": "Когда я проснулся, мне было грустно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5496",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Это то, что раскрывается под конец."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5497",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я думал, ты любишь изучать новые вещи."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5498",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Многие люди пишут о своей обыденной жизни."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5499",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Если бы я мог послать тебе зефир, Чанг, я сделал бы это."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5500",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты должен рискнуть, чтобы сделать это."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5501",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Каждый одинокий человек одинок из-за страха перед окружающими."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5502",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Почему ты спрашиваешь?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5503",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не художник. Я совсем не гожусь для этого."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5504",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не могу сказать ей это сейчас. Это уже не так просто."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5505",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я человек с недостатками, но это недостатки, которые могут быть легко устранены."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5506",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Всегда, когда я нахожу что-либо, что мне нравится, это слишком дорого."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5507",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Сколько ты там пробыл?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5508",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Может, для него это будет то же самое."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5509",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Невинность - это прекрасная штука."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5510",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Люди не могут жить вечно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5511",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не хочу менять свои взгляды, даже если они несколько экстремальны."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5512",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Думаю, у меня есть теория на этот счёт."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5513",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Это интересно."
+    },
+    {
+      "id": "sentence.question",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5514",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты хочешь сказать, что намеренно скрываешь свою красоту?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5515",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "У меня нет учетной записи на этих форумах."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5516",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Если кто-либо спросит, в чем суть истории, я действительно не знаю."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5517",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не знал, откуда это пришло."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5518",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я думаю, наше совместное проживание повлияло на твой стиль жизни."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5519",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Это не важно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5520",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Мне это не нравилось."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5521",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Она спрашивает, как это возможно."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5522",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты просто убегаешь от жизненных проблем."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5523",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Если взглянуть на текст песни, ясно, что он на самом деле ничего не значит."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5524",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Есть проблема, которую ты не понимаешь."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5525",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Ты можешь сделать это!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5526",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Моему учителю физики все равно, пропущу ли я занятия."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5527",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я хотела бы иметь возможность поехать в Японию."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5528",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не люблю толпу."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5529",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Мне нужно идти спать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5530",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Потом я ушел оттуда, но понял, что забыл сумку."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5531",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Я не буду вас сегодня больше ни о чем спрашивать."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5532",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "На следующей неделе могут быть заморозки."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5533",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Несмотря на то, что он извинился, я все ещё в бешенстве."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5534",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Полиция вас заставит найти пули."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ru",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:5535",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Спасибо за то, что наконец объяснили, почему люди принимают меня за идиота."
     }
   ]
 }
