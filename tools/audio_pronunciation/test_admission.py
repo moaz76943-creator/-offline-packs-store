@@ -348,5 +348,17 @@ class TestAudioAdmissionGate(unittest.TestCase):
         self.assertIn("Unsupported sample rate", rejected[0]["rejection_reason"])
 
 
+
+    def test_truncated_file(self):
+        row = self.candidate(self.wav)
+        path = self.root / row["artifact_path"]
+        data = path.read_bytes()
+        truncated = data[:len(data) // 2]
+        path.write_bytes(truncated)
+        row["sha256"] = _sha256(path)
+        accepted, rejected = process_candidates([row], self.ledger, self.root)
+        self.assertEqual(accepted, [])
+        self.assertIn("malformed header", rejected[0]["rejection_reason"])
+
 if __name__ == "__main__":
     unittest.main()
