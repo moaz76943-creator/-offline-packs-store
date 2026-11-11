@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "retrieval_date": "2026-11-09",
+  "retrieval_date": "2026-11-11",
   "rows": [
     {
       "co_offered": [
@@ -505,6 +505,30 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q36312"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q2079",
+      "gloss": "Leipzig (an independent city in Saxony, Germany)",
+      "language": "fr",
+      "lemma": "Leipzig",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q2079"
+      ],
+      "record_id": "en-Leipzig-fr-name-XqNZjEnB",
+      "retrieval_date": "2026-11-11",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Leipzig-fr-name-XqNZjEnB",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2079"
     }
   ],
   "schema_version": "1.0.0",
