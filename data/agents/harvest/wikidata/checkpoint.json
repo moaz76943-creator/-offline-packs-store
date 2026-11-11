@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q5754866",
-    "Q114036386",
-    "Q427933",
-    "Q3107569",
-    "Q3196591",
-    "Q3065146",
-    "Q3065499",
-    "Q5615306"
+    "Q17172652",
+    "Q21086605",
+    "Q16147022",
+    "Q100159378",
+    "Q10508796",
+    "Q3065320",
+    "Q2301468",
+    "Q21000667"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q5754866"
+      "wikidata": "Q17172652"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q114036386"
+      "wikidata": "Q21086605"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q427933"
+      "wikidata": "Q16147022"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3107569"
+      "wikidata": "Q100159378"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3196591"
+      "wikidata": "Q10508796"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3065146"
+      "wikidata": "Q3065320"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3065499"
+      "wikidata": "Q2301468"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q5615306"
+      "wikidata": "Q21000667"
     }
   ],
   "retrieval_date": "2026-11-11",
