@@ -80,5 +80,26 @@ class TestCLI(unittest.TestCase):
                     content = rf.read()
                     self.assertIn("Reason: ", content)
 
+import unittest
+from unittest.mock import patch
+import sys
+import io
+
+from tools.lexicon_sanitizer.cli import main
+
+class TestCLIWorkspace(unittest.TestCase):
+    @patch('os.access')
+    def test_workspace_access(self, mock_access):
+        mock_access.return_value = False
+        with self.assertRaises(SystemExit) as cm:
+            # We don't want to actually print out
+            saved_stdout = sys.stdout
+            try:
+                sys.stdout = io.StringIO()
+                main()
+            finally:
+                sys.stdout = saved_stdout
+        self.assertEqual(cm.exception.code, 1)
+
 if __name__ == '__main__':
     unittest.main()
