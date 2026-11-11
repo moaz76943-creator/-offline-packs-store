@@ -1,6 +1,7 @@
 {
   "degraded": [
     "harvest-wikidata",
+    "packs",
     "watchdog"
   ],
   "failed_github_run": false,
@@ -8,9 +9,10 @@
   "roster_count": 21,
   "schema_version": "1.0.0",
   "stale": [
-    "classifier",
-    "packs",
-    "health",
-    "janitor"
+    "harvest-kaikki",
+    "harvest-tatoeba",
+    "grammar",
+    "qa",
+    "health"
   ]
 }
