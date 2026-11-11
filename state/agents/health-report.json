@@ -10,9 +10,10 @@
   "schema_version": "1.0.0",
   "stale": [
     "harvest-kaikki",
-    "harvest-tatoeba",
+    "classifier",
     "grammar",
-    "qa",
-    "health"
+    "health",
+    "janitor",
+    "codeql"
   ]
 }
