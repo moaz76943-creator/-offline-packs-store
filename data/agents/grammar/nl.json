@@ -825,6 +825,406 @@
     {
       "id": "sentence.question",
       "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375869",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom ben je aan het huilen?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375870",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375875",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom studeer je?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375876",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Veel geluk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375885",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wees niet bang om fouten te maken wanneer je Engels spreekt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375886",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Schrijf alstublieft met een pen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375887",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik schrijf regelmatig artikels."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375888",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Eet wat je wilt."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375889",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Kan ik dit eten?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375891",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Mag ik iets zeggen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375892",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zeg het in het Engels."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375894",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat heeft hij gezegd?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375896",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zeg 'aaa'."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375897",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat heb je gezegd?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375899",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zeg dat niet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375900",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoe durf je dat te zeggen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375901",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom zeg je dat?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375902",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zeg het op een andere manier."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375903",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je kan niet \"nee\" zeggen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375907",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "In het begin wist ik niet wat te doen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375908",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Vertaal deze zin in het Japans alstublieft."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375909",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Vertaal de volgende zinnen in het Japans."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375910",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Het kostte me meer dan twee uur om een paar pagina's in het Engels te vertalen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375911",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Het is moeilijk om een gedicht in een andere taal te vertalen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375913",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Dit werkwoord wordt gewoonlijk alleen gebruikt in de derde persoon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375958",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij speelt zeer goed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375960",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Het probleem was dat ik niets tegen hem te zeggen had."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375962",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Kleren maken de man."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375964",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Geef me de sleutel van dit kasteel!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375965",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik zal jou dit boek geven."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375966",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom zou je zo triest moeten zijn?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376005",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "We bleven tijdens de nacht in Hakone."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376006",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zij is zeer mooi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376007",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Het kan niet waar zijn."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376008",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wie is de vrouw met de bruine jas?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376009",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik keek toen tv."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376064",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat is nieuw?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376067",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376070",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat ben je aan het doen?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376076",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat was je aan het doen?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:5946",
@@ -1621,6 +2021,406 @@
       "retrieval_date": "2026-11-07",
       "source_id": "tatoeba.sentences",
       "value": "Waarom was je laat?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375869",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom ben je aan het huilen?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375870",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375875",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom studeer je?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375876",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Veel geluk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375885",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wees niet bang om fouten te maken wanneer je Engels spreekt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375886",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Schrijf alstublieft met een pen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375887",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik schrijf regelmatig artikels."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375888",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Eet wat je wilt."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375889",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Kan ik dit eten?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375891",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Mag ik iets zeggen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375892",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zeg het in het Engels."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375894",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat heeft hij gezegd?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375896",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zeg 'aaa'."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375897",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat heb je gezegd?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375899",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zeg dat niet."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375900",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoe durf je dat te zeggen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375901",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom zeg je dat?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375902",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zeg het op een andere manier."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375903",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Je kan niet \"nee\" zeggen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375907",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "In het begin wist ik niet wat te doen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375908",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Vertaal deze zin in het Japans alstublieft."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375909",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Vertaal de volgende zinnen in het Japans."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375910",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Het kostte me meer dan twee uur om een paar pagina's in het Engels te vertalen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375911",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Het is moeilijk om een gedicht in een andere taal te vertalen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375913",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Dit werkwoord wordt gewoonlijk alleen gebruikt in de derde persoon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375958",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij speelt zeer goed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375960",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Het probleem was dat ik niets tegen hem te zeggen had."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375962",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Kleren maken de man."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375964",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Geef me de sleutel van dit kasteel!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375965",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik zal jou dit boek geven."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:375966",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Waarom zou je zo triest moeten zijn?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376005",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "We bleven tijdens de nacht in Hakone."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376006",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Zij is zeer mooi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376007",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Het kan niet waar zijn."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376008",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wie is de vrouw met de bruine jas?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376009",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik keek toen tv."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376064",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat is nieuw?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376067",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376070",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat ben je aan het doen?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376076",
+      "retrieval_date": "2026-11-10",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat was je aan het doen?"
     }
   ]
 }
