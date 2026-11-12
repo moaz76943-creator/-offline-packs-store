@@ -1225,6 +1225,406 @@
     {
       "id": "sentence.statement",
       "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332433",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我找到那把我一直在找的钥匙了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332434",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我丢了我的伞。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332435",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "她是他的一切。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332436",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "接电话。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332437",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我在报纸上看到了它。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332438",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "请把它充入我的账户。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332439",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "雨不停，我们不会出去。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332440",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "这和我那本是同一本书。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332441",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他们是热爱和平的人。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332442",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我觉得你说的是真的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332443",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "可以原谅我吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332444",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我们没机会赢那些一流选手。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332445",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他发誓要戒烟。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332447",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "在明天前完成报告几乎是不可能的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332448",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他昨天看了一部最有趣的小说。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332449",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "如果可能的话，我想环游世界。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332450",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我是网球俱乐部的会员。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332451",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "医生，请给这孩子急救。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332452",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "据说山上的天气变化很快。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332453",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他后悔在校时没用功读书。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332454",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我可以用支票付吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332456",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "如果他年轻一点，他将很适合这个职位。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332459",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他给我的工作作出了明确指示。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332460",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他向权力屈服。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332461",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "是在昨天Jake打破了这扇窗。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332462",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "今天糟糕透了，所以我准备去喝一杯就直接上床。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332464",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "如果没有你，这个世界很孤单。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332465",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我觉得这个网站的构思非常好。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332466",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我觉得这个网站的概念非常好。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332467",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "啊，我认识这个男人！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332468",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "待在那儿别动。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332470",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "沿着这条路直走，到第三个红绿灯的地方右转。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332471",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他正坐在会议室里。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332472",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "等她回来的时候问问她。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332473",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他说得很大声。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332474",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "差不多两周John的病才好了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332477",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我们必须设法打破这个僵局。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332478",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "十年后，我们的城市将改变许多。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332479",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "你咖啡喝得太多了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332480",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我有好几打呢。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1",
@@ -2421,6 +2821,406 @@
       "retrieval_date": "2026-11-08",
       "source_id": "tatoeba.sentences",
       "value": "你参加社团活动吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332433",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我找到那把我一直在找的钥匙了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332434",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我丢了我的伞。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332435",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "她是他的一切。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332436",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "接电话。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332437",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我在报纸上看到了它。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332438",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "请把它充入我的账户。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332439",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "雨不停，我们不会出去。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332440",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "这和我那本是同一本书。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332441",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他们是热爱和平的人。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332442",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我觉得你说的是真的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332443",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "可以原谅我吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332444",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我们没机会赢那些一流选手。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332445",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他发誓要戒烟。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332447",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "在明天前完成报告几乎是不可能的。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332448",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他昨天看了一部最有趣的小说。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332449",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "如果可能的话，我想环游世界。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332450",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我是网球俱乐部的会员。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332451",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "医生，请给这孩子急救。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332452",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "据说山上的天气变化很快。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332453",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他后悔在校时没用功读书。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332454",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我可以用支票付吗？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332456",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "如果他年轻一点，他将很适合这个职位。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332459",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他给我的工作作出了明确指示。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332460",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他向权力屈服。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332461",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "是在昨天Jake打破了这扇窗。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332462",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "今天糟糕透了，所以我准备去喝一杯就直接上床。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332464",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "如果没有你，这个世界很孤单。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332465",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我觉得这个网站的构思非常好。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332466",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我觉得这个网站的概念非常好。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332467",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "啊，我认识这个男人！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332468",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "待在那儿别动。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332470",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "沿着这条路直走，到第三个红绿灯的地方右转。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332471",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他正坐在会议室里。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332472",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "等她回来的时候问问她。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332473",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "他说得很大声。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332474",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "差不多两周John的病才好了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332477",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我们必须设法打破这个僵局。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332478",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "十年后，我们的城市将改变许多。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332479",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "你咖啡喝得太多了。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "zh",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:332480",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "我有好几打呢。"
     }
   ]
 }

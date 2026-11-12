@@ -9413,6 +9413,96 @@
       "value": "Reply"
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0001",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Email: \"Sean Figaro\"<sfig...@houston.rr.com>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0002",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Groups: alt.animals.cat"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0003",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "I have a friend that has to get rid of one of her cats because of allergies, he is the youngest at 3 years old black, long hair, incredibly friendly."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0004",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "He comes with everything, litter box, carrier, ect."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0005",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Needs good family in Houston or surronding area, needs lots of attention, very loving."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0001",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Email: \"Julie\"<julie...@bellsouth.net>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0002",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Groups: alt.animals.cat"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0003",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Like you said \"the kids egg him on\"."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0004",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "maybe too much ."
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -18817,6 +18907,96 @@
       "retrieval_date": "2026-11-11",
       "source_id": "universal-dependencies",
       "value": "Reply"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0001",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Email: \"Sean Figaro\"<sfig...@houston.rr.com>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0002",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Groups: alt.animals.cat"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0003",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "I have a friend that has to get rid of one of her cats because of allergies, he is the youngest at 3 years old black, long hair, incredibly friendly."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0004",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "He comes with everything, litter box, carrier, ect."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0005",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Needs good family in Houston or surronding area, needs lots of attention, very loving."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0001",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Email: \"Julie\"<julie...@bellsouth.net>"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0002",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Groups: alt.animals.cat"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0003",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "Like you said \"the kids egg him on\"."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0004",
+      "retrieval_date": "2026-11-12",
+      "source_id": "universal-dependencies",
+      "value": "maybe too much ."
     },
     {
       "id": "verb.forms",
