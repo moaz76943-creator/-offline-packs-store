@@ -1225,6 +1225,406 @@
     {
       "id": "sentence.statement",
       "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357920",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Eve dönerken yağmura yakalanmıştım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357921",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Tatoeba'ya yüzlerce cümle yazmak isterdim ama yapmam gereken şeyler var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357922",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Geç kaldığım için üzgünüm."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357923",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Açıkça konuşmak gerekirse, o güvenilmez biri."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357924",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Irene Pepperberg, Alex adını taktığı bir papağanın önünde yuvarlak bir tepsi tutuyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357925",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Japonya'da doğmuş olmayı tercih ederdim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357926",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Kızı onunla her yere gitmeye hevesli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357928",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Biraz sakinleşmelisin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357929",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Sen olmasaydın, o hâlâ hayatta olacaktı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357981",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bana gülümsedi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358060",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok daha iyi hissediyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358062",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Türkiye'den döndükten sonra Türkçem zayıfladı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358128",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Politik dünyada pek çok düşmanı var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358129",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Onunla kahve dükkanında buluşmaya söz verdi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358130",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Büyük bedenimiz var, ama o renk mevcut değil."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358131",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Onu Jim diye çağırırlar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358140",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bence yarın yağmur yağmayacak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358145",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Beş köfte istiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358159",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "O kadar kötü birisi ki kimse ondan hoşlanmaz."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358168",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bir gün için bu kadarı yeterli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358169",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Artık çocuk değilim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358170",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Daha dikkatli sür, aksi halde başın belaya girecek."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358171",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Alkolsüz içecekleriniz var mı ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358172",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Çocukların daha çok uykuya ihtiyacı vardır."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358173",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Odasına girdi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:359088",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Kameram Nikon'dur."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:359089",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Hiç şüphe yok ki İngilizce dünyada en çok konuşulan dildir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:360523",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Doktor olacak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:360524",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Yumi öğretmen olacak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:360525",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu tırtıl harika bir kelebek olacak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:360527",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu tırtıl harika bir kelebeğe dönüşecek."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:365047",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bugün hava kötü."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370976",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Beklemekten başka çare yoktu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370977",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Odada 2 tane pencere var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370978",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Onu tanıdıkça daha çok seversin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370979",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Hastaymış gibi gözüküyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370980",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok lezzetli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370981",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu kıyafetim çok demode."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373286",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Sonsuza dek burada kalamam."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373288",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoş geldin!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:170564",
@@ -2421,6 +2821,406 @@
       "retrieval_date": "2026-11-07",
       "source_id": "tatoeba.sentences",
       "value": "Kendimi kendi tanrım olarak görüyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357920",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Eve dönerken yağmura yakalanmıştım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357921",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Tatoeba'ya yüzlerce cümle yazmak isterdim ama yapmam gereken şeyler var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357922",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Geç kaldığım için üzgünüm."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357923",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Açıkça konuşmak gerekirse, o güvenilmez biri."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357924",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Irene Pepperberg, Alex adını taktığı bir papağanın önünde yuvarlak bir tepsi tutuyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357925",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Japonya'da doğmuş olmayı tercih ederdim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357926",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Kızı onunla her yere gitmeye hevesli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357928",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Biraz sakinleşmelisin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357929",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Sen olmasaydın, o hâlâ hayatta olacaktı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:357981",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bana gülümsedi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358060",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok daha iyi hissediyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358062",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Türkiye'den döndükten sonra Türkçem zayıfladı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358128",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Politik dünyada pek çok düşmanı var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358129",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Onunla kahve dükkanında buluşmaya söz verdi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358130",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Büyük bedenimiz var, ama o renk mevcut değil."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358131",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Onu Jim diye çağırırlar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358140",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bence yarın yağmur yağmayacak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358145",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Beş köfte istiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358159",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "O kadar kötü birisi ki kimse ondan hoşlanmaz."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358168",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bir gün için bu kadarı yeterli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358169",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Artık çocuk değilim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358170",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Daha dikkatli sür, aksi halde başın belaya girecek."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358171",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Alkolsüz içecekleriniz var mı ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358172",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Çocukların daha çok uykuya ihtiyacı vardır."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:358173",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Odasına girdi."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:359088",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Kameram Nikon'dur."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:359089",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Hiç şüphe yok ki İngilizce dünyada en çok konuşulan dildir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:360523",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Doktor olacak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:360524",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Yumi öğretmen olacak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:360525",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu tırtıl harika bir kelebek olacak."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:360527",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu tırtıl harika bir kelebeğe dönüşecek."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:365047",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bugün hava kötü."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370976",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Beklemekten başka çare yoktu."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370977",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Odada 2 tane pencere var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370978",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Onu tanıdıkça daha çok seversin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370979",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Hastaymış gibi gözüküyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370980",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok lezzetli."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370981",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu kıyafetim çok demode."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373286",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Sonsuza dek burada kalamam."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373288",
+      "retrieval_date": "2026-11-11",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoş geldin!"
     }
   ]
 }
