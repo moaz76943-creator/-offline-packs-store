@@ -14,7 +14,7 @@
       "text": "***"
     }
   ],
-  "retrieval_date": "2026-11-11",
+  "retrieval_date": "2026-11-12",
   "rows": [
     {
       "language": "en",
@@ -9843,6 +9843,114 @@
       "source_id": "universal-dependencies",
       "status": "keep",
       "text": "Reply"
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0001",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Email: \"Sean Figaro\"<sfig...@houston.rr.com>"
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0002",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Groups: alt.animals.cat"
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0003",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I have a friend that has to get rid of one of her cats because of allergies, he is the youngest at 3 years old black, long hair, incredibly friendly."
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0004",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "He comes with everything, litter box, carrier, ect."
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_04d718686843b577_ENG_20040713_101600-0005",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Needs good family in Houston or surronding area, needs lots of attention, very loving."
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0001",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Email: \"Julie\"<julie...@bellsouth.net>"
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0002",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Groups: alt.animals.cat"
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0003",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Like you said \"the kids egg him on\"."
+    },
+    {
+      "language": "en",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.cat_119630d7ce2d2e9c_ENG_20051107_021600-0004",
+      "retrieval_date": "2026-11-12",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "maybe too much ."
     }
   ],
   "schema_version": "1.0.0",
