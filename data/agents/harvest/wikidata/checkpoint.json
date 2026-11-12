@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q25339430",
-    "Q137885556",
-    "Q2401214",
-    "Q2184080",
-    "Q125591578",
-    "Q96377183",
-    "Q124472538",
-    "Q3276240"
+    "Q25326642",
+    "Q21882933",
+    "Q125937397",
+    "Q130705907",
+    "Q125852055",
+    "Q136180844",
+    "Q65269502",
+    "Q125748934"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q25339430"
+      "wikidata": "Q25326642"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q137885556"
+      "wikidata": "Q21882933"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2401214"
+      "wikidata": "Q125937397"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q2184080"
+      "wikidata": "Q130705907"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q125591578"
+      "wikidata": "Q125852055"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q96377183"
+      "wikidata": "Q136180844"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q124472538"
+      "wikidata": "Q65269502"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q3276240"
+      "wikidata": "Q125748934"
     }
   ],
   "retrieval_date": "2026-11-12",
