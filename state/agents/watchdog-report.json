@@ -1,19 +1,9 @@
 {
   "degraded": [
-    "harvest-wikidata",
+    "harvest-kaikki",
     "packs"
   ],
-  "dispatch": [
-    "harvest-kaikki",
-    "harvest-tatoeba",
-    "grammar"
-  ],
+  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": [
-    "harvest-kaikki",
-    "harvest-tatoeba",
-    "grammar",
-    "qa",
-    "watchdog"
-  ]
+  "stale": []
 }
