@@ -1,0 +1,37 @@
+{
+  "language": "it",
+  "retrieval_date": "2026-11-12",
+  "rows": [
+    {
+      "concept_id": "concept.q2183220",
+      "forms": [
+        "costa",
+        "coste"
+      ],
+      "language": "it",
+      "lemma": "costa",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L689166",
+      "pos": "",
+      "qids": [
+        "Q93352",
+        "Q196672",
+        "Q2183220"
+      ],
+      "record_id": "L689166",
+      "retrieval_date": "2026-11-12",
+      "revision": "2230337160",
+      "schema_version": "1.0.0",
+      "section": "body",
+      "sense_id": "L689166-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "body.q4936952",
+      "wikidata": "Q2183220"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "body",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}
