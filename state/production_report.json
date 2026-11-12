@@ -14,6 +14,7 @@
       "fa": 2,
       "fr": 196,
       "hr": 9,
+      "id": 1,
       "it": 64,
       "ja": 142,
       "ko": 4,
@@ -40,7 +41,7 @@
       "clothing": 15,
       "colors": 40,
       "emotions": 20,
-      "food": 20,
+      "food": 21,
       "grammar": 819,
       "health": 18,
       "nature": 1,
@@ -58,9 +59,9 @@
       "kaikki.wiktextract": 127,
       "tatoeba.sentences": 1360,
       "universal-dependencies": 819,
-      "wikidata.lexemes": 519
+      "wikidata.lexemes": 520
     },
-    "total": 2825
+    "total": 2826
   },
   "generated_by": "classifier",
   "pack_bytes": 614400,
@@ -347,6 +348,7 @@
       "fa": 2,
       "fr": 196,
       "hr": 9,
+      "id": 1,
       "it": 64,
       "ja": 142,
       "ko": 4,
@@ -459,6 +461,9 @@
       "hr": {
         "time": 3,
         "work": 6
+      },
+      "id": {
+        "food": 1
       },
       "it": {
         "animals": 1,
@@ -628,6 +633,9 @@
       "hr": {
         "wikidata.lexemes": 9
       },
+      "id": {
+        "wikidata.lexemes": 1
+      },
       "it": {
         "kaikki.wiktextract": 17,
         "wikidata.lexemes": 47
@@ -699,7 +707,7 @@
       "clothing": 15,
       "colors": 40,
       "emotions": 20,
-      "food": 20,
+      "food": 21,
       "grammar": 819,
       "health": 18,
       "nature": 1,
@@ -717,9 +725,9 @@
       "kaikki.wiktextract": 127,
       "tatoeba.sentences": 1360,
       "universal-dependencies": 819,
-      "wikidata.lexemes": 519
+      "wikidata.lexemes": 520
     },
-    "total": 2825
+    "total": 2826
   },
   "schema_version": "1.0.0"
 }
