@@ -1,7 +1,6 @@
 {
-  "action": "recorded",
+  "action": "already-tracked",
+  "last_signature": "pr-blocker-label-janitor",
   "retries": 0,
-  "schema_version": "1.0.0",
-  "seen_count": 0,
-  "signature": "no-signature"
+  "schema_version": "1.0.0"
 }
