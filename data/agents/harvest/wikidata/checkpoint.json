@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q25326642",
-    "Q21882933",
-    "Q125937397",
-    "Q130705907",
-    "Q125852055",
-    "Q136180844",
-    "Q65269502",
-    "Q125748934"
+    "Q124972619",
+    "Q125944842",
+    "Q963324",
+    "Q2095368",
+    "Q136084267",
+    "Q2694430",
+    "Q726563",
+    "Q55632548"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q25326642"
+      "wikidata": "Q124972619"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q21882933"
+      "wikidata": "Q125944842"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q125937397"
+      "wikidata": "Q963324"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q130705907"
+      "wikidata": "Q2095368"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q125852055"
+      "wikidata": "Q136084267"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q136180844"
+      "wikidata": "Q2694430"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q65269502"
+      "wikidata": "Q726563"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q125748934"
+      "wikidata": "Q55632548"
     }
   ],
   "retrieval_date": "2026-11-12",
