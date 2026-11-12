@@ -3,11 +3,7 @@
     "harvest-wikidata",
     "packs"
   ],
-  "dispatch": [
-    "harvest-kaikki"
-  ],
+  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": [
-    "harvest-kaikki"
-  ]
+  "stale": []
 }
