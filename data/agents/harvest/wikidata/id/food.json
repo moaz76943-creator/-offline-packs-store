@@ -1,0 +1,32 @@
+{
+  "language": "id",
+  "retrieval_date": "2026-11-12",
+  "rows": [
+    {
+      "concept_id": "concept.q19728052",
+      "forms": [],
+      "language": "id",
+      "lemma": "kue maksuba",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L722904",
+      "pos": "",
+      "qids": [
+        "Q19728052"
+      ],
+      "record_id": "L722904",
+      "retrieval_date": "2026-11-12",
+      "revision": "1760343146",
+      "schema_version": "1.0.0",
+      "section": "food",
+      "sense_id": "L722904-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "food.q2095",
+      "wikidata": "Q19728052"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "food",
+  "skipped": [],
+  "source": "harvest-wikidata"
+}
