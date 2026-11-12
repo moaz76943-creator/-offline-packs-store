@@ -63,8 +63,8 @@
     },
     "total": 2826
   },
-  "generated_by": "classifier",
-  "pack_bytes": 614400,
+  "generated_by": "packs",
+  "pack_bytes": 622592,
   "packs": [
     {
       "bytes": 20480,
@@ -177,6 +177,14 @@
       "language": "hr",
       "sources": {
         "wikidata.lexemes": 9
+      }
+    },
+    {
+      "bytes": 8192,
+      "entries": 1,
+      "language": "id",
+      "sources": {
+        "wikidata.lexemes": 1
       }
     },
     {
