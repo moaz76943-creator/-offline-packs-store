@@ -1,9 +1,18 @@
 {
   "degraded": [
-    "harvest-wikidata",
-    "packs"
+    "harvest-wikidata"
   ],
-  "dispatch": [],
+  "dispatch": [
+    "janitor",
+    "coverage",
+    "classifier"
+  ],
   "schema_version": "1.0.0",
-  "stale": []
+  "stale": [
+    "classifier",
+    "packs",
+    "health",
+    "janitor",
+    "coverage"
+  ]
 }
