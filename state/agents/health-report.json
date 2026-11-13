@@ -1,6 +1,7 @@
 {
   "degraded": [
     "harvest-wikidata",
+    "packs",
     "watchdog"
   ],
   "failed_github_run": true,
@@ -8,7 +9,7 @@
   "roster_count": 21,
   "schema_version": "1.0.0",
   "stale": [
-    "packs",
-    "health"
+    "harvest-tatoeba",
+    "legal"
   ]
 }
