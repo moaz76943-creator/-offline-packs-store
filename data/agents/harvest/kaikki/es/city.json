@@ -1,6 +1,6 @@
 {
   "language": "es",
-  "retrieval_date": "2026-11-06",
+  "retrieval_date": "2026-11-13",
   "rows": [
     {
       "co_offered": [
@@ -481,6 +481,30 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3551"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q36312",
+      "gloss": "Calgary (the largest city in Alberta, Canada)",
+      "language": "es",
+      "lemma": "Calgary",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q36312"
+      ],
+      "record_id": "en-Calgary-es-name-m7mC30TZ",
+      "retrieval_date": "2026-11-13",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Calgary-es-name-m7mC30TZ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36312"
     }
   ],
   "schema_version": "1.0.0",
