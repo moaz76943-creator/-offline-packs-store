@@ -9,11 +9,6 @@
   "roster_count": 21,
   "schema_version": "1.0.0",
   "stale": [
-    "harvest-kaikki",
-    "classifier",
-    "grammar",
-    "health",
-    "janitor",
-    "codeql"
+    "health"
   ]
 }
