@@ -1,5 +1,5 @@
 {
-  "next_index": 800,
+  "next_index": 880,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "af",
+      "section": "travel"
+    },
+    {
+      "language": "am",
+      "section": "travel"
+    },
+    {
+      "language": "ar",
+      "section": "travel"
+    },
+    {
+      "language": "as",
+      "section": "travel"
+    },
+    {
+      "language": "az",
+      "section": "travel"
+    },
+    {
+      "language": "ba",
+      "section": "travel"
+    },
+    {
+      "language": "be",
+      "section": "travel"
+    },
+    {
+      "language": "bg",
+      "section": "travel"
+    },
+    {
+      "language": "bn",
+      "section": "travel"
+    },
+    {
+      "language": "br",
+      "section": "travel"
+    },
+    {
+      "language": "bs",
+      "section": "travel"
+    },
+    {
+      "language": "ca",
+      "section": "travel"
+    },
+    {
+      "language": "cs",
+      "section": "travel"
+    },
+    {
+      "language": "cy",
+      "section": "travel"
+    },
+    {
+      "language": "da",
+      "section": "travel"
+    },
+    {
+      "language": "de",
+      "section": "travel"
+    },
+    {
+      "language": "dv",
+      "section": "travel"
+    },
+    {
+      "language": "el",
+      "section": "travel"
+    },
+    {
+      "language": "en",
+      "section": "travel"
+    },
+    {
+      "language": "eo",
+      "section": "travel"
+    },
+    {
       "language": "es",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "et",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "eu",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "fa",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "fi",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "fo",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "fr",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "fy",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ga",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "gd",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "gl",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "gu",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ha",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "hi",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "hr",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "hu",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "hy",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "id",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ig",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "is",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "it",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ja",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ka",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "kk",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "km",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "kn",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ko",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ku",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ky",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "la",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "lb",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "lo",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "lt",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "lv",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "mg",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "mk",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ml",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "mn",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "mr",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ms",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "mt",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "my",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ne",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "nl",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "no",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "or",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "pa",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "pl",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ps",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "pt",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ro",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "ru",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "rw",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "sd",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "si",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "sk",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "sl",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "sn",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "so",
-      "section": "work"
+      "section": "travel"
     },
     {
       "language": "sq",
-      "section": "work"
-    },
-    {
-      "language": "sr",
-      "section": "work"
-    },
-    {
-      "language": "sv",
-      "section": "work"
-    },
-    {
-      "language": "sw",
-      "section": "work"
-    },
-    {
-      "language": "ta",
-      "section": "work"
-    },
-    {
-      "language": "te",
-      "section": "work"
-    },
-    {
-      "language": "tg",
-      "section": "work"
-    },
-    {
-      "language": "th",
-      "section": "work"
-    },
-    {
-      "language": "tk",
-      "section": "work"
-    },
-    {
-      "language": "tl",
-      "section": "work"
-    },
-    {
-      "language": "tr",
-      "section": "work"
-    },
-    {
-      "language": "tt",
-      "section": "work"
-    },
-    {
-      "language": "ug",
-      "section": "work"
-    },
-    {
-      "language": "uk",
-      "section": "work"
-    },
-    {
-      "language": "ur",
-      "section": "work"
-    },
-    {
-      "language": "uz",
-      "section": "work"
-    },
-    {
-      "language": "vi",
-      "section": "work"
-    },
-    {
-      "language": "xh",
-      "section": "work"
-    },
-    {
-      "language": "yo",
-      "section": "work"
-    },
-    {
-      "language": "zh",
-      "section": "work"
-    },
-    {
-      "language": "zu",
-      "section": "work"
+      "section": "travel"
     }
   ]
 }
