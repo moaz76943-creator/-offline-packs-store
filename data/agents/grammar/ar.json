@@ -1225,6 +1225,406 @@
     {
       "id": "sentence.statement",
       "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370646",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "الباب مفتوح."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370648",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "القلم مكسور."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370650",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أين الولد؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370652",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "ذهب بلال إلى المدرسة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370654",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "لمن هذا؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370655",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا جميل ، و ذلك أيضاً جميل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370657",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "فوزنا مؤكّد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370658",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "وافق المدرس على خطته."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370659",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "قام بالعمل كما طُلب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370660",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "سررت بمعرفتك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370661",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "تشرّفت بلقائك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370662",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "كيف حالك؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370663",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "بدأت صحته تتدهور."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370664",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "الأرملة امرأة توفي زوجها."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370665",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أين ذهب؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370666",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "لا تفتح الباب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370667",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "زُرِعَت الأشجار بجانب الطريق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370668",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "كان رجلاً سابقاً لعصره."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370669",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "ها قد أتى الباص."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370670",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا الكتاب لعلي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370672",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "كرم مدرس جديد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370674",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "المدرس الجديد في الفصل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370676",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أنا في بيت جديد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370678",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "السيارة التي أمامي لكرم."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370680",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "المدرس عند المدير."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370682",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أذهبت إلى المدرسة اليوم؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370684",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "من في البيت؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370686",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أحب اللّغة العربية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370688",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "ماذا تحب؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370690",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "ماذا تحب أن تأكل؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370692",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "سعة الخزان خمسون جالوناً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370693",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "سأساعده غداً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370694",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أعد الكتاب إلى صاحبه."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370695",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "الفتاة تشعر بالوحدة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370696",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "كنّا نسبح في النهر."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370697",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "قررت أن أعمل لحساب شركة في الولايات المتحدة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370698",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "قررت أن أعمل لحساب شركة في أمريكا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370699",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "جون في عمر أخي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370700",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا ما نريد أن نعرفه."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370701",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "من فضلك إلغِ هذا الملفّ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:331919",
@@ -2421,6 +2821,406 @@
       "retrieval_date": "2026-11-08",
       "source_id": "tatoeba.sentences",
       "value": "هذا بيت و ذلك مسجد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370646",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "الباب مفتوح."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370648",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "القلم مكسور."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370650",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أين الولد؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370652",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "ذهب بلال إلى المدرسة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370654",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "لمن هذا؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370655",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا جميل ، و ذلك أيضاً جميل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370657",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "فوزنا مؤكّد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370658",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "وافق المدرس على خطته."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370659",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "قام بالعمل كما طُلب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370660",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "سررت بمعرفتك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370661",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "تشرّفت بلقائك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370662",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "كيف حالك؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370663",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "بدأت صحته تتدهور."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370664",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "الأرملة امرأة توفي زوجها."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370665",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أين ذهب؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370666",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "لا تفتح الباب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370667",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "زُرِعَت الأشجار بجانب الطريق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370668",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "كان رجلاً سابقاً لعصره."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370669",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "ها قد أتى الباص."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370670",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا الكتاب لعلي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370672",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "كرم مدرس جديد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370674",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "المدرس الجديد في الفصل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370676",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أنا في بيت جديد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370678",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "السيارة التي أمامي لكرم."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370680",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "المدرس عند المدير."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370682",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أذهبت إلى المدرسة اليوم؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370684",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "من في البيت؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370686",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أحب اللّغة العربية."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370688",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "ماذا تحب؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370690",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "ماذا تحب أن تأكل؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370692",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "سعة الخزان خمسون جالوناً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370693",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "سأساعده غداً."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370694",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "أعد الكتاب إلى صاحبه."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370695",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "الفتاة تشعر بالوحدة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370696",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "كنّا نسبح في النهر."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370697",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "قررت أن أعمل لحساب شركة في الولايات المتحدة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370698",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "قررت أن أعمل لحساب شركة في أمريكا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370699",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "جون في عمر أخي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370700",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "هذا ما نريد أن نعرفه."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370701",
+      "retrieval_date": "2026-11-12",
+      "source_id": "tatoeba.sentences",
+      "value": "من فضلك إلغِ هذا الملفّ."
     }
   ]
 }
