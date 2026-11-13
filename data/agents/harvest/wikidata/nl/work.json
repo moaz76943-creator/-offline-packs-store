@@ -1,0 +1,98 @@
+{
+  "language": "nl",
+  "retrieval_date": "2026-11-13",
+  "rows": [
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "adviseur",
+        "adviseurs",
+        "adviseurtje",
+        "adviseurtjes"
+      ],
+      "language": "nl",
+      "lemma": "adviseur",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1405250",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L1405250",
+      "retrieval_date": "2026-11-13",
+      "revision": "2457016526",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1405250-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q1650915"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q1028181"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q1622272"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

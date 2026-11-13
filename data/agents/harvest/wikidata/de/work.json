@@ -982,6 +982,221 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3075052"
+    },
+    {
+      "concept_id": "concept.q16258947",
+      "forms": [
+        "Beamter",
+        "Beamten"
+      ],
+      "language": "de",
+      "lemma": "Beamter",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72792",
+      "pos": "",
+      "qids": [
+        "Q16258947",
+        "Q212238",
+        "Q812959",
+        "Q212238"
+      ],
+      "record_id": "L72792",
+      "retrieval_date": "2026-11-13",
+      "revision": "1878969673",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72792-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16258947"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "Umweltaktivist",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten"
+      ],
+      "language": "de",
+      "lemma": "Umweltaktivist",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L787448",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L787448",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568156397",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L787448-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "Umweltschützerin",
+        "Umweltschützerinnen",
+        "Umweltschützerin",
+        "Umweltschützerinnen",
+        "Umweltschützerin",
+        "Umweltschützerinnen",
+        "Umweltschützerin",
+        "Umweltschützerinnen"
+      ],
+      "language": "de",
+      "lemma": "Umweltschützerin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L930979",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L930979",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568156457",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L930979-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "Berater",
+        "Beraters",
+        "Berater",
+        "Berater",
+        "Berater",
+        "Berater",
+        "Beratern",
+        "Berater"
+      ],
+      "language": "de",
+      "lemma": "Berater",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L2956",
+      "pos": "",
+      "qids": [
+        "Q2994387",
+        "Q15978655"
+      ],
+      "record_id": "L2956",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306632076",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L2956-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "Typograf",
+        "Typografen",
+        "Typografen",
+        "Typografen",
+        "Typografen",
+        "Typografen",
+        "Typografen",
+        "Typografen"
+      ],
+      "language": "de",
+      "lemma": "Typograf",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72845",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L72845",
+      "retrieval_date": "2026-11-13",
+      "revision": "1880972855",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72845-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "Typografin",
+        "Typografinnen",
+        "Typografin",
+        "Typografin",
+        "Typografin",
+        "Typografinnen",
+        "Typografinnen",
+        "Typografinnen"
+      ],
+      "language": "de",
+      "lemma": "Typografin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L73037",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L73037",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568156009",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L73037-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "Typograph",
+        "Typographen",
+        "Typographen",
+        "Typographen",
+        "Typographen",
+        "Typographen",
+        "Typographen",
+        "Typographen"
+      ],
+      "language": "de",
+      "lemma": "Typograph",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1442214",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L1442214",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568156031",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1442214-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
     }
   ],
   "schema_version": "1.0.0",
@@ -989,55 +1204,63 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3075052"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3075052"
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q12347522"
+      "wikidata": "Q1650915"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q10694573"
+      "wikidata": "Q1028181"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q2310145"
+      "wikidata": "Q1622272"
     }
   ],
   "source": "harvest-wikidata"

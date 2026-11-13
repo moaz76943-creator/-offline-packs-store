@@ -561,6 +561,81 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "environmentalist",
+        "environmentalists"
+      ],
+      "language": "en",
+      "lemma": "environmentalist",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L320180",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L320180",
+      "retrieval_date": "2026-11-13",
+      "revision": "2562356209",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L320180-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "advisor",
+        "advisors"
+      ],
+      "language": "en",
+      "lemma": "advisor",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L29490",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L29490",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306465413",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L29490-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "typographer",
+        "typographers"
+      ],
+      "language": "en",
+      "lemma": "typographer",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72381",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L72381",
+      "retrieval_date": "2026-11-13",
+      "revision": "2561624360",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72381-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
     }
   ],
   "schema_version": "1.0.0",
@@ -568,55 +643,63 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3075052"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3075052"
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q12347522"
+      "wikidata": "Q1650915"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q10694573"
+      "wikidata": "Q1028181"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q2310145"
+      "wikidata": "Q1622272"
     }
   ],
   "source": "harvest-wikidata"

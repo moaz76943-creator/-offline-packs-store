@@ -889,6 +889,197 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q98833883"
+    },
+    {
+      "concept_id": "concept.q16258947",
+      "forms": [
+        "fonctionnaire",
+        "fonctionnaires"
+      ],
+      "language": "fr",
+      "lemma": "fonctionnaire",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L20252",
+      "pos": "",
+      "qids": [
+        "Q212238",
+        "Q599151",
+        "Q16258947",
+        "Q1328323",
+        "Q56447380"
+      ],
+      "record_id": "L20252",
+      "retrieval_date": "2026-11-13",
+      "revision": "2538203815",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L20252-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16258947"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "écologiste",
+        "écologistes"
+      ],
+      "language": "fr",
+      "lemma": "écologiste",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1576833",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L1576833",
+      "retrieval_date": "2026-11-13",
+      "revision": "2524839948",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1576833-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "conseiller",
+        "conseillant",
+        "conseillé",
+        "conseillée",
+        "conseillés",
+        "conseillées",
+        "conseille",
+        "conseilles"
+      ],
+      "language": "fr",
+      "lemma": "conseiller",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12455",
+      "pos": "verb",
+      "qids": [
+        "Q4657217",
+        "Q69945363",
+        "Q56299314",
+        "Q2994387"
+      ],
+      "record_id": "L12455",
+      "retrieval_date": "2026-11-13",
+      "revision": "2524914518",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12455-S5",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "conseillère",
+        "conseillères",
+        "conseiller",
+        "conseillers"
+      ],
+      "language": "fr",
+      "lemma": "conseiller",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12691",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L12691",
+      "retrieval_date": "2026-11-13",
+      "revision": "2528488574",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12691-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q1708232",
+      "forms": [
+        "médailleur",
+        "médailleurs"
+      ],
+      "language": "fr",
+      "lemma": "médailleur",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621298",
+      "pos": "",
+      "qids": [
+        "Q1708232"
+      ],
+      "record_id": "L621298",
+      "retrieval_date": "2026-11-13",
+      "revision": "1767881973",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621298-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1708232"
+    },
+    {
+      "concept_id": "concept.q1708232",
+      "forms": [
+        "médailleuse",
+        "médailleuses"
+      ],
+      "language": "fr",
+      "lemma": "médailleuse",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577483",
+      "pos": "",
+      "qids": [
+        "Q1708232"
+      ],
+      "record_id": "L1577483",
+      "retrieval_date": "2026-11-13",
+      "revision": "2525103093",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577483-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1708232"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "typographe",
+        "typographes"
+      ],
+      "language": "fr",
+      "lemma": "typographe",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L26880",
+      "pos": "",
+      "qids": [
+        "Q1229025",
+        "Q354034"
+      ],
+      "record_id": "L26880",
+      "retrieval_date": "2026-11-13",
+      "revision": "2524852998",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L26880-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
     }
   ],
   "schema_version": "1.0.0",
@@ -896,55 +1087,63 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3075052"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3075052"
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q12347522"
+      "wikidata": "Q1650915"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q10694573"
+      "wikidata": "Q1028181"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q2310145"
+      "wikidata": "Q1622272"
     }
   ],
   "source": "harvest-wikidata"

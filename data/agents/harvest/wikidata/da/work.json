@@ -277,6 +277,37 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3075052"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "rådgiver",
+        "rådgiveren",
+        "rådgivere",
+        "rådgiverne",
+        "rådgivers",
+        "rådgiverens",
+        "rådgiveres",
+        "rådgivernes"
+      ],
+      "language": "da",
+      "lemma": "rådgiver",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L347182",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L347182",
+      "retrieval_date": "2026-11-13",
+      "revision": "2330586430",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L347182-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
     }
   ],
   "schema_version": "1.0.0",
@@ -284,55 +315,63 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q14972848"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3264451"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3075052"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q3075052"
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2994387"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q12347522"
+      "wikidata": "Q1650915"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q10694573"
+      "wikidata": "Q1028181"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q2310145"
+      "wikidata": "Q1622272"
     }
   ],
   "source": "harvest-wikidata"

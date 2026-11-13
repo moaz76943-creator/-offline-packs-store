@@ -1,6 +1,6 @@
 {
   "language": "ja",
-  "retrieval_date": "2026-11-05",
+  "retrieval_date": "2026-11-13",
   "rows": [
     {
       "concept_id": "concept.q970153",
@@ -98,6 +98,30 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q1731155"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "タイポグラファー"
+      ],
+      "language": "ja",
+      "lemma": "タイポグラファー",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1605307",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L1605307",
+      "retrieval_date": "2026-11-13",
+      "revision": "2538442602",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1605307-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
     }
   ],
   "schema_version": "1.0.0",
@@ -105,59 +129,63 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2468727"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q1731155"
+      "wikidata": "Q2994387"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q1900167"
+      "wikidata": "Q2994387"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1650915"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q1028181"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q1622272"
     }
   ],
   "source": "harvest-wikidata"
