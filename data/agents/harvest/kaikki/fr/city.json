@@ -1,6 +1,6 @@
 {
   "language": "fr",
-  "retrieval_date": "2026-11-11",
+  "retrieval_date": "2026-11-13",
   "rows": [
     {
       "co_offered": [
@@ -529,6 +529,54 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2079"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q586",
+      "gloss": "Bonn (an independent city in North Rhine-Westphalia, Germany, on the Rhine River; the former capital of West Germany and (until 1999) seat of government of unified Germany)",
+      "language": "fr",
+      "lemma": "Bonn",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q586"
+      ],
+      "record_id": "en-Bonn-fr-name-XXlu3k0s",
+      "retrieval_date": "2026-11-13",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bonn-fr-name-XXlu3k0s",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q586"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q8646",
+      "gloss": "Hong Kong (a city, island and special administrative region in southeastern China)",
+      "language": "fr",
+      "lemma": "Hong-Kong",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q8646"
+      ],
+      "record_id": "en-Hong-Kong-fr-name-aBkX2cs9",
+      "retrieval_date": "2026-11-13",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Hong-Kong-fr-name-aBkX2cs9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8646"
     }
   ],
   "schema_version": "1.0.0",
