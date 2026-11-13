@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-11-05",
+  "retrieval_date": "2026-11-13",
   "rows": [
     {
       "concept_id": "concept.q82955",
@@ -765,6 +765,223 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q1900167"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "Lexikografin",
+        "Lexikografin",
+        "Lexikografin",
+        "Lexikografin",
+        "Lexikografinnen",
+        "Lexikografinnen",
+        "Lexikografinnen",
+        "Lexikografinnen"
+      ],
+      "language": "de",
+      "lemma": "Lexikografin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348748",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L348748",
+      "retrieval_date": "2026-11-13",
+      "revision": "2323566696",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348748-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "Lexikograf",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen"
+      ],
+      "language": "de",
+      "lemma": "Lexikograf",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348812",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L348812",
+      "retrieval_date": "2026-11-13",
+      "revision": "2323565543",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348812-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "Lexikograph",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen"
+      ],
+      "language": "de",
+      "lemma": "Lexikograph",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L493648",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L493648",
+      "retrieval_date": "2026-11-13",
+      "revision": "2323566524",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L493648-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q1757008",
+      "forms": [
+        "Regieassistent",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten"
+      ],
+      "language": "de",
+      "lemma": "Regieassistent",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L499141",
+      "pos": "",
+      "qids": [
+        "Q1757008"
+      ],
+      "record_id": "L499141",
+      "retrieval_date": "2026-11-13",
+      "revision": "1885182739",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L499141-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1757008"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "Kardiologin",
+        "Kardiologin",
+        "Kardiologin",
+        "Kardiologin",
+        "Kardiologinnen",
+        "Kardiologinnen",
+        "Kardiologinnen",
+        "Kardiologinnen"
+      ],
+      "language": "de",
+      "lemma": "Kardiologin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348741",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L348741",
+      "retrieval_date": "2026-11-13",
+      "revision": "2567426118",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348741-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "Kardiologe",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen"
+      ],
+      "language": "de",
+      "lemma": "Kardiologe",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348837",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L348837",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306676945",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348837-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3075052",
+      "forms": [
+        "Volkskundler",
+        "Volkskundlers",
+        "Volkskundler",
+        "Volkskundler",
+        "Volkskundler",
+        "Volkskundler",
+        "Volkskundlern",
+        "Volkskundler"
+      ],
+      "language": "de",
+      "lemma": "Volkskundler",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L612006",
+      "pos": "",
+      "qids": [
+        "Q3075052"
+      ],
+      "record_id": "L612006",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306770910",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L612006-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3075052"
     }
   ],
   "schema_version": "1.0.0",
@@ -772,59 +989,55 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q3075052"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2468727"
+      "wikidata": "Q3075052"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1731155"
+      "reason": "HTTPError:429",
+      "wikidata": "Q12347522"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q10694573"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q2310145"
     }
   ],
   "source": "harvest-wikidata"

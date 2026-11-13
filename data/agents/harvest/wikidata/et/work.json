@@ -1,6 +1,6 @@
 {
   "language": "et",
-  "retrieval_date": "2026-11-05",
+  "retrieval_date": "2026-11-13",
   "rows": [
     {
       "concept_id": "concept.q4205432",
@@ -125,6 +125,68 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "kardioloog",
+        "kardioloogi",
+        "kardioloogi",
+        "kardioloogisse",
+        "kardioloogis",
+        "kardioloogist",
+        "kardioloogile",
+        "kardioloogil"
+      ],
+      "language": "et",
+      "lemma": "kardioloog",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L360959",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L360959",
+      "retrieval_date": "2026-11-13",
+      "revision": "2327759578",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L360959-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "südamearst",
+        "südamearsti",
+        "südamearsti",
+        "südamearstisse",
+        "südamearstis",
+        "südamearstist",
+        "südamearstile",
+        "südamearstil"
+      ],
+      "language": "et",
+      "lemma": "südamearst",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L389034",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L389034",
+      "retrieval_date": "2026-11-13",
+      "revision": "2215879316",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L389034-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
     }
   ],
   "schema_version": "1.0.0",
@@ -132,59 +194,55 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q3075052"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2468727"
+      "wikidata": "Q3075052"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1731155"
+      "reason": "HTTPError:429",
+      "wikidata": "Q12347522"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q10694573"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q2310145"
     }
   ],
   "source": "harvest-wikidata"

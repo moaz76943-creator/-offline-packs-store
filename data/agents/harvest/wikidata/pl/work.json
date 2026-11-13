@@ -1,0 +1,94 @@
+{
+  "language": "pl",
+  "retrieval_date": "2026-11-13",
+  "rows": [
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "leksykograf",
+        "leksykografa",
+        "leksykografowi",
+        "leksykografa",
+        "leksykografem",
+        "leksykografie",
+        "leksykografie",
+        "leksykografowie"
+      ],
+      "language": "pl",
+      "lemma": "leksykograf",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L6254",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L6254",
+      "retrieval_date": "2026-11-13",
+      "revision": "1334962098",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L6254-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "work",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q14972848"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q14972848"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q14972848"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q14972848"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q14972848"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3264451"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3264451"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3264451"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3075052"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q3075052"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q12347522"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q10694573"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2310145"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

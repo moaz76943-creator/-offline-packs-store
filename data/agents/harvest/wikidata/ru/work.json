@@ -1,6 +1,6 @@
 {
   "language": "ru",
-  "retrieval_date": "2026-11-05",
+  "retrieval_date": "2026-11-13",
   "rows": [
     {
       "concept_id": "concept.q937857",
@@ -376,6 +376,99 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q1900167"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "лексикограф",
+        "лексикографа",
+        "лексикографу",
+        "лексикографа",
+        "лексикографом",
+        "лексикографе",
+        "лексикографы",
+        "лексикографов"
+      ],
+      "language": "ru",
+      "lemma": "лексикограф",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L122859",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L122859",
+      "retrieval_date": "2026-11-13",
+      "revision": "2237168295",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L122859-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q1757008",
+      "forms": [
+        "помреж",
+        "помрежа",
+        "помрежу",
+        "помрежа",
+        "помрежем",
+        "помреже",
+        "помрежи",
+        "помрежей"
+      ],
+      "language": "ru",
+      "lemma": "помреж",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L148786",
+      "pos": "",
+      "qids": [
+        "Q1757008"
+      ],
+      "record_id": "L148786",
+      "retrieval_date": "2026-11-13",
+      "revision": "1540437482",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L148786-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1757008"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "кардиолог",
+        "кардиолога",
+        "кардиологу",
+        "кардиолога",
+        "кардиологом",
+        "кардиологе",
+        "кардиологи",
+        "кардиологов"
+      ],
+      "language": "ru",
+      "lemma": "кардиолог",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L115227",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L115227",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568487964",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L115227-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
     }
   ],
   "schema_version": "1.0.0",
@@ -383,59 +476,55 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q3075052"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2468727"
+      "wikidata": "Q3075052"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1731155"
+      "reason": "HTTPError:429",
+      "wikidata": "Q12347522"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q10694573"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q2310145"
     }
   ],
   "source": "harvest-wikidata"

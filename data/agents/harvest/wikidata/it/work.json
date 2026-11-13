@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-11-05",
+  "retrieval_date": "2026-11-13",
   "rows": [
     {
       "concept_id": "concept.q9149093",
@@ -387,6 +387,56 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "lessicografo",
+        "lessicografi"
+      ],
+      "language": "it",
+      "lemma": "lessicografo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1209432",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L1209432",
+      "retrieval_date": "2026-11-13",
+      "revision": "2230283171",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1209432-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "cardiologo",
+        "cardiologi"
+      ],
+      "language": "it",
+      "lemma": "cardiologo",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1190733",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L1190733",
+      "retrieval_date": "2026-11-13",
+      "revision": "2230326170",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1190733-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
     }
   ],
   "schema_version": "1.0.0",
@@ -394,59 +444,55 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2055046"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q15978655"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q14972848"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q211423"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q3264451"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2487799"
+      "wikidata": "Q3075052"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2468727"
+      "wikidata": "Q3075052"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1731155"
+      "reason": "HTTPError:429",
+      "wikidata": "Q12347522"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q10694573"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q1900167"
+      "reason": "HTTPError:429",
+      "wikidata": "Q2310145"
     }
   ],
   "source": "harvest-wikidata"
