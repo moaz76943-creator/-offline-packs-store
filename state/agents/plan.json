@@ -1,5 +1,5 @@
 {
-  "next_index": 720,
+  "next_index": 800,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,323 +9,323 @@
   "warning": "",
   "window": [
     {
+      "language": "es",
+      "section": "work"
+    },
+    {
+      "language": "et",
+      "section": "work"
+    },
+    {
+      "language": "eu",
+      "section": "work"
+    },
+    {
+      "language": "fa",
+      "section": "work"
+    },
+    {
+      "language": "fi",
+      "section": "work"
+    },
+    {
+      "language": "fo",
+      "section": "work"
+    },
+    {
+      "language": "fr",
+      "section": "work"
+    },
+    {
+      "language": "fy",
+      "section": "work"
+    },
+    {
+      "language": "ga",
+      "section": "work"
+    },
+    {
+      "language": "gd",
+      "section": "work"
+    },
+    {
+      "language": "gl",
+      "section": "work"
+    },
+    {
+      "language": "gu",
+      "section": "work"
+    },
+    {
+      "language": "ha",
+      "section": "work"
+    },
+    {
+      "language": "hi",
+      "section": "work"
+    },
+    {
+      "language": "hr",
+      "section": "work"
+    },
+    {
+      "language": "hu",
+      "section": "work"
+    },
+    {
+      "language": "hy",
+      "section": "work"
+    },
+    {
+      "language": "id",
+      "section": "work"
+    },
+    {
+      "language": "ig",
+      "section": "work"
+    },
+    {
+      "language": "is",
+      "section": "work"
+    },
+    {
       "language": "it",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ja",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ka",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "kk",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "km",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "kn",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ko",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ku",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ky",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "la",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "lb",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "lo",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "lt",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "lv",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "mg",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "mk",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ml",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "mn",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "mr",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ms",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "mt",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "my",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ne",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "nl",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "no",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "or",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "pa",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "pl",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ps",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "pt",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ro",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ru",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "rw",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "sd",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "si",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "sk",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "sl",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "sn",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "so",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "sq",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "sr",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "sv",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "sw",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ta",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "te",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "tg",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "th",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "tk",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "tl",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "tr",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "tt",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ug",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "uk",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "ur",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "uz",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "vi",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "xh",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "yo",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "zh",
-      "section": "school"
+      "section": "work"
     },
     {
       "language": "zu",
-      "section": "school"
-    },
-    {
-      "language": "af",
-      "section": "work"
-    },
-    {
-      "language": "am",
-      "section": "work"
-    },
-    {
-      "language": "ar",
-      "section": "work"
-    },
-    {
-      "language": "as",
-      "section": "work"
-    },
-    {
-      "language": "az",
-      "section": "work"
-    },
-    {
-      "language": "ba",
-      "section": "work"
-    },
-    {
-      "language": "be",
-      "section": "work"
-    },
-    {
-      "language": "bg",
-      "section": "work"
-    },
-    {
-      "language": "bn",
-      "section": "work"
-    },
-    {
-      "language": "br",
-      "section": "work"
-    },
-    {
-      "language": "bs",
-      "section": "work"
-    },
-    {
-      "language": "ca",
-      "section": "work"
-    },
-    {
-      "language": "cs",
-      "section": "work"
-    },
-    {
-      "language": "cy",
-      "section": "work"
-    },
-    {
-      "language": "da",
-      "section": "work"
-    },
-    {
-      "language": "de",
-      "section": "work"
-    },
-    {
-      "language": "dv",
-      "section": "work"
-    },
-    {
-      "language": "el",
-      "section": "work"
-    },
-    {
-      "language": "en",
-      "section": "work"
-    },
-    {
-      "language": "eo",
       "section": "work"
     }
   ]
