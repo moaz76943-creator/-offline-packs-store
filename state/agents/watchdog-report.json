@@ -1,18 +1,18 @@
 {
   "degraded": [
-    "harvest-wikidata"
+    "harvest-wikidata",
+    "packs"
   ],
   "dispatch": [
-    "janitor",
-    "coverage",
-    "classifier"
+    "grammar",
+    "qa",
+    "harvest-kaikki"
   ],
   "schema_version": "1.0.0",
   "stale": [
-    "classifier",
-    "packs",
-    "health",
-    "janitor",
-    "coverage"
+    "harvest-kaikki",
+    "harvest-tatoeba",
+    "grammar",
+    "qa"
   ]
 }
