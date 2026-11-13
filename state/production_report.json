@@ -1,12 +1,12 @@
 {
   "classified": {
     "by_language": {
-      "ar": 120,
+      "ar": 160,
       "bg": 1,
       "cs": 14,
       "da": 24,
-      "de": 196,
-      "en": 1049,
+      "de": 197,
+      "en": 1089,
       "eo": 2,
       "es": 165,
       "et": 6,
@@ -37,17 +37,17 @@
     "by_section": {
       "animals": 24,
       "body": 3,
-      "city": 289,
+      "city": 290,
       "clothing": 15,
       "colors": 40,
       "emotions": 20,
       "food": 21,
-      "grammar": 828,
+      "grammar": 868,
       "health": 18,
       "nature": 1,
       "numbers": 4,
       "religion": 1,
-      "sentences": 1400,
+      "sentences": 1440,
       "shopping": 1,
       "sports": 3,
       "technology": 6,
@@ -56,14 +56,14 @@
       "work": 159
     },
     "by_source": {
-      "kaikki.wiktextract": 127,
-      "tatoeba.sentences": 1400,
-      "universal-dependencies": 828,
+      "kaikki.wiktextract": 128,
+      "tatoeba.sentences": 1440,
+      "universal-dependencies": 868,
       "wikidata.lexemes": 521
     },
-    "total": 2876
+    "total": 2957
   },
-  "generated_by": "packs",
+  "generated_by": "classifier",
   "pack_bytes": 643072,
   "packs": [
     {
