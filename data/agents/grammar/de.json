@@ -1225,6 +1225,406 @@
     {
       "id": "sentence.statement",
       "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:201",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Obwohl er sich entschuldigt hat, bin ich immer noch wütend."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:202",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Die Polizei wird euch dazu bringen, die Kugeln zu finden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:203",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Danke, dass Sie mir letzten Endes erklärt haben, warum die Leute mich für einen Idioten halten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:204",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Das war nicht meine Absicht."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:205",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Danke für Ihre Erklärung."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:206",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Theoretisch mache ich gerade Mathe."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:207",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Was passierte?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:208",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn du mich nicht so gekannt hast, dann hast du mich einfach gar nicht gekannt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:209",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Es hat mir fast Angst gemacht, dich einen ganzen Tag nicht online zu sehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:210",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich weiß nicht, was du meinst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:211",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Mein Computer muss mir zu etwas nützen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:212",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Du wolltest mit mir über Freiheit sprechen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:213",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, jetzt ist es wirklich verwirrend..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:214",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn ich dich erschrecken wollte, würde ich dir erzählen, was ich vor ein paar Wochen geträumt habe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:215",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Man kann nicht alles von den Schulen erwarten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:216",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Es gibt viele Wörter, die ich nicht verstehe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:217",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mag es nicht, wenn Mathematiker, die viel mehr als ich wissen, sich nicht genau ausdrücken können."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:218",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Du bist nicht wirklich dumm."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:219",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich muss dir eine dumme Frage stellen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:220",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich weiß nicht, wie ich es beweisen soll, so selbstverständlich wie es ist!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:221",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich hätte nicht gedacht, dass ich eines Tages bei Wikipedia \"Viagra\" nachschauen würde."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:222",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Kann man das anders ausdrücken?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:223",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Niemand wird's erfahren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:224",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich habe eine Lösung gefunden, aber ich habe sie so schnell gefunden, dass es nicht die richtige Lösung sein kann."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:225",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Das scheint mir interessant!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:226",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Nur, dass es hier nicht so einfach ist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:227",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mag gerne Kerzenlicht."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:228",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Was hast du geantwortet?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:229",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Nein, er ist nicht mein neuer Freund."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:230",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Es ist schade, dass ich nicht abnehmen muss."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:231",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Hast du nie Unterricht oder was?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:232",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde also Sudoku spielen, anstatt dich weiter zu stören."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:233",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Wo ist das Problem?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:235",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Das ist keine große Überraschung, oder?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:237",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mag dich nicht mehr."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:238",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin neugierig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:239",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Herzlichen Glückwunsch."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:240",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich will nicht so lange warten."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:241",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Warum kommst du uns nicht besuchen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:242",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Aber die Möglichkeit scheint unwahrscheinlich."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:77",
@@ -2421,6 +2821,406 @@
       "retrieval_date": "2026-11-08",
       "source_id": "tatoeba.sentences",
       "value": "Nächste Woche wird es vielleicht Frost geben."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:201",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Obwohl er sich entschuldigt hat, bin ich immer noch wütend."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:202",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Die Polizei wird euch dazu bringen, die Kugeln zu finden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:203",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Danke, dass Sie mir letzten Endes erklärt haben, warum die Leute mich für einen Idioten halten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:204",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Das war nicht meine Absicht."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:205",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Danke für Ihre Erklärung."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:206",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Theoretisch mache ich gerade Mathe."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:207",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Was passierte?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:208",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn du mich nicht so gekannt hast, dann hast du mich einfach gar nicht gekannt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:209",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Es hat mir fast Angst gemacht, dich einen ganzen Tag nicht online zu sehen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:210",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich weiß nicht, was du meinst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:211",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Mein Computer muss mir zu etwas nützen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:212",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Du wolltest mit mir über Freiheit sprechen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:213",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, jetzt ist es wirklich verwirrend..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:214",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Wenn ich dich erschrecken wollte, würde ich dir erzählen, was ich vor ein paar Wochen geträumt habe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:215",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Man kann nicht alles von den Schulen erwarten."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:216",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Es gibt viele Wörter, die ich nicht verstehe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:217",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mag es nicht, wenn Mathematiker, die viel mehr als ich wissen, sich nicht genau ausdrücken können."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:218",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Du bist nicht wirklich dumm."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:219",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich muss dir eine dumme Frage stellen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:220",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich weiß nicht, wie ich es beweisen soll, so selbstverständlich wie es ist!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:221",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich hätte nicht gedacht, dass ich eines Tages bei Wikipedia \"Viagra\" nachschauen würde."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:222",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Kann man das anders ausdrücken?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:223",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Niemand wird's erfahren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:224",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich habe eine Lösung gefunden, aber ich habe sie so schnell gefunden, dass es nicht die richtige Lösung sein kann."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:225",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Das scheint mir interessant!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:226",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Nur, dass es hier nicht so einfach ist."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:227",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mag gerne Kerzenlicht."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:228",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Was hast du geantwortet?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:229",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Nein, er ist nicht mein neuer Freund."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:230",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Es ist schade, dass ich nicht abnehmen muss."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:231",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Hast du nie Unterricht oder was?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:232",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich werde also Sudoku spielen, anstatt dich weiter zu stören."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:233",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Wo ist das Problem?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:235",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Das ist keine große Überraschung, oder?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:237",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich mag dich nicht mehr."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:238",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich bin neugierig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:239",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Herzlichen Glückwunsch."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:240",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Ich will nicht so lange warten."
+    },
+    {
+      "id": "sentence.question",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:241",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Warum kommst du uns nicht besuchen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "de",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:242",
+      "retrieval_date": "2026-11-13",
+      "source_id": "tatoeba.sentences",
+      "value": "Aber die Möglichkeit scheint unwahrscheinlich."
     }
   ]
 }
