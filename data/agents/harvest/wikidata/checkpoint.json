@@ -1,13 +1,13 @@
 {
   "concepts_attempted": [
-    "Q89804644",
-    "Q89814857",
-    "Q116173653",
-    "Q89812826",
-    "Q89803185",
-    "Q89804663",
-    "Q89806249",
-    "Q89804368"
+    "Q89810103",
+    "Q89804641",
+    "Q89806521",
+    "Q89811713",
+    "Q89812840",
+    "Q89812977",
+    "Q89812792",
+    "Q89806861"
   ],
   "outcomes": [
     {
@@ -16,7 +16,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89804644"
+      "wikidata": "Q89810103"
     },
     {
       "accepted_rows": 0,
@@ -24,7 +24,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89814857"
+      "wikidata": "Q89804641"
     },
     {
       "accepted_rows": 0,
@@ -32,7 +32,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q116173653"
+      "wikidata": "Q89806521"
     },
     {
       "accepted_rows": 0,
@@ -40,7 +40,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89812826"
+      "wikidata": "Q89811713"
     },
     {
       "accepted_rows": 0,
@@ -48,7 +48,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89803185"
+      "wikidata": "Q89812840"
     },
     {
       "accepted_rows": 0,
@@ -56,7 +56,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89804663"
+      "wikidata": "Q89812977"
     },
     {
       "accepted_rows": 0,
@@ -64,7 +64,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89806249"
+      "wikidata": "Q89812792"
     },
     {
       "accepted_rows": 0,
@@ -72,7 +72,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q89804368"
+      "wikidata": "Q89806861"
     }
   ],
   "retrieval_date": "2026-11-13",
