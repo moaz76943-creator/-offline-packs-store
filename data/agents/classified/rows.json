@@ -1222,6 +1222,35 @@
       "co_offered": [
         "GFDL-1.3-only"
       ],
+      "concept_id": "concept.q36312",
+      "gloss": "Calgary (the largest city in Alberta, Canada)",
+      "language": "es",
+      "lemma": "Calgary",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/Spanish/kaikki.org-dictionary-Spanish.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q36312"
+      ],
+      "record_id": "en-Calgary-es-name-m7mC30TZ",
+      "retrieval_date": "2026-11-13",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Calgary-es-name-m7mC30TZ",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q36312"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
       "concept_id": "concept.q1489",
       "gloss": "Mexico City (the capital city of Mexico)",
       "language": "fr",
@@ -46342,6 +46371,42 @@
       "wikidata": "Q937857"
     },
     {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "srdcař",
+        "srdcaře",
+        "srdcaři",
+        "srdcařovi",
+        "srdcaře",
+        "srdcaři",
+        "srdcaři",
+        "srdcařovi"
+      ],
+      "language": "cs",
+      "lemma": "srdcař",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L254544",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L254544",
+      "retrieval_date": "2026-11-13",
+      "revision": "1133416109",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L254544-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "hest",
@@ -47139,6 +47204,74 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "leksikograf",
+        "leksikografen",
+        "leksikografer",
+        "leksikograferne",
+        "leksikografs",
+        "leksikografens",
+        "leksikografers",
+        "leksikografernes"
+      ],
+      "language": "da",
+      "lemma": "leksikograf",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1280641",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L1280641",
+      "retrieval_date": "2026-11-13",
+      "revision": "2241221594",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1280641-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q3075052",
+      "forms": [
+        "folkemindesamler",
+        "folkemindesamleren",
+        "folkemindesamlere",
+        "folkemindesamlerne"
+      ],
+      "language": "da",
+      "lemma": "folkemindesamler",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L232397",
+      "pos": "",
+      "qids": [
+        "Q3075052"
+      ],
+      "record_id": "L232397",
+      "retrieval_date": "2026-11-13",
+      "revision": "2189231919",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L232397-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3075052"
     },
     {
       "concept_id": "concept.q1780",
@@ -49196,6 +49329,258 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q1900167"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "Lexikografin",
+        "Lexikografin",
+        "Lexikografin",
+        "Lexikografin",
+        "Lexikografinnen",
+        "Lexikografinnen",
+        "Lexikografinnen",
+        "Lexikografinnen"
+      ],
+      "language": "de",
+      "lemma": "Lexikografin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348748",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L348748",
+      "retrieval_date": "2026-11-13",
+      "revision": "2323566696",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348748-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "Lexikograf",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen",
+        "Lexikografen"
+      ],
+      "language": "de",
+      "lemma": "Lexikograf",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348812",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L348812",
+      "retrieval_date": "2026-11-13",
+      "revision": "2323565543",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348812-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "Lexikograph",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen",
+        "Lexikographen"
+      ],
+      "language": "de",
+      "lemma": "Lexikograph",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L493648",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L493648",
+      "retrieval_date": "2026-11-13",
+      "revision": "2323566524",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L493648-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q1757008",
+      "forms": [
+        "Regieassistent",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten",
+        "Regieassistenten"
+      ],
+      "language": "de",
+      "lemma": "Regieassistent",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L499141",
+      "pos": "",
+      "qids": [
+        "Q1757008"
+      ],
+      "record_id": "L499141",
+      "retrieval_date": "2026-11-13",
+      "revision": "1885182739",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L499141-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1757008"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "Kardiologin",
+        "Kardiologin",
+        "Kardiologin",
+        "Kardiologin",
+        "Kardiologinnen",
+        "Kardiologinnen",
+        "Kardiologinnen",
+        "Kardiologinnen"
+      ],
+      "language": "de",
+      "lemma": "Kardiologin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348741",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L348741",
+      "retrieval_date": "2026-11-13",
+      "revision": "2567426118",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348741-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "Kardiologe",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen",
+        "Kardiologen"
+      ],
+      "language": "de",
+      "lemma": "Kardiologe",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348837",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L348837",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306676945",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L348837-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3075052",
+      "forms": [
+        "Volkskundler",
+        "Volkskundlers",
+        "Volkskundler",
+        "Volkskundler",
+        "Volkskundler",
+        "Volkskundler",
+        "Volkskundlern",
+        "Volkskundler"
+      ],
+      "language": "de",
+      "lemma": "Volkskundler",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L612006",
+      "pos": "",
+      "qids": [
+        "Q3075052"
+      ],
+      "record_id": "L612006",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306770910",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L612006-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3075052"
     },
     {
       "concept_id": "concept.q726",
@@ -52153,6 +52538,66 @@
       "wikidata": "Q1900167"
     },
     {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "lexicographer",
+        "lexicographers"
+      ],
+      "language": "en",
+      "lemma": "lexicographer",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L57290",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L57290",
+      "retrieval_date": "2026-11-13",
+      "revision": "2562093315",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L57290-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "cardiologist",
+        "cardiologists"
+      ],
+      "language": "en",
+      "lemma": "cardiologist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L30395",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L30395",
+      "retrieval_date": "2026-11-13",
+      "revision": "2561196730",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L30395-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "ĉevalo",
@@ -53005,6 +53450,70 @@
       "wikidata": "Q15978655"
     },
     {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "lexicógrafo",
+        "lexicógrafos",
+        "lexicógrafa",
+        "lexicógrafas"
+      ],
+      "language": "es",
+      "lemma": "lexicógrafo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1603008",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L1603008",
+      "retrieval_date": "2026-11-13",
+      "revision": "2536168846",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1603008-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "cardiólogo",
+        "cardiólogos",
+        "cardióloga",
+        "cardiólogas"
+      ],
+      "language": "es",
+      "lemma": "cardiólogo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L685163",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L685163",
+      "retrieval_date": "2026-11-13",
+      "revision": "2436739753",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L685163-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
       "concept_id": "concept.q2778382",
       "forms": [
         "pronks",
@@ -53220,6 +53729,78 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "kardioloog",
+        "kardioloogi",
+        "kardioloogi",
+        "kardioloogisse",
+        "kardioloogis",
+        "kardioloogist",
+        "kardioloogile",
+        "kardioloogil"
+      ],
+      "language": "et",
+      "lemma": "kardioloog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L360959",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L360959",
+      "retrieval_date": "2026-11-13",
+      "revision": "2327759578",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L360959-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "südamearst",
+        "südamearsti",
+        "südamearsti",
+        "südamearstisse",
+        "südamearstis",
+        "südamearstist",
+        "südamearstile",
+        "südamearstil"
+      ],
+      "language": "et",
+      "lemma": "südamearst",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L389034",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L389034",
+      "retrieval_date": "2026-11-13",
+      "revision": "2215879316",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L389034-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
     },
     {
       "concept_id": "concept.q430",
@@ -55153,6 +55734,216 @@
       "wikidata": "Q1900167"
     },
     {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "lexicographe",
+        "lexicographes"
+      ],
+      "language": "fr",
+      "lemma": "lexicographe",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L26882",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L26882",
+      "retrieval_date": "2026-11-13",
+      "revision": "2456640170",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L26882-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q1757008",
+      "forms": [
+        "assistant réalisateur",
+        "assistants réalisateurs"
+      ],
+      "language": "fr",
+      "lemma": "assistant réalisateur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577451",
+      "pos": "",
+      "qids": [
+        "Q1757008"
+      ],
+      "record_id": "L1577451",
+      "retrieval_date": "2026-11-13",
+      "revision": "2532052478",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577451-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1757008"
+    },
+    {
+      "concept_id": "concept.q1757008",
+      "forms": [
+        "assistante réalisatrice",
+        "assistantes réalisatrices"
+      ],
+      "language": "fr",
+      "lemma": "assistante réalisatrice",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577453",
+      "pos": "",
+      "qids": [
+        "Q1757008"
+      ],
+      "record_id": "L1577453",
+      "retrieval_date": "2026-11-13",
+      "revision": "2532052480",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577453-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1757008"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "cardiologue",
+        "cardiologues"
+      ],
+      "language": "fr",
+      "lemma": "cardiologue",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621725",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L621725",
+      "retrieval_date": "2026-11-13",
+      "revision": "2525392429",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621725-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3075052",
+      "forms": [
+        "folkloriste",
+        "folkloristes"
+      ],
+      "language": "fr",
+      "lemma": "folkloriste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621465",
+      "pos": "",
+      "qids": [
+        "Q3075052"
+      ],
+      "record_id": "L621465",
+      "retrieval_date": "2026-11-13",
+      "revision": "2439222925",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621465-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3075052"
+    },
+    {
+      "concept_id": "concept.q98833883",
+      "forms": [
+        "théologien protestant",
+        "théologiens protestants"
+      ],
+      "language": "fr",
+      "lemma": "théologien protestant",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577743",
+      "pos": "",
+      "qids": [
+        "Q98833883"
+      ],
+      "record_id": "L1577743",
+      "retrieval_date": "2026-11-13",
+      "revision": "2532048083",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577743-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q98833883"
+    },
+    {
+      "concept_id": "concept.q98833883",
+      "forms": [
+        "théologienne protestante",
+        "théologiennes protestantes"
+      ],
+      "language": "fr",
+      "lemma": "théologienne protestante",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1578822",
+      "pos": "",
+      "qids": [
+        "Q98833883"
+      ],
+      "record_id": "L1578822",
+      "retrieval_date": "2026-11-13",
+      "revision": "2532048298",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1578822-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q98833883"
+    },
+    {
       "concept_id": "concept.q11756",
       "forms": [
         "prapovijest",
@@ -56976,6 +57767,66 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "lessicografo",
+        "lessicografi"
+      ],
+      "language": "it",
+      "lemma": "lessicografo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1209432",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L1209432",
+      "retrieval_date": "2026-11-13",
+      "revision": "2230283171",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1209432-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "cardiologo",
+        "cardiologi"
+      ],
+      "language": "it",
+      "lemma": "cardiologo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1190733",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L1190733",
+      "retrieval_date": "2026-11-13",
+      "revision": "2230326170",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1190733-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
     },
     {
       "concept_id": "concept.q1754",
@@ -59781,6 +60632,42 @@
       "wikidata": "Q12199"
     },
     {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "leksykograf",
+        "leksykografa",
+        "leksykografowi",
+        "leksykografa",
+        "leksykografem",
+        "leksykografie",
+        "leksykografie",
+        "leksykografowie"
+      ],
+      "language": "pl",
+      "lemma": "leksykograf",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L6254",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L6254",
+      "retrieval_date": "2026-11-13",
+      "revision": "1334962098",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L6254-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
       "concept_id": "concept.q430",
       "forms": [
         "dinossauro",
@@ -60963,6 +61850,114 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q1900167"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "лексикограф",
+        "лексикографа",
+        "лексикографу",
+        "лексикографа",
+        "лексикографом",
+        "лексикографе",
+        "лексикографы",
+        "лексикографов"
+      ],
+      "language": "ru",
+      "lemma": "лексикограф",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L122859",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L122859",
+      "retrieval_date": "2026-11-13",
+      "revision": "2237168295",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L122859-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q1757008",
+      "forms": [
+        "помреж",
+        "помрежа",
+        "помрежу",
+        "помрежа",
+        "помрежем",
+        "помреже",
+        "помрежи",
+        "помрежей"
+      ],
+      "language": "ru",
+      "lemma": "помреж",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L148786",
+      "pos": "",
+      "qids": [
+        "Q1757008"
+      ],
+      "record_id": "L148786",
+      "retrieval_date": "2026-11-13",
+      "revision": "1540437482",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L148786-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1757008"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "кардиолог",
+        "кардиолога",
+        "кардиологу",
+        "кардиолога",
+        "кардиологом",
+        "кардиологе",
+        "кардиологи",
+        "кардиологов"
+      ],
+      "language": "ru",
+      "lemma": "кардиолог",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L115227",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L115227",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568487964",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L115227-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
     },
     {
       "concept_id": "concept.q726",
@@ -62330,6 +63325,186 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q1900167"
+    },
+    {
+      "concept_id": "concept.q14972848",
+      "forms": [
+        "lexikograf",
+        "lexikografen",
+        "lexikografer",
+        "lexikograferna",
+        "lexikografs",
+        "lexikografens",
+        "lexikografers",
+        "lexikografernas"
+      ],
+      "language": "sv",
+      "lemma": "lexikograf",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L46283",
+      "pos": "",
+      "qids": [
+        "Q14972848"
+      ],
+      "record_id": "L46283",
+      "retrieval_date": "2026-11-13",
+      "revision": "2530809076",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L46283-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q14972848"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "hjärtläkare",
+        "hjärtläkaren",
+        "hjärtläkare",
+        "hjärtläkarna",
+        "hjärtläkares",
+        "hjärtläkarens",
+        "hjärtläkares",
+        "hjärtläkarnas"
+      ],
+      "language": "sv",
+      "lemma": "hjärtläkare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L56731",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L56731",
+      "retrieval_date": "2026-11-13",
+      "revision": "2483820544",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L56731-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "kardiolog",
+        "kardiologen",
+        "kardiologer",
+        "kardiologerna",
+        "kardiologs",
+        "kardiologens",
+        "kardiologers",
+        "kardiologernas"
+      ],
+      "language": "sv",
+      "lemma": "kardiolog",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L247007",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L247007",
+      "retrieval_date": "2026-11-13",
+      "revision": "2526394703",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L247007-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3264451",
+      "forms": [
+        "hjärtspecialist",
+        "hjärtspecialisten",
+        "hjärtspecialister",
+        "hjärtspecialisterna",
+        "hjärtspecialists",
+        "hjärtspecialistens",
+        "hjärtspecialisters",
+        "hjärtspecialisternas"
+      ],
+      "language": "sv",
+      "lemma": "hjärtspecialist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1413032",
+      "pos": "",
+      "qids": [
+        "Q3264451"
+      ],
+      "record_id": "L1413032",
+      "retrieval_date": "2026-11-13",
+      "revision": "2478854659",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1413032-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3075052",
+      "forms": [
+        "folklorist",
+        "folkloristen",
+        "folklorister",
+        "folkloristerna",
+        "folklorists",
+        "folkloristens",
+        "folkloristers",
+        "folkloristernas"
+      ],
+      "language": "sv",
+      "lemma": "folklorist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1397489",
+      "pos": "",
+      "qids": [
+        "Q3075052"
+      ],
+      "record_id": "L1397489",
+      "retrieval_date": "2026-11-13",
+      "revision": "2478801037",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1397489-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3075052"
     },
     {
       "concept_id": "concept.q12106",
