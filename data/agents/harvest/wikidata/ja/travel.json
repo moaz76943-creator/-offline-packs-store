@@ -1,0 +1,115 @@
+{
+  "language": "ja",
+  "retrieval_date": "2026-11-14",
+  "rows": [
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "郵便",
+        "ゆうびん"
+      ],
+      "language": "ja",
+      "lemma": "郵便",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1101131",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L1101131",
+      "retrieval_date": "2026-11-14",
+      "revision": "2435042527",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1101131-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "便り",
+        "たより",
+        "便",
+        "たより"
+      ],
+      "language": "ja",
+      "lemma": "便り",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1407360",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L1407360",
+      "retrieval_date": "2026-11-14",
+      "revision": "2381799228",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1407360-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "travel",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q155930"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q583413"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q4354683"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2072431"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

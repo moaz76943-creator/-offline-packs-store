@@ -52,18 +52,163 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "irrigazione",
+        "irrigazioni"
+      ],
+      "language": "it",
+      "lemma": "irrigazione",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1145215",
+      "pos": "",
+      "qids": [
+        "Q11453",
+        "Q11714089"
+      ],
+      "record_id": "L1145215",
+      "retrieval_date": "2026-11-14",
+      "revision": "2347199538",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1145215-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "rapimento",
+        "rapimenti"
+      ],
+      "language": "it",
+      "lemma": "rapimento",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L684256",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L684256",
+      "retrieval_date": "2026-11-14",
+      "revision": "2182129993",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L684256-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "ostaggio",
+        "ostaggi"
+      ],
+      "language": "it",
+      "lemma": "ostaggio",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L686362",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L686362",
+      "retrieval_date": "2026-11-14",
+      "revision": "2196127676",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L686362-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "posta",
+        "poste"
+      ],
+      "language": "it",
+      "lemma": "posta",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L684980",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L684980",
+      "retrieval_date": "2026-11-14",
+      "revision": "2428678151",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L684980-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
     }
   ],
   "schema_version": "1.0.0",
   "section": "travel",
   "skipped": [
     {
-      "reason": "unplaced",
-      "wikidata": "Q179226"
+      "reason": "other_language",
+      "wikidata": "Q155930"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q179226"
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q583413"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q4354683"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2072431"
     }
   ],
   "source": "harvest-wikidata"

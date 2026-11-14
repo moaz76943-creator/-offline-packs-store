@@ -32,18 +32,114 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "kidnapning",
+        "kidnapningen",
+        "kidnapninger",
+        "kidnapningerne"
+      ],
+      "language": "da",
+      "lemma": "kidnapning",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L44304",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L44304",
+      "retrieval_date": "2026-11-14",
+      "revision": "2213064316",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L44304-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "post",
+        "posten"
+      ],
+      "language": "da",
+      "lemma": "post",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L54378",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L54378",
+      "retrieval_date": "2026-11-14",
+      "revision": "2431858773",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L54378-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
     }
   ],
   "schema_version": "1.0.0",
   "section": "travel",
   "skipped": [
     {
-      "reason": "unplaced",
-      "wikidata": "Q179226"
+      "reason": "other_language",
+      "wikidata": "Q155930"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q179226"
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q583413"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q4354683"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2072431"
     }
   ],
   "source": "harvest-wikidata"

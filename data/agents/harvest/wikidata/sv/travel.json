@@ -1,0 +1,148 @@
+{
+  "language": "sv",
+  "retrieval_date": "2026-11-14",
+  "rows": [
+    {
+      "concept_id": "concept.q155930",
+      "forms": [
+        "sjöfart",
+        "sjöfarten",
+        "sjöfarts",
+        "sjöfartens"
+      ],
+      "language": "sv",
+      "lemma": "sjöfart",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L475975",
+      "pos": "",
+      "qids": [
+        "Q155930"
+      ],
+      "record_id": "L475975",
+      "retrieval_date": "2026-11-14",
+      "revision": "2568834701",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L475975-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q155930"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "konstbevattning",
+        "konstbevattningen",
+        "konstbevattnings",
+        "konstbevattningens"
+      ],
+      "language": "sv",
+      "lemma": "konstbevattning",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1342581",
+      "pos": "",
+      "qids": [
+        "Q11453"
+      ],
+      "record_id": "L1342581",
+      "retrieval_date": "2026-11-14",
+      "revision": "2507107753",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1342581-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "kidnappning",
+        "kidnappningen",
+        "kidnappningar",
+        "kidnappningarna",
+        "kidnappnings",
+        "kidnappningens",
+        "kidnappningars",
+        "kidnappningarnas"
+      ],
+      "language": "sv",
+      "lemma": "kidnappning",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L486071",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L486071",
+      "retrieval_date": "2026-11-14",
+      "revision": "2483345365",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L486071-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "travel",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q155930"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q583413"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q4354683"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2072431"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

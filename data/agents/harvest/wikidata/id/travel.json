@@ -1,0 +1,95 @@
+{
+  "language": "id",
+  "retrieval_date": "2026-11-14",
+  "rows": [
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "pengairan",
+        "air",
+        "pengairan",
+        "pengairanku",
+        "pengairanmu",
+        "pengairannya",
+        "pengairanlah",
+        "pengairankulah"
+      ],
+      "language": "id",
+      "lemma": "pengairan",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L479448",
+      "pos": "",
+      "qids": [
+        "Q11453",
+        "Q11453"
+      ],
+      "record_id": "L479448",
+      "retrieval_date": "2026-11-14",
+      "revision": "2262510983",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L479448-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "travel",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q155930"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q583413"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q4354683"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2072431"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

@@ -1,0 +1,94 @@
+{
+  "language": "la",
+  "retrieval_date": "2026-11-14",
+  "rows": [
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abreptae",
+        "abreptae"
+      ],
+      "language": "la",
+      "lemma": "abripio",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L254725",
+      "pos": "verb",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L254725",
+      "retrieval_date": "2026-11-14",
+      "revision": "2322742653",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L254725-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "travel",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q155930"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q583413"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q4354683"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2072431"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

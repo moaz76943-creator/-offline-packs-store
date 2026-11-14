@@ -26,18 +26,192 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "irrigation",
+        "irrigations"
+      ],
+      "language": "en",
+      "lemma": "irrigation",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L36933",
+      "pos": "",
+      "qids": [
+        "Q11714089",
+        "Q11453"
+      ],
+      "record_id": "L36933",
+      "retrieval_date": "2026-11-14",
+      "revision": "2562021730",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L36933-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "abduction",
+        "abductions"
+      ],
+      "language": "en",
+      "lemma": "abduction",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L299268",
+      "pos": "",
+      "qids": [
+        "Q885607",
+        "Q318296",
+        "Q308502"
+      ],
+      "record_id": "L299268",
+      "retrieval_date": "2026-11-14",
+      "revision": "2560875678",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L299268-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "kidnapping",
+        "kidnappings"
+      ],
+      "language": "en",
+      "lemma": "kidnapping",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L299321",
+      "pos": "",
+      "qids": [
+        "Q318296",
+        "Q318296"
+      ],
+      "record_id": "L299321",
+      "retrieval_date": "2026-11-14",
+      "revision": "2423205057",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L299321-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "abducted"
+      ],
+      "language": "en",
+      "lemma": "abducted",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1494835",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L1494835",
+      "retrieval_date": "2026-11-14",
+      "revision": "2403708159",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1494835-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "mail",
+        "mail"
+      ],
+      "language": "en",
+      "lemma": "mail",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L6333",
+      "pos": "",
+      "qids": [
+        "Q49845",
+        "Q29000384",
+        "Q2106340"
+      ],
+      "record_id": "L6333",
+      "retrieval_date": "2026-11-14",
+      "revision": "2559777632",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L6333-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
     }
   ],
   "schema_version": "1.0.0",
   "section": "travel",
   "skipped": [
     {
-      "reason": "unplaced",
-      "wikidata": "Q179226"
+      "reason": "other_language",
+      "wikidata": "Q155930"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q179226"
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q318296"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q49845"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q651658"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q583413"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q4354683"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2072431"
     }
   ],
   "source": "harvest-wikidata"
