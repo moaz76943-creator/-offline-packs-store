@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-10-20",
+  "retrieval_date": "2026-11-14",
   "rows": [
     {
       "concept_id": "concept.q131482",
@@ -26,10 +26,45 @@
       "status": "keep",
       "subsection": "travel.q61509",
       "wikidata": "Q131482"
+    },
+    {
+      "concept_id": "concept.q179226",
+      "forms": [
+        "equitazione",
+        "equitazioni"
+      ],
+      "language": "it",
+      "lemma": "equitazione",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L689983",
+      "pos": "",
+      "qids": [
+        "Q179226",
+        "Q5384640"
+      ],
+      "record_id": "L689983",
+      "retrieval_date": "2026-11-14",
+      "revision": "2230652696",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L689983-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q179226"
     }
   ],
   "schema_version": "1.0.0",
   "section": "travel",
-  "skipped": [],
+  "skipped": [
+    {
+      "reason": "unplaced",
+      "wikidata": "Q179226"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q179226"
+    }
+  ],
   "source": "harvest-wikidata"
 }
