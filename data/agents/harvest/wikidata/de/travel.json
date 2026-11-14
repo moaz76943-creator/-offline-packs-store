@@ -284,54 +284,45 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q350783"
+    },
+    {
+      "concept_id": "concept.q1327007",
+      "forms": [
+        "Elektromobilität",
+        "Elektromobilität",
+        "Elektromobilität",
+        "Elektromobilität"
+      ],
+      "language": "de",
+      "lemma": "Elektromobilität",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L36226",
+      "pos": "",
+      "qids": [
+        "Q1327007"
+      ],
+      "record_id": "L36226",
+      "retrieval_date": "2026-11-14",
+      "revision": "1987903090",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L36226-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q1327007"
     }
   ],
   "schema_version": "1.0.0",
   "section": "travel",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q184840"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q184840"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
+      "reason": "HTTPError:429",
+      "wikidata": "Q65088609"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1585110"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1888694"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q725864"
+      "wikidata": "Q1661652"
     }
   ],
   "source": "harvest-wikidata"

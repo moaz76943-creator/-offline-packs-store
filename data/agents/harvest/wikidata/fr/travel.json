@@ -174,54 +174,68 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q350783"
+    },
+    {
+      "concept_id": "concept.q1364310",
+      "forms": [
+        "écomobilité",
+        "écomobilités"
+      ],
+      "language": "fr",
+      "lemma": "écomobilité",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1583862",
+      "pos": "",
+      "qids": [
+        "Q1364310"
+      ],
+      "record_id": "L1583862",
+      "retrieval_date": "2026-11-14",
+      "revision": "2527728926",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1583862-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q1364310"
+    },
+    {
+      "concept_id": "concept.q1327007",
+      "forms": [
+        "electromobilité",
+        "electromobilités"
+      ],
+      "language": "fr",
+      "lemma": "electromobilité",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1583786",
+      "pos": "",
+      "qids": [
+        "Q1327007"
+      ],
+      "record_id": "L1583786",
+      "retrieval_date": "2026-11-14",
+      "revision": "2527722514",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1583786-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q1327007"
     }
   ],
   "schema_version": "1.0.0",
   "section": "travel",
   "skipped": [
     {
-      "reason": "other_language",
-      "wikidata": "Q184840"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q184840"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q11640447"
+      "reason": "HTTPError:429",
+      "wikidata": "Q65088609"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1585110"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1888694"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q725864"
+      "wikidata": "Q1661652"
     }
   ],
   "source": "harvest-wikidata"

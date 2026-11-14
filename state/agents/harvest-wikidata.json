@@ -1,8 +1,8 @@
 {
-  "last_run": "2026-11-14T10:53:18Z",
+  "last_run": "2026-11-14T13:23:19Z",
   "name": "harvest-wikidata",
   "schema_version": "1.0.0",
   "status": "degraded",
   "version": "1.0.0",
-  "warning": "skipped 11; 3 concept source errors after rows were written"
+  "warning": "skipped 2; 2 concept source errors after rows were written"
 }
