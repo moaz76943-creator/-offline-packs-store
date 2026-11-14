@@ -1223,6 +1223,25 @@
       "value": "Mon prof de physique s'en fiche si je sèche les cours."
     },
     {
+      "id": "verb.forms",
+      "language": "fr",
+      "level": "B1",
+      "license_id": "CC0-1.0",
+      "record_id": "L12455",
+      "retrieval_date": "2026-11-13",
+      "source_id": "wikidata.lexemes",
+      "value": [
+        "conseiller",
+        "conseillant",
+        "conseillé",
+        "conseillée",
+        "conseillés",
+        "conseillées",
+        "conseille",
+        "conseilles"
+      ]
+    },
+    {
       "id": "sentence.statement",
       "language": "fr",
       "level": null,
@@ -2421,6 +2440,25 @@
       "retrieval_date": "2026-11-10",
       "source_id": "tatoeba.sentences",
       "value": "Mon prof de physique s'en fiche si je sèche les cours."
+    },
+    {
+      "id": "verb.forms",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC0-1.0",
+      "record_id": "L12455",
+      "retrieval_date": "2026-11-13",
+      "source_id": "wikidata.lexemes",
+      "value": [
+        "conseiller",
+        "conseillant",
+        "conseillé",
+        "conseillée",
+        "conseillés",
+        "conseillées",
+        "conseille",
+        "conseilles"
+      ]
     }
   ]
 }
