@@ -1,5 +1,5 @@
 {
-  "next_index": 960,
+  "next_index": 1040,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
+      "language": "mt",
+      "section": "nature"
+    },
+    {
+      "language": "my",
+      "section": "nature"
+    },
+    {
+      "language": "ne",
+      "section": "nature"
+    },
+    {
+      "language": "nl",
+      "section": "nature"
+    },
+    {
+      "language": "no",
+      "section": "nature"
+    },
+    {
+      "language": "or",
+      "section": "nature"
+    },
+    {
+      "language": "pa",
+      "section": "nature"
+    },
+    {
+      "language": "pl",
+      "section": "nature"
+    },
+    {
+      "language": "ps",
+      "section": "nature"
+    },
+    {
+      "language": "pt",
+      "section": "nature"
+    },
+    {
+      "language": "ro",
+      "section": "nature"
+    },
+    {
+      "language": "ru",
+      "section": "nature"
+    },
+    {
+      "language": "rw",
+      "section": "nature"
+    },
+    {
+      "language": "sd",
+      "section": "nature"
+    },
+    {
+      "language": "si",
+      "section": "nature"
+    },
+    {
+      "language": "sk",
+      "section": "nature"
+    },
+    {
+      "language": "sl",
+      "section": "nature"
+    },
+    {
+      "language": "sn",
+      "section": "nature"
+    },
+    {
+      "language": "so",
+      "section": "nature"
+    },
+    {
+      "language": "sq",
+      "section": "nature"
+    },
+    {
       "language": "sr",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "sv",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "sw",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "ta",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "te",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "tg",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "th",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "tk",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "tl",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "tr",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "tt",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "ug",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "uk",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "ur",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "uz",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "vi",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "xh",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "yo",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "zh",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "zu",
-      "section": "travel"
+      "section": "nature"
     },
     {
       "language": "af",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "am",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ar",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "as",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "az",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ba",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "be",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "bg",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "bn",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "br",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "bs",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ca",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "cs",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "cy",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "da",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "de",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "dv",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "el",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "en",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "eo",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "es",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "et",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "eu",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "fa",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "fi",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "fo",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "fr",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "fy",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ga",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "gd",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "gl",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "gu",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ha",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "hi",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "hr",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "hu",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "hy",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "id",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "ig",
-      "section": "nature"
+      "section": "animals"
     },
     {
       "language": "is",
-      "section": "nature"
-    },
-    {
-      "language": "it",
-      "section": "nature"
-    },
-    {
-      "language": "ja",
-      "section": "nature"
-    },
-    {
-      "language": "ka",
-      "section": "nature"
-    },
-    {
-      "language": "kk",
-      "section": "nature"
-    },
-    {
-      "language": "km",
-      "section": "nature"
-    },
-    {
-      "language": "kn",
-      "section": "nature"
-    },
-    {
-      "language": "ko",
-      "section": "nature"
-    },
-    {
-      "language": "ku",
-      "section": "nature"
-    },
-    {
-      "language": "ky",
-      "section": "nature"
-    },
-    {
-      "language": "la",
-      "section": "nature"
-    },
-    {
-      "language": "lb",
-      "section": "nature"
-    },
-    {
-      "language": "lo",
-      "section": "nature"
-    },
-    {
-      "language": "lt",
-      "section": "nature"
-    },
-    {
-      "language": "lv",
-      "section": "nature"
-    },
-    {
-      "language": "mg",
-      "section": "nature"
-    },
-    {
-      "language": "mk",
-      "section": "nature"
-    },
-    {
-      "language": "ml",
-      "section": "nature"
-    },
-    {
-      "language": "mn",
-      "section": "nature"
-    },
-    {
-      "language": "mr",
-      "section": "nature"
-    },
-    {
-      "language": "ms",
-      "section": "nature"
+      "section": "animals"
     }
   ]
 }
