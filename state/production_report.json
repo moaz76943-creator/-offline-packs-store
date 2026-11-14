@@ -66,8 +66,8 @@
     },
     "total": 3374
   },
-  "generated_by": "classifier",
-  "pack_bytes": 733184,
+  "generated_by": "packs",
+  "pack_bytes": 749568,
   "packs": [
     {
       "bytes": 28672,
@@ -104,31 +104,31 @@
     },
     {
       "bytes": 8192,
-      "entries": 32,
+      "entries": 33,
       "language": "da",
       "sources": {
-        "wikidata.lexemes": 32
+        "wikidata.lexemes": 33
       }
     },
     {
       "bytes": 36864,
-      "entries": 260,
+      "entries": 261,
       "language": "de",
       "sources": {
         "kaikki.wiktextract": 18,
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 82
+        "wikidata.lexemes": 83
       }
     },
     {
-      "bytes": 233472,
-      "entries": 1262,
+      "bytes": 241664,
+      "entries": 1304,
       "language": "en",
       "sources": {
         "kaikki.wiktextract": 4,
         "tatoeba.sentences": 160,
-        "universal-dependencies": 988,
-        "wikidata.lexemes": 110
+        "universal-dependencies": 1028,
+        "wikidata.lexemes": 112
       }
     },
     {
@@ -141,12 +141,12 @@
     },
     {
       "bytes": 32768,
-      "entries": 208,
+      "entries": 209,
       "language": "es",
       "sources": {
         "kaikki.wiktextract": 21,
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 27
+        "wikidata.lexemes": 28
       }
     },
     {
@@ -183,12 +183,12 @@
     },
     {
       "bytes": 36864,
-      "entries": 259,
+      "entries": 261,
       "language": "fr",
       "sources": {
         "kaikki.wiktextract": 24,
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 75
+        "wikidata.lexemes": 77
       }
     },
     {
@@ -209,20 +209,20 @@
     },
     {
       "bytes": 16384,
-      "entries": 75,
+      "entries": 76,
       "language": "it",
       "sources": {
         "kaikki.wiktextract": 17,
-        "wikidata.lexemes": 58
+        "wikidata.lexemes": 59
       }
     },
     {
-      "bytes": 24576,
-      "entries": 146,
+      "bytes": 32768,
+      "entries": 187,
       "language": "ja",
       "sources": {
-        "tatoeba.sentences": 120,
-        "wikidata.lexemes": 26
+        "tatoeba.sentences": 160,
+        "wikidata.lexemes": 27
       }
     },
     {
@@ -377,9 +377,9 @@
       "cs": 16,
       "da": 33,
       "de": 261,
-      "en": 1263,
+      "en": 1304,
       "eo": 2,
-      "es": 208,
+      "es": 209,
       "et": 10,
       "eu": 7,
       "fa": 2,
@@ -388,7 +388,7 @@
       "hr": 9,
       "id": 2,
       "it": 76,
-      "ja": 146,
+      "ja": 187,
       "ko": 4,
       "la": 4,
       "lv": 1,
@@ -455,8 +455,9 @@
         "colors": 12,
         "emotions": 10,
         "food": 3,
-        "grammar": 988,
+        "grammar": 1028,
         "health": 4,
+        "nature": 1,
         "sentences": 160,
         "sports": 1,
         "technology": 2,
@@ -475,6 +476,7 @@
         "colors": 2,
         "emotions": 1,
         "food": 1,
+        "nature": 1,
         "sentences": 160,
         "time": 1,
         "work": 12
@@ -539,7 +541,8 @@
         "colors": 3,
         "emotions": 1,
         "food": 2,
-        "sentences": 120,
+        "nature": 1,
+        "sentences": 160,
         "technology": 1,
         "time": 4,
         "travel": 3,
@@ -675,8 +678,8 @@
       "en": {
         "kaikki.wiktextract": 4,
         "tatoeba.sentences": 160,
-        "universal-dependencies": 988,
-        "wikidata.lexemes": 111
+        "universal-dependencies": 1028,
+        "wikidata.lexemes": 112
       },
       "eo": {
         "wikidata.lexemes": 2
@@ -684,7 +687,7 @@
       "es": {
         "kaikki.wiktextract": 21,
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 27
+        "wikidata.lexemes": 28
       },
       "et": {
         "wikidata.lexemes": 10
@@ -714,8 +717,8 @@
         "wikidata.lexemes": 59
       },
       "ja": {
-        "tatoeba.sentences": 120,
-        "wikidata.lexemes": 26
+        "tatoeba.sentences": 160,
+        "wikidata.lexemes": 27
       },
       "ko": {
         "wikidata.lexemes": 4
@@ -784,12 +787,12 @@
       "colors": 40,
       "emotions": 20,
       "food": 21,
-      "grammar": 988,
+      "grammar": 1028,
       "health": 18,
-      "nature": 1,
+      "nature": 4,
       "numbers": 4,
       "religion": 1,
-      "sentences": 1600,
+      "sentences": 1640,
       "shopping": 1,
       "sports": 3,
       "technology": 6,
@@ -799,11 +802,11 @@
     },
     "by_source": {
       "kaikki.wiktextract": 132,
-      "tatoeba.sentences": 1600,
-      "universal-dependencies": 988,
-      "wikidata.lexemes": 654
+      "tatoeba.sentences": 1640,
+      "universal-dependencies": 1028,
+      "wikidata.lexemes": 657
     },
-    "total": 3374
+    "total": 3457
   },
   "schema_version": "1.0.0"
 }
