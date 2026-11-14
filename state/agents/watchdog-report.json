@@ -3,7 +3,16 @@
     "harvest-wikidata",
     "packs"
   ],
-  "dispatch": [],
+  "dispatch": [
+    "harvest-tatoeba",
+    "grammar",
+    "qa"
+  ],
   "schema_version": "1.0.0",
-  "stale": []
+  "stale": [
+    "harvest-kaikki",
+    "harvest-tatoeba",
+    "grammar",
+    "qa"
+  ]
 }
