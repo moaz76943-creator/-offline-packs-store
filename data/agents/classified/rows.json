@@ -50792,6 +50792,38 @@
       "wikidata": "Q184840"
     },
     {
+      "concept_id": "concept.q111155",
+      "forms": [
+        "cabotage",
+        "cabotagen",
+        "cabotager",
+        "cabotagerne"
+      ],
+      "language": "da",
+      "lemma": "cabotage",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L233498",
+      "pos": "",
+      "qids": [
+        "Q111155"
+      ],
+      "record_id": "L233498",
+      "retrieval_date": "2026-11-14",
+      "revision": "2271247406",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L233498-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q111155"
+    },
+    {
       "concept_id": "concept.q82955",
       "forms": [
         "politiker",
@@ -52648,6 +52680,38 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q350783"
+    },
+    {
+      "concept_id": "concept.q1327007",
+      "forms": [
+        "Elektromobilität",
+        "Elektromobilität",
+        "Elektromobilität",
+        "Elektromobilität"
+      ],
+      "language": "de",
+      "lemma": "Elektromobilität",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L36226",
+      "pos": "",
+      "qids": [
+        "Q1327007"
+      ],
+      "record_id": "L36226",
+      "retrieval_date": "2026-11-14",
+      "revision": "1987903090",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L36226-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q1327007"
     },
     {
       "concept_id": "concept.q82955",
@@ -56596,6 +56660,36 @@
       "wikidata": "Q184840"
     },
     {
+      "concept_id": "concept.q1327007",
+      "forms": [
+        "electromobility",
+        "electromobilities"
+      ],
+      "language": "en",
+      "lemma": "electromobility",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L60763",
+      "pos": "",
+      "qids": [
+        "Q1327007"
+      ],
+      "record_id": "L60763",
+      "retrieval_date": "2026-11-14",
+      "revision": "1001146877",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L60763-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q1327007"
+    },
+    {
       "concept_id": "concept.q82955",
       "forms": [
         "politician",
@@ -59984,6 +60078,66 @@
       "wikidata": "Q350783"
     },
     {
+      "concept_id": "concept.q1364310",
+      "forms": [
+        "écomobilité",
+        "écomobilités"
+      ],
+      "language": "fr",
+      "lemma": "écomobilité",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1583862",
+      "pos": "",
+      "qids": [
+        "Q1364310"
+      ],
+      "record_id": "L1583862",
+      "retrieval_date": "2026-11-14",
+      "revision": "2527728926",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1583862-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q1364310"
+    },
+    {
+      "concept_id": "concept.q1327007",
+      "forms": [
+        "electromobilité",
+        "electromobilités"
+      ],
+      "language": "fr",
+      "lemma": "electromobilité",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1583786",
+      "pos": "",
+      "qids": [
+        "Q1327007"
+      ],
+      "record_id": "L1583786",
+      "retrieval_date": "2026-11-14",
+      "revision": "2527722514",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1583786-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q1327007"
+    },
+    {
       "concept_id": "concept.q82955",
       "forms": [
         "politicien",
@@ -62854,6 +63008,36 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q184840"
+    },
+    {
+      "concept_id": "concept.q111155",
+      "forms": [
+        "cabotaggio",
+        "cabotaggi"
+      ],
+      "language": "it",
+      "lemma": "cabotaggio",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1171621",
+      "pos": "",
+      "qids": [
+        "Q111155"
+      ],
+      "record_id": "L1171621",
+      "retrieval_date": "2026-11-14",
+      "revision": "2390817993",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1171621-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q111155"
     },
     {
       "concept_id": "concept.q9149093",

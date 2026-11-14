@@ -5,19 +5,19 @@
       "bg": 1,
       "bn": 1,
       "cs": 16,
-      "da": 32,
-      "de": 260,
-      "en": 1262,
+      "da": 33,
+      "de": 261,
+      "en": 1263,
       "eo": 2,
       "es": 208,
       "et": 10,
       "eu": 7,
       "fa": 2,
       "fi": 2,
-      "fr": 259,
+      "fr": 261,
       "hr": 9,
       "id": 2,
-      "it": 75,
+      "it": 76,
       "ja": 146,
       "ko": 4,
       "la": 4,
@@ -55,16 +55,16 @@
       "sports": 3,
       "technology": 6,
       "time": 41,
-      "travel": 66,
+      "travel": 72,
       "work": 222
     },
     "by_source": {
       "kaikki.wiktextract": 132,
       "tatoeba.sentences": 1600,
       "universal-dependencies": 988,
-      "wikidata.lexemes": 648
+      "wikidata.lexemes": 654
     },
-    "total": 3368
+    "total": 3374
   },
   "generated_by": "classifier",
   "pack_bytes": 733184,
@@ -375,19 +375,19 @@
       "bg": 1,
       "bn": 1,
       "cs": 16,
-      "da": 32,
-      "de": 260,
-      "en": 1262,
+      "da": 33,
+      "de": 261,
+      "en": 1263,
       "eo": 2,
       "es": 208,
       "et": 10,
       "eu": 7,
       "fa": 2,
       "fi": 2,
-      "fr": 259,
+      "fr": 261,
       "hr": 9,
       "id": 2,
-      "it": 75,
+      "it": 76,
       "ja": 146,
       "ko": 4,
       "la": 4,
@@ -432,7 +432,7 @@
         "food": 1,
         "health": 1,
         "time": 2,
-        "travel": 5,
+        "travel": 6,
         "work": 10
       },
       "de": {
@@ -444,7 +444,7 @@
         "numbers": 2,
         "sentences": 160,
         "time": 6,
-        "travel": 9,
+        "travel": 10,
         "work": 38
       },
       "en": {
@@ -461,7 +461,7 @@
         "sports": 1,
         "technology": 2,
         "time": 7,
-        "travel": 7,
+        "travel": 8,
         "work": 25
       },
       "eo": {
@@ -506,7 +506,7 @@
         "numbers": 1,
         "sentences": 160,
         "time": 2,
-        "travel": 7,
+        "travel": 9,
         "work": 42
       },
       "hr": {
@@ -530,7 +530,7 @@
         "sports": 1,
         "technology": 1,
         "time": 2,
-        "travel": 7,
+        "travel": 8,
         "work": 19
       },
       "ja": {
@@ -665,18 +665,18 @@
         "wikidata.lexemes": 16
       },
       "da": {
-        "wikidata.lexemes": 32
+        "wikidata.lexemes": 33
       },
       "de": {
         "kaikki.wiktextract": 18,
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 82
+        "wikidata.lexemes": 83
       },
       "en": {
         "kaikki.wiktextract": 4,
         "tatoeba.sentences": 160,
         "universal-dependencies": 988,
-        "wikidata.lexemes": 110
+        "wikidata.lexemes": 111
       },
       "eo": {
         "wikidata.lexemes": 2
@@ -701,7 +701,7 @@
       "fr": {
         "kaikki.wiktextract": 24,
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 75
+        "wikidata.lexemes": 77
       },
       "hr": {
         "wikidata.lexemes": 9
@@ -711,7 +711,7 @@
       },
       "it": {
         "kaikki.wiktextract": 17,
-        "wikidata.lexemes": 58
+        "wikidata.lexemes": 59
       },
       "ja": {
         "tatoeba.sentences": 120,
@@ -794,16 +794,16 @@
       "sports": 3,
       "technology": 6,
       "time": 41,
-      "travel": 66,
+      "travel": 72,
       "work": 222
     },
     "by_source": {
       "kaikki.wiktextract": 132,
       "tatoeba.sentences": 1600,
       "universal-dependencies": 988,
-      "wikidata.lexemes": 648
+      "wikidata.lexemes": 654
     },
-    "total": 3368
+    "total": 3374
   },
   "schema_version": "1.0.0"
 }
