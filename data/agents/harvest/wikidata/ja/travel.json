@@ -53,6 +53,32 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q11640447",
+      "forms": [
+        "携帯",
+        "けいたい"
+      ],
+      "language": "ja",
+      "lemma": "携帯",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L941884",
+      "pos": "",
+      "qids": [
+        "Q17517",
+        "Q11640447"
+      ],
+      "record_id": "L941884",
+      "retrieval_date": "2026-11-14",
+      "revision": "2381794644",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L941884-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11640447"
     }
   ],
   "schema_version": "1.0.0",
@@ -60,55 +86,47 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q155930"
+      "wikidata": "Q184840"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q318296"
+      "wikidata": "Q184840"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q318296"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q318296"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q318296"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q49845"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q49845"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q49845"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q651658"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q651658"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q583413"
+      "wikidata": "Q1585110"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q4354683"
+      "wikidata": "Q1888694"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q2072431"
+      "wikidata": "Q725864"
     }
   ],
   "source": "harvest-wikidata"

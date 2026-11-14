@@ -94,6 +94,68 @@
       "status": "keep",
       "subsection": "travel.q7590",
       "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q184840",
+      "forms": [
+        "контрабас",
+        "контрабаса",
+        "контрабасу",
+        "контрабас",
+        "контрабасом",
+        "контрабасе",
+        "контрабасы",
+        "контрабасов"
+      ],
+      "language": "ru",
+      "lemma": "контрабас",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L144875",
+      "pos": "",
+      "qids": [
+        "Q184840"
+      ],
+      "record_id": "L144875",
+      "retrieval_date": "2026-11-14",
+      "revision": "2302801205",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L144875-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q184840"
+    },
+    {
+      "concept_id": "concept.q11640447",
+      "forms": [
+        "носка",
+        "носки",
+        "носке",
+        "носку",
+        "ноской",
+        "носкою",
+        "носке",
+        "носки"
+      ],
+      "language": "ru",
+      "lemma": "носка",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L145280",
+      "pos": "",
+      "qids": [
+        "Q11640447"
+      ],
+      "record_id": "L145280",
+      "retrieval_date": "2026-11-14",
+      "revision": "2555411097",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L145280-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11640447"
     }
   ],
   "schema_version": "1.0.0",
@@ -101,55 +163,47 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q155930"
+      "wikidata": "Q184840"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q318296"
+      "wikidata": "Q184840"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q318296"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q318296"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q318296"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q49845"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q49845"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q49845"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q651658"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q651658"
+      "wikidata": "Q11640447"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q583413"
+      "wikidata": "Q1585110"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q4354683"
+      "wikidata": "Q1888694"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q2072431"
+      "wikidata": "Q725864"
     }
   ],
   "source": "harvest-wikidata"
