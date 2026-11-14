@@ -1223,6 +1223,406 @@
       "value": "Mon prof de physique s'en fiche si je sèche les cours."
     },
     {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3209",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "J'aimerais bien pouvoir aller au Japon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3210",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je déteste ça quand il y a trop de gens."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3211",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je dois aller au lit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3212",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Après ça, je pars, mais je me rends compte que j'ai oublié mon sac chez eux."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3213",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne t'en demanderai pas plus pour aujourd'hui."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3214",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Il se peut qu'il gèle la semaine prochaine."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3215",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Même s'il s'est excusé, je suis encore en colère."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3216",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "La police vous fera trouver les balles."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3217",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Merci de m'avoir expliqué finalement pourquoi on me prend pour une imbécile."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3218",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ce n'était pas mon intention."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3219",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Merci pour ton explication."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3220",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Théoriquement, je suis en train de faire des maths."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3221",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Qu'est-ce qui s'est passé ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3223",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça m'a presque fait peur de ne pas te voir connectée pendant toute une journée."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3224",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais pas ce que tu veux dire."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3225",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Il faut bien que mon ordinateur me serve à quelque chose."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3226",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu voulais me parler de liberté ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3227",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Euh, là c'est vraiment bizarre..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3228",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Si je voulais te faire peur, je te raconterais ce dont j'ai rêvé il y a quelques semaines."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3229",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "On ne peut pas tout attendre des écoles."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3230",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Il y a beaucoup de mots que je ne comprends pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3231",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je n'aime pas quand les mathématiciens qui en savent beaucoup plus que moi ne savent pas s'exprimer explicitement."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3232",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "T'es vraiment pas bête."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3233",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je dois te poser une question idiote."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3234",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais pas comment le démontrer vu que c'est trop évident !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3235",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "J'aurais pas imaginé qu'un jour j'irais chercher « viagra » dans Wikipédia."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3236",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Est-ce qu'on peut formuler ça d'une autre manière ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3237",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Personne ne saura."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3238",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "J'ai trouvé une solution, mais je l'ai trouvée tellement vite que ça peut pas être la bonne."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3239",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça me paraît intéressant !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3240",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Sauf que là, c'est pas si simple."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3241",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Moi, j'aime bien la lumière des bougies."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3242",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Qu'est-ce que tu as répondu ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3243",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Non, c'est pas mon nouveau petit ami."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3244",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est dommage que je n'aie pas besoin de maigrir."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3245",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "T'as jamais cours ou quoi ? !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3246",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je vais donc jouer au Sudoku au lieu de continuer de te déranger."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3247",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Où est le problème ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3248",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne peux qu'attendre."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3249",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ce n'est pas tellement une surprise, non ?"
+    },
+    {
       "id": "verb.forms",
       "language": "fr",
       "level": "B1",
@@ -2440,6 +2840,406 @@
       "retrieval_date": "2026-11-10",
       "source_id": "tatoeba.sentences",
       "value": "Mon prof de physique s'en fiche si je sèche les cours."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3209",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "J'aimerais bien pouvoir aller au Japon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3210",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je déteste ça quand il y a trop de gens."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3211",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je dois aller au lit."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3212",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Après ça, je pars, mais je me rends compte que j'ai oublié mon sac chez eux."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3213",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne t'en demanderai pas plus pour aujourd'hui."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3214",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Il se peut qu'il gèle la semaine prochaine."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3215",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Même s'il s'est excusé, je suis encore en colère."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3216",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "La police vous fera trouver les balles."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3217",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Merci de m'avoir expliqué finalement pourquoi on me prend pour une imbécile."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3218",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ce n'était pas mon intention."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3219",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Merci pour ton explication."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3220",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Théoriquement, je suis en train de faire des maths."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3221",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Qu'est-ce qui s'est passé ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3223",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça m'a presque fait peur de ne pas te voir connectée pendant toute une journée."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3224",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais pas ce que tu veux dire."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3225",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Il faut bien que mon ordinateur me serve à quelque chose."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3226",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Tu voulais me parler de liberté ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3227",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Euh, là c'est vraiment bizarre..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3228",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Si je voulais te faire peur, je te raconterais ce dont j'ai rêvé il y a quelques semaines."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3229",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "On ne peut pas tout attendre des écoles."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3230",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Il y a beaucoup de mots que je ne comprends pas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3231",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je n'aime pas quand les mathématiciens qui en savent beaucoup plus que moi ne savent pas s'exprimer explicitement."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3232",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "T'es vraiment pas bête."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3233",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je dois te poser une question idiote."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3234",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne sais pas comment le démontrer vu que c'est trop évident !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3235",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "J'aurais pas imaginé qu'un jour j'irais chercher « viagra » dans Wikipédia."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3236",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Est-ce qu'on peut formuler ça d'une autre manière ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3237",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Personne ne saura."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3238",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "J'ai trouvé une solution, mais je l'ai trouvée tellement vite que ça peut pas être la bonne."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3239",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ça me paraît intéressant !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3240",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Sauf que là, c'est pas si simple."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3241",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Moi, j'aime bien la lumière des bougies."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3242",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Qu'est-ce que tu as répondu ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3243",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Non, c'est pas mon nouveau petit ami."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3244",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "C'est dommage que je n'aie pas besoin de maigrir."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3245",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "T'as jamais cours ou quoi ? !"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3246",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je vais donc jouer au Sudoku au lieu de continuer de te déranger."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3247",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Où est le problème ?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3248",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Je ne peux qu'attendre."
+    },
+    {
+      "id": "sentence.question",
+      "language": "fr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:3249",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ce n'est pas tellement une surprise, non ?"
     },
     {
       "id": "verb.forms",

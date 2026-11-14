@@ -11103,6 +11103,406 @@
       "value": "Crude-oil prices rose Wednesday as strengthening Hurricane Rita, now a Category 5 storm, threatened to disrupt oil production in the Gulf of Mexico."
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "New York's main contract, light sweet crude for delivery in November rose 60 cents to close at 66.80 dollars per barrel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "In London, the price of Brent North Sea crude for November delivery advanced 53 cents to 64.73 dollars."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0004",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "After brushing the Florida Keys islands on Tuesday, Rita packed winds of about 240 kilometers an hour as it headed across the Gulf of Mexico."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "The US National Hurricane Center said Rita was \"extremely dangerous\" and could become a top-level category five storm on the Saffir-Simpson scale."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0006",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "The storm threatened oil installations in the Gulf of Mexico where about one-quarter of US oil operations are based."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0007",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Oil companies evacuated offshore facilities as the storm's progress kept global markets on tenterhooks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0008",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "In Texas, BP shut its 460,000 barrels per day refinery and Marathon shut its 72,000 bpd plant."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0009",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Valero said it was reducing rates at its 243,000 bpd Texas City refinery and its 85,000 bpd Houston refinery."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0010",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Exxon Mobil released nonessential staff from two giant Texas plants."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0011",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Last month, Katrina devastated refineries in Louisiana and Mississippi and sent prices to a record high of 70.85 dollars a barrel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0012",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "please support the link bellow which is excelnt ,thank for your click and attention:"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "[http://www.newscientistspace.com/article.ns?id=dn8293&feedId=human-spaceflight_atom03]"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "(New Scientist Space)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "NASA is looking to private companies to launch both supplies and astronauts to the International Space Station, it announced this week."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"It's not cost-effective doing station flights while at the same time focusing on getting back to the Moon,\" says Brett Alexander, vice-president of Transformational Space, one of the companies hoping to launch astronauts to the ISS."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0006",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "NASA intends upon retiring the space shuttles in 2010, which only leaves it with 18 flights towards the ISS."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0007",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Outsourcing these responsibilities would be a wise alternative, considering the accomplishments of the private sector regarding the space elevator ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0008",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Although some may praise this as an opportunity for the private sector to finally serve the public good, NASA seems hesitant about turning over the reigns to the corporate world."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0009",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "(New Scientist Space)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0010",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "On 3 November, NASA administrator Michael Griffin told the US house science committee that the agency expects to invest about $500 million in the commercial cargo and crew project over five years."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0011",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"That kind of a financial incentive [...] will be sufficient to allow substantial providers to emerge,\" Griffin said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0012",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"I hope that industry, if put to the test, can do better [than the government], but I do not expect it,\" Griffin added."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0013",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Only time will reveal whether Griffin's expectations are either exceeded or confirmed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0014",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "But seeing how the private sector has been able to successfully transport civilians to the ISS (at about a fifth of the cost), it would come to no surprise if corporate America was able to out perform their bureaucratic friends in government."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0016",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Posted by Hidden Nook to Hidden Nook at 11/16/2005 08:36:00 AM"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "[http://seattlepi.nwsource.com/national/apmideast_story.asp?category=1107&slug=Palestinians%20Abbas]"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Normally this author is semi-objective (what blogger is) but on the Seattlepi.com (see source link) Palestinian Leader Mahmoud Abbas has demanded that Israel leave all the land that it occupies before the 1967 border (which includes East Jerusalem by the way)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "One thing is certain for sure."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0004",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "If Abbas keeps up this \"macho talk\" he will kill potential peace talks and might as well allow Hamas (which has probably done a better job at providing for the Palestinians) rule the West Bank."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "AP Photo/Nasser Nasser"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0006",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Interim Palestinian leader and the front-runner in the upcoming Jan. 9, 2005 presidential election Mahmoud Abbas talks during his first official campaign speech in the West Bank town of Ramallah, Saturday Dec. 25, 2004."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0007",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Cloaking himself in Yasser Arafat's legacy, Abbas pledged to fulfill Palestinian dreams of statehood."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0008",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "It seems that the Palestinian leadership (upcoming) will not be a peace partner with Israel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0009",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "He is already demanding claims that Israel said no to not only the world, but to Arafat himself."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0010",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Listing his priorities, Abbas told supporters of the ruling Fatah party that he was determined to provide security to his people and continue the struggle against Israel's partially completed West Bank barrier."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0011",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Abbas also pledged to resolve the problem of millions of Palestinian refugees and their descendants."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0012",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Abbas, a refugee himself from what is today the northern Israeli city of Safed, called the refugee issue \"very important and very dangerous.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0013",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Having personally visited the West Bank and Israel, I can say that this new political voice is threatening to collapse the peace process."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0014",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "If Abbas does not change his former thinking and continues the path of Yasser Arafat, then there will not be peace in the Holy Land and the Palestinians will ultimately suffer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0015",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Selah!"
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -22197,6 +22597,406 @@
       "retrieval_date": "2026-11-13",
       "source_id": "universal-dependencies",
       "value": "Crude-oil prices rose Wednesday as strengthening Hurricane Rita, now a Category 5 storm, threatened to disrupt oil production in the Gulf of Mexico."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "New York's main contract, light sweet crude for delivery in November rose 60 cents to close at 66.80 dollars per barrel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "In London, the price of Brent North Sea crude for November delivery advanced 53 cents to 64.73 dollars."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0004",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "After brushing the Florida Keys islands on Tuesday, Rita packed winds of about 240 kilometers an hour as it headed across the Gulf of Mexico."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "The US National Hurricane Center said Rita was \"extremely dangerous\" and could become a top-level category five storm on the Saffir-Simpson scale."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0006",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "The storm threatened oil installations in the Gulf of Mexico where about one-quarter of US oil operations are based."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0007",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Oil companies evacuated offshore facilities as the storm's progress kept global markets on tenterhooks."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0008",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "In Texas, BP shut its 460,000 barrels per day refinery and Marathon shut its 72,000 bpd plant."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0009",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Valero said it was reducing rates at its 243,000 bpd Texas City refinery and its 85,000 bpd Houston refinery."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0010",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Exxon Mobil released nonessential staff from two giant Texas plants."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0011",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Last month, Katrina devastated refineries in Louisiana and Mississippi and sent prices to a record high of 70.85 dollars a barrel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0012",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "please support the link bellow which is excelnt ,thank for your click and attention:"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "[http://www.newscientistspace.com/article.ns?id=dn8293&feedId=human-spaceflight_atom03]"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "(New Scientist Space)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "NASA is looking to private companies to launch both supplies and astronauts to the International Space Station, it announced this week."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"It's not cost-effective doing station flights while at the same time focusing on getting back to the Moon,\" says Brett Alexander, vice-president of Transformational Space, one of the companies hoping to launch astronauts to the ISS."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0006",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "NASA intends upon retiring the space shuttles in 2010, which only leaves it with 18 flights towards the ISS."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0007",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Outsourcing these responsibilities would be a wise alternative, considering the accomplishments of the private sector regarding the space elevator ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0008",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Although some may praise this as an opportunity for the private sector to finally serve the public good, NASA seems hesitant about turning over the reigns to the corporate world."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0009",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "(New Scientist Space)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0010",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "On 3 November, NASA administrator Michael Griffin told the US house science committee that the agency expects to invest about $500 million in the commercial cargo and crew project over five years."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0011",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"That kind of a financial incentive [...] will be sufficient to allow substantial providers to emerge,\" Griffin said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0012",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"I hope that industry, if put to the test, can do better [than the government], but I do not expect it,\" Griffin added."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0013",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Only time will reveal whether Griffin's expectations are either exceeded or confirmed."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0014",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "But seeing how the private sector has been able to successfully transport civilians to the ISS (at about a fifth of the cost), it would come to no surprise if corporate America was able to out perform their bureaucratic friends in government."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0016",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Posted by Hidden Nook to Hidden Nook at 11/16/2005 08:36:00 AM"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "[http://seattlepi.nwsource.com/national/apmideast_story.asp?category=1107&slug=Palestinians%20Abbas]"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Normally this author is semi-objective (what blogger is) but on the Seattlepi.com (see source link) Palestinian Leader Mahmoud Abbas has demanded that Israel leave all the land that it occupies before the 1967 border (which includes East Jerusalem by the way)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "One thing is certain for sure."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0004",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "If Abbas keeps up this \"macho talk\" he will kill potential peace talks and might as well allow Hamas (which has probably done a better job at providing for the Palestinians) rule the West Bank."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "AP Photo/Nasser Nasser"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0006",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Interim Palestinian leader and the front-runner in the upcoming Jan. 9, 2005 presidential election Mahmoud Abbas talks during his first official campaign speech in the West Bank town of Ramallah, Saturday Dec. 25, 2004."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0007",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Cloaking himself in Yasser Arafat's legacy, Abbas pledged to fulfill Palestinian dreams of statehood."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0008",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "It seems that the Palestinian leadership (upcoming) will not be a peace partner with Israel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0009",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "He is already demanding claims that Israel said no to not only the world, but to Arafat himself."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0010",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Listing his priorities, Abbas told supporters of the ruling Fatah party that he was determined to provide security to his people and continue the struggle against Israel's partially completed West Bank barrier."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0011",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Abbas also pledged to resolve the problem of millions of Palestinian refugees and their descendants."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0012",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Abbas, a refugee himself from what is today the northern Israeli city of Safed, called the refugee issue \"very important and very dangerous.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0013",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Having personally visited the West Bank and Israel, I can say that this new political voice is threatening to collapse the peace process."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0014",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "If Abbas does not change his former thinking and continues the path of Yasser Arafat, then there will not be peace in the Holy Land and the Palestinians will ultimately suffer."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0015",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Selah!"
     },
     {
       "id": "verb.forms",

@@ -1223,6 +1223,25 @@
       "value": "Wat was je aan het doen?"
     },
     {
+      "id": "verb.forms",
+      "language": "nl",
+      "level": "B1",
+      "license_id": "CC0-1.0",
+      "record_id": "L1216785",
+      "retrieval_date": "2026-11-14",
+      "source_id": "wikidata.lexemes",
+      "value": [
+        "meenemen",
+        "neem mee",
+        "meeneem",
+        "neem mee",
+        "neemt mee",
+        "meeneemt",
+        "neemt mee",
+        "meeneemt"
+      ]
+    },
+    {
       "id": "sentence.question",
       "language": "nl",
       "level": null,
@@ -2421,6 +2440,25 @@
       "retrieval_date": "2026-11-10",
       "source_id": "tatoeba.sentences",
       "value": "Wat was je aan het doen?"
+    },
+    {
+      "id": "verb.forms",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC0-1.0",
+      "record_id": "L1216785",
+      "retrieval_date": "2026-11-14",
+      "source_id": "wikidata.lexemes",
+      "value": [
+        "meenemen",
+        "neem mee",
+        "meeneem",
+        "neem mee",
+        "neemt mee",
+        "meeneemt",
+        "neemt mee",
+        "meeneemt"
+      ]
     }
   ]
 }

@@ -25,6 +25,25 @@
     {
       "id": "verb.forms",
       "language": "la",
+      "level": "B1",
+      "license_id": "CC0-1.0",
+      "record_id": "L254725",
+      "retrieval_date": "2026-11-14",
+      "source_id": "wikidata.lexemes",
+      "value": [
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abreptae",
+        "abreptae"
+      ]
+    },
+    {
+      "id": "verb.forms",
+      "language": "la",
       "level": null,
       "license_id": "CC0-1.0",
       "record_id": "L254725",
