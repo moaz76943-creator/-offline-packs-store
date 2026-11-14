@@ -4,8 +4,8 @@ Counts below are computed from stored rows and the concept graph.
 A missing harvest file stays a gap. No word is invented.
 
 Concepts in the graph: 5182
-Filled language-concept cells: 636
-Open language-concept cells: 517564
+Filled language-concept cells: 675
+Open language-concept cells: 517525
 
 | Language | Filled | Open gaps | Fill ratio |
 | --- | ---: | ---: | ---: |
@@ -16,29 +16,29 @@ Open language-concept cells: 517564
 | az | 0 | 5182 | 0.0 |
 | ba | 0 | 5182 | 0.0 |
 | be | 0 | 5182 | 0.0 |
-| bn | 0 | 5182 | 0.0 |
 | br | 0 | 5182 | 0.0 |
 | bs | 0 | 5182 | 0.0 |
 | ca | 0 | 5182 | 0.0 |
 | cy | 0 | 5182 | 0.0 |
 | dv | 0 | 5182 | 0.0 |
 | el | 0 | 5182 | 0.0 |
-| fi | 0 | 5182 | 0.0 |
 | fo | 0 | 5182 | 0.0 |
 | fy | 0 | 5182 | 0.0 |
 | ga | 0 | 5182 | 0.0 |
 | gd | 0 | 5182 | 0.0 |
 | gl | 0 | 5182 | 0.0 |
+| gu | 0 | 5182 | 0.0 |
+| ha | 0 | 5182 | 0.0 |
 | bg | 1 | 5181 | 0.000193 |
-| id | 1 | 5181 | 0.000193 |
+| bn | 1 | 5181 | 0.000193 |
+| fi | 1 | 5181 | 0.000193 |
 | lv | 1 | 5181 | 0.000193 |
-| ta | 1 | 5181 | 0.000193 |
+| sk | 1 | 5181 | 0.000193 |
 | vi | 1 | 5181 | 0.000193 |
 | eo | 2 | 5180 | 0.000386 |
 | fa | 2 | 5180 | 0.000386 |
-| hr | 3 | 5179 | 0.000579 |
-| la | 3 | 5179 | 0.000579 |
-| tr | 3 | 5179 | 0.000579 |
+| id | 2 | 5180 | 0.000386 |
+| ta | 2 | 5180 | 0.000386 |
 | … |  |  | 100 languages, largest gaps first |
 
 Next shard limit: 80
