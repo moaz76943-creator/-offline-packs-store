@@ -2421,6 +2421,406 @@
       "retrieval_date": "2026-11-09",
       "source_id": "tatoeba.sentences",
       "value": "No te preguntaré más por hoy."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2604",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Puede que hiele la próxima semana."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2605",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Aunque él se disculpó, aún estoy enojada."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2606",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "La policía te hará encontrar las balas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2607",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Gracias por explicarme por fin por qué la gente me toma por un idiota."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2608",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "No era mi intención."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2609",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Gracias por tu explicación."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2610",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "En teoría, estoy haciendo matemática."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2611",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Qué ocurrió?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2612",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Casi me asustó el no verte conectado por un día entero."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2613",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "No sé qué quieres decir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2614",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Mi ordenador tiene que ser útil para algo."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2615",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Querías hablarme de libertad?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2616",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Oh, ahora es realmente extraño..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2617",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Si yo quisiera asustarte, te contaría qué fue lo que soñé hace un par de semanas."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2618",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Uno no puede esperarse todo de los colegios."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2619",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Hay muchas palabras que no entiendo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2620",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "No me gusta cuando matemáticos que saben mucho más que yo no pueden expresarse con claridad."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2621",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Realmente no eres tonto."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2622",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Necesito hacerte una pregunta tonta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2623",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¡No sé cómo demostrarlo, ya que es tan evidente!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2624",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Nunca hubiera pensado que algún día buscaría \"viagra\" en Wikipedia."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2625",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Se puede expresar de otra manera?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2626",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Nadie sabrá."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2627",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Encontré una solución, pero la encontré tan rápido que no puede ser la correcta."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2628",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Me parece interesante!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2629",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Salvo que aquí no es tan simple."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2630",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Me gusta la luz de las velas."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2631",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Qué has respondido?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2632",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "No, no es mi nuevo novio."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2633",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Es una lástima que yo no tenga que adelgazar."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2634",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¡¿Nunca tienes clases o qué?!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2635",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Entonces voy a hacer un sudoku en vez de seguir molestándote."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2636",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¿Dónde está el problema?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2637",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Sólo puedo esperar."
+    },
+    {
+      "id": "sentence.question",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2638",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Eso no es ninguna gran sorpresa, ¿o sí?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2639",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Te quiero."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2640",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Ya no te quiero."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2641",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "Tengo curiosidad."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2642",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "¡Felicidades!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "es",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:2643",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "No quiero esperar tanto tiempo."
     }
   ]
 }
