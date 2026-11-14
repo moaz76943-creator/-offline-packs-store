@@ -1889,6 +1889,64 @@
       "co_offered": [
         "GFDL-1.3-only"
       ],
+      "concept_id": "concept.q586",
+      "gloss": "Bonn (an independent city in North Rhine-Westphalia, Germany, on the Rhine River; the former capital of West Germany and (until 1999) seat of government of unified Germany)",
+      "language": "fr",
+      "lemma": "Bonn",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q586"
+      ],
+      "record_id": "en-Bonn-fr-name-XXlu3k0s",
+      "retrieval_date": "2026-11-13",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Bonn-fr-name-XXlu3k0s",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q586"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q8646",
+      "gloss": "Hong Kong (a city, island and special administrative region in southeastern China)",
+      "language": "fr",
+      "lemma": "Hong-Kong",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/French/kaikki.org-dictionary-French.jsonl",
+      "pos": "name",
+      "qids": [
+        "Q8646"
+      ],
+      "record_id": "en-Hong-Kong-fr-name-aBkX2cs9",
+      "retrieval_date": "2026-11-13",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "en-Hong-Kong-fr-name-aBkX2cs9",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q8646"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
       "concept_id": "concept.q3114",
       "gloss": "Canberra (the capital city of Australia; located in the Australian Capital Territory)",
       "language": "it",
@@ -11689,6 +11747,726 @@
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Thanks for your explanation."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1404",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Theoretically, I'm doing math."
+    },
+    {
+      "author": "sugisaki",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1406",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "If you didn't know me that way then you simply didn't know me."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=58; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1407",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It almost scared me not to see you online for a whole day."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1408",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't know what you mean."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=47; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1409",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "My computer has got to be useful for something."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1410",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "You wanted to tell me about freedom?"
+    },
+    {
+      "author": "Sbgodin",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1411",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Uh, now it's really weird..."
+    },
+    {
+      "author": "AlanF_US",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1412",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "If I wanted to scare you, I would tell you what I dreamt about a few weeks ago."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1413",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "One can't expect everything from schools."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1414",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "There are many words that I don't understand."
+    },
+    {
+      "author": "fcbond",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=101; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1415",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't like it when mathematicians who know much more than I do can't express themselves explicitly."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1416",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "You're really not stupid."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1417",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I need to ask you a silly question."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=59; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1418",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't know how to demonstrate it, since it's too obvious!"
+    },
+    {
+      "author": "Nudl",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=70; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1419",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I wouldn't have thought I would someday look up \"Viagra\" in Wikipedia."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1420",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Can it be phrased in another way?"
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1421",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No one will know."
+    },
+    {
+      "author": "AlanF_US",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1422",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I found a solution, but I found it so fast that it can't be the right solution."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1423",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It seems interesting to me."
+    },
+    {
+      "author": "steverules123",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=37; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1424",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Except that here, it's not so simple."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1425",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I like candlelight."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1426",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "What did you answer?"
+    },
+    {
+      "author": "LittleBoy",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1427",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No, he's not my new boyfriend."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1428",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It's too bad that I don't need to lose weight."
+    },
+    {
+      "author": "imjcooper",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1429",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "You never have class or what?!"
+    },
+    {
+      "author": "wakaran",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=60; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1430",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I will play Sudoku then instead of continuing to bother you."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1431",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Where is the problem?"
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1432",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I can only wait."
+    },
+    {
+      "author": "Eldad",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1433",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It's not much of a surprise, is it?"
+    },
+    {
+      "author": "awael58",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1434",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I love you."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1435",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't like you anymore."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1436",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I am curious."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1437",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Congratulations!"
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1438",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't want to wait that long."
+    },
+    {
+      "author": "LittleBoy",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1439",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Why don't you come visit us?"
+    },
+    {
+      "author": "Eldad",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1440",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "But the possibility seems unlikely."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=28; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1442",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I shouldn't have logged off."
+    },
+    {
+      "author": "Zifre",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1443",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I don't know what to do anymore."
+    },
+    {
+      "author": "brauliobezerra",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=69; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1444",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "It is inevitable that I go to France someday, I just don't know when."
+    },
+    {
+      "author": "CK",
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:1445",
+      "retrieval_date": "2026-11-13",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "I hate chemistry."
     },
     {
       "author": "Shishir",
@@ -45847,6 +46625,686 @@
       "text": "A person can take it directly instead of others completing behavioral checklists or a completing a lengthy program intensive test like TOVA."
     },
     {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=104; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_homeopathyclinic_46a87f7e5ce279d5_ENG_20051107_133800-0009",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Perhaps you are willing to recommend this site and, if you have a website, place a link on your website."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=67; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0001",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "are there any sadists out there who share the same tastes as i do ?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=126; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0002",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "i dont know what it is , but since a very young age i have had a strange but very gratifying urge to torture or maime animals."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=173; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0003",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "i am deadly serious, i really do get sexual releif from even hearing of torture of animals, now some people may call me a brute or a coward but i cant help my true feelings."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=121; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0004",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "badger baiting is natrually a huge turn on, so i thought a few words in this group might uncover some mutual enthusiasts."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=85; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0005",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "sincere appologies to anyone who is offended by my request but my request is genuine."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=78; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0006",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "----== Posted via Newsfeed.Com - Unlimited-Uncensored-Secure Usenet News==----"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0007",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The #1 Newsgroup Service in the World!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0008",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": ">100,000 Newsgroups"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0009",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "---= 19 East/West-Coast Specialized Servers - Total Privacy via Encryption =---"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=78; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0010",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "----== Posted via Newsfeed.Com - Unlimited-Uncensored-Secure Usenet News==----"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0011",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The #1 Newsgroup Service in the World!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0012",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": ">100,000 Newsgroups"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_alt.animals.badgers_2044a3376e5a87a5_ENG_20040529_135300-0013",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "---= 19 East/West-Coast Specialized Servers - Total Privacy via Encryption =---"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0001",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Greetings."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0002",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "My name is Bill Gottlieb:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=76; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0003",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I'm a freelance journalist specializing in health, with 30 years experience."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=225; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0004",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I'm the author of three books (including the 1.3 million seller ALTERNATIVE CURES) and hundreds of magazine articles, and worked for 20 years at Rodale Press, as a writer and as editor-in-chief of Prevention and Rodale Books."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=222; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0005",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Currently, I am writing a book on natural supplements to aid weight loss, with Harry Preuss, MD, a Professor of Medicine at Georgetown University; it is scheduled for publication by Broadway (Random House) in January 2007."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=307; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0006",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I am seeking anecdotes (first name, last initial) from dieters who successfully used a natural supplement to assist their weight loss; the therapeutic agents under discussion include HCA, MCT, green or oolong tea extract, CLA, chromium, starch-blockers, chitosan, 5-HTP, hoodia and caralluma, HMB, and BCAA."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=162; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0007",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If you've successfully used any of these supplement to aid weight loss, please write me at gottlie...@yahoo.com and let me know, telling me about your experience."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0008",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Thank you for your time and attention."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0009",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Warm regards,"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_b8e32f451114ecc2_ENG_20051118_192000-0010",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Bill Gottlieb"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=153; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_e470976a8f836699_ENG_20050829_183800-0001",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Once upon a time (in 2001, to be specific), the Coca-Cola corporation built a bottling plant in a small and remote Indian village in the state of Kerala."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=134; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_e470976a8f836699_ENG_20050829_183800-0002",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In exchange for sucking vast amounts of water out of the local land, the mighty corporation promised to bring the people great wealth."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=134; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_e470976a8f836699_ENG_20050829_183800-0003",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "But within a few short months, the village people began to notice their wells were running dry, so they complained to the corporation."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=195; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_e470976a8f836699_ENG_20050829_183800-0004",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Coca-Cola calmed the concerns of the people and attempted to win back their favor by giving them vast amounts of free fertilizer, saying it would grow bountiful crops beyond their wildest dreams."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=237; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_e470976a8f836699_ENG_20050829_183800-0005",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "After several years of use, we arrive at the present day when the village people have suddenly discovered the fertilizer is actually the bottling plant's waste sludge and is laden with cadmium, a highly toxic, cancer-causing heavy metal."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=126; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_e470976a8f836699_ENG_20050829_183800-0006",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The village soil and water are now too heavily contaminated to safely occupy human life, so the plant was shut down last week."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=58; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_e470976a8f836699_ENG_20050829_183800-0007",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Moral of the story: Don't drink Coke..........drink Pepsi!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=104; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_eHolistic_e470976a8f836699_ENG_20050829_183800-0008",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Just kidding, Pepsi is actually in the process of being thrown out of India for similar crimes, as well."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=164; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_KatrinaAlliance_5aa2d7f53b76354f_ENG_20051125_134100-0001",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The Greater New Orleans Fair Housing Action Center (GNOFHAC) filed a housing discrimination complaint against the Housing Authority of New Orleans (HANO) last week."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=376; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_KatrinaAlliance_5aa2d7f53b76354f_ENG_20051125_134100-0002",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The complaint, filed with the United States Department of Housing and Urban Development, accuses HANO of violating a 2003 enforcement agreement entered into between former St. Thomas Housing Development residents, the City of New Orleans, HANO, and the U.S. Department of Housing and Urban Development during the HOPE VI redevelopment of St. Thomas, now known as River Garden."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=194; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_KatrinaAlliance_5aa2d7f53b76354f_ENG_20051125_134100-0003",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The current complaints allege that HANO has not provided qualified former St. Thomas residents a preference with respect to available public housing units at River Garden per the 2003 agreement."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=226; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_KatrinaAlliance_5aa2d7f53b76354f_ENG_20051125_134100-0004",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Upon return to New Orleans after the Hurricane Katrina evacuation, former residents have been informed that there are no available public housing units at River Garden because those units have been reserved for HANO employees."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=152; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_KatrinaAlliance_5aa2d7f53b76354f_ENG_20051125_134100-0005",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Therefore, public housing residents have been unable to secure the units for which they qualified prior to the storm and are left homeless, as a result."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=94; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_KatrinaAlliance_5aa2d7f53b76354f_ENG_20051125_134100-0006",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"In the wake of Hurricane Katrina, affordable housing in New Orleans is more scarce than ever."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=120; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_KatrinaAlliance_5aa2d7f53b76354f_ENG_20051125_134100-0007",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "As such, it is essential that HANO comply with 2003 enforcement agreement,\" said James Perry, GNOFHAC Executive Director"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=148; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0001",
+      "retrieval_date": "2026-11-13",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Crude-oil prices rose Wednesday as strengthening Hurricane Rita, now a Category 5 storm, threatened to disrupt oil production in the Gulf of Mexico."
+    },
+    {
       "concept_id": "concept.q3354532",
       "forms": [
         "шал"
@@ -46405,6 +47863,42 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q1708232",
+      "forms": [
+        "medailér",
+        "medailéra",
+        "medailérovi",
+        "medailéru",
+        "medailéra",
+        "medailére",
+        "medailérovi",
+        "medailéru"
+      ],
+      "language": "cs",
+      "lemma": "medailér",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L582346",
+      "pos": "",
+      "qids": [
+        "Q1708232"
+      ],
+      "record_id": "L582346",
+      "retrieval_date": "2026-11-13",
+      "revision": "1471254025",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L582346-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1708232"
     },
     {
       "concept_id": "concept.q726",
@@ -47272,6 +48766,42 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3075052"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "rådgiver",
+        "rådgiveren",
+        "rådgivere",
+        "rådgiverne",
+        "rådgivers",
+        "rådgiverens",
+        "rådgiveres",
+        "rådgivernes"
+      ],
+      "language": "da",
+      "lemma": "rådgiver",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L347182",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L347182",
+      "retrieval_date": "2026-11-13",
+      "revision": "2330586430",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L347182-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
     },
     {
       "concept_id": "concept.q1780",
@@ -49581,6 +51111,256 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3075052"
+    },
+    {
+      "concept_id": "concept.q16258947",
+      "forms": [
+        "Beamter",
+        "Beamten"
+      ],
+      "language": "de",
+      "lemma": "Beamter",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72792",
+      "pos": "",
+      "qids": [
+        "Q16258947",
+        "Q212238",
+        "Q812959",
+        "Q212238"
+      ],
+      "record_id": "L72792",
+      "retrieval_date": "2026-11-13",
+      "revision": "1878969673",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72792-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16258947"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "Umweltaktivist",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten",
+        "Umweltaktivisten"
+      ],
+      "language": "de",
+      "lemma": "Umweltaktivist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L787448",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L787448",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568156397",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L787448-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "Umweltschützerin",
+        "Umweltschützerinnen",
+        "Umweltschützerin",
+        "Umweltschützerinnen",
+        "Umweltschützerin",
+        "Umweltschützerinnen",
+        "Umweltschützerin",
+        "Umweltschützerinnen"
+      ],
+      "language": "de",
+      "lemma": "Umweltschützerin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L930979",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L930979",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568156457",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L930979-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "Berater",
+        "Beraters",
+        "Berater",
+        "Berater",
+        "Berater",
+        "Berater",
+        "Beratern",
+        "Berater"
+      ],
+      "language": "de",
+      "lemma": "Berater",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L2956",
+      "pos": "",
+      "qids": [
+        "Q2994387",
+        "Q15978655"
+      ],
+      "record_id": "L2956",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306632076",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L2956-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "Typograf",
+        "Typografen",
+        "Typografen",
+        "Typografen",
+        "Typografen",
+        "Typografen",
+        "Typografen",
+        "Typografen"
+      ],
+      "language": "de",
+      "lemma": "Typograf",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72845",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L72845",
+      "retrieval_date": "2026-11-13",
+      "revision": "1880972855",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72845-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "Typografin",
+        "Typografinnen",
+        "Typografin",
+        "Typografin",
+        "Typografin",
+        "Typografinnen",
+        "Typografinnen",
+        "Typografinnen"
+      ],
+      "language": "de",
+      "lemma": "Typografin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L73037",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L73037",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568156009",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L73037-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "Typograph",
+        "Typographen",
+        "Typographen",
+        "Typographen",
+        "Typographen",
+        "Typographen",
+        "Typographen",
+        "Typographen"
+      ],
+      "language": "de",
+      "lemma": "Typograph",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1442214",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L1442214",
+      "retrieval_date": "2026-11-13",
+      "revision": "2568156031",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1442214-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
     },
     {
       "concept_id": "concept.q726",
@@ -52596,6 +54376,96 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3264451"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "environmentalist",
+        "environmentalists"
+      ],
+      "language": "en",
+      "lemma": "environmentalist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L320180",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L320180",
+      "retrieval_date": "2026-11-13",
+      "revision": "2562356209",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L320180-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "advisor",
+        "advisors"
+      ],
+      "language": "en",
+      "lemma": "advisor",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L29490",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L29490",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306465413",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L29490-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "typographer",
+        "typographers"
+      ],
+      "language": "en",
+      "lemma": "typographer",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L72381",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L72381",
+      "retrieval_date": "2026-11-13",
+      "revision": "2561624360",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L72381-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
     },
     {
       "concept_id": "concept.q726",
@@ -55944,6 +57814,232 @@
       "wikidata": "Q98833883"
     },
     {
+      "concept_id": "concept.q16258947",
+      "forms": [
+        "fonctionnaire",
+        "fonctionnaires"
+      ],
+      "language": "fr",
+      "lemma": "fonctionnaire",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L20252",
+      "pos": "",
+      "qids": [
+        "Q212238",
+        "Q599151",
+        "Q16258947",
+        "Q1328323",
+        "Q56447380"
+      ],
+      "record_id": "L20252",
+      "retrieval_date": "2026-11-13",
+      "revision": "2538203815",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L20252-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q16258947"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "écologiste",
+        "écologistes"
+      ],
+      "language": "fr",
+      "lemma": "écologiste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1576833",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L1576833",
+      "retrieval_date": "2026-11-13",
+      "revision": "2524839948",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1576833-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "conseiller",
+        "conseillant",
+        "conseillé",
+        "conseillée",
+        "conseillés",
+        "conseillées",
+        "conseille",
+        "conseilles"
+      ],
+      "language": "fr",
+      "lemma": "conseiller",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12455",
+      "pos": "verb",
+      "qids": [
+        "Q4657217",
+        "Q69945363",
+        "Q56299314",
+        "Q2994387"
+      ],
+      "record_id": "L12455",
+      "retrieval_date": "2026-11-13",
+      "revision": "2524914518",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12455-S5",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "conseillère",
+        "conseillères",
+        "conseiller",
+        "conseillers"
+      ],
+      "language": "fr",
+      "lemma": "conseiller",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L12691",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L12691",
+      "retrieval_date": "2026-11-13",
+      "revision": "2528488574",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L12691-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q1708232",
+      "forms": [
+        "médailleur",
+        "médailleurs"
+      ],
+      "language": "fr",
+      "lemma": "médailleur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L621298",
+      "pos": "",
+      "qids": [
+        "Q1708232"
+      ],
+      "record_id": "L621298",
+      "retrieval_date": "2026-11-13",
+      "revision": "1767881973",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L621298-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1708232"
+    },
+    {
+      "concept_id": "concept.q1708232",
+      "forms": [
+        "médailleuse",
+        "médailleuses"
+      ],
+      "language": "fr",
+      "lemma": "médailleuse",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1577483",
+      "pos": "",
+      "qids": [
+        "Q1708232"
+      ],
+      "record_id": "L1577483",
+      "retrieval_date": "2026-11-13",
+      "revision": "2525103093",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1577483-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1708232"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "typographe",
+        "typographes"
+      ],
+      "language": "fr",
+      "lemma": "typographe",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L26880",
+      "pos": "",
+      "qids": [
+        "Q1229025",
+        "Q354034"
+      ],
+      "record_id": "L26880",
+      "retrieval_date": "2026-11-13",
+      "revision": "2524852998",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L26880-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
+    },
+    {
       "concept_id": "concept.q11756",
       "forms": [
         "prapovijest",
@@ -57829,6 +59925,68 @@
       "wikidata": "Q3264451"
     },
     {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "ambientalista",
+        "ambientalisti",
+        "ambientalista",
+        "ambientaliste"
+      ],
+      "language": "it",
+      "lemma": "ambientalista",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1231655",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L1231655",
+      "retrieval_date": "2026-11-13",
+      "revision": "2343521148",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1231655-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "tipografo",
+        "tipografi"
+      ],
+      "language": "it",
+      "lemma": "tipografo",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1209469",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L1209469",
+      "retrieval_date": "2026-11-13",
+      "revision": "2230622373",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1209469-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
+    },
+    {
       "concept_id": "concept.q1754",
       "forms": [
         "ストックホルム"
@@ -58468,6 +60626,35 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q1731155"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "タイポグラファー"
+      ],
+      "language": "ja",
+      "lemma": "タイポグラファー",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1605307",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L1605307",
+      "retrieval_date": "2026-11-13",
+      "revision": "2538442602",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1605307-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
     },
     {
       "concept_id": "concept.q65",
@@ -59880,6 +62067,66 @@
       "wikidata": "Q130788"
     },
     {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "penasihat",
+        "ڤنصيحة"
+      ],
+      "language": "ms",
+      "lemma": "penasihat",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L692233",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L692233",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306980975",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L692233-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "adpisir",
+        "ادڤيسير"
+      ],
+      "language": "ms",
+      "lemma": "adpisir",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1144488",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L1144488",
+      "retrieval_date": "2026-11-13",
+      "revision": "2306011230",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1144488-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
+    },
+    {
       "concept_id": "concept.q83178",
       "forms": [
         "Almere"
@@ -60042,6 +62289,38 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q2994387",
+      "forms": [
+        "adviseur",
+        "adviseurs",
+        "adviseurtje",
+        "adviseurtjes"
+      ],
+      "language": "nl",
+      "lemma": "adviseur",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1405250",
+      "pos": "",
+      "qids": [
+        "Q2994387"
+      ],
+      "record_id": "L1405250",
+      "retrieval_date": "2026-11-13",
+      "revision": "2457016526",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1405250-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q2994387"
     },
     {
       "concept_id": "concept.q7367",
@@ -61960,6 +64239,42 @@
       "wikidata": "Q3264451"
     },
     {
+      "concept_id": "concept.q1708232",
+      "forms": [
+        "медальер",
+        "медальера",
+        "медальеру",
+        "медальера",
+        "медальером",
+        "медальере",
+        "медальеры",
+        "медальеров"
+      ],
+      "language": "ru",
+      "lemma": "медальер",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L126242",
+      "pos": "",
+      "qids": [
+        "Q1708232"
+      ],
+      "record_id": "L126242",
+      "retrieval_date": "2026-11-13",
+      "revision": "1821355696",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L126242-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1708232"
+    },
+    {
       "concept_id": "concept.q726",
       "forms": [
         "häst",
@@ -63507,6 +65822,78 @@
       "wikidata": "Q3075052"
     },
     {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "miljöaktivist",
+        "miljöaktivisten",
+        "miljöaktivister",
+        "miljöaktivisterna",
+        "miljöaktivists",
+        "miljöaktivistens",
+        "miljöaktivisters",
+        "miljöaktivisternas"
+      ],
+      "language": "sv",
+      "lemma": "miljöaktivist",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1094209",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L1094209",
+      "retrieval_date": "2026-11-13",
+      "revision": "2478813968",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1094209-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
+    },
+    {
+      "concept_id": "concept.q1229025",
+      "forms": [
+        "typograf",
+        "typografen",
+        "typografer",
+        "typograferna",
+        "typografs",
+        "typografens",
+        "typografers",
+        "typografernas"
+      ],
+      "language": "sv",
+      "lemma": "typograf",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1452336",
+      "pos": "",
+      "qids": [
+        "Q1229025"
+      ],
+      "record_id": "L1452336",
+      "retrieval_date": "2026-11-13",
+      "revision": "2475189295",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1452336-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q1229025"
+    },
+    {
       "concept_id": "concept.q12106",
       "forms": [
         "கோதுமை"
@@ -63595,6 +65982,36 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3779582"
+    },
+    {
+      "concept_id": "concept.q3578589",
+      "forms": [
+        "çevreci",
+        "چورەجی"
+      ],
+      "language": "tr",
+      "lemma": "çevreci",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1235260",
+      "pos": "",
+      "qids": [
+        "Q3578589"
+      ],
+      "record_id": "L1235260",
+      "retrieval_date": "2026-11-13",
+      "revision": "2273253459",
+      "schema_version": "1.0.0",
+      "section": "work",
+      "sense_id": "L1235260-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "work.q28640",
+      "wikidata": "Q3578589"
     },
     {
       "concept_id": "concept.q2778382",
