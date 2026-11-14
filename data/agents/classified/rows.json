@@ -14629,6 +14629,726 @@
       "text": "No te preguntaré más por hoy."
     },
     {
+      "author": "Zifre",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2604",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Puede que hiele la próxima semana."
+    },
+    {
+      "author": "Fanki",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2605",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Aunque él se disculpó, aún estoy enojada."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2606",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "La policía te hará encontrar las balas."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=70; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2607",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Gracias por explicarme por fin por qué la gente me toma por un idiota."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2608",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No era mi intención."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2609",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Gracias por tu explicación."
+    },
+    {
+      "author": "Zifre",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=37; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2610",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "En teoría, estoy haciendo matemática."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2611",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Qué ocurrió?"
+    },
+    {
+      "author": "Warnerbroder",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=55; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2612",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Casi me asustó el no verte conectado por un día entero."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2613",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No sé qué quieres decir."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=42; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2614",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Mi ordenador tiene que ser útil para algo."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2615",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Querías hablarme de libertad?"
+    },
+    {
+      "author": "Zifre",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2616",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Oh, ahora es realmente extraño..."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=81; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2617",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Si yo quisiera asustarte, te contaría qué fue lo que soñé hace un par de semanas."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2618",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Uno no puede esperarse todo de los colegios."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2619",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Hay muchas palabras que no entiendo."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=92; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2620",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No me gusta cuando matemáticos que saben mucho más que yo no pueden expresarse con claridad."
+    },
+    {
+      "author": "Zifre",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2621",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Realmente no eres tonto."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2622",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Necesito hacerte una pregunta tonta."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2623",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¡No sé cómo demostrarlo, ya que es tan evidente!"
+    },
+    {
+      "author": "chinopinyin",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=67; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2624",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Nunca hubiera pensado que algún día buscaría \"viagra\" en Wikipedia."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=34; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2625",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Se puede expresar de otra manera?"
+    },
+    {
+      "author": "hayastan",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2626",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Nadie sabrá."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=80; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2627",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Encontré una solución, pero la encontré tan rápido que no puede ser la correcta."
+    },
+    {
+      "author": "Zifre",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2628",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¡Me parece interesante!"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=32; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2629",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Salvo que aquí no es tan simple."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2630",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Me gusta la luz de las velas."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2631",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Qué has respondido?"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2632",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No, no es mi nuevo novio."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=45; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2633",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Es una lástima que yo no tenga que adelgazar."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2634",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¡¿Nunca tienes clases o qué?!"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=61; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2635",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Entonces voy a hacer un sudoku en vez de seguir molestándote."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=24; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2636",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¿Dónde está el problema?"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2637",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sólo puedo esperar."
+    },
+    {
+      "author": "Eldad",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2638",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Eso no es ninguna gran sorpresa, ¿o sí?"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2639",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Te quiero."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2640",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ya no te quiero."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2641",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Tengo curiosidad."
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2642",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "¡Felicidades!"
+    },
+    {
+      "author": "Shishir",
+      "language": "es",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=31; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:2643",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "No quiero esperar tanto tiempo."
+    },
+    {
       "author": "TRANG",
       "language": "fr",
       "level": {
@@ -16787,6 +17507,726 @@
       "source_id": "tatoeba.sentences",
       "status": "keep",
       "text": "Mon prof de physique s'en fiche si je sèche les cours."
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3209",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "J'aimerais bien pouvoir aller au Japon."
+    },
+    {
+      "author": "zmoo",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3210",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je déteste ça quand il y a trop de gens."
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3211",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je dois aller au lit."
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=76; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3212",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Après ça, je pars, mais je me rends compte que j'ai oublié mon sac chez eux."
+    },
+    {
+      "author": "ANH_DAO",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3213",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je ne t'en demanderai pas plus pour aujourd'hui."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=43; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3214",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Il se peut qu'il gèle la semaine prochaine."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3215",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Même s'il s'est excusé, je suis encore en colère."
+    },
+    {
+      "author": "SUZIE",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=39; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3216",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "La police vous fera trouver les balles."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=76; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3217",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Merci de m'avoir expliqué finalement pourquoi on me prend pour une imbécile."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3218",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ce n'était pas mon intention."
+    },
+    {
+      "author": "SUZIE",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3219",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Merci pour ton explication."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=51; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3220",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Théoriquement, je suis en train de faire des maths."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=27; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3221",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Qu'est-ce qui s'est passé ?"
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=79; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3223",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ça m'a presque fait peur de ne pas te voir connectée pendant toute une journée."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=35; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3224",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je ne sais pas ce que tu veux dire."
+    },
+    {
+      "author": "zmoo",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=57; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3225",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Il faut bien que mon ordinateur me serve à quelque chose."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3226",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Tu voulais me parler de liberté ?"
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3227",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Euh, là c'est vraiment bizarre..."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=90; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3228",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Si je voulais te faire peur, je te raconterais ce dont j'ai rêvé il y a quelques semaines."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3229",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "On ne peut pas tout attendre des écoles."
+    },
+    {
+      "author": "SUZIE",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3230",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Il y a beaucoup de mots que je ne comprends pas."
+    },
+    {
+      "author": "SUZIE",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=114; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3231",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je n'aime pas quand les mathématiciens qui en savent beaucoup plus que moi ne savent pas s'exprimer explicitement."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3232",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "T'es vraiment pas bête."
+    },
+    {
+      "author": "zmoo",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=37; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3233",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je dois te poser une question idiote."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=63; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3234",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je ne sais pas comment le démontrer vu que c'est trop évident !"
+    },
+    {
+      "author": "sysko",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=75; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3235",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "J'aurais pas imaginé qu'un jour j'irais chercher « viagra » dans Wikipédia."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=51; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3236",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Est-ce qu'on peut formuler ça d'une autre manière ?"
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3237",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Personne ne saura."
+    },
+    {
+      "author": "MUIRIEL",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=92; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3238",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "J'ai trouvé une solution, mais je l'ai trouvée tellement vite que ça peut pas être la bonne."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3239",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ça me paraît intéressant !"
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3240",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Sauf que là, c'est pas si simple."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3241",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Moi, j'aime bien la lumière des bougies."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3242",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Qu'est-ce que tu as répondu ?"
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=37; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3243",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Non, c'est pas mon nouveau petit ami."
+    },
+    {
+      "author": "SUZIE",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=49; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3244",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "C'est dommage que je n'aie pas besoin de maigrir."
+    },
+    {
+      "author": "SUZIE",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=29; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3245",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "T'as jamais cours ou quoi ? !"
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=65; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3246",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je vais donc jouer au Sudoku au lieu de continuer de te déranger."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=20; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3247",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Où est le problème ?"
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=23; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3248",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.statement",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Je ne peux qu'attendre."
+    },
+    {
+      "author": "Tcha",
+      "language": "fr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=42; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-2.0-FR",
+      "origin_url": "https://tatoeba.org/en/terms_of_use",
+      "record_id": "tatoeba:3249",
+      "retrieval_date": "2026-11-14",
+      "section": "sentences",
+      "sentence_slot": "sentence.question",
+      "source_id": "tatoeba.sentences",
+      "status": "keep",
+      "text": "Ce n'est pas tellement une surprise, non ?"
     },
     {
       "author": "xtofu80",
@@ -47305,6 +48745,716 @@
       "text": "Crude-oil prices rose Wednesday as strengthening Hurricane Rita, now a Category 5 storm, threatened to disrupt oil production in the Gulf of Mexico."
     },
     {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=120; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0002",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "New York's main contract, light sweet crude for delivery in November rose 60 cents to close at 66.80 dollars per barrel."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=103; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0003",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In London, the price of Brent North Sea crude for November delivery advanced 53 cents to 64.73 dollars."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=141; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0004",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "After brushing the Florida Keys islands on Tuesday, Rita packed winds of about 240 kilometers an hour as it headed across the Gulf of Mexico."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=146; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0005",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The US National Hurricane Center said Rita was \"extremely dangerous\" and could become a top-level category five storm on the Saffir-Simpson scale."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=116; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0006",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The storm threatened oil installations in the Gulf of Mexico where about one-quarter of US oil operations are based."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=103; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0007",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Oil companies evacuated offshore facilities as the storm's progress kept global markets on tenterhooks."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=94; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0008",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "In Texas, BP shut its 460,000 barrels per day refinery and Marathon shut its 72,000 bpd plant."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=109; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0009",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Valero said it was reducing rates at its 243,000 bpd Texas City refinery and its 85,000 bpd Houston refinery."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=68; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0010",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Exxon Mobil released nonessential staff from two giant Texas plants."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=130; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0011",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Last month, Katrina devastated refineries in Louisiana and Mississippi and sent prices to a record high of 70.85 dollars a barrel."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=84; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_marketplace_e019a6deff0a1c7f_ENG_20050922_024300-0012",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "please support the link bellow which is excelnt ,thank for your click and attention:"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=87; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0001",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "[http://www.newscientistspace.com/article.ns?id=dn8293&feedId=human-spaceflight_atom03]"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0002",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "(New Scientist Space)"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=135; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0003",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "NASA is looking to private companies to launch both supplies and astronauts to the International Space Station, it announced this week."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=233; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0005",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"It's not cost-effective doing station flights while at the same time focusing on getting back to the Moon,\" says Brett Alexander, vice-president of Transformational Space, one of the companies hoping to launch astronauts to the ISS."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=108; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0006",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "NASA intends upon retiring the space shuttles in 2010, which only leaves it with 18 flights towards the ISS."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=148; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0007",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Outsourcing these responsibilities would be a wise alternative, considering the accomplishments of the private sector regarding the space elevator ."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=178; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0008",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Although some may praise this as an opportunity for the private sector to finally serve the public good, NASA seems hesitant about turning over the reigns to the corporate world."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0009",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "(New Scientist Space)"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=196; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0010",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "On 3 November, NASA administrator Michael Griffin told the US house science committee that the agency expects to invest about $500 million in the commercial cargo and crew project over five years."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=117; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0011",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"That kind of a financial incentive [...] will be sufficient to allow substantial providers to emerge,\" Griffin said."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=119; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0012",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "\"I hope that industry, if put to the test, can do better [than the government], but I do not expect it,\" Griffin added."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=86; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0013",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Only time will reveal whether Griffin's expectations are either exceeded or confirmed."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=242; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0014",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "But seeing how the private sector has been able to successfully transport civilians to the ISS (at about a fifth of the cost), it would come to no surprise if corporate America was able to out perform their bureaucratic friends in government."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=62; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_edef226e24a57863_ENG_20051116_085200-0016",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Posted by Hidden Nook to Hidden Nook at 11/16/2005 08:36:00 AM"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=100; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0001",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "[http://seattlepi.nwsource.com/national/apmideast_story.asp?category=1107&slug=Palestinians%20Abbas]"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=260; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0002",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Normally this author is semi-objective (what blogger is) but on the Seattlepi.com (see source link) Palestinian Leader Mahmoud Abbas has demanded that Israel leave all the land that it occupies before the 1967 border (which includes East Jerusalem by the way)."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=30; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0003",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "One thing is certain for sure."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=193; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0004",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If Abbas keeps up this \"macho talk\" he will kill potential peace talks and might as well allow Hamas (which has probably done a better job at providing for the Palestinians) rule the West Bank."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0005",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "AP Photo/Nasser Nasser"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=219; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0006",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Interim Palestinian leader and the front-runner in the upcoming Jan. 9, 2005 presidential election Mahmoud Abbas talks during his first official campaign speech in the West Bank town of Ramallah, Saturday Dec. 25, 2004."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=101; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0007",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Cloaking himself in Yasser Arafat's legacy, Abbas pledged to fulfill Palestinian dreams of statehood."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=92; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0008",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It seems that the Palestinian leadership (upcoming) will not be a peace partner with Israel."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=96; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0009",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "He is already demanding claims that Israel said no to not only the world, but to Arafat himself."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=210; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0010",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Listing his priorities, Abbas told supporters of the ruling Fatah party that he was determined to provide security to his people and continue the struggle against Israel's partially completed West Bank barrier."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=100; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0011",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Abbas also pledged to resolve the problem of millions of Palestinian refugees and their descendants."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=141; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0012",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Abbas, a refugee himself from what is today the northern Israeli city of Safed, called the refugee issue \"very important and very dangerous.\""
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=137; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0013",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Having personally visited the West Bank and Israel, I can say that this new political voice is threatening to collapse the peace process."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=176; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0014",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If Abbas does not change his former thinking and continues the path of Yasser Arafat, then there will not be peace in the Holy Land and the Palestinians will ultimately suffer."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0015",
+      "retrieval_date": "2026-11-14",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Selah!"
+    },
+    {
+      "concept_id": "concept.q11640447",
+      "forms": [
+        "حَمْل"
+      ],
+      "language": "ar",
+      "lemma": "حَمْل",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1320362",
+      "pos": "",
+      "qids": [
+        "Q1490716",
+        "Q11640447"
+      ],
+      "record_id": "L1320362",
+      "retrieval_date": "2026-11-14",
+      "revision": "2549167028",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1320362-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11640447"
+    },
+    {
       "concept_id": "concept.q3354532",
       "forms": [
         "шал"
@@ -47332,6 +49482,39 @@
       "status": "keep",
       "subsection": "clothing.q11460",
       "wikidata": "Q3354532"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "ডাক",
+        "ডাকের",
+        "ডাককে",
+        "ডাকে"
+      ],
+      "language": "bn",
+      "lemma": "ডাক",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L348193",
+      "pos": "",
+      "qids": [
+        "Q49845",
+        "Q2106340"
+      ],
+      "record_id": "L348193",
+      "retrieval_date": "2026-11-14",
+      "revision": "2462906186",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L348193-S5",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
     },
     {
       "concept_id": "concept.q726",
@@ -48445,6 +50628,168 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q179226",
+      "forms": [
+        "ridning",
+        "ridningen",
+        "ridninger",
+        "ridningerne",
+        "ridnings",
+        "ridningens",
+        "ridningers",
+        "ridningernes"
+      ],
+      "language": "da",
+      "lemma": "ridning",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L251608",
+      "pos": "",
+      "qids": [
+        "Q179226"
+      ],
+      "record_id": "L251608",
+      "retrieval_date": "2026-11-14",
+      "revision": "2485768920",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L251608-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "kidnapning",
+        "kidnapningen",
+        "kidnapninger",
+        "kidnapningerne"
+      ],
+      "language": "da",
+      "lemma": "kidnapning",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L44304",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L44304",
+      "retrieval_date": "2026-11-14",
+      "revision": "2213064316",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L44304-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "post",
+        "posten"
+      ],
+      "language": "da",
+      "lemma": "post",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L54378",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L54378",
+      "retrieval_date": "2026-11-14",
+      "revision": "2431858773",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L54378-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q184840",
+      "forms": [
+        "smugling",
+        "smuglingen",
+        "smuglinger",
+        "smuglingerne"
+      ],
+      "language": "da",
+      "lemma": "smugling",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L673886",
+      "pos": "",
+      "qids": [
+        "Q184840"
+      ],
+      "record_id": "L673886",
+      "retrieval_date": "2026-11-14",
+      "revision": "2189457571",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L673886-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q184840"
+    },
+    {
+      "concept_id": "concept.q184840",
+      "forms": [
+        "smugleri",
+        "smugleriet",
+        "smuglerier",
+        "smuglerierne"
+      ],
+      "language": "da",
+      "lemma": "smugleri",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L673888",
+      "pos": "",
+      "qids": [
+        "Q184840"
+      ],
+      "record_id": "L673888",
+      "retrieval_date": "2026-11-14",
+      "revision": "2241389643",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L673888-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q184840"
     },
     {
       "concept_id": "concept.q82955",
@@ -49975,6 +52320,334 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q11756"
+    },
+    {
+      "concept_id": "concept.q155930",
+      "forms": [
+        "Schifffahrt",
+        "Schiffahrt",
+        "Schifffahrt",
+        "Schiffahrt",
+        "Schifffahrt",
+        "Schiffahrt",
+        "Schifffahrt",
+        "Schiffahrt",
+        "Schifffahrten",
+        "Schiffahrten",
+        "Schifffahrten",
+        "Schiffahrten",
+        "Schifffahrten",
+        "Schiffahrten",
+        "Schifffahrten",
+        "Schiffahrten"
+      ],
+      "language": "de",
+      "lemma": "Schifffahrt",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L300569",
+      "pos": "",
+      "qids": [
+        "Q155930"
+      ],
+      "record_id": "L300569",
+      "retrieval_date": "2026-11-14",
+      "revision": "2435755414",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L300569-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q155930"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "Gießen",
+        "Gießens",
+        "Gießen",
+        "Gießen"
+      ],
+      "language": "de",
+      "lemma": "Gießen",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L802582",
+      "pos": "",
+      "qids": [
+        "Q11453"
+      ],
+      "record_id": "L802582",
+      "retrieval_date": "2026-11-14",
+      "revision": "2345528721",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L802582-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "Bewässerung",
+        "Bewässerungen",
+        "Bewässerung",
+        "Bewässerungen",
+        "Bewässerung",
+        "Bewässerungen",
+        "Bewässerung",
+        "Bewässerungen"
+      ],
+      "language": "de",
+      "lemma": "Bewässerung",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L815856",
+      "pos": "",
+      "qids": [
+        "Q11453"
+      ],
+      "record_id": "L815856",
+      "retrieval_date": "2026-11-14",
+      "revision": "2566322661",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L815856-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "Entführung",
+        "Entführung",
+        "Entführung",
+        "Entführung",
+        "Entführungen",
+        "Entführungen",
+        "Entführungen",
+        "Entführungen"
+      ],
+      "language": "de",
+      "lemma": "Entführung",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L498806",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L498806",
+      "retrieval_date": "2026-11-14",
+      "revision": "2306647381",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L498806-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "Post",
+        "Post",
+        "Post",
+        "Post",
+        "Posten",
+        "Posten",
+        "Posten",
+        "Posten"
+      ],
+      "language": "de",
+      "lemma": "Post",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L29224",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L29224",
+      "retrieval_date": "2026-11-14",
+      "revision": "2306710157",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L29224-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q651658",
+      "forms": [
+        "Verschiffung",
+        "Verschiffung",
+        "Verschiffung",
+        "Verschiffung",
+        "Verschiffungen",
+        "Verschiffungen",
+        "Verschiffungen",
+        "Verschiffungen"
+      ],
+      "language": "de",
+      "lemma": "Verschiffung",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L499894",
+      "pos": "",
+      "qids": [
+        "Q651658"
+      ],
+      "record_id": "L499894",
+      "retrieval_date": "2026-11-14",
+      "revision": "2011091230",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L499894-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q651658"
+    },
+    {
+      "concept_id": "concept.q3859736",
+      "forms": [
+        "Fußgängerverkehr",
+        "Fußgängerverkehrs",
+        "Fußgängerverkehr",
+        "Fußgängerverkehr",
+        "Fußgängerverkehre"
+      ],
+      "language": "de",
+      "lemma": "Fußgängerverkehr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L747278",
+      "pos": "",
+      "qids": [
+        "Q3859736"
+      ],
+      "record_id": "L747278",
+      "retrieval_date": "2026-11-14",
+      "revision": "1884603557",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L747278-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q3859736"
+    },
+    {
+      "concept_id": "concept.q3859736",
+      "forms": [
+        "Fußverkehr",
+        "Fußverkehrs",
+        "Fußverkehr",
+        "Fußverkehr",
+        "Fußverkehre",
+        "Fußverkehre",
+        "Fußverkehren",
+        "Fußverkehre"
+      ],
+      "language": "de",
+      "lemma": "Fußverkehr",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1094424",
+      "pos": "",
+      "qids": [
+        "Q3859736"
+      ],
+      "record_id": "L1094424",
+      "retrieval_date": "2026-11-14",
+      "revision": "1879912344",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1094424-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q3859736"
+    },
+    {
+      "concept_id": "concept.q350783",
+      "forms": [
+        "Bahn",
+        "Bahn",
+        "Bahn",
+        "Bahn",
+        "Bahnen",
+        "Bahnen",
+        "Bahnen",
+        "Bahnen"
+      ],
+      "language": "de",
+      "lemma": "Bahn",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L295844",
+      "pos": "",
+      "qids": [
+        "Q350783",
+        "Q22667",
+        "Q870",
+        "Q1645474"
+      ],
+      "record_id": "L295844",
+      "retrieval_date": "2026-11-14",
+      "revision": "2306628978",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L295844-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q350783"
     },
     {
       "concept_id": "concept.q82955",
@@ -53708,6 +56381,221 @@
       "wikidata": "Q398085"
     },
     {
+      "concept_id": "concept.q179226",
+      "forms": [
+        "equestrianism",
+        "equestrianisms"
+      ],
+      "language": "en",
+      "lemma": "equestrianism",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L61557",
+      "pos": "",
+      "qids": [
+        "Q179226"
+      ],
+      "record_id": "L61557",
+      "retrieval_date": "2026-11-14",
+      "revision": "2306600401",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L61557-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "irrigation",
+        "irrigations"
+      ],
+      "language": "en",
+      "lemma": "irrigation",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L36933",
+      "pos": "",
+      "qids": [
+        "Q11714089",
+        "Q11453"
+      ],
+      "record_id": "L36933",
+      "retrieval_date": "2026-11-14",
+      "revision": "2562021730",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L36933-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "abduction",
+        "abductions"
+      ],
+      "language": "en",
+      "lemma": "abduction",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L299268",
+      "pos": "",
+      "qids": [
+        "Q885607",
+        "Q318296",
+        "Q308502"
+      ],
+      "record_id": "L299268",
+      "retrieval_date": "2026-11-14",
+      "revision": "2560875678",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L299268-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "kidnapping",
+        "kidnappings"
+      ],
+      "language": "en",
+      "lemma": "kidnapping",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L299321",
+      "pos": "",
+      "qids": [
+        "Q318296",
+        "Q318296"
+      ],
+      "record_id": "L299321",
+      "retrieval_date": "2026-11-14",
+      "revision": "2423205057",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L299321-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "abducted"
+      ],
+      "language": "en",
+      "lemma": "abducted",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1494835",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L1494835",
+      "retrieval_date": "2026-11-14",
+      "revision": "2403708159",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1494835-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "mail",
+        "mail"
+      ],
+      "language": "en",
+      "lemma": "mail",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L6333",
+      "pos": "",
+      "qids": [
+        "Q49845",
+        "Q29000384",
+        "Q2106340"
+      ],
+      "record_id": "L6333",
+      "retrieval_date": "2026-11-14",
+      "revision": "2559777632",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L6333-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q184840",
+      "forms": [
+        "smuggling",
+        "smugglings"
+      ],
+      "language": "en",
+      "lemma": "smuggling",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L328010",
+      "pos": "",
+      "qids": [
+        "Q184840"
+      ],
+      "record_id": "L328010",
+      "retrieval_date": "2026-11-14",
+      "revision": "2343745890",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L328010-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q184840"
+    },
+    {
       "concept_id": "concept.q82955",
       "forms": [
         "politician",
@@ -55457,6 +58345,78 @@
       "wikidata": "Q19357317"
     },
     {
+      "concept_id": "concept.q179226",
+      "forms": [
+        "ratsutamine",
+        "ratsutamise",
+        "ratsutamist",
+        "ratsutamisesse",
+        "ratsutamises",
+        "ratsutamisest",
+        "ratsutamisele",
+        "ratsutamisel"
+      ],
+      "language": "et",
+      "lemma": "ratsutamine",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L383086",
+      "pos": "",
+      "qids": [
+        "Q179226"
+      ],
+      "record_id": "L383086",
+      "retrieval_date": "2026-11-14",
+      "revision": "2113347052",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L383086-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "post",
+        "posti",
+        "posti",
+        "postisse",
+        "postis",
+        "postist",
+        "postile",
+        "postil"
+      ],
+      "language": "et",
+      "lemma": "post",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L380248",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L380248",
+      "retrieval_date": "2026-11-14",
+      "revision": "2166937908",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L380248-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
       "concept_id": "concept.q4205432",
       "forms": [
         "ihtüoloog",
@@ -55983,6 +58943,71 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q3303330"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "posti",
+        "postit",
+        "postin",
+        "postien",
+        "postia",
+        "posteja",
+        "postina",
+        "posteina"
+      ],
+      "language": "fi",
+      "lemma": "posti",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L29696",
+      "pos": "",
+      "qids": [
+        "Q49845",
+        "Q35054"
+      ],
+      "record_id": "L29696",
+      "retrieval_date": "2026-11-14",
+      "revision": "2333509835",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L29696-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q11640447",
+      "forms": [],
+      "language": "fi",
+      "lemma": "kantelu",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1466176",
+      "pos": "",
+      "qids": [
+        "Q11640447",
+        "Q11869775"
+      ],
+      "record_id": "L1466176",
+      "retrieval_date": "2026-11-14",
+      "revision": "2452132215",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1466176-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11640447"
     },
     {
       "concept_id": "concept.q726",
@@ -56749,6 +59774,214 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q179226",
+      "forms": [
+        "équitation",
+        "équitations"
+      ],
+      "language": "fr",
+      "lemma": "équitation",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L27461",
+      "pos": "",
+      "qids": [
+        "Q179226"
+      ],
+      "record_id": "L27461",
+      "retrieval_date": "2026-11-14",
+      "revision": "2530932637",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L27461-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q155930",
+      "forms": [
+        "transport maritime"
+      ],
+      "language": "fr",
+      "lemma": "transport maritime",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=18; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1586381",
+      "pos": "",
+      "qids": [
+        "Q155930",
+        "Q349613"
+      ],
+      "record_id": "L1586381",
+      "retrieval_date": "2026-11-14",
+      "revision": "2528351734",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1586381-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q155930"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "enlèvement",
+        "enlèvements"
+      ],
+      "language": "fr",
+      "lemma": "enlèvement",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L15324",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L15324",
+      "retrieval_date": "2026-11-14",
+      "revision": "2306432836",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L15324-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "poste",
+        "postes"
+      ],
+      "language": "fr",
+      "lemma": "poste",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L13404",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L13404",
+      "retrieval_date": "2026-11-14",
+      "revision": "1756189544",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L13404-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "courrier",
+        "courriers"
+      ],
+      "language": "fr",
+      "lemma": "courrier",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L17394",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L17394",
+      "retrieval_date": "2026-11-14",
+      "revision": "2456388235",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L17394-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q651658",
+      "forms": [
+        "transport de marchandises"
+      ],
+      "language": "fr",
+      "lemma": "transport de marchandises",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1588969",
+      "pos": "",
+      "qids": [
+        "Q651658"
+      ],
+      "record_id": "L1588969",
+      "retrieval_date": "2026-11-14",
+      "revision": "2529789441",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1588969-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q651658"
+    },
+    {
+      "concept_id": "concept.q350783",
+      "forms": [
+        "transport guidé"
+      ],
+      "language": "fr",
+      "lemma": "transport guidé",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1588414",
+      "pos": "",
+      "qids": [
+        "Q350783"
+      ],
+      "record_id": "L1588414",
+      "retrieval_date": "2026-11-14",
+      "revision": "2529665262",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1588414-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q350783"
     },
     {
       "concept_id": "concept.q82955",
@@ -58391,6 +61624,43 @@
       "wikidata": "Q19728052"
     },
     {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "pengairan",
+        "air",
+        "pengairan",
+        "pengairanku",
+        "pengairanmu",
+        "pengairannya",
+        "pengairanlah",
+        "pengairankulah"
+      ],
+      "language": "id",
+      "lemma": "pengairan",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L479448",
+      "pos": "",
+      "qids": [
+        "Q11453",
+        "Q11453"
+      ],
+      "record_id": "L479448",
+      "retrieval_date": "2026-11-14",
+      "revision": "2262510983",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L479448-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
       "concept_id": "concept.q59099",
       "forms": [
         "erbivoro",
@@ -59402,6 +62672,188 @@
       "status": "keep",
       "subsection": "travel.q61509",
       "wikidata": "Q131482"
+    },
+    {
+      "concept_id": "concept.q179226",
+      "forms": [
+        "equitazione",
+        "equitazioni"
+      ],
+      "language": "it",
+      "lemma": "equitazione",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L689983",
+      "pos": "",
+      "qids": [
+        "Q179226",
+        "Q5384640"
+      ],
+      "record_id": "L689983",
+      "retrieval_date": "2026-11-14",
+      "revision": "2230652696",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L689983-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "irrigazione",
+        "irrigazioni"
+      ],
+      "language": "it",
+      "lemma": "irrigazione",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1145215",
+      "pos": "",
+      "qids": [
+        "Q11453",
+        "Q11714089"
+      ],
+      "record_id": "L1145215",
+      "retrieval_date": "2026-11-14",
+      "revision": "2347199538",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1145215-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "rapimento",
+        "rapimenti"
+      ],
+      "language": "it",
+      "lemma": "rapimento",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L684256",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L684256",
+      "retrieval_date": "2026-11-14",
+      "revision": "2182129993",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L684256-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "ostaggio",
+        "ostaggi"
+      ],
+      "language": "it",
+      "lemma": "ostaggio",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L686362",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L686362",
+      "retrieval_date": "2026-11-14",
+      "revision": "2196127676",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L686362-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "posta",
+        "poste"
+      ],
+      "language": "it",
+      "lemma": "posta",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L684980",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L684980",
+      "retrieval_date": "2026-11-14",
+      "revision": "2428678151",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L684980-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q184840",
+      "forms": [
+        "contrabbando",
+        "contrabbandi"
+      ],
+      "language": "it",
+      "lemma": "contrabbando",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=12; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L692132",
+      "pos": "",
+      "qids": [
+        "Q184840"
+      ],
+      "record_id": "L692132",
+      "retrieval_date": "2026-11-14",
+      "revision": "2230335371",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L692132-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q184840"
     },
     {
       "concept_id": "concept.q9149093",
@@ -60511,6 +63963,99 @@
       "wikidata": "Q11756"
     },
     {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "郵便",
+        "ゆうびん"
+      ],
+      "language": "ja",
+      "lemma": "郵便",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1101131",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L1101131",
+      "retrieval_date": "2026-11-14",
+      "revision": "2435042527",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1101131-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "便り",
+        "たより",
+        "便",
+        "たより"
+      ],
+      "language": "ja",
+      "lemma": "便り",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1407360",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L1407360",
+      "retrieval_date": "2026-11-14",
+      "revision": "2381799228",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1407360-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q11640447",
+      "forms": [
+        "携帯",
+        "けいたい"
+      ],
+      "language": "ja",
+      "lemma": "携帯",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L941884",
+      "pos": "",
+      "qids": [
+        "Q17517",
+        "Q11640447"
+      ],
+      "record_id": "L941884",
+      "retrieval_date": "2026-11-14",
+      "revision": "2381794644",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L941884-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11640447"
+    },
+    {
       "concept_id": "concept.q970153",
       "forms": [
         "子役",
@@ -60844,6 +64389,42 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q34370"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abrepta",
+        "abreptae",
+        "abreptae"
+      ],
+      "language": "la",
+      "lemma": "abripio",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L254725",
+      "pos": "verb",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L254725",
+      "retrieval_date": "2026-11-14",
+      "revision": "2322742653",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L254725-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
     },
     {
       "concept_id": "concept.q211423",
@@ -61889,6 +65470,143 @@
       "wikidata": "Q130788"
     },
     {
+      "concept_id": "concept.q179226",
+      "forms": [
+        "അശ്വാഭ്യാസം"
+      ],
+      "language": "ml",
+      "lemma": "അശ്വാഭ്യാസം",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L455540",
+      "pos": "",
+      "qids": [
+        "Q179226"
+      ],
+      "record_id": "L455540",
+      "retrieval_date": "2026-11-14",
+      "revision": "1394766757",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L455540-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q179226"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "ജലസേചനം",
+        "ജലസേചനത്തിനെ",
+        "ജലസേചനത്തെ",
+        "ജലസേചനങ്ങളെ",
+        "ജലസേചനത്തിനു്",
+        "ജലസേചനങ്ങൾക്കു്",
+        "ജലസേചനത്തിങ്കൽ",
+        "ജലസേചനങ്ങളിങ്കൽ"
+      ],
+      "language": "ml",
+      "lemma": "ജലസേചനം",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L455812",
+      "pos": "",
+      "qids": [
+        "Q11453"
+      ],
+      "record_id": "L455812",
+      "retrieval_date": "2026-11-14",
+      "revision": "1442289935",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L455812-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "നന",
+        "നനയെ",
+        "നനയ്ക്ക്",
+        "നനയിൽ",
+        "നനയോട്",
+        "നനയാൽ",
+        "നനയുടെ",
+        "നനകൾ"
+      ],
+      "language": "ml",
+      "lemma": "നന",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L553696",
+      "pos": "",
+      "qids": [
+        "Q11453"
+      ],
+      "record_id": "L553696",
+      "retrieval_date": "2026-11-14",
+      "revision": "1696084851",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L553696-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "തപാൽ",
+        "തപാലിനെ",
+        "തപാലുകളെ",
+        "തപാലിനു്",
+        "തപാലുകൾക്കു്",
+        "തപാലിങ്കൽ",
+        "തപാലുകളിങ്കൽ",
+        "തപാലുകളിൽ"
+      ],
+      "language": "ml",
+      "lemma": "തപാൽ",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L300985",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L300985",
+      "retrieval_date": "2026-11-14",
+      "revision": "2522376201",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L300985-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
       "concept_id": "concept.q3779582",
       "forms": [
         "മൈക്രോബയോളജിസ്റ്റ്"
@@ -62065,6 +65783,36 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "pos",
+        "ڤوس"
+      ],
+      "language": "ms",
+      "lemma": "pos",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L473501",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L473501",
+      "retrieval_date": "2026-11-14",
+      "revision": "2351037551",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L473501-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
     },
     {
       "concept_id": "concept.q2994387",
@@ -62289,6 +66037,76 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "post",
+        "posten",
+        "postje",
+        "postjes"
+      ],
+      "language": "nl",
+      "lemma": "post",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1410973",
+      "pos": "",
+      "qids": [
+        "Q49845",
+        "Q35054"
+      ],
+      "record_id": "L1410973",
+      "retrieval_date": "2026-11-14",
+      "revision": "2457015046",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1410973-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q11640447",
+      "forms": [
+        "meenemen",
+        "neem mee",
+        "meeneem",
+        "neem mee",
+        "neemt mee",
+        "meeneemt",
+        "neemt mee",
+        "meeneemt"
+      ],
+      "language": "nl",
+      "lemma": "meenemen",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1216785",
+      "pos": "verb",
+      "qids": [
+        "Q11640447",
+        "Q154383"
+      ],
+      "record_id": "L1216785",
+      "retrieval_date": "2026-11-14",
+      "revision": "2520783821",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1216785-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11640447"
     },
     {
       "concept_id": "concept.q2994387",
@@ -63696,6 +67514,150 @@
       "wikidata": "Q131482"
     },
     {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "ирригация",
+        "ирригации",
+        "ирригации",
+        "ирригацию",
+        "ирригацией",
+        "ирригациею",
+        "ирригации",
+        "ирригации"
+      ],
+      "language": "ru",
+      "lemma": "ирригация",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L113671",
+      "pos": "",
+      "qids": [
+        "Q11453"
+      ],
+      "record_id": "L113671",
+      "retrieval_date": "2026-11-14",
+      "revision": "2568487375",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L113671-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "орошение",
+        "орошения",
+        "орошению",
+        "орошение",
+        "орошением",
+        "орошении",
+        "орошения",
+        "орошений"
+      ],
+      "language": "ru",
+      "lemma": "орошение",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=8; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L138042",
+      "pos": "",
+      "qids": [
+        "Q11453"
+      ],
+      "record_id": "L138042",
+      "retrieval_date": "2026-11-14",
+      "revision": "2236812107",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L138042-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q184840",
+      "forms": [
+        "контрабас",
+        "контрабаса",
+        "контрабасу",
+        "контрабас",
+        "контрабасом",
+        "контрабасе",
+        "контрабасы",
+        "контрабасов"
+      ],
+      "language": "ru",
+      "lemma": "контрабас",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L144875",
+      "pos": "",
+      "qids": [
+        "Q184840"
+      ],
+      "record_id": "L144875",
+      "retrieval_date": "2026-11-14",
+      "revision": "2302801205",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L144875-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q184840"
+    },
+    {
+      "concept_id": "concept.q11640447",
+      "forms": [
+        "носка",
+        "носки",
+        "носке",
+        "носку",
+        "ноской",
+        "носкою",
+        "носке",
+        "носки"
+      ],
+      "language": "ru",
+      "lemma": "носка",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L145280",
+      "pos": "",
+      "qids": [
+        "Q11640447"
+      ],
+      "record_id": "L145280",
+      "retrieval_date": "2026-11-14",
+      "revision": "2555411097",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L145280-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11640447"
+    },
+    {
       "concept_id": "concept.q937857",
       "forms": [
         "футболист",
@@ -64273,6 +68235,42 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q1708232"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "pošta",
+        "pošty",
+        "pošte",
+        "poštu",
+        "pošte",
+        "poštou",
+        "pošty",
+        "pôšt"
+      ],
+      "language": "sk",
+      "lemma": "pošta",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L249898",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L249898",
+      "retrieval_date": "2026-11-14",
+      "revision": "1356460173",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L249898-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
     },
     {
       "concept_id": "concept.q726",
@@ -64955,6 +68953,165 @@
       "status": "keep",
       "subsection": "time.q11471",
       "wikidata": "Q130788"
+    },
+    {
+      "concept_id": "concept.q155930",
+      "forms": [
+        "sjöfart",
+        "sjöfarten",
+        "sjöfarts",
+        "sjöfartens"
+      ],
+      "language": "sv",
+      "lemma": "sjöfart",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L475975",
+      "pos": "",
+      "qids": [
+        "Q155930"
+      ],
+      "record_id": "L475975",
+      "retrieval_date": "2026-11-14",
+      "revision": "2568834701",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L475975-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q155930"
+    },
+    {
+      "concept_id": "concept.q11453",
+      "forms": [
+        "konstbevattning",
+        "konstbevattningen",
+        "konstbevattnings",
+        "konstbevattningens"
+      ],
+      "language": "sv",
+      "lemma": "konstbevattning",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=15; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1342581",
+      "pos": "",
+      "qids": [
+        "Q11453"
+      ],
+      "record_id": "L1342581",
+      "retrieval_date": "2026-11-14",
+      "revision": "2507107753",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1342581-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11453"
+    },
+    {
+      "concept_id": "concept.q318296",
+      "forms": [
+        "kidnappning",
+        "kidnappningen",
+        "kidnappningar",
+        "kidnappningarna",
+        "kidnappnings",
+        "kidnappningens",
+        "kidnappningars",
+        "kidnappningarnas"
+      ],
+      "language": "sv",
+      "lemma": "kidnappning",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L486071",
+      "pos": "",
+      "qids": [
+        "Q318296"
+      ],
+      "record_id": "L486071",
+      "retrieval_date": "2026-11-14",
+      "revision": "2483345365",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L486071-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q318296"
+    },
+    {
+      "concept_id": "concept.q184840",
+      "forms": [
+        "smuggling",
+        "smugglingen",
+        "smugglings",
+        "smugglingens"
+      ],
+      "language": "sv",
+      "lemma": "smuggling",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L586356",
+      "pos": "",
+      "qids": [
+        "Q184840"
+      ],
+      "record_id": "L586356",
+      "retrieval_date": "2026-11-14",
+      "revision": "2484057396",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L586356-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q184840"
+    },
+    {
+      "concept_id": "concept.q11640447",
+      "forms": [],
+      "language": "sv",
+      "lemma": "bärande",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1466177",
+      "pos": "",
+      "qids": [
+        "Q11640447"
+      ],
+      "record_id": "L1466177",
+      "retrieval_date": "2026-11-14",
+      "revision": "2478738998",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1466177-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q11640447"
     },
     {
       "concept_id": "concept.q82955",
@@ -65922,6 +70079,71 @@
       "status": "keep",
       "subsection": "food.q2095",
       "wikidata": "Q12106"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "தபால்"
+      ],
+      "language": "ta",
+      "lemma": "தபால்",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1232580",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L1232580",
+      "retrieval_date": "2026-11-14",
+      "revision": "2054678511",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1232580-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
+    },
+    {
+      "concept_id": "concept.q49845",
+      "forms": [
+        "அஞ்சல்",
+        "அஞ்சல்கள்",
+        "அஞ்சலை",
+        "அஞ்சல்களை",
+        "அஞ்சலால்",
+        "அஞ்சல்களால்",
+        "அஞ்சலோடு",
+        "அஞ்சல்களோடு"
+      ],
+      "language": "ta",
+      "lemma": "அஞ்சல்",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1324125",
+      "pos": "",
+      "qids": [
+        "Q49845"
+      ],
+      "record_id": "L1324125",
+      "retrieval_date": "2026-11-14",
+      "revision": "2146917337",
+      "schema_version": "1.0.0",
+      "section": "travel",
+      "sense_id": "L1324125-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "travel.q7590",
+      "wikidata": "Q49845"
     },
     {
       "concept_id": "concept.q3354532",
