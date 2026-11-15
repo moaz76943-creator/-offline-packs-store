@@ -11503,6 +11503,406 @@
       "value": "Selah!"
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_23708a8afef2f3a8_ENG_20041226_230600-0017",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Posted by Hidden Nook to Hidden Nook at 12/26/2004 10:46:08 PM"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "[http://news.bbc.co.uk/1/hi/world/middle_east/4281450.stm]"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "(Hat Tip: Captains Quarters )"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "(BBC)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0004",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "The Palestinian militant organisation Hamas has announced an end to rocket attacks on Israel from the Gaza Strip after a weekend of escalating violence."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Up to 40 rockets had been fired at Israel, weeks after its military withdrew from the territory."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0006",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "In response to the rockets, Israel resumed its policy of targeting militant leaders in air strikes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0007",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Authorised by Ariel Sharon to make \"unrestricted\" strikes, its military launched new missile attacks overnight."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0008",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "It looks as if Hamas has thrown in the towel for this round, unable to take the beating the Israeli Defense Forces have unleashed upon this terrorist group."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0009",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Mahmoud Zahar, Hamas's leader declared the cease fire after Israel killed it's former leader, Muhammed Sheikh Khalil ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0010",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Hamas has become rather unpopular in Gaza, as many see the Israeli air strikes as a response towards the rocket attacks upon Israeli soil."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0011",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Egypt had a role to play as they convinced Hamas to end the attacks, although the same can not be said of Islamic Jihad ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0012",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "(Jerusalem Post)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0013",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"We're not happy with Hamas's position at this stage and in light of the Israeli escalation against the Palestinians,\" commented Khader Habib, a senior Islamic Jihad official."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0014",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"But it seems that Hamas has its own political agenda.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0016",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"The problem is not with the Palestinian resistance groups but with Israel's scheme to destroy the Palestinians' infrastructure,\" Habib said."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0017",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "\"Hamas remains targeted by Israel, as in the past, and the Israeli occupation does not need excuses to pursue its aggression."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0018",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Israel wants to drive the Palestinians toward civil war.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0019",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Islamic Jihad has refused to recognized the cease fire, and hopes to turn the Gaza strip \"into a vast battlefield.\""
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0020",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Unless President Mahmoud Abbas steps in, Gaza will probably look like a battle field by the time Israel is done reminding Hamas of their critical error, although currently the only thing Abbas is doing is lashing out and refusing to take responsibility for his inability to act."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:newsgroup-groups.google.com_hiddennook_5380fdd00f8e5e56_ENG_20050926_194800-0022",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Posted by Hidden Nook to Hidden Nook at 9/26/2005 08:14:00 PM"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20090605110350AA2V8bW_ans-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Iguazu is a big or a small country?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20090605110350AA2V8bW_ans-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Iguazu is NOT a country...."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20090605110350AA2V8bW_ans-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Iguazu is in Argentina :)"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20110909115731AAl3uzs_ans-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "How much is a big mac in your country?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20110909115731AAl3uzs_ans-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "$5.76 For the Combo Meal!!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20090717131608AAqDfYJ_ans-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "What foods do you eat in Miramar?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20090717131608AAqDfYJ_ans-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Argentinian foods of course, LMAO."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20090717131608AAqDfYJ_ans-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "lol!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20090717131608AAqDfYJ_ans-0004",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "seafood"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20090717131608AAqDfYJ_ans-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "you mean miramar florida theyy have good seafood there"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108003939AA3pvxF_ans-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Have you had any knowledgement about pearl pigment.?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108003939AA3pvxF_ans-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "...Nope and I am proud of it...because my teacher havent taught us that yet..."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20100308180028AAHCoBv_ans-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Can you recommend any restaurants in Buenos Aires?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20100308180028AAHCoBv_ans-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "I will be vacationing there"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20100308180028AAHCoBv_ans-0003",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Yes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20100308180028AAHCoBv_ans-0004",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "There are several just off their beautiful beach."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20100308180028AAHCoBv_ans-0005",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "Enjoy yourself my friend !!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107224336AAxQbzk_ans-0001",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "does teacher's camp in baguio also accomodate even 1 person??"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107224336AAxQbzk_ans-0002",
+      "retrieval_date": "2026-11-14",
+      "source_id": "universal-dependencies",
+      "value": "cos ill be going to baguio alone and i have tight?"
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",

@@ -1225,6 +1225,406 @@
     {
       "id": "sentence.statement",
       "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4828",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "自由について私に話したかったの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4829",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "ああ、凄く変だなあ・・・。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4830",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "恐い話が聞きたいなら、数週間前に私が見た夢のことを話してあげるよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4831",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "学校に全てを求めることはできない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4832",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "分からない言葉がたくさんある。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4833",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "私よりも物知りな数学者が自分のことをはっきりと表現できていないのを見るのは心地の良いものではない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4834",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "君は本当は馬鹿ではない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4835",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "バカな質問があるんだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4836",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "こんなに明らかなことをわざわざどうやって説明したらいいのか分からない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4837",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "ウィキペディアでいつかバイアグラを検索するなんて思ってもみなかったわ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4838",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "何か他の言い方はある？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4839",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "誰にも分からないよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4840",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "答えが分かったんだ、でもあまりにすぐに分かったものだから正解であるはずがないんだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4841",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "面白そう！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4842",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "だけど、ここではそんなに簡単ではないんです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4843",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "私はロウソクの灯りって好きだな。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4844",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "何て答えたの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4845",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "違うよ、新しい彼じゃない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4846",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "痩せる必要がないというのは残念だ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4847",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "授業が全然無いとでも言うの？！"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4848",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "何が問題なの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4849",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "待つしかない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4850",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "そんなに驚くことじゃないよね？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4851",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "愛してる。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4852",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "もう好きじゃない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4853",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "私は好奇心が強いです。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4854",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "おめでとうございます。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4855",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "そんなに待ちたくない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4856",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "家に来ませんか。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4857",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "でも可能性は低そうだね。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4858",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "ログアウトするんじゃなかったよ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4860",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "もう何をしたらいいか分からない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4861",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "いつかフランスに行くことは避けられない、それがいつかは分からないけれど。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4862",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "化学が嫌いだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4863",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "こんなことにはなって欲しくなかった。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4864",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "君には何が起こるか分かるんじゃないかと思うけどね。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4865",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "君が次に分かることは君が新聞に載るってことだ。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4866",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "他にどんな選択肢があるの？"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4867",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "僕はそんなに旅行好きではない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:4868",
+      "retrieval_date": "2026-11-14",
+      "source_id": "tatoeba.sentences",
+      "value": "それをするより他はない。"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ja",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:1297",

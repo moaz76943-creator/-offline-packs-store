@@ -1223,6 +1223,406 @@
       "value": "Wat was je aan het doen?"
     },
     {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376079",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Probeer het nog eens."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377094",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Onze hond begraaft zijn botten in de tuin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377176",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Je kunt maar beter een tijdje gaan slapen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377177",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ze zijn met de auto naar Chicago gegaan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377178",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De politie onderzoekt de oorzaak van het ongeval."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377179",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik heb met mijn ouders gesproken over studeren in het buitenland."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377180",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat is de oorsprong van de Olympische Spelen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377181",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De berg is bedekt met sneeuw."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377182",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij kwam niet, totdat ik belde."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377183",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik weet niet wat ik nog meer kan doen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377188",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoe hard je het ook probeert, Engels leer je niet in twee, drie maanden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377192",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik had de bloemen geen water hoeven geven. Ik was er maar net klaar mee, of het begon te regenen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377199",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De broedhen heeft een week op de eieren zitten broeden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377202",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik ben misschien niet erg sociaal, maar dat betekent nog niet dat ik niet met mensen omga."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377209",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De bus vertrekt dadelijk."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377210",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vind je dit een mooie kleur?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377211",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij is teruggekomen uit China."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377212",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Japan heeft diplomatieke betrekkingen met China."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377213",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Om de oorlog te financieren zijn er obligaties uitgegeven."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377214",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij heeft een boek geschreven over porselein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377215",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Je moet rekening houden met zijn leeftijd."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377219",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Over dit meer bestaat een mysterieuze legende."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377226",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Frankrijk voerde oorlog met Rusland."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377227",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ons vliegtuig vloog boven de wolken."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377232",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Er zijn gevallen waarin deze regel niet geldt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377235",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik dacht net aan een nieuwe baan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377237",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik zei tegen mezelf: dat is een goed idee."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377244",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Straks is onze zus bij ons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377246",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Misschien gaat het sneeuwen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377248",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Frans wordt in Frankrijk gesproken."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377250",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik heb afschuwelijk gedroomd."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377253",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Het is moeilijk voor buitenlanders om Japans te leren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377256",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De Verenigde Staten grenzen aan Canada."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377260",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij zei dat hij van plan was een risico te nemen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377263",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Het concert was leuk, maar het was wel koud in de zaal."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377266",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Bovendien kan hij Ivriet lezen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377269",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Gisteren was u niet op school."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377271",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Verkopen ze schriften in die winkel?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377274",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Mijn oom is gisteren overleden aan maagkanker."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377275",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Het merendeel van de mensen die met een vork eten, woont in Europa, Noord-Amerika en Latijns-Amerika; mensen die met stokjes eten, wonen in Afrika, het Nabije Oosten, Indonesië en India."
+    },
+    {
       "id": "verb.forms",
       "language": "nl",
       "level": "B1",
@@ -2440,6 +2840,406 @@
       "retrieval_date": "2026-11-10",
       "source_id": "tatoeba.sentences",
       "value": "Wat was je aan het doen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:376079",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Probeer het nog eens."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377094",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Onze hond begraaft zijn botten in de tuin."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377176",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Je kunt maar beter een tijdje gaan slapen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377177",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ze zijn met de auto naar Chicago gegaan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377178",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De politie onderzoekt de oorzaak van het ongeval."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377179",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik heb met mijn ouders gesproken over studeren in het buitenland."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377180",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Wat is de oorsprong van de Olympische Spelen?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377181",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De berg is bedekt met sneeuw."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377182",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij kwam niet, totdat ik belde."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377183",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik weet niet wat ik nog meer kan doen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377188",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hoe hard je het ook probeert, Engels leer je niet in twee, drie maanden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377192",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik had de bloemen geen water hoeven geven. Ik was er maar net klaar mee, of het begon te regenen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377199",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De broedhen heeft een week op de eieren zitten broeden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377202",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik ben misschien niet erg sociaal, maar dat betekent nog niet dat ik niet met mensen omga."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377209",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De bus vertrekt dadelijk."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377210",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vind je dit een mooie kleur?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377211",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij is teruggekomen uit China."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377212",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Japan heeft diplomatieke betrekkingen met China."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377213",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Om de oorlog te financieren zijn er obligaties uitgegeven."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377214",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij heeft een boek geschreven over porselein."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377215",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Je moet rekening houden met zijn leeftijd."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377219",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Over dit meer bestaat een mysterieuze legende."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377226",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Frankrijk voerde oorlog met Rusland."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377227",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ons vliegtuig vloog boven de wolken."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377232",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Er zijn gevallen waarin deze regel niet geldt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377235",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik dacht net aan een nieuwe baan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377237",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik zei tegen mezelf: dat is een goed idee."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377244",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Straks is onze zus bij ons."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377246",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Misschien gaat het sneeuwen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377248",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Frans wordt in Frankrijk gesproken."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377250",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ik heb afschuwelijk gedroomd."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377253",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Het is moeilijk voor buitenlanders om Japans te leren."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377256",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "De Verenigde Staten grenzen aan Canada."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377260",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hij zei dat hij van plan was een risico te nemen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377263",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Het concert was leuk, maar het was wel koud in de zaal."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377266",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Bovendien kan hij Ivriet lezen."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377269",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Gisteren was u niet op school."
+    },
+    {
+      "id": "sentence.question",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377271",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Verkopen ze schriften in die winkel?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377274",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Mijn oom is gisteren overleden aan maagkanker."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "nl",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:377275",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Het merendeel van de mensen die met een vork eten, woont in Europa, Noord-Amerika en Latijns-Amerika; mensen die met stokjes eten, wonen in Afrika, het Nabije Oosten, Indonesië en India."
     },
     {
       "id": "verb.forms",
