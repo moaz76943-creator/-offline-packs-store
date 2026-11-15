@@ -7,9 +7,9 @@
       "cs": 16,
       "da": 33,
       "de": 261,
-      "en": 1263,
+      "en": 1304,
       "eo": 2,
-      "es": 208,
+      "es": 209,
       "et": 10,
       "eu": 7,
       "fa": 2,
@@ -18,13 +18,13 @@
       "hr": 9,
       "id": 2,
       "it": 76,
-      "ja": 146,
+      "ja": 187,
       "ko": 4,
       "la": 4,
       "lv": 1,
       "ml": 39,
       "ms": 7,
-      "nl": 137,
+      "nl": 177,
       "pa": 6,
       "pl": 11,
       "pt": 36,
@@ -45,12 +45,12 @@
       "colors": 40,
       "emotions": 20,
       "food": 21,
-      "grammar": 988,
+      "grammar": 1028,
       "health": 18,
-      "nature": 1,
+      "nature": 4,
       "numbers": 4,
       "religion": 1,
-      "sentences": 1600,
+      "sentences": 1680,
       "shopping": 1,
       "sports": 3,
       "technology": 6,
@@ -60,13 +60,13 @@
     },
     "by_source": {
       "kaikki.wiktextract": 132,
-      "tatoeba.sentences": 1600,
-      "universal-dependencies": 988,
-      "wikidata.lexemes": 654
+      "tatoeba.sentences": 1680,
+      "universal-dependencies": 1028,
+      "wikidata.lexemes": 657
     },
-    "total": 3374
+    "total": 3497
   },
-  "generated_by": "packs",
+  "generated_by": "classifier",
   "pack_bytes": 749568,
   "packs": [
     {
@@ -394,7 +394,7 @@
       "lv": 1,
       "ml": 39,
       "ms": 7,
-      "nl": 137,
+      "nl": 177,
       "pa": 6,
       "pl": 11,
       "pt": 36,
@@ -580,7 +580,7 @@
         "city": 11,
         "colors": 1,
         "food": 1,
-        "sentences": 120,
+        "sentences": 160,
         "time": 1,
         "travel": 2,
         "work": 1
@@ -737,7 +737,7 @@
       },
       "nl": {
         "kaikki.wiktextract": 9,
-        "tatoeba.sentences": 120,
+        "tatoeba.sentences": 160,
         "wikidata.lexemes": 8
       },
       "pa": {
@@ -792,7 +792,7 @@
       "nature": 4,
       "numbers": 4,
       "religion": 1,
-      "sentences": 1640,
+      "sentences": 1680,
       "shopping": 1,
       "sports": 3,
       "technology": 6,
@@ -802,11 +802,11 @@
     },
     "by_source": {
       "kaikki.wiktextract": 132,
-      "tatoeba.sentences": 1640,
+      "tatoeba.sentences": 1680,
       "universal-dependencies": 1028,
       "wikidata.lexemes": 657
     },
-    "total": 3457
+    "total": 3497
   },
   "schema_version": "1.0.0"
 }
