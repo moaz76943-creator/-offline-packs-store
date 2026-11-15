@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-11-07",
+  "retrieval_date": "2026-11-15",
   "rows": [
     {
       "concept_id": "concept.q3711",
@@ -339,6 +339,30 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q2751"
+    },
+    {
+      "concept_id": "concept.q393",
+      "forms": [
+        "Stettino"
+      ],
+      "language": "it",
+      "lemma": "Stettino",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1417708",
+      "pos": "",
+      "qids": [
+        "Q393"
+      ],
+      "record_id": "L1417708",
+      "retrieval_date": "2026-11-15",
+      "revision": "2320497906",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1417708-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q393"
     }
   ],
   "schema_version": "1.0.0",
@@ -346,19 +370,7 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q628"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q628"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q155993"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q4024"
+      "wikidata": "Q1867"
     }
   ],
   "source": "harvest-wikidata"

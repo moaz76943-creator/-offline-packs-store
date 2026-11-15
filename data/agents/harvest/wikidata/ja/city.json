@@ -1,6 +1,6 @@
 {
   "language": "ja",
-  "retrieval_date": "2026-11-01",
+  "retrieval_date": "2026-11-15",
   "rows": [
     {
       "concept_id": "concept.q1754",
@@ -117,22 +117,36 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q3114"
+    },
+    {
+      "concept_id": "concept.q1867",
+      "forms": [],
+      "language": "ja",
+      "lemma": "タイペイ",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1071936",
+      "pos": "",
+      "qids": [
+        "Q1867"
+      ],
+      "record_id": "L1071936",
+      "retrieval_date": "2026-11-15",
+      "revision": "2381794850",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L1071936-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1867"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q279"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1410"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q23051"
+      "reason": "other_language",
+      "wikidata": "Q1867"
     }
   ],
   "source": "harvest-wikidata"

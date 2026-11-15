@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-11-07",
+  "retrieval_date": "2026-11-15",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -557,6 +557,90 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q39121"
+    },
+    {
+      "concept_id": "concept.q2861",
+      "forms": [
+        "Rostock",
+        "Rostock",
+        "Rostocks",
+        "Rostock",
+        "Rostock"
+      ],
+      "language": "de",
+      "lemma": "Rostock",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L484270",
+      "pos": "",
+      "qids": [
+        "Q2861"
+      ],
+      "record_id": "L484270",
+      "retrieval_date": "2026-11-15",
+      "revision": "1879006212",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L484270-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q2861"
+    },
+    {
+      "concept_id": "concept.q1867",
+      "forms": [
+        "Taipeh",
+        "Taipeh",
+        "Taipehs",
+        "Taipeh",
+        "Taipeh"
+      ],
+      "language": "de",
+      "lemma": "Taipeh",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L589167",
+      "pos": "",
+      "qids": [
+        "Q1867"
+      ],
+      "record_id": "L589167",
+      "retrieval_date": "2026-11-15",
+      "revision": "1880941382",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L589167-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q1867"
+    },
+    {
+      "concept_id": "concept.q393",
+      "forms": [
+        "Stettin",
+        "Stettin",
+        "Stettins",
+        "Stettin",
+        "Stettin"
+      ],
+      "language": "de",
+      "lemma": "Stettin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L617250",
+      "pos": "",
+      "qids": [
+        "Q393"
+      ],
+      "record_id": "L617250",
+      "retrieval_date": "2026-11-15",
+      "revision": "2345582006",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L617250-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q393"
     }
   ],
   "schema_version": "1.0.0",
@@ -564,19 +648,7 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q628"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q628"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q155993"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q4024"
+      "wikidata": "Q1867"
     }
   ],
   "source": "harvest-wikidata"

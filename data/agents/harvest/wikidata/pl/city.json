@@ -1,6 +1,6 @@
 {
   "language": "pl",
-  "retrieval_date": "2026-11-02",
+  "retrieval_date": "2026-11-15",
   "rows": [
     {
       "concept_id": "concept.q1780",
@@ -252,22 +252,45 @@
       "status": "keep",
       "subsection": "city.q515",
       "wikidata": "Q1799"
+    },
+    {
+      "concept_id": "concept.q393",
+      "forms": [
+        "Szczecin",
+        "Szczecina",
+        "Szczecinowi",
+        "Szczecin",
+        "Szczecinem",
+        "Szczecinie",
+        "Szczecinie",
+        "Szczeciny"
+      ],
+      "language": "pl",
+      "lemma": "Szczecin",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L6597",
+      "pos": "",
+      "qids": [
+        "Q393"
+      ],
+      "record_id": "L6597",
+      "retrieval_date": "2026-11-15",
+      "revision": "1780497455",
+      "schema_version": "1.0.0",
+      "section": "city",
+      "sense_id": "L6597-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "city.q515",
+      "wikidata": "Q393"
     }
   ],
   "schema_version": "1.0.0",
   "section": "city",
   "skipped": [
     {
-      "reason": "HTTPError:429",
-      "wikidata": "Q2634"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q34370"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q956"
+      "reason": "other_language",
+      "wikidata": "Q1867"
     }
   ],
   "source": "harvest-wikidata"
