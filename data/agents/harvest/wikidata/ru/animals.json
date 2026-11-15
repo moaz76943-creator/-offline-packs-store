@@ -98,6 +98,133 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "сосун",
+        "сосуна",
+        "сосуну",
+        "сосуна",
+        "сосуном",
+        "сосуне",
+        "сосуны",
+        "сосунов"
+      ],
+      "language": "ru",
+      "lemma": "сосун",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L165133",
+      "pos": "",
+      "qids": [
+        "Q12038335",
+        "Q998"
+      ],
+      "record_id": "L165133",
+      "retrieval_date": "2026-11-15",
+      "revision": "2237088049",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L165133-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "сосунок",
+        "сосунка",
+        "сосунку",
+        "сосунка",
+        "сосунком",
+        "сосунке",
+        "сосунки",
+        "сосунков"
+      ],
+      "language": "ru",
+      "lemma": "сосунок",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L165134",
+      "pos": "",
+      "qids": [
+        "Q12038335",
+        "Q998"
+      ],
+      "record_id": "L165134",
+      "retrieval_date": "2026-11-15",
+      "revision": "2236920467",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L165134-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
+      "concept_id": "concept.q247285",
+      "forms": [
+        "укорот",
+        "укорота",
+        "укороту",
+        "укорот",
+        "укоротом",
+        "укороте",
+        "укороты",
+        "укоротов"
+      ],
+      "language": "ru",
+      "lemma": "укорот",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L172874",
+      "pos": "",
+      "qids": [
+        "Q247285",
+        "Q909728"
+      ],
+      "record_id": "L172874",
+      "retrieval_date": "2026-11-15",
+      "revision": "1626155818",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L172874-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q247285"
+    },
+    {
+      "concept_id": "concept.q172867",
+      "forms": [
+        "падальщик",
+        "падальщика",
+        "падальщику",
+        "падальщика",
+        "падальщиком",
+        "падальщике",
+        "падальщики",
+        "падальщиков"
+      ],
+      "language": "ru",
+      "lemma": "падальщик",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L139911",
+      "pos": "",
+      "qids": [
+        "Q172867"
+      ],
+      "record_id": "L139911",
+      "retrieval_date": "2026-11-15",
+      "revision": "2568539415",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L139911-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q172867"
     }
   ],
   "schema_version": "1.0.0",
@@ -105,51 +232,47 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q25334"
+      "wikidata": "Q16516071"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q25334"
+      "wikidata": "Q12038335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q25334"
+      "wikidata": "Q12038335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2751034"
+      "wikidata": "Q12038335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2751034"
+      "wikidata": "Q12038335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2751034"
+      "wikidata": "Q12038335"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2751034"
+      "wikidata": "Q172867"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2751034"
+      "wikidata": "Q172867"
     },
     {
       "reason": "other_language",
-      "wikidata": "Q2751034"
+      "wikidata": "Q172867"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q2751034"
+      "reason": "HTTPError:429",
+      "wikidata": "Q2479906"
     },
     {
-      "reason": "other_language",
-      "wikidata": "Q1756633"
-    },
-    {
-      "reason": "other_language",
-      "wikidata": "Q1756633"
+      "reason": "HTTPError:429",
+      "wikidata": "Q2380428"
     }
   ],
   "source": "harvest-wikidata"
