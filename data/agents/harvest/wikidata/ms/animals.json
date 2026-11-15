@@ -1,6 +1,6 @@
 {
   "language": "ms",
-  "retrieval_date": "2026-11-01",
+  "retrieval_date": "2026-11-15",
   "rows": [
     {
       "concept_id": "concept.q12898224",
@@ -26,6 +26,31 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q12898224"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "tikus",
+        "تيکوس"
+      ],
+      "language": "ms",
+      "lemma": "tikus",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L345841",
+      "pos": "",
+      "qids": [
+        "Q2751034"
+      ],
+      "record_id": "L345841",
+      "retrieval_date": "2026-11-15",
+      "revision": "2296845969",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L345841-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
     }
   ],
   "schema_version": "1.0.0",
@@ -33,15 +58,51 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q120360527"
+      "wikidata": "Q25334"
     },
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q1167690"
+      "reason": "other_language",
+      "wikidata": "Q25334"
     },
     {
-      "reason": "SourceAPIError",
-      "wikidata": "Q138050524"
+      "reason": "other_language",
+      "wikidata": "Q25334"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1756633"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1756633"
     }
   ],
   "source": "harvest-wikidata"

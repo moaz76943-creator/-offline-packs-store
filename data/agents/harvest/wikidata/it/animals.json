@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-10-20",
+  "retrieval_date": "2026-11-15",
   "rows": [
     {
       "concept_id": "concept.q59099",
@@ -26,22 +26,108 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q59099"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "pettirosso",
+        "pettirossi"
+      ],
+      "language": "it",
+      "lemma": "pettirosso",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1208465",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L1208465",
+      "retrieval_date": "2026-11-15",
+      "revision": "2196140125",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1208465-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q25397",
+      "forms": [
+        "pangolino",
+        "pangolini"
+      ],
+      "language": "it",
+      "lemma": "pangolino",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1208742",
+      "pos": "",
+      "qids": [
+        "Q25397"
+      ],
+      "record_id": "L1208742",
+      "retrieval_date": "2026-11-15",
+      "revision": "2202321320",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1208742-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25397"
     }
   ],
   "schema_version": "1.0.0",
   "section": "animals",
   "skipped": [
     {
-      "reason": "HTTPError",
-      "wikidata": "Q26401003"
+      "reason": "other_language",
+      "wikidata": "Q25334"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q25326"
+      "reason": "other_language",
+      "wikidata": "Q25334"
     },
     {
-      "reason": "HTTPError",
-      "wikidata": "Q164509"
+      "reason": "other_language",
+      "wikidata": "Q25334"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1756633"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1756633"
     }
   ],
   "source": "harvest-wikidata"

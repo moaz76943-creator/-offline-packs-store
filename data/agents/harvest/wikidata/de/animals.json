@@ -1,0 +1,124 @@
+{
+  "language": "de",
+  "retrieval_date": "2026-11-15",
+  "rows": [
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "Rotkehlchen",
+        "Rotkehlchens",
+        "Rotkehlchen",
+        "Rotkehlchen",
+        "Rotkehlchen",
+        "Rotkehlchen",
+        "Rotkehlchen",
+        "Rotkehlchen"
+      ],
+      "language": "de",
+      "lemma": "Rotkehlchen",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L5181",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L5181",
+      "retrieval_date": "2026-11-15",
+      "revision": "2306720112",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L5181-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "Maus",
+        "Maus",
+        "Maus",
+        "Maus",
+        "Mäuse",
+        "Mäuse",
+        "Mäusen",
+        "Mäuse"
+      ],
+      "language": "de",
+      "lemma": "Maus",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L2871",
+      "pos": "",
+      "qids": [
+        "Q39275",
+        "Q7987",
+        "Q1368",
+        "Q2751034"
+      ],
+      "record_id": "L2871",
+      "retrieval_date": "2026-11-15",
+      "revision": "2382626271",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L2871-S4",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "animals",
+  "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q25334"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q25334"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q25334"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q2751034"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1756633"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q1756633"
+    }
+  ],
+  "source": "harvest-wikidata"
+}
