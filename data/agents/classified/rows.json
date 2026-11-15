@@ -52306,6 +52306,111 @@
       "wikidata": "Q430"
     },
     {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "rødkælk",
+        "rødkælken",
+        "rødkælke",
+        "rødkælkene"
+      ],
+      "language": "da",
+      "lemma": "rødkælk",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L55771",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L55771",
+      "retrieval_date": "2026-11-15",
+      "revision": "2413722401",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L55771-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "rødhals",
+        "rødhalsen",
+        "rødhalse",
+        "rødhalsene",
+        "rødhals'",
+        "rødhalsens",
+        "rødhalses",
+        "rødhalsenes"
+      ],
+      "language": "da",
+      "lemma": "rødhals",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L55819",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L55819",
+      "retrieval_date": "2026-11-15",
+      "revision": "2452501290",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L55819-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "unge",
+        "ungen",
+        "unger",
+        "ungerne",
+        "unges",
+        "ungens",
+        "ungers",
+        "ungernes"
+      ],
+      "language": "da",
+      "lemma": "unge",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L56355",
+      "pos": "",
+      "qids": [
+        "Q12038335",
+        "Q239526"
+      ],
+      "record_id": "L56355",
+      "retrieval_date": "2026-11-15",
+      "revision": "2471423564",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L56355-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
       "concept_id": "concept.q3130",
       "forms": [
         "Sydney",
@@ -53299,6 +53404,117 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q2994387"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "Rotkehlchen",
+        "Rotkehlchens",
+        "Rotkehlchen",
+        "Rotkehlchen",
+        "Rotkehlchen",
+        "Rotkehlchen",
+        "Rotkehlchen",
+        "Rotkehlchen"
+      ],
+      "language": "de",
+      "lemma": "Rotkehlchen",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=11; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L5181",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L5181",
+      "retrieval_date": "2026-11-15",
+      "revision": "2306720112",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L5181-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "Maus",
+        "Maus",
+        "Maus",
+        "Maus",
+        "Mäuse",
+        "Mäuse",
+        "Mäusen",
+        "Mäuse"
+      ],
+      "language": "de",
+      "lemma": "Maus",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L2871",
+      "pos": "",
+      "qids": [
+        "Q39275",
+        "Q7987",
+        "Q1368",
+        "Q2751034"
+      ],
+      "record_id": "L2871",
+      "retrieval_date": "2026-11-15",
+      "revision": "2382626271",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L2871-S4",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q172867",
+      "forms": [
+        "Aasfresser",
+        "Aasfresser",
+        "Aasfressers",
+        "Aasfresser",
+        "Aasfresser",
+        "Aasfressern",
+        "Aasfresser",
+        "Aasfresser"
+      ],
+      "language": "de",
+      "lemma": "Aasfresser",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L884787",
+      "pos": "",
+      "qids": [
+        "Q172867"
+      ],
+      "record_id": "L884787",
+      "retrieval_date": "2026-11-15",
+      "revision": "2508826509",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L884787-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q172867"
     },
     {
       "concept_id": "concept.q1780",
@@ -56371,6 +56587,190 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q430"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "robin",
+        "robins"
+      ],
+      "language": "en",
+      "lemma": "robin",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L25331",
+      "pos": "",
+      "qids": [
+        "Q25334",
+        "Q460967"
+      ],
+      "record_id": "L25331",
+      "retrieval_date": "2026-11-15",
+      "revision": "2561679192",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L25331-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "redbreast",
+        "redbreasts"
+      ],
+      "language": "en",
+      "lemma": "redbreast",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L326502",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L326502",
+      "retrieval_date": "2026-11-15",
+      "revision": "2568357683",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L326502-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q5173",
+      "forms": [
+        "Bilateria"
+      ],
+      "language": "en",
+      "lemma": "Bilateria",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1117963",
+      "pos": "",
+      "qids": [
+        "Q5173"
+      ],
+      "record_id": "L1117963",
+      "retrieval_date": "2026-11-15",
+      "revision": "2428694076",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1117963-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q5173"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "mouse",
+        "mice",
+        "mouse's",
+        "mouses"
+      ],
+      "language": "en",
+      "lemma": "mouse",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1119",
+      "pos": "",
+      "qids": [
+        "Q2751034",
+        "Q39275",
+        "Q7987"
+      ],
+      "record_id": "L1119",
+      "retrieval_date": "2026-11-15",
+      "revision": "2562160739",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1119-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q5174",
+      "forms": [
+        "Eumetazoa"
+      ],
+      "language": "en",
+      "lemma": "Eumetazoa",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1117961",
+      "pos": "",
+      "qids": [
+        "Q5174"
+      ],
+      "record_id": "L1117961",
+      "retrieval_date": "2026-11-15",
+      "revision": "2432025631",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1117961-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q5174"
+    },
+    {
+      "concept_id": "concept.q172867",
+      "forms": [
+        "scavenger",
+        "scavengers"
+      ],
+      "language": "en",
+      "lemma": "scavenger",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L327210",
+      "pos": "",
+      "qids": [
+        "Q172867",
+        "Q2426326"
+      ],
+      "record_id": "L327210",
+      "retrieval_date": "2026-11-15",
+      "revision": "2561720740",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L327210-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q172867"
     },
     {
       "concept_id": "concept.q2346768",
@@ -59638,6 +60038,38 @@
       "wikidata": "Q726"
     },
     {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "muso",
+        "muson",
+        "musoj",
+        "musojn"
+      ],
+      "language": "eo",
+      "lemma": "muso",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L643965",
+      "pos": "",
+      "qids": [
+        "Q2751034"
+      ],
+      "record_id": "L643965",
+      "retrieval_date": "2026-11-15",
+      "revision": "2532348324",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L643965-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
       "concept_id": "concept.q12106",
       "forms": [
         "tritiko",
@@ -59700,6 +60132,70 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q7367"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "ratón",
+        "ratones"
+      ],
+      "language": "es",
+      "lemma": "ratón",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L44938",
+      "pos": "",
+      "qids": [
+        "Q2751034",
+        "Q39275",
+        "Q7987"
+      ],
+      "record_id": "L44938",
+      "retrieval_date": "2026-11-15",
+      "revision": "2407548711",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L44938-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q172867",
+      "forms": [
+        "carroñero",
+        "carroñeros",
+        "carroñera",
+        "carroñeras"
+      ],
+      "language": "es",
+      "lemma": "carroñero",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1159084",
+      "pos": "",
+      "qids": [
+        "Q172867"
+      ],
+      "record_id": "L1159084",
+      "retrieval_date": "2026-11-15",
+      "revision": "2407538908",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1159084-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q172867"
     },
     {
       "concept_id": "concept.q1780",
@@ -60543,6 +61039,42 @@
       "wikidata": "Q3264451"
     },
     {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "hiir",
+        "hiiru",
+        "hiiru",
+        "hiirusse",
+        "hiirus",
+        "hiirust",
+        "hiirule",
+        "hiirul"
+      ],
+      "language": "et",
+      "lemma": "hiir",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L356354",
+      "pos": "",
+      "qids": [
+        "Q2751034"
+      ],
+      "record_id": "L356354",
+      "retrieval_date": "2026-11-15",
+      "revision": "2053626889",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L356354-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
       "concept_id": "concept.q2778382",
       "forms": [
         "pronks",
@@ -61370,6 +61902,67 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q122980870"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "souris",
+        "souris"
+      ],
+      "language": "fr",
+      "lemma": "souris",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L25770",
+      "pos": "",
+      "qids": [
+        "Q2751034",
+        "Q39275",
+        "Q7987"
+      ],
+      "record_id": "L25770",
+      "retrieval_date": "2026-11-15",
+      "revision": "2458787857",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L25770-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q1756633",
+      "forms": [
+        "animal aquatique"
+      ],
+      "language": "fr",
+      "lemma": "animal aquatique",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=16; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1586423",
+      "pos": "",
+      "qids": [
+        "Q1756633"
+      ],
+      "record_id": "L1586423",
+      "retrieval_date": "2026-11-15",
+      "revision": "2528361764",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1586423-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q1756633"
     },
     {
       "concept_id": "concept.q1780",
@@ -63928,6 +64521,35 @@
       "wikidata": "Q1900167"
     },
     {
+      "concept_id": "concept.q2751034",
+      "forms": [],
+      "language": "hu",
+      "lemma": "egér",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L405887",
+      "pos": "",
+      "qids": [
+        "Q39275",
+        "Q2751034",
+        "Q7987"
+      ],
+      "record_id": "L405887",
+      "retrieval_date": "2026-11-15",
+      "revision": "2000258596",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L405887-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
       "concept_id": "concept.q19728052",
       "forms": [],
       "language": "id",
@@ -64020,6 +64642,66 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q59099"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "pettirosso",
+        "pettirossi"
+      ],
+      "language": "it",
+      "lemma": "pettirosso",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=10; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1208465",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L1208465",
+      "retrieval_date": "2026-11-15",
+      "revision": "2196140125",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1208465-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q25397",
+      "forms": [
+        "pangolino",
+        "pangolini"
+      ],
+      "language": "it",
+      "lemma": "pangolino",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1208742",
+      "pos": "",
+      "qids": [
+        "Q25397"
+      ],
+      "record_id": "L1208742",
+      "retrieval_date": "2026-11-15",
+      "revision": "2202321320",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1208742-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25397"
     },
     {
       "concept_id": "concept.q2183220",
@@ -65800,6 +66482,79 @@
       "wikidata": "Q1229025"
     },
     {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "鼠",
+        "ねずみ",
+        "ネズミ",
+        "鼠",
+        "ね",
+        "ネ"
+      ],
+      "language": "ja",
+      "lemma": "鼠",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=1; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L661696",
+      "pos": "",
+      "qids": [
+        "Q2751034"
+      ],
+      "record_id": "L661696",
+      "retrieval_date": "2026-11-15",
+      "revision": "2545284181",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L661696-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "子",
+        "こ",
+        "子",
+        "ご",
+        "子",
+        "し",
+        "児",
+        "こ"
+      ],
+      "language": "ja",
+      "lemma": "子",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=1; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L690624",
+      "pos": "",
+      "qids": [
+        "Q29514218",
+        "Q12038335",
+        "Q7569",
+        "Q183905"
+      ],
+      "record_id": "L690624",
+      "retrieval_date": "2026-11-15",
+      "revision": "2415352748",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L690624-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
       "concept_id": "concept.q1754",
       "forms": [
         "ストックホルム"
@@ -66707,6 +67462,33 @@
       "status": "keep",
       "subsection": "health.q12136",
       "wikidata": "Q319763"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [],
+      "language": "la",
+      "lemma": "erithacus",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1050572",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L1050572",
+      "retrieval_date": "2026-11-15",
+      "revision": "1914566423",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1050572-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
     },
     {
       "concept_id": "concept.q1780",
@@ -68085,6 +68867,70 @@
       "wikidata": "Q12898224"
     },
     {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "tikus",
+        "تيکوس"
+      ],
+      "language": "ms",
+      "lemma": "tikus",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L345841",
+      "pos": "",
+      "qids": [
+        "Q2751034"
+      ],
+      "record_id": "L345841",
+      "retrieval_date": "2026-11-15",
+      "revision": "2296845969",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L345841-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q247285",
+      "forms": [
+        "jinak",
+        "جينق",
+        "terjinak",
+        "ترجينق",
+        "sejinak",
+        "سجينق"
+      ],
+      "language": "ms",
+      "lemma": "jinak",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1562063",
+      "pos": "",
+      "qids": [
+        "Q247285"
+      ],
+      "record_id": "L1562063",
+      "retrieval_date": "2026-11-15",
+      "revision": "2520261767",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1562063-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q247285"
+    },
+    {
       "concept_id": "concept.q3130",
       "forms": [
         "Sydney",
@@ -68574,6 +69420,83 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q7367"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "جا",
+        "ਜਾਅ",
+        "جا",
+        "ਜਾਅ",
+        "جا",
+        "ਜਾਅ",
+        "جاواں",
+        "ਜਾਅਵਾਂ"
+      ],
+      "language": "pa",
+      "lemma": "جا",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L707703",
+      "pos": "",
+      "qids": [
+        "Q2935",
+        "Q12038335",
+        "Q239526",
+        "Q21262209"
+      ],
+      "record_id": "L707703",
+      "retrieval_date": "2026-11-15",
+      "revision": "1986667499",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L707703-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "سس",
+        "ਸਸ",
+        "سس",
+        "ਸਸ",
+        "سس",
+        "ਸਸ",
+        "سساں",
+        "ਸਸਾਂ"
+      ],
+      "language": "pa",
+      "lemma": "سس",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=2; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L944833",
+      "pos": "",
+      "qids": [
+        "Q7569",
+        "Q48282",
+        "Q12038335"
+      ],
+      "record_id": "L944833",
+      "retrieval_date": "2026-11-15",
+      "revision": "2037922571",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L944833-S3",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
     },
     {
       "concept_id": "concept.q3354532",
@@ -69189,6 +70112,66 @@
       "wikidata": "Q430"
     },
     {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "rato"
+      ],
+      "language": "pt",
+      "lemma": "rato",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L222286",
+      "pos": "",
+      "qids": [
+        "Q7987",
+        "Q2751034"
+      ],
+      "record_id": "L222286",
+      "retrieval_date": "2026-11-15",
+      "revision": "2539023160",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L222286-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "filhote",
+        "filhotes"
+      ],
+      "language": "pt",
+      "lemma": "filhote",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L497162",
+      "pos": "",
+      "qids": [
+        "Q12038335"
+      ],
+      "record_id": "L497162",
+      "retrieval_date": "2026-11-15",
+      "revision": "2539829786",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L497162-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
       "concept_id": "concept.q174",
       "forms": [
         "São Paulo",
@@ -69342,6 +70325,265 @@
       "status": "keep",
       "subsection": "work.q28640",
       "wikidata": "Q211423"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "зарянка",
+        "зарянки",
+        "зарянке",
+        "зарянку",
+        "зарянкой",
+        "зарянкою",
+        "зарянке",
+        "зарянки"
+      ],
+      "language": "ru",
+      "lemma": "зарянка",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L110400",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L110400",
+      "retrieval_date": "2026-11-15",
+      "revision": "2568486214",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L110400-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "мышь",
+        "мыши",
+        "мыши",
+        "мышь",
+        "мышью",
+        "мыши",
+        "мыши",
+        "мышей"
+      ],
+      "language": "ru",
+      "lemma": "мышь",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L130322",
+      "pos": "",
+      "qids": [
+        "Q2751034",
+        "Q83310",
+        "Q39275"
+      ],
+      "record_id": "L130322",
+      "retrieval_date": "2026-11-15",
+      "revision": "2410089094",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L130322-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "мышка",
+        "мышки",
+        "мышке",
+        "мышку",
+        "мышкой",
+        "мышкою",
+        "мышке",
+        "мышки"
+      ],
+      "language": "ru",
+      "lemma": "мышка",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L145225",
+      "pos": "",
+      "qids": [
+        "Q2751034",
+        "Q83310",
+        "Q39275"
+      ],
+      "record_id": "L145225",
+      "retrieval_date": "2026-11-15",
+      "revision": "1821388633",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L145225-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "сосун",
+        "сосуна",
+        "сосуну",
+        "сосуна",
+        "сосуном",
+        "сосуне",
+        "сосуны",
+        "сосунов"
+      ],
+      "language": "ru",
+      "lemma": "сосун",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=5; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L165133",
+      "pos": "",
+      "qids": [
+        "Q12038335",
+        "Q998"
+      ],
+      "record_id": "L165133",
+      "retrieval_date": "2026-11-15",
+      "revision": "2237088049",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L165133-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "сосунок",
+        "сосунка",
+        "сосунку",
+        "сосунка",
+        "сосунком",
+        "сосунке",
+        "сосунки",
+        "сосунков"
+      ],
+      "language": "ru",
+      "lemma": "сосунок",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L165134",
+      "pos": "",
+      "qids": [
+        "Q12038335",
+        "Q998"
+      ],
+      "record_id": "L165134",
+      "retrieval_date": "2026-11-15",
+      "revision": "2236920467",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L165134-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
+      "concept_id": "concept.q247285",
+      "forms": [
+        "укорот",
+        "укорота",
+        "укороту",
+        "укорот",
+        "укоротом",
+        "укороте",
+        "укороты",
+        "укоротов"
+      ],
+      "language": "ru",
+      "lemma": "укорот",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L172874",
+      "pos": "",
+      "qids": [
+        "Q247285",
+        "Q909728"
+      ],
+      "record_id": "L172874",
+      "retrieval_date": "2026-11-15",
+      "revision": "1626155818",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L172874-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q247285"
+    },
+    {
+      "concept_id": "concept.q172867",
+      "forms": [
+        "падальщик",
+        "падальщика",
+        "падальщику",
+        "падальщика",
+        "падальщиком",
+        "падальщике",
+        "падальщики",
+        "падальщиков"
+      ],
+      "language": "ru",
+      "lemma": "падальщик",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=9; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L139911",
+      "pos": "",
+      "qids": [
+        "Q172867"
+      ],
+      "record_id": "L139911",
+      "retrieval_date": "2026-11-15",
+      "revision": "2568539415",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L139911-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q172867"
     },
     {
       "concept_id": "concept.q107246703",
@@ -70769,6 +72011,190 @@
       "status": "keep",
       "subsection": "animals.q729",
       "wikidata": "Q1141466"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "rödhake",
+        "rödhaken",
+        "rödhakar",
+        "rödhakarna",
+        "rödhakes",
+        "rödhakens",
+        "rödhakars",
+        "rödhakarnas"
+      ],
+      "language": "sv",
+      "lemma": "rödhake",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L239813",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L239813",
+      "retrieval_date": "2026-11-15",
+      "revision": "2568838936",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L239813-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q25334",
+      "forms": [
+        "rödhakesångare",
+        "rödhakesångaren",
+        "rödhakesångare",
+        "rödhakesångarna",
+        "rödhakesångares",
+        "rödhakesångarens",
+        "rödhakesångares",
+        "rödhakesångarnas"
+      ],
+      "language": "sv",
+      "lemma": "rödhakesångare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=14; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L1753296",
+      "pos": "",
+      "qids": [
+        "Q25334"
+      ],
+      "record_id": "L1753296",
+      "retrieval_date": "2026-11-15",
+      "revision": "2564591757",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L1753296-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q25334"
+    },
+    {
+      "concept_id": "concept.q2751034",
+      "forms": [
+        "mus",
+        "musen",
+        "möss",
+        "mössen",
+        "mus",
+        "musens",
+        "möss",
+        "mössens"
+      ],
+      "language": "sv",
+      "lemma": "mus",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=3; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L477921",
+      "pos": "",
+      "qids": [
+        "Q2751034",
+        "Q39275",
+        "Q7987",
+        "Q2192288"
+      ],
+      "record_id": "L477921",
+      "retrieval_date": "2026-11-15",
+      "revision": "2483006867",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L477921-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q2751034"
+    },
+    {
+      "concept_id": "concept.q12038335",
+      "forms": [
+        "unge",
+        "ungen",
+        "ungar",
+        "ungarna",
+        "unges",
+        "ungens",
+        "ungars",
+        "ungarnas"
+      ],
+      "language": "sv",
+      "lemma": "unge",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=4; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L32671",
+      "pos": "",
+      "qids": [
+        "Q12038335",
+        "Q7569"
+      ],
+      "record_id": "L32671",
+      "retrieval_date": "2026-11-15",
+      "revision": "2528420219",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L32671-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q12038335"
+    },
+    {
+      "concept_id": "concept.q172867",
+      "forms": [
+        "asätare",
+        "asätaren",
+        "asätare",
+        "asätarna",
+        "asätares",
+        "asätarens",
+        "asätares",
+        "asätarnas"
+      ],
+      "language": "sv",
+      "lemma": "asätare",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=7; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L247392",
+      "pos": "",
+      "qids": [
+        "Q172867"
+      ],
+      "record_id": "L247392",
+      "retrieval_date": "2026-11-15",
+      "revision": "2502989627",
+      "schema_version": "1.0.0",
+      "section": "animals",
+      "sense_id": "L247392-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "animals.q729",
+      "wikidata": "Q172867"
     },
     {
       "concept_id": "concept.q1754",

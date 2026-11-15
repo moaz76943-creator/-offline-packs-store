@@ -5,32 +5,33 @@
       "bg": 1,
       "bn": 1,
       "cs": 16,
-      "da": 33,
-      "de": 261,
-      "en": 1304,
-      "eo": 2,
-      "es": 209,
-      "et": 10,
+      "da": 36,
+      "de": 264,
+      "en": 1310,
+      "eo": 3,
+      "es": 211,
+      "et": 11,
       "eu": 7,
       "fa": 2,
       "fi": 2,
-      "fr": 261,
+      "fr": 263,
       "hr": 9,
+      "hu": 1,
       "id": 2,
-      "it": 76,
-      "ja": 187,
+      "it": 78,
+      "ja": 189,
       "ko": 4,
-      "la": 4,
+      "la": 5,
       "lv": 1,
       "ml": 39,
-      "ms": 7,
+      "ms": 9,
       "nl": 177,
-      "pa": 6,
+      "pa": 8,
       "pl": 11,
-      "pt": 36,
-      "ru": 156,
+      "pt": 38,
+      "ru": 163,
       "sk": 1,
-      "sv": 181,
+      "sv": 186,
       "ta": 3,
       "tr": 163,
       "uk": 3,
@@ -38,7 +39,7 @@
       "zh": 160
     },
     "by_section": {
-      "animals": 24,
+      "animals": 66,
       "body": 3,
       "city": 294,
       "clothing": 15,
@@ -62,11 +63,11 @@
       "kaikki.wiktextract": 132,
       "tatoeba.sentences": 1680,
       "universal-dependencies": 1028,
-      "wikidata.lexemes": 657
+      "wikidata.lexemes": 699
     },
-    "total": 3497
+    "total": 3539
   },
-  "generated_by": "packs",
+  "generated_by": "classifier",
   "pack_bytes": 761856,
   "packs": [
     {
@@ -383,11 +384,11 @@
       "bg": 1,
       "bn": 1,
       "cs": 16,
-      "da": 35,
-      "de": 263,
-      "en": 1309,
+      "da": 36,
+      "de": 264,
+      "en": 1310,
       "eo": 3,
-      "es": 210,
+      "es": 211,
       "et": 11,
       "eu": 7,
       "fa": 2,
@@ -397,19 +398,19 @@
       "hu": 1,
       "id": 2,
       "it": 78,
-      "ja": 188,
+      "ja": 189,
       "ko": 4,
       "la": 5,
       "lv": 1,
       "ml": 39,
-      "ms": 8,
+      "ms": 9,
       "nl": 177,
-      "pa": 6,
+      "pa": 8,
       "pl": 11,
-      "pt": 37,
-      "ru": 159,
+      "pt": 38,
+      "ru": 163,
       "sk": 1,
-      "sv": 184,
+      "sv": 186,
       "ta": 3,
       "tr": 163,
       "uk": 3,
@@ -435,7 +436,7 @@
         "work": 3
       },
       "da": {
-        "animals": 5,
+        "animals": 6,
         "city": 8,
         "colors": 2,
         "food": 1,
@@ -445,7 +446,7 @@
         "work": 10
       },
       "de": {
-        "animals": 2,
+        "animals": 3,
         "city": 37,
         "clothing": 2,
         "colors": 2,
@@ -458,7 +459,7 @@
         "work": 38
       },
       "en": {
-        "animals": 10,
+        "animals": 11,
         "body": 1,
         "city": 35,
         "clothing": 2,
@@ -480,7 +481,7 @@
         "food": 1
       },
       "es": {
-        "animals": 2,
+        "animals": 3,
         "city": 29,
         "clothing": 1,
         "colors": 2,
@@ -550,7 +551,7 @@
         "work": 19
       },
       "ja": {
-        "animals": 1,
+        "animals": 2,
         "city": 5,
         "clothing": 2,
         "colors": 3,
@@ -586,7 +587,7 @@
         "work": 2
       },
       "ms": {
-        "animals": 2,
+        "animals": 3,
         "city": 2,
         "time": 1,
         "travel": 1,
@@ -602,7 +603,7 @@
         "work": 1
       },
       "pa": {
-        "animals": 1,
+        "animals": 3,
         "clothing": 1,
         "emotions": 4
       },
@@ -613,7 +614,7 @@
         "work": 1
       },
       "pt": {
-        "animals": 2,
+        "animals": 3,
         "city": 29,
         "clothing": 1,
         "colors": 1,
@@ -622,7 +623,7 @@
         "work": 1
       },
       "ru": {
-        "animals": 3,
+        "animals": 7,
         "body": 1,
         "clothing": 1,
         "colors": 2,
@@ -638,7 +639,7 @@
         "travel": 1
       },
       "sv": {
-        "animals": 6,
+        "animals": 8,
         "city": 18,
         "clothing": 1,
         "colors": 1,
@@ -685,18 +686,18 @@
         "wikidata.lexemes": 16
       },
       "da": {
-        "wikidata.lexemes": 35
+        "wikidata.lexemes": 36
       },
       "de": {
         "kaikki.wiktextract": 18,
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 85
+        "wikidata.lexemes": 86
       },
       "en": {
         "kaikki.wiktextract": 4,
         "tatoeba.sentences": 160,
         "universal-dependencies": 1028,
-        "wikidata.lexemes": 117
+        "wikidata.lexemes": 118
       },
       "eo": {
         "wikidata.lexemes": 3
@@ -704,7 +705,7 @@
       "es": {
         "kaikki.wiktextract": 21,
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 29
+        "wikidata.lexemes": 30
       },
       "et": {
         "wikidata.lexemes": 11
@@ -738,7 +739,7 @@
       },
       "ja": {
         "tatoeba.sentences": 160,
-        "wikidata.lexemes": 28
+        "wikidata.lexemes": 29
       },
       "ko": {
         "wikidata.lexemes": 4
@@ -753,7 +754,7 @@
         "wikidata.lexemes": 39
       },
       "ms": {
-        "wikidata.lexemes": 8
+        "wikidata.lexemes": 9
       },
       "nl": {
         "kaikki.wiktextract": 9,
@@ -761,18 +762,18 @@
         "wikidata.lexemes": 8
       },
       "pa": {
-        "wikidata.lexemes": 6
+        "wikidata.lexemes": 8
       },
       "pl": {
         "wikidata.lexemes": 11
       },
       "pt": {
         "kaikki.wiktextract": 30,
-        "wikidata.lexemes": 7
+        "wikidata.lexemes": 8
       },
       "ru": {
         "tatoeba.sentences": 120,
-        "wikidata.lexemes": 39
+        "wikidata.lexemes": 43
       },
       "sk": {
         "wikidata.lexemes": 1
@@ -780,7 +781,7 @@
       "sv": {
         "kaikki.wiktextract": 9,
         "tatoeba.sentences": 120,
-        "wikidata.lexemes": 55
+        "wikidata.lexemes": 57
       },
       "ta": {
         "wikidata.lexemes": 3
@@ -800,7 +801,7 @@
       }
     },
     "by_section": {
-      "animals": 51,
+      "animals": 66,
       "body": 3,
       "city": 294,
       "clothing": 15,
@@ -824,9 +825,9 @@
       "kaikki.wiktextract": 132,
       "tatoeba.sentences": 1680,
       "universal-dependencies": 1028,
-      "wikidata.lexemes": 684
+      "wikidata.lexemes": 699
     },
-    "total": 3524
+    "total": 3539
   },
   "schema_version": "1.0.0"
 }
