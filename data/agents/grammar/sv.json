@@ -1225,6 +1225,406 @@
     {
       "id": "sentence.statement",
       "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402119",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag gav det ett försök och tänkte att allting är värt ett försök. Men att sätta ihop ett sånt här program klarar jag inte av."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402123",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ett stort djur rymde från zoo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402135",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kom när ni vill."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402152",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Den gamle mannen och havet är en väldigt spännande bok."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402167",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "När lämnar din far sitt kontor?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402173",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Du kan alltid räkna med honom i en nödsituation."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402175",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Läraren kräver utmärkt arbete från sina elever."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402176",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är 800 meters gångväg från mitt hus till skolan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402179",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Rosorna blommar i vår trädgård."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402191",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad är den bekvämaste vägen till Tokyo station?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402198",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Den här gamla bilen går sönder hela tiden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403391",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Trädgården har blivit professionellt anlagd."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403424",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon kan tala tio språk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403442",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon älskar att se på tennismatcher på tv."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403453",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag kommer inte att glömma bort din vänlighet så länge jag lever."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403455",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är lite kallt idag."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403457",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vill du följa med?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403465",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag hade väldigt hög feber."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403491",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag behöver inte din hjälp."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403499",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Han sprang för fort för att vi skulle kunna hinna ikapp."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409599",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag är hungrig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409610",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag är hungrig för jag har inte ätit lunch."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409655",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag tror inte att det kommer att regna i morgon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409662",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag är bäst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409670",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ärligt talat, hans tal är alltid tråkiga."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409671",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Han stal plånboken av mig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409672",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Mina pengar är slut."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409673",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Tack för din förklaring."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409674",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409675",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag pratar inte japanska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409676",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag kan inte japanska."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409677",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad kostar det?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409678",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag förstår inte."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409683",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad är det?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409684",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad består aspirin av?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409685",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Sluta be mig om en drink! Gå och hämta en själv."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409686",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad skulle världen vara utan kvinnor?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409687",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Du kan inte prata så högt här."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409688",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är för mörkt för att jag ska kunna läsa."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409689",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Du får inte parkera bilen på denna gata."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:337413",
@@ -2421,6 +2821,406 @@
       "retrieval_date": "2026-11-11",
       "source_id": "tatoeba.sentences",
       "value": "Du ska inte tro att det kommer att bli enkelt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402119",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag gav det ett försök och tänkte att allting är värt ett försök. Men att sätta ihop ett sånt här program klarar jag inte av."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402123",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ett stort djur rymde från zoo."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402135",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kom när ni vill."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402152",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Den gamle mannen och havet är en väldigt spännande bok."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402167",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "När lämnar din far sitt kontor?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402173",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Du kan alltid räkna med honom i en nödsituation."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402175",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Läraren kräver utmärkt arbete från sina elever."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402176",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är 800 meters gångväg från mitt hus till skolan."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402179",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Rosorna blommar i vår trädgård."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402191",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad är den bekvämaste vägen till Tokyo station?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:402198",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Den här gamla bilen går sönder hela tiden."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403391",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Trädgården har blivit professionellt anlagd."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403424",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon kan tala tio språk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403442",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hon älskar att se på tennismatcher på tv."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403453",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag kommer inte att glömma bort din vänlighet så länge jag lever."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403455",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är lite kallt idag."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403457",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vill du följa med?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403465",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag hade väldigt hög feber."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403491",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag behöver inte din hjälp."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403499",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Han sprang för fort för att vi skulle kunna hinna ikapp."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409599",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag är hungrig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409610",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag är hungrig för jag har inte ätit lunch."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409655",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag tror inte att det kommer att regna i morgon."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409662",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag är bäst."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409670",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Ärligt talat, hans tal är alltid tråkiga."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409671",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Han stal plånboken av mig."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409672",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Mina pengar är slut."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409673",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Tack för din förklaring."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409674",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409675",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag pratar inte japanska."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409676",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag kan inte japanska."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409677",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad kostar det?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409678",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Jag förstår inte."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409683",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad är det?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409684",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad består aspirin av?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409685",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Sluta be mig om en drink! Gå och hämta en själv."
+    },
+    {
+      "id": "sentence.question",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409686",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Vad skulle världen vara utan kvinnor?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409687",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Du kan inte prata så högt här."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409688",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Det är för mörkt för att jag ska kunna läsa."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "sv",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:409689",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Du får inte parkera bilen på denna gata."
     }
   ]
 }
