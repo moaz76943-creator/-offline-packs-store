@@ -1,5 +1,5 @@
 {
-  "next_index": 1280,
+  "next_index": 1360,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,324 +9,324 @@
   "warning": "",
   "window": [
     {
-      "language": "af",
+      "language": "sr",
       "section": "shopping"
+    },
+    {
+      "language": "sv",
+      "section": "shopping"
+    },
+    {
+      "language": "sw",
+      "section": "shopping"
+    },
+    {
+      "language": "ta",
+      "section": "shopping"
+    },
+    {
+      "language": "te",
+      "section": "shopping"
+    },
+    {
+      "language": "tg",
+      "section": "shopping"
+    },
+    {
+      "language": "th",
+      "section": "shopping"
+    },
+    {
+      "language": "tk",
+      "section": "shopping"
+    },
+    {
+      "language": "tl",
+      "section": "shopping"
+    },
+    {
+      "language": "tr",
+      "section": "shopping"
+    },
+    {
+      "language": "tt",
+      "section": "shopping"
+    },
+    {
+      "language": "ug",
+      "section": "shopping"
+    },
+    {
+      "language": "uk",
+      "section": "shopping"
+    },
+    {
+      "language": "ur",
+      "section": "shopping"
+    },
+    {
+      "language": "uz",
+      "section": "shopping"
+    },
+    {
+      "language": "vi",
+      "section": "shopping"
+    },
+    {
+      "language": "xh",
+      "section": "shopping"
+    },
+    {
+      "language": "yo",
+      "section": "shopping"
+    },
+    {
+      "language": "zh",
+      "section": "shopping"
+    },
+    {
+      "language": "zu",
+      "section": "shopping"
+    },
+    {
+      "language": "af",
+      "section": "time"
     },
     {
       "language": "am",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ar",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "as",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "az",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ba",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "be",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "bg",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "bn",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "br",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "bs",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ca",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "cs",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "cy",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "da",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "de",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "dv",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "el",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "en",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "eo",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "es",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "et",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "eu",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "fa",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "fi",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "fo",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "fr",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "fy",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ga",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "gd",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "gl",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "gu",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ha",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "hi",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "hr",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "hu",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "hy",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "id",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ig",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "is",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "it",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ja",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ka",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "kk",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "km",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "kn",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ko",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ku",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ky",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "la",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "lb",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "lo",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "lt",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "lv",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "mg",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "mk",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ml",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "mn",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "mr",
-      "section": "shopping"
+      "section": "time"
     },
     {
       "language": "ms",
-      "section": "shopping"
-    },
-    {
-      "language": "mt",
-      "section": "shopping"
-    },
-    {
-      "language": "my",
-      "section": "shopping"
-    },
-    {
-      "language": "ne",
-      "section": "shopping"
-    },
-    {
-      "language": "nl",
-      "section": "shopping"
-    },
-    {
-      "language": "no",
-      "section": "shopping"
-    },
-    {
-      "language": "or",
-      "section": "shopping"
-    },
-    {
-      "language": "pa",
-      "section": "shopping"
-    },
-    {
-      "language": "pl",
-      "section": "shopping"
-    },
-    {
-      "language": "ps",
-      "section": "shopping"
-    },
-    {
-      "language": "pt",
-      "section": "shopping"
-    },
-    {
-      "language": "ro",
-      "section": "shopping"
-    },
-    {
-      "language": "ru",
-      "section": "shopping"
-    },
-    {
-      "language": "rw",
-      "section": "shopping"
-    },
-    {
-      "language": "sd",
-      "section": "shopping"
-    },
-    {
-      "language": "si",
-      "section": "shopping"
-    },
-    {
-      "language": "sk",
-      "section": "shopping"
-    },
-    {
-      "language": "sl",
-      "section": "shopping"
-    },
-    {
-      "language": "sn",
-      "section": "shopping"
-    },
-    {
-      "language": "so",
-      "section": "shopping"
-    },
-    {
-      "language": "sq",
-      "section": "shopping"
+      "section": "time"
     }
   ]
 }
