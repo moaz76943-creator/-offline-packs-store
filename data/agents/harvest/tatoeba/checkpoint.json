@@ -1,13 +1,14 @@
 {
   "concepts_attempted": [
-    "es"
+    "de"
   ],
-  "retrieval_date": "2026-10-22",
+  "outcomes": [],
+  "retrieval_date": "2026-11-16",
   "rows": [],
   "schema_version": "1.0.0",
   "skipped": [
     {
-      "reason": "ValueError"
+      "reason": "URLError"
     }
   ],
   "source": "harvest-tatoeba"
