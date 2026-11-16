@@ -4,16 +4,14 @@
     "harvest-wikidata"
   ],
   "dispatch": [
-    "watchdog",
-    "schema-guard",
+    "harvest-ud",
+    "packs",
     "links"
   ],
   "schema_version": "1.0.0",
   "stale": [
     "harvest-ud",
     "packs",
-    "watchdog",
-    "schema-guard",
     "links"
   ]
 }
