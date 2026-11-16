@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-10-25",
+  "retrieval_date": "2026-11-16",
   "rows": [
     {
       "concept_id": "concept.q191780",
@@ -24,7 +24,7 @@
         "Q923933"
       ],
       "record_id": "L492457",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-16",
       "revision": "2383240719",
       "schema_version": "1.0.0",
       "section": "numbers",
@@ -55,7 +55,7 @@
         "Q191780"
       ],
       "record_id": "L860011",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-16",
       "revision": "2087988032",
       "schema_version": "1.0.0",
       "section": "numbers",
