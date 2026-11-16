@@ -36,7 +36,7 @@
       "tr": 203,
       "uk": 3,
       "vi": 1,
-      "zh": 160
+      "zh": 200
     },
     "by_section": {
       "animals": 69,
@@ -51,7 +51,7 @@
       "nature": 4,
       "numbers": 4,
       "religion": 1,
-      "sentences": 1800,
+      "sentences": 1840,
       "shopping": 1,
       "sports": 3,
       "technology": 6,
@@ -61,13 +61,13 @@
     },
     "by_source": {
       "kaikki.wiktextract": 132,
-      "tatoeba.sentences": 1800,
+      "tatoeba.sentences": 1840,
       "universal-dependencies": 1148,
       "wikidata.lexemes": 722
     },
-    "total": 3802
+    "total": 3842
   },
-  "generated_by": "packs",
+  "generated_by": "classifier",
   "pack_bytes": 802816,
   "packs": [
     {
