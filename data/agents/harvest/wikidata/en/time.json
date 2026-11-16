@@ -67,8 +67,8 @@
         "Q67439188"
       ],
       "record_id": "L58591",
-      "retrieval_date": "2026-10-25",
-      "revision": "2537968384",
+      "retrieval_date": "2026-11-16",
+      "revision": "2561499552",
       "schema_version": "1.0.0",
       "section": "time",
       "sense_id": "L58591-S1",
@@ -91,7 +91,7 @@
         "Q7124679"
       ],
       "record_id": "L726560",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-16",
       "revision": "2434292531",
       "schema_version": "1.0.0",
       "section": "time",
@@ -116,7 +116,7 @@
         "Q7124679"
       ],
       "record_id": "L1553876",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-16",
       "revision": "2459308218",
       "schema_version": "1.0.0",
       "section": "time",
@@ -162,7 +162,27 @@
   "skipped": [
     {
       "reason": "other_language",
-      "wikidata": "Q55313888"
+      "wikidata": "Q130788"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q130788"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
     }
   ],
   "source": "harvest-wikidata"

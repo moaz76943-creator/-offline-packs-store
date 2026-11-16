@@ -1,6 +1,6 @@
 {
   "language": "sv",
-  "retrieval_date": "2026-11-02",
+  "retrieval_date": "2026-11-16",
   "rows": [
     {
       "concept_id": "concept.q28130149",
@@ -19,7 +19,7 @@
         "Q28130149"
       ],
       "record_id": "L584851",
-      "retrieval_date": "2026-11-02",
+      "retrieval_date": "2026-11-16",
       "revision": "2484843026",
       "schema_version": "1.0.0",
       "section": "time",
@@ -50,7 +50,7 @@
         "Q130788"
       ],
       "record_id": "L489412",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-16",
       "revision": "2503879937",
       "schema_version": "1.0.0",
       "section": "time",
@@ -73,8 +73,20 @@
       "wikidata": "Q130788"
     },
     {
-      "reason": "HTTPError:429",
+      "reason": "other_language",
       "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
     }
   ],
   "source": "harvest-wikidata"

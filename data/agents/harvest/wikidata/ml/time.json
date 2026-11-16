@@ -1,6 +1,6 @@
 {
   "language": "ml",
-  "retrieval_date": "2026-10-25",
+  "retrieval_date": "2026-11-16",
   "rows": [
     {
       "concept_id": "concept.q130788",
@@ -16,7 +16,7 @@
         "Q130788"
       ],
       "record_id": "L456261",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-16",
       "revision": "1394978818",
       "schema_version": "1.0.0",
       "section": "time",
@@ -30,6 +30,14 @@
   "schema_version": "1.0.0",
   "section": "time",
   "skipped": [
+    {
+      "reason": "other_language",
+      "wikidata": "Q130788"
+    },
+    {
+      "reason": "other_language",
+      "wikidata": "Q130788"
+    },
     {
       "reason": "other_language",
       "wikidata": "Q347066"

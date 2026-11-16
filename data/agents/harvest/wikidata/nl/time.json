@@ -1,6 +1,6 @@
 {
   "language": "nl",
-  "retrieval_date": "2026-11-02",
+  "retrieval_date": "2026-11-16",
   "rows": [
     {
       "concept_id": "concept.q130788",
@@ -17,7 +17,7 @@
         "Q130788"
       ],
       "record_id": "L1415676",
-      "retrieval_date": "2026-11-02",
+      "retrieval_date": "2026-11-16",
       "revision": "2456985395",
       "schema_version": "1.0.0",
       "section": "time",
@@ -40,8 +40,20 @@
       "wikidata": "Q130788"
     },
     {
-      "reason": "HTTPError:429",
+      "reason": "other_language",
       "wikidata": "Q347066"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q186566"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q5447288"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q7806612"
     }
   ],
   "source": "harvest-wikidata"
