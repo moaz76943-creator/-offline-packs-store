@@ -1623,6 +1623,406 @@
       "value": "Hoş geldin!"
     },
     {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373321",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Nasılsın?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373328",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Sevebilirim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:387356",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Rengin solmuş."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:387618",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Seni nasıl da özledim!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:387619",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Az daha treni kaçırıyordum."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:391744",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Bir gece daha kalmak istiyorum. Mümkün mü?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:391746",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong en ilginç oyunlardan biri."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:391749",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Japonya'ya gidip Mahjong'da Japonları yenmek istiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:400922",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Sırada bir elma var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403929",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Atlas Okyanusu Amerika'yı Avrupa'dan ayırır."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403930",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Sıkıldım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403931",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Evliyim ve iki çocuğum var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403932",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Haberler onu üzdü."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403933",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok şarap içmiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403934",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Nancy onu bir partiye çağırdı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403935",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok fazla yersen şişmanlarsın."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403936",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Golfün büyük bir hayranıyım."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403937",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kötü mü?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403938",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "İnsanlar savaştan korkar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403939",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "İyi hissetmiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403940",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Öğretmenimiz bize çok ödev verir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403941",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Teşekkür ederim!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403942",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Teşekkür ederiz!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403944",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok teşekkür ederim!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403945",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok teşekkür ederiz!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403946",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok teşekkürler!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403947",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "İyi bir doktor kendi yöntemlerini uygular."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403948",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "O, patronunu dinlememe numarası yaptı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403949",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Onu Kaliforniya'ya gönderiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403950",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Adam burada."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403951",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Adamı görüyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403952",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kadının fotoğrafını çekiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403953",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kadın okuyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403954",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Pekin, Çin'in başkentidir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403955",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu elma tatlı."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403956",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kaç tane elma var?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403957",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Seni seviyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403958",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Almanya parlamenter bir cumhuriyettir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403959",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "İnternette Tatar dilinde çok az site vardır."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403960",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hiç kimse bilmiyor."
+    },
+    {
       "id": "sentence.statement",
       "language": "tr",
       "level": null,
@@ -3221,6 +3621,406 @@
       "retrieval_date": "2026-11-11",
       "source_id": "tatoeba.sentences",
       "value": "Hoş geldin!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373321",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Nasılsın?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:373328",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Sevebilirim."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:387356",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Rengin solmuş."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:387618",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Seni nasıl da özledim!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:387619",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Az daha treni kaçırıyordum."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:391744",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Bir gece daha kalmak istiyorum. Mümkün mü?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:391746",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Mahjong en ilginç oyunlardan biri."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:391749",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Japonya'ya gidip Mahjong'da Japonları yenmek istiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:400922",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Sırada bir elma var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403929",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Atlas Okyanusu Amerika'yı Avrupa'dan ayırır."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403930",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Sıkıldım."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403931",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Evliyim ve iki çocuğum var."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403932",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Haberler onu üzdü."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403933",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok şarap içmiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403934",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Nancy onu bir partiye çağırdı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403935",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok fazla yersen şişmanlarsın."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403936",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Golfün büyük bir hayranıyım."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403937",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kötü mü?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403938",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "İnsanlar savaştan korkar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403939",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "İyi hissetmiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403940",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Öğretmenimiz bize çok ödev verir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403941",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Teşekkür ederim!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403942",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Teşekkür ederiz!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403944",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok teşekkür ederim!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403945",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok teşekkür ederiz!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403946",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Çok teşekkürler!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403947",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "İyi bir doktor kendi yöntemlerini uygular."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403948",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "O, patronunu dinlememe numarası yaptı."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403949",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Onu Kaliforniya'ya gönderiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403950",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Adam burada."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403951",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Adamı görüyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403952",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kadının fotoğrafını çekiyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403953",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kadın okuyor."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403954",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Pekin, Çin'in başkentidir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403955",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Bu elma tatlı."
+    },
+    {
+      "id": "sentence.question",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403956",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Kaç tane elma var?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403957",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Seni seviyorum."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403958",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Almanya parlamenter bir cumhuriyettir."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403959",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "İnternette Tatar dilinde çok az site vardır."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "tr",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:403960",
+      "retrieval_date": "2026-11-15",
+      "source_id": "tatoeba.sentences",
+      "value": "Hiç kimse bilmiyor."
     }
   ]
 }

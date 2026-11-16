@@ -12703,6 +12703,406 @@
       "value": "Eurostar runs from London St Pancras station."
     },
     {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "What is the dress code for females at Del Frisco's Philadelphia?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "I will be going to Del Frisco's in late November for dinner and I was wondering what the dress code is for a female."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "It says business casual but I know this can be interpreted in many ways."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Please help."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0005",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "5765-NTKB"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0006",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "you can view at dresscod.com"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108090559AAyAHCk_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Can you post a link that shows all the art works that were never found after the Natzi stole them?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108090559AAyAHCk_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "google nazi stolen art recovery..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108090559AAyAHCk_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Out of the 650k est stolen works of art by the Nazis...70k still remain missing..and there are thousands in musems that haven't been returned to their right full owners and heirs.."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Miramar?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "are they just making these places up?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Well you say Miramar I say Piramar"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "MIRAMAR"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0005",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "PIRAMAR"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0006",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Lets call the whole thing off."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0007",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Miramir is for real, but there are alot that make you wonder."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0008",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "There are way more stranger names in the U.S for areas than Miramar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0009",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "i think Miramar was a famous goat trainer or something."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0010",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "He deserved respect"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Anyone have a good recipe for an empanada cordobes?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "How about empanadas arabes or other empanadas from that area of Argentina?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Yes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Here it is right here."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0005",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "1 cup of empanadas"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0006",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "1 cup of arabes"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0007",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "1 cup of other empanadas"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0008",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "1 cup of from that area of Argentina"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0009",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "MIX IT ALL UP"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0010",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "THEN POOP IN IT"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0011",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "The End"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0012",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "It's just like cooking kidney, just boil the piss out of it"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "I sent a phone to Mobile Phone Exchange and it failed a test due to lost or stolen what should I do?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "I was sold a phone by a friend and sent it off to get it recycled what can i do?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Buy a new phone"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "hope they don't call the police and arrest you"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0005",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "its illegal to sell stolen property, even if you don't know its stolen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Erm ya How can I watch Fair City Online in England lols?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Ya can't."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "They don't show it on RTE Player"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "You can't but here's an update: The doctor is about to discover the affair between her husband and Jo (who has become her new best friend)."
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -25397,6 +25797,406 @@
       "retrieval_date": "2026-11-15",
       "source_id": "universal-dependencies",
       "value": "Eurostar runs from London St Pancras station."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "What is the dress code for females at Del Frisco's Philadelphia?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "I will be going to Del Frisco's in late November for dinner and I was wondering what the dress code is for a female."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "It says business casual but I know this can be interpreted in many ways."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Please help."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0005",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "5765-NTKB"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111024210025AAVtDL7_ans-0006",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "you can view at dresscod.com"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108090559AAyAHCk_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Can you post a link that shows all the art works that were never found after the Natzi stole them?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108090559AAyAHCk_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "google nazi stolen art recovery..."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108090559AAyAHCk_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Out of the 650k est stolen works of art by the Nazis...70k still remain missing..and there are thousands in musems that haven't been returned to their right full owners and heirs.."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Miramar?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "are they just making these places up?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Well you say Miramar I say Piramar"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "MIRAMAR"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0005",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "PIRAMAR"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0006",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Lets call the whole thing off."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0007",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Miramir is for real, but there are alot that make you wonder."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0008",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "There are way more stranger names in the U.S for areas than Miramar."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0009",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "i think Miramar was a famous goat trainer or something."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070723111604AAzUvhb_ans-0010",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "He deserved respect"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Anyone have a good recipe for an empanada cordobes?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "How about empanadas arabes or other empanadas from that area of Argentina?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Yes."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Here it is right here."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0005",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "1 cup of empanadas"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0006",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "1 cup of arabes"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0007",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "1 cup of other empanadas"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0008",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "1 cup of from that area of Argentina"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0009",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "MIX IT ALL UP"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0010",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "THEN POOP IN IT"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0011",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "The End"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20081229195853AAYQ8mR_ans-0012",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "It's just like cooking kidney, just boil the piss out of it"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "I sent a phone to Mobile Phone Exchange and it failed a test due to lost or stolen what should I do?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "I was sold a phone by a friend and sent it off to get it recycled what can i do?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Buy a new phone"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "hope they don't call the police and arrest you"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108084227AAtbjAp_ans-0005",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "its illegal to sell stolen property, even if you don't know its stolen."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0001",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Erm ya How can I watch Fair City Online in England lols?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0002",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "Ya can't."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0003",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "They don't show it on RTE Player"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0004",
+      "retrieval_date": "2026-11-15",
+      "source_id": "universal-dependencies",
+      "value": "You can't but here's an update: The doctor is about to discover the affair between her husband and Jo (who has become her new best friend)."
     },
     {
       "id": "verb.forms",
