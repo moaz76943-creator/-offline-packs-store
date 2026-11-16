@@ -1625,6 +1625,406 @@
     {
       "id": "sentence.statement",
       "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370702",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "من أين أنت؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370704",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "من أي بلد أنت؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370705",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أين بيتك؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370707",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أين تسكن؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370709",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "ما عنوانك؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370711",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "الطالبة التي جلست أمام المدرّسة من ألمانيا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370713",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "بعضهم مدرّسون ، وبعضهم مهندسون."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370715",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "هم إخوتي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370717",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "هنّ أخواتي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370719",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أيّ طالب خرج؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370721",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "من هذان الولدان؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370723",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "كم كتاباً قرأت؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370725",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "هما في الغرفة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370727",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "كم قلماً عندك؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370729",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "رأيت خمسة رجال."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370731",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لديّ عشرة أقلام."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370733",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "حملت ثلاثة كتب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370735",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "مررت بأربعة بيوت."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370737",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لي أخت واحدة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370739",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "يبدو أن العصافة هدأت."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370740",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "علينا أن نهتمّ بالمحافظة على تراثنا الوطني."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370741",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لديها خمس إخوة أكبر منها."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370742",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لديها خمسة إخوان كبار."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370743",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "صوتها ناعم و واضح."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370744",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "قلّده و حسب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370745",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "خرجت العائلة كلّها لتتمشّى."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370746",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أشكّ لحظة في صدقك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370747",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "إنّ الكتابَ سهلٌ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370749",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "الكتابُ سهلٌ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370751",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لعلّ الجوّ جميل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370753",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "إنّك غنيّ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370755",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أنت غنيّ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370756",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "بلال ذو علم."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370759",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "مريم ذات خلق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370762",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أمدرّس أنت أم طالب؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370764",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أإلى القاهرة ذهبت أم إلى الاسكندرية؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370766",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "خذ هذا أو ذاك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "B2",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370768",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "ليس البيت بجديد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370770",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "ما زالت تعتمد على والديها."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": "C1",
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370771",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "جريدة اليوم تحذّر من قدوم عاصفة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
       "level": null,
       "license_id": "CC-BY-2.0-FR",
       "record_id": "tatoeba:331919",
@@ -3221,6 +3621,406 @@
       "retrieval_date": "2026-11-12",
       "source_id": "tatoeba.sentences",
       "value": "من فضلك إلغِ هذا الملفّ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370702",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "من أين أنت؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370704",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "من أي بلد أنت؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370705",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أين بيتك؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370707",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أين تسكن؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370709",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "ما عنوانك؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370711",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "الطالبة التي جلست أمام المدرّسة من ألمانيا."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370713",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "بعضهم مدرّسون ، وبعضهم مهندسون."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370715",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "هم إخوتي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370717",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "هنّ أخواتي."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370719",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أيّ طالب خرج؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370721",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "من هذان الولدان؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370723",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "كم كتاباً قرأت؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370725",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "هما في الغرفة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370727",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "كم قلماً عندك؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370729",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "رأيت خمسة رجال."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370731",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لديّ عشرة أقلام."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370733",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "حملت ثلاثة كتب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370735",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "مررت بأربعة بيوت."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370737",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لي أخت واحدة."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370739",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "يبدو أن العصافة هدأت."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370740",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "علينا أن نهتمّ بالمحافظة على تراثنا الوطني."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370741",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لديها خمس إخوة أكبر منها."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370742",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لديها خمسة إخوان كبار."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370743",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "صوتها ناعم و واضح."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370744",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "قلّده و حسب."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370745",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "خرجت العائلة كلّها لتتمشّى."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370746",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لا أشكّ لحظة في صدقك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370747",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "إنّ الكتابَ سهلٌ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370749",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "الكتابُ سهلٌ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370751",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "لعلّ الجوّ جميل."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370753",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "إنّك غنيّ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370755",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أنت غنيّ."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370756",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "بلال ذو علم."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370759",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "مريم ذات خلق."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370762",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أمدرّس أنت أم طالب؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370764",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "أإلى القاهرة ذهبت أم إلى الاسكندرية؟"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370766",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "خذ هذا أو ذاك."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370768",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "ليس البيت بجديد."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370770",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "ما زالت تعتمد على والديها."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "ar",
+      "level": null,
+      "license_id": "CC-BY-2.0-FR",
+      "record_id": "tatoeba:370771",
+      "retrieval_date": "2026-11-16",
+      "source_id": "tatoeba.sentences",
+      "value": "جريدة اليوم تحذّر من قدوم عاصفة."
     }
   ]
 }

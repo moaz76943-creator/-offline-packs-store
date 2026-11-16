@@ -13103,6 +13103,606 @@
       "value": "You can't but here's an update: The doctor is about to discover the affair between her husband and Jo (who has become her new best friend)."
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Deco is still with Caoimhe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Suzanne is pregnant."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Hope you don't miss it too much."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Im in school for photography and i want to work in forensic so what else do i need to do.?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Sciences - principally biology but also chemistry."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You need a background in law enforcement."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "It's not enough to have photography skills."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Talk to your academic adviser, see what they recommend."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "certainly not \"normal\" photography... forensic photography is about the facts:"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "http://www.google.co.uk/search?q=forensic+photography&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-US:official&client=firefox-a&safe=active&sout=1"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Was the iPhone the first Smart Phone?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "I'm writing an essay for school and I need to know if the iPhone was the first Smart Phone."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Was it?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Technically, blackberry was because it was the first with real email and games and stuff."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "But iPhone was the first \"Officiol\" touch screen smart phone."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "No, it wasn't."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "But it did revolutionize the way we think of as a smartphone."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Canon sx40 or canon s100 ?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Which one should i get ?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Its prettty much the same $$$ , please advice !?????!!!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Go with the S100."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "It's more compact, ISO 6400 capability (SX40 only 3200), faster lens at f/2 and the SX40 only f/2.7."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Both have full 1080 video with stereo recording, so that doesn't matter."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "The S100 has a slightly larger screen and the new digic 5 processor."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Passport needed for international boat cruise?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "I am going on a private boat cruise with my friends from Florida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Will stay in the waters for few days."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Will we need a passport?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "If you are unsure whether or not you need your passport then Faz will be able to help!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "uh, where?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "just in the water?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0008",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "depends where u are going."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0009",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "If your in the USA and venture into Cuba then u need a passport"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "How can i get Weed in Auckland?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Can ssome oone please tell me where i can buy some weed in auckland."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Give me an address or something please idk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Getting real frustrated now aye."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Thanks"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You've already asked this."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Anyone who looks like a druggy or dodgy."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0008",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Why would someone post the location of a dealer in a public place?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B2",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0009",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You're an idiot."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0010",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Drop by my house, I can get you some real cheap."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "What is this irish tune called!?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Its a Reel and i have danced to it before.."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "I should have asked then but i didn't the only line i remember is de lunde bar..or something like that.. does anybody know which song i am talking about?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "With no link provided it is hard to say."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Try googling it or type it into youtube you might get lucky."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Link?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "if its a reel then its scottish"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Help findin a restaurant for anniversary in SF?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "It's my two year anniversary in a few days and was wondering if somone could tell me about a great restaurant in sf or other nearby cities"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "I like Hayes Street Grill....another plus, it's right by Civic Center, so you can take a romantic walk around the Opera House, City Hall, Symphony Auditorium...all very beautiful."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Prime Ribs"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "its kind of expensive though"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "What would happen if you flew the flag of South Vietnam in Modern day Vietnam?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "It would be similar to flying the flag of the Third Reich in modern day Germany or in Israel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You would be violating the law."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "The police would make you take it down and you may face fines and imprisonment (but definitely not execution.)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You will also face the ire of most people there."
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -26197,6 +26797,606 @@
       "retrieval_date": "2026-11-15",
       "source_id": "universal-dependencies",
       "value": "You can't but here's an update: The doctor is about to discover the affair between her husband and Jo (who has become her new best friend)."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Deco is still with Caoimhe."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Suzanne is pregnant."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107180248AAnQ3aE_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Hope you don't miss it too much."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Im in school for photography and i want to work in forensic so what else do i need to do.?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Sciences - principally biology but also chemistry."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You need a background in law enforcement."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "It's not enough to have photography skills."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Talk to your academic adviser, see what they recommend."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "certainly not \"normal\" photography... forensic photography is about the facts:"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083850AAzIsFI_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "http://www.google.co.uk/search?q=forensic+photography&ie=utf-8&oe=utf-8&aq=t&rls=org.mozilla:en-US:official&client=firefox-a&safe=active&sout=1"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Was the iPhone the first Smart Phone?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "I'm writing an essay for school and I need to know if the iPhone was the first Smart Phone."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Was it?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Technically, blackberry was because it was the first with real email and games and stuff."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "But iPhone was the first \"Officiol\" touch screen smart phone."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "No, it wasn't."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108083304AAryBu9_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "But it did revolutionize the way we think of as a smartphone."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Canon sx40 or canon s100 ?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Which one should i get ?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Its prettty much the same $$$ , please advice !?????!!!!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Go with the S100."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "It's more compact, ISO 6400 capability (SX40 only 3200), faster lens at f/2 and the SX40 only f/2.7."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Both have full 1080 video with stereo recording, so that doesn't matter."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108072305AAPJTjj_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "The S100 has a slightly larger screen and the new digic 5 processor."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Passport needed for international boat cruise?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "I am going on a private boat cruise with my friends from Florida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Will stay in the waters for few days."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Will we need a passport?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "If you are unsure whether or not you need your passport then Faz will be able to help!"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "uh, where?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "just in the water?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0008",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "depends where u are going."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107173224AA22AwU_ans-0009",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "If your in the USA and venture into Cuba then u need a passport"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "How can i get Weed in Auckland?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Can ssome oone please tell me where i can buy some weed in auckland."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Give me an address or something please idk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Getting real frustrated now aye."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Thanks"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You've already asked this."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Anyone who looks like a druggy or dodgy."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0008",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Why would someone post the location of a dealer in a public place?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0009",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You're an idiot."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106210027AAhMxfE_ans-0010",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Drop by my house, I can get you some real cheap."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "What is this irish tune called!?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Its a Reel and i have danced to it before.."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "I should have asked then but i didn't the only line i remember is de lunde bar..or something like that.. does anybody know which song i am talking about?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "With no link provided it is hard to say."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Try googling it or type it into youtube you might get lucky."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0006",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Link?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107154308AAKOZNX_ans-0007",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "if its a reel then its scottish"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Help findin a restaurant for anniversary in SF?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "It's my two year anniversary in a few days and was wondering if somone could tell me about a great restaurant in sf or other nearby cities"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "I like Hayes Street Grill....another plus, it's right by Civic Center, so you can take a romantic walk around the Opera House, City Hall, Symphony Auditorium...all very beautiful."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "Prime Ribs"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107080027AA9zCIG_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "its kind of expensive though"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0001",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "What would happen if you flew the flag of South Vietnam in Modern day Vietnam?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0002",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "It would be similar to flying the flag of the Third Reich in modern day Germany or in Israel."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0003",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You would be violating the law."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0004",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "The police would make you take it down and you may face fines and imprisonment (but definitely not execution.)"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0005",
+      "retrieval_date": "2026-11-16",
+      "source_id": "universal-dependencies",
+      "value": "You will also face the ire of most people there."
     },
     {
       "id": "verb.forms",
