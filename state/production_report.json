@@ -67,15 +67,15 @@
     },
     "total": 3842
   },
-  "generated_by": "classifier",
-  "pack_bytes": 802816,
+  "generated_by": "packs",
+  "pack_bytes": 806912,
   "packs": [
     {
-      "bytes": 28672,
-      "entries": 161,
+      "bytes": 32768,
+      "entries": 201,
       "language": "ar",
       "sources": {
-        "tatoeba.sentences": 160,
+        "tatoeba.sentences": 200,
         "wikidata.lexemes": 1
       }
     },
@@ -380,7 +380,7 @@
   ],
   "rows": {
     "by_language": {
-      "ar": 161,
+      "ar": 201,
       "bg": 1,
       "bn": 1,
       "cs": 16,
@@ -419,7 +419,7 @@
     },
     "by_language_section": {
       "ar": {
-        "sentences": 160,
+        "sentences": 200,
         "travel": 1
       },
       "bg": {
@@ -673,7 +673,7 @@
     },
     "by_language_source": {
       "ar": {
-        "tatoeba.sentences": 160,
+        "tatoeba.sentences": 200,
         "wikidata.lexemes": 1
       },
       "bg": {
@@ -813,7 +813,7 @@
       "nature": 4,
       "numbers": 4,
       "religion": 1,
-      "sentences": 1840,
+      "sentences": 1880,
       "shopping": 1,
       "sports": 3,
       "technology": 6,
@@ -823,11 +823,11 @@
     },
     "by_source": {
       "kaikki.wiktextract": 132,
-      "tatoeba.sentences": 1840,
+      "tatoeba.sentences": 1880,
       "universal-dependencies": 1148,
       "wikidata.lexemes": 722
     },
-    "total": 3842
+    "total": 3882
   },
   "schema_version": "1.0.0"
 }
