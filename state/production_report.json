@@ -67,8 +67,8 @@
     },
     "total": 3802
   },
-  "generated_by": "classifier",
-  "pack_bytes": 798720,
+  "generated_by": "packs",
+  "pack_bytes": 802816,
   "packs": [
     {
       "bytes": 28672,
@@ -370,11 +370,11 @@
       }
     },
     {
-      "bytes": 24576,
-      "entries": 160,
+      "bytes": 28672,
+      "entries": 200,
       "language": "zh",
       "sources": {
-        "tatoeba.sentences": 160
+        "tatoeba.sentences": 200
       }
     }
   ],
@@ -415,7 +415,7 @@
       "tr": 203,
       "uk": 3,
       "vi": 1,
-      "zh": 160
+      "zh": 200
     },
     "by_language_section": {
       "ar": {
@@ -668,7 +668,7 @@
         "food": 1
       },
       "zh": {
-        "sentences": 160
+        "sentences": 200
       }
     },
     "by_language_source": {
@@ -797,7 +797,7 @@
         "wikidata.lexemes": 1
       },
       "zh": {
-        "tatoeba.sentences": 160
+        "tatoeba.sentences": 200
       }
     },
     "by_section": {
@@ -813,7 +813,7 @@
       "nature": 4,
       "numbers": 4,
       "religion": 1,
-      "sentences": 1800,
+      "sentences": 1840,
       "shopping": 1,
       "sports": 3,
       "technology": 6,
@@ -823,11 +823,11 @@
     },
     "by_source": {
       "kaikki.wiktextract": 132,
-      "tatoeba.sentences": 1800,
+      "tatoeba.sentences": 1840,
       "universal-dependencies": 1148,
       "wikidata.lexemes": 722
     },
-    "total": 3802
+    "total": 3842
   },
   "schema_version": "1.0.0"
 }
