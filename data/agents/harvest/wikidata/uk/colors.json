@@ -1,6 +1,6 @@
 {
   "language": "uk",
-  "retrieval_date": "2026-11-08",
+  "retrieval_date": "2026-11-17",
   "rows": [
     {
       "concept_id": "concept.q2778382",
@@ -63,6 +63,68 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q5148721"
+    },
+    {
+      "concept_id": "concept.q2725283",
+      "forms": [
+        "шафрановий",
+        "шафранового",
+        "шафрановому",
+        "шафранового",
+        "шафрановий",
+        "шафрановим",
+        "шафрановім",
+        "шафрановому"
+      ],
+      "language": "uk",
+      "lemma": "шафрановий",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L611260",
+      "pos": "",
+      "qids": [
+        "Q2725283"
+      ],
+      "record_id": "L611260",
+      "retrieval_date": "2026-11-17",
+      "revision": "2161167263",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L611260-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2725283"
+    },
+    {
+      "concept_id": "concept.q3446513",
+      "forms": [
+        "рубіновий",
+        "рубінового",
+        "рубіновому",
+        "рубінового",
+        "рубіновий",
+        "рубіновим",
+        "рубіновім",
+        "рубіновому"
+      ],
+      "language": "uk",
+      "lemma": "рубіновий",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L607589",
+      "pos": "",
+      "qids": [
+        "Q3446513"
+      ],
+      "record_id": "L607589",
+      "retrieval_date": "2026-11-17",
+      "revision": "2161128166",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L607589-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q3446513"
     }
   ],
   "schema_version": "1.0.0",
@@ -70,11 +132,15 @@
   "skipped": [
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1324818"
+      "wikidata": "Q71873134"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q797446"
+      "wikidata": "Q2936397"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2411228"
     }
   ],
   "source": "harvest-wikidata"

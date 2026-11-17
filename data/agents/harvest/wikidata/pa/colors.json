@@ -1,0 +1,49 @@
+{
+  "language": "pa",
+  "retrieval_date": "2026-11-17",
+  "rows": [
+    {
+      "concept_id": "concept.q2725283",
+      "forms": [
+        "کیسر",
+        "ਕੇਸਰ"
+      ],
+      "language": "pa",
+      "lemma": "کیسر",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L998998",
+      "pos": "",
+      "qids": [
+        "Q25434",
+        "Q2725283"
+      ],
+      "record_id": "L998998",
+      "retrieval_date": "2026-11-17",
+      "revision": "1822434390",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L998998-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2725283"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "colors",
+  "skipped": [
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q71873134"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2936397"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2411228"
+    }
+  ],
+  "source": "harvest-wikidata"
+}

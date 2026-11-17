@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "retrieval_date": "2026-11-08",
+  "retrieval_date": "2026-11-17",
   "rows": [
     {
       "concept_id": "concept.q906936",
@@ -57,6 +57,62 @@
       "status": "keep",
       "subsection": "colors.q1075",
       "wikidata": "Q1324818"
+    },
+    {
+      "concept_id": "concept.q2725283",
+      "forms": [
+        "Safran",
+        "Safrans",
+        "Safran",
+        "Safran",
+        "Safrane",
+        "Safrane",
+        "Safranen",
+        "Safrane"
+      ],
+      "language": "de",
+      "lemma": "Safran",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L488880",
+      "pos": "",
+      "qids": [
+        "Q25434",
+        "Q2725283"
+      ],
+      "record_id": "L488880",
+      "retrieval_date": "2026-11-17",
+      "revision": "2306721715",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L488880-S2",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q2725283"
+    },
+    {
+      "concept_id": "concept.q15141723",
+      "forms": [
+        "grellgrün"
+      ],
+      "language": "de",
+      "lemma": "grellgrün",
+      "license_id": "CC0-1.0",
+      "origin_url": "https://www.wikidata.org/wiki/Lexeme:L846180",
+      "pos": "",
+      "qids": [
+        "Q15141723"
+      ],
+      "record_id": "L846180",
+      "retrieval_date": "2026-11-17",
+      "revision": "2401126932",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "L846180-S1",
+      "source_id": "wikidata.lexemes",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q15141723"
     }
   ],
   "schema_version": "1.0.0",
@@ -64,11 +120,15 @@
   "skipped": [
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q1324818"
+      "wikidata": "Q71873134"
     },
     {
       "reason": "HTTPError:429",
-      "wikidata": "Q797446"
+      "wikidata": "Q2936397"
+    },
+    {
+      "reason": "HTTPError:429",
+      "wikidata": "Q2411228"
     }
   ],
   "source": "harvest-wikidata"
