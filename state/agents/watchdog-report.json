@@ -4,13 +4,7 @@
     "harvest-wikidata",
     "packs"
   ],
-  "dispatch": [
-    "coverage",
-    "watchdog"
-  ],
+  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": [
-    "coverage",
-    "watchdog"
-  ]
+  "stale": []
 }
