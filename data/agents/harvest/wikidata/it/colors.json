@@ -1,6 +1,6 @@
 {
   "language": "it",
-  "retrieval_date": "2026-11-08",
+  "retrieval_date": "2026-11-17",
   "rows": [
     {
       "concept_id": "concept.q2778382",
@@ -97,7 +97,7 @@
         "Q533047"
       ],
       "record_id": "L1219216",
-      "retrieval_date": "2026-11-08",
+      "retrieval_date": "2026-11-17",
       "revision": "2229020042",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -122,7 +122,7 @@
         "Q425278"
       ],
       "record_id": "L1209364",
-      "retrieval_date": "2026-11-08",
+      "retrieval_date": "2026-11-17",
       "revision": "2230331433",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -148,7 +148,7 @@
         "Q3122830"
       ],
       "record_id": "L1168678",
-      "retrieval_date": "2026-11-08",
+      "retrieval_date": "2026-11-17",
       "revision": "2229017357",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -173,7 +173,7 @@
         "Q1520693"
       ],
       "record_id": "L1207502",
-      "retrieval_date": "2026-10-29",
+      "retrieval_date": "2026-11-17",
       "revision": "2357229316",
       "schema_version": "1.0.0",
       "section": "colors",
@@ -194,14 +194,6 @@
     {
       "reason": "other_language",
       "wikidata": "Q425278"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q1520693"
-    },
-    {
-      "reason": "HTTPError:429",
-      "wikidata": "Q7622361"
     }
   ],
   "source": "harvest-wikidata"
