@@ -58205,6 +58205,686 @@
       "text": "You will also face the ire of most people there."
     },
     {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=36; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "They might be imprisoned or executed"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106032810AA43zpY_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Yes, it would be an execution punishment."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=21; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Wellington sign poll."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Where do we vote?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "If anyone else has voted?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=17; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Where do we vote?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=33; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Obviously because i want to vote."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=57; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "And if anyone else has voted, what did you guys vote for?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=22; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "It closed on Sunday..."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "You voted on the Dominion Posts website."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=122; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0009",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "The top two are going 'head to head' in a final vote on that opens on Wednesday on - http://www.stuff.co.nz/dominion-post/"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=48; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0010",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "They should have one for the All Blacks winning."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=38; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111106213308AA5Nh2g_ans-0011",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Wellywood looks rather cheap and tacky"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=26; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20100416184011AAtazxe_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "air asia flight attendant?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=125; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20100416184011AAtazxe_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Good day,I'm a foreigner living in malaysia, german citizen,21 years of age, I was wondering if air asia recruits foreigners?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=6; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20100416184011AAtazxe_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "thanks"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=178; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20100416184011AAtazxe_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I've tried calling them a week ago,they said they can't give me those details over the phone, or let me know,keep asking me to go to some website,but there's nothing useful on it"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=73; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20100416184011AAtazxe_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Write (or call) an Asian airline directly and get the answer immediately."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=46; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20101109081414AAZ3hSI_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "What kind of Meal do peopel in Argentina have?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=107; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20101109081414AAZ3hSI_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I am doing a project and need to know what kind food Argentina people eat for breakfast, lunch, and dinner."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=44; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20101109081414AAZ3hSI_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "And what is their big/ main meal of the day."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=40; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20101109081414AAZ3hSI_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Like in America dinner is our main meal."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=50; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20101109081414AAZ3hSI_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "and around what time they eat each of their meals."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=50; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20101109081414AAZ3hSI_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Edible ones, I hope - beef, pork, chicken, fish..."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=19; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20101109081414AAZ3hSI_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Why not look it up!"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=60; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20101109081414AAZ3hSI_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "they eat lots of grilled meat,chorizo,and such,with potatoes"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=56; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111108103447AAI7MDa_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "why do i want to do work experience at an animal center?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111108103447AAI7MDa_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "reasons plllz"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=71; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111108103447AAI7MDa_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "How are strangers supposed to know why YOU want to do that sort of job?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=145; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111108103447AAI7MDa_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Just make a list of reasons why you like the job and do a little bit of internet searching to see what people have to say about being in the job."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=25; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111108103447AAI7MDa_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Hope you find out soon :)"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=41; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111108103447AAI7MDa_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "you should work that out before applying."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=106; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111108103447AAI7MDa_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "maybe it's beacuse you love to work with animals and you just can't be ha[[y if you weren't soing that job"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=52; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111107173110AA0lVuB_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Cheap restraunts close to Orchestra Hall in Chicago?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=83; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111107173110AA0lVuB_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "For a field trip with my orchestra, we are going to the Chicago Symphony Orchestra."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=47; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111107173110AA0lVuB_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Before that, we are turned loose to get dinner."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=122; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111107173110AA0lVuB_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Being a suburban teenager, I don't really know where is cheap, safe, and close to orchestra hall (220 South Michigan Ave.)"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=90; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111107173110AA0lVuB_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.question",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Does anyone have any ideas for restaurants within walking distance where I can't get lost?"
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=13; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "B2"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111107173110AA0lVuB_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "I don't know."
+    },
+    {
+      "language": "en",
+      "level": {
+        "evidence": "estimated:heuristic-v1; forms=1; senses=1; lemma_length=74; not a corpus frequency list",
+        "framework_id": "cefr",
+        "level_id": "C1"
+      },
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://github.com/UniversalDependencies/UD_English-EWT",
+      "record_id": "ud:en_ewt:answers-20111107173110AA0lVuB_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "section": "grammar",
+      "sentence_slot": "sentence.statement",
+      "source_id": "universal-dependencies",
+      "status": "keep",
+      "text": "Maybe if you post the question again, someone will give you a good answer."
+    },
+    {
       "concept_id": "concept.q11640447",
       "forms": [
         "حَمْل"
@@ -61234,7 +61914,7 @@
         "Q923933"
       ],
       "record_id": "L492457",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-16",
       "revision": "2383240719",
       "schema_version": "1.0.0",
       "section": "numbers",
@@ -61270,7 +61950,7 @@
         "Q191780"
       ],
       "record_id": "L860011",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-16",
       "revision": "2087988032",
       "schema_version": "1.0.0",
       "section": "numbers",
@@ -69655,7 +70335,7 @@
         "Q12916"
       ],
       "record_id": "L1313083",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-16",
       "revision": "2215899899",
       "schema_version": "1.0.0",
       "section": "numbers",
@@ -75898,7 +76578,7 @@
         "Q12916"
       ],
       "record_id": "L502056",
-      "retrieval_date": "2026-10-25",
+      "retrieval_date": "2026-11-16",
       "revision": "1439667607",
       "schema_version": "1.0.0",
       "section": "numbers",
