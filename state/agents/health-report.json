@@ -1,7 +1,7 @@
 {
   "degraded": [
     "harvest-kaikki",
-    "harvest-wikidata"
+    "watchdog"
   ],
   "failed_github_run": false,
   "observed_count": 21,
@@ -11,8 +11,6 @@
     "classifier",
     "packs",
     "health",
-    "janitor",
-    "coverage",
-    "watchdog"
+    "janitor"
   ]
 }
