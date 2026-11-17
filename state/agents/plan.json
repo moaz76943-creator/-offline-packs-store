@@ -1,5 +1,5 @@
 {
-  "next_index": 1520,
+  "next_index": 1600,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,323 +9,323 @@
   "warning": "",
   "window": [
     {
+      "language": "es",
+      "section": "colors"
+    },
+    {
+      "language": "et",
+      "section": "colors"
+    },
+    {
+      "language": "eu",
+      "section": "colors"
+    },
+    {
+      "language": "fa",
+      "section": "colors"
+    },
+    {
+      "language": "fi",
+      "section": "colors"
+    },
+    {
+      "language": "fo",
+      "section": "colors"
+    },
+    {
+      "language": "fr",
+      "section": "colors"
+    },
+    {
+      "language": "fy",
+      "section": "colors"
+    },
+    {
+      "language": "ga",
+      "section": "colors"
+    },
+    {
+      "language": "gd",
+      "section": "colors"
+    },
+    {
+      "language": "gl",
+      "section": "colors"
+    },
+    {
+      "language": "gu",
+      "section": "colors"
+    },
+    {
+      "language": "ha",
+      "section": "colors"
+    },
+    {
+      "language": "hi",
+      "section": "colors"
+    },
+    {
+      "language": "hr",
+      "section": "colors"
+    },
+    {
+      "language": "hu",
+      "section": "colors"
+    },
+    {
+      "language": "hy",
+      "section": "colors"
+    },
+    {
+      "language": "id",
+      "section": "colors"
+    },
+    {
+      "language": "ig",
+      "section": "colors"
+    },
+    {
+      "language": "is",
+      "section": "colors"
+    },
+    {
       "language": "it",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ja",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ka",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "kk",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "km",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "kn",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ko",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ku",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ky",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "la",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "lb",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "lo",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "lt",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "lv",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "mg",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "mk",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ml",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "mn",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "mr",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ms",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "mt",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "my",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ne",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "nl",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "no",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "or",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "pa",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "pl",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ps",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "pt",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ro",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ru",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "rw",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "sd",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "si",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "sk",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "sl",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "sn",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "so",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "sq",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "sr",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "sv",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "sw",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ta",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "te",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "tg",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "th",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "tk",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "tl",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "tr",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "tt",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ug",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "uk",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "ur",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "uz",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "vi",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "xh",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "yo",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "zh",
-      "section": "numbers"
+      "section": "colors"
     },
     {
       "language": "zu",
-      "section": "numbers"
-    },
-    {
-      "language": "af",
-      "section": "colors"
-    },
-    {
-      "language": "am",
-      "section": "colors"
-    },
-    {
-      "language": "ar",
-      "section": "colors"
-    },
-    {
-      "language": "as",
-      "section": "colors"
-    },
-    {
-      "language": "az",
-      "section": "colors"
-    },
-    {
-      "language": "ba",
-      "section": "colors"
-    },
-    {
-      "language": "be",
-      "section": "colors"
-    },
-    {
-      "language": "bg",
-      "section": "colors"
-    },
-    {
-      "language": "bn",
-      "section": "colors"
-    },
-    {
-      "language": "br",
-      "section": "colors"
-    },
-    {
-      "language": "bs",
-      "section": "colors"
-    },
-    {
-      "language": "ca",
-      "section": "colors"
-    },
-    {
-      "language": "cs",
-      "section": "colors"
-    },
-    {
-      "language": "cy",
-      "section": "colors"
-    },
-    {
-      "language": "da",
-      "section": "colors"
-    },
-    {
-      "language": "de",
-      "section": "colors"
-    },
-    {
-      "language": "dv",
-      "section": "colors"
-    },
-    {
-      "language": "el",
-      "section": "colors"
-    },
-    {
-      "language": "en",
-      "section": "colors"
-    },
-    {
-      "language": "eo",
       "section": "colors"
     }
   ]
