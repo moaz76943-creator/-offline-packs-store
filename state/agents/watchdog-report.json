@@ -3,16 +3,14 @@
     "harvest-kaikki"
   ],
   "dispatch": [
-    "health",
-    "janitor",
-    "watchdog"
+    "classifier",
+    "packs",
+    "janitor"
   ],
   "schema_version": "1.0.0",
   "stale": [
     "classifier",
     "packs",
-    "health",
-    "janitor",
-    "watchdog"
+    "janitor"
   ]
 }
