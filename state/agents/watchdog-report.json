@@ -4,12 +4,10 @@
     "harvest-wikidata"
   ],
   "dispatch": [
-    "watchdog",
     "packs"
   ],
   "schema_version": "1.0.0",
   "stale": [
-    "packs",
-    "watchdog"
+    "packs"
   ]
 }
