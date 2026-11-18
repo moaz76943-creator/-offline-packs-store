@@ -1,5 +1,5 @@
 {
-  "accepted_rows": 0,
+  "accepted_rows": 2,
   "outcomes": [
     {
       "accepted_rows": 0,
@@ -7,7 +7,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q5973191"
+      "wikidata": "Q178127"
     },
     {
       "accepted_rows": 0,
@@ -15,7 +15,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q744862"
+      "wikidata": "Q49715516"
     },
     {
       "accepted_rows": 0,
@@ -23,7 +23,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q1088670"
+      "wikidata": "Q51817"
     },
     {
       "accepted_rows": 0,
@@ -31,7 +31,15 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q902552"
+      "wikidata": "Q1142557"
+    },
+    {
+      "accepted_rows": 2,
+      "fetched_entities": 2,
+      "rejected_entities": 0,
+      "search_offset": 0,
+      "status": "FETCHED",
+      "wikidata": "Q1055446"
     },
     {
       "accepted_rows": 0,
@@ -39,7 +47,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q4476379"
+      "wikidata": "Q1780765"
     },
     {
       "accepted_rows": 0,
@@ -47,7 +55,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q28849258"
+      "wikidata": "Q3459885"
     },
     {
       "accepted_rows": 0,
@@ -55,15 +63,7 @@
       "rejected_entities": 0,
       "search_offset": 0,
       "status": "EMPTY_SEARCH",
-      "wikidata": "Q7696161"
-    },
-    {
-      "accepted_rows": 0,
-      "fetched_entities": 0,
-      "rejected_entities": 0,
-      "search_offset": 0,
-      "status": "EMPTY_SEARCH",
-      "wikidata": "Q82470990"
+      "wikidata": "Q1047300"
     }
   ],
   "production_publication": false,
