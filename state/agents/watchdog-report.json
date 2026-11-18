@@ -1,16 +1,9 @@
 {
   "degraded": [
-    "harvest-kaikki"
+    "harvest-kaikki",
+    "packs"
   ],
-  "dispatch": [
-    "classifier",
-    "packs",
-    "janitor"
-  ],
+  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": [
-    "classifier",
-    "packs",
-    "janitor"
-  ]
+  "stale": []
 }
