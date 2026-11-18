@@ -14503,6 +14503,406 @@
       "value": "if its not available is there nearby alternative to store my luggage?"
     },
     {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "im traveling to lourdes for a day"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "ty"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Hi,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Yes storage for your luggages is still available at Gare Montparnasse."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0009",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Pay attention, altough there are automatic storage, you can only pay with coins (they're now installing some where you'll be able to pay with credit card, but it's sporadic now."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0010",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Price:3,40 Euros, 5 Euros or 7,5 Euros (1) for a 72 heures lenght."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "i wanna meet girls from san francisco i am from mexico?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "i am from mexico traveling to san francisco california one week i wanna meet american girls there where i can find them?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "they r open mind for talk?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "they will talk to me if i am mexican?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "You can find American girls all over the city."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "As long as you are a gentleman and treat them with respect they won't have any problem talking with you and your nationality will have nothing to do with how they treat you."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "go to LA after say 11:00 search the street corners btw keep ur wallet locked up and have $200 on hand have a gun just in case btw"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Going to Fiji and i cannot wait?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "After my last day in Sydney, I will be going to Fiji before heading back to the states."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "I am staying in Fiji for four nights"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "1) what islad of Fiji is a good island that is not TOO far from the main airpart in Fiji."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "A way I could get there by boat instead of taking another plane ride"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "2) I would like to say on a island with an a) all inclusive resort (if possible), and a beach front room"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "3) also want an island where I can do fun activities, rainforest is a must"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "you need to bring me next time"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0009",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "If you cannot wait you should book an earlier flight."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "where can I get morcillas in tampa bay , I will like the argentinian type , but I will to try anothers please?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "I searched all over the internet, but I could not find one place in Tampa Bay that sells morcillas, also known as blood pudding, black pudding and blood sausages."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "I learned that morcillas are basically impossible to find all across the North American region."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "But I did find this website, www.igourmet.com, where they sell all types of sausages, including blood sausages!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "So follow the link at the bottom and buy some blood sausages."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "huh?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "yuck !!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "I don't know, and it is because I don't like them, do you know that, morcillas is coagulated blood from animals, ewww"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Is there any kind of public transport available between noida and greater noida?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "UP Roadways buses ply frequently between Sector-37 crossing in Noida and Kasna in Greater Noida, passing through Pari Chowk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Apart from these there are numerous cabs that ferry passengers between Sector-37 crossing and Pari Chowk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Yes bus service is available."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "it is not frequent."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "B1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Hi,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Yes dear, You can find lots of public transport options between Noida to Greater Noida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "There are UP Govt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0009",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Buses, DTC Buses, Call Center Cabs, Private white line buses most frequently running between Noida and Greater Noida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": "C1",
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0010",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "You can find them From Indian Oil Building, Sector -37, Taj Express Road( Bus Stops) etc."
+    },
+    {
       "id": "verb.forms",
       "language": "en",
       "level": "B1",
@@ -28997,6 +29397,406 @@
       "retrieval_date": "2026-11-17",
       "source_id": "universal-dependencies",
       "value": "if its not available is there nearby alternative to store my luggage?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "im traveling to lourdes for a day"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "ty"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Hi,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Yes storage for your luggages is still available at Gare Montparnasse."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0009",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Pay attention, altough there are automatic storage, you can only pay with coins (they're now installing some where you'll be able to pay with credit card, but it's sporadic now."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108024148AAO8oFI_ans-0010",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Price:3,40 Euros, 5 Euros or 7,5 Euros (1) for a 72 heures lenght."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "i wanna meet girls from san francisco i am from mexico?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "i am from mexico traveling to san francisco california one week i wanna meet american girls there where i can find them?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "they r open mind for talk?"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "they will talk to me if i am mexican?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "You can find American girls all over the city."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "As long as you are a gentleman and treat them with respect they won't have any problem talking with you and your nationality will have nothing to do with how they treat you."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108110008AA7xHnL_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "go to LA after say 11:00 search the street corners btw keep ur wallet locked up and have $200 on hand have a gun just in case btw"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Going to Fiji and i cannot wait?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "After my last day in Sydney, I will be going to Fiji before heading back to the states."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "I am staying in Fiji for four nights"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "1) what islad of Fiji is a good island that is not TOO far from the main airpart in Fiji."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "A way I could get there by boat instead of taking another plane ride"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "2) I would like to say on a island with an a) all inclusive resort (if possible), and a beach front room"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "3) also want an island where I can do fun activities, rainforest is a must"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "you need to bring me next time"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111107203006AA9ojw8_ans-0009",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "If you cannot wait you should book an earlier flight."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "where can I get morcillas in tampa bay , I will like the argentinian type , but I will to try anothers please?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "I searched all over the internet, but I could not find one place in Tampa Bay that sells morcillas, also known as blood pudding, black pudding and blood sausages."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "I learned that morcillas are basically impossible to find all across the North American region."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "But I did find this website, www.igourmet.com, where they sell all types of sausages, including blood sausages!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "So follow the link at the bottom and buy some blood sausages."
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "huh?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "yuck !!"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20070404104007AAY1Chs_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "I don't know, and it is because I don't like them, do you know that, morcillas is coagulated blood from animals, ewww"
+    },
+    {
+      "id": "sentence.question",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0001",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Is there any kind of public transport available between noida and greater noida?"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0002",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "UP Roadways buses ply frequently between Sector-37 crossing in Noida and Kasna in Greater Noida, passing through Pari Chowk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0003",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Apart from these there are numerous cabs that ferry passengers between Sector-37 crossing and Pari Chowk."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0004",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Yes bus service is available."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0005",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "it is not frequent."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0006",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Hi,"
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0007",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Yes dear, You can find lots of public transport options between Noida to Greater Noida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0008",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "There are UP Govt."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0009",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "Buses, DTC Buses, Call Center Cabs, Private white line buses most frequently running between Noida and Greater Noida."
+    },
+    {
+      "id": "sentence.statement",
+      "language": "en",
+      "level": null,
+      "license_id": "CC-BY-SA-4.0",
+      "record_id": "ud:en_ewt:answers-20111108093942AAYF9Dn_ans-0010",
+      "retrieval_date": "2026-11-17",
+      "source_id": "universal-dependencies",
+      "value": "You can find them From Indian Oil Building, Sector -37, Taj Express Road( Bus Stops) etc."
     },
     {
       "id": "verb.forms",
