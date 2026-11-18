@@ -1,5 +1,5 @@
 {
-  "next_index": 1920,
+  "next_index": 0,
   "schema_version": "1.0.0",
   "tune": {
     "max_parallel": 12,
@@ -9,323 +9,323 @@
   "warning": "",
   "window": [
     {
+      "language": "es",
+      "section": "religion"
+    },
+    {
+      "language": "et",
+      "section": "religion"
+    },
+    {
+      "language": "eu",
+      "section": "religion"
+    },
+    {
+      "language": "fa",
+      "section": "religion"
+    },
+    {
+      "language": "fi",
+      "section": "religion"
+    },
+    {
+      "language": "fo",
+      "section": "religion"
+    },
+    {
+      "language": "fr",
+      "section": "religion"
+    },
+    {
+      "language": "fy",
+      "section": "religion"
+    },
+    {
+      "language": "ga",
+      "section": "religion"
+    },
+    {
+      "language": "gd",
+      "section": "religion"
+    },
+    {
+      "language": "gl",
+      "section": "religion"
+    },
+    {
+      "language": "gu",
+      "section": "religion"
+    },
+    {
+      "language": "ha",
+      "section": "religion"
+    },
+    {
+      "language": "hi",
+      "section": "religion"
+    },
+    {
+      "language": "hr",
+      "section": "religion"
+    },
+    {
+      "language": "hu",
+      "section": "religion"
+    },
+    {
+      "language": "hy",
+      "section": "religion"
+    },
+    {
+      "language": "id",
+      "section": "religion"
+    },
+    {
+      "language": "ig",
+      "section": "religion"
+    },
+    {
+      "language": "is",
+      "section": "religion"
+    },
+    {
       "language": "it",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ja",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ka",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "kk",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "km",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "kn",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ko",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ku",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ky",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "la",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "lb",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "lo",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "lt",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "lv",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "mg",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "mk",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ml",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "mn",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "mr",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ms",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "mt",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "my",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ne",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "nl",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "no",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "or",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "pa",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "pl",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ps",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "pt",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ro",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ru",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "rw",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "sd",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "si",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "sk",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "sl",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "sn",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "so",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "sq",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "sr",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "sv",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "sw",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ta",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "te",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "tg",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "th",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "tk",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "tl",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "tr",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "tt",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ug",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "uk",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "ur",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "uz",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "vi",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "xh",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "yo",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "zh",
-      "section": "technology"
+      "section": "religion"
     },
     {
       "language": "zu",
-      "section": "technology"
-    },
-    {
-      "language": "af",
-      "section": "religion"
-    },
-    {
-      "language": "am",
-      "section": "religion"
-    },
-    {
-      "language": "ar",
-      "section": "religion"
-    },
-    {
-      "language": "as",
-      "section": "religion"
-    },
-    {
-      "language": "az",
-      "section": "religion"
-    },
-    {
-      "language": "ba",
-      "section": "religion"
-    },
-    {
-      "language": "be",
-      "section": "religion"
-    },
-    {
-      "language": "bg",
-      "section": "religion"
-    },
-    {
-      "language": "bn",
-      "section": "religion"
-    },
-    {
-      "language": "br",
-      "section": "religion"
-    },
-    {
-      "language": "bs",
-      "section": "religion"
-    },
-    {
-      "language": "ca",
-      "section": "religion"
-    },
-    {
-      "language": "cs",
-      "section": "religion"
-    },
-    {
-      "language": "cy",
-      "section": "religion"
-    },
-    {
-      "language": "da",
-      "section": "religion"
-    },
-    {
-      "language": "de",
-      "section": "religion"
-    },
-    {
-      "language": "dv",
-      "section": "religion"
-    },
-    {
-      "language": "el",
-      "section": "religion"
-    },
-    {
-      "language": "en",
-      "section": "religion"
-    },
-    {
-      "language": "eo",
       "section": "religion"
     }
   ]
