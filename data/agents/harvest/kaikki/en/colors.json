@@ -1,0 +1,58 @@
+{
+  "language": "en",
+  "retrieval_date": "2026-11-18",
+  "rows": [
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q6592940",
+      "gloss": "A shade of red, the colour typical of a ripe tomato.",
+      "language": "en",
+      "lemma": "tomato",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl",
+      "pos": "noun",
+      "qids": [
+        "Q6592940"
+      ],
+      "record_id": "en-tomato-en-noun-en:Q6592940",
+      "retrieval_date": "2026-11-18",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "en-tomato-en-noun-en:Q6592940",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q6592940"
+    },
+    {
+      "co_offered": [
+        "GFDL-1.3-only"
+      ],
+      "concept_id": "concept.q3257809",
+      "gloss": "A colour between red and blue; violet, though often closer to magenta.",
+      "language": "en",
+      "lemma": "purple",
+      "license_id": "CC-BY-SA-4.0",
+      "origin_url": "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl",
+      "pos": "noun",
+      "qids": [
+        "Q3257809"
+      ],
+      "record_id": "en-purple-en-noun-en:Q3257809",
+      "retrieval_date": "2026-11-18",
+      "schema_version": "1.0.0",
+      "section": "colors",
+      "sense_id": "en-purple-en-noun-en:Q3257809",
+      "source_id": "kaikki.wiktextract",
+      "status": "keep",
+      "subsection": "colors.q1075",
+      "wikidata": "Q3257809"
+    }
+  ],
+  "schema_version": "1.0.0",
+  "section": "colors",
+  "skipped": [],
+  "source": "harvest-kaikki"
+}
