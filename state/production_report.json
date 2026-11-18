@@ -7,7 +7,7 @@
       "cs": 16,
       "da": 37,
       "de": 269,
-      "en": 1620,
+      "en": 1660,
       "eo": 3,
       "es": 213,
       "et": 11,
@@ -46,7 +46,7 @@
       "colors": 52,
       "emotions": 20,
       "food": 21,
-      "grammar": 1328,
+      "grammar": 1368,
       "health": 18,
       "nature": 4,
       "numbers": 4,
@@ -62,12 +62,12 @@
     "by_source": {
       "kaikki.wiktextract": 132,
       "tatoeba.sentences": 1880,
-      "universal-dependencies": 1328,
+      "universal-dependencies": 1368,
       "wikidata.lexemes": 734
     },
-    "total": 4074
+    "total": 4114
   },
-  "generated_by": "packs",
+  "generated_by": "classifier",
   "pack_bytes": 843776,
   "packs": [
     {
