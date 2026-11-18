@@ -1,9 +1,15 @@
 {
   "degraded": [
     "harvest-kaikki",
+    "harvest-wikidata"
+  ],
+  "dispatch": [
+    "watchdog",
     "packs"
   ],
-  "dispatch": [],
   "schema_version": "1.0.0",
-  "stale": []
+  "stale": [
+    "packs",
+    "watchdog"
+  ]
 }
